@@ -7,9 +7,9 @@
 	<DefaultLayout>
 		<Menuname>Personal</Menuname>
 		<Separator/>
-		<Menuname>Network</Menuname>
-		<Separator/>
 		<Menuname>Hardware</Menuname>
+		<Separator/>
+		<Menuname>Network</Menuname>
 		<Separator/>
 		<Menuname>System</Menuname>
 		<Merge type="menus" />
@@ -218,6 +218,9 @@
 			<Filename>kde-kcmwifi.desktop</Filename>
 			<Filename>kde-proxy.desktop</Filename>
 			<Filename>kde-netpref.desktop</Filename>
+		
+			<!-- This really should be in a Server version of KControl right -->
+			<Filename>kcmsambaconf.desktop</Filename>
 		</Exclude>
 	</Menu>
 
