@@ -70,25 +70,21 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 
 	// Align them up!
 	{
+
 	uint most = 0;
-					
 	QValueList<RowIconView*>::iterator it;
 	for ( it = groups.begin(); it != groups.end(); ++it ){
-		qDebug("Group");
 		QIconViewItem *item = (*it)->firstItem();
 		while( item ) {
-			if(item->width() > most){
+			if(item->width() > most)
 				most = item->width();
-				qDebug("Item: %s", item->text().latin1());
-			}
 			item = item->nextItem();
 		}
 	}
 
-	for ( it = groups.begin(); it != groups.end(); ++it ){
+	for ( it = groups.begin(); it != groups.end(); ++it )
 		(*it)->setGridX(most);
-	}
-	
+
 	}
 }
 
@@ -121,6 +117,9 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	textLabel->setText( group->caption() );
 	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
 		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
+	QFont textLabel_font(  textLabel->font() );
+  textLabel_font.setBold( TRUE );
+  textLabel->setFont( textLabel_font ); 
 	rowLayout->addWidget( textLabel );
 
 	boxLayout->addLayout( rowLayout );

@@ -1,3 +1,4 @@
+Save to real config files.
 Module Help link
 Module Default/Reset link
 Use tabs
@@ -20,3 +21,5 @@ Search
 -Tie into kconfigXT somehow?
 -Look at Spotlight
 -Task oriented?
+
+Try swapping the search bar and show all in the toolbar? so that search is the very first thing?

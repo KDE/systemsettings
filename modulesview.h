@@ -36,11 +36,13 @@ public:
 	// Figure out the hight/width to have only one row
 	QSize minimumSizeHint() const {
 		int width = 0;
+		/*
 		for ( QIconViewItem *item = firstItem(); item; item = item->nextItem() )
 			width += item->width();
 		width += spacing()*(count())+(margin()+frameWidth()+lineWidth()+midLineWidth())*2 ;
+		*/
 
-		width = count()*gridX();
+		width = count()*gridX()+frameWidth()*2;
 		
 		int height = 0;
 		for ( QIconViewItem *item = firstItem(); item; item = item->nextItem() )

@@ -99,7 +99,15 @@ void MainWindow::buildActions()
   
 	// Search
 	KcmSearch* search = new KcmSearch(modulesView, 0, "search");
-
+	search->setMaximumWidth( 200 );
+    
+	/*
+	// Move to the right
+	KToolBar *bar = (KToolBar *)widget;
+  int id_ = getToolButtonID();
+  bar->alignItemRight( id_ );
+	*/
+	
 	QLabel *searchLabel = new QLabel( this, "SearchLabel");
 	searchLabel->setText( i18n("&Search: ") );
 	//searchLabel->setPixmap( SmallIcon("find"));
