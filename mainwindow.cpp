@@ -292,3 +292,5 @@ void MainWindow::widgetChange() {
 		reportBugAction->setText(i18n("Report Bug on Module %1...").arg( name.replace("&","&&")));
 }
 
+
+#include "mainwindow.moc"

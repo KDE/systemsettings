@@ -427,3 +427,5 @@ void KCMultiWidget::dialogClosed()
 		( *it ).kcm->deleteClient();
 }
 
+
+#include "kcmultiwidget.moc"

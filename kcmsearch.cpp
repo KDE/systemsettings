@@ -78,3 +78,5 @@ bool KcmSearch::itemMatches( const QIconViewItem *item, const QString & search )
 	return false;
 }
 
+
+#include "kcmsearch.moc"

@@ -158,3 +158,5 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	iconView->setMinimumHeight( iconView->minimumSizeHint().height() );
 }
 
+
+#include "modulesview.moc"
