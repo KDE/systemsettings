@@ -12,8 +12,8 @@
 		<Menuname>Network</Menuname>
 		<Separator/>
 		<Menuname>System</Menuname>
-		<Merge type="menus" />
 		<Merge type="files" />
+		<Merge type="menus" />
 	</DefaultLayout>
 		
 	<Menu>
@@ -58,7 +58,6 @@
 				<Filename>kde-background.desktop</Filename>
 				<Filename>kde-screensaver.desktop</Filename>
 			</Include>
-			
 			
 			<Layout>
 				<Filename>kde-background.desktop</Filename>
@@ -184,7 +183,7 @@
 		<Directory>kde-settings-network.directory</Directory>
 		
 		<Menu>
-			<Name>Connection</Name>
+			<Name>Connections</Name>
 			<Directory>kde-settings-networkconnection.directory</Directory>
 		
 			<Include>
@@ -193,11 +192,28 @@
 				<Filename>kde-netpref.desktop</Filename>
 			</Include>
 		</Menu>
-		
+	
+		<Menu>
+			<Name>Sharing</Name>
+			<Directory>kde-settings-sharing.directory</Directory>
+
+			<Include>
+				<Filename>kde-fileshare.desktop</Filename>
+				<Filename>kde-kcmkrfb.desktop</Filename>
+				<Filename>kde-lanbrowser.desktop</Filename>
+			</Include>
+		</Menu>
+	
 		<Include>
 			<Category>X-KDE-settings-network</Category>
 		</Include>
 		<Exclude>
+			<!-- Sharing -->
+			<Filename>kde-fileshare.desktop</Filename>
+			<Filename>kde-kcmkrfb.desktop</Filename>
+			<Filename>kde-lanbrowser.desktop</Filename>
+			
+			<!-- Connections -->
 			<Filename>kde-kcmwifi.desktop</Filename>
 			<Filename>kde-proxy.desktop</Filename>
 			<Filename>kde-netpref.desktop</Filename>
@@ -206,16 +222,34 @@
 
 	<Menu>
 		<Name>Hardware</Name>
+		
+		<Layout>
+			<Filename>kde-keyboard.desktop</Filename>
+			<Filename>kde-mouse.desktop</Filename>
+			<Filename>kde-joystick.desktop</Filename>
+			<Filename>kde-printers.desktop</Filename>
+			<Filename>kde-display.desktop</Filename>
+			<Merge type="files" />
+			<Merge type="menus" />
+		</Layout>
+		
 		<Directory>kde-settings-hardware.directory</Directory>
-
+		
 		<Include>
 			<Category>X-KDE-settings-hardware</Category>
 			<Category>X-KDE-settings-peripherals</Category>
 		</Include>
 		
+		<Exclude>
+			<!-- These go under power -->
+			<Filename>kde-thinkpad.desktop</Filename>
+			<Filename>kde-kvaio.desktop</Filename>
+			<Filename>kde-laptop.desktop</Filename>
+		</Exclude>
+
 		<Menu>
-			<!-- This is here because there is both desktop/laptop with power settings -->
 			<Name>Power</Name>
+			<!-- This is here because there is both desktop/laptop with power settings -->
 			<Directory>kde-settings-power.directory</Directory>
 			<Include>
 				<Category>X-KDE-settings-power</Category>
@@ -224,27 +258,7 @@
 				<Filename>kde-kvaio.desktop</Filename>
 			</Include>
 		</Menu>
-
-		<Exclude>
-			<!-- These go under power -->
-			<Filename>kde-thinkpad.desktop</Filename>
-			<Filename>kde-kvaio.desktop</Filename>
-			<Filename>kde-laptop.desktop</Filename>
-		</Exclude>
-
-		<Layout>
-			<Menuname>Network</Menuname>
-			<Filename>kde-keyboard.desktop</Filename>
-			<Filename>kde-mouse.desktop</Filename>
-			<Filename>kde-joystick.desktop</Filename>
-			<Filename>kde-printers.desktop</Filename>
-			<Filename>kde-display.desktop</Filename>
-			<Merge type="menus" />
-			<Merge type="files" />
-
-			<Filename>kde-thinkpad.desktop</Filename>
-			<Filename>kde-kvaio.desktop</Filename>
-		</Layout>
+	
 	</Menu>
 	
 	<Menu>
