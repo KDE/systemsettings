@@ -30,7 +30,7 @@ static KCmdLineOptions options[] =
 {
 	{ "menu <argument>", I18N_NOOP("Menu file"), "systempreferences" },
 	{ "e", 0, 0 },
-	{ "noembed", I18N_NOOP("Embed Windows"), 0 },
+	{ "noembed", I18N_NOOP("Embed windows"), 0 },
 	KCmdLineLastOption
 };
 
@@ -43,19 +43,19 @@ int main( int argc, char *argv[] )
   aboutData.addAuthor("Benjamin C. Meyer", I18N_NOOP("Author & Maintainer"),
 	  "ben+systempreferences@meyerhome.net");
   KCmdLineArgs::init(argc, argv, &aboutData);
-  
+
 	// Tell which options are supported
   KCmdLineArgs::addCmdLineOptions( options );
-	
+
 	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-	
+
 	// Launch
   KApplication application(argc, argv);
 
 	MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
 	application.setMainWidget( mainWindow );
 	mainWindow->show();
-	
+
 	return application.exec();
 }
 
