@@ -40,6 +40,7 @@ public:
 			width += item->width();
 		width += spacing()*(count())+(margin()+frameWidth()+lineWidth()+midLineWidth())*2 ;
 
+		width = count()*gridX();
 		
 		int height = 0;
 		for ( QIconViewItem *item = firstItem(); item; item = item->nextItem() )

@@ -7,9 +7,9 @@
 	<DefaultLayout>
 		<Menuname>Personal</Menuname>
 		<Separator/>
-		<Menuname>Hardware</Menuname>
-		<Separator/>
 		<Menuname>Network</Menuname>
+		<Separator/>
+		<Menuname>Hardware</Menuname>
 		<Separator/>
 		<Menuname>System</Menuname>
 		<Merge type="menus" />
@@ -30,7 +30,7 @@
 		
 		<Menu>
 			<Name>Appearance</Name>
-			<Directory>kde-settings-looknfeel.directory</Directory>
+			<Directory>kde-settings-appearance.directory</Directory>
 			<Include>
 				<Category>X-KDE-settings-looknfeel</Category>
 				<Category>X-KDE-settings-appearance</Category>

@@ -1,5 +1,5 @@
 #temporary till KDE4 and it can be renamed
-xdg_apps_DATA = defaultapplication.desktop
+xdg_apps_DATA = defaultapplication.desktop kcmfontinst.desktop
 
 xdg_menu_DATA = system-preferences.menu
 

@@ -67,6 +67,29 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 		groups.append( iconView );
 	}
 	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
+
+	// Align them up!
+	{
+	uint most = 0;
+					
+	QValueList<RowIconView*>::iterator it;
+	for ( it = groups.begin(); it != groups.end(); ++it ){
+		qDebug("Group");
+		QIconViewItem *item = (*it)->firstItem();
+		while( item ) {
+			if(item->width() > most){
+				most = item->width();
+				qDebug("Item: %s", item->text().latin1());
+			}
+			item = item->nextItem();
+		}
+	}
+
+	for ( it = groups.begin(); it != groups.end(); ++it ){
+		(*it)->setGridX(most);
+	}
+	
+	}
 }
 
 ModulesView::~ModulesView()
@@ -106,7 +129,8 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	RowIconView *iconView = new RowIconView( this, "groupiconview" );
 	iconView->setFrameShape( RowIconView::StyledPanel );
 	iconView->setLineWidth( 0 );
-	iconView->setSpacing( 6 );
+	iconView->setSpacing( 0 );
+	iconView->setMargin( 0 );
 	iconView->setItemsMovable( false );
 	groups.append( iconView );
 	connect(iconView, SIGNAL( clicked( QIconViewItem* ) ),
