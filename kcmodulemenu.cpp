@@ -36,6 +36,7 @@ public:
 KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 	d( new KCModuleMenuPrivate )
 {
+	kdDebug() << "MenuName: \"" << menuName << "\"." << endl;
 	// Make sure we can find the menu
 	KServiceGroup::Ptr serviceGroup = KServiceGroup::baseGroup( menuName );
 	if( !serviceGroup ){

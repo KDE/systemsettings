@@ -46,10 +46,11 @@
 #include "kcmodulemenu.h"
 #include "kcmultiwidget.h"
 
-MainWindow::MainWindow(QWidget *parent, const char *name) :
-				KMainWindow(parent,name), groupWidget(NULL),
+MainWindow::MainWindow(bool embed, const QString & menuFile,
+								QWidget *parent, const char *name) :
+				KMainWindow(parent,name), embeddedWindows(embed), groupWidget(NULL),
 				reportBugAction(NULL), dummyAbout(NULL) {
-	buildMainWidget();
+	buildMainWidget( menuFile );
 	buildActions();
 	setupGUI();
 
@@ -68,10 +69,10 @@ MainWindow::~MainWindow()
 	delete dummyAbout;
 }
 
-void MainWindow::buildMainWidget()
+void MainWindow::buildMainWidget( const QString &menuFile )
 {
 	windowStack = new QWidgetStack( this, "widgetstack" );
-	modulesView = new ModulesView("systempreferences", windowStack, "modulesView");
+	modulesView = new ModulesView( menuFile, windowStack, "modulesView" );
 	windowStack->addWidget(modulesView);
 	
 	connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
@@ -90,9 +91,11 @@ void MainWindow::buildActions()
 								SLOT(showAllModules()), actionCollection(), "defaultModule" );
 	defaultModule->setEnabled(false);
 
-	showAllAction = new KAction(i18n("Show &All"), 0, this,
+	if( embeddedWindows ) {
+		showAllAction = new KAction(i18n("Show &All"), 0, this,
 								SLOT(showAllModules()), actionCollection(), "showAll" );
-	showAllAction->setEnabled(false);
+		showAllAction->setEnabled(false);
+	}
 
 	aboutModuleAction = new KAction(i18n("About Current Module"), 0, this, SLOT(aboutCurrentModule()), actionCollection(), "help_about_module");
 	resetModuleHelp();
@@ -193,7 +196,7 @@ void MainWindow::showAllModules()
 {
 	windowStack->raiseWidget(modulesView);
 
-	if(groupWidget){
+	if( groupWidget ){
 		windowStack->removeWidget( groupWidget );
 		groupWidget->removeAllModules();
 		groupWidget->close(true);
@@ -208,7 +211,8 @@ void MainWindow::showAllModules()
 	// Reset the widget for normal all widget viewing
 	widgetChange();
 
-	showAllAction->setEnabled(false);
+	if( embeddedWindows )
+		showAllAction->setEnabled(false);
 	aboutModuleAction->setEnabled(false);
 	
 	searchText->setEnabled(true);
@@ -238,8 +242,7 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		groupWidget->addModule(	*it );
 	}
 	
-	bool reparent = true;
-	if( reparent ) {
+	if( embeddedWindows ) {
 		groupWidget->reparent(windowStack, 0, QPoint());
 		int stackId = windowStack->addWidget(groupWidget);
 		windowStack->raiseWidget( stackId );
@@ -250,6 +253,8 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		searchClear->setEnabled(false);
 		searchAction->setEnabled(false);
 	}
+	else
+		groupWidget->show();
 }
 
 void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {

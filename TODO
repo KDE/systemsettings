@@ -1,19 +1,20 @@
+Rename to System Settings?
 Save to real config files.
 Module Help link
 Module Default/Reset link
 Use tabs
-View (list of all modules)
-lilo _has_ to be spead up
-alignment of the icons
+View Menu should list of all modules
+Remove "module" string
+Fix connection
 
 config icon sizes
 command line option to open in new window
 
-
+Modules
+-lilo _has_ to be spead up
 -Date & Time icon should have a Clock
--Samba needs to be renamed "Samba Server"
--Monitor -> Display
-Should "Font Installer" be just "Fonts"?
+-Samba needs a new icon
+-Remote needs a new icon
 
 Search
 -Make search smaller and on the right
@@ -21,5 +22,3 @@ Search
 -Tie into kconfigXT somehow?
 -Look at Spotlight
 -Task oriented?
-
-Try swapping the search bar and show all in the toolbar? so that search is the very first thing?

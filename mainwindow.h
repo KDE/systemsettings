@@ -38,7 +38,8 @@ class MainWindow : public KMainWindow
 	Q_OBJECT
 
 public:
-	MainWindow(QWidget *parent=0, const char *name=0);
+	MainWindow(bool embed=true, const QString &menufile="systempreferences", 
+									QWidget *parent=0, const char *name=0);
 	~MainWindow();
 
 private slots:
@@ -54,6 +55,7 @@ private slots:
 	void widgetChange();
 
 private:
+	bool embeddedWindows;
 	QWidgetStack *windowStack;
 	ModulesView *modulesView;
 	KCMultiWidget *groupWidget;
@@ -69,7 +71,7 @@ private:
 	KAction *reportBugAction;
 	KAction *aboutModuleAction;
 	
-	void buildMainWidget();
+	void buildMainWidget( const QString &menuFile );
 	void buildActions();
 
   /**

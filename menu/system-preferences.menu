@@ -124,14 +124,6 @@
 				<Filename>kde-privacy.desktop</Filename>
 			</Exclude>
 		</Menu>
-	
-		<Menu>
-			<Name>Accessibility</Name>
-			<Directory>kde-settings-accessibility.directory</Directory>
-			<Include>
-				<Category>X-KDE-settings-accessibility</Category>
-			</Include>
-		</Menu>
 
 		<Menu>
 			<Name>Sound</Name>
@@ -220,7 +212,7 @@
 			<Filename>kde-netpref.desktop</Filename>
 		
 			<!-- This really should be in a Server version of KControl right -->
-			<Filename>kcmsambaconf.desktop</Filename>
+			<Filename>kde-kcmsambaconf.desktop</Filename>
 		</Exclude>
 	</Menu>
 
@@ -272,6 +264,15 @@
 		<Include>
 			<Category>X-KDE-settings-system</Category>
 		</Include>
+		
+		<Menu>
+			<Name>Accessibility</Name>
+			<Directory>kde-settings-accessibility.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-accessibility</Category>
+			</Include>
+		</Menu>
+		
 		<Exclude>
 			<!-- This configures the build file for the kernel, NOT the kernel --> 
 			<Filename>kde-linuz.desktop</Filename>
