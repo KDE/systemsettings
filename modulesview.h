@@ -31,29 +31,33 @@ class RowIconView : public KIconView
 
 public:
 	RowIconView( QWidget* parent, const char *name=0 )
-					: KIconView( parent, name )
-	{
-		setResizeMode( Adjust );
-	};
-
-	// Figure out the hight/width to 6 / row
-	/*QSize minimumSizeHint() const {
+					: KIconView( parent, name ){ };
+		
+	// Figure out the hight/width to have only one row
+	QSize minimumSizeHint() const {
 		int width = 0;
 		for ( QIconViewItem *item = firstItem(); item; item = item->nextItem() )
 			width += item->width();
-		width += spacing()*(6)+(margin()+frameWidth()+lineWidth()+midLineWidth())*2 ;
+		width += spacing()*(count())+(margin()+frameWidth()+lineWidth()+midLineWidth())*2 ;
 
-
+		
 		int height = 0;
 		for ( QIconViewItem *item = firstItem(); item; item = item->nextItem() )
 			if(item->height() > height)
-				height = item->height() * ((count()/6) + (count()%6));
+				height = item->height();
 		// I honestly don't know where the 4+4 is coming from...
 		// What other spacing did I miss?
 		height += (margin()+frameWidth()+spacing()+lineWidth()+midLineWidth())*2+8;
-
+	
+/*	
+		int h = fontMetrics().height();
+		if ( h < 10 )
+			h = 10;
+		int f = 2 * frameWidth();
+		int height = ( 2*h ) + f + spacing() * 2 + 32 + lineWidth()*2 + 10;
+	*/	
 		return QSize( width, height );
-	};*/
+	};
 
 };
 
@@ -75,15 +79,14 @@ signals:
 	void itemSelected( QIconViewItem* item );
 
 public:
-	ModulesView( KCModuleMenu *menu, QWidget *parent=0, const char *name=0 );
+	ModulesView( const QString &menuName, QWidget *parent=0, const char *name=0 );
 	~ModulesView();
-
-	void createRow( const QStringList &items );
-	void createRow( const QString &parentPath );
 
 private:
 	QValueList<RowIconView*> groups;
-	KCModuleMenu *myMenu;
+	KCModuleMenu *menu;
+
+	void createRow( const QString &parentPath, QBoxLayout *layout );
 };
 
 #endif // MODULESVIEW_H

@@ -26,13 +26,12 @@
 
 class QWidgetStack;
 class QIconViewItem;
+class KCMultiWidget;
 class ModulesView;
 class KAction;
 class KWidgetAction;
 class KCModule;
 class KCModuleProxy;
-class KcmSearch;
-class QLabel;
 
 class MainWindow : public KMainWindow
 {
@@ -44,30 +43,41 @@ public:
 
 private slots:
 	void slotItemSelected( QIconViewItem* item );
-	void slotRootItemSelected( QIconViewItem* item );
 	void showAllModules();
+	void aboutCurrentModule();
+	void updateModuleHelp( KCModuleProxy * );
 	void reportBug();
-	void slotClearSearch();
-	void slotSearchAll( const QString &text );
+	
+	void resetModuleHelp();
+	void groupModulesFinished();
+
+	void widgetChange();
 
 private:
 	QWidgetStack *windowStack;
-	QMap<QWidget*,KWidgetAction*> searchActions;
-	QMap<QWidget*,KcmSearch*> searchers;
-	ModulesView *rootView;
+	ModulesView *modulesView;
+	KCMultiWidget *groupWidget;
 
 	KAction *resetModule;
 	KAction *defaultModule;
-
+	
 	KAction *showAllAction;
 	KWidgetAction *searchText;
 	KAction *searchClear;
+	KWidgetAction *searchAction;
+
 	KAction *reportBugAction;
-
-	QLabel *searchLabel;
-
+	KAction *aboutModuleAction;
+	
 	void buildMainWidget();
 	void buildActions();
+
+  /**
+   * If someone wants to report a bug
+   * against a module with no about data
+   * we construct one for him
+   **/
+  KAboutData *dummyAbout;
 };
 
 #endif

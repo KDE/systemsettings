@@ -34,23 +34,50 @@
 #include <kapplication.h>
 #include <kaboutapplication.h>
 #include <kdebug.h>
-#include <qhbox.h>
+
 #include "kcmsearch.h"
 
 #include "moduleiconitem.h"
 #include "kcmodulemenu.h"
 
-ModulesView::ModulesView( KCModuleMenu *menu, QWidget *parent, const char *name ) : QWidget( parent, name ), myMenu( menu )
+ModulesView::ModulesView( const QString &menuName, QWidget *parent,
+		const char *name ) : QWidget( parent, name ), menu( NULL )
 {
+	menu = new KCModuleMenu( menuName );
 	QVBoxLayout *layout = new QVBoxLayout( this, 11, 6, "layout" );
-	layout->setAutoAdd( true );
+	
+	QStringList subMenus = menu->submenus();
+	// Go through and load the top two levels
+	QStringList::ConstIterator it;
+	for( it = subMenus.begin(); it != subMenus.end(); ++it ){
+		// After the first time around add a line
+		if(it != subMenus.begin()){
+			QFrame *line = new QFrame( this, "line");
+			line->setFrameShadow( QFrame::Sunken );
+			line->setFrameShape( QFrame::HLine );
+			layout->addWidget( line );
+		}
+
+		// Build the row if modueles/icons
+		createRow( QString(*it), layout );
+	}
+
+	// Make empty iconView for the search widget
+	if( groups.count()==0 ) {
+		RowIconView *iconView = new RowIconView( this, "groupiconview" );
+		iconView->setLineWidth( 0 );
+		groups.append(iconView);
+	}
+	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
 }
 
 ModulesView::~ModulesView()
 {
+	if(menu)
+		delete menu;
 }
 
-void ModulesView::createRow( const QString &parentPath )
+void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 {
 	KServiceGroup::Ptr group = KServiceGroup::group(parentPath);
 	QString defName = parentPath.left( parentPath.length()-1 );
@@ -63,19 +90,40 @@ void ModulesView::createRow( const QString &parentPath )
 		return;
 	}
 
+	// Make header
+	QHBoxLayout *rowLayout = new QHBoxLayout( 0, 0, 6, "rowLayout" );
+
+	// Heaer Icon
+	QLabel *icon = new QLabel( this, "groupicon" );
+	icon->setPixmap( SmallIcon( group->icon() ) );
+	icon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1,
+		(QSizePolicy::SizeType)5, 0, 0, icon->sizePolicy().hasHeightForWidth() ) );
+	rowLayout->addWidget( icon );
+
+	// Header Name
+	QLabel *textLabel = new QLabel( this, "groupcaption" );
+	textLabel->setText( group->caption() );
+	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
+		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
+	rowLayout->addWidget( textLabel );
+
+	boxLayout->addLayout( rowLayout );
+
 	// Make IconView
-	RowIconView *iconView = new RowIconView( this );
+	RowIconView *iconView = new RowIconView( this, "groupiconview" );
 	iconView->setFrameShape( RowIconView::StyledPanel );
 	iconView->setLineWidth( 0 );
-	iconView->setSpacing( 16 );
+	iconView->setSpacing( 6 );
 	iconView->setItemsMovable(false);
 	groups.append(iconView);
 	connect(iconView, SIGNAL( clicked( QIconViewItem* ) ),
 		      this, SIGNAL( itemSelected( QIconViewItem* ) ) );
+	boxLayout->addWidget( iconView );
 
 	// Load submenus first
-	QStringList subMenus = myMenu->submenus( parentPath );
-	for(QStringList::ConstIterator it = subMenus.begin(); it != subMenus.end(); ++it)
+	QStringList subMenus = menu->submenus( parentPath );
+	for(QStringList::ConstIterator it = subMenus.begin();
+		it != subMenus.end(); ++it)
 	{
 		QString path = *it;
 
@@ -86,42 +134,18 @@ void ModulesView::createRow( const QString &parentPath )
 			 defName = defName.mid( pos + 1 );
 		if ( group && group->isValid() && group.count() > 0 ) {
 			ModuleIconItem *item = new ModuleIconItem( ((KIconView*)iconView), defName, group->icon() );
-			item->modules = myMenu->modules( path );
+			item->modules = menu->modules( path );
 		}
 	}
 
 	// Then load the individual items
-	QValueList<KCModuleInfo> list = myMenu->modules( parentPath );
-	for( QValueList<KCModuleInfo>::iterator it = list.begin(); it != list.end(); ++it )
-	{
-		new ModuleIconItem( iconView, *it );
+  QValueList<KCModuleInfo>::iterator it;
+  QValueList<KCModuleInfo> list = menu->modules( parentPath );
+	for ( it = list.begin(); it != list.end(); ++it ){
+		ModuleIconItem *item = new ModuleIconItem( iconView, *it );
 	}
-
+	
 	// Force the height for those items that have two words.
 	iconView->setMinimumHeight( iconView->minimumSizeHint().height() );
-	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
-}
-
-void ModulesView::createRow( const QStringList &items )
-{
-	// Make IconView
-	RowIconView *iconView = new RowIconView( this );
-	iconView->setFrameShape( RowIconView::StyledPanel );
-	iconView->setLineWidth( 0 );
-	iconView->setSpacing( 16 );
-	iconView->setItemsMovable(false);
-	groups.append(iconView);
-	connect(iconView, SIGNAL( clicked( QIconViewItem* ) ),
-		      this, SIGNAL( itemSelected( QIconViewItem* ) ) );
-
-	for(QStringList::ConstIterator it = items.begin(); it != items.end(); ++it)
-	{
-		ModuleIconItem *item = new ModuleIconItem( iconView, (*it).section('/',1,1), "folder" );
-		item->modules = myMenu->modules( *it );
-	}
-
-	// Force the height for those items that have two words.
-	iconView->setMinimumHeight( iconView->minimumSizeHint().height() );
-	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
 }
 

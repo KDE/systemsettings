@@ -38,7 +38,6 @@
 #include <kaboutapplication.h>
 #include <kdebug.h>
 #include <kcmoduleproxy.h>
-#include <kcmultidialog.h>
 #include <kbugreport.h>
 
 #include "kcmsearch.h"
@@ -48,103 +47,80 @@
 #include "kcmultiwidget.h"
 
 MainWindow::MainWindow(QWidget *parent, const char *name) :
-				KMainWindow(parent,name),
-				reportBugAction(NULL) {
+				KMainWindow(parent,name), groupWidget(NULL),
+				reportBugAction(NULL), dummyAbout(NULL) {
+	buildMainWidget();
 	buildActions();
 	setupGUI();
-	buildMainWidget();
 
-	// Steal the report bug
+	// Steal the report bug 
 	reportBugAction = actionCollection()->action("help_report_bug");
-	if(reportBugAction)
-	{
+  if(reportBugAction){
 		reportBugAction->disconnect();
-  		connect(reportBugAction, SIGNAL(activated()), SLOT(reportBug()));
+	  connect(reportBugAction, SIGNAL(activated()), SLOT(reportBug()));
 	}
+
+	widgetChange();
 }
 
 MainWindow::~MainWindow()
 {
+	delete dummyAbout;
 }
 
 void MainWindow::buildMainWidget()
 {
 	windowStack = new QWidgetStack( this, "widgetstack" );
-	KCModuleMenu *mainMenu = new KCModuleMenu( "systempreferences" );
-
-	rootView = new ModulesView(mainMenu, windowStack);
-	rootView->createRow( mainMenu->submenus() );
-
-	int id = 1;
-	windowStack->addWidget(rootView, id);
-	connect( rootView, SIGNAL(itemSelected(QIconViewItem*)),
-		this, SLOT(slotRootItemSelected(QIconViewItem*)) );
-
-	// Search
-	KcmSearch* search = new KcmSearch(rootView, 0);
-	connect( search, SIGNAL( textChanged( const QString & ) ), this, SLOT( slotSearchAll( const QString & ) ) );
-	KWidgetAction *searchAction = new KWidgetAction( search, i18n( "Search System Preferences" ), 0, 0, 0, actionCollection(), 0 );
-	searchAction->setShortcutConfigurable( false );
-	searchAction->setAutoSized( true );
-	searchAction->plug( toolBar("mainToolBar") );
-	QWhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
-
-	searchActions.insert( rootView, searchAction );
-	searchers.insert( rootView, search );
-	searchLabel->setBuddy( search );
-
-	QStringList subMenus = mainMenu->submenus();
-	for( QStringList::ConstIterator it = subMenus.begin(); it != subMenus.end(); ++it )
-	{
-		ModulesView *modulesView = new ModulesView(mainMenu,windowStack);
-		modulesView->createRow( *it );
-		windowStack->addWidget(modulesView, ++id);
-
-		connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )),
-			this, SLOT(slotItemSelected(QIconViewItem*)));
-
-		// Search
-		KcmSearch* search = new KcmSearch(modulesView, 0);
-		connect( search, SIGNAL( textChanged( const QString & ) ), this, SLOT( slotSearchAll( const QString & ) ) );
-		KWidgetAction *searchAction = new KWidgetAction( search, i18n( "Search System Preferences" ), 0, 0, 0, actionCollection(), 0 );
-		searchAction->setShortcutConfigurable( false );
-		searchAction->setAutoSized( true );
-		QWhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
-
-		searchActions.insert( modulesView, searchAction );
-		searchers.insert( modulesView, search );
-	}
-
+	modulesView = new ModulesView("systempreferences", windowStack, "modulesView");
+	windowStack->addWidget(modulesView);
+	
+	connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
 	setCentralWidget(windowStack);
-	windowStack->raiseWidget(0);
 }
 
 void MainWindow::buildActions()
 {
 	KStdAction::quit(this, SLOT( close() ), actionCollection());
 
-	resetModule = new KAction(i18n("Undo changes"), 0, this, SLOT(showAllModules()), actionCollection(), "resetModule" );
+	resetModule = new KAction(i18n("Undo changes"), 0, this,
+								SLOT(showAllModules()), actionCollection(), "resetModule" );
 	resetModule->setEnabled(false);
 
-	defaultModule = new KAction(i18n("Reset to defaults"), 0, this, SLOT(showAllModules()), actionCollection(), "defaultModule" );
+	defaultModule = new KAction(i18n("Reset to defaults"), 0, this,
+								SLOT(showAllModules()), actionCollection(), "defaultModule" );
 	defaultModule->setEnabled(false);
 
-	showAllAction = new KAction(i18n("Show &All"), 0, this, SLOT(showAllModules()), actionCollection(), "showAll" );
+	showAllAction = new KAction(i18n("Show &All"), 0, this,
+								SLOT(showAllModules()), actionCollection(), "showAll" );
 	showAllAction->setEnabled(false);
 
-	searchLabel = new QLabel( this, "SearchLabel");
+	aboutModuleAction = new KAction(i18n("About Current Module"), 0, this, SLOT(aboutCurrentModule()), actionCollection(), "help_about_module");
+	resetModuleHelp();
+  
+	// Search
+	KcmSearch* search = new KcmSearch(modulesView, 0, "search");
+
+	QLabel *searchLabel = new QLabel( this, "SearchLabel");
 	searchLabel->setText( i18n("&Search: ") );
+	//searchLabel->setPixmap( SmallIcon("find"));
 	searchLabel->setMargin(2);
 	searchText = new KWidgetAction( searchLabel, i18n("&Search: "), Key_F6, 0, 0, actionCollection(), "searchText" );
+	searchLabel->setBuddy( search );
+
+	searchAction = new KWidgetAction( search, i18n( "Search System Preferences" ), 0,
+                  0, 0, actionCollection(), "search" );
+	searchAction->setShortcutConfigurable( false );
+	searchAction->setAutoSized( true );
+	QWhatsThis::add( search, i18n( "Search Bar<p>"
+													        "Enter a search term." ) );
 
 	searchClear = new KAction( i18n( "Reset" ),
                                            QApplication::reverseLayout()
                                            ? "clear_left"
                                            : "locationbar_erase",
-                                           CTRL+Key_L, this, SLOT(slotClearSearch()),
+                                           CTRL+Key_L, search, SLOT(clear()),
                                            actionCollection(),
                                            "searchReset" );
-	searchClear->plug( toolBar("mainToolBar") );
 
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
@@ -159,38 +135,82 @@ void MainWindow::buildActions()
 void MainWindow::reportBug()
 {
 	// this assumes the user only opens one bug report at a time
-	KBugReport *br = new KBugReport(this, false);
-	br->show();
-}
+  static char buffer[128];
 
-void MainWindow::slotClearSearch()
-{
-	searchers[ windowStack->visibleWidget() ]->clear();
-}
+  dummyAbout = 0;
+  bool deleteit = false;
 
-void MainWindow::slotSearchAll( const QString &text )
-{
-	for( QMap<QWidget*,KcmSearch*>::iterator it = searchers.begin(); it != searchers.end(); ++it )
+	if (!groupWidget || !groupWidget->currentModule()) // report against kcontrol
+		dummyAbout = const_cast<KAboutData*>(KGlobal::instance()->aboutData());
+	else
 	{
-		if( it.key() != windowStack->visibleWidget() )
+		if (groupWidget->currentModule()->aboutData())
+			dummyAbout = const_cast<KAboutData*>(groupWidget->currentModule()->aboutData());
+		else
 		{
-			it.data()->setText( text );
-			it.data()->updateSearch();
+			snprintf(buffer, sizeof(buffer), "kcm%s", groupWidget->currentModule()->moduleInfo().library().latin1());
+			dummyAbout = new KAboutData(buffer, groupWidget->currentModule()->moduleInfo().moduleName().utf8(), "2.0");
+			deleteit = true;
 		}
 	}
+	KBugReport *br = new KBugReport(this, false, dummyAbout);
+	if (deleteit)
+		connect(br, SIGNAL(finished()), SLOT(deleteDummyAbout()));
+	else
+		dummyAbout = 0;
+	br->show();
+
+}
+
+void MainWindow::aboutCurrentModule()
+{
+	if(!groupWidget)
+		return;
+	
+	KCModuleProxy* module = groupWidget->currentModule();
+	if( module && module->aboutData() ){
+		KAboutApplication dlg( module->aboutData() );
+		dlg.exec();
+	}
+}
+
+void MainWindow::groupModulesFinished()
+{
+	windowStack->removeWidget( groupWidget );
+	groupWidget = NULL;
+	showAllModules();
 }
 
 void MainWindow::showAllModules()
 {
-	searchActions[ windowStack->visibleWidget() ]->unplug( toolBar("mainToolBar") );
-	windowStack->raiseWidget(1);
-        searchActions[ rootView ]->plug( toolBar("mainToolBar") );
+	windowStack->raiseWidget(modulesView);
+
+	if(groupWidget){
+		windowStack->removeWidget( groupWidget );
+		groupWidget->removeAllModules();
+		groupWidget->close(true);
+		groupWidget = NULL;
+	}
+	else
+		kdDebug() << "No group widget." << endl;
+
+	// Wait for the widget to be removed from the parent before resizing
+	qApp->processEvents();
+	
+	// Reset the widget for normal all widget viewing
+	widgetChange();
+
 	showAllAction->setEnabled(false);
-	searchLabel->setBuddy( searchActions[ rootView ]->widget() );
+	aboutModuleAction->setEnabled(false);
+	
+	searchText->setEnabled(true);
+	searchClear->setEnabled(true);
+	searchAction->setEnabled(true);
+	
+	resetModuleHelp();
 }
 
-void MainWindow::slotItemSelected( QIconViewItem *item )
-{
+void MainWindow::slotItemSelected( QIconViewItem *item ){
 	ModuleIconItem *mItem = (ModuleIconItem *)item;
 	if( !mItem )
 		return;
@@ -199,30 +219,60 @@ void MainWindow::slotItemSelected( QIconViewItem *item )
 	KDialogBase::DialogType type = KDialogBase::IconList;
 	if(list.count() == 1)
 		type=KDialogBase::Plain;
-
-	KCMultiDialog *widgetDialog = new KCMultiDialog((int)type, item->text(), this, "moduleswidget");
-	widgetDialog->setIcon( *(item->pixmap()) );
+	groupWidget = new KCMultiWidget(type, windowStack, "moduleswidget");
+	connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
+	connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
+	connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
 
 	QValueList<KCModuleInfo>::iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
 		qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
-		widgetDialog->addModule(*it);
+		groupWidget->addModule(	*it );
 	}
-
-	widgetDialog->show();
-	KDialog::centerOnScreen(widgetDialog);
+	groupWidget->reparent(windowStack, 0, QPoint());
+	int id = windowStack->addWidget(groupWidget);
+	windowStack->raiseWidget(id);
+	setCaption( mItem->text() );
+	
+	resize( minimumSizeHint() );
+	showAllAction->setEnabled(true);
+	searchText->setEnabled(false);
+	searchClear->setEnabled(false);
+	searchAction->setEnabled(false);
 }
 
-void MainWindow::slotRootItemSelected( QIconViewItem *item )
-{
-	if( item )
-	{
-		searchActions[ rootView ]->unplug( toolBar("mainToolBar") );
-		windowStack->raiseWidget( item->index() + 2 );
-		searchActions[ windowStack->visibleWidget() ]->plug( toolBar("mainToolBar") );
-		showAllAction->setEnabled(true);
-		searchLabel->setBuddy( searchActions[ windowStack->visibleWidget() ]->widget() );
+void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
+	if ( currentModule->aboutData() ) {
+		aboutModuleAction->setText(i18n("Help menu->about <modulename>", "About %1").arg(
+				                             currentModule->moduleInfo().moduleName().replace("&","&&")));
+		aboutModuleAction->setIcon(currentModule->moduleInfo().icon());
+		aboutModuleAction->setEnabled(true);
+	}
+	else {
+		resetModuleHelp();
 	}
 }
 
+void MainWindow::resetModuleHelp() {
+	aboutModuleAction->setText(i18n("About Current Module"));
+	aboutModuleAction->setIconSet(QIconSet());
+	aboutModuleAction->setEnabled(false);
+}
+
+void MainWindow::widgetChange() {
+	resize( minimumSizeHint() );
+	QString name;
+	if( groupWidget && groupWidget->currentModule())
+		name = groupWidget->currentModule()->moduleInfo().moduleName();
+	
+	if( !groupWidget )
+		setCaption( "" );
+
+	if ( !reportBugAction )
+		return;
+  if( name.isEmpty() )
+		reportBugAction->setText(i18n("&Report Bug..."));
+  else
+		reportBugAction->setText(i18n("Report Bug on Module %1...").arg( name.replace("&","&&")));
+}
 

@@ -36,8 +36,9 @@ class ModuleIconItem : public QIconViewItem
 
 public:
   ModuleIconItem( KIconView *parent, KCModuleInfo module );
-
-  ModuleIconItem( KIconView *parent, const QString &text, const QString &imageName );
+	
+  ModuleIconItem( KIconView *parent, const QString &text,
+									const QString &imageName );
 
 	/**
 	 * Update the icon to either be enabled or not.
@@ -46,7 +47,7 @@ public:
 
 	// The modules that go with this item
 	QValueList<KCModuleInfo> modules;
-
+					
 private:
 	int currentState;
 	QString imageName;
