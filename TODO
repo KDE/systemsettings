@@ -2,8 +2,15 @@ Module Help link
 Module Default/Reset link
 Use tabs
 View (list of all modules)
-config icon sizes
-white background?
 lilo _has_ to be spead up
+alignment of the icons
 
-make search smaller and on the right
+config icon sizes
+command line option to open in new window
+
+Search
+-Make search smaller and on the right
+-Grep docs?
+-Tie into kconfigXT somehow?
+-Look at Spotlight
+-Task oriented?

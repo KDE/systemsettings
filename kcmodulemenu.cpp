@@ -35,7 +35,8 @@ public:
 		QValueList<KCModuleInfo> modules;
 		QStringList submenus;
 	};
-
+	
+	QMap<QString, QValueList<MenuItem> > menus;
 	QDict<ModuleMenu> subMenus;
 	QString basePath;
 };
@@ -73,6 +74,8 @@ void KCModuleMenu::readMenu( const QString &pathName )
 	KCModuleMenuPrivate::ModuleMenu *menu = new KCModuleMenuPrivate::ModuleMenu;
 	d->subMenus.insert( pathName, menu );
 
+	QValueList<MenuItem> currentMenu;
+			
 	for( KServiceGroup::List::ConstIterator it = list.begin();
 			 it != list.end(); it++)
 	{
@@ -81,13 +84,23 @@ void KCModuleMenu::readMenu( const QString &pathName )
 			KCModuleInfo module((KService*)entry);
 			append(module);
 			menu->modules.append(module);
+
+			MenuItem infoItem(false);
+			infoItem.item = module;
+			currentMenu.append( infoItem );
 		}
 
 		if ( entry->isType(KST_KServiceGroup) ){
+			MenuItem menuItem(true);
+			menuItem.subMenu = entry->entryPath();
+			currentMenu.append( menuItem );
+
 			readMenu( entry->entryPath() );
 			menu->submenus.append( entry->entryPath() );
 		}
 	}
+
+	d->menus.insert( pathName, currentMenu );
 }
 
 bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
@@ -136,5 +149,16 @@ QStringList KCModuleMenu::submenus( const QString &menuPath )
 		return subMenu->submenus;
 
 	return QStringList();
+}
+
+QValueList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
+{
+	if( menuPath.isEmpty() ) {
+		if( d->basePath.isEmpty())
+			return QValueList<MenuItem>();
+		else
+			return menuList( d->basePath );
+	}
+	return d->menus[menuPath];	
 }
 

@@ -229,16 +229,19 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
 		groupWidget->addModule(	*it );
 	}
-	groupWidget->reparent(windowStack, 0, QPoint());
-	int id = windowStack->addWidget(groupWidget);
-	windowStack->raiseWidget(id);
-	setCaption( mItem->text() );
 	
-	resize( minimumSizeHint() );
-	showAllAction->setEnabled(true);
-	searchText->setEnabled(false);
-	searchClear->setEnabled(false);
-	searchAction->setEnabled(false);
+	bool reparent = true;
+	if( reparent ) {
+		groupWidget->reparent(windowStack, 0, QPoint());
+		int stackId = windowStack->addWidget(groupWidget);
+		windowStack->raiseWidget( stackId );
+		setCaption( mItem->text() );
+		resize( minimumSizeHint() );
+		showAllAction->setEnabled(true);
+		searchText->setEnabled(false);
+		searchClear->setEnabled(false);
+		searchAction->setEnabled(false);
+	}
 }
 
 void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {

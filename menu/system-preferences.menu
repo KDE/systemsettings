@@ -12,8 +12,8 @@
 		<Menuname>Network</Menuname>
 		<Separator/>
 		<Menuname>System</Menuname>
-		<Merge type="files" />
 		<Merge type="menus" />
+		<Merge type="files" />
 	</DefaultLayout>
 		
 	<Menu>
@@ -207,6 +207,7 @@
 		<Include>
 			<Category>X-KDE-settings-network</Category>
 		</Include>
+		
 		<Exclude>
 			<!-- Sharing -->
 			<Filename>kde-fileshare.desktop</Filename>
@@ -229,6 +230,7 @@
 			<Filename>kde-joystick.desktop</Filename>
 			<Filename>kde-printers.desktop</Filename>
 			<Filename>kde-display.desktop</Filename>
+			<Menuname>Power</Menuname>
 			<Merge type="files" />
 			<Merge type="menus" />
 		</Layout>

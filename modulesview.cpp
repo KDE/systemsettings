@@ -20,14 +20,11 @@
 
 #include "modulesview.h"
 
-#include <kiconview.h>
-#include <qvbox.h>
 #include <qlabel.h>
 #include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>
 #include <kiconloader.h>
-#include <kcmoduleloader.h>
 #include <kcmultidialog.h>
 #include <kdialogbase.h>
 #include <kiconviewsearchline.h>
@@ -36,7 +33,6 @@
 #include <kdebug.h>
 
 #include "kcmsearch.h"
-
 #include "moduleiconitem.h"
 #include "kcmodulemenu.h"
 
@@ -46,12 +42,14 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 	menu = new KCModuleMenu( menuName );
 	QVBoxLayout *layout = new QVBoxLayout( this, 11, 6, "layout" );
 	
-	QStringList subMenus = menu->submenus();
-	// Go through and load the top two levels
-	QStringList::ConstIterator it;
-	for( it = subMenus.begin(); it != subMenus.end(); ++it ){
+	QValueList<MenuItem> subMenus = menu->menuList();
+ 	QValueList<MenuItem>::iterator it;
+	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){
+		if( !(*it).menu )
+			continue;
+		
 		// After the first time around add a line
-		if(it != subMenus.begin()){
+		if( it != subMenus.begin() ){
 			QFrame *line = new QFrame( this, "line");
 			line->setFrameShadow( QFrame::Sunken );
 			line->setFrameShape( QFrame::HLine );
@@ -59,14 +57,14 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 		}
 
 		// Build the row if modueles/icons
-		createRow( QString(*it), layout );
+		createRow( (*it).subMenu, layout );
 	}
 
 	// Make empty iconView for the search widget
 	if( groups.count()==0 ) {
 		RowIconView *iconView = new RowIconView( this, "groupiconview" );
 		iconView->setLineWidth( 0 );
-		groups.append(iconView);
+		groups.append( iconView );
 	}
 	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
 }
@@ -79,14 +77,9 @@ ModulesView::~ModulesView()
 
 void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 {
-	KServiceGroup::Ptr group = KServiceGroup::group(parentPath);
-	QString defName = parentPath.left( parentPath.length()-1 );
-	int pos = defName.findRev( '/' );
-	if ( pos >= 0 )
-		defName = defName.mid( pos+1 );
-
-	if ( !group || !group->isValid() ){
-		kdDebug() << "Invalid Group \"" << parentPath << "\"."<< endl;
+	KServiceGroup::Ptr group = KServiceGroup::group( parentPath );
+	if ( !group ){
+		kdDebug() << "Invalid Group \"" << parentPath << "\".  Check your installation."<< endl;
 		return;
 	}
 
@@ -114,37 +107,30 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	iconView->setFrameShape( RowIconView::StyledPanel );
 	iconView->setLineWidth( 0 );
 	iconView->setSpacing( 6 );
-	iconView->setItemsMovable(false);
-	groups.append(iconView);
+	iconView->setItemsMovable( false );
+	groups.append( iconView );
 	connect(iconView, SIGNAL( clicked( QIconViewItem* ) ),
 		      this, SIGNAL( itemSelected( QIconViewItem* ) ) );
 	boxLayout->addWidget( iconView );
 
-	// Load submenus first
-	QStringList subMenus = menu->submenus( parentPath );
-	for(QStringList::ConstIterator it = subMenus.begin();
-		it != subMenus.end(); ++it)
-	{
-		QString path = *it;
-
-		KServiceGroup::Ptr group = KServiceGroup::group( path );
-		QString defName = path.left( path.length()-1 );
-		int pos = defName.findRev( '/' );
-		if ( pos >= 0 )
-			 defName = defName.mid( pos + 1 );
-		if ( group && group->isValid() && group.count() > 0 ) {
-			ModuleIconItem *item = new ModuleIconItem( ((KIconView*)iconView), defName, group->icon() );
-			item->modules = menu->modules( path );
+	// Add all the items in their proper order
+	QValueList<MenuItem> list = menu->menuList( parentPath );
+ 	QValueList<MenuItem>::iterator it;
+	for ( it = list.begin(); it != list.end(); ++it ){
+		if( !(*it).menu )
+			(void)new ModuleIconItem( iconView, (*it).item );
+		else
+		{
+			QString path = (*it).subMenu;
+			KServiceGroup::Ptr group = KServiceGroup::group( path );
+			if ( group ) {
+				ModuleIconItem *item = new ModuleIconItem( ((KIconView*)iconView),
+												group->caption(), group->icon() );
+				item->modules = menu->modules( path );
+			}
 		}
 	}
 
-	// Then load the individual items
-  QValueList<KCModuleInfo>::iterator it;
-  QValueList<KCModuleInfo> list = menu->modules( parentPath );
-	for ( it = list.begin(); it != list.end(); ++it ){
-		ModuleIconItem *item = new ModuleIconItem( iconView, *it );
-	}
-	
 	// Force the height for those items that have two words.
 	iconView->setMinimumHeight( iconView->minimumSizeHint().height() );
 }

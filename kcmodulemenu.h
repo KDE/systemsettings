@@ -69,6 +69,19 @@ class KCModuleMenuPrivate;
  * to run "kbuildsycoca" to regenerate the cache as ksyscoco will cache the
  * menu and is a file that doesn't change on users.
  */
+
+/**
+ * A menu consists of menu items.  An item is either another menu or a module.
+ */
+class MenuItem {
+public:
+	MenuItem( bool isMenu=false ){ menu = isMenu; };	
+	bool menu;
+	QString subMenu;
+	KCModuleInfo item;
+};
+
+
 class KCModuleMenu : public QValueList<KCModuleInfo>
 {
 
@@ -90,18 +103,27 @@ public:
 	virtual ~KCModuleMenu();
 
 	/**
+	 * Returns item of a menu path. An empty string is the top level.
+	 * Item order is maintained from the menu file.
+	 * @param path to return submenus from.
+	 * @return all items in menuPath.
+	 */
+	QValueList<MenuItem> menuList( const QString &menuPath=QString::null );
+
+	/**
 	 * Returns the modules in a menu path. An empty string is the top level.
 	 * @param menu to return modules from.
-	 * @returns all top level modules of menuPath
+	 * @returns only the top level modules of menuPath
 	 */
 	QValueList<KCModuleInfo> modules( const QString &menuPath=QString::null );
 
 	/**
 	 * Returns the sub menus of a menu path. An empty string is the top level.
 	 * @param path to return submenus from.
-	 * @return all submenus of menuPath.
+	 * @return only the submenus of menuPath.
 	 */
 	QStringList submenus( const QString &menuPath=QString::null );
+
 
 protected:
 	/**
