@@ -11,5 +11,6 @@ kde-settings-appearance.directory \
 kde-settings-panel.directory \
 kde-settings-useraccount.directory \
 kde-settings-system.directory \
+kde-settings-power.directory \
 system-preferences.directory
 

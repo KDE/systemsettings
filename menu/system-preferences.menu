@@ -181,6 +181,7 @@
 
 	<Menu>
 		<Name>Hardware</Name>
+		<Directory>kde-settings-hardware.directory</Directory>
 
 		<Menu>
 			<Name>Network</Name>
@@ -190,13 +191,30 @@
 			</Include>
 		</Menu>
 
-
-	
-		<Directory>kde-settings-hardware.directory</Directory>
 		<Include>
 			<Category>X-KDE-settings-hardware</Category>
 			<Category>X-KDE-settings-peripherals</Category>
 		</Include>
+		
+		<Menu>
+			<!-- This is here because there is both desktop/laptop with power settings -->
+			<Name>Power</Name>
+			<Directory>kde-settings-power.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-power</Category>
+				<Filename>kde-laptop.desktop</Filename>
+				<Filename>kde-thinkpad.desktop</Filename>
+				<Filename>kde-kvaio.desktop</Filename>
+			</Include>
+		</Menu>
+
+		<Exclude>
+			<!-- These go under power -->
+			<Filename>kde-thinkpad.desktop</Filename>
+			<Filename>kde-kvaio.desktop</Filename>
+			<Filename>kde-laptop.desktop</Filename>
+		</Exclude>
+
 		<Layout>
 			<Menuname>Network</Menuname>
 			<Filename>kde-keyboard.desktop</Filename>
@@ -211,7 +229,6 @@
 			<Filename>kde-kvaio.desktop</Filename>
 		</Layout>
 	</Menu>
-
 	
 	<Menu>
 		<Name>System</Name>
