@@ -1,0 +1,11 @@
+ <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+        <!-- The following menus are hidden by default -->
+	<Menu>
+		<Name>System Preferences</Name>
+		<Directory>system-preferences.directory</Directory>
+                <MergeFile>../system-preferences.menu</MergeFile>
+	</Menu>
+</Menu>

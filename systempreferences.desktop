@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=systempreferences -caption "%c" %i %m
+Icon=kcontrol
+Type=Application
+DocPath=systempreferences/index.html
+X-KDE-StartupNotify=true
+
+Name=System Preferences
+
+X-DCOP-ServiceType=Unique
+Categories=Qt;KDE;Core;

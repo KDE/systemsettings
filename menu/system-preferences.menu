@@ -1,0 +1,229 @@
+ <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+
+<Menu>
+	<Name>System Preferences</Name>
+	
+	<DefaultLayout>
+		<Menuname>Personal</Menuname>
+		<Separator/>
+		<Menuname>Hardware</Menuname>
+		<Separator/>
+		<Menuname>Network</Menuname>
+		<Separator/>
+		<Menuname>System</Menuname>
+		<Merge type="menus" />
+		<Merge type="files" />
+	</DefaultLayout>
+		
+	<Menu>
+		<Name>Personal</Name>
+		
+		<Layout>
+			<Menuname>Appearance</Menuname>
+			<Menuname>Panel</Menuname>
+			<Menuname>Desktop</Menuname>
+			<Merge type="menus" />
+			<Merge type="files" />
+			<Menuname>KDE Components</Menuname>
+		</Layout>
+		
+		<Menu>
+			<Name>Appearance</Name>
+			<Directory>kde-settings-looknfeel.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-looknfeel</Category>
+				<Category>X-KDE-settings-appearance</Category>
+			</Include>
+			<Exclude>
+				<!-- This is an app, not a module -->
+				<Filename>kde-kthememanager.desktop</Filename>
+				<!-- Move to desktop -->
+				<Filename>kde-ksplashthememgr.desktop</Filename>
+				<!-- Move to desktop -->
+				<Filename>kde-background.desktop</Filename>
+				<!-- Move to panel -->
+				<Filename>kde-kcmlaunch.desktop</Filename>
+				<!-- Move to desktop -->
+				<Filename>kde-screensaver.desktop</Filename>
+			</Exclude>
+		</Menu>
+
+		<Menu>
+			<Name>Desktop</Name>
+			<Directory>kde-settings-desktop.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-desktop</Category>
+				<Filename>kde-ksplashthememgr.desktop</Filename>
+				<Filename>kde-background.desktop</Filename>
+				<Filename>kde-screensaver.desktop</Filename>
+			</Include>
+			
+			
+			<Layout>
+				<Filename>kde-background.desktop</Filename>
+				<Filename>kde-screensaver.desktop</Filename>
+				<Merge type="menus" />
+				<Merge type="files" />
+			</Layout>
+		
+			<Exclude>
+				<!-- it has its own group -->
+				<Filename>kde-panel.desktop</Filename>
+				<Filename>kde-kcmtaskbar.desktop</Filename>
+			</Exclude>
+		</Menu>
+		
+		<Menu>
+			<Name>Panel</Name>
+			<Directory>kde-settings-panel.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-panel</Category>
+				<Filename>kde-panel.desktop</Filename>
+				<Filename>kde-kcmtaskbar.desktop</Filename>
+				<Filename>kde-kcmlaunch.desktop</Filename>
+			</Include>
+			<Layout>
+				<Filename>kde-panel.desktop</Filename>
+				<Filename>kde-kcmtaskbar.desktop</Filename>
+				<Filename>kde-kcmlaunch.desktop</Filename>
+				<Merge type="files" />
+			</Layout>
+		</Menu>
+		
+		<Menu>
+			<Name>KDE Components</Name>
+			<Directory>kde-settings-components.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-components</Category>
+			</Include>
+			<Exclude>
+				<!-- +NoDisplay=True in KDE4 -->
+				<Filename>kde-spellchecking.desktop</Filename>
+				<Filename>kde-filebrowser.desktop</Filename>
+				<Filename>kde-filetypes.desktop</Filename>
+				<Filename>kde-kcmperformance.desktop</Filename>
+				<!-- Moved to user -->
+				<Filename>kde-kcmsmserver.desktop</Filename>
+				<!-- Replaced this with defaultapplication.desktop -->
+				<Filename>kde-componentchooser.desktop</Filename>
+			</Exclude>
+		</Menu>
+	
+		<Menu>
+			<Name>Security</Name>
+			<Directory>kde-settings-security.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-security</Category>
+			</Include>
+			<Exclude>
+				<!-- It has its own group -->
+				<Filename>kde-kcm_useraccount.desktop</Filename>
+				<!-- +NoDisplay=true in KDE4 Konq specific -->
+				<Filename>kde-crypto.desktop</Filename>
+				<!-- +NoDisplay=true in KDE4 Application -->
+				<Filename>kde-privacy.desktop</Filename>
+			</Exclude>
+		</Menu>
+	
+		<Menu>
+			<Name>Accessibility</Name>
+			<Directory>kde-settings-accessibility.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-accessibility</Category>
+			</Include>
+		</Menu>
+
+		<Menu>
+			<Name>Sound</Name>
+			<Directory>kde-settings-sound.directory</Directory>
+			
+			<Layout>
+				<Filename>kde-arts.desktop</Filename>
+				<Filename>kde-kcmnotify.desktop</Filename>
+				<Merge type="menus" />
+				<Merge type="files" />
+			</Layout>
+			
+			<Include>
+				<Filename>arts.desktop</Filename>
+				<Filename>kcmnotify.desktop</Filename>
+			</Include>
+			<Include>
+				<Category>X-KDE-settings-sound</Category>
+			</Include>
+		</Menu>
+	
+		<Menu>
+			<Name>User Account</Name>
+			<Directory>kde-settings-system-accounts.directory</Directory>
+			<Include>
+				<Filename>kde-desktoppath.desktop</Filename>
+				<Filename>kde-kcm_useraccount.desktop</Filename>
+				<Filename>kde-kcmsmserver.desktop</Filename>
+			</Include>
+		</Menu>
+		
+		<Menu>
+			<Name>User Account</Name>
+			<Directory>kde-settings-useraccount.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-user-account</Category>
+			</Include>
+			<Layout>
+				<Filename>kde-kcm_useraccount.desktop</Filename>
+				<Merge type="menus" />
+				<Merge type="files" />
+			</Layout>
+		</Menu>
+		
+	</Menu>
+
+	<Menu>
+		<Name>Hardware</Name>
+
+		<Menu>
+			<Name>Network</Name>
+			<Directory>kde-settings-network.directory</Directory>
+			<Include>
+				<Category>X-KDE-settings-network</Category>
+			</Include>
+		</Menu>
+
+
+	
+		<Directory>kde-settings-hardware.directory</Directory>
+		<Include>
+			<Category>X-KDE-settings-hardware</Category>
+			<Category>X-KDE-settings-peripherals</Category>
+		</Include>
+		<Layout>
+			<Menuname>Network</Menuname>
+			<Filename>kde-keyboard.desktop</Filename>
+			<Filename>kde-mouse.desktop</Filename>
+			<Filename>kde-joystick.desktop</Filename>
+			<Filename>kde-printers.desktop</Filename>
+			<Filename>kde-display.desktop</Filename>
+			<Merge type="menus" />
+			<Merge type="files" />
+
+			<Filename>kde-thinkpad.desktop</Filename>
+			<Filename>kde-kvaio.desktop</Filename>
+		</Layout>
+	</Menu>
+
+	
+	<Menu>
+		<Name>System</Name>
+		<Directory>kde-settings-system.directory</Directory>
+		<Include>
+			<Category>X-KDE-settings-system</Category>
+		</Include>
+		<Exclude>
+			<!-- This configures the build file for the kernel, NOT the kernel --> 
+			<Filename>kde-linuz.desktop</Filename>
+			<!-- Moved to user account --> 
+			<Filename>kde-desktoppath.desktop</Filename>
+		</Exclude>
+	</Menu>
+</Menu>

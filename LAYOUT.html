@@ -1,0 +1,125 @@
+
+<h1>KDE System Preferences</h1>
+
+<p>
+This document describes how the System Preferences is layed out.
+
+<p>
+This document was inspired partially by the TODO file located at kdebase/kcontrol/TODO.  Most of the changed are the exact same and were planned to be done for KDE4.  This document is simply a little bit more fleshed out version.  I recomend checking out that document if you havn't already.
+
+<p>
+The reason for this document is:
+<p>
+1) To categorize the settings together in a user friendly manor.<br>
+2) To explain why a setting is where it is and to determine where new settings should go.<br>
+3) Because of #2 stop the constant reorganization of KControl at every release confusing users and developers because there isn't a documented location for where thing go with explanations of why. 
+<p>
+The System Preferences Center is divided into four sections.
+<ul>
+<li><a href="#personal">Personal</a></li>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#system">System</a></li>
+<li><a href="#other">Other</a></li>
+</ul>
+
+Within KDE there are over 50 kcm modules designed for the Control Center and many more for konquror and other applications.  With so many modules there is no way for a users to find what they are looking for by scanning.  To solve this there are three levels, the last one isn't normally visable to the user and groups very similar items.    
+<p>
+Modules in the System Preferences should configure things not do things.  Some examples include the theme manager.  It sets/saves themes.  Although it configures settings it is a seperate application because it does actions rather then just setting/getting values.  Items that 
+<p>
+Modules that exists within multiple applications configuration menu such as spell check and cddb should not be in the menu.
+
+<hr>
+<a name="personal"><h1>Personal</h1></a>
+Personal is made up of two parts.  The simplest differece between the two are theme settings will be shared amung friends while users settings wont be. 
+<ul>
+<li><a href="#personal_theme">Theme Goodies</a></li>
+<li><a href="#personal_user">User Settings</a></li>
+</ul>
+
+<h3><a name="personal_theme">Theme Goodies</a></h3> which can be changed without affecting productivity and often doesn't directly apply to a specific user, but to a user base (Theme of the month crowd).
+
+These deal with how applications are presented to users and how users interact with them. These don't deal with anything that isn't directly seen/heard or interacted with.
+<p>
+Every setting in this category must be able to be locked for example in an government enviornment where they determine exactly how a desktop is to look for every user.  It may look ugly, but users should still be able to acomplish tasks no matter what these settings are set to. 
+<p>
+A separate application (Theme Manager) can set the items in this category on mass to give an overall theme for the user.  This application can also save the current settings.
+
+<h3><a name="personal_user">User Settings</a></h3>
+Such as that apply to this computer such as language and personal choice for default web browser.  These settings determine how a user interacts with a computer, but is personal to that user and typically isn't shared like a theme or icons set is.
+
+<h2>Appearance</h2>
+The Appearance deals with the look of the applications and desktop.  These settings typically will be settings that can be replaced by alternatives created outside of KDE.  These settings will most likely be also set/used by other Unix desktop enviornments so that all the applications can integration together (and look consistant to the user).  It contains the following items:<br>
+Colors, Fonts, Icons, Style, Window Decorations
+
+<h2>Desktop</h2>
+These items discus how the desktop behaves.  How the windows interact with each other, the very bottom of the screen (desktop), the very top (screensaver), and loading of the desktop.  These are all separate setting from KDE (or Gnome) applications and the applications shouldn't need to access them or know about them.
+It contains the following items:<br>
+Background, Screensaver, Behavior, Window Behavior, Window-Specific Settings, Login Screen
+<p>
+Panel.
+These settings all deal with when users perform actions dealing with or originating from the panel.  It contains the following items:<br>
+Panels, Taskbar, Launch Feedback, Multiple Desktops
+
+<h2>KDE Components</h2>
+Specific actuall KDE components which users will probably never actually touch. 
+
+<h2>Accessibility</h2>
+ - International
+ - KHotKeys etc
+
+<h2>Security</h2>
+-kdewallet
+
+<h2>Sound</h2>
+Sounds, flashes, logs or other events that happen when KDE applications.
+System Bell
+System Notifications
+
+<h2>User Account</h2>
+- Password changer, paths, Default Applications, Session Manager
+
+<hr>
+<a name="hardware"><h1>Hardware</h1></a>
+Hardware deals with physical hardware configuration.  Configuration is not only for the hardware, but the required supporting systems that use the hardware.
+
+<h2>Network</h2>
+File Sharing
+Local Network Browsing
+Preferences / Proxy
+Wireless
+Firewall
+<h2>Display</h2>
+It contains the following items:<br>
+Size & Orientation, Gamma
+<h2>Power control</h2>
+Display power control
+laptop battery
+<h2>Keyboard & Mouse</h2>
+Keyboard, Keyboard Layout, Keyboard Shortcuts, Mouse, KHotKeys
+<h2>Printer</h2>
+<h2>Joystick</h2>
+<h2>Audio</h2>
+Mixer, SoundSystem (arts)
+
+<hr>
+<a name="system"><h1>System</h1></a>
+System deals with settings relating to this computer.
+
+<h2>Date & Time</h2>
+Date, Time, Time zone
+
+<h2>Fonts</h2>
+
+<h2>Book Disk</h2>
+Lilo, Grub
+
+<h2>Packages</h2>
+System update / rpm manager etc
+
+<h2>Login Manager</h2>
+Login Manger
+
+<hr>
+<a name="other"><h1>Other</h1></a>
+A default KDE install should contain nothing here.  If there is something here than this document has failed and needs to be revised.  Until that can happen its temporary home is here.  A user should never see this catagory.
+

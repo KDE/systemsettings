@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=kcmshell componentchooser
+Icon=misc
+Type=Application
+
+X-KDE-Library=componentchooser
+
+X-KDE-ParentApp=kcontrol
+
+Name=Default Applications
+Comment=Choose the default application for various services
+Keywords=components,component chooser,resources, email client, terminal emulator, default, browser
+Categories=Qt;KDE;X-KDE-settings-user-account;
