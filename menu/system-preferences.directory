@@ -2,6 +2,8 @@
 Encoding=UTF-8
 Name=System Preferences
 Name[mt]=Preferenzi tas-sistema
+Name[ru]=Системное администрирование
+Name[sv]=Systeminställningar
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systempreferences
