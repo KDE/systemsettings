@@ -8,6 +8,12 @@ alignment of the icons
 config icon sizes
 command line option to open in new window
 
+
+-Date & Time icon should have a Clock
+-Samba needs to be renamed "Samba Server"
+-Monitor -> Display
+Should "Font Installer" be just "Fonts"?
+
 Search
 -Make search smaller and on the right
 -Grep docs?
