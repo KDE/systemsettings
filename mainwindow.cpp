@@ -135,7 +135,7 @@ void MainWindow::buildActions()
 
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
-                                        "all itmes are shown again." ) );
+                                        "all items are shown again." ) );
 }
 
 /**
