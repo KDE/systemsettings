@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=System Preferences
+Name[mt]=Preferenzi tas-sistema
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systempreferences
