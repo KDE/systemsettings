@@ -47,7 +47,8 @@
 #include "kcmultiwidget.h"
 
 MainWindow::MainWindow(QWidget *parent, const char *name) :
-				KMainWindow(parent,name), reportBugAction(NULL), dummyAbout(NULL) {
+				KMainWindow(parent,name), groupWidget(NULL),
+				reportBugAction(NULL), dummyAbout(NULL) {
 	buildMainWidget();
 	buildActions();
 	setupGUI();
@@ -261,7 +262,7 @@ void MainWindow::resetModuleHelp() {
 void MainWindow::widgetChange() {
 	resize( minimumSizeHint() );
 	QString name;
-	if( groupWidget && groupWidget->currentModule() && groupWidget->currentModule())
+	if( groupWidget && groupWidget->currentModule())
 		name = groupWidget->currentModule()->moduleInfo().moduleName();
 	
 	if( !groupWidget )
