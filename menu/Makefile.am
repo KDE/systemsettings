@@ -1,7 +1,7 @@
 #temporary till KDE4 and it can be renamed
 xdg_apps_DATA = defaultapplication.desktop
 
-xdg_menu_DATA = system-preferences.menu
+xdg_menu_DATA = system-preferences.menu system-preferences.directory
 
 xdg_mergedmenu_DATA = system-preferences-merge.menu
 xdg_mergedmenudir = $(xdg_menudir)/applications-merged
