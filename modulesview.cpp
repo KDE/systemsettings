@@ -65,10 +65,10 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 	// Make empty iconView for the search widget
 	if( groups.count()==0 ) {
 		RowIconView *iconView = new RowIconView( this, "groupiconview" );
-		iconView->setPaletteBackgroundColor( paletteBackgroundColor() );
 		iconView->setLineWidth( 0 );
 		groups.append(iconView);
 	}
+	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
 }
 
 ModulesView::~ModulesView()
@@ -111,7 +111,6 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 
 	// Make IconView
 	RowIconView *iconView = new RowIconView( this, "groupiconview" );
-	iconView->setPaletteBackgroundColor( paletteBackgroundColor() );
 	iconView->setFrameShape( RowIconView::StyledPanel );
 	iconView->setLineWidth( 0 );
 	iconView->setSpacing( 6 );

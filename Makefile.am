@@ -37,5 +37,9 @@ xdg_apps_DATA = systempreferences.desktop
 
 KDE_ICON=AUTO
 
+# KDE4 will have this by default 
+conf_DATA = systempreferencesrc
+confdir = $(kde_confdir)
+
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kcontrol.pot
