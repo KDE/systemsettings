@@ -178,18 +178,35 @@
 		</Menu>
 		
 	</Menu>
+	
+	<Menu>
+		<Name>Network</Name>
+		<Directory>kde-settings-network.directory</Directory>
+		
+		<Menu>
+			<Name>Connection</Name>
+			<Directory>kde-settings-networkconnection.directory</Directory>
+		
+			<Include>
+				<Filename>kde-kcmwifi.desktop</Filename>
+				<Filename>kde-proxy.desktop</Filename>
+				<Filename>kde-netpref.desktop</Filename>
+			</Include>
+		</Menu>
+		
+		<Include>
+			<Category>X-KDE-settings-network</Category>
+		</Include>
+		<Exclude>
+			<Filename>kde-kcmwifi.desktop</Filename>
+			<Filename>kde-proxy.desktop</Filename>
+			<Filename>kde-netpref.desktop</Filename>
+		</Exclude>
+	</Menu>
 
 	<Menu>
 		<Name>Hardware</Name>
 		<Directory>kde-settings-hardware.directory</Directory>
-
-		<Menu>
-			<Name>Network</Name>
-			<Directory>kde-settings-network.directory</Directory>
-			<Include>
-				<Category>X-KDE-settings-network</Category>
-			</Include>
-		</Menu>
 
 		<Include>
 			<Category>X-KDE-settings-hardware</Category>
