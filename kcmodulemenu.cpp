@@ -108,9 +108,13 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 
 QValueList<KCModuleInfo> KCModuleMenu::modules( const QString &menuPath )
 {
-	if( menuPath.isEmpty() )
-		return modules( d->basePath );
-
+	if( menuPath.isEmpty() ) {
+		if( d->basePath.isEmpty())
+			return QValueList<KCModuleInfo>();
+		else
+			return modules( d->basePath );
+	}
+	
 	KCModuleMenuPrivate::ModuleMenu *subMenu = d->subMenus.find( menuPath );
 	if( subMenu )
 		return subMenu->modules;
@@ -120,8 +124,12 @@ QValueList<KCModuleInfo> KCModuleMenu::modules( const QString &menuPath )
 
 QStringList KCModuleMenu::submenus( const QString &menuPath )
 {
-	if( menuPath.isEmpty() )
-		return submenus( d->basePath );
+	if( menuPath.isEmpty() ) {
+		if( d->basePath.isEmpty())
+			return QStringList();
+		else
+			return submenus( d->basePath );
+	}
 
 	KCModuleMenuPrivate::ModuleMenu *subMenu = d->subMenus.find( menuPath );
 	if( subMenu )
