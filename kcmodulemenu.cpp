@@ -27,17 +27,9 @@
 class KCModuleMenuPrivate {
 public:
 	KCModuleMenuPrivate(){
-		subMenus.setAutoDelete(true);
 	}
 				
-	class ModuleMenu {
-	public:
-		QValueList<KCModuleInfo> modules;
-		QStringList submenus;
-	};
-	
 	QMap<QString, QValueList<MenuItem> > menus;
-	QDict<ModuleMenu> subMenus;
 	QString basePath;
 };
 
@@ -71,9 +63,6 @@ void KCModuleMenu::readMenu( const QString &pathName )
 	if( list.isEmpty() )
 		return;
 
-	KCModuleMenuPrivate::ModuleMenu *menu = new KCModuleMenuPrivate::ModuleMenu;
-	d->subMenus.insert( pathName, menu );
-
 	QValueList<MenuItem> currentMenu;
 			
 	for( KServiceGroup::List::ConstIterator it = list.begin();
@@ -83,7 +72,6 @@ void KCModuleMenu::readMenu( const QString &pathName )
 		if( addEntry(entry) ) {
 			KCModuleInfo module((KService*)entry);
 			append(module);
-			menu->modules.append(module);
 
 			MenuItem infoItem(false);
 			infoItem.item = module;
@@ -96,7 +84,6 @@ void KCModuleMenu::readMenu( const QString &pathName )
 			currentMenu.append( menuItem );
 
 			readMenu( entry->entryPath() );
-			menu->submenus.append( entry->entryPath() );
 		}
 	}
 
@@ -121,34 +108,30 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 
 QValueList<KCModuleInfo> KCModuleMenu::modules( const QString &menuPath )
 {
-	if( menuPath.isEmpty() ) {
-		if( d->basePath.isEmpty())
-			return QValueList<KCModuleInfo>();
-		else
-			return modules( d->basePath );
-	}
-	
-	KCModuleMenuPrivate::ModuleMenu *subMenu = d->subMenus.find( menuPath );
-	if( subMenu )
-		return subMenu->modules;
+	QValueList<KCModuleInfo> list;
 
-	return QValueList<KCModuleInfo>();
+	QValueList<MenuItem> subMenu = menuList(menuPath);
+	QValueList<MenuItem>::iterator it;
+	for ( it = subMenu.begin(); it != subMenu.end(); ++it ){
+		if ( !(*it).menu )
+			list.append( (*it).item );
+	}
+
+	return list;
 }
 
 QStringList KCModuleMenu::submenus( const QString &menuPath )
 {
-	if( menuPath.isEmpty() ) {
-		if( d->basePath.isEmpty())
-			return QStringList();
-		else
-			return submenus( d->basePath );
+	QStringList list;
+
+	QValueList<MenuItem> subMenu = menuList(menuPath);
+	QValueList<MenuItem>::iterator it;
+	for ( it = subMenu.begin(); it != subMenu.end(); ++it ){
+		if ( (*it).menu )
+			list.append( (*it).subMenu );
 	}
 
-	KCModuleMenuPrivate::ModuleMenu *subMenu = d->subMenus.find( menuPath );
-	if( subMenu )
-		return subMenu->submenus;
-
-	return QStringList();
+	return list;
 }
 
 QValueList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
@@ -159,6 +142,6 @@ QValueList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
 		else
 			return menuList( d->basePath );
 	}
-	return d->menus[menuPath];	
+	return d->menus[menuPath];
 }
 
