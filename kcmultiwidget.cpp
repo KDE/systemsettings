@@ -351,7 +351,7 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 	
 	int res = KMessageBox::warningYesNo(this,
 				i18n("There are unsaved changes in the active module.\n"
-    			 "Do you want to apply the changes or discard the changes?"),
+    			 "Do you want to apply the changes or discard them?"),
                                           i18n("Unsaved Changes"),
                                           KStdGuiItem::apply(),
                                          KStdGuiItem::discard());
