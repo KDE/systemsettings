@@ -10,13 +10,11 @@ X-KDE-ParentApp=kcontrol
 
 Name=Default Applications
 Name[ga]=Feidhmchláir Réamhshocraithe
-Name[mt]=Programmi Standard
 Name[nl]=Standaardtoepassingen
 Name[pt_BR]=Aplicativos Padrão
 Name[ru]=Приложения по умолчанию
 Name[sv]=Förvalda program
 Comment=Choose the default application for various services
-Comment[mt]=Agħżel il-programmi standard għas-servizzi
 Comment[nl]=Kies de standaardtoepassingen voor diverse diensten
 Comment[pt_BR]=Escolha o aplicativo padrão de váriso serviços
 Comment[ru]=Выберите приложения по умолчанию для различных задач
