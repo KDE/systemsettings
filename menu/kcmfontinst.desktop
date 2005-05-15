@@ -14,6 +14,7 @@ X-KDE-ParentApp=kcontrol
 
 Name=Fonts
 Name[br]=Fontoù
+Name[el]=Γραμματοσειρές
 Name[ga]=Clónna
 Name[nl]=Lettertypen
 Name[pt_BR]=Fontes
@@ -22,6 +23,8 @@ Name[sv]=Teckensnitt
 
 Comment=Install & preview fonts
 Comment[da]=Installér og forhåndsvis skrifttyper
+Comment[el]=Εγκατάσταση & προεπισκόπηση γραμματοσειρών
+Comment[mt]=Installazzjoni u previżjoni ta' fonts
 Comment[nl]=Lettertypen installeren en bekijken
 Comment[pt_BR]=Instalação & pré-visualização de fontes
 Comment[ru]=Установка и управление шрифтами
@@ -30,6 +33,7 @@ Comment[sv]=Installera och förhandsgranska teckensnitt
 Keywords=font,fonts,installer,truetype,type1,speedo,bitmap
 Keywords[br]=nodrezh,nodrezhoù,stalier,truetype,type1,speedo,bitmap
 Keywords[da]=skrifttype,skrifttyper,installatør,truetype,type1,speedo,bitmap
+Keywords[el]=γραμματοσειρά,γραμματοσειρές,εγκαταστάτης,truetype,type1,speedo,bitmap
 Keywords[nl]=letters,lettertypen,fonts,installatie,truetype,type1,speedo,bitmap
 Keywords[pt_BR]=fonte,fontes,instalador,truetype,type1,speedo,bitmap
 Keywords[ru]=шрифт,шрифты,установка,TTF,truetype,type1,speedo,bitmap
