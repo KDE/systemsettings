@@ -118,7 +118,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
 		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
 	QFont textLabel_font(  textLabel->font() );
-  textLabel_font.setBold( TRUE );
+  textLabel_font.setBold( true );
   textLabel->setFont( textLabel_font ); 
 	rowLayout->addWidget( textLabel );
 
