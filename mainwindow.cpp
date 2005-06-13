@@ -92,7 +92,7 @@ void MainWindow::buildActions()
 	defaultModule->setEnabled(false);
 
 	if( embeddedWindows ) {
-		showAllAction = new KAction(i18n("Show &All"), 0, this,
+		showAllAction = new KAction(i18n("Show &All"), QApplication::reverseLayout() ? "forward" : "back", 0, this,
 								SLOT(showAllModules()), actionCollection(), "showAll" );
 		showAllAction->setEnabled(false);
 	}
