@@ -4,8 +4,8 @@
 <Menu>
         <!-- The following menus are hidden by default -->
 	<Menu>
-		<Name>System Preferences</Name>
-		<Directory>system-preferences.directory</Directory>
-                <MergeFile>../system-preferences.menu</MergeFile>
+		<Name>System Settings</Name>
+		<Directory>system-settings.directory</Directory>
+                <MergeFile>../system-settings.menu</MergeFile>
 	</Menu>
 </Menu>

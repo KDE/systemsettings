@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer
  *                    <ben+systempreferences at meyerhome dot net>
  *

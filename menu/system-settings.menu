@@ -2,7 +2,7 @@
   "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
 
 <Menu>
-	<Name>System Preferences</Name>
+	<Name>System Settings</Name>
 	
 	<DefaultLayout>
 		<Menuname>Personal</Menuname>

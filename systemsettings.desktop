@@ -1,6 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=System Preferences
+Exec=systemsettings -caption "%c" %i %m
+Icon=kcontrol
+Type=Application
+DocPath=systemsettings/index.html
+X-KDE-StartupNotify=true
+
+Name=System Settings
 Name[br]=Dibarzhoù ar reizhiad
 Name[el]=Προτιμήσεις συστήματος
 Name[it]=Preferenze di sistema
@@ -10,6 +16,6 @@ Name[pa]=ਸਿਸਟਮ ਪਸੰਦ
 Name[pt_BR]=Configurações do Sistema
 Name[ru]=Системное администрирование
 Name[sv]=Systeminställningar
-NoDisplay=true
-Icon=package_settings
-X-KDE-BaseGroup=systempreferences
+
+X-DCOP-ServiceType=Unique
+Categories=Qt;KDE;Core;

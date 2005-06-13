@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -38,7 +38,7 @@ class MainWindow : public KMainWindow
 	Q_OBJECT
 
 public:
-	MainWindow(bool embed=true, const QString &menufile="systempreferences", 
+	MainWindow(bool embed=true, const QString &menufile="systemsettings", 
 									QWidget *parent=0, const char *name=0);
 	~MainWindow();
 

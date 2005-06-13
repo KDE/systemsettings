@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -118,7 +118,7 @@ void MainWindow::buildActions()
 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Key_F6, 0, 0, actionCollection(), "searchText" );
 	searchLabel->setBuddy( search );
 
-	searchAction = new KWidgetAction( search, i18n( "Search System Preferences" ), 0,
+	searchAction = new KWidgetAction( search, i18n( "Search System Settings" ), 0,
                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
 	searchAction->setAutoSized( true );

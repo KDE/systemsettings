@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -41,13 +41,13 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 {
 	menu = new KCModuleMenu( menuName );
 	QVBoxLayout *layout = new QVBoxLayout( this, 11, 6, "layout" );
-	
+
 	QValueList<MenuItem> subMenus = menu->menuList();
  	QValueList<MenuItem>::iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){
 		if( !(*it).menu )
 			continue;
-		
+
 		// After the first time around add a line
 		if( it != subMenus.begin() ){
 			QFrame *line = new QFrame( this, "line");
@@ -119,7 +119,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
 	QFont textLabel_font(  textLabel->font() );
   textLabel_font.setBold( true );
-  textLabel->setFont( textLabel_font ); 
+  textLabel->setFont( textLabel_font );
 	rowLayout->addWidget( textLabel );
 
 	boxLayout->addLayout( rowLayout );

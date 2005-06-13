@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer
  *                    <ben+systempreferences at meyerhome dot net>
  *
@@ -55,11 +55,11 @@ bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search )
 			return true;
 		}
 	}
-	
-	// Don't forget to check the name :) 
+
+	// Don't forget to check the name :)
 	if ( QRegExp(search+"*", false, true).search(module.moduleName()) >= 0)
 		return true;
-	
+
 	//kdDebug() << "No MATCH:" << module.moduleName().latin1() << endl;
 	return false;
 }

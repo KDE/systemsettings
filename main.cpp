@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer
  *                    <ben+systempreferences at meyerhome dot net>
  *
@@ -28,7 +28,7 @@
 
 static KCmdLineOptions options[] =
 {
-	{ "menu <argument>", I18N_NOOP("Menu file"), "systempreferences" },
+	{ "menu <argument>", I18N_NOOP("Menu file"), "systemsettings" },
 	{ "e", 0, 0 },
 	{ "noembed", I18N_NOOP("Embed windows"), 0 },
 	KCmdLineLastOption
@@ -37,8 +37,8 @@ static KCmdLineOptions options[] =
 int main( int argc, char *argv[] )
 {
 	// About data
-  KAboutData aboutData("systempreferences", I18N_NOOP("System Preferences"),
-	  SYSTEM_PREFERENCES_VERSION, I18N_NOOP("System Preferences"),
+  KAboutData aboutData("systemsettings", I18N_NOOP("System Settings"),
+	  SYSTEM_SETTINGS_VERSION, I18N_NOOP("System Settings"),
 	  KAboutData::License_LGPL, "(c) 2005, Benjamin C. Meyer", 0, 0);
   aboutData.addAuthor("Benjamin C. Meyer", I18N_NOOP("Author & Maintainer"),
 	  "ben+systempreferences@meyerhome.net");

@@ -21,24 +21,24 @@ METASOURCES = AUTO
 
 SUBDIRS = . menu
 
-bin_PROGRAMS = systempreferences
+bin_PROGRAMS = systemsettings
 
-systempreferences_SOURCES = kcmodulemenu.cpp kcmsearch.cpp kcmultiwidget.cpp main.cpp mainwindow.cpp moduleiconitem.cpp modulesview.cpp
+systemsettings_SOURCES = kcmodulemenu.cpp kcmsearch.cpp kcmultiwidget.cpp main.cpp mainwindow.cpp moduleiconitem.cpp modulesview.cpp
 
 EXTRA_DIST = kcmodulemenu.h kcmultiwidget.h moduleiconitem.h version.h kcmsearch.h mainwindow.h modulesview.h
 
-systempreferences_LDADD  = $(LIB_KDEUI) $(LIB_KUTILS)
-systempreferences_LDFLAGS = $(all_libraries) -module -avoid-version
+systemsettings_LDADD  = $(LIB_KDEUI) $(LIB_KUTILS)
+systemsettings_LDFLAGS = $(all_libraries) -module -avoid-version
 
-appdata_DATA = systempreferencesui.rc
-appdatadir = $(kde_datadir)/systempreferences
+appdata_DATA = systemsettingsui.rc
+appdatadir = $(kde_datadir)/systemsettings
 
-xdg_apps_DATA = systempreferences.desktop
+xdg_apps_DATA = systemsettings.desktop
 
 KDE_ICON=AUTO
 
 # KDE4 will have this by default 
-conf_DATA = systempreferencesrc
+conf_DATA = systemsettingsrc
 confdir = $(kde_confdir)
 
 messages: rc.cpp

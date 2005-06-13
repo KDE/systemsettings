@@ -1,6 +1,6 @@
 This is an overview of how the code is situated and a very brief overview of what the classes do.  See the header files for a more indepth overview of what the classes do.
 
--- System Preferences classes --
+-- System Settings classes --
 
 mainwindow - The KMainWindow contains KActions, the stack of the iconlist and the current module(s) view.
 
@@ -19,13 +19,13 @@ To install a new menu you have to install three files.
 
 (if you have debian, if you have another system use locate to determine where kde-system.* is installed and install in the same place.
 
--/etc/xdg/menus/system-preferences.menu
--/etc/xdg/menus/applications-merged/system-preferences-merge.menu
--/usr/share/desktop-directories/system-preferences.directory
+-/etc/xdg/menus/system-settings.menu
+-/etc/xdg/menus/applications-merged/system-settings-merge.menu
+-/usr/share/desktop-directories/system-settings.directory
 
 Also don't forget to install the ui file.
--/share/apps/systempreferences/systempreferencesui.rc
+-/share/apps/systemsettings/systempreferencesui.rc
 And the desktop file.
--share/applications/kde/systempreferences.desktop
+-share/applications/kde/systemsettings.desktop
 
 When you change (or install) any of the first three files make sure to run kbuildsycoca to re-generate the cache files or log out and back in.

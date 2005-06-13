@@ -1,5 +1,5 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
  *
  * This program is free software; you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define SYSTEM_PREFERENCES_VERSION "0.2"
+#define SYSTEM_SETTINGS_VERSION "0.2"
 
 #endif // VERSION_H
 

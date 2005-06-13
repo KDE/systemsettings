@@ -93,7 +93,7 @@ public:
 	 * Example:
 	 * In example.directory
 	 * X-KDE-BaseGroup=examplemenu
-	 * so menuName should be "systempreferences"
+	 * so menuName should be "systemsettings"
 	 */
 	KCModuleMenu( const QString &menuName );
 

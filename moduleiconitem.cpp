@@ -1,7 +1,7 @@
 /**
- * This file is part of the System Preferences package
+ * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer
- *                    <ben+systempreferences at meyerhome dot net>
+*                    <ben+systempreferences at meyerhome dot net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ ModuleIconItem::ModuleIconItem( KIconView *parent, KCModuleInfo module)
 	modules.append(module);
 }
 
-ModuleIconItem::ModuleIconItem( KIconView *parent, const QString &text, 
+ModuleIconItem::ModuleIconItem( KIconView *parent, const QString &text,
 		const QString &imageName )
 	: QIconViewItem( parent, text, SmallIcon( imageName, IMAGE_SIZE ) ),
 			currentState( KIcon::ActiveState )
