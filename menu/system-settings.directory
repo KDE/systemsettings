@@ -1,6 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=System Settings
+Name[br]=Dibarzhoù ar Reizhiad
+Name[da]=Systemopsætning
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systemsettings
