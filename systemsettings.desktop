@@ -9,6 +9,7 @@ X-KDE-StartupNotify=true
 Name=System Settings
 Name[br]=Dibarzhoù ar Reizhiad
 Name[da]=Systemopsætning
+Name[ga]=Socruithe an Chórais
 
 X-DCOP-ServiceType=Unique
 Categories=Qt;KDE;Core;

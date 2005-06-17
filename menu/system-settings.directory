@@ -3,6 +3,7 @@ Encoding=UTF-8
 Name=System Settings
 Name[br]=Dibarzhoù ar Reizhiad
 Name[da]=Systemopsætning
+Name[ga]=Socruithe an Chórais
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systemsettings
