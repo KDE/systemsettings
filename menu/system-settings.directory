@@ -4,6 +4,7 @@ Name=System Settings
 Name[br]=Dibarzhoù ar Reizhiad
 Name[da]=Systemopsætning
 Name[ga]=Socruithe an Chórais
+Name[it]=Impostazioni di sistema
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systemsettings
