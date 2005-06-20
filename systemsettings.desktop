@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Exec=systemsettings -caption "%c" %i %m
-Icon=kcontrol
+Icon=systemsettings
 Type=Application
 DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
