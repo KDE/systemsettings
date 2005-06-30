@@ -14,6 +14,7 @@ X-KDE-ParentApp=kcontrol
 
 Name=Fonts
 Name[br]=Fontoù
+Name[cs]=Písma
 Name[el]=Γραμματοσειρές
 Name[et]=Fondid
 Name[ga]=Clónna
@@ -26,6 +27,7 @@ Name[ru]=Шрифты
 Name[sv]=Teckensnitt
 
 Comment=Install & preview fonts
+Comment[cs]=Instalace a náhled písem
 Comment[da]=Installér og forhåndsvis skrifttyper
 Comment[el]=Εγκατάσταση & προεπισκόπηση γραμματοσειρών
 Comment[et]=Fontide paigaldamine ja eelvaatlus
@@ -41,6 +43,7 @@ Comment[sv]=Installera och förhandsgranska teckensnitt
 
 Keywords=font,fonts,installer,truetype,type1,speedo,bitmap
 Keywords[br]=nodrezh,nodrezhoù,stalier,truetype,type1,speedo,bitmap
+Keywords[cs]=písmo,písma,instalátor,truetype,type1,speedo,bitmap
 Keywords[da]=skrifttype,skrifttyper,installatør,truetype,type1,speedo,bitmap
 Keywords[el]=γραμματοσειρά,γραμματοσειρές,εγκαταστάτης,truetype,type1,speedo,bitmap
 Keywords[et]=font,fondid,paigaldamine,truetype,type1,speedo,bitmap
