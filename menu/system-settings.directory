@@ -10,6 +10,7 @@ Name[it]=Impostazioni di sistema
 Name[pt]=Configuração do Sistema
 Name[pt_BR]=Configuração do Sistema
 Name[sv]=Systeminställningar
+Name[tr]=Sistem Ayarları
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systemsettings

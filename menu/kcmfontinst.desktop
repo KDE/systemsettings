@@ -25,6 +25,7 @@ Name[pt]=Tipos de Letra
 Name[pt_BR]=Fontes
 Name[ru]=Шрифты
 Name[sv]=Teckensnitt
+Name[tr]=Yazıtipleri
 
 Comment=Install & preview fonts
 Comment[cs]=Instalace a náhled písem
@@ -40,6 +41,7 @@ Comment[pt]=Instalar e antever tipos de letra
 Comment[pt_BR]=Instalação & pré-visualização de fontes
 Comment[ru]=Установка и управление шрифтами
 Comment[sv]=Installera och förhandsgranska teckensnitt
+Comment[tr]=Yazıtiplerini kur ve önizle
 
 Keywords=font,fonts,installer,truetype,type1,speedo,bitmap
 Keywords[br]=nodrezh,nodrezhoù,stalier,truetype,type1,speedo,bitmap
@@ -55,5 +57,6 @@ Keywords[pt]=tipo de letra,tipos de letra,instalador,truetype,type1,speedo,bitma
 Keywords[pt_BR]=fonte,fontes,instalador,truetype,type1,speedo,bitmap
 Keywords[ru]=шрифт,шрифты,установка,TTF,truetype,type1,speedo,bitmap
 Keywords[sv]=teckensnitt,installation,truetype,type1,speedo,bitmap
+Keywords[tr]=yazıtipi,yazıtipleri,kurulum programı,trutype,type1,speedo,bit eşlem
 
 Categories=Qt;KDE;X-KDE-settings-system;
