@@ -19,6 +19,7 @@ Name[pt]=Preferências do Sistema
 Name[pt_BR]=Configurações do Sistema
 Name[ru]=Системное администрирование
 Name[sv]=Systeminställningar
+Name[tr]=Sistem Tercihleri
 
 X-DCOP-ServiceType=Unique
 Categories=Qt;KDE;Core;
