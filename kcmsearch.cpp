@@ -30,7 +30,7 @@
 KcmSearch::KcmSearch( ModulesView *mainView, QWidget *parent, const char *name )
 				: KIconViewSearchLine(parent, mainView->groups[0], name){
 	this->mainView = mainView;
-};
+}
 
 void KcmSearch::updateSearch( const QString &search ) {
 	QValueList<RowIconView*>::iterator it;
