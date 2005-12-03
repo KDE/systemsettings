@@ -7,6 +7,7 @@ DocPath=systempreferences/index.html
 X-KDE-StartupNotify=true
 
 Name=System Preferences
+Name[bg]=Системни предпочитания
 Name[br]=Dibarzhoù ar reizhiad
 Name[cs]=Systomové preference
 Name[el]=Προτιμήσεις συστήματος

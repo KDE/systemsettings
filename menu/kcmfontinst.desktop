@@ -13,6 +13,7 @@ X-KDE-RootOnly=true
 X-KDE-ParentApp=kcontrol
 
 Name=Fonts
+Name[bg]=Шрифтове
 Name[br]=Fontoù
 Name[cs]=Písma
 Name[cy]=Ffontiau
@@ -37,6 +38,7 @@ Name[xx]=xxFontsxx
 Name[zh_CN]=字体
 
 Comment=Install & preview fonts
+Comment[bg]=Инсталиране и преглеждане на шрифтове
 Comment[cs]=Instalace a náhled písem
 Comment[cy]=Gosod a rhagolygu ffontiau
 Comment[da]=Installér og forhåndsvis skrifttyper
@@ -62,6 +64,7 @@ Comment[xx]=xxInstall & preview fontsxx
 Comment[zh_CN]=安装并预览字体
 
 Keywords=font,fonts,installer,truetype,type1,speedo,bitmap
+Keywords[bg]=шрифт,шрифтове,инсталатор,truetype,type1,speedo,bitmap
 Keywords[br]=nodrezh,nodrezhoù,stalier,truetype,type1,speedo,bitmap
 Keywords[cs]=písmo,písma,instalátor,truetype,type1,speedo,bitmap
 Keywords[cy]=ffont,ffontiau,wynebfath, wynebfathau,arsefydlydd,truetype,type1,math 1,speedo,didfap
