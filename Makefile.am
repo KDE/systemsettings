@@ -42,4 +42,4 @@ conf_DATA = systemsettingsrc
 confdir = $(kde_confdir)
 
 messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/kcontrol.pot
+	$(XGETTEXT) *.cpp -o $(podir)/systemsettings.pot
