@@ -39,6 +39,7 @@
 #include <kdebug.h>
 #include <kcmoduleproxy.h>
 #include <kbugreport.h>
+#include <kmenubar.h>
 
 #include "kcmsearch.h"
 #include "modulesview.h"
@@ -53,6 +54,7 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 	buildMainWidget( menuFile );
 	buildActions();
 	setupGUI();
+	menuBar()->hide();
 
 	// Steal the report bug
 	reportBugAction = actionCollection()->action("help_report_bug");
