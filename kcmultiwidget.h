@@ -101,11 +101,6 @@ public:
 			parentmodulenames = QStringList(), bool withfallback=false);
 
 	/**
-	 * Remove all modules from the dialog.
-	 */
-	void removeAllModules();
-
-	/**
 	 * @return the current module that is being shown.
 	 */
 	KCModuleProxy * currentModule();

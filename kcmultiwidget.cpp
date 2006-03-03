@@ -89,12 +89,6 @@ inline void KCMultiWidget::init()
 
 KCMultiWidget::~KCMultiWidget()
 {
-	{
-	OrphanMap::Iterator end2 = m_orphanModules.end();
-	for( OrphanMap::Iterator it = m_orphanModules.begin(); it != end2; ++it ){
-			}
-	}
-				
 	OrphanMap::Iterator end2 = m_orphanModules.end();
 	for( OrphanMap::Iterator it = m_orphanModules.begin(); it != end2; ++it )
 		delete ( *it );
@@ -314,34 +308,10 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 	}
 }
 
-void KCMultiWidget::removeAllModules()
-{
-	kdDebug( 710 ) << k_funcinfo << endl;
-	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-	{
-		kdDebug( 710 ) << "remove 2" << endl;
-		KCModuleProxy * kcm = ( *it ).kcm;
-		QObject * page = kcm->parent();
-		kcm->hide();
-		if( page )
-		{
-			// I hate this
-			kcm->reparent( 0, QPoint( 0, 0 ), false );
-			delete page;
-		}
-		m_orphanModules[ ( *it ).service ] = kcm;
-		kdDebug( 710 ) << "added KCModule to the list of orphans: " <<
-			kcm << endl;
-	}
-	m_modules.clear();
-	// all modules are gone, none can be changed
-	clientChanged( false );
-}
-
 KCModuleProxy * KCMultiWidget::currentModule() {
-	if(d)
+	if(d) {
 		return d->currentModule;
+	}
 	return NULL;
 }
 
@@ -355,9 +325,9 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
                                           i18n("Unsaved Changes"),
                                           KStdGuiItem::apply(),
                                          KStdGuiItem::discard());
-	if (res == KMessageBox::Yes)
+	if (res == KMessageBox::Yes) {
 		slotApply();
-	else{
+	} else {
 		module->load();
 		clientChanged( false );
 	}
@@ -415,17 +385,10 @@ void KCMultiWidget::disableRModeButton()
 void KCMultiWidget::dialogClosed()
 {
 	if(d)
+	{
 		applyOrRevert(d->currentModule);
-	
+	}
 	kdDebug() << k_funcinfo << endl;
-
-	/* If we don't delete them, the DCOP registration stays, and trying to load the KCMs 
-	 * in other situations will lead to "module already loaded in Foo," while to the user 
-	 * doesn't appear so(the dialog is hidden) */
-	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-		( *it ).kcm->deleteClient();
 }
-
 
 #include "kcmultiwidget.moc"

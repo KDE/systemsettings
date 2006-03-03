@@ -23,6 +23,7 @@
 
 #include <kmainwindow.h>
 #include <kcmoduleinfo.h>
+#include <qptrdict.h>
 
 class QWidgetStack;
 class QIconViewItem;
@@ -59,6 +60,7 @@ private:
 	QWidgetStack *windowStack;
 	ModulesView *modulesView;
 	KCMultiWidget *groupWidget;
+	QPtrDict<KCMultiWidget> moduleItemToWidgetDict;
 
 	KAction *resetModule;
 	KAction *defaultModule;

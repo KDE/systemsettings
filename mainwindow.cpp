@@ -189,23 +189,12 @@ void MainWindow::aboutCurrentModule()
 
 void MainWindow::groupModulesFinished()
 {
-	windowStack->removeWidget( groupWidget );
-	groupWidget = NULL;
 	showAllModules();
 }
 
 void MainWindow::showAllModules()
 {
 	windowStack->raiseWidget(modulesView);
-
-	if( groupWidget ){
-		windowStack->removeWidget( groupWidget );
-		groupWidget->removeAllModules();
-		groupWidget->close(true);
-		groupWidget = NULL;
-	}
-	else
-		kdDebug() << "No group widget." << endl;
 
 	// Wait for the widget to be removed from the parent before resizing
 	qApp->processEvents();
@@ -229,34 +218,39 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 	if( !mItem )
 		return;
 
- 	QValueList<KCModuleInfo> list = mItem->modules;
-	KDialogBase::DialogType type = KDialogBase::IconList;
-	if(list.count() == 1)
-		type=KDialogBase::Plain;
-	groupWidget = new KCMultiWidget(type, windowStack, "moduleswidget");
-	connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
-	connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
-	connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
+	groupWidget = moduleItemToWidgetDict.find(mItem);
 
-	QValueList<KCModuleInfo>::iterator it;
-	for ( it = list.begin(); it != list.end(); ++it ){
-		qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
-		groupWidget->addModule(	*it );
+	if(groupWidget==0) {
+		QValueList<KCModuleInfo> list = mItem->modules;
+		KDialogBase::DialogType type = KDialogBase::IconList;
+		if(list.count() == 1) {
+			type=KDialogBase::Plain;
+		}
+		groupWidget = new KCMultiWidget(type, windowStack, "moduleswidget");
+		moduleItemToWidgetDict.insert(mItem,groupWidget);
+		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
+		connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
+		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
+		windowStack->addWidget(groupWidget);
+		QValueList<KCModuleInfo>::iterator it;
+		for ( it = list.begin(); it != list.end(); ++it ){
+			qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
+			groupWidget->addModule(	*it );
+		}
+		groupWidget->reparent(windowStack, 0, QPoint());
 	}
 
 	if( embeddedWindows ) {
-		groupWidget->reparent(windowStack, 0, QPoint());
-		int stackId = windowStack->addWidget(groupWidget);
-		windowStack->raiseWidget( stackId );
+		windowStack->raiseWidget( groupWidget );
 		setCaption( mItem->text() );
 		resize( minimumSizeHint() );
 		showAllAction->setEnabled(true);
 		searchText->setEnabled(false);
 		searchClear->setEnabled(false);
 		searchAction->setEnabled(false);
-	}
-	else
+	} else {
 		groupWidget->show();
+	}
 }
 
 void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
