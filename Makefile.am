@@ -23,9 +23,9 @@ SUBDIRS = . menu
 
 bin_PROGRAMS = systemsettings
 
-systemsettings_SOURCES = kcmodulemenu.cpp kcmsearch.cpp kcmultiwidget.cpp main.cpp mainwindow.cpp moduleiconitem.cpp modulesview.cpp
+systemsettings_SOURCES = kcmodulemenu.cpp kcmsearch.cpp kcmultiwidget.cpp main.cpp mainwindow.cpp moduleiconitem.cpp modulesview.cpp kcscrollview.cpp
 
-EXTRA_DIST = kcmodulemenu.h kcmultiwidget.h moduleiconitem.h version.h kcmsearch.h mainwindow.h modulesview.h
+EXTRA_DIST = kcmodulemenu.h kcmultiwidget.h moduleiconitem.h version.h kcmsearch.h mainwindow.h modulesview.h kcscrollview.h
 
 systemsettings_LDADD  = $(LIB_KDEUI) $(LIB_KUTILS)
 systemsettings_LDFLAGS = $(all_libraries) -module -avoid-version

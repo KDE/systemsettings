@@ -352,10 +352,8 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 	d->currentModule = module;
 	emit ( aboutToShow( d->currentModule ) );
 	
-	enableButton( KDialogBase::Help,
-			d->currentModule->buttons() & KCModule::Help );
-	enableButton( KDialogBase::Default,
-			d->currentModule->buttons() & KCModule::Default );
+	enableButton( KDialogBase::Help, d->currentModule->buttons() & KCModule::Help );
+	enableButton( KDialogBase::Default, d->currentModule->buttons() & KCModule::Default );
 
 	disconnect( this, SIGNAL(user2Clicked()), 0, 0 );
 

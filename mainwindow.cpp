@@ -30,6 +30,7 @@
 #include <kservicegroup.h>
 #include <qlayout.h>
 #include <qwidgetstack.h>
+#include <qtimer.h>
 #include <kiconloader.h>
 #include <kcmoduleloader.h>
 #include <kdialogbase.h>
@@ -58,9 +59,9 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 
 	// Steal the report bug
 	reportBugAction = actionCollection()->action("help_report_bug");
-  if(reportBugAction){
+	if(reportBugAction){
 		reportBugAction->disconnect();
-	  connect(reportBugAction, SIGNAL(activated()), SLOT(reportBug()));
+		connect(reportBugAction, SIGNAL(activated()), SLOT(reportBug()));
 	}
 
 	widgetChange();
@@ -74,8 +75,10 @@ MainWindow::~MainWindow()
 void MainWindow::buildMainWidget( const QString &menuFile )
 {
 	windowStack = new QWidgetStack( this, "widgetstack" );
-	modulesView = new ModulesView( menuFile, windowStack, "modulesView" );
-	windowStack->addWidget(modulesView);
+	modulesScroller = new KCScrollView(windowStack);
+	modulesView = new ModulesView( menuFile, modulesScroller->viewport(), "modulesView" );
+	modulesScroller->addChild(modulesView);
+	windowStack->addWidget(modulesScroller);
 
 	connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
 	setCentralWidget(windowStack);
@@ -194,7 +197,7 @@ void MainWindow::groupModulesFinished()
 
 void MainWindow::showAllModules()
 {
-	windowStack->raiseWidget(modulesView);
+	windowStack->raiseWidget(modulesScroller);
 
 	// Wait for the widget to be removed from the parent before resizing
 	qApp->processEvents();
@@ -215,10 +218,12 @@ void MainWindow::showAllModules()
 
 void MainWindow::slotItemSelected( QIconViewItem *item ){
 	ModuleIconItem *mItem = (ModuleIconItem *)item;
+
 	if( !mItem )
 		return;
 
 	groupWidget = moduleItemToWidgetDict.find(mItem);
+	scrollView = moduleItemToScrollerDict.find(mItem);
 
 	if(groupWidget==0) {
 		QValueList<KCModuleInfo> list = mItem->modules;
@@ -226,30 +231,51 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		if(list.count() == 1) {
 			type=KDialogBase::Plain;
 		}
-		groupWidget = new KCMultiWidget(type, windowStack, "moduleswidget");
+
+		scrollView = new KCScrollView(windowStack);
+		groupWidget = new KCMultiWidget(type, scrollView->viewport(), "moduleswidget");
+                scrollView->addChild(groupWidget);
+		windowStack->addWidget(scrollView);
+                moduleItemToScrollerDict.insert(mItem,scrollView);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);
+
 		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
 		connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
 		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
-		windowStack->addWidget(groupWidget);
+
 		QValueList<KCModuleInfo>::iterator it;
 		for ( it = list.begin(); it != list.end(); ++it ){
 			qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
 			groupWidget->addModule(	*it );
 		}
-		groupWidget->reparent(windowStack, 0, QPoint());
+		groupWidget->reparent(scrollView->viewport(), 0, QPoint());
+		scrollView->reparent(windowStack, 0, QPoint());
 	}
 
 	if( embeddedWindows ) {
-		windowStack->raiseWidget( groupWidget );
+		windowStack->raiseWidget( scrollView );
+
 		setCaption( mItem->text() );
-		resize( minimumSizeHint() );
 		showAllAction->setEnabled(true);
 		searchText->setEnabled(false);
 		searchClear->setEnabled(false);
 		searchAction->setEnabled(false);
 	} else {
-		groupWidget->show();
+		scrollView->show();
+	}
+
+	// We resize and expand the window if neccessary, but only once the window has been updated.
+	// Some modules seem to dynamically change thier size. The new size is only available
+	// once the dialog is updated. :-/ -SBE
+	QTimer::singleShot(0,this,SLOT(timerResize()));
+}
+
+void MainWindow::timerResize() {
+	QSize currentSize = size();
+	QSize newSize = currentSize.expandedTo(sizeHint());
+	// Avoid resizing if possible.
+	if(newSize!=currentSize) {
+		resize(newSize);
 	}
 }
 
@@ -272,7 +298,6 @@ void MainWindow::resetModuleHelp() {
 }
 
 void MainWindow::widgetChange() {
-	resize( minimumSizeHint() );
 	QString name;
 	if( groupWidget && groupWidget->currentModule())
 		name = groupWidget->currentModule()->moduleInfo().moduleName();

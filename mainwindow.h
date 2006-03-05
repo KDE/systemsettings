@@ -24,6 +24,7 @@
 #include <kmainwindow.h>
 #include <kcmoduleinfo.h>
 #include <qptrdict.h>
+#include "kcscrollview.h"
 
 class QWidgetStack;
 class QIconViewItem;
@@ -54,13 +55,19 @@ private slots:
 	void groupModulesFinished();
 
 	void widgetChange();
+	void timerResize();
 
 private:
 	bool embeddedWindows;
 	QWidgetStack *windowStack;
 	ModulesView *modulesView;
+	KCScrollView *modulesScroller;
+
 	KCMultiWidget *groupWidget;
+	KCScrollView *scrollView;
+
 	QPtrDict<KCMultiWidget> moduleItemToWidgetDict;
+	QPtrDict<KCScrollView> moduleItemToScrollerDict;
 
 	KAction *resetModule;
 	KAction *defaultModule;
