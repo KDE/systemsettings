@@ -199,10 +199,8 @@ void MainWindow::showAllModules()
 {
 	windowStack->raiseWidget(modulesScroller);
 
-	// Wait for the widget to be removed from the parent before resizing
-	qApp->processEvents();
-
 	// Reset the widget for normal all widget viewing
+	groupWidget = 0;
 	widgetChange();
 
 	if( embeddedWindows )
@@ -302,14 +300,15 @@ void MainWindow::widgetChange() {
 	if( groupWidget && groupWidget->currentModule())
 		name = groupWidget->currentModule()->moduleInfo().moduleName();
 
-	if( !groupWidget )
+	if( !groupWidget ) {
 		setCaption( "" );
-
+		modulesView->clearSelection();
+	}
 	if ( !reportBugAction )
 		return;
-  if( name.isEmpty() )
+	if( name.isEmpty() )
 		reportBugAction->setText(i18n("&Report Bug..."));
-  else
+	else
 		reportBugAction->setText(i18n("Report Bug on Module %1...").arg( name.replace("&","&&")));
 }
 

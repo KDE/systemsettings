@@ -118,8 +118,8 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
 		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
 	QFont textLabel_font(  textLabel->font() );
-  textLabel_font.setBold( true );
-  textLabel->setFont( textLabel_font );
+	textLabel_font.setBold( true );
+	textLabel->setFont( textLabel_font );
 	rowLayout->addWidget( textLabel );
 
 	boxLayout->addLayout( rowLayout );
@@ -158,5 +158,11 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	iconView->setMinimumHeight( iconView->minimumSizeHint().height() );
 }
 
+void ModulesView::clearSelection() {
+	QValueList<RowIconView*>::iterator it;
+	for ( it = groups.begin(); it != groups.end(); ++it ) {
+		(*it)->clearSelection();
+	}
+}
 
 #include "modulesview.moc"

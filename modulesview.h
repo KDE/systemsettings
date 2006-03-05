@@ -77,6 +77,8 @@ class ModulesView : public QWidget
 	friend class KcmSearch;
 
 Q_OBJECT
+public:
+	void clearSelection();
 
 signals:
 	void itemSelected( QIconViewItem* item );
