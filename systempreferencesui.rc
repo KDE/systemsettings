@@ -17,7 +17,7 @@
 	</Menu>
 </MenuBar>
 
-<ToolBar name="mainToolBar">
+<ToolBar name="mainToolBar" iconText="icontextright">
 	<Action name="showAll"/>
 	<Separator/>
 	<Action name="searchReset"/>

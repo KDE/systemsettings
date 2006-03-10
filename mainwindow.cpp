@@ -130,7 +130,7 @@ void MainWindow::buildActions()
 	QWhatsThis::add( search, i18n( "Search Bar<p>"
 													        "Enter a search term." ) );
 
-	searchClear = new KAction( i18n( "Reset" ),
+	searchClear = new KAction( QString(""),
                                            QApplication::reverseLayout()
                                            ? "clear_left"
                                            : "locationbar_erase",
