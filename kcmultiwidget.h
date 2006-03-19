@@ -229,7 +229,6 @@ private:
 	{
 		KCModuleProxy * kcm;
 		KService::Ptr service;
-		/* KDE 4 Move to Private class */
 	};
 	typedef QValueList<CreatedModule> ModuleList;
 	ModuleList m_modules;

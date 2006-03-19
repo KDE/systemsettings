@@ -49,7 +49,6 @@ private slots:
 	void showAllModules();
 	void aboutCurrentModule();
 	void updateModuleHelp( KCModuleProxy * );
-	void reportBug();
 	
 	void resetModuleHelp();
 	void groupModulesFinished();
@@ -77,7 +76,6 @@ private:
 	KAction *searchClear;
 	KWidgetAction *searchAction;
 
-	KAction *reportBugAction;
 	KAction *aboutModuleAction;
 	
 	void buildMainWidget( const QString &menuFile );

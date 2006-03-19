@@ -41,7 +41,6 @@
 #include "kcmoduleloader.h"
 #include "kcmoduleproxy.h"
 #include "kcmultiwidget.h"
-//#include "kcmultidialog.moc"
 
 class KCMultiWidget::KCMultiWidgetPrivate
 {

@@ -51,19 +51,11 @@
 MainWindow::MainWindow(bool embed, const QString & menuFile,
 								QWidget *parent, const char *name) :
 				KMainWindow(parent,name), embeddedWindows(embed), groupWidget(NULL),
-				reportBugAction(NULL), dummyAbout(NULL) {
+				dummyAbout(NULL) {
 	buildMainWidget( menuFile );
 	buildActions();
 	setupGUI();
 	menuBar()->hide();
-
-	// Steal the report bug
-	reportBugAction = actionCollection()->action("help_report_bug");
-	if(reportBugAction){
-		reportBugAction->disconnect();
-		connect(reportBugAction, SIGNAL(activated()), SLOT(reportBug()));
-	}
-
 	widgetChange();
 }
 
@@ -109,16 +101,8 @@ void MainWindow::buildActions()
 	KcmSearch* search = new KcmSearch(modulesView, 0, "search");
 	search->setMaximumWidth( 200 );
 
-	/*
-	// Move to the right
-	KToolBar *bar = (KToolBar *)widget;
-  int id_ = getToolButtonID();
-  bar->alignItemRight( id_ );
-	*/
-
 	QLabel *searchLabel = new QLabel( this, "SearchLabel");
 	searchLabel->setText( i18n("&Search:") );
-	//searchLabel->setPixmap( SmallIcon("find"));
 	searchLabel->setMargin(2);
 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Key_F6, 0, 0, actionCollection(), "searchText" );
 	searchLabel->setBuddy( search );
@@ -141,41 +125,6 @@ void MainWindow::buildActions()
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
                                         "all items are shown again." ) );
-}
-
-/**
- * From the old KControl module.
- * Copyright (c) 1999 Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
- * Copyright (c) 2000 Matthias Elter <elter@kde.org>
- */
-void MainWindow::reportBug()
-{
-	// this assumes the user only opens one bug report at a time
-  static char buffer[128];
-
-  dummyAbout = 0;
-  bool deleteit = false;
-
-	if (!groupWidget || !groupWidget->currentModule()) // report against kcontrol
-		dummyAbout = const_cast<KAboutData*>(KGlobal::instance()->aboutData());
-	else
-	{
-		if (groupWidget->currentModule()->aboutData())
-			dummyAbout = const_cast<KAboutData*>(groupWidget->currentModule()->aboutData());
-		else
-		{
-			snprintf(buffer, sizeof(buffer), "kcm%s", groupWidget->currentModule()->moduleInfo().library().latin1());
-			dummyAbout = new KAboutData(buffer, groupWidget->currentModule()->moduleInfo().moduleName().utf8(), "2.0");
-			deleteit = true;
-		}
-	}
-	KBugReport *br = new KBugReport(this, false, dummyAbout);
-	if (deleteit)
-		connect(br, SIGNAL(finished()), SLOT(deleteDummyAbout()));
-	else
-		dummyAbout = 0;
-	br->show();
-
 }
 
 void MainWindow::aboutCurrentModule()
@@ -304,13 +253,6 @@ void MainWindow::widgetChange() {
 		setCaption( "" );
 		modulesView->clearSelection();
 	}
-	if ( !reportBugAction )
-		return;
-	if( name.isEmpty() )
-		reportBugAction->setText(i18n("&Report Bug..."));
-	else
-		reportBugAction->setText(i18n("Report Bug on Module %1...").arg( name.replace("&","&&")));
 }
-
 
 #include "mainwindow.moc"
