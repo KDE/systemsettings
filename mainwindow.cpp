@@ -189,6 +189,7 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
 		connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
 		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
+		connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
 		QValueList<KCModuleInfo>::iterator it;
 		for ( it = list.begin(); it != list.end(); ++it ){

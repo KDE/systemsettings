@@ -140,6 +140,8 @@ signals:
 	 */
 	void aboutToShow( KCModuleProxy *moduleProxy );
 
+        void close();
+
 protected slots:
 	/**
 	 * This slot is called when the user presses the "Default" Button.
@@ -156,6 +158,7 @@ protected slots:
 	 * @note Make sure you call the original implementation.
 	 */
 	virtual void slotUser1();
+	virtual void slotUser2();
 
 	/**
 	 * This slot is called when the user presses the "Apply" Button.

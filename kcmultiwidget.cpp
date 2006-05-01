@@ -42,6 +42,14 @@
 #include "kcmoduleproxy.h"
 #include "kcmultiwidget.h"
 
+/*
+Button usage:
+
+    User1 => Reset
+    User2 => Close
+    User3 => Admin
+*/
+
 class KCMultiWidget::KCMultiWidgetPrivate
 {
 	public:
@@ -56,8 +64,8 @@ class KCMultiWidget::KCMultiWidgetPrivate
  
 KCMultiWidget::KCMultiWidget(QWidget *parent, const char *name, bool modal)
 	: KDialogBase(IconList, i18n("Configure"), Help | Default |Cancel | Apply |
-			Ok | User1 | User2 , Ok, parent, name, modal, true,
-			KStdGuiItem::reset(), KStdGuiItem::adminMode())
+			Ok | User1 | User2 | User3, Ok, parent, name, modal, true,
+			KStdGuiItem::reset(), KStdGuiItem::close(), KStdGuiItem::adminMode())
 	, dialogface( IconList ), d( new KCMultiWidgetPrivate )
 {
 	init();
@@ -65,8 +73,8 @@ KCMultiWidget::KCMultiWidget(QWidget *parent, const char *name, bool modal)
 
 KCMultiWidget::KCMultiWidget( int dialogFace, QWidget * parent, const char * name, bool modal )
 	: KDialogBase( dialogFace, "Caption", Help | Default | Cancel | Apply | Ok |
-			User1 | User2, Ok, parent, name, modal, true,
-			KStdGuiItem::reset(), KStdGuiItem::adminMode())
+			User1 | User2 | User3, Ok, parent, name, modal, true,
+			KStdGuiItem::reset(), KStdGuiItem::close(), KStdGuiItem::adminMode())
 	, dialogface( dialogFace ), d( new KCMultiWidgetPrivate )
 {
 	init();
@@ -75,11 +83,15 @@ KCMultiWidget::KCMultiWidget( int dialogFace, QWidget * parent, const char * nam
 inline void KCMultiWidget::init()
 {
 	connect( this, SIGNAL( finished()), SLOT( dialogClosed()));
-	showButton( User1, true );
 	showButton( Ok, false );
 	showButton( Cancel, false );
-	showButton( User2, false );
+	showButton( User1, true );     // Reset button
+	showButton( User2, true );    // Close button.
+	showButton( User3, true);      // Admin button.
+
 	enableButton(Apply, false);
+	enableButton(User1, false);
+
 	connect(this, SIGNAL(aboutToShowPage(QWidget *)), this, SLOT(slotAboutToShow(QWidget *)));
 	setInitialSize(QSize(640,480));
 	moduleParentComponents.setAutoDelete( true );
@@ -107,6 +119,7 @@ void KCMultiWidget::slotDefault()
 		}
 }
 
+// Reset button.
 void KCMultiWidget::slotUser1()
 {
 	int curPageIndex = activePageIndex();
@@ -192,17 +205,23 @@ void KCMultiWidget::slotHelp()
 	}
 }
 
+// Close button
+void KCMultiWidget::slotUser2() {
+    emit close();
+}
+
 void KCMultiWidget::clientChanged(bool state)
 {
 	kdDebug( 710 ) << k_funcinfo << state << endl;
 	ModuleList::Iterator end = m_modules.end();
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-		if( ( *it ).kcm->changed() )
-		{
+		if( ( *it ).kcm->changed() ) {
 			enableButton( Apply, true );
+                        enableButton( User1, true);
 			return;
 		}
 	enableButton( Apply, false );
+        enableButton( User1, false);
 }
 
 void KCMultiWidget::addModule(const QString& path, bool withfallback)
@@ -292,19 +311,28 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		if( m_modules.count() == 0 )
 			aboutToShowPage( page );
 	}
+
 	CreatedModule cm;
 	cm.kcm = module;
 	cm.service = moduleinfo.service();
 	m_modules.append( cm );
 	if ( moduleinfo.needsRootPrivileges() && 
 			!d->hasRootKCM &&
-			!KUser().isSuperUser() ) /* If we're embedded, it's true */
-	{
+			!KUser().isSuperUser() ) {/* If we're embedded, it's true */
 		d->hasRootKCM = true;
-		showButton( User2, true );
-		if( plainPage() ) // returns 0 if we're not a Plain dialog
+		showButton( User3, true );
+		if( plainPage() ) { // returns 0 if we're not a Plain dialog
 			slotAboutToShow( page ); // Won't be called otherwise, necessary for adminMode button
-	}
+                }
+	} else {
+            showButton(User3, false);
+        }
+
+        showButton(Apply, d->currentModule->buttons() & KCModule::Apply);
+        showButton(User1, d->currentModule->buttons() & KCModule::Apply);   // Reset button.
+
+        // Close button. No Apply button implies a Close button.
+        showButton(User2, (d->currentModule->buttons() & KCModule::Apply)==0);
 }
 
 KCModuleProxy * KCMultiWidget::currentModule() {
@@ -354,28 +382,29 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 	enableButton( KDialogBase::Help, d->currentModule->buttons() & KCModule::Help );
 	enableButton( KDialogBase::Default, d->currentModule->buttons() & KCModule::Default );
 
-	disconnect( this, SIGNAL(user2Clicked()), 0, 0 );
+	disconnect( this, SIGNAL(user3Clicked()), 0, 0 );
 
 	if (d->currentModule->moduleInfo().needsRootPrivileges() &&
 			!d->currentModule->rootMode() )
 	{ /* Enable the Admin Mode button */
-		enableButton( User2, true );
-		connect( this, SIGNAL(user2Clicked()), d->currentModule, SLOT( runAsRoot() ));
-		connect( this, SIGNAL(user2Clicked()), SLOT( disableRModeButton() ));
+		enableButton( User3, true );
+		connect( this, SIGNAL(user3Clicked()), d->currentModule, SLOT( runAsRoot() ));
+		connect( this, SIGNAL(user3Clicked()), SLOT( disableRModeButton() ));
 	}
-	else
-		enableButton( User2, false );
+	else {
+		enableButton( User3, false );
+        }
 
 }
 
 void KCMultiWidget::rootExit()
 {
-	enableButton( User2, true);
+	enableButton( User3, true);
 }
 
 void KCMultiWidget::disableRModeButton()
 {
-	enableButton( User2, false );
+	enableButton( User3, false );
 	connect ( d->currentModule, SIGNAL( childClosed() ), SLOT( rootExit() ) );
 }
 
