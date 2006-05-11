@@ -232,6 +232,8 @@ private:
 	{
 		KCModuleProxy * kcm;
 		KService::Ptr service;
+		bool adminmode;
+		int buttons;
 	};
 	typedef QValueList<CreatedModule> ModuleList;
 	ModuleList m_modules;

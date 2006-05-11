@@ -295,12 +295,14 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		if( module->changed() )
 			clientChanged( true );
 
-		if( activePageIndex() == -1 )
+		if( activePageIndex() == -1 ) {
 			showPage( pageIndex( page ) );
+		}
 	}
 	else
 	{
 		module = new KCModuleProxy( moduleinfo, withfallback, page );
+
 		QStringList parentComponents = moduleinfo.service()->property(
 				"X-KDE-ParentComponents" ).toStringList();
 		moduleParentComponents.insert( module,
@@ -308,31 +310,28 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 
 		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
 
-		if( m_modules.count() == 0 )
-			aboutToShowPage( page );
 	}
 
 	CreatedModule cm;
 	cm.kcm = module;
 	cm.service = moduleinfo.service();
-	m_modules.append( cm );
-	if ( moduleinfo.needsRootPrivileges() && 
-			!d->hasRootKCM &&
+	cm.adminmode = false;
+	cm.buttons = module->buttons();
+	if ( moduleinfo.needsRootPrivileges() && !d->hasRootKCM &&
 			!KUser().isSuperUser() ) {/* If we're embedded, it's true */
 		d->hasRootKCM = true;
-		showButton( User3, true );
-		if( plainPage() ) { // returns 0 if we're not a Plain dialog
+		cm.adminmode = true;
+		m_modules.append( cm );
+		if( dialogface==Plain ) {
 			slotAboutToShow( page ); // Won't be called otherwise, necessary for adminMode button
-                }
+               }
 	} else {
-            showButton(User3, false);
-        }
+		m_modules.append( cm );
+	}
 
-        showButton(Apply, d->currentModule->buttons() & KCModule::Apply);
-        showButton(User1, d->currentModule->buttons() & KCModule::Apply);   // Reset button.
-
-        // Close button. No Apply button implies a Close button.
-        showButton(User2, (d->currentModule->buttons() & KCModule::Apply)==0);
+	if( m_modules.count() == 1 ) {
+		slotAboutToShow( page );
+	}
 }
 
 KCModuleProxy * KCMultiWidget::currentModule() {
@@ -364,12 +363,11 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 void KCMultiWidget::slotAboutToShow(QWidget *page)
 {
 	kdDebug() << k_funcinfo << endl;
-
 	QObject * obj = page->child( 0, "KCModuleProxy" );
 	if( ! obj )
 		return;
 
-	KCModuleProxy * module = ( KCModuleProxy* )obj->qt_cast( "KCModuleProxy" );
+	KCModuleProxy *module = ( KCModuleProxy* )obj->qt_cast( "KCModuleProxy" );
 	if( ! module )
 		return;
 
@@ -378,9 +376,24 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 	
 	d->currentModule = module;
 	emit ( aboutToShow( d->currentModule ) );
-	
-	enableButton( KDialogBase::Help, d->currentModule->buttons() & KCModule::Help );
-	enableButton( KDialogBase::Default, d->currentModule->buttons() & KCModule::Default );
+
+	ModuleList::Iterator end = m_modules.end();
+	int buttons = 0;
+	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it ) {
+		if( ( *it ).kcm==d->currentModule) {
+			showButton(User3, ( *it ).adminmode);
+			buttons = ( *it ).buttons;
+		}
+	}
+
+        showButton(Apply, buttons & KCModule::Apply);
+        showButton(User1, buttons & KCModule::Apply);   // Reset button.
+
+        // Close button. No Apply button implies a Close button.
+        showButton(User2, (buttons & KCModule::Apply)==0);
+
+	enableButton( KDialogBase::Help, buttons & KCModule::Help );
+	enableButton( KDialogBase::Default, buttons & KCModule::Default );
 
 	disconnect( this, SIGNAL(user3Clicked()), 0, 0 );
 
@@ -394,7 +407,6 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 	else {
 		enableButton( User3, false );
         }
-
 }
 
 void KCMultiWidget::rootExit()
