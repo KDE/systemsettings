@@ -14,6 +14,8 @@ kde-settings-system.directory \
 kde-settings-power.directory \
 kde-settings-sharing.directory \
 kde-settings-networkconnections.directory \
+kde-settings-bluetooth.directory \
+kde-settings-laptops.directory \
 system-settings.directory
 
 install-data-local:

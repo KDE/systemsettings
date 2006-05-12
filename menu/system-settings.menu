@@ -46,7 +46,7 @@
 				<Filename>kde-kcmlaunch.desktop</Filename>
 				<!-- Move to desktop -->
 				<Filename>kde-screensaver.desktop</Filename>
-			</Exclude>
+                        </Exclude>
 		</Menu>
 
 		<Menu>
@@ -98,12 +98,9 @@
 			</Include>
 			<Exclude>
 				<!-- +NoDisplay=True in KDE4 -->
-				<Filename>kde-spellchecking.desktop</Filename>
 				<Filename>kde-filebrowser.desktop</Filename>
 				<Filename>kde-filetypes.desktop</Filename>
 				<Filename>kde-kcmperformance.desktop</Filename>
-				<!-- Moved to user -->
-				<Filename>kde-kcmsmserver.desktop</Filename>
 				<!-- Replaced this with defaultapplication.desktop -->
 				<Filename>kde-componentchooser.desktop</Filename>
 			</Exclude>
@@ -151,7 +148,6 @@
 			<Include>
 				<Filename>kde-desktoppath.desktop</Filename>
 				<Filename>kde-kcm_useraccount.desktop</Filename>
-				<Filename>kde-kcmsmserver.desktop</Filename>
 			</Include>
 		</Menu>
 		
@@ -167,7 +163,15 @@
 				<Merge type="files" />
 			</Layout>
 		</Menu>
-		
+
+                <Menu>
+                        <Name>Accessibility</Name>
+                        <Directory>kde-settings-accessibility.directory</Directory>
+                        <Include>
+                                <Category>X-KDE-settings-accessibility</Category>
+                        </Include>
+                </Menu>
+	
 	</Menu>
 	
 	<Menu>
@@ -176,7 +180,7 @@
 		
 		<Menu>
 			<Name>Connections</Name>
-			<Directory>kde-settings-networkconnection.directory</Directory>
+			<Directory>kde-settings-networkconnections.directory</Directory>
 		
 			<Include>
 				<Filename>kde-kcmwifi.desktop</Filename>
@@ -193,6 +197,16 @@
 				<Filename>kde-fileshare.desktop</Filename>
 				<Filename>kde-kcmkrfb.desktop</Filename>
 				<Filename>kde-lanbrowser.desktop</Filename>
+			</Include>
+		</Menu>
+
+		<Menu>
+			<Name>Bluetooth</Name>
+			<Directory>kde-settings-bluetooth.directory</Directory>
+
+			<Include>
+				<Filename>kde-kcm_btpaired.desktop</Filename>
+				<Filename>kde-kcm_kbluetoothd.desktop</Filename>
 			</Include>
 		</Menu>
 	
@@ -213,6 +227,10 @@
 		
 			<!-- This really should be in a Server version of KControl right -->
 			<Filename>kde-kcmsambaconf.desktop</Filename>
+
+			<!-- bluetooth -->
+			<Filename>kde-kcm_btpaired.desktop</Filename>
+			<Filename>kde-kcm_kbluetoothd.desktop</Filename>
 		</Exclude>
 	</Menu>
 
@@ -247,7 +265,7 @@
 		<Menu>
 			<Name>Power</Name>
 			<!-- This is here because there is both desktop/laptop with power settings -->
-			<Directory>kde-settings-power.directory</Directory>
+			<Directory>kde-settings-laptops.directory</Directory>
 			<Include>
 				<Category>X-KDE-settings-power</Category>
 				<Filename>kde-laptop.desktop</Filename>
@@ -265,19 +283,16 @@
 			<Category>X-KDE-settings-system</Category>
 		</Include>
 		
-		<Menu>
-			<Name>Accessibility</Name>
-			<Directory>kde-settings-accessibility.directory</Directory>
-			<Include>
-				<Category>X-KDE-settings-accessibility</Category>
-			</Include>
-		</Menu>
-		
 		<Exclude>
 			<!-- This configures the build file for the kernel, NOT the kernel --> 
 			<Filename>kde-linuz.desktop</Filename>
 			<!-- Moved to user account --> 
 			<Filename>kde-desktoppath.desktop</Filename>
+
+			<!-- in hardware laptops and power -->
+			<Filename>kde-thinkpad.desktop</Filename>
+			<Filename>kde-kvaio.desktop</Filename>
+			<Filename>kde-k3bsetup2.desktop</Filename>
 		</Exclude>
 	</Menu>
 </Menu>

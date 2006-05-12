@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Exec=kcmshell componentchooser
-Icon=misc
+Icon=blockdevice
 Type=Application
 
 X-KDE-Library=componentchooser
@@ -91,4 +91,4 @@ Keywords[sv]=komponenter,komponentväljare,resurser,epost-klient,terminalemulato
 Keywords[tr]=bileşenler,bileşen seçici,kaynaklar,e-posta istemci,uçbirim emülatörü,öntanımlı,tarayıcı
 Keywords[xx]=xxcomponents,component chooser,resources, email client, terminal emulator, default, browserxx
 Keywords[zh_CN]=components,component chooser,resources,email client,terminal emulator,default,browser,组件,组件选择器,资源,电子邮件客户端,终端模拟器,默认,浏览器
-Categories=Qt;KDE;X-KDE-settings-user-account;
+Categories=Qt;KDE;X-KDE-settings-components;
