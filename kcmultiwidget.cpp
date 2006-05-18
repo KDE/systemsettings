@@ -420,6 +420,11 @@ void KCMultiWidget::disableRModeButton()
 	connect ( d->currentModule, SIGNAL( childClosed() ), SLOT( rootExit() ) );
 }
 
+void KCMultiWidget::slotCancel() {
+	dialogClosed();
+	KDialogBase::slotCancel();
+}
+
 void KCMultiWidget::dialogClosed()
 {
 	if(d)

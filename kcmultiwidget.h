@@ -188,6 +188,8 @@ protected slots:
 	 **/
 	virtual void slotHelp();
 
+	virtual void slotCancel();
+
 private slots:
 
 	void slotAboutToShow(QWidget *);

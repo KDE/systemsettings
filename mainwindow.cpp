@@ -211,6 +211,7 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 	} else {
 		scrollView->show();
 	}
+	groupWidget->show();
 
 	// We resize and expand the window if neccessary, but only once the window has been updated.
 	// Some modules seem to dynamically change thier size. The new size is only available
