@@ -1,0 +1,16 @@
+[Desktop Entry]
+Encoding=UTF-8
+X-KDE-Library=laptop
+X-KDE-FactoryName=laptop
+X-KDE-Init=laptop
+Exec=kcmshell laptop
+Icon=laptop_battery
+Type=Application
+DocPath=kcontrol/laptop/index.html
+
+## Keep this out of kcontrol
+#Categories=Qt;KDE;X-KDE-settings-power;
+
+Comment=Laptop Power Management
+Name=Power Management
+Init=klaptop_check

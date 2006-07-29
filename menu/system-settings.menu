@@ -1,95 +1,95 @@
  <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
   "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+<!-- 
+This menu layout aims to conform to the structure described here:
 
+https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
+
+-->
 <Menu>
 	<Name>System Settings</Name>
 	
 	<DefaultLayout>
 		<Menuname>Personal</Menuname>
 		<Separator/>
-		<Menuname>Hardware</Menuname>
+		<Menuname>Look and Feel</Menuname>
 		<Separator/>
-		<Menuname>Network</Menuname>
+		<Menuname>Computer Administration</Menuname>
 		<Separator/>
+		<Menuname>Network and Connectivity</Menuname>
+		<Separator/>
+
+<!-- TODO The list will be split into two pages, General and Advanced. -->
 		<Menuname>System</Menuname>
-		<Merge type="menus" />
-		<Merge type="files" />
+		<Separator/>
+		<Menuname>Advanced User Settings</Menuname>
+
 	</DefaultLayout>
 		
 	<Menu>
 		<Name>Personal</Name>
 		
 		<Layout>
-			<Menuname>Appearance</Menuname>
+			<Menuname>User Account</Menuname>
+			<Menuname>Regional</Menuname>
+			<Menuname>Accessibility</Menuname>
+			<Filename>kde-defaultapplication.desktop</Filename>
+			<!--<Menuname>Appearance</Menuname>
 			<Menuname>Panel</Menuname>
 			<Menuname>Desktop</Menuname>
 			<Merge type="menus" />
-			<Merge type="files" />
-			<Menuname>KDE Components</Menuname>
+			<Merge type="files" />-->
 		</Layout>
-		
+
+		<Include>
+			<Filename>kde-defaultapplication.desktop</Filename>
+		</Include>
+
+		<!-- User Account -->
 		<Menu>
-			<Name>Appearance</Name>
-			<Directory>kde-settings-appearance.directory</Directory>
+			<Name>User Account</Name>
+			<Directory>kde-settings-useraccount.directory</Directory>
 			<Include>
-				<Category>X-KDE-settings-looknfeel</Category>
-				<Category>X-KDE-settings-appearance</Category>
+				<Filename>kde-kcm_myaccount.desktop</Filename>
+				<Filename>kde-desktoppath.desktop</Filename>
 			</Include>
-			<Exclude>
-				<!-- This is an app, not a module -->
-				<Filename>kde-kthememanager.desktop</Filename>
-				<!-- Move to desktop -->
-				<Filename>kde-ksplashthememgr.desktop</Filename>
-				<!-- Move to desktop -->
-				<Filename>kde-background.desktop</Filename>
-				<!-- Move to panel -->
-				<Filename>kde-kcmlaunch.desktop</Filename>
-				<!-- Move to desktop -->
-				<Filename>kde-screensaver.desktop</Filename>
-                        </Exclude>
+			<Layout>
+				<Filename>kde-kcm_myaccount.desktop</Filename>
+				<Filename>kde-desktoppath.desktop</Filename>
+			</Layout>
 		</Menu>
 
+		<!-- Regional -->
 		<Menu>
-			<Name>Desktop</Name>
-			<Directory>kde-settings-desktop.directory</Directory>
+			<Name>Regional</Name>
+			<Directory>kde-settings-regional.directory</Directory>
 			<Include>
-				<Category>X-KDE-settings-desktop</Category>
-				<Filename>kde-ksplashthememgr.desktop</Filename>
-				<Filename>kde-background.desktop</Filename>
-				<Filename>kde-screensaver.desktop</Filename>
-			</Include>
-			
-			<Layout>
-				<Filename>kde-background.desktop</Filename>
-				<Filename>kde-screensaver.desktop</Filename>
-				<Merge type="menus" />
-				<Merge type="files" />
-			</Layout>
-		
-			<Exclude>
-				<!-- it has its own group -->
-				<Filename>kde-panel.desktop</Filename>
-				<Filename>kde-kcmtaskbar.desktop</Filename>
-			</Exclude>
-		</Menu>
-		
-		<Menu>
-			<Name>Panel</Name>
-			<Directory>kde-settings-panel.directory</Directory>
-			<Include>
-				<Category>X-KDE-settings-panel</Category>
-				<Filename>kde-panel.desktop</Filename>
-				<Filename>kde-kcmtaskbar.desktop</Filename>
-				<Filename>kde-kcmlaunch.desktop</Filename>
+				<Filename>kde-language.desktop</Filename>
+				<Filename>kde-spellchecking.desktop</Filename>
+				<Filename>kde-keyboard_layout.desktop</Filename>
 			</Include>
 			<Layout>
-				<Filename>kde-panel.desktop</Filename>
-				<Filename>kde-kcmtaskbar.desktop</Filename>
-				<Filename>kde-kcmlaunch.desktop</Filename>
-				<Merge type="files" />
+				<Filename>kde-language.desktop</Filename>
+				<Filename>kde-spellchecking.desktop</Filename>
+				<Filename>kde-keyboard_layout.desktop</Filename>
 			</Layout>
 		</Menu>
-		
+
+		<!-- Accessibility -->
+		<Menu>
+			<Name>Accessibility</Name>
+			<Directory>kde-settings-accessibility.directory</Directory>
+			<Include>
+				<Filename>kde-kcmaccess.desktop</Filename>
+				<Filename>kde-khotkeys.desktop</Filename>
+			</Include>
+			<Layout>
+				<Filename>kde-kcmaccess.desktop</Filename>
+				<Filename>kde-khotkeys.desktop</Filename>
+			</Layout>
+		</Menu>
+
+		<!-- KDE Components -->
 		<Menu>
 			<Name>KDE Components</Name>
 			<Directory>kde-settings-components.directory</Directory>
@@ -121,178 +121,249 @@
 				<Filename>kde-privacy.desktop</Filename>
 			</Exclude>
 		</Menu>
-
-		<Menu>
-			<Name>Sound</Name>
-			<Directory>kde-settings-sound.directory</Directory>
-			
-			<Layout>
-				<Filename>kde-arts.desktop</Filename>
-				<Filename>kde-kcmnotify.desktop</Filename>
-				<Merge type="menus" />
-				<Merge type="files" />
-			</Layout>
-			
-			<Include>
-				<Filename>arts.desktop</Filename>
-				<Filename>kcmnotify.desktop</Filename>
-			</Include>
-			<Include>
-				<Category>X-KDE-settings-sound</Category>
-			</Include>
-		</Menu>
-	
-		<Menu>
-			<Name>User Account</Name>
-			<Directory>kde-settings-system-accounts.directory</Directory>
-			<Include>
-				<Filename>kde-desktoppath.desktop</Filename>
-				<Filename>kde-kcm_useraccount.desktop</Filename>
-			</Include>
-		</Menu>
-		
-		<Menu>
-			<Name>User Account</Name>
-			<Directory>kde-settings-useraccount.directory</Directory>
-			<Include>
-				<Category>X-KDE-settings-user-account</Category>
-			</Include>
-			<Layout>
-				<Filename>kde-kcm_useraccount.desktop</Filename>
-				<Merge type="menus" />
-				<Merge type="files" />
-			</Layout>
-		</Menu>
-
-                <Menu>
-                        <Name>Accessibility</Name>
-                        <Directory>kde-settings-accessibility.directory</Directory>
-                        <Include>
-                                <Category>X-KDE-settings-accessibility</Category>
-                        </Include>
-                </Menu>
-	
 	</Menu>
 	
+	<!-- Look and Feel -->
 	<Menu>
-		<Name>Network</Name>
-		<Directory>kde-settings-network.directory</Directory>
-		
+		<Name>Look and Feel</Name>
+		<Directory>kde-settings-looknfeel2.directory</Directory>
+		<Layout>
+			<Menuname>Appearance</Menuname>
+			<Menuname>Desktop</Menuname>
+			<Filename>kde-ksplashthememgr.desktop</Filename>
+			<Menuname>Window Behavior</Menuname>
+			<Menuname>Notifications</Menuname>
+		</Layout>
+		<Include>
+			<Filename>kde-ksplashthememgr.desktop</Filename>
+		</Include>
+
+		<!-- Appearance -->
 		<Menu>
-			<Name>Connections</Name>
-			<Directory>kde-settings-networkconnections.directory</Directory>
-		
+			<Name>Appearance</Name>
+			<Directory>kde-settings-appearance.directory</Directory>
+			<Layout>
+				<Filename>kde-colors.desktop</Filename>
+				<Filename>kde-fonts.desktop</Filename>
+				<Filename>kde-kcmfontinst.desktop</Filename>
+				<Filename>kde-icons.desktop</Filename>
+				<Filename>kde-style.desktop</Filename>
+				<Filename>kde-kwindecoration.desktop</Filename>
+			</Layout>
+
 			<Include>
-				<Filename>kde-kcmwifi.desktop</Filename>
-				<Filename>kde-proxy.desktop</Filename>
-				<Filename>kde-netpref.desktop</Filename>
+				<Filename>kde-colors.desktop</Filename>
+				<Filename>kde-fonts.desktop</Filename>
+				<Filename>kde-kcmfontinst.desktop</Filename>
+				<Filename>kde-icons.desktop</Filename>
+				<Filename>kde-style.desktop</Filename>
+				<Filename>kde-kwindecoration.desktop</Filename>
 			</Include>
 		</Menu>
-	
+
+		<!-- Desktop -->
+		<Menu>
+			<Name>Desktop</Name>
+			<Directory>kde-settings-desktop.directory</Directory>
+
+			<Layout>
+				<Filename>kde-background.desktop</Filename>
+				<Filename>kde-screensaver.desktop</Filename>
+				<Filename>kde-desktopbehavior.desktop</Filename>
+				<Filename>kde-desktop.desktop</Filename>
+			</Layout>
+
+			<Include>
+				<Filename>kde-background.desktop</Filename>
+				<Filename>kde-screensaver.desktop</Filename>
+				<Filename>kde-desktopbehavior.desktop</Filename>
+				<Filename>kde-desktop.desktop</Filename>
+			</Include>
+		</Menu>
+
+		<!-- Window Behavior -->
+		<Menu>
+			<Name>Window Behavior</Name>
+			<Directory>kde-settings-windowbehavior.directory</Directory>
+
+			<Layout>
+				<Filename>kde-kwinoptions.desktop</Filename>
+				<Filename>kde-kwinrules.desktop</Filename>
+			</Layout>
+
+			<Include>
+				<Filename>kde-kwinoptions.desktop</Filename>
+				<Filename>kde-kwinrules.desktop</Filename>
+			</Include>
+		</Menu>
+
+		<!-- Notifications -->
+		<Menu>
+			<Name>Notifications</Name>
+			<Directory>kde-settings-notifications.directory</Directory>
+
+			<Layout>
+				<Filename>kde-kcmnotify.desktop</Filename>
+				<Filename>kde-bell.desktop</Filename>
+				<Filename>kde-medianotifications.desktop</Filename>
+			</Layout>
+
+			<Include>
+				<Filename>kde-kcmnotify.desktop</Filename>
+				<Filename>kde-bell.desktop</Filename>
+				<Filename>kde-medianotifications.desktop</Filename>
+			</Include>
+		</Menu>
+
+	</Menu>
+
+	<!-- Computer Administration -->
+	<Menu>
+		<Name>Computer Administration</Name>
+		<Directory>kde-settings-computeradministation.directory</Directory>
+
+		<Layout>
+			<Filename>kde-clock.desktop</Filename>
+			<Menuname>Keyboard and Mouse</Menuname>
+			<Filename>kde-displayconfig.desktop</Filename>
+			<Filename>kde-arts.desktop</Filename>
+			<Filename>kde-printers.desktop</Filename>
+			<Filename>kde-laptoppowermanagement.desktop</Filename>
+<!--			<Filename>kde-thinkpad.desktop</Filename>
+			<Filename>kde-kvaio.desktop</Filename>-->
+			<Filename>kde-userconfig.desktop</Filename>
+
+		</Layout>
+		<Include>
+			<Filename>kde-clock.desktop</Filename>
+			<Filename>kde-displayconfig.desktop</Filename>
+			<Filename>kde-arts.desktop</Filename>
+			<Filename>kde-printers.desktop</Filename>
+			<Filename>kde-laptoppowermanagement.desktop</Filename>
+<!--			<Filename>kde-thinkpad.desktop</Filename>
+			<Filename>kde-kvaio.desktop</Filename>-->
+			<Filename>kde-userconfig.desktop</Filename>
+		</Include>
+
+		<!-- Keyboard and Mouse -->
+		<Menu>
+			<Name>Keyboard and Mouse</Name>
+			<Directory>kde-settings-keyboardmouse.directory</Directory>
+			<Layout>
+				<Filename>kde-keyboard.desktop</Filename>
+				<Filename>kde-keys.desktop</Filename>
+				<Filename>kde-mouse.desktop</Filename>
+				<Filename>kde-joystick.desktop</Filename>
+			</Layout>
+
+			<Include>
+				<Filename>kde-keyboard.desktop</Filename>
+				<Filename>kde-keys.desktop</Filename>
+				<Filename>kde-mouse.desktop</Filename>
+				<Filename>kde-joystick.desktop</Filename>
+			</Include>
+		</Menu>
+
+	</Menu>
+
+	<!-- Network and Connectivity -->
+	<Menu>
+		<Name>Network and Connectivity</Name>
+		<Directory>kde-settings-networkconnectivity.directory</Directory>
+		
+		<Layout>
+			<Menuname>Network Settings</Menuname>
+			<Menuname>Sharing</Menuname>
+			<Menuname>Bluetooth</Menuname>
+		</Layout>
+
+		<!-- Network Settings -->
+		<Menu>
+			<Name>Network Settings</Name>
+			<Directory>kde-settings-networksettings.directory</Directory>
+		
+			<Layout>
+				<Filename>kde-kcm_knetworkconfmodule_ss.desktop</Filename>
+				<Filename>kde-proxy.desktop</Filename>
+				<Filename>kde-netpref.desktop</Filename>
+				<Filename>kde-kcm_kdnssd.desktop</Filename>
+			</Layout>		
+
+			<Include>
+				<Filename>kde-kcm_knetworkconfmodule_ss.desktop</Filename>
+				<Filename>kde-proxy.desktop</Filename>
+				<Filename>kde-netpref.desktop</Filename>
+				<Filename>kde-kcm_kdnssd.desktop</Filename>
+			</Include>
+		</Menu>
+
+		<!-- Sharing -->
 		<Menu>
 			<Name>Sharing</Name>
 			<Directory>kde-settings-sharing.directory</Directory>
 
+			<Layout>
+				<Filename>kde-fileshare.desktop</Filename>
+				<Filename>kde-lanbrowser.desktop</Filename>
+			</Layout>
+			
 			<Include>
 				<Filename>kde-fileshare.desktop</Filename>
-				<Filename>kde-kcmkrfb.desktop</Filename>
 				<Filename>kde-lanbrowser.desktop</Filename>
 			</Include>
 		</Menu>
 
+		<!-- Bluetooth -->
 		<Menu>
 			<Name>Bluetooth</Name>
 			<Directory>kde-settings-bluetooth.directory</Directory>
-
+			<Layout>
+				<Filename>kde-kcm_kbluetoothd.desktop</Filename>
+				<Filename>kde-kcm_btpaired.desktop</Filename>
+			</Layout>
 			<Include>
 				<Filename>kde-kcm_btpaired.desktop</Filename>
 				<Filename>kde-kcm_kbluetoothd.desktop</Filename>
 			</Include>
 		</Menu>
-	
-		<Include>
-			<Category>X-KDE-settings-network</Category>
-		</Include>
-		
-		<Exclude>
-			<!-- Sharing -->
-			<Filename>kde-fileshare.desktop</Filename>
-			<Filename>kde-kcmkrfb.desktop</Filename>
-			<Filename>kde-lanbrowser.desktop</Filename>
-			
-			<!-- Connections -->
-			<Filename>kde-kcmwifi.desktop</Filename>
-			<Filename>kde-proxy.desktop</Filename>
-			<Filename>kde-netpref.desktop</Filename>
-		
-			<!-- This really should be in a Server version of KControl right -->
-			<Filename>kde-kcmsambaconf.desktop</Filename>
-
-			<!-- bluetooth -->
-			<Filename>kde-kcm_btpaired.desktop</Filename>
-			<Filename>kde-kcm_kbluetoothd.desktop</Filename>
-		</Exclude>
 	</Menu>
 
-	<Menu>
-		<Name>Hardware</Name>
-		
-		<Layout>
-			<Filename>kde-keyboard.desktop</Filename>
-			<Filename>kde-mouse.desktop</Filename>
-			<Filename>kde-joystick.desktop</Filename>
-			<Filename>kde-printers.desktop</Filename>
-			<Filename>kde-display.desktop</Filename>
-			<Menuname>Power</Menuname>
-			<Merge type="files" />
-			<Merge type="menus" />
-		</Layout>
-		
-		<Directory>kde-settings-hardware.directory</Directory>
-		
-		<Include>
-			<Category>X-KDE-settings-hardware</Category>
-			<Category>X-KDE-settings-peripherals</Category>
-		</Include>
-		
-		<Exclude>
-			<!-- These go under power -->
-			<Filename>kde-thinkpad.desktop</Filename>
-			<Filename>kde-kvaio.desktop</Filename>
-			<Filename>kde-laptop.desktop</Filename>
-		</Exclude>
-
-		<Menu>
-			<Name>Power</Name>
-			<!-- This is here because there is both desktop/laptop with power settings -->
-			<Directory>kde-settings-laptops.directory</Directory>
-			<Include>
-				<Category>X-KDE-settings-power</Category>
-				<Filename>kde-laptop.desktop</Filename>
-				<Filename>kde-thinkpad.desktop</Filename>
-				<Filename>kde-kvaio.desktop</Filename>
-			</Include>
-		</Menu>
-	
-	</Menu>
-	
+	<!-- System Administration -->
 	<Menu>
 		<Name>System</Name>
 		<Directory>kde-settings-system.directory</Directory>
-		<Include>
-			<Category>X-KDE-settings-system</Category>
-		</Include>
-		
-		<Exclude>
-			<!-- This configures the build file for the kernel, NOT the kernel --> 
-			<Filename>kde-linuz.desktop</Filename>
-			<!-- Moved to user account --> 
-			<Filename>kde-desktoppath.desktop</Filename>
 
-			<!-- in hardware laptops and power -->
-			<Filename>kde-thinkpad.desktop</Filename>
-			<Filename>kde-kvaio.desktop</Filename>
-			<Filename>kde-k3bsetup2.desktop</Filename>
-		</Exclude>
+		<Layout>
+			<Filename>kde-mountconfig.desktop</Filename>
+			<Filename>kde-serviceconfig.desktop</Filename>
+			<Filename>kde-kdm.desktop</Filename>
+		</Layout>
+
+		<Include>
+			<Filename>kde-mountconfig.desktop</Filename>
+			<Filename>kde-serviceconfig.desktop</Filename>
+			<Filename>kde-kdm.desktop</Filename>
+		</Include>
 	</Menu>
+
+	<!-- Advanced User Settings -->
+	<Menu>
+		<Name>Advanced User Settings</Name>
+		<Directory>kde-settings-advancedusersettings.directory</Directory>
+
+		<Layout>
+			<Filename>kde-audioencoding.desktop</Filename>
+			<Filename>kde-kresources.desktop</Filename>
+			<Filename>kde-kcmkded.desktop</Filename>
+			<Filename>kde-kcmsmserver.desktop</Filename>
+		</Layout>
+
+		<Include>
+			<Filename>kde-audioencoding.desktop</Filename>
+			<Filename>kde-kresources.desktop</Filename>
+			<Filename>kde-kcmkded.desktop</Filename>
+			<Filename>kde-kcmsmserver.desktop</Filename>
+		</Include>
+	</Menu>
+	
 </Menu>

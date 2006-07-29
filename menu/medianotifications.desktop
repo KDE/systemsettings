@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+#DocPath=
+Icon=system
+Exec=kcmshell media
+
+
+X-KDE-Library=media
+X-KDE-FactoryName=media
+#X-KDE-ParentApp=kcontrol
+
+Name=Storage Media Notifications
+
+Comment=Configure Storage Media Notifications
+
+Keywords=storage,media,usb,cdrom,device
+
+#Categories=Qt;KDE;X-KDE-settings-peripherals

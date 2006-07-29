@@ -74,6 +74,9 @@ void KCModuleMenu::readMenu( const QString &pathName )
 			KCModuleInfo module((KService*)entry);
 			append(module);
 
+kdDebug() << "- Found: " << module.moduleName() << endl;
+
+
 			MenuItem infoItem(false);
 			infoItem.item = module;
 			currentMenu.append( infoItem );
