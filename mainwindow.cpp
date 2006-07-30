@@ -41,6 +41,8 @@
 #include <kcmoduleproxy.h>
 #include <kbugreport.h>
 #include <kmenubar.h>
+#include <kactionclasses.h>
+#include <ktoolbarbutton.h>
 
 #include "kcmsearch.h"
 #include "modulesview.h"
@@ -51,28 +53,43 @@
 MainWindow::MainWindow(bool embed, const QString & menuFile,
 								QWidget *parent, const char *name) :
 				KMainWindow(parent,name), embeddedWindows(embed), groupWidget(NULL),
-				dummyAbout(NULL) {
-	buildMainWidget( menuFile );
+				dummyAbout(NULL), menu(NULL), selectedPage(0) {
+	
+	// Load the menu structure in from disk.
+	menu = new KCModuleMenu( menuFile );
+
+	buildMainWidget();
 	buildActions();
-	setupGUI();
-	menuBar()->hide();
+	setupGUI(ToolBar|Save|Create,QString::null);
 	widgetChange();
 }
 
 MainWindow::~MainWindow()
 {
+	delete menu;	
 	delete dummyAbout;
 }
 
-void MainWindow::buildMainWidget( const QString &menuFile )
+void MainWindow::buildMainWidget()
 {
 	windowStack = new QWidgetStack( this, "widgetstack" );
-	modulesScroller = new KCScrollView(windowStack);
-	modulesView = new ModulesView( menuFile, modulesScroller->viewport(), "modulesView" );
-	modulesScroller->addChild(modulesView);
-	windowStack->addWidget(modulesScroller);
 
-	connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
+    // Top level pages.
+	QValueList<MenuItem> subMenus = menu->menuList();
+	QValueList<MenuItem>::iterator it;
+	KCScrollView *modulesScroller;
+	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
+		if( (*it).menu ) {
+			modulesScroller = new KCScrollView(windowStack);
+			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller->viewport(), "modulesView" );
+			modulesViewList.append(modulesView);
+			connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
+			modulesScroller->addChild(modulesView);
+			windowStack->addWidget(modulesScroller);
+			overviewPages.append(modulesScroller);
+		}
+	}
+
 	setCentralWidget(windowStack);
 }
 
@@ -89,7 +106,7 @@ void MainWindow::buildActions()
 	defaultModule->setEnabled(false);
 
 	if( embeddedWindows ) {
-		showAllAction = new KAction(i18n("Show &All"), QApplication::reverseLayout() ? "forward" : "back", 0, this,
+		showAllAction = new KAction(i18n("Overview"), QApplication::reverseLayout() ? "forward" : "back", 0, this,
 								SLOT(showAllModules()), actionCollection(), "showAll" );
 		showAllAction->setEnabled(false);
 	}
@@ -98,33 +115,53 @@ void MainWindow::buildActions()
 	resetModuleHelp();
 
 	// Search
-	KcmSearch* search = new KcmSearch(modulesView, 0, "search");
+	KcmSearch* search = new KcmSearch(&modulesViewList, 0, "search");
 	search->setMaximumWidth( 200 );
 
+	// "Search:" label	
 	QLabel *searchLabel = new QLabel( this, "SearchLabel");
 	searchLabel->setText( i18n("&Search:") );
+	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Key_F6, 0, 0, actionCollection(), "searchText" );
 	searchLabel->setBuddy( search );
 
+	// The search box.
 	searchAction = new KWidgetAction( search, i18n( "Search System Settings" ), 0,
                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
 	searchAction->setAutoSized( true );
-	QWhatsThis::add( search, i18n( "Search Bar<p>"
-													        "Enter a search term." ) );
+	QWhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
 
-	searchClear = new KAction( QString(""),
-                                           QApplication::reverseLayout()
-                                           ? "clear_left"
-                                           : "locationbar_erase",
-                                           CTRL+Key_L, search, SLOT(clear()),
-                                           actionCollection(),
-                                           "searchReset" );
-
+	// The Clear search box button.
+	KToolBarButton *clearWidget = new KToolBarButton(QApplication::reverseLayout() ? "clear_left" : "locationbar_erase",
+		0, this);
+	searchClear = new KWidgetAction( clearWidget, QString(""), CTRL+Key_L, search, SLOT(clear()),
+					actionCollection(), "searchReset");
+	connect(clearWidget, SIGNAL(clicked()), searchClear, SLOT(activate()));
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
                                         "all items are shown again." ) );
+
+    // Top level pages.
+	QValueList<MenuItem> subMenus = menu->menuList();
+	QValueList<MenuItem>::iterator it;
+	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
+		if( (*it).menu ) {
+			KServiceGroup::Ptr group = KServiceGroup::group( (*it).subMenu );
+			if ( !group ){
+				kdDebug() << "Invalid Group \"" << (*it).subMenu << "\".  Check your installation."<< endl;
+				continue;
+			}
+
+			KRadioAction *newAction = new KRadioAction( group->caption(), group->icon(), KShortcut(), this,
+				SLOT(slotTopPage()), actionCollection(), group->relPath() );
+			pageActions.append(newAction);
+
+kdDebug() << "relpath is :" << group->relPath() << endl;
+		}
+	}
+	pageActions.at(0)->setChecked(true);
 }
 
 void MainWindow::aboutCurrentModule()
@@ -146,19 +183,25 @@ void MainWindow::groupModulesFinished()
 
 void MainWindow::showAllModules()
 {
-	windowStack->raiseWidget(modulesScroller);
+	windowStack->raiseWidget(overviewPages.at(selectedPage));
 
 	// Reset the widget for normal all widget viewing
 	groupWidget = 0;
 	widgetChange();
 
-	if( embeddedWindows )
+	if( embeddedWindows ) {
 		showAllAction->setEnabled(false);
+	}
 	aboutModuleAction->setEnabled(false);
 
 	searchText->setEnabled(true);
 	searchClear->setEnabled(true);
 	searchAction->setEnabled(true);
+
+	KRadioAction *currentRadioAction;
+    for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+		currentRadioAction->setEnabled(true);
+	}
 
 	resetModuleHelp();
 }
@@ -208,6 +251,12 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		searchText->setEnabled(false);
 		searchClear->setEnabled(false);
 		searchAction->setEnabled(false);
+
+		KRadioAction *currentRadioAction;
+		for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+			currentRadioAction->setEnabled(false);
+		}
+
 	} else {
 		scrollView->show();
 	}
@@ -253,8 +302,24 @@ void MainWindow::widgetChange() {
 
 	if( !groupWidget ) {
 		setCaption( "" );
-		modulesView->clearSelection();
+		
+		ModulesView *modulesView;
+		for( modulesView = modulesViewList.first(); modulesView; modulesView = modulesViewList.next()) {
+			modulesView->clearSelection();
+		}
 	}
+}
+
+void MainWindow::slotTopPage() {
+	KRadioAction *clickedRadioAction = (KRadioAction *)sender();
+	selectedPage = pageActions.find(clickedRadioAction);
+
+	KRadioAction *currentRadioAction;
+    for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+		currentRadioAction->setChecked(currentRadioAction==clickedRadioAction);
+	}
+
+	windowStack->raiseWidget(overviewPages.at(selectedPage));
 }
 
 #include "mainwindow.moc"

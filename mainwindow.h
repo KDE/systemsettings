@@ -24,7 +24,9 @@
 #include <kmainwindow.h>
 #include <kcmoduleinfo.h>
 #include <qptrdict.h>
+#include <kactionclasses.h>
 #include "kcscrollview.h"
+#include "kcmodulemenu.h"
 
 class QWidgetStack;
 class QIconViewItem;
@@ -55,18 +57,23 @@ private slots:
 
 	void widgetChange();
 	void timerResize();
+	void slotTopPage();
 
 private:
+	KCModuleMenu *menu;
 	bool embeddedWindows;
 	QWidgetStack *windowStack;
-	ModulesView *modulesView;
-	KCScrollView *modulesScroller;
+	QPtrList<ModulesView> modulesViewList;
 
 	KCMultiWidget *groupWidget;
 	KCScrollView *scrollView;
 
 	QPtrDict<KCMultiWidget> moduleItemToWidgetDict;
 	QPtrDict<KCScrollView> moduleItemToScrollerDict;
+
+	QPtrList<KRadioAction> pageActions;
+	QPtrList<KCScrollView> overviewPages;
+	int selectedPage;
 
 	KAction *resetModule;
 	KAction *defaultModule;
@@ -78,7 +85,7 @@ private:
 
 	KAction *aboutModuleAction;
 	
-	void buildMainWidget( const QString &menuFile );
+	void buildMainWidget();
 	void buildActions();
 
   /**

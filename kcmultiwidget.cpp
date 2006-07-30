@@ -239,9 +239,6 @@ void KCMultiWidget::addModule(const QString& path, bool withfallback)
 void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		QStringList parentmodulenames, bool withfallback)
 {
-	kdDebug() << "KCMultiWidget::addModule " 
-		<< moduleinfo.moduleName() << endl;
-
 	if( !moduleinfo.service() )
 		return;
 
@@ -362,7 +359,6 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 
 void KCMultiWidget::slotAboutToShow(QWidget *page)
 {
-	kdDebug() << k_funcinfo << endl;
 	QObject * obj = page->child( 0, "KCModuleProxy" );
 	if( ! obj )
 		return;
@@ -403,10 +399,9 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 		enableButton( User3, true );
 		connect( this, SIGNAL(user3Clicked()), d->currentModule, SLOT( runAsRoot() ));
 		connect( this, SIGNAL(user3Clicked()), SLOT( disableRModeButton() ));
-	}
-	else {
+	} else {
 		enableButton( User3, false );
-        }
+	}
 }
 
 void KCMultiWidget::rootExit()
@@ -431,7 +426,6 @@ void KCMultiWidget::dialogClosed()
 	{
 		applyOrRevert(d->currentModule);
 	}
-	kdDebug() << k_funcinfo << endl;
 }
 
 #include "kcmultiwidget.moc"

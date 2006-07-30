@@ -27,18 +27,25 @@
 #include "modulesview.h"
 #include "moduleiconitem.h"
 
-KcmSearch::KcmSearch( ModulesView *mainView, QWidget *parent, const char *name )
-				: KIconViewSearchLine(parent, mainView->groups[0], name){
-	this->mainView = mainView;
+KcmSearch::KcmSearch( QPtrList<ModulesView> *moduleViewList, QWidget *parent, const char *name )
+				: KIconViewSearchLine(parent, moduleViewList->at(0)->groups[0], name){
+	this->moduleViewList = moduleViewList;
 }
 
 void KcmSearch::updateSearch( const QString &search ) {
 	QValueList<RowIconView*>::iterator it;
-	for ( it = mainView->groups.begin(); it != mainView->groups.end(); ++it ){
-		QIconViewItem *item = (*it)->firstItem();
-		while( item ) {
-			((ModuleIconItem*)item)->loadIcon(itemMatches(item, search));
-			item = item->nextItem();
+	QPtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
+
+	ModulesView *mainView;
+	for ( ; moduleViewListIt.current(); ++moduleViewListIt) {
+		mainView = moduleViewListIt.current();
+
+		for ( it = mainView->groups.begin(); it != mainView->groups.end(); ++it ){
+			QIconViewItem *item = (*it)->firstItem();
+			while( item ) {
+				((ModuleIconItem*)item)->loadIcon(itemMatches(item, search));
+				item = item->nextItem();
+			}
 		}
 	}
 }

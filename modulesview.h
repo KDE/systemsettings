@@ -84,12 +84,13 @@ signals:
 	void itemSelected( QIconViewItem* item );
 
 public:
-	ModulesView( const QString &menuName, QWidget *parent=0, const char *name=0 );
+	ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent=0, const char *name=0 );
 	~ModulesView();
 
 private:
 	QValueList<RowIconView*> groups;
-	KCModuleMenu *menu;
+	KCModuleMenu *rootMenu;
+	QString menuPath;
 
 	void createRow( const QString &parentPath, QBoxLayout *layout );
 };

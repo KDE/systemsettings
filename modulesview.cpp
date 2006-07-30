@@ -31,18 +31,21 @@
 #include <kapplication.h>
 #include <kaboutapplication.h>
 #include <kdebug.h>
+#include <qiconview.h>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
 #include "kcmodulemenu.h"
 
-ModulesView::ModulesView( const QString &menuName, QWidget *parent,
-		const char *name ) : QWidget( parent, name ), menu( NULL )
+ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent,
+		const char *name ) : QWidget( parent, name ), rootMenu( NULL )
 {
-	menu = new KCModuleMenu( menuName );
+	this->rootMenu = rootMenu;	
+	this->menuPath = menuPath;
+
 	QVBoxLayout *layout = new QVBoxLayout( this, 11, 6, "layout" );
 
-	QValueList<MenuItem> subMenus = menu->menuList();
+	QValueList<MenuItem> subMenus = rootMenu->menuList(menuPath);
  	QValueList<MenuItem>::iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){
 		if( !(*it).menu )
@@ -56,9 +59,10 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 			layout->addWidget( line );
 		}
 
-		// Build the row if modueles/icons
+		// Build the row of modules/icons
 		createRow( (*it).subMenu, layout );
 	}
+	layout->addStretch(1);
 
 	// Make empty iconView for the search widget
 	if( groups.count()==0 ) {
@@ -90,8 +94,6 @@ ModulesView::ModulesView( const QString &menuName, QWidget *parent,
 
 ModulesView::~ModulesView()
 {
-	if(menu)
-		delete menu;
 }
 
 void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
@@ -131,13 +133,14 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	iconView->setSpacing( 0 );
 	iconView->setMargin( 0 );
 	iconView->setItemsMovable( false );
+	iconView->setSelectionMode(QIconView::NoSelection);
 	groups.append( iconView );
 	connect(iconView, SIGNAL( clicked( QIconViewItem* ) ),
 		      this, SIGNAL( itemSelected( QIconViewItem* ) ) );
 	boxLayout->addWidget( iconView );
 
 	// Add all the items in their proper order
-	QValueList<MenuItem> list = menu->menuList( parentPath );
+	QValueList<MenuItem> list = rootMenu->menuList( parentPath );
  	QValueList<MenuItem>::iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
 		if( !(*it).menu )
@@ -149,7 +152,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 			if ( group ) {
 				ModuleIconItem *item = new ModuleIconItem( ((KIconView*)iconView),
 												group->caption(), group->icon() );
-				item->modules = menu->modules( path );
+				item->modules = rootMenu->modules( path );
 			}
 		}
 	}

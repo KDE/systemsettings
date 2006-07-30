@@ -36,7 +36,7 @@ class KcmSearch : public KIconViewSearchLine
 	Q_OBJECT
 
 public:
-	KcmSearch( ModulesView *mainView, QWidget *parent = 0, const char *name = 0 );
+	KcmSearch( QPtrList<ModulesView> *moduleViewList, QWidget *parent = 0, const char *name = 0 );
 
 public slots:
 	/**
@@ -57,8 +57,7 @@ private:
 	bool itemMatches ( const KCModuleInfo &module, const QString &search ) const;
 
 	// Friend class whos groups parsed, 
-	ModulesView *mainView;
-
+	QPtrList<ModulesView> *moduleViewList;
 };
 
 #endif // KCMSEARCH_H
