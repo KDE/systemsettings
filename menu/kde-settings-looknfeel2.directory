@@ -2,4 +2,5 @@
 Encoding=UTF-8
 Type=Directory
 Name=Look & Feel
+Name[nl]=Uiterlijk en gedrag
 Icon=looknfeel

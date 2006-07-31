@@ -2,4 +2,5 @@
 Encoding=UTF-8
 
 Name=Notifications
+Name[nl]=Meldingen
 Icon=knotify

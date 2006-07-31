@@ -11,9 +11,12 @@ X-KDE-FactoryName=media
 #X-KDE-ParentApp=kcontrol
 
 Name=Storage Media Notifications
+Name[nl]=Meldingen opslagmedia
 
 Comment=Configure Storage Media Notifications
+Comment[nl]=Meldingen van opslagmedia instellen
 
 Keywords=storage,media,usb,cdrom,device
+Keywords[nl]=storage,opslag,media,usb,cd-rom,device,apparaat,mp3-speler,usb-stick,geheugenkaart,ipod,iriver,mediaspeler,muziek
 
 #Categories=Qt;KDE;X-KDE-settings-peripherals

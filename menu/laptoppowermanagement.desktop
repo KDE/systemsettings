@@ -12,5 +12,7 @@ DocPath=kcontrol/laptop/index.html
 #Categories=Qt;KDE;X-KDE-settings-power;
 
 Comment=Laptop Power Management
+Comment[nl]=Laptop energiebeheer
 Name=Power Management
+Name[nl]=Energiebeheer
 Init=klaptop_check

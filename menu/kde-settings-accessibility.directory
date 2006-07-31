@@ -2,4 +2,6 @@
 Encoding=UTF-8
 
 Name=Accessibility
+Name[ga]=Inrochtaineacht
+Name[nl]=Toegankelijkheid
 Icon=access

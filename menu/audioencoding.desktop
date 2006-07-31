@@ -8,8 +8,12 @@ X-KDE-ModuleType=Library
 X-KDE-Library=audiocd
 
 Name=Audio Encoding
+Name[nl]=Audiocodering
 Comment=Audiocd IO Slave Configuration
+Comment[nl]=Audiocd IO-slave instellen
 Keywords=Audio CD,CD,Ogg,Vorbis,Encoding,CDDA,Bitrate
+Keywords[ga]=CD Fuaime,CD,Ogg,Vorbis,Ionchódú,CDDA,Ráta Giotán
+Keywords[nl]=Audio-cd,cd,Ogg,Vorbis,Encoding,CDDA,Bitrate,codering,rippen,bitsnelheid
 
 ## keep this out of kcontrol
 #Categories=Qt;KDE;X-KDE-settings-sound;

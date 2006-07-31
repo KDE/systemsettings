@@ -2,4 +2,6 @@
 Encoding=UTF-8
 Type=Directory
 Name=Network & Connectivity
+Name[ga]=Líonra & Nascacht
+Name[nl]=Netwerkverbindingen
 Icon=network

@@ -14,6 +14,12 @@ Icon=knetworkconf
 DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
+Comment[ga]=Cumraigh Naisc Líonra
+Comment[nl]=Netwerkverbindingen instellen
 Terminal=false
 Name=Network Connections
+Name[ga]=Naisc Líonra
+Name[nl]=Netwerkverbindingen
 Keywords=Network,DNS,routes,interfaces
+Keywords[ga]=Líonra,DNS,róid,comhéadain
+Keywords[nl]=netwerk,DNS,routes,interfaces,netwerkkaart

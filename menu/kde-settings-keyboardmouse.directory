@@ -2,4 +2,6 @@
 Encoding=UTF-8
 
 Name=Keyboard & Mouse
+Name[ga]=Méarchlár & Luch
+Name[nl]=Toetsenbord en muis
 Icon=keyboard
