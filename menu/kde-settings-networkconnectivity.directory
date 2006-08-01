@@ -4,4 +4,6 @@ Type=Directory
 Name=Network & Connectivity
 Name[ga]=Líonra & Nascacht
 Name[nl]=Netwerkverbindingen
+Name[pt]=Rede e Conectividade
+Name[pt_BR]=Rede e Conectividade
 Icon=network

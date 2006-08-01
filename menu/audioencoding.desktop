@@ -9,11 +9,17 @@ X-KDE-Library=audiocd
 
 Name=Audio Encoding
 Name[nl]=Audiocodering
+Name[pt]=Codificação de Áudio
+Name[pt_BR]=Codificação de Áudio
 Comment=Audiocd IO Slave Configuration
 Comment[nl]=Audiocd IO-slave instellen
+Comment[pt]=Configuração do IO Slave de CDs-Áudio
+Comment[pt_BR]=Configuração do IO Slave de CDs-Áudio
 Keywords=Audio CD,CD,Ogg,Vorbis,Encoding,CDDA,Bitrate
 Keywords[ga]=CD Fuaime,CD,Ogg,Vorbis,Ionchódú,CDDA,Ráta Giotán
 Keywords[nl]=Audio-cd,cd,Ogg,Vorbis,Encoding,CDDA,Bitrate,codering,rippen,bitsnelheid
+Keywords[pt]=CD Áudio,CD,Ogg,Vorbis,Codificação,CDDA,Taxa
+Keywords[pt_BR]=CD Áudio,CD,Ogg,Vorbis,Codificação,CDDA,Taxa
 
 ## keep this out of kcontrol
 #Categories=Qt;KDE;X-KDE-settings-sound;

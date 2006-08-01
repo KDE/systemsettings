@@ -3,4 +3,6 @@ Encoding=UTF-8
 
 Name=Advanced User Settings
 Name[nl]=Geavanceerde gebruikersinstellingen
+Name[pt]=Configuração Avançada do Utilizador
+Name[pt_BR]=Configuração Avançada do Utilizador
 Icon=userconfig.png

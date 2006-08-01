@@ -3,4 +3,6 @@ Encoding=UTF-8
 Name=Network Settings
 Name[ga]=Socruithe Líonra
 Name[nl]=Netwerkinstellingen
+Name[pt]=Configuração da Rede
+Name[pt_BR]=Configuração da Rede
 Icon=network_local

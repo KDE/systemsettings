@@ -4,4 +4,6 @@ Encoding=UTF-8
 Name=Keyboard & Mouse
 Name[ga]=Méarchlár & Luch
 Name[nl]=Toetsenbord en muis
+Name[pt]=Teclado e Rato
+Name[pt_BR]=Teclado e Rato
 Icon=keyboard

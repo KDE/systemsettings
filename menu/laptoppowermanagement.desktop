@@ -13,6 +13,10 @@ DocPath=kcontrol/laptop/index.html
 
 Comment=Laptop Power Management
 Comment[nl]=Laptop energiebeheer
+Comment[pt]=Gestão de Energia de Portáteis
+Comment[pt_BR]=Gestão de Energia de Portáteis
 Name=Power Management
 Name[nl]=Energiebeheer
+Name[pt]=Gestão de Energia
+Name[pt_BR]=Gestão de Energia
 Init=klaptop_check

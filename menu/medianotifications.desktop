@@ -12,11 +12,17 @@ X-KDE-FactoryName=media
 
 Name=Storage Media Notifications
 Name[nl]=Meldingen opslagmedia
+Name[pt]=Notificação de Suportes de Armazenamento
+Name[pt_BR]=Notificação de Suportes de Armazenamento
 
 Comment=Configure Storage Media Notifications
 Comment[nl]=Meldingen van opslagmedia instellen
+Comment[pt]=Configurar as Notificações de Suportes de Armazenamento
+Comment[pt_BR]=Configurar as Notificações de Suportes de Armazenamento
 
 Keywords=storage,media,usb,cdrom,device
 Keywords[nl]=storage,opslag,media,usb,cd-rom,device,apparaat,mp3-speler,usb-stick,geheugenkaart,ipod,iriver,mediaspeler,muziek
+Keywords[pt]=armazenamento,meio,suporte,usb,cdrom,dispositivo
+Keywords[pt_BR]=armazenamento,meio,suporte,usb,cdrom,dispositivo
 
 #Categories=Qt;KDE;X-KDE-settings-peripherals
