@@ -12,10 +12,12 @@ DocPath=kcontrol/laptop/index.html
 #Categories=Qt;KDE;X-KDE-settings-power;
 
 Comment=Laptop Power Management
+Comment[ja]=ラップトップの電源管理
 Comment[nl]=Laptop energiebeheer
 Comment[pt]=Gestão de Energia de Portáteis
 Comment[pt_BR]=Gestão de Energia de Portáteis
 Name=Power Management
+Name[ja]=電源管理
 Name[nl]=Energiebeheer
 Name[pt]=Gestão de Energia
 Name[pt_BR]=Gestão de Energia

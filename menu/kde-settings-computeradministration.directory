@@ -2,5 +2,6 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computer Administration
+Name[ja]=コンピュータの管理
 Name[nl]=Computerbeheer
 Icon=systemtray
