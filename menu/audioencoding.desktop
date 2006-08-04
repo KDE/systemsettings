@@ -8,11 +8,13 @@ X-KDE-ModuleType=Library
 X-KDE-Library=audiocd
 
 Name=Audio Encoding
+Name[bg]=Аудио кодиране
 Name[ja]=オーディオエンコーディング
 Name[nl]=Audiocodering
 Name[pt]=Codificação de Áudio
 Name[pt_BR]=Codificação de Áudio
 Comment=Audiocd IO Slave Configuration
+Comment[bg]=Настройка на Audiocd IO Slave
 Comment[ja]=オーディオ CD IO スレーブの設定
 Comment[nl]=Audiocd IO-slave instellen
 Comment[pt]=Configuração do IO Slave de CDs-Áudio

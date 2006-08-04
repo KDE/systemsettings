@@ -3,6 +3,7 @@ Encoding=UTF-8
 Icon=ksplash
 
 Name=Splash Screen
+Name[bg]=Начален екран
 Name[br]=Skramm-degemer
 Name[ga]=Splancscáileán
 Name[ja]=スプラッシュスクリーン

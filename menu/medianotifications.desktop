@@ -11,12 +11,14 @@ X-KDE-FactoryName=media
 #X-KDE-ParentApp=kcontrol
 
 Name=Storage Media Notifications
+Name[bg]=Уведомяване за съхраняващи устройства
 Name[ja]=記憶メディアの通知
 Name[nl]=Meldingen opslagmedia
 Name[pt]=Notificação de Suportes de Armazenamento
 Name[pt_BR]=Notificação de Suportes de Armazenamento
 
 Comment=Configure Storage Media Notifications
+Comment[bg]=Настройка на уведомяването за съхраняващи устройства
 Comment[ja]=記憶メディアの通知を設定
 Comment[nl]=Meldingen van opslagmedia instellen
 Comment[pt]=Configurar as Notificações de Suportes de Armazenamento

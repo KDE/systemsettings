@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Network & Connectivity
+Name[bg]=Връзки и свързаност
 Name[ga]=Líonra & Nascacht
 Name[ja]=ネットワークと接続
 Name[nl]=Netwerkverbindingen

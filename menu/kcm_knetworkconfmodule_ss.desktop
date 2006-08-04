@@ -14,6 +14,7 @@ Icon=knetworkconf
 DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
+Comment[bg]=Настройка на системните връзки
 Comment[ga]=Cumraigh Naisc Líonra
 Comment[ja]=ネットワーク接続の設定
 Comment[nl]=Netwerkverbindingen instellen
@@ -21,6 +22,7 @@ Comment[pt]=Configurar as Ligações de Rede
 Comment[pt_BR]=Configurar as Ligações de Rede
 Terminal=false
 Name=Network Connections
+Name[bg]=Системни връзки
 Name[ga]=Naisc Líonra
 Name[ja]=ネットワーク接続
 Name[nl]=Netwerkverbindingen
