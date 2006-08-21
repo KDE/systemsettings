@@ -16,6 +16,7 @@ Name[ja]=オーディオエンコーディング
 Name[nl]=Audiocodering
 Name[pt]=Codificação de Áudio
 Name[pt_BR]=Codificação de Áudio
+Name[sv]=Ljudkodning
 Comment=Audiocd IO Slave Configuration
 Comment[bg]=Настройка на Audiocd IO Slave
 Comment[de]=Konfiguration des Audio-CD Ein-/Ausgabemoduls
@@ -25,6 +26,7 @@ Comment[ja]=オーディオ CD IO スレーブの設定
 Comment[nl]=Audiocd IO-slave instellen
 Comment[pt]=Configuração do IO Slave de CDs-Áudio
 Comment[pt_BR]=Configuração do IO Slave de CDs-Áudio
+Comment[sv]=Anpassa I/O-slav för ljud-cd
 Keywords=Audio CD,CD,Ogg,Vorbis,Encoding,CDDA,Bitrate
 Keywords[de]=Audio CD,CD,Ogg,Vorbis,Kodierung,CDDA,Bitrate
 Keywords[es]=CD de Audio,CD,Ogg,Vorbis,Codificar,CDDA,Tasa de bit
@@ -34,6 +36,7 @@ Keywords[ja]=オーディオ CD,CD,Ogg,Vorbis,エンコーディング,CDDA,ビ�
 Keywords[nl]=Audio-cd,cd,Ogg,Vorbis,Encoding,CDDA,Bitrate,codering,rippen,bitsnelheid
 Keywords[pt]=CD Áudio,CD,Ogg,Vorbis,Codificação,CDDA,Taxa
 Keywords[pt_BR]=CD Áudio,CD,Ogg,Vorbis,Codificação,CDDA,Taxa
+Keywords[sv]=ljud-cd,cd,Ogg,Vorbis,kodning,CDDA,bithastighet
 
 ## keep this out of kcontrol
 #Categories=Qt;KDE;X-KDE-settings-sound;

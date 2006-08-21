@@ -19,6 +19,7 @@ Name[ja]=記憶メディアの通知
 Name[nl]=Meldingen opslagmedia
 Name[pt]=Notificação de Suportes de Armazenamento
 Name[pt_BR]=Notificação de Suportes de Armazenamento
+Name[sv]=Underrättelser om lagringsmedia
 
 Comment=Configure Storage Media Notifications
 Comment[bg]=Настройка на уведомяването за съхраняващи устройства
@@ -29,6 +30,7 @@ Comment[ja]=記憶メディアの通知を設定
 Comment[nl]=Meldingen van opslagmedia instellen
 Comment[pt]=Configurar as Notificações de Suportes de Armazenamento
 Comment[pt_BR]=Configurar as Notificações de Suportes de Armazenamento
+Comment[sv]=Anpassa underrättelser om lagringsmedia
 
 Keywords=storage,media,usb,cdrom,device
 Keywords[de]=Speicher,Medien,USB,CD-ROM,Gerät
@@ -39,5 +41,6 @@ Keywords[ja]=記憶,メディア,usb,cdrom,デバイス
 Keywords[nl]=storage,opslag,media,usb,cd-rom,device,apparaat,mp3-speler,usb-stick,geheugenkaart,ipod,iriver,mediaspeler,muziek
 Keywords[pt]=armazenamento,meio,suporte,usb,cdrom,dispositivo
 Keywords[pt_BR]=armazenamento,meio,suporte,usb,cdrom,dispositivo
+Keywords[sv]=lagring,media,usb,cdrom,enhet
 
 #Categories=Qt;KDE;X-KDE-settings-peripherals
