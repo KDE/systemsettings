@@ -8,11 +8,13 @@ xdg_mergedmenudir = $(xdg_menudir)/applications-merged
 
 xdg_directory_DATA = \
 kde-settings-accessibility.directory \
+kde-settings-advanced.directory \
 kde-settings-advancedusersettings.directory \
 kde-settings-appearance.directory \
 kde-settings-bluetooth.directory \
 kde-settings-computeradministration.directory \
 kde-settings-defaultapplications.directory \
+kde-settings-general.directory \
 kde-settings-keyboardmouse.directory \
 kde-settings-laptops.directory \
 kde-settings-looknfeel2.directory \
@@ -21,6 +23,7 @@ kde-settings-networkconnectivity.directory \
 kde-settings-networksettings.directory \
 kde-settings-notifications.directory \
 kde-settings-panel.directory \
+kde-settings-personal.directory \
 kde-settings-power.directory \
 kde-settings-regional.directory \
 kde-settings-sharing.directory \

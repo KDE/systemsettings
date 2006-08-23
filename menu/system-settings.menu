@@ -56,11 +56,11 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Name>User Account</Name>
 				<Directory>kde-settings-useraccount.directory</Directory>
 				<Include>
-					<Filename>kde-kcm_myaccount.desktop</Filename>
+					<Filename>kde-kcm_useraccount.desktop</Filename>
 					<Filename>kde-desktoppath.desktop</Filename>
 				</Include>
 				<Layout>
-					<Filename>kde-kcm_myaccount.desktop</Filename>
+					<Filename>kde-kcm_useraccount.desktop</Filename>
 					<Filename>kde-desktoppath.desktop</Filename>
 				</Layout>
 			</Menu>
@@ -84,7 +84,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 			<!-- Accessibility -->
 			<Menu>
 				<Name>Accessibility</Name>
-				<Directory>kde-settings-accessibility.directory</Directory>
+				<Directory>kde-settings-accessibility_ss.directory</Directory>
 				<Include>
 					<Filename>kde-kcmaccess.desktop</Filename>
 					<Filename>kde-khotkeys.desktop</Filename>
