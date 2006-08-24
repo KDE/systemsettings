@@ -202,7 +202,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Filename>kde-displayconfig.desktop</Filename>
 				<Filename>kde-arts.desktop</Filename>
 				<Filename>kde-printers.desktop</Filename>
-				<Filename>kde-laptoppowermanagement.desktop</Filename>
+<!--				<Filename>kde-laptoppowermanagement.desktop</Filename>-->
 	<!--			<Filename>kde-thinkpad.desktop</Filename>
 				<Filename>kde-kvaio.desktop</Filename>-->
 				<Filename>kde-userconfig.desktop</Filename>
@@ -213,7 +213,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Filename>kde-displayconfig.desktop</Filename>
 				<Filename>kde-arts.desktop</Filename>
 				<Filename>kde-printers.desktop</Filename>
-				<Filename>kde-laptoppowermanagement.desktop</Filename>
+<!--				<Filename>kde-laptoppowermanagement.desktop</Filename>-->
 	<!--			<Filename>kde-thinkpad.desktop</Filename>
 				<Filename>kde-kvaio.desktop</Filename>-->
 				<Filename>kde-userconfig.desktop</Filename>
