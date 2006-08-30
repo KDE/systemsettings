@@ -7,7 +7,7 @@ xdg_mergedmenu_DATA = system-settings-merge.menu
 xdg_mergedmenudir = $(xdg_menudir)/applications-merged
 
 xdg_directory_DATA = \
-kde-settings-accessibility.directory \
+kde-settings-accessibility_ss.directory \
 kde-settings-advanced.directory \
 kde-settings-advancedusersettings.directory \
 kde-settings-appearance.directory \
