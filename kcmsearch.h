@@ -49,6 +49,9 @@ public slots:
 	 */
 	virtual bool itemMatches ( const QIconViewItem *item, const QString &search ) const;
 
+signals:
+	void searchHits(const QString &query, int *hitList, int length);
+
 private:
 	/**
 	 * Determine if module matches the search 

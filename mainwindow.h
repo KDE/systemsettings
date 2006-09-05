@@ -24,6 +24,7 @@
 #include <kmainwindow.h>
 #include <kcmoduleinfo.h>
 #include <qptrdict.h>
+#include <qlabel.h>
 #include <kactionclasses.h>
 #include "kcscrollview.h"
 #include "kcmodulemenu.h"
@@ -58,6 +59,7 @@ private slots:
 	void widgetChange();
 	void timerResize();
 	void slotTopPage();
+	void slotSearchHits(const QString &query, int *hitList, int length);
 
 private:
 	KCModuleMenu *menu;
@@ -87,6 +89,9 @@ private:
 	
 	void buildMainWidget();
 	void buildActions();
+
+	QLabel *generalHitLabel;
+	QLabel *advancedHitLabel;
 
   /**
    * If someone wants to report a bug

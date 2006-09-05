@@ -37,17 +37,29 @@ void KcmSearch::updateSearch( const QString &search ) {
 	QPtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
 
 	ModulesView *mainView;
+	int page = 0;
+	int *hitArray = new int[moduleViewList->count()];
+
 	for ( ; moduleViewListIt.current(); ++moduleViewListIt) {
 		mainView = moduleViewListIt.current();
 
+		int count = 0;
 		for ( it = mainView->groups.begin(); it != mainView->groups.end(); ++it ){
 			QIconViewItem *item = (*it)->firstItem();
 			while( item ) {
-				((ModuleIconItem*)item)->loadIcon(itemMatches(item, search));
+				bool hit = itemMatches(item, search);
+				((ModuleIconItem*)item)->loadIcon(hit);
+				count += hit ? 1 : 0;
 				item = item->nextItem();
 			}
+
 		}
+		hitArray[page] = count;
+		page++;
 	}
+
+	emit searchHits(search, hitArray, moduleViewList->count());
+	delete[] hitArray;
 }
 
 bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search ) const

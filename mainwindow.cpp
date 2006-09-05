@@ -52,8 +52,8 @@
 
 MainWindow::MainWindow(bool embed, const QString & menuFile,
 								QWidget *parent, const char *name) :
-				KMainWindow(parent,name), embeddedWindows(embed), groupWidget(NULL),
-				dummyAbout(NULL), menu(NULL), selectedPage(0) {
+				KMainWindow(parent,name), menu(NULL), embeddedWindows(embed),
+				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
 	
 	// Load the menu structure in from disk.
 	menu = new KCModuleMenu( menuFile );
@@ -115,8 +115,20 @@ void MainWindow::buildActions()
 	resetModuleHelp();
 
 	// Search
-	KcmSearch* search = new KcmSearch(&modulesViewList, 0, "search");
-	search->setMaximumWidth( 200 );
+	QHBox *hbox = new QHBox(0);
+	hbox->setMaximumWidth( 400 );
+
+	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
+	hbox->setStretchFactor(search,1);
+	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
+
+	QVBox *vbox = new QVBox(hbox);
+	generalHitLabel = new QLabel(vbox);
+	vbox->setStretchFactor(generalHitLabel,1);
+	advancedHitLabel = new QLabel(vbox);
+	vbox->setStretchFactor(advancedHitLabel,1);
+
+	hbox->setStretchFactor(vbox,1);
 
 	// "Search:" label	
 	QLabel *searchLabel = new QLabel( this, "SearchLabel");
@@ -127,7 +139,7 @@ void MainWindow::buildActions()
 	searchLabel->setBuddy( search );
 
 	// The search box.
-	searchAction = new KWidgetAction( search, i18n( "Search System Settings" ), 0,
+	searchAction = new KWidgetAction( hbox, i18n( "Search System Settings" ), 0,
                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
 	searchAction->setAutoSized( true );
@@ -320,6 +332,23 @@ void MainWindow::slotTopPage() {
 	}
 
 	windowStack->raiseWidget(overviewPages.at(selectedPage));
+}
+
+void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) {
+	if(query=="") {
+		generalHitLabel->setText("");
+		advancedHitLabel->setText("");
+	} else {
+		
+		if(length>=1) {
+			generalHitLabel->setText(i18n("%1 hit in General","%1 hits in General",hitList[0]).arg(hitList[0]));
+		}
+	
+		if(length>=2) {
+			advancedHitLabel->setText(i18n("%1 hit in Advanced","%1 hits in Advanced",hitList[1]).arg(hitList[1]));
+		}
+
+	}
 }
 
 #include "mainwindow.moc"
