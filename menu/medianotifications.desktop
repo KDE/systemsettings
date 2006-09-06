@@ -12,6 +12,7 @@ X-KDE-FactoryName=media
 
 Name=Storage Media Notifications
 Name[bg]=Уведомяване за съхраняващи устройства
+Name[da]=Underretninger om lagringsmedie
 Name[de]=Speichermedien-Benachrichtigungen
 Name[es]=Notificaciones de los medios de almacenamiento
 Name[gl]=Notificazón de Dispositivos de Armacenaxe
@@ -23,6 +24,7 @@ Name[sv]=Underrättelser om lagringsmedia
 
 Comment=Configure Storage Media Notifications
 Comment[bg]=Настройка на уведомяването за съхраняващи устройства
+Comment[da]=Indstil underretninger om lagringsmedie
 Comment[de]=Benachrichtigungen für Speichermedien konfigurieren
 Comment[es]=Configurar las notificaciones de los medios de almacenamiento
 Comment[gl]=Configura as Notificazóns dos Médios de Armacenaxe
@@ -33,6 +35,7 @@ Comment[pt_BR]=Configurar as Notificações de Suportes de Armazenamento
 Comment[sv]=Anpassa underrättelser om lagringsmedia
 
 Keywords=storage,media,usb,cdrom,device
+Keywords[da]=lagring,medie,usb,cdrom,enhed
 Keywords[de]=Speicher,Medien,USB,CD-ROM,Gerät
 Keywords[es]=almacenamientos,medios,usb,cdrom,dispositivo
 Keywords[ga]=stóras,meáin,usb,cdrom,gléas

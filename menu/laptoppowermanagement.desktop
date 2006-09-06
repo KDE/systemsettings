@@ -13,6 +13,7 @@ DocPath=kcontrol/laptop/index.html
 
 Comment=Laptop Power Management
 Comment[bg]=Захранване за лаптоп
+Comment[da]=Strømhåndtering for bærbar computer
 Comment[de]=Laptop-Energieverwaltung
 Comment[es]=Administración de energía del portátil
 Comment[gl]=Xestión de Enerxia de Portáteis
@@ -23,6 +24,7 @@ Comment[pt_BR]=Gestão de Energia de Portáteis
 Comment[sv]=Strömhantering för bärbar dator
 Name=Power Management
 Name[bg]=Захранване
+Name[da]=Energisparefunktion
 Name[de]=Energierverwaltung
 Name[es]=Administración de energía
 Name[gl]=Xestión da Enerxia
