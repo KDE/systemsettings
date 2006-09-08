@@ -119,6 +119,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Layout>
 					<Filename>kde-colors.desktop</Filename>
 					<Filename>kde-fonts.desktop</Filename>
+					<Filename>kcmgtk-xdg.desktop</Filename>
 					<Filename>kde-kcmfontinst.desktop</Filename>
 					<Filename>kde-icons.desktop</Filename>
 					<Filename>kde-style.desktop</Filename>
@@ -128,6 +129,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Include>
 					<Filename>kde-colors.desktop</Filename>
 					<Filename>kde-fonts.desktop</Filename>
+					<Filename>kcmgtk-xdg.desktop</Filename>
 					<Filename>kde-kcmfontinst.desktop</Filename>
 					<Filename>kde-icons.desktop</Filename>
 					<Filename>kde-style.desktop</Filename>
