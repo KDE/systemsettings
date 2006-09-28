@@ -29,7 +29,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 			<Separator/>
 			<Menuname>Network and Connectivity</Menuname>
 		</Layout>
-		
+
 		<!-- Personal -->
 		<Menu>
 			<Name>Personal</Name>
@@ -43,12 +43,13 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 			<!--<Menuname>Appearance</Menuname>
 			<Menuname>Panel</Menuname>
 			<Menuname>Desktop</Menuname>
-			<Merge type="menus" />
-			<Merge type="files" />-->
+			<Merge type="menus" />-->
+				<Merge type="files" />
 			</Layout>
 
 			<Include>
 				<Filename>kde-defaultapplication.desktop</Filename>
+				<Category>X-KDE-systemsettings-personal</Category>
 			</Include>
 
 			<!-- User Account -->
@@ -107,9 +108,11 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Filename>kde-ksplashthememgr.desktop</Filename>
 				<Menuname>Window Behavior</Menuname>
 				<Menuname>Notifications</Menuname>
+				<Merge type="files" />
 			</Layout>
 			<Include>
 				<Filename>kde-ksplashthememgr.desktop</Filename>
+				<Category>X-KDE-systemsettings-lookandfeel</Category>
 			</Include>
 	
 			<!-- Appearance -->
@@ -208,7 +211,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 	<!--			<Filename>kde-thinkpad.desktop</Filename>
 				<Filename>kde-kvaio.desktop</Filename>-->
 				<Filename>kde-userconfig.desktop</Filename>
-	
+				<Merge type="files" />
 			</Layout>
 			<Include>
 				<Filename>kde-clock.desktop</Filename>
@@ -219,6 +222,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 	<!--			<Filename>kde-thinkpad.desktop</Filename>
 				<Filename>kde-kvaio.desktop</Filename>-->
 				<Filename>kde-userconfig.desktop</Filename>
+				<Category>X-KDE-systemsettings-administration</Category>
 			</Include>
 	
 			<!-- Keyboard and Mouse -->
@@ -251,7 +255,12 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Menuname>Network Settings</Menuname>
 				<Menuname>Sharing</Menuname>
 				<Menuname>Bluetooth</Menuname>
+				<Merge type="files" />
 			</Layout>
+
+			<Include>
+				<Category>X-KDE-systemsettings-network</Category>
+			</Include>
 	
 			<!-- Network Settings -->
 			<Menu>
@@ -325,12 +334,14 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Filename>kde-mountconfig.desktop</Filename>
 				<Filename>kde-serviceconfig.desktop</Filename>
 				<Filename>kde-kdm.desktop</Filename>
+				<Merge type="files" />
 			</Layout>
 	
 			<Include>
 				<Filename>kde-mountconfig.desktop</Filename>
 				<Filename>kde-serviceconfig.desktop</Filename>
 				<Filename>kde-kdm.desktop</Filename>
+				<Category>X-KDE-systemsettings-advancedadministration</Category>
 			</Include>
 		</Menu>
 	
@@ -344,6 +355,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Filename>kde-kresources.desktop</Filename>
 				<Filename>kde-kcmkded.desktop</Filename>
 				<Filename>kde-kcmsmserver.desktop</Filename>
+				<Merge type="files" />
 			</Layout>
 	
 			<Include>
@@ -351,6 +363,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Filename>kde-kresources.desktop</Filename>
 				<Filename>kde-kcmkded.desktop</Filename>
 				<Filename>kde-kcmsmserver.desktop</Filename>
+				<Category>X-KDE-systemsettings-advancedusersettings</Category>
 			</Include>
 		</Menu>
 	</Menu>	
