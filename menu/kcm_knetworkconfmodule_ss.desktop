@@ -15,6 +15,7 @@ DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
 Comment[bg]=Настройка на системните връзки
+Comment[br]=Kefluniañ ar c'hevreadennoù rouedad
 Comment[da]=Indstil netværksforbindelser
 Comment[de]=Netzwerkverbindungen konfigurieren
 Comment[el]=Ρύθμιση συνδέσεων δικτύου
