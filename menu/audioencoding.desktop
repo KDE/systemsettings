@@ -9,6 +9,7 @@ X-KDE-Library=audiocd
 
 Name=Audio Encoding
 Name[bg]=Аудио кодиране
+Name[br]=Enkodiñ klevet
 Name[da]=Lydkodning
 Name[de]=Audio-Kodierung
 Name[el]=Κωδικοποίηση ήχου
@@ -21,6 +22,7 @@ Name[pt_BR]=Codificação de Áudio
 Name[sv]=Ljudkodning
 Comment=Audiocd IO Slave Configuration
 Comment[bg]=Настройка на Audiocd IO Slave
+Comment[br]=Kefluniadur Sklav IO Audiocd
 Comment[da]=Indstil I/O-slave for lyd-cd
 Comment[de]=Konfiguration des Audio-CD Ein-/Ausgabemoduls
 Comment[el]=Ρύθμιση io slave για CD ήχου
