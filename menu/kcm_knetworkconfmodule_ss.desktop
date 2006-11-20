@@ -14,6 +14,7 @@ Icon=knetworkconf
 DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
+Comment[ar]=إعداد إتصالات الشبكة
 Comment[bg]=Настройка на системните връзки
 Comment[br]=Kefluniañ ar c'hevreadennoù rouedad
 Comment[da]=Indstil netværksforbindelser
@@ -29,6 +30,7 @@ Comment[pt_BR]=Configuração das Conexões da Rede
 Comment[sv]=Anpassa nätverksanslutningar
 Terminal=false
 Name=Network Connections
+Name[ar]=الإتصالات الشبكية
 Name[bg]=Системни връзки
 Name[br]=Kevreadurioù rouedad
 Name[da]=Netværksforbindelser

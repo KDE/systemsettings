@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computer Administration
+Name[ar]=إدارة الحاسوب
 Name[bg]=Администриране на компютъра
 Name[br]=Melestradur an urzhiater
 Name[da]=Computeradministration

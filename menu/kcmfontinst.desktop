@@ -13,6 +13,7 @@ X-KDE-RootOnly=true
 X-KDE-ParentApp=kcontrol
 
 Name=Fonts
+Name[ar]=المحارف
 Name[bg]=Шрифтове
 Name[br]=Fontoù
 Name[cs]=Písma
@@ -45,6 +46,7 @@ Name[xx]=xxFontsxx
 Name[zh_CN]=字体
 
 Comment=Install & preview fonts
+Comment[ar]=ثبت و أعرض محارف
 Comment[bg]=Инсталиране и преглеждане на шрифтове
 Comment[br]=Staliañ ha rakgwel an nodrezhoù
 Comment[cs]=Instalace a náhled písem

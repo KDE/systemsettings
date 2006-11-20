@@ -12,6 +12,7 @@ DocPath=kcontrol/laptop/index.html
 #Categories=Qt;KDE;X-KDE-settings-power;
 
 Comment=Laptop Power Management
+Comment[ar]=تدبير الطاقة للحاسوب النقال
 Comment[bg]=Захранване за лаптоп
 Comment[da]=Strømhåndtering for bærbar computer
 Comment[de]=Laptop-Energieverwaltung
@@ -24,6 +25,7 @@ Comment[pt]=Gestão de Energia de Portáteis
 Comment[pt_BR]=Gerenciamento de Energia do Laptop
 Comment[sv]=Strömhantering för bärbar dator
 Name=Power Management
+Name[ar]=إدخار الطاقة
 Name[bg]=Захранване
 Name[br]=Merañ ar gremm
 Name[da]=Energisparefunktion

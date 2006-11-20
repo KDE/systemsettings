@@ -9,6 +9,7 @@ X-KDE-Library=componentchooser
 X-KDE-ParentApp=kcontrol
 
 Name=Default Applications
+Name[ar]=التطبيقات الإفتراضية
 Name[bg]=Програма по подразбиране
 Name[br]=Arloadoù dre ziouer
 Name[cs]=Výchozí aplikace
@@ -39,6 +40,7 @@ Name[tr]=Öntanımlı Uygulamalar
 Name[xx]=xxDefault Applicationsxx
 Name[zh_CN]=默认应用程序
 Comment=Choose the default application for various services
+Comment[ar]=إختر التطبيق الإفتراضي للخدمات المختلفة
 Comment[bg]=Изберете програма по подразбиране за различните услуги
 Comment[cs]=Volba hlavních aplikací pro různé služby
 Comment[da]=Vælg standardprogram for diverse tjenester

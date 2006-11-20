@@ -11,6 +11,7 @@ X-KDE-FactoryName=media
 #X-KDE-ParentApp=kcontrol
 
 Name=Storage Media Notifications
+Name[ar]=تبليغات وسائط التخزين
 Name[bg]=Уведомяване за съхраняващи устройства
 Name[da]=Underretninger om lagringsmedie
 Name[de]=Speichermedien-Benachrichtigungen
@@ -24,6 +25,7 @@ Name[pt_BR]=Notificações de Mídia de Armazenamento
 Name[sv]=Underrättelser om lagringsmedia
 
 Comment=Configure Storage Media Notifications
+Comment[ar]=إعداد تبليغات وسائط التخزين
 Comment[bg]=Настройка на уведомяването за съхраняващи устройства
 Comment[da]=Indstil underretninger om lagringsmedie
 Comment[de]=Benachrichtigungen für Speichermedien konfigurieren

@@ -8,6 +8,7 @@ X-KDE-ModuleType=Library
 X-KDE-Library=audiocd
 
 Name=Audio Encoding
+Name[ar]=ترميز صوت
 Name[bg]=Аудио кодиране
 Name[br]=Enkodiñ klevet
 Name[da]=Lydkodning
@@ -34,6 +35,7 @@ Comment[pt]=Configuração do IO Slave de CDs-Áudio
 Comment[pt_BR]=Configuração do Protocolo audiocd
 Comment[sv]=Anpassa I/O-slav för ljud-cd
 Keywords=Audio CD,CD,Ogg,Vorbis,Encoding,CDDA,Bitrate
+Keywords[ar]=قرص مدمج صوتي ، قرص مدمج ، Ogg ، Vorbis,ترميز,CDDA,Bitrate
 Keywords[br]=CD klevet,CD,Ogg,Vorbis,Kodadur,CDDA,Feur
 Keywords[da]=lyd-cd,cd,Ogg,Vorbis,kodning,CDDA,bitrate
 Keywords[de]=Audio CD,CD,Ogg,Vorbis,Kodierung,CDDA,Bitrate

@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Type=Directory
 Name=Network & Connectivity
+Name[ar]=الشبكة و الإتصالية
 Name[bg]=Връзки и свързаност
 Name[da]=Netværk og forbindelser
 Name[de]=Netzwerk & Verbindungen

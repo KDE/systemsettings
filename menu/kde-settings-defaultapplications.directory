@@ -2,6 +2,7 @@
 Encoding=UTF-8
 
 Name=Default Applications
+Name[ar]=التطبيقات الإفتراضية
 Name[bg]=Програма по подразбиране
 Name[br]=Arloadoù dre ziouer
 Name[cs]=Výchozí aplikace
@@ -34,6 +35,7 @@ Name[zh_CN]=默认应用程序
 Icon=blockdevice
 
 Name=Default Applications
+Name[ar]=التطبيقات الإفتراضية
 Name[bg]=Програма по подразбиране
 Name[br]=Arloadoù dre ziouer
 Name[cs]=Výchozí aplikace
