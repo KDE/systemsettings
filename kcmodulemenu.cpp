@@ -44,7 +44,6 @@ KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 						"\" from KServiceGroup." << endl;
 		return;
 	}
-
 	d->basePath = serviceGroup->relPath();
 	readMenu( d->basePath );
 }
@@ -64,6 +63,7 @@ void KCModuleMenu::readMenu( const QString &pathName )
 	if( list.isEmpty() )
 		return;
 
+	caption = group->caption();
 	QValueList<MenuItem> currentMenu;
 			
 	for( KServiceGroup::List::ConstIterator it = list.begin();
@@ -74,12 +74,14 @@ void KCModuleMenu::readMenu( const QString &pathName )
 			KCModuleInfo module((KService*)entry);
 			append(module);
 			MenuItem infoItem(false);
+			infoItem.caption = this->deriveCaptionFromPath(entry->name());
 			infoItem.item = module;
 			currentMenu.append( infoItem );
 		}
 
 		if ( entry->isType(KST_KServiceGroup) ){
 			MenuItem menuItem(true);
+			menuItem.caption = this->deriveCaptionFromPath(entry->name());
 			menuItem.subMenu = entry->entryPath();
 			currentMenu.append( menuItem );
 
@@ -145,3 +147,42 @@ QValueList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
 	return d->menus[menuPath];
 }
 
+/*
+ * Okay, I think there could be a much more elegant way of doing
+ * this... but I'm having a hell fo a time figuring it out.
+ *
+ * The purpose of this function is to take a menu path and turn it
+ * into a caption that we can put in a tab.  Why do it this way?  I
+ * don't know, you tell me.  Before I started hacking this we used a
+ * radio control with two buttons (or so it seemed, I could be wrong)
+ * with General and Advanced in a ui.rc file.
+ *
+ * Now that we're using tabs, we no longer have that UI file giving us
+ * the names for the tabs, and since I didn't want to hard-code
+ * anything, and since KSycocaEntry stuff doesn't give you a nice way
+ * (that I noticed anyway) to figure out what your caption should be,
+ * I decided that cleverness is lost on this problem.  So screw it,
+ * I'll just parse the stupid path and be done with it.
+ *
+ * This function is certainly nothing short of dull and boring and
+ * routine, but I figured that this might require a bit of explanation
+ * since it just seems kinda silly to do it this way to me.  I guess I
+ * never know... I could be doing it the best way.
+ *
+ * "Michael D. Stemle, Jr." <manchicken@notsosoft.net>
+ */
+QString KCModuleMenu::deriveCaptionFromPath( const QString &menuPath )
+{
+	QStringList parts(QStringList::split("/",menuPath));
+	QString result("");
+
+	QStringList::Iterator it = parts.end(); // Start at the end
+
+	// Find the last non-empty string in the split.
+	for (; it != parts.begin(); --it) {
+		if (!((*it).isNull()) && !((*it).isEmpty())) {
+			result += *it;
+			return result;
+		}
+	}
+}

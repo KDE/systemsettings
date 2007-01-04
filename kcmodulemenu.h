@@ -78,6 +78,7 @@ public:
 	MenuItem( bool isMenu=false ){ menu = isMenu; };	
 	bool menu;
 	QString subMenu;
+	QString caption;
 	KCModuleInfo item;
 };
 
@@ -86,6 +87,8 @@ class KCModuleMenu : public QValueList<KCModuleInfo>
 {
 
 public:
+	QString caption;
+
 	/**
 	 * @param the X-KDE-BaseGroup item from the directory file
 	 * that should be loaded.
@@ -148,7 +151,7 @@ protected:
 
 private:
 	KCModuleMenuPrivate *d;
-
+	QString deriveCaptionFromPath( const QString &menuPath );
 };
 
 #endif // KCMMODULEMENU_H

@@ -20,9 +20,6 @@
 <ToolBar name="mainToolBar">
 	<Action name="showAll"/>
 	<Separator/>
-    <Action name="System Settings/General/" />
-    <Action name="System Settings/Advanced/" />
-    <Separator/>
 	<Action name="searchReset"/>
 	<Action name="searchText"/>
 	<Action name="search"/>

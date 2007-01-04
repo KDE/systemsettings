@@ -79,6 +79,7 @@ class ModulesView : public QWidget
 Q_OBJECT
 public:
 	void clearSelection();
+ QString displayName; 
 
 signals:
 	void itemSelected( QIconViewItem* item );

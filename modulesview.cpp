@@ -45,6 +45,8 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 
 	QVBoxLayout *layout = new QVBoxLayout( this, 11, 6, "layout" );
 
+	displayName = this->rootMenu->caption;
+
 	QValueList<MenuItem> subMenus = rootMenu->menuList(menuPath);
  	QValueList<MenuItem>::iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){

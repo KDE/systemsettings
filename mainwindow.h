@@ -23,9 +23,12 @@
 
 #include <kmainwindow.h>
 #include <kcmoduleinfo.h>
+#include <ktabwidget.h>
 #include <qptrdict.h>
 #include <qlabel.h>
 #include <kactionclasses.h>
+#include <kiconviewsearchline.h> 
+
 #include "kcscrollview.h"
 #include "kcmodulemenu.h"
 
@@ -65,7 +68,10 @@ private:
 	KCModuleMenu *menu;
 	bool embeddedWindows;
 	QWidgetStack *windowStack;
+	KTabWidget *moduleTabs;
+
 	QPtrList<ModulesView> modulesViewList;
+	QPtrList<QIconView> viewList;
 
 	KCMultiWidget *groupWidget;
 	KCScrollView *scrollView;

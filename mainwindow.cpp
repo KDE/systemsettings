@@ -43,6 +43,7 @@
 #include <kmenubar.h>
 #include <kactionclasses.h>
 #include <ktoolbarbutton.h>
+#include <qtabbar.h>
 
 #include "kcmsearch.h"
 #include "modulesview.h"
@@ -58,6 +59,8 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 	// Load the menu structure in from disk.
 	menu = new KCModuleMenu( menuFile );
 
+	moduleTabs = new KTabWidget(this, "moduletabs",
+															QTabWidget::Top|QTabWidget::Rounded);
 	buildMainWidget();
 	buildActions();
 	setupGUI(ToolBar|Save|Create,QString::null);
@@ -66,6 +69,8 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 
 MainWindow::~MainWindow()
 {
+	delete moduleTabs;
+	delete windowStack;
 	delete menu;	
 	delete dummyAbout;
 }
@@ -74,22 +79,25 @@ void MainWindow::buildMainWidget()
 {
 	windowStack = new QWidgetStack( this, "widgetstack" );
 
-    // Top level pages.
+	// Top level pages.
 	QValueList<MenuItem> subMenus = menu->menuList();
 	QValueList<MenuItem>::iterator it;
 	KCScrollView *modulesScroller;
+	moduleTabs->show();
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
 		if( (*it).menu ) {
-			modulesScroller = new KCScrollView(windowStack);
+			modulesScroller = new KCScrollView(moduleTabs);
 			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller->viewport(), "modulesView" );
 			modulesViewList.append(modulesView);
 			connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
 			modulesScroller->addChild(modulesView);
-			windowStack->addWidget(modulesScroller);
+			moduleTabs->addTab(modulesScroller, (*it).caption);
 			overviewPages.append(modulesScroller);
 		}
 	}
 
+	windowStack->addWidget(moduleTabs);
+	windowStack->raiseWidget(moduleTabs);
 	setCentralWidget(windowStack);
 }
 
@@ -155,7 +163,7 @@ void MainWindow::buildActions()
                                         "Resets the search so that "
                                         "all items are shown again." ) );
 
-    // Top level pages.
+	// Top level pages.
 	QValueList<MenuItem> subMenus = menu->menuList();
 	QValueList<MenuItem>::iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
@@ -169,7 +177,6 @@ void MainWindow::buildActions()
 			KRadioAction *newAction = new KRadioAction( group->caption(), group->icon(), KShortcut(), this,
 				SLOT(slotTopPage()), actionCollection(), group->relPath() );
 			pageActions.append(newAction);
-
 kdDebug() << "relpath is :" << group->relPath() << endl;
 		}
 	}
@@ -195,7 +202,7 @@ void MainWindow::groupModulesFinished()
 
 void MainWindow::showAllModules()
 {
-	windowStack->raiseWidget(overviewPages.at(selectedPage));
+	windowStack->raiseWidget(moduleTabs);
 
 	// Reset the widget for normal all widget viewing
 	groupWidget = 0;
@@ -211,7 +218,7 @@ void MainWindow::showAllModules()
 	searchAction->setEnabled(true);
 
 	KRadioAction *currentRadioAction;
-    for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+	for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
 		currentRadioAction->setEnabled(true);
 	}
 
@@ -238,7 +245,7 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		groupWidget = new KCMultiWidget(type, scrollView->viewport(), "moduleswidget");
                 scrollView->addChild(groupWidget);
 		windowStack->addWidget(scrollView);
-                moduleItemToScrollerDict.insert(mItem,scrollView);
+		moduleItemToScrollerDict.insert(mItem,scrollView);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);
 
 		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
@@ -309,8 +316,9 @@ void MainWindow::resetModuleHelp() {
 
 void MainWindow::widgetChange() {
 	QString name;
-	if( groupWidget && groupWidget->currentModule())
+	if( groupWidget && groupWidget->currentModule()) {
 		name = groupWidget->currentModule()->moduleInfo().moduleName();
+	}
 
 	if( !groupWidget ) {
 		setCaption( "" );
