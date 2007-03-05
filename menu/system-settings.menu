@@ -185,12 +185,14 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-kcmnotify.desktop</Filename>
 					<Filename>kde-bell.desktop</Filename>
 					<Filename>kde-medianotifications.desktop</Filename>
+					<Filename>kde-kcmlaunch.desktop</Filename>
 				</Layout>
 	
 				<Include>
 					<Filename>kde-kcmnotify.desktop</Filename>
 					<Filename>kde-bell.desktop</Filename>
 					<Filename>kde-medianotifications.desktop</Filename>
+					<Filename>kde-kcmlaunch.desktop</Filename>
 				</Include>
 			</Menu>
 	
