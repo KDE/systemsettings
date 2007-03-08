@@ -2,4 +2,18 @@
 Encoding=UTF-8
 
 Name=Notifications
+Name[ar]=التبليغات
+Name[bg]=Уведомяване
+Name[br]=Kemennadoù
+Name[da]=Underretninger
+Name[de]=Benachrichtigungen
+Name[el]=Ειδοποιήσεις
+Name[es]=Notificaciones
+Name[et]=Märguanded
+Name[gl]=Notificazóns
+Name[ja]=通知
+Name[nl]=Meldingen
+Name[pt]=Notificações
+Name[pt_BR]=Notificações
+Name[sv]=Underrättelser
 Icon=knotify

@@ -2,4 +2,16 @@
 Encoding=UTF-8
 Type=Directory
 Name=Look & Feel
+Name[br]=Neuz ha feson
+Name[da]=Udseende og fornemmelse
+Name[de]=Erscheinungsbild
+Name[el]=Όψη & αίσθηση
+Name[es]=Aspecto
+Name[et]=Välimus
+Name[gl]=Aparéncia e Comportamento
+Name[ja]=外観
+Name[nl]=Uiterlijk en gedrag
+Name[pt]=Aparência e Comportamento
+Name[pt_BR]=Aparência
+Name[sv]=Utseende och känsla
 Icon=looknfeel

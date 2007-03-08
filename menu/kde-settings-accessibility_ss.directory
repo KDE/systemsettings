@@ -2,4 +2,19 @@
 Encoding=UTF-8
 
 Name=Accessibility
+Name[ar]=تسهيل الوصول
+Name[bg]=Достъпност
+Name[br]=Haezadusted
+Name[da]=Tilgængelighed
+Name[de]=Barrierefreiheit
+Name[el]=Προσβασιμότητα
+Name[es]=Accesibilidad
+Name[et]=Hõlbustus
+Name[ga]=Inrochtaineacht
+Name[gl]=Acesibilidade
+Name[ja]=アクセシビリティ
+Name[nl]=Toegankelijkheid
+Name[pt]=Acessibilidade
+Name[pt_BR]=Acessibilidade
+Name[sv]=Handikappstöd
 Icon=access
