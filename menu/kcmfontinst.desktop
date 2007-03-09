@@ -13,9 +13,12 @@ X-KDE-RootOnly=true
 X-KDE-ParentApp=kcontrol
 
 Name=Fonts
+Name[el]=Γραμματοσειρές
 
 Comment=Install & preview fonts
+Comment[el]=Εγκατάσταση & προεπισκόπηση γραμματοσειρών
 
 Keywords=font,fonts,installer,truetype,type1,speedo,bitmap
+Keywords[el]=γραμματοσειρά,γραμματοσειρές,εγκαταστάτης,truetype,type1,speedo,bitmap
 
 Categories=Qt;KDE;X-KDE-settings-system;

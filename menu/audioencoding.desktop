@@ -8,7 +8,9 @@ X-KDE-ModuleType=Library
 X-KDE-Library=audiocd
 
 Name=Audio Encoding
+Name[el]=Κωδικοποίηση ήχου
 Comment=Audiocd IO Slave Configuration
+Comment[el]=Ρύθμιση io slave για CD ήχου
 Keywords=Audio CD,CD,Ogg,Vorbis,Encoding,CDDA,Bitrate
 
 ## keep this out of kcontrol

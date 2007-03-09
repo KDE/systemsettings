@@ -9,6 +9,9 @@ X-KDE-Library=componentchooser
 X-KDE-ParentApp=kcontrol
 
 Name=Default Applications
+Name[el]=Προκαθορισμένες εφαρμογές
 Comment=Choose the default application for various services
+Comment[el]=Επιλέξτε την προκαθορισμένη εφαρμογή για διάφορες υπηρεσίες
 Keywords=components,component chooser,resources, email client, terminal emulator, default, browser
+Keywords[el]=Στοιχεία, επιλογέας στοιχείων,πόροι, πελάτης email, εξομοιωτής τερματικού, προκαθορισμένα, περιηγητής
 Categories=Qt;KDE;X-KDE-settings-components;

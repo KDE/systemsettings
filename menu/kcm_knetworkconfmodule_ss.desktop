@@ -14,6 +14,9 @@ Icon=knetworkconf
 DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
+Comment[el]=Ρύθμιση συνδέσεων δικτύου
 Terminal=false
 Name=Network Connections
+Name[el]=Συνδέσεις δικτύου
 Keywords=Network,DNS,routes,interfaces
+Keywords[el]=δίκτυο,DNS,routes,διασύνδεση

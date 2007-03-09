@@ -2,4 +2,5 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computer Administration
+Name[el]=Διαχείριση υπολογιστή
 Icon=systemtray

@@ -2,4 +2,5 @@
 Encoding=UTF-8
 Type=Directory
 Name=Network & Connectivity
+Name[el]=Δίκτυο & συνδεσιμότητα
 Icon=network

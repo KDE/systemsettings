@@ -2,4 +2,5 @@
 Encoding=UTF-8
 
 Name=Notifications
+Name[el]=Ειδοποιήσεις
 Icon=knotify
