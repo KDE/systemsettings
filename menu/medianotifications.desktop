@@ -11,12 +11,47 @@ X-KDE-FactoryName=media
 #X-KDE-ParentApp=kcontrol
 
 Name=Storage Media Notifications
+Name[ar]=تبليغات وسائط التخزين
+Name[bg]=Уведомяване за съхраняващи устройства
+Name[da]=Underretninger om lagringsmedie
+Name[de]=Speichermedien-Benachrichtigungen
 Name[el]=Ειδοποιήσεις μέσων αποθήκευσης
+Name[es]=Notificaciones de los medios de almacenamiento
+Name[et]=Andmekandjate märguanded
+Name[gl]=Notificazón de Dispositivos de Armacenaxe
+Name[ja]=記憶メディアの通知
+Name[nl]=Meldingen opslagmedia
+Name[pt]=Notificação de Suportes de Armazenamento
+Name[pt_BR]=Notificações de Mídia de Armazenamento 
+Name[sv]=Underrättelser om lagringsmedia
 
 Comment=Configure Storage Media Notifications
+Comment[ar]=إعداد تبليغات وسائط التخزين
+Comment[bg]=Настройка на уведомяването за съхраняващи устройства
+Comment[da]=Indstil underretninger om lagringsmedie
+Comment[de]=Benachrichtigungen für Speichermedien konfigurieren
 Comment[el]=Ρύθμιση ειδοποιήσεων μέσων αποθήκευσης
+Comment[es]=Configurar las notificaciones de los medios de almacenamiento
+Comment[et]=Andmekandjate märguannete seadistused
+Comment[gl]=Configura as Notificazóns dos Médios de Armacenaxe
+Comment[ja]=記憶メディアの通知を設定
+Comment[nl]=Meldingen van opslagmedia instellen
+Comment[pt]=Configurar as Notificações de Suportes de Armazenamento
+Comment[pt_BR]=Configurar Notificações de Mídia de Armazenamento 
+Comment[sv]=Anpassa underrättelser om lagringsmedia
 
 Keywords=storage,media,usb,cdrom,device
+Keywords[da]=lagring,medie,usb,cdrom,enhed
+Keywords[de]=Speicher,Medien,USB,CD-ROM,Gerät
 Keywords[el]=αποθήκευση,μέσα,usb,cdrom,συσκευή
+Keywords[es]=almacenamientos,medios,usb,cdrom,dispositivo
+Keywords[et]=andmekandjad,usb,cdrom,seade
+Keywords[ga]=stóras,meáin,usb,cdrom,gléas
+Keywords[gl]=armacenaxe,media,usb,cdrom,dispositivo
+Keywords[ja]=ストレージ,メディア,usb,cdrom,デバイス
+Keywords[nl]=storage,opslag,media,usb,cd-rom,device,apparaat,mp3-speler,usb-stick,geheugenkaart,ipod,iriver,mediaspeler,muziek
+Keywords[pt]=armazenamento,meio,suporte,usb,cdrom,dispositivo
+Keywords[pt_BR]=armazenamento,mídia,usb,cdrom,dispositivo
+Keywords[sv]=lagring,media,usb,cdrom,enhet
 
 #Categories=Qt;KDE;X-KDE-settings-peripherals

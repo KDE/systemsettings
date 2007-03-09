@@ -2,5 +2,19 @@
 Encoding=UTF-8
 
 Name=Advanced User Settings
+Name[ar]=تعيينات المستخدم المتقدمة
+Name[bg]=Разширени потребителски настройки
+Name[br]=Dibarzhoù arveriad barek
+Name[da]=Advancerede brugerindstillinger
+Name[de]=Benutzereinstellungen für Fortgeschrittene
 Name[el]=Ρυθμίσεις προχωρημένου χρήστη
+Name[es]=Preferencias avanzadas de usuario
+Name[et]=Muud kasutaja seadistused
+Name[ga]=Ardsocruithe Úsáideora
+Name[gl]=Configurazón Avanzada dos Usuários
+Name[ja]=詳細なユーザ設定
+Name[nl]=Geavanceerde gebruikersinstellingen
+Name[pt]=Configuração Avançada do Utilizador
+Name[pt_BR]=Configurações Avançadas para Usuário
+Name[sv]=Advancerade användarinställningar
 Icon=userconfig.png

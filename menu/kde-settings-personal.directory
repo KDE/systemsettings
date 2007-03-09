@@ -1,6 +1,18 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Personal
+Name[ar]=الشخصي
+Name[bg]=Личен
+Name[br]=Diouzhoc'h
+Name[da]=Personlig indstilling
+Name[de]=Persönlich
 Name[el]=Προσωπικά
+Name[et]=Isiklik
+Name[ga]=Pearsanta
+Name[gl]=Persoal
+Name[nl]=Persoonlijk
+Name[pt]=Pessoal
+Name[pt_BR]=Pessoal
+Name[sv]=Personlig inställning
 Icon=personal
 

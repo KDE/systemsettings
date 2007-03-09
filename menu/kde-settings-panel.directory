@@ -1,5 +1,26 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Panel
+Name[bg]=Панел
+Name[br]=Panell
+Name[de]=Kontrollleiste
 Name[el]=Πίνακας
+Name[et]=Paneel
+Name[fr]=Tableau de bord
+Name[ga]=Painéal
+Name[gl]=Painel
+Name[it]=Pannello
+Name[ja]=パネル
+Name[ka]=პანელი
+Name[lt]=Pultas
+Name[mt]=Pannell
+Name[nl]=Paneel
+Name[pa]=ਪੈਨਲ
+Name[pt]=Painel
+Name[pt_BR]=Painel
+Name[ru]=Панель
+Name[rw]=Umwanya
+Name[sr]=Панел
+Name[xx]=xxPanelxx
+Name[zh_CN]=面板
 Icon=background
