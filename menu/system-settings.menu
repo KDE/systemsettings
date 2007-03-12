@@ -46,7 +46,6 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 			<Merge type="menus" />-->
 				<Merge type="files" />
 			</Layout>
-
 			<Include>
 				<Filename>kde-defaultapplication.desktop</Filename>
 				<Category>X-KDE-systemsettings-personal</Category>
@@ -56,44 +55,50 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 			<Menu>
 				<Name>User Account</Name>
 				<Directory>kde-settings-useraccount.directory</Directory>
-				<Include>
-					<Filename>kde-kcm_useraccount.desktop</Filename>
-					<Filename>kde-desktoppath.desktop</Filename>
-				</Include>
 				<Layout>
 					<Filename>kde-kcm_useraccount.desktop</Filename>
 					<Filename>kde-desktoppath.desktop</Filename>
+					<Merge type="files" />
 				</Layout>
+				<Include>
+					<Filename>kde-kcm_useraccount.desktop</Filename>
+					<Filename>kde-desktoppath.desktop</Filename>
+					<Category>X-KDE-systemsettings-personal-useraccount</Category>
+				</Include>
 			</Menu>
 
 			<!-- Regional -->
 			<Menu>
 				<Name>Regional</Name>
 				<Directory>kde-settings-regional.directory</Directory>
-				<Include>
-					<Filename>kde-language.desktop</Filename>
-					<Filename>kde-spellchecking.desktop</Filename>
-					<Filename>kde-keyboard_layout.desktop</Filename>
-				</Include>
 				<Layout>
 					<Filename>kde-language.desktop</Filename>
 					<Filename>kde-spellchecking.desktop</Filename>
 					<Filename>kde-keyboard_layout.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
+				<Include>
+					<Filename>kde-language.desktop</Filename>
+					<Filename>kde-spellchecking.desktop</Filename>
+					<Filename>kde-keyboard_layout.desktop</Filename>
+					<Category>X-KDE-systemsettings-personal-regional</Category>
+				</Include>
 			</Menu>
 
 			<!-- Accessibility -->
 			<Menu>
 				<Name>Accessibility</Name>
 				<Directory>kde-settings-accessibility_ss.directory</Directory>
-				<Include>
-					<Filename>kde-kcmaccess.desktop</Filename>
-					<Filename>kde-khotkeys.desktop</Filename>
-				</Include>
 				<Layout>
 					<Filename>kde-kcmaccess.desktop</Filename>
 					<Filename>kde-khotkeys.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
+				<Include>
+					<Filename>kde-kcmaccess.desktop</Filename>
+					<Filename>kde-khotkeys.desktop</Filename>
+					<Category>X-KDE-systemsettings-personal-accessibility</Category>
+				</Include>
 			</Menu>
 
 		</Menu>
@@ -127,8 +132,8 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-icons.desktop</Filename>
 					<Filename>kde-style.desktop</Filename>
 					<Filename>kde-kwindecoration.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
-	
 				<Include>
 					<Filename>kde-colors.desktop</Filename>
 					<Filename>kde-fonts.desktop</Filename>
@@ -137,6 +142,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-icons.desktop</Filename>
 					<Filename>kde-style.desktop</Filename>
 					<Filename>kde-kwindecoration.desktop</Filename>
+					<Category>X-KDE-systemsettings-lookandfeel-appearance</Category>
 				</Include>
 			</Menu>
 	
@@ -150,6 +156,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-screensaver.desktop</Filename>
 					<Filename>kde-desktopbehavior.desktop</Filename>
 					<Filename>kde-desktop.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
 	
 				<Include>
@@ -157,6 +164,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-screensaver.desktop</Filename>
 					<Filename>kde-desktopbehavior.desktop</Filename>
 					<Filename>kde-desktop.desktop</Filename>
+					<Category>X-KDE-systemsettings-lookandfeel-desktop</Category>
 				</Include>
 			</Menu>
 	
@@ -168,14 +176,15 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Layout>
 					<Filename>kde-kwinoptions.desktop</Filename>
 					<Filename>kde-kwinrules.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
-	
 				<Include>
 					<Filename>kde-kwinoptions.desktop</Filename>
 					<Filename>kde-kwinrules.desktop</Filename>
+					<Category>X-KDE-systemsettings-lookandfeel-windowbehavior</Category>
 				</Include>
 			</Menu>
-	
+
 			<!-- Notifications -->
 			<Menu>
 				<Name>Notifications</Name>
@@ -185,14 +194,13 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-kcmnotify.desktop</Filename>
 					<Filename>kde-bell.desktop</Filename>
 					<Filename>kde-medianotifications.desktop</Filename>
-					<Filename>kde-kcmlaunch.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
-	
 				<Include>
 					<Filename>kde-kcmnotify.desktop</Filename>
 					<Filename>kde-bell.desktop</Filename>
 					<Filename>kde-medianotifications.desktop</Filename>
-					<Filename>kde-kcmlaunch.desktop</Filename>
+					<Category>X-KDE-systemsettings-lookandfeel-notifications</Category>
 				</Include>
 			</Menu>
 	
@@ -236,13 +244,14 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-keys.desktop</Filename>
 					<Filename>kde-mouse.desktop</Filename>
 					<Filename>kde-joystick.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
-	
 				<Include>
 					<Filename>kde-keyboard.desktop</Filename>
 					<Filename>kde-keys.desktop</Filename>
 					<Filename>kde-mouse.desktop</Filename>
 					<Filename>kde-joystick.desktop</Filename>
+					<Category>X-KDE-systemsettings-administration-keyboardmouse</Category>
 				</Include>
 			</Menu>
 	
@@ -274,6 +283,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-proxy.desktop</Filename>
 					<Filename>kde-netpref.desktop</Filename>
 					<Filename>kde-kcm_kdnssd.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>		
 	
 				<Include>
@@ -281,6 +291,7 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 					<Filename>kde-proxy.desktop</Filename>
 					<Filename>kde-netpref.desktop</Filename>
 					<Filename>kde-kcm_kdnssd.desktop</Filename>
+					<Category>X-KDE-systemsettings-network-networksettings</Category>
 				</Include>
 			</Menu>
 	
@@ -292,11 +303,13 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Layout>
 					<Filename>kde-fileshare.desktop</Filename>
 					<Filename>kde-lanbrowser.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
 				
 				<Include>
 					<Filename>kde-fileshare.desktop</Filename>
 					<Filename>kde-lanbrowser.desktop</Filename>
+					<Category>X-KDE-systemsettings-network-sharing</Category>
 				</Include>
 			</Menu>
 	
@@ -307,10 +320,12 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 				<Layout>
 					<Filename>kde-kcm_kbluetoothd.desktop</Filename>
 					<Filename>kde-kcm_btpaired.desktop</Filename>
+                                        <Merge type="files" />
 				</Layout>
 				<Include>
 					<Filename>kde-kcm_btpaired.desktop</Filename>
 					<Filename>kde-kcm_kbluetoothd.desktop</Filename>
+					<Category>X-KDE-systemsettings-network-bluetooth</Category>
 				</Include>
 			</Menu>
 		</Menu>
@@ -370,3 +385,4 @@ https://wiki.kubuntu.org/KubuntuSystemSettingsUsability
 		</Menu>
 	</Menu>	
 </Menu>
+
