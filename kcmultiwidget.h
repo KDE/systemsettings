@@ -23,33 +23,40 @@
 #ifndef KCMULTIDIALOG_H
 #define KCMULTIDIALOG_H
 
-#include <qptrdict.h>
+#include <q3ptrdict.h>
+//Added by qt3to4:
+#include <Q3CString>
+#include <Q3ValueList>
 
-#include <kdialogbase.h>
+#include <kdialog.h>
 #include <klocale.h>
 #include <kservice.h>
+
+#include "kicongrouppage.h"
 
 class KCModuleProxy;
 class KCModuleInfo;
 class KCModule;
 
 /**
- * @short A method that offers a KDialogBase containing arbitrary
+ * @short A method that offers a KDialog containing arbitrary
  *   Control Modules.
  */
-class KUTILS_EXPORT KCMultiWidget : public KDialogBase
+class KUTILS_EXPORT KCMultiWidget : public KDialog
 {
 	Q_OBJECT
 
 public:
+  enum DialogType { TreeList, Tabbed, IconList, Plain };
+
 	/**
 	 * Constructs a new KCMultiWidget
 	 *
 	 * @param parent The parent widget
-	 * @param name The widget name
-	 * @param modal If you pass true here, the dialog will be modal
+	 * @param modality Qt::WindowModality value indicating the modality of the window.
 	 **/
-	KCMultiWidget( QWidget *parent=0, const char *name=0, bool modal=false );
+	KCMultiWidget( QWidget *parent=0,
+                 Qt::WindowModality modality = Qt::NonModal );
 
 	/**
 	 * Construct a personalized KCMultiWidget.
@@ -57,14 +64,23 @@ public:
 	 * @param dialogFace You can use TreeList, Tabbed, Plain, Swallow or
 	 *		IconList.
 	 * @param parent Parent of the dialog.
-	 * @param name Dialog name (for internal use only).
-	 * @param modal Controls dialog modality. If @p false, the rest of the
-	 *		program interface (example: other dialogs) is accessible while
-	 *		the dialog is open.
+	 * @param modality Qt::WindowModality value indicating the modality of the window.
+   *    If @p Qt::NonModal, the rest of the	program interface
+   *    (example: other dialogs) is accessible while the dialog is open.
 	 */
 	KCMultiWidget( int dialogFace, QWidget * parent = 0, 
-			const char * name = 0, bool modal = false );
+                 Qt::WindowModality modality= Qt::NonModal );
 
+  /**
+   * Initialize the KIconDialog widget
+   *
+   * @param caption Specify the caption for the KIconDialog
+	 * @param modality Qt::WindowModality value indicating the modality of the window.
+   *    If @p Qt::NonModal, the rest of the	program interface
+   *    (example: other dialogs) is accessible while the dialog is open.
+   **/
+  void InitKIconDialog(const QString& caption,
+                       Qt::WindowModality modality = Qt::NonModal);
 
 	/**
 	 * Destructor
@@ -91,7 +107,7 @@ public:
 	 *
 	 * @param parentmodulenames The names of the modules that should appear as
 	 *						  parents in the TreeList. Look at the
-	 *						  KDialogBase::addPage documentation for more info
+	 *						  KDialog::addPage documentation for more info
 	 *						  on this.
 	 *
 	 * @param withfallback Try harder to load the module. Might result
@@ -129,7 +145,7 @@ signals:
 	 * @param instanceName The name of the instance that needs to reload its
 	 *					 configuration.
 	 */
-	void configCommitted( const QCString & instanceName );
+	void configCommitted( const Q3CString & instanceName );
 
 	/**
 	 * Emitted right before a module is shown.
@@ -237,18 +253,20 @@ private:
 		bool adminmode;
 		int buttons;
 	};
-	typedef QValueList<CreatedModule> ModuleList;
+	typedef Q3ValueList<CreatedModule> ModuleList;
 	ModuleList m_modules;
 
 	typedef QMap<KService::Ptr, KCModuleProxy*> OrphanMap;
 	OrphanMap m_orphanModules;
 
-	QPtrDict<QStringList> moduleParentComponents;
+	Q3PtrDict<QStringList> moduleParentComponents;
 	QString _docPath;
 	int dialogface;
 
 	class KCMultiWidgetPrivate;
 	KCMultiWidgetPrivate *d;
+
+  KIconGroupPage iconPage;
 };
 
 #endif //KCMULTIDIALOG_H

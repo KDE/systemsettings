@@ -20,7 +20,7 @@
 
 #include "kcscrollview.h"
 
-KCScrollView::KCScrollView( QWidget * parent, const char * name, WFlags f) : QScrollView(parent,name,f) {
+KCScrollView::KCScrollView( QWidget * parent, const char * name, Qt::WFlags f) : Q3ScrollView(parent,name,f) {
 	setResizePolicy(AutoOneFit);
 	mainChild = 0;
 }
@@ -34,5 +34,5 @@ QSize KCScrollView::sizeHint() const {
 
 void KCScrollView::addChild(QWidget *child, int x, int y) {
 	mainChild = child;
-	QScrollView::addChild(child,x,y);
+	Q3ScrollView::addChild(child,x,y);
 }

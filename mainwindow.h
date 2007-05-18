@@ -21,19 +21,25 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <kmainwindow.h>
+#include <kxmlguiwindow.h>
 #include <kcmoduleinfo.h>
 #include <ktabwidget.h>
-#include <qptrdict.h>
+#include <q3ptrdict.h>
 #include <qlabel.h>
-#include <kactionclasses.h>
-#include <kiconviewsearchline.h> 
+//Added by qt3to4:
+#include <Q3PtrList>
+#include <kaction.h>
+#include <ktoggleaction.h>
+#include <k3iconviewsearchline.h> 
+#include <kaboutdata.h>
+#include <kaboutapplicationdialog.h>
+#include <QAction>
 
 #include "kcscrollview.h"
 #include "kcmodulemenu.h"
 
-class QWidgetStack;
-class QIconViewItem;
+class Q3WidgetStack;
+class Q3IconViewItem;
 class KCMultiWidget;
 class ModulesView;
 class KAction;
@@ -41,17 +47,17 @@ class KWidgetAction;
 class KCModule;
 class KCModuleProxy;
 
-class MainWindow : public KMainWindow
+class MainWindow : public KXmlGuiWindow
 {
 	Q_OBJECT
 
 public:
 	MainWindow(bool embed=true, const QString &menufile="systemsettings", 
-									QWidget *parent=0, const char *name=0);
+									QWidget *parent=0);
 	~MainWindow();
 
 private slots:
-	void slotItemSelected( QIconViewItem* item );
+	void slotItemSelected( Q3IconViewItem* item );
 	void showAllModules();
 	void aboutCurrentModule();
 	void updateModuleHelp( KCModuleProxy * );
@@ -67,31 +73,31 @@ private slots:
 private:
 	KCModuleMenu *menu;
 	bool embeddedWindows;
-	QWidgetStack *windowStack;
+	Q3WidgetStack *windowStack;
 	KTabWidget *moduleTabs;
 
-	QPtrList<ModulesView> modulesViewList;
-	QPtrList<QIconView> viewList;
+	Q3PtrList<ModulesView> modulesViewList;
+	Q3PtrList<Q3IconView> viewList;
 
 	KCMultiWidget *groupWidget;
 	KCScrollView *scrollView;
 
-	QPtrDict<KCMultiWidget> moduleItemToWidgetDict;
-	QPtrDict<KCScrollView> moduleItemToScrollerDict;
+	Q3PtrDict<KCMultiWidget> moduleItemToWidgetDict;
+	Q3PtrDict<KCScrollView> moduleItemToScrollerDict;
 
-	QPtrList<KRadioAction> pageActions;
-	QPtrList<KCScrollView> overviewPages;
+	Q3PtrList<KToggleAction> pageActions;
+	Q3PtrList<KCScrollView> overviewPages;
 	int selectedPage;
 
-	KAction *resetModule;
-	KAction *defaultModule;
+	QAction *resetModule;
+	QAction *defaultModule;
 	
-	KAction *showAllAction;
+	QAction *showAllAction;
 	KWidgetAction *searchText;
 	KAction *searchClear;
 	KWidgetAction *searchAction;
 
-	KAction *aboutModuleAction;
+	QAction *aboutModuleAction;
 	
 	void buildMainWidget();
 	void buildActions();

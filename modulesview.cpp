@@ -21,6 +21,11 @@
 #include "modulesview.h"
 
 #include <qlabel.h>
+//Added by qt3to4:
+#include <Q3HBoxLayout>
+#include <Q3VBoxLayout>
+#include <Q3ValueList>
+#include <Q3Frame>
 #include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>
@@ -31,7 +36,7 @@
 #include <kapplication.h>
 #include <kaboutapplication.h>
 #include <kdebug.h>
-#include <qiconview.h>
+#include <q3iconview.h>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -43,21 +48,21 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	this->rootMenu = rootMenu;	
 	this->menuPath = menuPath;
 
-	QVBoxLayout *layout = new QVBoxLayout( this, 11, 6, "layout" );
+	Q3VBoxLayout *layout = new Q3VBoxLayout( this, 11, 6, "layout" );
 
 	displayName = this->rootMenu->caption;
 
-	QValueList<MenuItem> subMenus = rootMenu->menuList(menuPath);
- 	QValueList<MenuItem>::iterator it;
+	Q3ValueList<MenuItem> subMenus = rootMenu->menuList(menuPath);
+ 	Q3ValueList<MenuItem>::iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){
 		if( !(*it).menu )
 			continue;
 
 		// After the first time around add a line
 		if( it != subMenus.begin() ){
-			QFrame *line = new QFrame( this, "line");
-			line->setFrameShadow( QFrame::Sunken );
-			line->setFrameShape( QFrame::HLine );
+			Q3Frame *line = new Q3Frame( this, "line");
+			line->setFrameShadow( Q3Frame::Sunken );
+			line->setFrameShape( Q3Frame::HLine );
 			layout->addWidget( line );
 		}
 
@@ -78,9 +83,9 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	{
 
 	uint most = 0;
-	QValueList<RowIconView*>::iterator it;
+	Q3ValueList<RowIconView*>::iterator it;
 	for ( it = groups.begin(); it != groups.end(); ++it ){
-		QIconViewItem *item = (*it)->firstItem();
+		Q3IconViewItem *item = (*it)->firstItem();
 		while( item ) {
 			if(item->width() > most)
 				most = item->width();
@@ -98,7 +103,7 @@ ModulesView::~ModulesView()
 {
 }
 
-void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
+void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 {
 	KServiceGroup::Ptr group = KServiceGroup::group( parentPath );
 	if ( !group ){
@@ -107,7 +112,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	}
 
 	// Make header
-	QHBoxLayout *rowLayout = new QHBoxLayout( 0, 0, 6, "rowLayout" );
+	Q3HBoxLayout *rowLayout = new Q3HBoxLayout( 0, 0, 6, "rowLayout" );
 
 	// Heaer Icon
 	QLabel *icon = new QLabel( this, "groupicon" );
@@ -135,15 +140,15 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	iconView->setSpacing( 0 );
 	iconView->setMargin( 0 );
 	iconView->setItemsMovable( false );
-	iconView->setSelectionMode(QIconView::NoSelection);
+	iconView->setSelectionMode(Q3IconView::NoSelection);
 	groups.append( iconView );
-	connect(iconView, SIGNAL( clicked( QIconViewItem* ) ),
-		      this, SIGNAL( itemSelected( QIconViewItem* ) ) );
+	connect(iconView, SIGNAL( clicked( Q3IconViewItem* ) ),
+		      this, SIGNAL( itemSelected( Q3IconViewItem* ) ) );
 	boxLayout->addWidget( iconView );
 
 	// Add all the items in their proper order
-	QValueList<MenuItem> list = rootMenu->menuList( parentPath );
- 	QValueList<MenuItem>::iterator it;
+	Q3ValueList<MenuItem> list = rootMenu->menuList( parentPath );
+ 	Q3ValueList<MenuItem>::iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
 		if( !(*it).menu )
 			(void)new ModuleIconItem( iconView, (*it).item );
@@ -164,7 +169,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 }
 
 void ModulesView::clearSelection() {
-	QValueList<RowIconView*>::iterator it;
+	Q3ValueList<RowIconView*>::iterator it;
 	for ( it = groups.begin(); it != groups.end(); ++it ) {
 		(*it)->clearSelection();
 	}

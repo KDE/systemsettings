@@ -20,11 +20,11 @@
 
 #ifndef KCSCROLLVIEW_H
 #define KCSCROLLVIEW_H
-#include <qscrollview.h>
+#include <q3scrollview.h>
 
-class KCScrollView : public QScrollView {
+class KCScrollView : public Q3ScrollView {
 public:
-	KCScrollView ( QWidget * parent = 0, const char * name = 0, WFlags f = 0 );
+	KCScrollView ( QWidget * parent = 0, const char * name = 0, Qt::WFlags f = 0 );
 
 	virtual QSize sizeHint() const;
 	virtual void addChild(QWidget *child, int x=0, int y=0);

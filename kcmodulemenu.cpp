@@ -22,25 +22,29 @@
 #include <kapplication.h>
 #include <kservicegroup.h>
 #include <kdebug.h>
-#include <qdict.h>
+#include <q3dict.h>
+//Added by qt3to4:
+#include <QList>
+
+#define USING_KDE4
 
 class KCModuleMenuPrivate {
 public:
 	KCModuleMenuPrivate(){
 	}
 				
-	QMap<QString, QValueList<MenuItem> > menus;
+	QMap<QString, QList<MenuItem> > menus;
 	QString basePath;
 };
 
 KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 	d( new KCModuleMenuPrivate )
 {
-	kdDebug() << "MenuName: \"" << menuName << "\"." << endl;
+	kDebug() << "MenuName: \"" << menuName << "\"." << endl;
 	// Make sure we can find the menu
 	KServiceGroup::Ptr serviceGroup = KServiceGroup::baseGroup( menuName );
 	if( !serviceGroup ){
-		kdDebug() << "Unable to load menu \"" << menuName << 
+		kDebug() << "Unable to load menu \"" << menuName << 
 						"\" from KServiceGroup." << endl;
 		return;
 	}
@@ -55,6 +59,8 @@ KCModuleMenu::~KCModuleMenu()
 
 void KCModuleMenu::readMenu( const QString &pathName )
 {
+  typedef KSharedPtr<KService> MySharedPtr_KService;
+
 	KServiceGroup::Ptr group = KServiceGroup::group( pathName );
 	if ( !group || !group->isValid() )
 		return;
@@ -64,14 +70,18 @@ void KCModuleMenu::readMenu( const QString &pathName )
 		return;
 
 	caption = group->caption();
-	QValueList<MenuItem> currentMenu;
+	QList<MenuItem> currentMenu;
 			
 	for( KServiceGroup::List::ConstIterator it = list.begin();
 			 it != list.end(); it++)
 	{
-		KSycocaEntry *entry = (*it);
+    // Grab the KService from the iterator
+		KSharedPtr<KSycocaEntry> sccpy = (*it);
+    KService* entry = static_cast<KService*>(sccpy.data());
+    
 		if( addEntry(entry) ) {
-			KCModuleInfo module((KService*)entry);
+      // Add the module info to the menu
+			KCModuleInfo module(static_cast<MySharedPtr_KService>(entry));
 			append(module);
 			MenuItem infoItem(false);
 			infoItem.caption = this->deriveCaptionFromPath(entry->name());
@@ -96,9 +106,14 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 	if( !entry->isType(KST_KService) )
 		return false;
 	
-	KService *service = static_cast<KService*>( entry );
-	if ( !kapp->authorizeControlModule( service->menuId()) )
+  KSharedPtr<KService> service(static_cast<KService*>(entry));
+  //	KService *service = static_cast<KService*>( entry );
+
+#ifndef USING_KDE4
+	if ( !kapp->authorizeControlModule( service->menuId()) ) {
 		return false;
+  }
+#endif
 
 	KCModuleInfo module( service );
 	if ( module.library().isEmpty() )
@@ -108,12 +123,12 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 }
 
 
-QValueList<KCModuleInfo> KCModuleMenu::modules( const QString &menuPath )
+QList<KCModuleInfo> KCModuleMenu::modules( const QString &menuPath )
 {
-	QValueList<KCModuleInfo> list;
+	QList<KCModuleInfo> list;
 
-	QValueList<MenuItem> subMenu = menuList(menuPath);
-	QValueList<MenuItem>::iterator it;
+	QList<MenuItem> subMenu = menuList(menuPath);
+	QList<MenuItem>::iterator it;
 	for ( it = subMenu.begin(); it != subMenu.end(); ++it ){
 		if ( !(*it).menu )
 			list.append( (*it).item );
@@ -126,8 +141,8 @@ QStringList KCModuleMenu::submenus( const QString &menuPath )
 {
 	QStringList list;
 
-	QValueList<MenuItem> subMenu = menuList(menuPath);
-	QValueList<MenuItem>::iterator it;
+	QList<MenuItem> subMenu = menuList(menuPath);
+	QList<MenuItem>::iterator it;
 	for ( it = subMenu.begin(); it != subMenu.end(); ++it ){
 		if ( (*it).menu )
 			list.append( (*it).subMenu );
@@ -136,11 +151,11 @@ QStringList KCModuleMenu::submenus( const QString &menuPath )
 	return list;
 }
 
-QValueList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
+QList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
 {
 	if( menuPath.isEmpty() ) {
 		if( d->basePath.isEmpty())
-			return QValueList<MenuItem>();
+			return QList<MenuItem>();
 		else
 			return menuList( d->basePath );
 	}
@@ -185,4 +200,7 @@ QString KCModuleMenu::deriveCaptionFromPath( const QString &menuPath )
 			return result;
 		}
 	}
+
+  // Is this a problem?
+  return QString::null;
 }

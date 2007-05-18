@@ -22,8 +22,10 @@
 #ifndef MODULEICONITEM_H
 #define MODULEICONITEM_H
 
-#include <kiconview.h>
+#include <k3iconview.h>
 #include <kcmoduleinfo.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 
 class ConfigModule;
 
@@ -31,13 +33,13 @@ class ConfigModule;
  * Stores information about what modules goes with this item.
  * Also provides means of loading the enabled/disabled image (see kcmsearch).
  */
-class ModuleIconItem : public QIconViewItem
+class ModuleIconItem : public Q3IconViewItem
 {
 
 public:
-  ModuleIconItem( KIconView *parent, KCModuleInfo module );
+  ModuleIconItem( K3IconView *parent, KCModuleInfo module );
 	
-  ModuleIconItem( KIconView *parent, const QString &text,
+  ModuleIconItem( K3IconView *parent, const QString &text,
 									const QString &imageName );
 
 	/**
@@ -46,7 +48,7 @@ public:
 	void loadIcon( bool enabled = true );
 
 	// The modules that go with this item
-	QValueList<KCModuleInfo> modules;
+	Q3ValueList<KCModuleInfo> modules;
 					
 private:
 	int currentState;

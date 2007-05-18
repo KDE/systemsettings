@@ -22,19 +22,25 @@
 #include "kcmsearch.h"
 
 #include <qregexp.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <Q3PtrList>
 #include <kdebug.h>
 
 #include "modulesview.h"
 #include "moduleiconitem.h"
 
-KcmSearch::KcmSearch( QPtrList<ModulesView> *moduleViewList, QWidget *parent, const char *name )
-				: KIconViewSearchLine(parent, moduleViewList->at(0)->groups[0], name){
+KcmSearch::KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent, const char *name )
+				: K3IconViewSearchLine(parent,
+                               static_cast<K3IconView*>(moduleViewList->at(0)->groups[0])
+                               ){
+
 	this->moduleViewList = moduleViewList;
 }
 
 void KcmSearch::updateSearch( const QString &search ) {
-	QValueList<RowIconView*>::iterator it;
- 	QPtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
+	Q3ValueList<RowIconView*>::iterator it;
+ 	Q3PtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
 
 	ModulesView *mainView;
 	int page = 0;
@@ -45,7 +51,7 @@ void KcmSearch::updateSearch( const QString &search ) {
 
 		int count = 0;
 		for ( it = mainView->groups.begin(); it != mainView->groups.end(); ++it ){
-			QIconViewItem *item = (*it)->firstItem();
+			Q3IconViewItem *item = (*it)->firstItem();
 			while( item ) {
 				bool hit = itemMatches(item, search);
 				((ModuleIconItem*)item)->loadIcon(hit);
@@ -83,13 +89,13 @@ bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search )
 	return false;
 }
 
-bool KcmSearch::itemMatches( const QIconViewItem *item, const QString & search ) const
+bool KcmSearch::itemMatches( const Q3IconViewItem *item, const QString & search ) const
 {
 	if( !item )
 		return false;
 
 	ModuleIconItem *mItem = (ModuleIconItem*)item;
-	QValueList<KCModuleInfo>::iterator it;
+	Q3ValueList<KCModuleInfo>::iterator it;
 	for ( it = mItem->modules.begin(); it != mItem->modules.end(); ++it ){
 		if( itemMatches( (*it), search ) )
 			return true;

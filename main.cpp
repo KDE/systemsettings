@@ -19,9 +19,12 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#include <QX11Info>
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+#include <klocale.h>
+#include <klocalizedstring.h>
 
 #include "mainwindow.h"
 #include "version.h"
@@ -36,7 +39,7 @@ static KCmdLineOptions options[] =
 
 int main( int argc, char *argv[] )
 {
-  KLocale::setMainCatalogue("systemsettings");
+  KLocale::setMainCatalog("systemsettings");
 	// About data
   KAboutData aboutData("systemsettings", I18N_NOOP("System Settings"),
 	  SYSTEM_SETTINGS_VERSION, I18N_NOOP("System Settings"),
@@ -51,7 +54,7 @@ int main( int argc, char *argv[] )
 	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
 	// Launch
-  KApplication application(argc, argv);
+  KApplication application(QX11Info::display(), argc, argv, QByteArray("System Settings"));
 
 	MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
 	application.setMainWidget( mainWindow );

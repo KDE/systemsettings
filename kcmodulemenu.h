@@ -21,6 +21,8 @@
 #define KCMMODULEMENU_H
 
 #include <kcmoduleinfo.h>
+//Added by qt3to4:
+#include <QList>
 
 class KCModuleMenuPrivate;
 
@@ -83,7 +85,7 @@ public:
 };
 
 
-class KCModuleMenu : public QValueList<KCModuleInfo>
+class KCModuleMenu : public QList<KCModuleInfo>
 {
 
 public:
@@ -111,14 +113,14 @@ public:
 	 * @param path to return submenus from.
 	 * @return all items in menuPath.
 	 */
-	QValueList<MenuItem> menuList( const QString &menuPath=QString::null );
+	QList<MenuItem> menuList( const QString &menuPath=QString::null );
 
 	/**
 	 * Returns the modules in a menu path. An empty string is the top level.
 	 * @param menu to return modules from.
 	 * @returns only the top level modules of menuPath
 	 */
-	QValueList<KCModuleInfo> modules( const QString &menuPath=QString::null );
+	QList<KCModuleInfo> modules( const QString &menuPath=QString::null );
 
 	/**
 	 * Returns the sub menus of a menu path. An empty string is the top level.

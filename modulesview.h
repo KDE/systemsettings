@@ -21,17 +21,19 @@
 #ifndef MODULESVIEW_H
 #define MODULESVIEW_H
 
-#include <kiconview.h>
+#include <k3iconview.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 
 /**
  * Overloaded to give a larger default size that fits with text of two lines.
  */
-class RowIconView : public KIconView
+class RowIconView : public K3IconView
 {
 
 public:
 	RowIconView( QWidget* parent, const char *name=0 )
-					: KIconView( parent, name ){ };
+					: K3IconView( parent, name ){ };
 		
 	// Figure out the hight/width to have only one row
 	QSize minimumSizeHint() const {
@@ -45,7 +47,7 @@ public:
 		width = count()*gridX()+frameWidth()*2;
 		
 		int height = 0;
-		for ( QIconViewItem *item = firstItem(); item; item = item->nextItem() )
+		for ( Q3IconViewItem *item = firstItem(); item; item = item->nextItem() )
 			if(item->height() > height)
 				height = item->height();
 		// I honestly don't know where the 4+4 is coming from...
@@ -64,7 +66,7 @@ public:
 
 };
 
-class QBoxLayout;
+class Q3BoxLayout;
 class KCModuleMenu;
 
 /**
@@ -82,18 +84,18 @@ public:
  QString displayName; 
 
 signals:
-	void itemSelected( QIconViewItem* item );
+	void itemSelected( Q3IconViewItem* item );
 
 public:
 	ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent=0, const char *name=0 );
 	~ModulesView();
 
 private:
-	QValueList<RowIconView*> groups;
+	Q3ValueList<RowIconView*> groups;
 	KCModuleMenu *rootMenu;
 	QString menuPath;
 
-	void createRow( const QString &parentPath, QBoxLayout *layout );
+	void createRow( const QString &parentPath, Q3BoxLayout *layout );
 };
 
 #endif // MODULESVIEW_H

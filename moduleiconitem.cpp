@@ -25,7 +25,7 @@
 #define IMAGE_SIZE 32
 
 ModuleIconItem::ModuleIconItem( KIconView *parent, KCModuleInfo module)
-	: QIconViewItem( parent, module.moduleName(),
+	: Q3IconViewItem( parent, module.moduleName(),
 		SmallIcon( module.icon(), IMAGE_SIZE ) ),
 		currentState( KIcon::ActiveState), imageName(module.icon())
 {
@@ -34,7 +34,7 @@ ModuleIconItem::ModuleIconItem( KIconView *parent, KCModuleInfo module)
 
 ModuleIconItem::ModuleIconItem( KIconView *parent, const QString &text,
 		const QString &imageName )
-	: QIconViewItem( parent, text, SmallIcon( imageName, IMAGE_SIZE ) ),
+	: Q3IconViewItem( parent, text, SmallIcon( imageName, IMAGE_SIZE ) ),
 			currentState( KIcon::ActiveState )
 {
 	this->imageName = imageName;

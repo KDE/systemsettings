@@ -22,8 +22,10 @@
 #ifndef KCMSEARCH_H
 #define KCMSEARCH_H
 
-#include <kiconviewsearchline.h> 
+#include <k3iconviewsearchline.h> 
 #include "kcmodulemenu.h"
+//Added by qt3to4:
+#include <Q3PtrList>
 
 class ModulesView;
 
@@ -31,12 +33,12 @@ class ModulesView;
  * Searches all the ModuleIconItem's in MainWindow and "disables" the ones
  * whos keywords don't match the current search.
  */
-class KcmSearch : public KIconViewSearchLine
+class KcmSearch : public K3IconViewSearchLine // FIXME: Should be a KListWidgetSearchLine!!!!!
 {
 	Q_OBJECT
 
 public:
-	KcmSearch( QPtrList<ModulesView> *moduleViewList, QWidget *parent = 0, const char *name = 0 );
+	KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent = 0, const char *name = 0 );
 
 public slots:
 	/**
@@ -47,7 +49,7 @@ public slots:
 	 * Check module associated with item or if a group check all modules of that group.
 	 * @return true if search is in the module(s) keywords
 	 */
-	virtual bool itemMatches ( const QIconViewItem *item, const QString &search ) const;
+	virtual bool itemMatches ( const Q3IconViewItem *item, const QString &search ) const;
 
 signals:
 	void searchHits(const QString &query, int *hitList, int length);
@@ -60,7 +62,7 @@ private:
 	bool itemMatches ( const KCModuleInfo &module, const QString &search ) const;
 
 	// Friend class whos groups parsed, 
-	QPtrList<ModulesView> *moduleViewList;
+	Q3PtrList<ModulesView> *moduleViewList;
 };
 
 #endif // KCMSEARCH_H

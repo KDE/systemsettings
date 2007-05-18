@@ -20,29 +20,34 @@
 
 #include "mainwindow.h"
 
-#include <kstdaction.h>
-#include <qwhatsthis.h>
-#include <qlabel.h>
-#include <qvbox.h>
+#include <QObject>
+#include <QAction>
+#include <kstandardaction.h>
+#include <q3whatsthis.h>
+#include <QLabel>
+#include <q3vbox.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 #include <kaction.h>
 #include <qtoolbutton.h>
 #include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>
-#include <qwidgetstack.h>
+#include <q3widgetstack.h>
 #include <qtimer.h>
 #include <kiconloader.h>
 #include <kcmoduleloader.h>
-#include <kdialogbase.h>
-#include <kiconviewsearchline.h>
+#include <kdialog.h>
+/*#include <k3iconviewsearchline.h>*/
+#include <kactioncollection.h>
 #include <kapplication.h>
-#include <kaboutapplication.h>
 #include <kdebug.h>
 #include <kcmoduleproxy.h>
 #include <kbugreport.h>
 #include <kmenubar.h>
-#include <kactionclasses.h>
-#include <ktoolbarbutton.h>
+#include <kaction.h>
+#include <ktoggleaction.h>
+#include <QToolButton>
 #include <qtabbar.h>
 
 #include "kcmsearch.h"
@@ -52,14 +57,14 @@
 #include "kcmultiwidget.h"
 
 MainWindow::MainWindow(bool embed, const QString & menuFile,
-								QWidget *parent, const char *name) :
-				KMainWindow(parent,name), menu(NULL), embeddedWindows(embed),
+								QWidget *parent) :
+				KXmlGuiWindow(parent), menu(NULL), embeddedWindows(embed),
 				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
 	
 	// Load the menu structure in from disk.
 	menu = new KCModuleMenu( menuFile );
 
-	moduleTabs = new KTabWidget(this, "moduletabs",
+	moduleTabs = new KTabWidget(this,
 															QTabWidget::Top|QTabWidget::Rounded);
 	buildMainWidget();
 	buildActions();
@@ -77,11 +82,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::buildMainWidget()
 {
-	windowStack = new QWidgetStack( this, "widgetstack" );
+	windowStack = new Q3WidgetStack( this, "widgetstack" );
 
 	// Top level pages.
-	QValueList<MenuItem> subMenus = menu->menuList();
-	QValueList<MenuItem>::iterator it;
+	Q3ValueList<MenuItem> subMenus = menu->menuList();
+	Q3ValueList<MenuItem>::iterator it;
 	KCScrollView *modulesScroller;
 	moduleTabs->show();
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
@@ -89,7 +94,7 @@ void MainWindow::buildMainWidget()
 			modulesScroller = new KCScrollView(moduleTabs);
 			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller->viewport(), "modulesView" );
 			modulesViewList.append(modulesView);
-			connect(modulesView, SIGNAL(itemSelected(QIconViewItem* )), this, SLOT(slotItemSelected(QIconViewItem*)));
+			connect(modulesView, SIGNAL(itemSelected(Q3IconViewItem* )), this, SLOT(slotItemSelected(Q3IconViewItem*)));
 			modulesScroller->addChild(modulesView);
 			moduleTabs->addTab(modulesScroller, (*it).caption);
 			overviewPages.append(modulesScroller);
@@ -103,34 +108,58 @@ void MainWindow::buildMainWidget()
 
 void MainWindow::buildActions()
 {
-	KStdAction::quit(this, SLOT( close() ), actionCollection());
+  //	KStandardAction::quit(this, SLOT( close() ), qobject_cast<QObject*>(actionCollection()));
+  actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close()));
 
-	resetModule = new KAction(i18n("Undo Changes"), 0, this,
-								SLOT(showAllModules()), actionCollection(), "resetModule" );
+// 	resetModule = new KAction(i18n("Undo Changes"), 0, qobject_cast<QObject*>(this),
+// 								SLOT(showAllModules()), actionCollection(), "resetModule" );
+// 	resetModule->setEnabled(false);
+	resetModule = actionCollection() -> addAction("resetModule");
+  resetModule->setText(i18n("Undo Changes"));
+  connect(resetModule, SIGNAL(triggered()),
+          this, SLOT(close()));
 	resetModule->setEnabled(false);
 
-	defaultModule = new KAction(i18n("Reset to Defaults"), 0, this,
-								SLOT(showAllModules()), actionCollection(), "defaultModule" );
-	defaultModule->setEnabled(false);
+// 	defaultModule = new KAction(i18n("Reset to Defaults"), 0, qobject_cast<QObject*>(this),
+// 								SLOT(showAllModules()), actionCollection(), "defaultModule" );
+// 	defaultModule->setEnabled(false);
+  defaultModule = actionCollection() -> addAction("defaultModule");
+  defaultModule->setText(i18n("Reset to Defaults"));
+  connect(defaultModule, SIGNAL(triggered()),
+          this, SLOT(showAllModules()));;
+  defaultModule->setEnabled(false);
 
 	if( embeddedWindows ) {
-		showAllAction = new KAction(i18n("Overview"), QApplication::reverseLayout() ? "forward" : "back", 0, this,
-								SLOT(showAllModules()), actionCollection(), "showAll" );
-		showAllAction->setEnabled(false);
+// 		showAllAction = new KAction(i18n("Overview"), QApplication::reverseLayout() ? "forward" : "back", 0,
+//                                 qobject_cast<QObject*>(this), SLOT(showAllModules()), actionCollection(),
+//                                 "showAll" );
+// 		showAllAction->setEnabled(false);
+    showAllAction = actionCollection() -> addAction("showAll");
+    showAllAction->setText(i18n("Overview"));
+    connect(showAllAction, SIGNAL(triggered()),
+            this, SLOT(showAllModules()));
+    showAllAction->setEnabled(false);
 	}
 
-	aboutModuleAction = new KAction(i18n("About Current Module"), 0, this, SLOT(aboutCurrentModule()), actionCollection(), "help_about_module");
+// 	aboutModuleAction = new KAction(i18n("About Current Module"), 0, qobject_cast<QWidget*>(this),
+//                                   SLOT(aboutCurrentModule()), actionCollection(), "help_about_module");
+  aboutModuleAction = actionCollection() -> addAction("help_about_module");
+  aboutModuleAction->setText(i18n("About Current Module"));
+  connect(aboutModuleAction, SIGNAL(triggered()),
+          this, SLOT(aboutCurrentModule()));
+
+
 	resetModuleHelp();
 
 	// Search
-	QHBox *hbox = new QHBox(0);
+	Q3HBox *hbox = new Q3HBox(0);
 	hbox->setMaximumWidth( 400 );
 
 	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
 	hbox->setStretchFactor(search,1);
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
 
-	QVBox *vbox = new QVBox(hbox);
+	Q3VBox *vbox = new Q3VBox(hbox);
 	generalHitLabel = new QLabel(vbox);
 	vbox->setStretchFactor(generalHitLabel,1);
 	advancedHitLabel = new QLabel(vbox);
@@ -143,7 +172,8 @@ void MainWindow::buildActions()
 	searchLabel->setText( i18n("&Search:") );
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
-	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Key_F6, 0, 0, actionCollection(), "searchText" );
+  //******* STOPPED **********
+	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Qt::Key_F6, 0, 0, actionCollection(), "searchText" );
 	searchLabel->setBuddy( search );
 
 	// The search box.
@@ -151,10 +181,10 @@ void MainWindow::buildActions()
                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
 	searchAction->setAutoSized( true );
-	QWhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
+	Q3WhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
 
 	// The Clear search box button.
-	KToolBarButton *clearWidget = new KToolBarButton(QApplication::reverseLayout() ? "clear_left" : "locationbar_erase",
+	QToolButton *clearWidget = new QToolButton(QApplication::reverseLayout() ? "clear_left" : "locationbar_erase",
 		0, this);
 	searchClear = new KWidgetAction( clearWidget, QString(""), CTRL+Key_L, search, SLOT(clear()),
 					actionCollection(), "searchReset");
@@ -164,8 +194,8 @@ void MainWindow::buildActions()
                                         "all items are shown again." ) );
 
 	// Top level pages.
-	QValueList<MenuItem> subMenus = menu->menuList();
-	QValueList<MenuItem>::iterator it;
+	Q3ValueList<MenuItem> subMenus = menu->menuList();
+	Q3ValueList<MenuItem>::iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
 		if( (*it).menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( (*it).subMenu );
@@ -174,7 +204,7 @@ void MainWindow::buildActions()
 				continue;
 			}
 
-			KRadioAction *newAction = new KRadioAction( group->caption(), group->icon(), KShortcut(), this,
+			KToggleAction *newAction = new KToggleAction( group->caption(), group->icon(), KShortcut(), this,
 				SLOT(slotTopPage()), actionCollection(), group->relPath() );
 			pageActions.append(newAction);
 kdDebug() << "relpath is :" << group->relPath() << endl;
@@ -217,7 +247,7 @@ void MainWindow::showAllModules()
 	searchClear->setEnabled(true);
 	searchAction->setEnabled(true);
 
-	KRadioAction *currentRadioAction;
+	KToggleAction *currentRadioAction;
 	for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
 		currentRadioAction->setEnabled(true);
 	}
@@ -225,7 +255,7 @@ void MainWindow::showAllModules()
 	resetModuleHelp();
 }
 
-void MainWindow::slotItemSelected( QIconViewItem *item ){
+void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 	ModuleIconItem *mItem = (ModuleIconItem *)item;
 
 	if( !mItem )
@@ -235,14 +265,14 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 	scrollView = moduleItemToScrollerDict.find(mItem);
 
 	if(groupWidget==0) {
-		QValueList<KCModuleInfo> list = mItem->modules;
-		KDialogBase::DialogType type = KDialogBase::IconList;
-		if(list.count() == 1) {
-			type=KDialogBase::Plain;
-		}
+		Q3ValueList<KCModuleInfo> list = mItem->modules;
+// 		KDialogBase::DialogType type = KDialogBase::IconList;
+// 		if(list.count() == 1) {
+// 			type=KDialogBase::Plain;
+// 		}
 
 		scrollView = new KCScrollView(windowStack);
-		groupWidget = new KCMultiWidget(type, scrollView->viewport(), "moduleswidget");
+		groupWidget = new KCMultiWidget(0, scrollView->viewport(), "moduleswidget"); // THAT ZERO IS NEW
                 scrollView->addChild(groupWidget);
 		windowStack->addWidget(scrollView);
 		moduleItemToScrollerDict.insert(mItem,scrollView);
@@ -253,7 +283,7 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
 		connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
-		QValueList<KCModuleInfo>::iterator it;
+		Q3ValueList<KCModuleInfo>::iterator it;
 		for ( it = list.begin(); it != list.end(); ++it ){
 			qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
 			groupWidget->addModule(	*it );
@@ -271,7 +301,7 @@ void MainWindow::slotItemSelected( QIconViewItem *item ){
 		searchClear->setEnabled(false);
 		searchAction->setEnabled(false);
 
-		KRadioAction *currentRadioAction;
+		KToggleAction *currentRadioAction;
 		for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
 			currentRadioAction->setEnabled(false);
 		}
@@ -310,7 +340,7 @@ void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
 
 void MainWindow::resetModuleHelp() {
 	aboutModuleAction->setText(i18n("About Current Module"));
-	aboutModuleAction->setIconSet(QIconSet());
+	aboutModuleAction->setIconSet(QIcon());
 	aboutModuleAction->setEnabled(false);
 }
 
@@ -331,10 +361,10 @@ void MainWindow::widgetChange() {
 }
 
 void MainWindow::slotTopPage() {
-	KRadioAction *clickedRadioAction = (KRadioAction *)sender();
+	KToggleAction *clickedRadioAction = (KToggleAction *)sender();
 	selectedPage = pageActions.find(clickedRadioAction);
 
-	KRadioAction *currentRadioAction;
+	KToggleAction *currentRadioAction;
     for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
 		currentRadioAction->setChecked(currentRadioAction==clickedRadioAction);
 	}
