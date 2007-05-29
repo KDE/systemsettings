@@ -22,7 +22,11 @@
 
 #include <QObject>
 #include <QAction>
+#include <QIcon>
 #include <kstandardaction.h>
+#include <ktoolbarlabelaction.h>
+#include <ktoggletoolbaraction.h>
+#include <kaboutapplicationdialog.h>
 #include <q3whatsthis.h>
 #include <QLabel>
 #include <q3vbox.h>
@@ -173,21 +177,39 @@ void MainWindow::buildActions()
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
   //******* STOPPED **********
-	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Qt::Key_F6, 0, 0, actionCollection(), "searchText" );
-	searchLabel->setBuddy( search );
+
+// KWidgetAction* action = new KWidgetAction( findCombo, i18n("Find Combo"),
+//                                             Qt::Key_F6, this, SLOT( slotFocus() ),
+//                                             actionCollection(), "find_combo");
+
+//  KAction *action = new KToolBarLabelAction( action, i18n( "Find "), "find_label" );
+//  action->setShortcut( Qt::Key_F6 );
+//  connect( action, SIGNAL( triggered() ), this, SLOT( slotFocus() ) );
+
+  searchText = new KToolBarLabelAction(i18n("&Search:"), searchLabel);
+  searchText->setShortcut(Qt::Key_F6);
+//   connect(action, SIGNAL(triggered()),
+//           searchLabel, SLOT( 
+// // 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Qt::Key_F6, 0, 0, actionCollection(), "searchText" );
+// // 	searchLabel->setBuddy( search );
 
 	// The search box.
-	searchAction = new KWidgetAction( hbox, i18n( "Search System Settings" ), 0,
-                  0, 0, actionCollection(), "search" );
+  searchAction = new KToolBarLabelAction(i18n("Search System Settings"), hbox);
+// // 	searchAction = new KWidgetAction( hbox, i18n( "Search System Settings" ), 0,
+// //                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
-	searchAction->setAutoSized( true );
+// 	searchAction->setAutoSized( true );
 	Q3WhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
 
 	// The Clear search box button.
-	QToolButton *clearWidget = new QToolButton(QApplication::reverseLayout() ? "clear_left" : "locationbar_erase",
-		0, this);
-	searchClear = new KWidgetAction( clearWidget, QString(""), CTRL+Key_L, search, SLOT(clear()),
-					actionCollection(), "searchReset");
+	QToolButton *clearWidget = new QToolButton(this, QApplication::reverseLayout() ? "clear_left" : "locationbar_erase");
+// 	searchClear = new KWidgetAction( clearWidget, QString(""), CTRL+Key_L, search, SLOT(clear()),
+// 					actionCollection(), "searchReset");
+  searchClear = new KAction ("searchReset", 0);
+  searchClear->setShortcut(Qt::CTRL + Qt::Key_L);
+  connect(searchClear, SIGNAL(triggered()),
+          search, SLOT(clear()));
+
 	connect(clearWidget, SIGNAL(clicked()), searchClear, SLOT(activate()));
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
@@ -196,18 +218,22 @@ void MainWindow::buildActions()
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
 	Q3ValueList<MenuItem>::iterator it;
+
+  // Now it's time to draw our display
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
 		if( (*it).menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( (*it).subMenu );
 			if ( !group ){
-				kdDebug() << "Invalid Group \"" << (*it).subMenu << "\".  Check your installation."<< endl;
+				kDebug() << "Invalid Group \"" << (*it).subMenu << "\".  Check your installation."<< endl;
 				continue;
 			}
 
-			KToggleAction *newAction = new KToggleAction( group->caption(), group->icon(), KShortcut(), this,
-				SLOT(slotTopPage()), actionCollection(), group->relPath() );
+			KToggleAction *newAction = new KToggleAction( KIcon(group->icon()), group->caption(), this);
+      connect(newAction, SIGNAL(slotToggled(bool)),
+              this, SLOT(slotTopPage()));
+
 			pageActions.append(newAction);
-kdDebug() << "relpath is :" << group->relPath() << endl;
+      kDebug() << "relpath is :" << group->relPath() << endl;
 		}
 	}
 	pageActions.at(0)->setChecked(true);
@@ -215,12 +241,13 @@ kdDebug() << "relpath is :" << group->relPath() << endl;
 
 void MainWindow::aboutCurrentModule()
 {
-	if(!groupWidget)
+	if(!groupWidget) {
 		return;
+  }
 
 	KCModuleProxy* module = groupWidget->currentModule();
 	if( module && module->aboutData() ){
-		KAboutApplication dlg( module->aboutData() );
+		KAboutApplicationDialog dlg( module->aboutData() );
 		dlg.exec();
 	}
 }
@@ -272,7 +299,7 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 // 		}
 
 		scrollView = new KCScrollView(windowStack);
-		groupWidget = new KCMultiWidget(0, scrollView->viewport(), "moduleswidget"); // THAT ZERO IS NEW
+		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW
                 scrollView->addChild(groupWidget);
 		windowStack->addWidget(scrollView);
 		moduleItemToScrollerDict.insert(mItem,scrollView);
@@ -328,9 +355,9 @@ void MainWindow::timerResize() {
 
 void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
 	if ( currentModule->aboutData() ) {
-		aboutModuleAction->setText(i18n("Help menu->about <modulename>", "About %1").arg(
+		aboutModuleAction->setText(i18nc("Help menu->about <modulename>", "About %1").arg(
 				                             currentModule->moduleInfo().moduleName().replace("&","&&")));
-		aboutModuleAction->setIcon(currentModule->moduleInfo().icon());
+		aboutModuleAction->setIcon(QIcon(currentModule->moduleInfo().icon()));
 		aboutModuleAction->setEnabled(true);
 	}
 	else {
@@ -379,11 +406,11 @@ void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) 
 	} else {
 		
 		if(length>=1) {
-			generalHitLabel->setText(i18n("%1 hit in General","%1 hits in General",hitList[0]).arg(hitList[0]));
+			generalHitLabel->setText(i18nc("%1 hit in General","%1 hits in General",hitList[0]).arg(hitList[0]));
 		}
 	
 		if(length>=2) {
-			advancedHitLabel->setText(i18n("%1 hit in Advanced","%1 hits in Advanced",hitList[1]).arg(hitList[1]));
+			advancedHitLabel->setText(i18nc("%1 hit in Advanced","%1 hits in Advanced",hitList[1]).arg(hitList[1]));
 		}
 
 	}

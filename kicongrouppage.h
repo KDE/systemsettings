@@ -90,6 +90,7 @@ class KIconGroupPage : public QFrame {
    * Append a group to the page
    *
    * @param title The title of the group
+   * @returns A constant pointer to the group that was added.
    **/
   void appendGroup(QString name);
 
@@ -99,10 +100,11 @@ class KIconGroupPage : public QFrame {
    * @param group The group name to append the icon to
    * @param icon The icon to use
    * @param label The label to use with the icon
+   * @returns A constant pointer to the item that was added.
    **/
-  void appendIconToGroup(const QString& name,
-                         const QIcon& icon,
-                         const QString& label);
+  const KIconGroupItem* appendIconToGroup(const QString& name,
+                                          const QIcon& icon,
+                                          const QString& label);
 
   /**
    * Set the page name
@@ -166,8 +168,9 @@ class KIconGroupRow : public QBoxLayout {
    *
    * @param icon The icon to add
    * @param label The label to add
+   * @returns A constant pointer to the item that was just added.
    **/
-  void appendIcon( const QIcon& icon, const QString& label );
+  const KIconGroupItem* appendIcon( const QIcon& icon, const QString& label );
 
   /**
    * Set the group name

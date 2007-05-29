@@ -32,7 +32,7 @@
 #include <klocale.h>
 #include <kservice.h>
 
-#include "kicongrouppage.h"
+/* #include "kicongrouppage.h" */
 
 class KCModuleProxy;
 class KCModuleInfo;
@@ -266,7 +266,7 @@ private:
 	class KCMultiWidgetPrivate;
 	KCMultiWidgetPrivate *d;
 
-  KIconGroupPage iconPage;
+/*   KIconGroupPage iconPage; */
 };
 
 #endif //KCMULTIDIALOG_H

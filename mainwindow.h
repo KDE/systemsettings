@@ -43,7 +43,7 @@ class Q3IconViewItem;
 class KCMultiWidget;
 class ModulesView;
 class KAction;
-class KWidgetAction;
+class KToolBarLabelAction;
 class KCModule;
 class KCModuleProxy;
 
@@ -93,9 +93,9 @@ private:
 	QAction *defaultModule;
 	
 	QAction *showAllAction;
-	KWidgetAction *searchText;
+	KToolBarLabelAction *searchText;
 	KAction *searchClear;
-	KWidgetAction *searchAction;
+	KToolBarLabelAction *searchAction;
 
 	QAction *aboutModuleAction;
 	

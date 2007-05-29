@@ -34,28 +34,26 @@ KIconGroupPage::~KIconGroupPage() {
   // Delete the rows...
   qDeleteAll(m_rows.values().begin(), m_rows.values().end());
   m_rows.clear();
-
-  if (m_frame) {
-    delete m_frame;
-  }
 }
 
-void KIconGroupPage::appendGroup(QString name) {
+const KIconGroupRow* KIconGroupPage::appendGroup(QString name) {
   KIconGroupRow* group = new KIconGroupRow(name, parentWidget());
 
   m_rows.insert(name, group);
 
   render();
+
+  return group;
 }
 
-void KIconGroupPage::appendIconToGroup(const QString& group,
-                                       const QIcon& icon,
-                                       const QString& label) {
+const KIconGroupItem* KIconGroupPage::appendIconToGroup(const QString& group,
+                                                        const QIcon& icon,
+                                                        const QString& label) {
   if (!m_rows.contains(group)) {
     appendGroup(group);
   }
 
-  m_rows[group]->appendIcon(icon, label);
+  return m_rows[group]->appendIcon(icon, label);
 }
 
 void KIconGroupPage::render() {
@@ -79,11 +77,13 @@ KIconGroupRow::~KIconGroupRow() {
   m_icons.clear();
 }
 
-void KIconGroupRow::appendIcon( const QIcon& icon, const QString& label ) {
+const KIconGroupItem* KIconGroupRow::appendIcon( const QIcon& icon, const QString& label ) {
   KIconGroupItem* item = new KIconGroupItem(parentWidget(),icon,label);
   item->setParent(parentWidget());
 
   m_icons.append(item);
+
+  return item;
 }
 
 void KIconGroupRow::render() {

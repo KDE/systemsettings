@@ -20,7 +20,8 @@
  */
 
 #include <QX11Info>
-#include <kapplication.h>
+#include <iostream.h>
+#include <kuniqueapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>
@@ -54,7 +55,12 @@ int main( int argc, char *argv[] )
 	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
 	// Launch
-  KApplication application(QX11Info::display(), argc, argv, QByteArray("System Settings"));
+  KUniqueApplication::addCmdLineOptions();
+  if (!KUniqueApplication::start()) {
+    cerr << "This program is already running." << endl;
+    return 0;
+  }
+  KUniqueApplication application(QX11Info::display());
 
 	MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
 	application.setMainWidget( mainWindow );

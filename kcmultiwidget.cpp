@@ -99,7 +99,7 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
 
   setWindowModality(modality);
 
-  iconPage.setParent(this);
+//   iconPage.setParent(this);
 
   // These actions are in orde for the user1,2,and 3 buttons.
   //			KStandardGuiItem::reset(), KStandardGuiItem::close(), KStandardGuiItem::adminMode())

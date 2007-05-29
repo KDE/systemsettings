@@ -21,32 +21,35 @@
 
 #include "moduleiconitem.h"
 #include <kiconloader.h>
+#include <k3iconview.h>
+#include <kicon.h>
 
 #define IMAGE_SIZE 32
 
-ModuleIconItem::ModuleIconItem( KIconView *parent, KCModuleInfo module)
+ModuleIconItem::ModuleIconItem( K3IconView *parent, KCModuleInfo module)
 	: Q3IconViewItem( parent, module.moduleName(),
 		SmallIcon( module.icon(), IMAGE_SIZE ) ),
-		currentState( KIcon::ActiveState), imageName(module.icon())
+		/*currentState( KIcon::ActiveState), */ imageName(module.icon())
 {
 	modules.append(module);
 }
 
-ModuleIconItem::ModuleIconItem( KIconView *parent, const QString &text,
+ModuleIconItem::ModuleIconItem( K3IconView *parent, const QString &text,
 		const QString &imageName )
-	: Q3IconViewItem( parent, text, SmallIcon( imageName, IMAGE_SIZE ) ),
-			currentState( KIcon::ActiveState )
+	: Q3IconViewItem( parent, text, SmallIcon( imageName, IMAGE_SIZE ) )
+// 			currentState( KIcon::ActiveState )
 {
 	this->imageName = imageName;
 }
 
 void ModuleIconItem::loadIcon( bool enabled )
 {
-	int newState = enabled ? KIcon::DefaultState : KIcon::DisabledState;
-	if( newState == currentState )
-		return;
+// 	int newState = enabled ? KIcon::DefaultState : KIcon::DisabledState;
+// 	if( newState == currentState )
+// 		return;
 
-	currentState = newState;
-	setPixmap( SmallIcon( imageName, IMAGE_SIZE, currentState ) );
+// 	currentState = newState;
+	setPixmap( SmallIcon( imageName, IMAGE_SIZE// , currentState
+                        ) );
 }
 

@@ -31,12 +31,10 @@
 #include <qlayout.h>
 #include <kiconloader.h>
 #include <kcmultidialog.h>
-#include <kdialogbase.h>
-#include <kiconviewsearchline.h>
 #include <kapplication.h>
-#include <kaboutapplication.h>
 #include <kdebug.h>
 #include <q3iconview.h>
+#include <k3iconview.h>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -157,7 +155,7 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 			QString path = (*it).subMenu;
 			KServiceGroup::Ptr group = KServiceGroup::group( path );
 			if ( group ) {
-				ModuleIconItem *item = new ModuleIconItem( ((KIconView*)iconView),
+				ModuleIconItem *item = new ModuleIconItem( ((K3IconView*)iconView),
 												group->caption(), group->icon() );
 				item->modules = rootMenu->modules( path );
 			}
