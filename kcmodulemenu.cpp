@@ -84,14 +84,16 @@ void KCModuleMenu::readMenu( const QString &pathName )
 			KCModuleInfo module(static_cast<MySharedPtr_KService>(entry));
 			append(module);
 			MenuItem infoItem(false);
-			infoItem.caption = this->deriveCaptionFromPath(entry->name());
+			//FIXME			infoItem.caption = this->deriveCaptionFromPath(entry->name());
+			infoItem.caption = "FIXMEinfo";
 			infoItem.item = module;
 			currentMenu.append( infoItem );
 		}
 
 		if ( entry->isType(KST_KServiceGroup) ){
 			MenuItem menuItem(true);
-			menuItem.caption = this->deriveCaptionFromPath(entry->name());
+			//FIXME menuItem.caption = this->deriveCaptionFromPath(entry->name());
+			menuItem.caption = "FIXME";
 			menuItem.subMenu = entry->entryPath();
 			currentMenu.append( menuItem );
 

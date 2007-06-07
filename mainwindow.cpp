@@ -67,7 +67,8 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 
 	// Load the menu structure in from disk.
   //FIXME	menu = new KCModuleMenu( menuFile );
-	menu = new KCModuleMenu( "kde-settings" );
+  menu = new KCModuleMenu( "settings" );
+  //menu = new KCModuleMenu( "kde-system-settings" );
 
 	moduleTabs = new KTabWidget(this,
 															QTabWidget::Top|QTabWidget::Rounded);
