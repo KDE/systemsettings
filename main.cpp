@@ -49,21 +49,19 @@ int main( int argc, char *argv[] )
 	  "ben+systempreferences@meyerhome.net");
   KCmdLineArgs::init(argc, argv, &aboutData);
 
-	// Tell which options are supported
-  //FIXME  KCmdLineArgs::addCmdLineOptions( options );
 
+  // Tell which options are supported
+  KCmdLineArgs::addCmdLineOptions( options );
+  KUniqueApplication::addCmdLineOptions();
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-	// Launch
-  KUniqueApplication::addCmdLineOptions();
   if (!KUniqueApplication::start()) {
     cerr << "This program is already running." << endl;
     return 0;
   }
   KUniqueApplication application;
 
-  //FIXME	MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
-  MainWindow *mainWindow = new MainWindow(true, "systemsettings");
+  MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
 
   application.setMainWidget( mainWindow );
   mainWindow->show();
