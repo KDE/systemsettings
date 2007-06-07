@@ -50,9 +50,9 @@ int main( int argc, char *argv[] )
   KCmdLineArgs::init(argc, argv, &aboutData);
 
 	// Tell which options are supported
-  KCmdLineArgs::addCmdLineOptions( options );
+  //FIXME  KCmdLineArgs::addCmdLineOptions( options );
 
-	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
 	// Launch
   KUniqueApplication::addCmdLineOptions();
@@ -60,12 +60,13 @@ int main( int argc, char *argv[] )
     cerr << "This program is already running." << endl;
     return 0;
   }
-  KUniqueApplication application(QX11Info::display());
+  KUniqueApplication application;
 
-	MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
-	application.setMainWidget( mainWindow );
-	mainWindow->show();
+  //FIXME	MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
+  MainWindow *mainWindow = new MainWindow(true, "systemsettings");
 
-	return application.exec();
+  application.setMainWidget( mainWindow );
+  mainWindow->show();
+
+  return application.exec();
 }
-

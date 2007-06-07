@@ -64,9 +64,10 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 								QWidget *parent) :
 				KXmlGuiWindow(parent), menu(NULL), embeddedWindows(embed),
 				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
-	
+
 	// Load the menu structure in from disk.
-	menu = new KCModuleMenu( menuFile );
+  //FIXME	menu = new KCModuleMenu( menuFile );
+	menu = new KCModuleMenu( "kde-settings" );
 
 	moduleTabs = new KTabWidget(this,
 															QTabWidget::Top|QTabWidget::Rounded);
@@ -159,6 +160,7 @@ void MainWindow::buildActions()
 	Q3HBox *hbox = new Q3HBox(0);
 	hbox->setMaximumWidth( 400 );
 
+	/*FIXME
 	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
 	hbox->setStretchFactor(search,1);
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
@@ -214,6 +216,7 @@ void MainWindow::buildActions()
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
                                         "all items are shown again." ) );
+	FIXME */
 
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
@@ -236,7 +239,7 @@ void MainWindow::buildActions()
       kDebug() << "relpath is :" << group->relPath() << endl;
 		}
 	}
-	pageActions.at(0)->setChecked(true);
+	//FIXME	pageActions.at(0)->setChecked(true);
 }
 
 void MainWindow::aboutCurrentModule()
