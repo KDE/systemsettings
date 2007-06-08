@@ -287,36 +287,32 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		return;
 	}
 	KCModuleProxy * module;
-// 	if( m_orphanModules.contains( moduleinfo.service() ) )
-// 	{
-// 		// the KCModule already exists - it was removed from the dialog in
-// 		// removeAllModules
-// 		module = m_orphanModules[ moduleinfo.service() ];
-// 		m_orphanModules.remove( moduleinfo.service() );
-// 		kDebug( 710 ) << "Use KCModule from the list of orphans for " <<
-// 			moduleinfo.moduleName() << ": " << module << endl;
+	if( m_orphanModules.contains( moduleinfo.service() ) )
+	{
+		// the KCModule already exists - it was removed from the dialog in
+		// removeAllModules
+		module = m_orphanModules[ moduleinfo.service() ];
+		m_orphanModules.remove( moduleinfo.service() );
+		kDebug( 710 ) << "Use KCModule from the list of orphans for " <<
+			moduleinfo.moduleName() << ": " << module << endl;
 
-// 		module->reparent( page, 0, QPoint( 0, 0 ), true );
+		if( module->changed() ) {
+			clientChanged( true );
+		}
 
-// 		if( module->changed() )
-// 			clientChanged( true );
+	}
+	else
+	{
+		module = new KCModuleProxy( moduleinfo, this );
 
-// 		if( activePageIndex() == -1 ) {
-// 			showPage( pageIndex( page ) );
-// 		}
-// 	}
-// 	else
-// 	{
- 		module = new KCModuleProxy( moduleinfo, this );
+		QStringList parentComponents = moduleinfo.service()->property(
+				"X-KDE-ParentComponents" ).toStringList();
+		moduleParentComponents.insert( module,
+				new QStringList( parentComponents ) );
 
- 		QStringList parentComponents = moduleinfo.service()->property(
- 				"X-KDE-ParentComponents" ).toStringList();
- 		moduleParentComponents.insert( module,
- 				new QStringList( parentComponents ) );
+		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
 
- 		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
-
-// 	}
+	}
 
 	CreatedModule cm;
 	cm.kcm = module;
