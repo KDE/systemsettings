@@ -40,6 +40,7 @@
 #include <krun.h>
 #include <kstandardguiitem.h>
 #include <kuser.h>
+#include <kauthorized.h>
 
 #include "kcmoduleloader.h"
 #include "kcmoduleproxy.h"
@@ -66,7 +67,7 @@ class KCMultiWidget::KCMultiWidgetPrivate
 
  
 KCMultiWidget::KCMultiWidget(QWidget *parent, Qt::WindowModality modality)
-	: KDialog( parent ),
+	: KPageDialog( parent ),
     d( new KCMultiWidgetPrivate )
 {
   InitKIconDialog(i18n("Configure"), modality);
@@ -74,7 +75,7 @@ KCMultiWidget::KCMultiWidget(QWidget *parent, Qt::WindowModality modality)
 }
 
 KCMultiWidget::KCMultiWidget( int dialogFace, QWidget * parent, Qt::WindowModality modality )
-	: KDialog( parent ),
+	: KPageDialog( parent ),
     dialogface( dialogFace ),
     d( new KCMultiWidgetPrivate )
 {
@@ -120,6 +121,7 @@ inline void KCMultiWidget::init()
 	connect(this, SIGNAL(aboutToShowPage(QWidget *)), this, SLOT(slotAboutToShow(QWidget *)));
 	setInitialSize(QSize(640,480));
 	moduleParentComponents.setAutoDelete( true );
+	setFaceType( Auto );
 }
 #include <kmessagebox.h>
 
@@ -267,45 +269,55 @@ void KCMultiWidget::addModule(const QString& path, bool withfallback)
 void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		QStringList parentmodulenames, bool withfallback)
 {
-// 	if( !moduleinfo.service() )
-// 		return;
+	if( !moduleinfo.service() ) {
+		kWarning() << "ModuleInfo has no associated KService" << endl;
+		return;
+	}
 
-  // KDE4 incompatible.  If it's needed we'll need to find another way.
-// 	if ( !kapp->authorizeControlModule( moduleinfo.service()->menuId() ))
-// 			return;
+	if ( !KAuthorized::authorizeControlModule( moduleinfo.service()->menuId() )) {
+		kWarning() << "Not authorised to load module" << endl;
+		return;
+	}
+//FIXME obsolete?
 // 	if( !KCModuleLoader::testModule( moduleinfo ))
 // 			return;
-
-// 	Q3Frame* page = 0;
-// 	if (!moduleinfo.service()->noDisplay())
-// 		switch( dialogface )
-// 		{
-// 			case TreeList:
+  Q3Frame* page = 0; //FIXME
+  if (!moduleinfo.service()->noDisplay()) {
+ 		switch( dialogface )
+ 		{
+ 			case TreeList:
+			  kDebug() << "dialogface: TreeList" << endl;
 // 				parentmodulenames += moduleinfo.moduleName();
 // 				page = addHBoxPage( parentmodulenames, moduleinfo.comment(),
 // 						SmallIcon( moduleinfo.icon(),
 // 							IconSize( K3Icon::Small ) ) );
-// 				break;
-// 			case Tabbed:
-// 			case IconList:
+ 				break;
+ 			case Tabbed:
+ 			case IconList:
+			  kDebug() << "dialogface: tabbed/iconlist" << endl;
 // 				page = addHBoxPage( moduleinfo.moduleName(),
 // 						moduleinfo.comment(), DesktopIcon( moduleinfo.icon(),
 // 							K3Icon::SizeMedium ) );
-// 				break;
-// 			case Plain:
+ 				break;
+ 			case Plain:
+			  kDebug() << "dialogface: Plain" << endl;
 // 				page = plainPage();
 // 				( new Q3HBoxLayout( page ) )->setAutoAdd( true );
-// 				break;
-// 			default:
-// 				kdError( 710 ) << "unsupported dialog face for KCMultiWidget"
-// 					<< endl;
-// 				break;
-// 		}
+ 				break;
+ 			default:
+ 				kdError( 710 ) << "unsupported dialog face for KCMultiWidget"
+ 					<< endl;
+ 				break;
+ 		}
+  }
+//FIXME use above switch
+///  page = new Q3Frame;
+///  ( new Q3HBoxLayout( page ) )->setAutoAdd( true );
 // 	if(!page) {
 // 		KCModuleLoader::unloadModule(moduleinfo);
 // 		return;
 // 	}
-// 	KCModuleProxy * module;
+ 	KCModuleProxy * module;
 // 	if( m_orphanModules.contains( moduleinfo.service() ) )
 // 	{
 // 		// the KCModule already exists - it was removed from the dialog in
@@ -326,14 +338,16 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 // 	}
 // 	else
 // 	{
+//FIXME parent
 // 		module = new KCModuleProxy( moduleinfo, withfallback, page );
+ 		module = new KCModuleProxy( moduleinfo );
 
-// 		QStringList parentComponents = moduleinfo.service()->property(
-// 				"X-KDE-ParentComponents" ).toStringList();
-// 		moduleParentComponents.insert( module,
-// 				new QStringList( parentComponents ) );
+ 		QStringList parentComponents = moduleinfo.service()->property(
+ 				"X-KDE-ParentComponents" ).toStringList();
+ 		moduleParentComponents.insert( module,
+ 				new QStringList( parentComponents ) );
 
-// 		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
+ 		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
 
 // 	}
 
@@ -357,6 +371,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 // 	if( m_modules.count() == 1 ) {
 // 		slotAboutToShow( page );
 // 	}
+	addPage(module, "name"); //FIXME
 }
 
 KCModuleProxy * KCMultiWidget::currentModule() {

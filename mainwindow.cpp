@@ -41,7 +41,7 @@
 #include <qtimer.h>
 #include <kiconloader.h>
 #include <kcmoduleloader.h>
-#include <kdialog.h>
+#include <kpagedialog.h>
 /*#include <k3iconviewsearchline.h>*/
 #include <kactioncollection.h>
 #include <kapplication.h>
@@ -66,12 +66,9 @@ MainWindow::MainWindow(bool embed, const QString & menuFile,
 				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
 
 	// Load the menu structure in from disk.
-  //FIXME	menu = new KCModuleMenu( menuFile );
-  menu = new KCModuleMenu( "settings" );
-  //menu = new KCModuleMenu( "kde-system-settings" );
+	menu = new KCModuleMenu( "systemsettings" );
 
-	moduleTabs = new KTabWidget(this,
-															QTabWidget::Top|QTabWidget::Rounded);
+	moduleTabs = new KTabWidget(this, QTabWidget::Top|QTabWidget::Rounded);
 	buildMainWidget();
 	buildActions();
 	setupGUI(ToolBar|Save|Create,QString::null);
@@ -292,6 +289,8 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 	if( !mItem )
 		return;
 
+
+        kDebug() << "item selected: " << item->text() << endl;
 	groupWidget = moduleItemToWidgetDict.find(mItem);
 	scrollView = moduleItemToScrollerDict.find(mItem);
 
@@ -303,14 +302,14 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 // 		}
 
 		scrollView = new KCScrollView(windowStack);
-		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW
+		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
                 scrollView->addChild(groupWidget);
 		windowStack->addWidget(scrollView);
 		moduleItemToScrollerDict.insert(mItem,scrollView);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);
 
 		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
-		connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
+		//FIXME		connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
 		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
 		connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
@@ -328,9 +327,9 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 
 		setCaption( mItem->text() );
 		showAllAction->setEnabled(true);
-		searchText->setEnabled(false);
-		searchClear->setEnabled(false);
-		searchAction->setEnabled(false);
+		//searchText->setEnabled(false);
+		//searchClear->setEnabled(false);
+		//searchAction->setEnabled(false);
 
 		KToggleAction *currentRadioAction;
 		for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {

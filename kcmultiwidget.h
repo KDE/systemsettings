@@ -28,7 +28,7 @@
 #include <Q3CString>
 #include <Q3ValueList>
 
-#include <kdialog.h>
+#include <kpagedialog.h>
 #include <klocale.h>
 #include <kservice.h>
 
@@ -42,12 +42,12 @@ class KCModule;
  * @short A method that offers a KDialog containing arbitrary
  *   Control Modules.
  */
-class KUTILS_EXPORT KCMultiWidget : public KDialog
+class KUTILS_EXPORT KCMultiWidget : public KPageDialog
 {
 	Q_OBJECT
 
 public:
-  enum DialogType { TreeList, Tabbed, IconList, Plain };
+        enum DialogType { TreeList, Tabbed, IconList, Plain };
 
 	/**
 	 * Constructs a new KCMultiWidget
