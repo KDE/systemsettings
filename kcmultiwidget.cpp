@@ -307,9 +307,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 // 	}
 // 	else
 // 	{
-//FIXME parent
-// 		module = new KCModuleProxy( moduleinfo, withfallback, page );
- 		module = new KCModuleProxy( moduleinfo );
+ 		module = new KCModuleProxy( moduleinfo, this );
 
  		QStringList parentComponents = moduleinfo.service()->property(
  				"X-KDE-ParentComponents" ).toStringList();
@@ -320,13 +318,14 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 
 // 	}
 
-// 	CreatedModule cm;
-// 	cm.kcm = module;
-// 	cm.service = moduleinfo.service();
-// 	cm.adminmode = false;
-// 	cm.buttons = module->buttons();
-// 	if ( moduleinfo.needsRootPrivileges() && !d->hasRootKCM &&
-// 			!KUser().isSuperUser() ) {/* If we're embedded, it's true */
+	CreatedModule cm;
+	cm.kcm = module;
+	cm.service = moduleinfo.service();
+	cm.adminmode = false;
+	cm.buttons = module->buttons();
+// "root KCMs are gone" says KControl
+//	if ( moduleinfo.needsRootPrivileges() && !d->hasRootKCM &&
+//			!KUser().isSuperUser() ) {/* If we're embedded, it's true */
 // 		d->hasRootKCM = true;
 // 		cm.adminmode = true;
 // 		m_modules.append( cm );
@@ -337,10 +336,11 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 // 		m_modules.append( cm );
 // 	}
 
-// 	if( m_modules.count() == 1 ) {
-// 		slotAboutToShow( page );
-// 	}
-	KPageWidgetItem* page = addPage(module, "name"); //FIXME
+	m_modules.append( cm );
+	if( m_modules.count() == 1 ) {
+		slotAboutToShow( module );
+	}
+	KPageWidgetItem* page = addPage(module, moduleinfo.moduleName());
 	page->setIcon( KIcon(moduleinfo.icon()) );
 	page->setHeader(moduleinfo.comment());
 }
