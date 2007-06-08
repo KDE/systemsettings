@@ -281,43 +281,12 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 //FIXME obsolete?
 // 	if( !KCModuleLoader::testModule( moduleinfo ))
 // 			return;
-  Q3Frame* page = 0; //FIXME
-  if (!moduleinfo.service()->noDisplay()) {
- 		switch( dialogface )
- 		{
- 			case TreeList:
-			  kDebug() << "dialogface: TreeList" << endl;
-// 				parentmodulenames += moduleinfo.moduleName();
-// 				page = addHBoxPage( parentmodulenames, moduleinfo.comment(),
-// 						SmallIcon( moduleinfo.icon(),
-// 							IconSize( K3Icon::Small ) ) );
- 				break;
- 			case Tabbed:
- 			case IconList:
-			  kDebug() << "dialogface: tabbed/iconlist" << endl;
-// 				page = addHBoxPage( moduleinfo.moduleName(),
-// 						moduleinfo.comment(), DesktopIcon( moduleinfo.icon(),
-// 							K3Icon::SizeMedium ) );
- 				break;
- 			case Plain:
-			  kDebug() << "dialogface: Plain" << endl;
-// 				page = plainPage();
-// 				( new Q3HBoxLayout( page ) )->setAutoAdd( true );
- 				break;
- 			default:
- 				kdError( 710 ) << "unsupported dialog face for KCMultiWidget"
- 					<< endl;
- 				break;
- 		}
-  }
-//FIXME use above switch
-///  page = new Q3Frame;
-///  ( new Q3HBoxLayout( page ) )->setAutoAdd( true );
-// 	if(!page) {
-// 		KCModuleLoader::unloadModule(moduleinfo);
-// 		return;
-// 	}
- 	KCModuleProxy * module;
+
+	if(moduleinfo.service()->noDisplay()) {
+		KCModuleLoader::unloadModule(moduleinfo);
+		return;
+	}
+	KCModuleProxy * module;
 // 	if( m_orphanModules.contains( moduleinfo.service() ) )
 // 	{
 // 		// the KCModule already exists - it was removed from the dialog in
@@ -371,7 +340,9 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 // 	if( m_modules.count() == 1 ) {
 // 		slotAboutToShow( page );
 // 	}
-	addPage(module, "name"); //FIXME
+	KPageWidgetItem* page = addPage(module, "name"); //FIXME
+	page->setIcon( KIcon(moduleinfo.icon()) );
+	page->setHeader(moduleinfo.comment());
 }
 
 KCModuleProxy * KCMultiWidget::currentModule() {

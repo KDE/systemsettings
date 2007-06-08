@@ -60,13 +60,12 @@
 #include "kcmodulemenu.h"
 #include "kcmultiwidget.h"
 
-MainWindow::MainWindow(bool embed, const QString & menuFile,
-								QWidget *parent) :
+MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
 				KXmlGuiWindow(parent), menu(NULL), embeddedWindows(embed),
 				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
 
 	// Load the menu structure in from disk.
-	menu = new KCModuleMenu( "systemsettings" );
+	menu = new KCModuleMenu( menuFile );
 
 	moduleTabs = new KTabWidget(this, QTabWidget::Top|QTabWidget::Rounded);
 	buildMainWidget();
