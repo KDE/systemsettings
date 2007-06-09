@@ -157,7 +157,7 @@ void MainWindow::buildActions()
 	Q3HBox *hbox = new Q3HBox(0);
 	hbox->setMaximumWidth( 400 );
 
-	/*FIXME
+	/*FIXME*/
 	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
 	hbox->setStretchFactor(search,1);
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
@@ -175,7 +175,7 @@ void MainWindow::buildActions()
 	searchLabel->setText( i18n("&Search:") );
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
-  //******* STOPPED **********
+  //******* STOPPED **********/
 
 // KWidgetAction* action = new KWidgetAction( findCombo, i18n("Find Combo"),
 //                                             Qt::Key_F6, this, SLOT( slotFocus() ),
@@ -213,7 +213,7 @@ void MainWindow::buildActions()
 	searchClear->setWhatsThis( i18n( "Reset Search\n"
                                         "Resets the search so that "
                                         "all items are shown again." ) );
-	FIXME */
+	//FIXME */
 
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
