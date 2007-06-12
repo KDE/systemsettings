@@ -51,7 +51,7 @@ public:
 	Q3ValueList<KCModuleInfo> modules;
 					
 private:
-/* 	int currentState; */
+	int currentState;
 	QString imageName;
 };
 
