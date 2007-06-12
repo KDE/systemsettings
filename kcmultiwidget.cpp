@@ -93,10 +93,11 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
              KDialog::Cancel |
              KDialog::Apply |
              KDialog::Ok |
-             KDialog::User1 |
-             KDialog::User2 |
-             KDialog::User3);
+             KDialog::User1);// |
+             //KDialog::User2 |
+             //KDialog::User3);
   setDefaultButton(KDialog::Ok);
+  setButtonGuiItem(KDialog::User1, KStandardGuiItem::reset());
 
   setWindowModality(modality);
 
@@ -112,18 +113,19 @@ inline void KCMultiWidget::init()
 	showButton( Ok, false );
 	showButton( Cancel, false );
 	showButton( User1, true );     // Reset button
-	showButton( User2, true );    // Close button.
-	showButton( User3, true);      // Admin button.
+	//showButton( User2, true );    // Close button.
+	//showButton( User3, true);      // Admin button.
 
 	enableButton(Apply, false);
 	enableButton(User1, false);
 
-	connect( this, SIGNAL(currentPageChanged( KPageWidgetItem *, KPageWidgetItem * )), this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
+	connect( this, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)), this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
 	setInitialSize(QSize(640,480));
 	moduleParentComponents.setAutoDelete( true );
 	setFaceType( Auto );
 	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
 	connect( this, SIGNAL(applyClicked()), this, SLOT(slotApply()) );
+	connect( this, SIGNAL(user1Clicked()), this, SLOT(slotReset()) );
 }
 
 KCMultiWidget::~KCMultiWidget()
@@ -141,7 +143,7 @@ void KCMultiWidget::slotDefault()
 }
 
 // Reset button.
-void KCMultiWidget::slotUser1()
+void KCMultiWidget::slotReset()
 {
 // 	int curPageIndex = activePageIndex();
 

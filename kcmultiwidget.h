@@ -173,7 +173,7 @@ protected slots:
 	 *
 	 * @note Make sure you call the original implementation.
 	 */
-	virtual void slotUser1();
+	virtual void slotReset();
 	virtual void slotUser2();
 
 	/**
