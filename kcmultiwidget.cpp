@@ -119,6 +119,7 @@ inline void KCMultiWidget::init()
 	setInitialSize(QSize(640,480));
 	moduleParentComponents.setAutoDelete( true );
 	setFaceType( Auto );
+	connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
 	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
 	connect( this, SIGNAL(applyClicked()), this, SLOT(slotApply()) );
 	connect( this, SIGNAL(user1Clicked()), this, SLOT(slotReset()) );
@@ -201,16 +202,7 @@ void KCMultiWidget::slotOk()
 
 void KCMultiWidget::slotHelp()
 {
-	QString docPath;
-
-// 	int curPageIndex = activePageIndex();
-	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-		if( (*it).kcm == currentModule() )
-		{
-			docPath = ( *it ).kcm->moduleInfo().docPath();
-			break;
-		}
+	QString docPath = currentModule()->moduleInfo().docPath();
 
 	KUrl url( KUrl("help:/"), docPath );
 
