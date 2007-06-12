@@ -136,14 +136,25 @@ void MainWindow::buildActions()
 
 	resetModuleHelp();
 
+	// "Search:" label	
+	QLabel *searchLabel = new QLabel( this, "SearchLabel");
+	searchLabel->setText( i18n("S&earch:") );
+	searchLabel->setFont(KGlobalSettings::toolBarFont());
+	searchLabel->setMargin(2);
+
+	//FIXME KToolBarLabelAction not working for me
+	searchText = new KAction( this );
+	searchText->setDefaultWidget(searchLabel);
+	actionCollection()->addAction( "searchText", searchText );
+	searchText->setShortcut(Qt::Key_F6);
+
 	// Search
 	Q3HBox *hbox = new Q3HBox(0);
-	hbox->setMaximumWidth( 400 );
 
-	/*FIXME*/
 	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
 	hbox->setStretchFactor(search,1);
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
+	searchLabel->setBuddy( search );
 
 	Q3VBox *vbox = new Q3VBox(hbox);
 	generalHitLabel = new QLabel(vbox);
@@ -153,55 +164,17 @@ void MainWindow::buildActions()
 
 	hbox->setStretchFactor(vbox,1);
 
-	// "Search:" label	
-	QLabel *searchLabel = new QLabel( this, "SearchLabel");
-	searchLabel->setText( i18n("&Search:") );
-	searchLabel->setFont(KGlobalSettings::toolBarFont());
-	searchLabel->setMargin(2);
-
 	KAction* searchAction = new KAction( "none", this );
 	searchAction->setDefaultWidget(hbox);
 	actionCollection()->addAction( "search", searchAction );
-
-	//FIXME KToolBarLabelAction not working for me
-	searchText = new KAction( i18n( "Search:" ), this );
-	searchText->setDefaultWidget(searchLabel);
-	actionCollection()->addAction( "searchText", searchText );
-	searchText->setShortcut(Qt::Key_F6);
-
-//   connect(action, SIGNAL(triggered()),
-//           searchLabel, SLOT( 
-// // 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Qt::Key_F6, 0, 0, actionCollection(), "searchText" );
-	searchLabel->setBuddy( search );
-
-	// The search box.
-//  searchAction = new KToolBarLabelAction(i18n("Search System Settings"), hbox);
-// // 	searchAction = new KWidgetAction( hbox, i18n( "Search System Settings" ), 0,
-// //                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
-// 	searchAction->setAutoSized( true );
 	Q3WhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
-
-	// The Clear search box button.
-//	QToolButton *clearWidget = new QToolButton(this, QApplication::reverseLayout() ? "clear_left" : "locationbar_erase");
-// 	searchClear = new KWidgetAction( clearWidget, QString(""), CTRL+Key_L, search, SLOT(clear()),
-// 					actionCollection(), "searchReset");
-//  searchClear = new KAction ("searchReset", 0);
-//  searchClear->setShortcut(Qt::CTRL + Qt::Key_L);
-//  connect(searchClear, SIGNAL(triggered()),
-//          search, SLOT(clear()));
-
-//	connect(clearWidget, SIGNAL(clicked()), searchClear, SLOT(activate()));
-//	searchClear->setWhatsThis( i18n( "Reset Search\n"
-//                                        "Resets the search so that "
-//                                        "all items are shown again." ) );
-	//FIXME */
 
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
 	Q3ValueList<MenuItem>::iterator it;
 
-  // Now it's time to draw our display
+	// Now it's time to draw our display
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
 		if( (*it).menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( (*it).subMenu );
@@ -211,21 +184,19 @@ void MainWindow::buildActions()
 			}
 
 			KToggleAction *newAction = new KToggleAction( KIcon(group->icon()), group->caption(), this);
-      connect(newAction, SIGNAL(slotToggled(bool)),
-              this, SLOT(slotTopPage()));
+			connect(newAction, SIGNAL(slotToggled(bool)), this, SLOT(slotTopPage()));
 
 			pageActions.append(newAction);
-      kDebug() << "relpath is :" << group->relPath() << endl;
+			kDebug() << "relpath is :" << group->relPath() << endl;
 		}
 	}
-	//FIXME	pageActions.at(0)->setChecked(true);
 }
 
 void MainWindow::aboutCurrentModule()
 {
 	if(!groupWidget) {
 		return;
-  }
+	}
 
 	KCModuleProxy* module = groupWidget->currentModule();
 	if( module && module->aboutData() ){
@@ -277,10 +248,6 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 
 	if(groupWidget==0) {
 		Q3ValueList<KCModuleInfo> list = mItem->modules;
-// 		KDialogBase::DialogType type = KDialogBase::IconList;
-// 		if(list.count() == 1) {
-// 			type=KDialogBase::Plain;
-// 		}
 
 		scrollView = new KCScrollView(windowStack);
 		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
