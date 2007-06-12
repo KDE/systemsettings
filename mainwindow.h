@@ -93,9 +93,11 @@ private:
 	QAction *defaultModule;
 	
 	QAction *showAllAction;
-	KToolBarLabelAction *searchText;
+	//KToolBarLabelAction *searchText;
+	KAction *searchText;
 	KAction *searchClear;
-	KToolBarLabelAction *searchAction;
+	//KToolBarLabelAction *searchAction;
+	KAction *searchAction;
 
 	QAction *aboutModuleAction;
 	

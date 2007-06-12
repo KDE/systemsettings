@@ -20,7 +20,6 @@
 <ToolBar name="mainToolBar">
 	<Action name="showAll"/>
 	<Separator/>
-	<Action name="searchReset"/>
 	<Action name="searchText"/>
 	<Action name="search"/>
 </ToolBar>

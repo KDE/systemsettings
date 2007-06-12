@@ -110,26 +110,17 @@ void MainWindow::buildMainWidget()
 
 void MainWindow::buildActions()
 {
-  //	KStandardAction::quit(this, SLOT( close() ), qobject_cast<QObject*>(actionCollection()));
-  actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close()));
+	actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close()));
 
-// 	resetModule = new KAction(i18n("Undo Changes"), 0, qobject_cast<QObject*>(this),
-// 								SLOT(showAllModules()), actionCollection(), "resetModule" );
-// 	resetModule->setEnabled(false);
 	resetModule = actionCollection() -> addAction("resetModule");
-  resetModule->setText(i18n("Undo Changes"));
-  connect(resetModule, SIGNAL(triggered()),
-          this, SLOT(close()));
+	resetModule->setText(i18n("Undo Changes"));
+	connect(resetModule, SIGNAL(triggered()), this, SLOT(close()));
 	resetModule->setEnabled(false);
 
-// 	defaultModule = new KAction(i18n("Reset to Defaults"), 0, qobject_cast<QObject*>(this),
-// 								SLOT(showAllModules()), actionCollection(), "defaultModule" );
-// 	defaultModule->setEnabled(false);
-  defaultModule = actionCollection() -> addAction("defaultModule");
-  defaultModule->setText(i18n("Reset to Defaults"));
-  connect(defaultModule, SIGNAL(triggered()),
-          this, SLOT(showAllModules()));;
-  defaultModule->setEnabled(false);
+	defaultModule = actionCollection() -> addAction("defaultModule");
+	defaultModule->setText(i18n("Reset to Defaults"));
+	connect(defaultModule, SIGNAL(triggered()), this, SLOT(showAllModules()));;
+	defaultModule->setEnabled(false);
 
 	if( embeddedWindows ) {
 		showAllAction = actionCollection()->addAction("showAll");
@@ -139,13 +130,9 @@ void MainWindow::buildActions()
 		showAllAction->setEnabled(false);
 	}
 
-// 	aboutModuleAction = new KAction(i18n("About Current Module"), 0, qobject_cast<QWidget*>(this),
-//                                   SLOT(aboutCurrentModule()), actionCollection(), "help_about_module");
-  aboutModuleAction = actionCollection() -> addAction("help_about_module");
-  aboutModuleAction->setText(i18n("About Current Module"));
-  connect(aboutModuleAction, SIGNAL(triggered()),
-          this, SLOT(aboutCurrentModule()));
-
+	aboutModuleAction = actionCollection() -> addAction("help_about_module");
+	aboutModuleAction->setText(i18n("About Current Module"));
+	connect(aboutModuleAction, SIGNAL(triggered()), this, SLOT(aboutCurrentModule()));
 
 	resetModuleHelp();
 
@@ -171,25 +158,24 @@ void MainWindow::buildActions()
 	searchLabel->setText( i18n("&Search:") );
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
-  //******* STOPPED **********/
 
-// KWidgetAction* action = new KWidgetAction( findCombo, i18n("Find Combo"),
-//                                             Qt::Key_F6, this, SLOT( slotFocus() ),
-//                                             actionCollection(), "find_combo");
+	KAction* searchAction = new KAction( "none", this );
+	searchAction->setDefaultWidget(hbox);
+	actionCollection()->addAction( "search", searchAction );
 
-//  KAction *action = new KToolBarLabelAction( action, i18n( "Find "), "find_label" );
-//  action->setShortcut( Qt::Key_F6 );
-//  connect( action, SIGNAL( triggered() ), this, SLOT( slotFocus() ) );
+	//FIXME KToolBarLabelAction not working for me
+	searchText = new KAction( i18n( "Search:" ), this );
+	searchText->setDefaultWidget(searchLabel);
+	actionCollection()->addAction( "searchText", searchText );
+	searchText->setShortcut(Qt::Key_F6);
 
-  searchText = new KToolBarLabelAction(i18n("&Search:"), searchLabel);
-  searchText->setShortcut(Qt::Key_F6);
 //   connect(action, SIGNAL(triggered()),
 //           searchLabel, SLOT( 
 // // 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Qt::Key_F6, 0, 0, actionCollection(), "searchText" );
 // // 	searchLabel->setBuddy( search );
 
 	// The search box.
-  searchAction = new KToolBarLabelAction(i18n("Search System Settings"), hbox);
+//  searchAction = new KToolBarLabelAction(i18n("Search System Settings"), hbox);
 // // 	searchAction = new KWidgetAction( hbox, i18n( "Search System Settings" ), 0,
 // //                   0, 0, actionCollection(), "search" );
 	searchAction->setShortcutConfigurable( false );
@@ -197,18 +183,18 @@ void MainWindow::buildActions()
 	Q3WhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
 
 	// The Clear search box button.
-	QToolButton *clearWidget = new QToolButton(this, QApplication::reverseLayout() ? "clear_left" : "locationbar_erase");
+//	QToolButton *clearWidget = new QToolButton(this, QApplication::reverseLayout() ? "clear_left" : "locationbar_erase");
 // 	searchClear = new KWidgetAction( clearWidget, QString(""), CTRL+Key_L, search, SLOT(clear()),
 // 					actionCollection(), "searchReset");
-  searchClear = new KAction ("searchReset", 0);
-  searchClear->setShortcut(Qt::CTRL + Qt::Key_L);
-  connect(searchClear, SIGNAL(triggered()),
-          search, SLOT(clear()));
+//  searchClear = new KAction ("searchReset", 0);
+//  searchClear->setShortcut(Qt::CTRL + Qt::Key_L);
+//  connect(searchClear, SIGNAL(triggered()),
+//          search, SLOT(clear()));
 
-	connect(clearWidget, SIGNAL(clicked()), searchClear, SLOT(activate()));
-	searchClear->setWhatsThis( i18n( "Reset Search\n"
-                                        "Resets the search so that "
-                                        "all items are shown again." ) );
+//	connect(clearWidget, SIGNAL(clicked()), searchClear, SLOT(activate()));
+//	searchClear->setWhatsThis( i18n( "Reset Search\n"
+//                                        "Resets the search so that "
+//                                        "all items are shown again." ) );
 	//FIXME */
 
 	// Top level pages.
