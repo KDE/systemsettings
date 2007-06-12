@@ -118,8 +118,7 @@ inline void KCMultiWidget::init()
 	enableButton(Apply, false);
 	enableButton(User1, false);
 
-	//OLD connect(this, SIGNAL(aboutToShowPage(QWidget *)), this, SLOT(slotAboutToShow(QWidget *)));
-	//NOT WORKING connect( this, SIGNAL(currentPageChanged(KPageWidgetItem* current, KPageWidgetItem* before)), this, SLOT(slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before)) );
+	connect( this, SIGNAL(currentPageChanged( KPageWidgetItem *, KPageWidgetItem * )), this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
 	setInitialSize(QSize(640,480));
 	moduleParentComponents.setAutoDelete( true );
 	setFaceType( Auto );
@@ -365,7 +364,6 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 
 void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before)
 {
-	kDebug() << "slotAboutToShow QEvent" << endl;
 	QWidget* sendingWidget = current->widget();
 	slotAboutToShow(sendingWidget);
 }
