@@ -118,10 +118,12 @@ inline void KCMultiWidget::init()
 	enableButton(Apply, false);
 	enableButton(User1, false);
 
-	connect(this, SIGNAL(aboutToShowPage(QWidget *)), this, SLOT(slotAboutToShow(QWidget *)));
+	//OLD connect(this, SIGNAL(aboutToShowPage(QWidget *)), this, SLOT(slotAboutToShow(QWidget *)));
+	//NOT WORKING connect( this, SIGNAL(currentPageChanged(KPageWidgetItem* current, KPageWidgetItem* before)), this, SLOT(slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before)) );
 	setInitialSize(QSize(640,480));
 	moduleParentComponents.setAutoDelete( true );
 	setFaceType( Auto );
+	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
 }
 #include <kmessagebox.h>
 
@@ -134,16 +136,9 @@ KCMultiWidget::~KCMultiWidget()
 
 void KCMultiWidget::slotDefault()
 {
-// 	int curPageIndex = activePageIndex();
-
-	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-		if( (*it).kcm == currentModule() )
-		{
-		  ( *it ).kcm->defaults();
-		  clientChanged( true );
-		  return;
-		}
+	currentModule()->defaults();
+	clientChanged( true );
+	return;
 }
 
 // Reset button.
@@ -311,7 +306,6 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 				new QStringList( parentComponents ) );
 
 		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
-
 	}
 
 	CreatedModule cm;
@@ -341,11 +335,14 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 	page->setHeader(moduleinfo.comment());
 }
 
-KCModuleProxy * KCMultiWidget::currentModule() {
-	if(d) {
-		return d->currentModule;
+KCModuleProxy* KCMultiWidget::currentModule() {
+	QWidget* pageWidget = currentPage()->widget();
+	KCModuleProxy* module = qobject_cast<KCModuleProxy*>(pageWidget);
+	if (!module) {
+		return NULL;
+	} else {
+		return module;
 	}
-	return NULL;
 }
 
 void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
@@ -366,23 +363,28 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 	}
 }
 
+void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before)
+{
+	kDebug() << "slotAboutToShow QEvent" << endl;
+	QWidget* sendingWidget = current->widget();
+	slotAboutToShow(sendingWidget);
+}
 
 void KCMultiWidget::slotAboutToShow(QWidget *page)
 {
 	QObject * obj = page->child( 0, "KCModuleProxy" );
 	if( ! obj ) {
-		return;
-  }
+		obj = page;
+	}
 
 	KCModuleProxy *module = qobject_cast<KCModuleProxy*>(obj);
 	if( ! module ) {
 		return;
-  }
+	}
 
 	if( d && d->currentModule ) {
 		applyOrRevert( d->currentModule );
-  }
-	
+	}
 	d->currentModule = module;
 	emit ( aboutToShow( d->currentModule ) );
 

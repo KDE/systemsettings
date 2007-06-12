@@ -209,6 +209,7 @@ protected slots:
 private slots:
 
 	void slotAboutToShow(QWidget *);
+	void slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before);
 
 	void clientChanged(bool state);
 
