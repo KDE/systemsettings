@@ -51,7 +51,7 @@ Button usage:
 
     User1 => Reset
     User2 => Close
-    User3 => Admin
+    User3 => Admin (dead in KDE 4)
 */
 
 class KCMultiWidget::KCMultiWidgetPrivate
@@ -93,18 +93,16 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
              KDialog::Cancel |
              KDialog::Apply |
              KDialog::Ok |
-             KDialog::User1);// |
-             //KDialog::User2 |
+             KDialog::User1 |
+             KDialog::User2);
              //KDialog::User3);
   setDefaultButton(KDialog::Ok);
   setButtonGuiItem(KDialog::User1, KStandardGuiItem::reset());
+  setButtonGuiItem(KDialog::User2, KStandardGuiItem::close());
 
   setWindowModality(modality);
 
 //   iconPage.setParent(this);
-
-  // These actions are in orde for the user1,2,and 3 buttons.
-  //			KStandardGuiItem::reset(), KStandardGuiItem::close(), KStandardGuiItem::adminMode())
 }
 
 inline void KCMultiWidget::init()
@@ -113,7 +111,7 @@ inline void KCMultiWidget::init()
 	showButton( Ok, false );
 	showButton( Cancel, false );
 	showButton( User1, true );     // Reset button
-	//showButton( User2, true );    // Close button.
+	showButton( User2, false );    // Close button.
 	//showButton( User3, true);      // Admin button.
 
 	enableButton(Apply, false);
@@ -126,6 +124,7 @@ inline void KCMultiWidget::init()
 	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
 	connect( this, SIGNAL(applyClicked()), this, SLOT(slotApply()) );
 	connect( this, SIGNAL(user1Clicked()), this, SLOT(slotReset()) );
+	connect( this, SIGNAL(user2Clicked()), this, SLOT(slotClose()) );
 }
 
 KCMultiWidget::~KCMultiWidget()
@@ -231,7 +230,7 @@ void KCMultiWidget::slotHelp()
 }
 
 // Close button
-void KCMultiWidget::slotUser2() {
+void KCMultiWidget::slotClose() {
     emit close();
 }
 

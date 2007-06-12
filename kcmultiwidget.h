@@ -174,7 +174,7 @@ protected slots:
 	 * @note Make sure you call the original implementation.
 	 */
 	virtual void slotReset();
-	virtual void slotUser2();
+	virtual void slotClose();
 
 	/**
 	 * This slot is called when the user presses the "Apply" Button.
