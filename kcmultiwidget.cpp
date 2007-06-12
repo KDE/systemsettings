@@ -123,8 +123,8 @@ inline void KCMultiWidget::init()
 	moduleParentComponents.setAutoDelete( true );
 	setFaceType( Auto );
 	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
+	connect( this, SIGNAL(applyClicked()), this, SLOT(slotApply()) );
 }
-#include <kmessagebox.h>
 
 KCMultiWidget::~KCMultiWidget()
 {
@@ -158,6 +158,7 @@ void KCMultiWidget::slotUser1()
 
 void KCMultiWidget::apply()
 {
+	kDebug() << "APPLY" << endl;
 	QStringList updatedModules;
 	ModuleList::Iterator end = m_modules.end();
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
@@ -187,10 +188,8 @@ void KCMultiWidget::slotApply()
 // 	QPushButton *button = actionButton(Apply);
 // 	if (button)
 // 		button->setFocus();
-	emit applyClicked();
 	apply();
 }
-
 
 void KCMultiWidget::slotOk()
 {
