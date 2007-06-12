@@ -84,16 +84,14 @@ void KCModuleMenu::readMenu( const QString &pathName )
 			KCModuleInfo module(static_cast<MySharedPtr_KService>(entry));
 			append(module);
 			MenuItem infoItem(false);
-			//FIXME			infoItem.caption = this->deriveCaptionFromPath(entry->name());
-			infoItem.caption = "FIXMEinfo";
+			infoItem.caption = this->deriveCaptionFromPath(entry->name());
 			infoItem.item = module;
 			currentMenu.append( infoItem );
 		}
 
 		if ( entry->isType(KST_KServiceGroup) ){
 			MenuItem menuItem(true);
-			//FIXME menuItem.caption = this->deriveCaptionFromPath(entry->name());
-			menuItem.caption = "FIXME";
+			menuItem.caption = this->deriveCaptionFromPath(entry->name());
 			menuItem.subMenu = entry->entryPath();
 			currentMenu.append( menuItem );
 
@@ -187,22 +185,23 @@ QList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
  * never know... I could be doing it the best way.
  *
  * "Michael D. Stemle, Jr." <manchicken@notsosoft.net>
+ *
+ * Looks the best way to me. Jonathan Riddell
  */
 QString KCModuleMenu::deriveCaptionFromPath( const QString &menuPath )
 {
 	QStringList parts(QStringList::split("/",menuPath));
 	QString result("");
 
-	QStringList::Iterator it = parts.end(); // Start at the end
-
-	// Find the last non-empty string in the split.
-	for (; it != parts.begin(); --it) {
-		if (!((*it).isNull()) && !((*it).isEmpty())) {
-			result += *it;
+	QStringListIterator it(parts);
+	it.toBack();
+	while (it.hasPrevious()) {
+		QString foo = it.previous();
+		if (!foo.isNull() && !foo.isEmpty()) {
+			result += foo;
 			return result;
 		}
 	}
-
-  // Is this a problem?
-  return QString::null;
+	// Is this a problem?
+	return QString::null;
 }
