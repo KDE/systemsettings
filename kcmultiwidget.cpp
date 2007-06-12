@@ -140,20 +140,11 @@ void KCMultiWidget::slotDefault()
 	return;
 }
 
-// Reset button.
 void KCMultiWidget::slotReset()
 {
-// 	int curPageIndex = activePageIndex();
-
 	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-    //		if( pageIndex( ( QWidget * )( *it ).kcm->parent() ) == curPageIndex )
-    if( (*it).kcm == currentModule() )
-		{
-			( *it ).kcm->load();
-			clientChanged( false );
-			return;
-		}
+	currentModule()->load();
+	clientChanged( false );
 }
 
 void KCMultiWidget::apply()
