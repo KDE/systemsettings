@@ -133,7 +133,7 @@ void MainWindow::buildActions()
 
 	if( embeddedWindows ) {
 		showAllAction = actionCollection()->addAction("showAll");
-		showAllAction->setIcon( KIcon("back") );
+		showAllAction->setIcon( KIcon(QApplication::reverseLayout()?"go-next":"go-previous") );
 		showAllAction->setText( i18n("Overview") );
 		connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
 		showAllAction->setEnabled(false);
