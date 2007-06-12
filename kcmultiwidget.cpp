@@ -173,19 +173,11 @@ void KCMultiWidget::apply()
 
 void KCMultiWidget::slotApply()
 {
-  //TODO: Get this working...
-// 	QPushButton *button = actionButton(Apply);
-// 	if (button)
-// 		button->setFocus();
 	apply();
 }
 
 void KCMultiWidget::slotOk()
 {
-  //TODO: Get this working...
-// 	QPushButton *button = actionButton(Ok);
-// 	if (button)
-// 		button->setFocus();
 	emit okClicked();
 	apply();
 	accept();
@@ -251,9 +243,6 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		kWarning() << "Not authorised to load module" << endl;
 		return;
 	}
-//FIXME obsolete?
-// 	if( !KCModuleLoader::testModule( moduleinfo ))
-// 			return;
 
 	if(moduleinfo.service()->noDisplay()) {
 		KCModuleLoader::unloadModule(moduleinfo);
@@ -409,7 +398,6 @@ void KCMultiWidget::disableRModeButton()
 
 void KCMultiWidget::slotCancel() {
 	dialogClosed();
-  //	KDialog::slotCancel();
 }
 
 void KCMultiWidget::dialogClosed()

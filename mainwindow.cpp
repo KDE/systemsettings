@@ -42,7 +42,6 @@
 #include <kiconloader.h>
 #include <kcmoduleloader.h>
 #include <kpagedialog.h>
-/*#include <k3iconviewsearchline.h>*/
 #include <kactioncollection.h>
 #include <kapplication.h>
 #include <kdebug.h>
@@ -136,19 +135,18 @@ void MainWindow::buildActions()
 
 	resetModuleHelp();
 
-	// "Search:" label	
+	// "Search:" label, FIXME KToolBarLabelAction not working for me
 	QLabel *searchLabel = new QLabel( this, "SearchLabel");
 	searchLabel->setText( i18n("S&earch:") );
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
 
-	//FIXME KToolBarLabelAction not working for me
 	searchText = new KAction( this );
 	searchText->setDefaultWidget(searchLabel);
 	actionCollection()->addAction( "searchText", searchText );
 	searchText->setShortcut(Qt::Key_F6);
 
-	// Search
+	// Search edit box and result labels
 	Q3HBox *hbox = new Q3HBox(0);
 
 	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
@@ -164,7 +162,7 @@ void MainWindow::buildActions()
 
 	hbox->setStretchFactor(vbox,1);
 
-	KAction* searchAction = new KAction( "none", this );
+	searchAction = new KAction( "none", this );
 	searchAction->setDefaultWidget(hbox);
 	actionCollection()->addAction( "search", searchAction );
 	searchAction->setShortcutConfigurable( false );
@@ -224,7 +222,6 @@ void MainWindow::showAllModules()
 	aboutModuleAction->setEnabled(false);
 
 	searchText->setEnabled(true);
-	searchClear->setEnabled(true);
 	searchAction->setEnabled(true);
 
 	KToggleAction *currentRadioAction;
