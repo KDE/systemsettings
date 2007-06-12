@@ -133,7 +133,7 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 
 	// Make IconView
 	RowIconView *iconView = new RowIconView( this, "groupiconview" );
-	iconView->setFrameShape( RowIconView::StyledPanel );
+	iconView->setFrameShape( RowIconView::NoFrame );
 	iconView->setLineWidth( 0 );
 	iconView->setSpacing( 0 );
 	iconView->setMargin( 0 );

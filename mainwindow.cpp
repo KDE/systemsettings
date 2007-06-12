@@ -172,7 +172,7 @@ void MainWindow::buildActions()
 //   connect(action, SIGNAL(triggered()),
 //           searchLabel, SLOT( 
 // // 	searchText = new KWidgetAction( searchLabel, i18n("&Search:"), Qt::Key_F6, 0, 0, actionCollection(), "searchText" );
-// // 	searchLabel->setBuddy( search );
+	searchLabel->setBuddy( search );
 
 	// The search box.
 //  searchAction = new KToolBarLabelAction(i18n("Search System Settings"), hbox);
