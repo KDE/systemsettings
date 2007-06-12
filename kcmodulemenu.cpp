@@ -191,17 +191,14 @@ QList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
 QString KCModuleMenu::deriveCaptionFromPath( const QString &menuPath )
 {
 	QStringList parts(QStringList::split("/",menuPath));
-	QString result("");
 
 	QStringListIterator it(parts);
 	it.toBack();
 	while (it.hasPrevious()) {
 		QString foo = it.previous();
 		if (!foo.isNull() && !foo.isEmpty()) {
-			result += foo;
-			return result;
+			return foo;
 		}
 	}
-	// Is this a problem?
 	return QString::null;
 }
