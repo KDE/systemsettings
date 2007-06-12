@@ -132,15 +132,11 @@ void MainWindow::buildActions()
   defaultModule->setEnabled(false);
 
 	if( embeddedWindows ) {
-// 		showAllAction = new KAction(i18n("Overview"), QApplication::reverseLayout() ? "forward" : "back", 0,
-//                                 qobject_cast<QObject*>(this), SLOT(showAllModules()), actionCollection(),
-//                                 "showAll" );
-// 		showAllAction->setEnabled(false);
-    showAllAction = actionCollection() -> addAction("showAll");
-    showAllAction->setText(i18n("Overview"));
-    connect(showAllAction, SIGNAL(triggered()),
-            this, SLOT(showAllModules()));
-    showAllAction->setEnabled(false);
+		showAllAction = actionCollection()->addAction("showAll");
+		showAllAction->setIcon( KIcon("back") );
+		showAllAction->setText( i18n("Overview") );
+		connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
+		showAllAction->setEnabled(false);
 	}
 
 // 	aboutModuleAction = new KAction(i18n("About Current Module"), 0, qobject_cast<QWidget*>(this),

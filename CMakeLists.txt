@@ -48,9 +48,9 @@ INSTALL( TARGETS systemsettings DESTINATION bin)
 
 ########### install files ###############
 
-INSTALL_FILES( /share/applications/kde FILES  systemsettings.desktop )
-INSTALL_FILES( /share/config FILES  systemsettingsrc )
-INSTALL_FILES( /share/apps/systemsettings FILES  systemsettingsui.rc )
+install( FILES systemsettings.desktop DESTINATION ${XDG_APPS_DIR} )
+install( FILES systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR} )
+install( FILES systemsettingsui.rc DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
 
 KDE4_INSTALL_ICONS( hicolor )
 

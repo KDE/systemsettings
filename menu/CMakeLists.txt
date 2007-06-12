@@ -11,8 +11,6 @@ INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${K
 
 ########### install files ###############
 
-INSTALL_FILES( /share/applications/kde FILES  audioencoding.desktop defaultapplication.desktop kcmfontinst.desktop kcm_knetworkconfmodule_ss.desktop laptoppowermanagement.desktop medianotifications.desktop )
-
 install( FILES audioencoding.desktop defaultapplication.desktop kcmfontinst.desktop kcm_knetworkconfmodule_ss.desktop laptoppowermanagement.desktop medianotifications.desktop  DESTINATION  ${XDG_APPS_DIR} )
 
 install( FILES system-settings.menu  DESTINATION  ${SYSCONF_INSTALL_DIR}/xdg/menus )
