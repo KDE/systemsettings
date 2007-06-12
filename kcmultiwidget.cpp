@@ -95,7 +95,6 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
              KDialog::Ok |
              KDialog::User1 |
              KDialog::User2);
-             //KDialog::User3);
   setDefaultButton(KDialog::Ok);
   setButtonGuiItem(KDialog::User1, KStandardGuiItem::reset());
   setButtonGuiItem(KDialog::User2, KStandardGuiItem::close());
@@ -112,7 +111,6 @@ inline void KCMultiWidget::init()
 	showButton( Cancel, false );
 	showButton( User1, true );     // Reset button
 	showButton( User2, false );    // Close button.
-	//showButton( User3, true);      // Admin button.
 
 	enableButton(Apply, false);
 	enableButton(User1, false);
@@ -159,7 +157,6 @@ void KCMultiWidget::slotReset()
 
 void KCMultiWidget::apply()
 {
-	kDebug() << "APPLY" << endl;
 	QStringList updatedModules;
 	ModuleList::Iterator end = m_modules.end();
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
@@ -169,7 +166,6 @@ void KCMultiWidget::apply()
 		{
 			m->save();
 			QStringList * names = moduleParentComponents[ m ];
-			kDebug() << k_funcinfo << *names << " saved and added to the list" << endl;
 			for( QStringList::ConstIterator it = names->begin(); it != names->end(); ++it )
 				if( updatedModules.find( *it ) == updatedModules.end() )
 					updatedModules.append( *it );
