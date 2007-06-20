@@ -268,7 +268,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		module = new KCModuleProxy( moduleinfo, this );
 
 		QStringList parentComponents = moduleinfo.service()->property(
-				"X-KDE-ParentComponents" ).toStringList();
+				"X-KDE-System-Settings-Parent-Category" ).toStringList();
 		moduleParentComponents.insert( module,
 				new QStringList( parentComponents ) );
 
