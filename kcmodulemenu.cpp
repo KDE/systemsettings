@@ -22,6 +22,7 @@
 #include <kapplication.h>
 #include <kservicegroup.h>
 #include <kdebug.h>
+#include <kservicetypetrader.h>
 #include <q3dict.h>
 //Added by qt3to4:
 #include <QList>
@@ -40,7 +41,6 @@ public:
 KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 	d( new KCModuleMenuPrivate )
 {
-	kDebug() << "MenuName: \"" << menuName << "\"." << endl;
 	// Make sure we can find the menu
 	KServiceGroup::Ptr serviceGroup = KServiceGroup::baseGroup( menuName );
 	if( !serviceGroup ){
@@ -49,7 +49,21 @@ KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 		return;
 	}
 	d->basePath = serviceGroup->relPath();
-	readMenu( d->basePath );
+	readMenu( "", "System Settings" );
+
+	QMapIterator<QString, QList<MenuItem> > i(d->menus);
+	/*debugging
+	while (i.hasNext()) {
+		i.next();
+		kDebug() << "menu: " << i.key() << endl;
+		QList<MenuItem> items = i.value();
+		for (int i = 0; i < items.size(); ++i) {
+			kDebug() << "  item menu: " << items.at(i).caption <<  endl;
+			
+		}
+	}
+	*/
+	KService::List offers = KServiceTypeTrader::self()->query("KCModule");
 }
 
 KCModuleMenu::~KCModuleMenu()
@@ -57,49 +71,43 @@ KCModuleMenu::~KCModuleMenu()
 	delete d;
 }
 
-void KCModuleMenu::readMenu( const QString &pathName )
+void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 {
-  typedef KSharedPtr<KService> MySharedPtr_KService;
+	typedef KSharedPtr<KService> MySharedPtr_KService;
 
-	KServiceGroup::Ptr group = KServiceGroup::group( pathName );
-	if ( !group || !group->isValid() )
-		return;
-
-	KServiceGroup::List list = group->entries( true, true );
-	if( list.isEmpty() )
-		return;
-
-	caption = group->caption();
 	QList<MenuItem> currentMenu;
-			
-	for( KServiceGroup::List::ConstIterator it = list.begin();
-			 it != list.end(); it++)
-	{
-    // Grab the KService from the iterator
-		KSharedPtr<KSycocaEntry> sccpy = (*it);
-    KService* entry = static_cast<KService*>(sccpy.data());
-    
-		if( addEntry(entry) ) {
-      // Add the module info to the menu
-			KCModuleInfo module(static_cast<MySharedPtr_KService>(entry));
-			append(module);
-			MenuItem infoItem(false);
-			infoItem.caption = this->deriveCaptionFromPath(entry->name());
-			infoItem.item = module;
-			currentMenu.append( infoItem );
-		}
+	KService::List categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
+	for (int i = 0; i < categories.size(); ++i) {
+		const KService* entry = categories.at(i).data();
+		QString parentCategory = entry->property("X-KDE-ParentCategory").toString();
+		QString category = entry->property("X-KDE-System-Settings-Category").toString();
 
-		if ( entry->isType(KST_KServiceGroup) ){
+		if ( parentCategory == parentName ){
 			MenuItem menuItem(true);
-			menuItem.caption = this->deriveCaptionFromPath(entry->name());
-			menuItem.subMenu = entry->entryPath();
+			menuItem.caption = entry->name();
+			menuItem.subMenu = caption + "/" + entry->name() + "/";
 			currentMenu.append( menuItem );
 
-			readMenu( entry->entryPath() );
+			readMenu( category, caption + "/" + entry->name() );
 		}
 	}
 
-	d->menus.insert( pathName, currentMenu );
+	KService::List modules = KServiceTypeTrader::self()->query("KCModule");
+	for (int i = 0; i < modules.size(); ++i) {
+		const KService* entry = modules.at(i).data();
+		QString category = entry->property("X-KDE-System-Settings-Category").toString();
+		if( category == parentName && parentName != "" ) {
+			// Add the module info to the menu
+			KCModuleInfo module(entry->desktopEntryPath());
+			append(module);
+			MenuItem infoItem(false);
+			infoItem.caption = entry->name();
+			infoItem.item = module;
+			currentMenu.append( infoItem );
+		}
+	}
+
+	d->menus.insert( caption + "/", currentMenu );
 }
 
 bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
@@ -107,7 +115,6 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 		return false;
 	
   KSharedPtr<KService> service(static_cast<KService*>(entry));
-  //	KService *service = static_cast<KService*>( entry );
 
 #ifndef USING_KDE4
 	if ( !kapp->authorizeControlModule( service->menuId()) ) {

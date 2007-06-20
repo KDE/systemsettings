@@ -35,6 +35,7 @@
 #include <kdebug.h>
 #include <q3iconview.h>
 #include <k3iconview.h>
+#include <kservicetypetrader.h>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -103,25 +104,31 @@ ModulesView::~ModulesView()
 
 void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 {
-	KServiceGroup::Ptr group = KServiceGroup::group( parentPath );
-	if ( !group ){
-		kdDebug() << "Invalid Group \"" << parentPath << "\".  Check your installation."<< endl;
-		return;
+	//find the category name and search for it
+	QString categoryName = parentPath.section('/', -2, -2);
+	KService::List categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
+	QString iconName;
+	for (int i = 0; i < categories.size(); ++i) {
+		const KService* entry = categories.at(i).data();
+		if (entry->name() == categoryName) {
+			iconName = entry->icon();
+			break;
+		}
 	}
 
 	// Make header
 	Q3HBoxLayout *rowLayout = new Q3HBoxLayout( 0, 0, 6, "rowLayout" );
 
-	// Heaer Icon
+	// Header Icon
 	QLabel *icon = new QLabel( this, "groupicon" );
-	icon->setPixmap( SmallIcon( group->icon() ) );
+	icon->setPixmap( SmallIcon( iconName ));
 	icon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1,
 		(QSizePolicy::SizeType)5, 0, 0, icon->sizePolicy().hasHeightForWidth() ) );
 	rowLayout->addWidget( icon );
 
 	// Header Name
 	QLabel *textLabel = new QLabel( this, "groupcaption" );
-	textLabel->setText( group->caption() );
+	textLabel->setText( categoryName );
 	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
 		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
 	QFont textLabel_font(  textLabel->font() );

@@ -137,7 +137,7 @@ protected:
 	 * This is the <Name> from the merge.menu file
 	 * @param pathName the base path name of the menu.
 	 */
-	virtual void readMenu( const QString &pathName );
+	virtual void readMenu( const QString &pathName, const QString &caption );
 
 	/**
 	 * Function that determines if the entry from readMenu
