@@ -19,4 +19,4 @@ Name[pt_BR]=Pessoal
 Name[sv]=Personlig inställning
 Icon=preferences-desktop-personal
 X-KDE-System-Settings-Category=personal
-X-KDE-ParentCategory=general
+X-KDE-System-Settings-Parent-Category=general

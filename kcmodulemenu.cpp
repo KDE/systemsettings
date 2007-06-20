@@ -79,7 +79,7 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 	KService::List categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
 	for (int i = 0; i < categories.size(); ++i) {
 		const KService* entry = categories.at(i).data();
-		QString parentCategory = entry->property("X-KDE-ParentCategory").toString();
+		QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
 		QString category = entry->property("X-KDE-System-Settings-Category").toString();
 
 		if ( parentCategory == parentName ){

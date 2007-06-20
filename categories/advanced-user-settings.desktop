@@ -21,4 +21,4 @@ Name[pt_BR]=Configurações Avançadas para Usuário
 Name[sv]=Avancerade användarinställningar
 Icon=userconfig
 X-KDE-System-Settings-Category=advanced-user-settings
-X-KDE-ParentCategory=advanced
+X-KDE-System-Settings-Parent-Category=advanced

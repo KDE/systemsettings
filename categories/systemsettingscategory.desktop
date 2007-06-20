@@ -9,5 +9,5 @@ Name=System Settings Category
 Type=QString
 
 # the parent category identifier
-[PropertyDef::X-KDE-ParentCategory]
+[PropertyDef::X-KDE-System-Settings-Parent-Category]
 Type=QString

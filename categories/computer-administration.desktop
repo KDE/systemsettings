@@ -19,4 +19,4 @@ Name[pt_BR]=Administração do computador
 Name[sv]=Datoradministration
 Icon=systemtray
 X-KDE-System-Settings-Category=system-administration
-X-KDE-ParentCategory=general
+X-KDE-System-Settings-Parent-Category=general

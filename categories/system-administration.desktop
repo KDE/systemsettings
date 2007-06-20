@@ -5,4 +5,4 @@ ServiceTypes=SystemSettingsCategory
 Name=System Administration
 Icon=kcmsystem
 X-KDE-System-Settings-Category=system-administration
-X-KDE-ParentCategory=advanced
+X-KDE-System-Settings-Parent-Category=advanced

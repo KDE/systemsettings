@@ -20,4 +20,4 @@ Name[pt_BR]=Rede & Conectividade
 Name[sv]=Nätverk och anslutningar
 Icon=network-wired
 X-KDE-System-Settings-Category=network-and-connectivity
-X-KDE-ParentCategory=general
+X-KDE-System-Settings-Parent-Category=general
