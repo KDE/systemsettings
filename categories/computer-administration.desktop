@@ -1,0 +1,22 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=SystemSettingsCategory
+Name=Computer Administration
+Name[ar]=إدارة الحاسوب
+Name[bg]=Администриране на компютъра
+Name[br]=Melestradur an urzhiater
+Name[da]=Computeradministration
+Name[de]=Rechneradministration
+Name[el]=Διαχείριση υπολογιστή
+Name[es]=Administrador del ordenador
+Name[et]=Arvuti haldamine
+Name[gl]=Administrazón do Ordenador
+Name[ja]=コンピュータの管理
+Name[nl]=Computerbeheer
+Name[pt]=Administração do Computador
+Name[pt_BR]=Administração do computador
+Name[sv]=Datoradministration
+Icon=systemtray
+X-KDE-System-Settings-Category=system-administration
+X-KDE-ParentCategory=general

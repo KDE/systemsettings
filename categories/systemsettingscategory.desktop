@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=ServiceType
+X-KDE-ServiceType=SystemSettingsCategory
+Name=System Settings Category
+
+# the category identifier
+[PropertyDef::X-KDE-System-Settings-Category]
+Type=QString
+
+# the parent category identifier
+[PropertyDef::X-KDE-ParentCategory]
+Type=QString

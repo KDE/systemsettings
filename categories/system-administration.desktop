@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=SystemSettingsCategory
+Name=System Administration
+Icon=kcmsystem
+X-KDE-System-Settings-Category=system-administration
+X-KDE-ParentCategory=advanced
