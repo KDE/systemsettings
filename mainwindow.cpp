@@ -101,6 +101,7 @@ void MainWindow::buildMainWidget()
 		}
 	}
 
+	windowStack->setMinimumSize(700, 500);
 	windowStack->addWidget(moduleTabs);
 	windowStack->setCurrentWidget(moduleTabs);
 	setCentralWidget(windowStack);
