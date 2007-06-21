@@ -20,4 +20,5 @@ install( FILES
          settings-regional-and-language.desktop
          settings-sharing.desktop
          settings-window-behaviour.desktop
+         settings-network-settings.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
