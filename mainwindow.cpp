@@ -296,9 +296,13 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 	// We resize and expand the window if neccessary, but only once the window has been updated.
 	// Some modules seem to dynamically change thier size. The new size is only available
 	// once the dialog is updated. :-/ -SBE
-	QTimer::singleShot(0,this,SLOT(timerResize()));
+
+	//disable resizing, goes against HIG
+	//http://wiki.openusability.org/guidelines/index.php/Checklist_Configuration_Dialogs - jriddell
+	//QTimer::singleShot(0,this,SLOT(timerResize()));
 }
 
+//this method not called, see above
 void MainWindow::timerResize() {
 	QSize currentSize = size();
 	QSize newSize = currentSize.expandedTo(sizeHint());
