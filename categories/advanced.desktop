@@ -2,6 +2,9 @@
 Encoding=UTF-8
 Type=Service
 ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=advanced
+X-KDE-System-Settings-Parent-Category=
+
 Name=Advanced
 Name[ar]=متقدّم
 Name[bg]=Разширени
@@ -19,5 +22,3 @@ Name[nl]=Geavanceerd
 Name[pt]=Avançado
 Name[pt_BR]=Avançado
 Name[sv]=Avancerat
-X-KDE-System-Settings-Category=advanced
-X-KDE-System-Settings-Parent-Category=

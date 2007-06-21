@@ -2,6 +2,10 @@
 Encoding=UTF-8
 Type=Service
 ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=network-and-connectivity
+X-KDE-System-Settings-Parent-Category=general
+Icon=network-wired
+
 Name=Network & Connectivity
 Name[ar]=الشبكة و الإتصالية
 Name[bg]=Връзки и свързаност
@@ -18,6 +22,3 @@ Name[nl]=Netwerkverbindingen
 Name[pt]=Rede e Conectividade
 Name[pt_BR]=Rede & Conectividade
 Name[sv]=Nätverk och anslutningar
-Icon=network-wired
-X-KDE-System-Settings-Category=network-and-connectivity
-X-KDE-System-Settings-Parent-Category=general

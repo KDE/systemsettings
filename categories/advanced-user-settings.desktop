@@ -2,6 +2,10 @@
 Encoding=UTF-8
 Type=Service
 ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=advanced-user-settings
+X-KDE-System-Settings-Parent-Category=advanced
+Icon=userconfig
+
 Name=Advanced User Settings
 Name[ar]=تعيينات المستخدم المتقدمة
 Name[bg]=Разширени потребителски настройки
@@ -19,6 +23,3 @@ Name[nl]=Geavanceerde gebruikersinstellingen
 Name[pt]=Configuração Avançada do Utilizador
 Name[pt_BR]=Configurações Avançadas para Usuário
 Name[sv]=Avancerade användarinställningar
-Icon=userconfig
-X-KDE-System-Settings-Category=advanced-user-settings
-X-KDE-System-Settings-Parent-Category=advanced

@@ -2,6 +2,10 @@
 Encoding=UTF-8
 Type=Service
 ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=personal
+X-KDE-System-Settings-Parent-Category=general
+Icon=preferences-desktop-personal
+
 Name=Personal
 Name[ar]=الشخصي
 Name[bg]=Личен
@@ -17,6 +21,3 @@ Name[nl]=Persoonlijk
 Name[pt]=Pessoal
 Name[pt_BR]=Pessoal
 Name[sv]=Personlig inställning
-Icon=preferences-desktop-personal
-X-KDE-System-Settings-Category=personal
-X-KDE-System-Settings-Parent-Category=general

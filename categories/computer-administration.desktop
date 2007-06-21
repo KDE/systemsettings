@@ -2,6 +2,10 @@
 Encoding=UTF-8
 Type=Service
 ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=system-administration
+X-KDE-System-Settings-Parent-Category=general
+Icon=systemtray
+
 Name=Computer Administration
 Name[ar]=إدارة الحاسوب
 Name[bg]=Администриране на компютъра
@@ -17,6 +21,3 @@ Name[nl]=Computerbeheer
 Name[pt]=Administração do Computador
 Name[pt_BR]=Administração do computador
 Name[sv]=Datoradministration
-Icon=systemtray
-X-KDE-System-Settings-Category=system-administration
-X-KDE-System-Settings-Parent-Category=general
