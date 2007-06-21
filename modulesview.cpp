@@ -155,15 +155,23 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 	Q3ValueList<MenuItem> list = rootMenu->menuList( parentPath );
  	Q3ValueList<MenuItem>::iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
-		if( !(*it).menu )
+		if( !(*it).menu ) {
 			(void)new ModuleIconItem( iconView, (*it).item );
-		else
-		{
+		} else {
 			QString path = (*it).subMenu;
-			KServiceGroup::Ptr group = KServiceGroup::group( path );
-			if ( group ) {
-				ModuleIconItem *item = new ModuleIconItem( ((K3IconView*)iconView),
-												group->caption(), group->icon() );
+
+			QString categoryCaption = path.section('/', -2, -2);
+			QString iconFile;
+			for (int i = 0; i < categories.size(); ++i) {
+				const KService* entry = categories.at(i).data();
+				if (entry->name() == categoryCaption) {
+					iconFile = entry->icon();
+					break;
+				}
+			}
+
+			if ( ! iconFile.isEmpty() ) {
+				ModuleIconItem *item = new ModuleIconItem( ((K3IconView*)iconView), categoryCaption, iconFile);
 				item->modules = rootMenu->modules( path );
 			}
 		}
