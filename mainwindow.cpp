@@ -29,7 +29,6 @@
 #include <kaboutapplicationdialog.h>
 #include <q3whatsthis.h>
 #include <QLabel>
-#include <q3vbox.h>
 //Added by qt3to4:
 #include <Q3ValueList>
 #include <kaction.h>
@@ -147,20 +146,29 @@ void MainWindow::buildActions()
 	searchText->setShortcut(Qt::Key_F6);
 
 	// Search edit box and result labels
-	Q3HBox *hbox = new Q3HBox(0);
+	QWidget *hbox = new QWidget(0);
 
 	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
-	hbox->setStretchFactor(search,1);
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
 	searchLabel->setBuddy( search );
 
-	Q3VBox *vbox = new Q3VBox(hbox);
+	QWidget* vbox = new QWidget(hbox);
 	generalHitLabel = new QLabel(vbox);
-	vbox->setStretchFactor(generalHitLabel,1);
 	advancedHitLabel = new QLabel(vbox);
-	vbox->setStretchFactor(advancedHitLabel,1);
 
-	hbox->setStretchFactor(vbox,1);
+	QVBoxLayout* vlayout = new QVBoxLayout;
+	vlayout->addWidget(generalHitLabel);
+	vlayout->addWidget(advancedHitLabel);
+	vlayout->setStretchFactor(generalHitLabel,1);
+	vlayout->setStretchFactor(advancedHitLabel,1);
+	vbox->setLayout(vlayout);
+
+	QHBoxLayout* hlayout = new QHBoxLayout;
+	hlayout->addWidget(search);
+	hlayout->addWidget(vbox);
+	hlayout->setStretchFactor(search,1);
+	hlayout->setStretchFactor(vbox,1);
+	hbox->setLayout(hlayout);
 
 	searchAction = new KAction( "none", this );
 	searchAction->setDefaultWidget(hbox);
