@@ -27,7 +27,6 @@
 #include <ktoolbarlabelaction.h>
 #include <ktoggletoolbaraction.h>
 #include <kaboutapplicationdialog.h>
-#include <q3whatsthis.h>
 #include <QLabel>
 //Added by qt3to4:
 #include <Q3ValueList>
@@ -174,7 +173,7 @@ void MainWindow::buildActions()
 	searchAction->setDefaultWidget(hbox);
 	actionCollection()->addAction( "search", searchAction );
 	searchAction->setShortcutConfigurable( false );
-	Q3WhatsThis::add( search, i18n( "Search Bar<p>Enter a search term." ) );
+	search->setWhatsThis( i18n("Search Bar<p>Enter a search term.") );
 
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
