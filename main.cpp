@@ -44,11 +44,18 @@ int main( int argc, char *argv[] )
 	// About data
   KAboutData aboutData("systemsettings", I18N_NOOP("System Settings"),
 	  SYSTEM_SETTINGS_VERSION, I18N_NOOP("System Settings"),
-	  KAboutData::License_LGPL, "(c) 2005, Benjamin C. Meyer", 0, 0);
+	  KAboutData::License_LGPL, "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd", 0, 0);
   aboutData.addAuthor("Benjamin C. Meyer", I18N_NOOP("Author & Maintainer"),
 	  "ben+systempreferences@meyerhome.net");
+  aboutData.addAuthor("Jonathan Riddell", I18N_NOOP("Contributor"),
+	  "jriddell@ubuntu.com");
+  aboutData.addAuthor("Michael D. Stemle", I18N_NOOP("Contibutor"),
+	  "manchicken@notsosoft.net");
+  aboutData.addAuthor("Simon Edwards", I18N_NOOP("Contibutor"),
+	  "simon@simonzone.com");
+  aboutData.addAuthor("Ellen Reitmayr", I18N_NOOP("Usability"),
+	  "ellen@kde.org");
   KCmdLineArgs::init(argc, argv, &aboutData);
-
 
   // Tell which options are supported
   KCmdLineArgs::addCmdLineOptions( options );
