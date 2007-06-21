@@ -9,7 +9,7 @@ install( FILES
          settings-look-and-feel.desktop
          settings-network-and-connectivity.desktop
          settings-personal.desktop
-         settings-system-administration.desktop
+         settings-system.desktop
          settings-about-me.desktop
          settings-accessibility.desktop
          settings-appearance.desktop
