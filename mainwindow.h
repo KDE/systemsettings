@@ -38,7 +38,7 @@
 #include "kcscrollview.h"
 #include "kcmodulemenu.h"
 
-class Q3WidgetStack;
+class QStackedWidget;
 class Q3IconViewItem;
 class KCMultiWidget;
 class ModulesView;
@@ -73,7 +73,7 @@ private slots:
 private:
 	KCModuleMenu *menu;
 	bool embeddedWindows;
-	Q3WidgetStack *windowStack;
+	QStackedWidget *windowStack;
 	KTabWidget *moduleTabs;
 
 	Q3PtrList<ModulesView> modulesViewList;

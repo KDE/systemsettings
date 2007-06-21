@@ -28,6 +28,7 @@
 #include <ktoggletoolbaraction.h>
 #include <kaboutapplicationdialog.h>
 #include <QLabel>
+#include <QStackedWidget>
 //Added by qt3to4:
 #include <Q3ValueList>
 #include <kaction.h>
@@ -35,7 +36,6 @@
 #include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>
-#include <q3widgetstack.h>
 #include <qtimer.h>
 #include <kiconloader.h>
 #include <kcmoduleloader.h>
@@ -81,7 +81,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::buildMainWidget()
 {
-	windowStack = new Q3WidgetStack( this, "widgetstack" );
+	windowStack = new QStackedWidget(this);
 
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
@@ -101,7 +101,7 @@ void MainWindow::buildMainWidget()
 	}
 
 	windowStack->addWidget(moduleTabs);
-	windowStack->raiseWidget(moduleTabs);
+	windowStack->setCurrentWidget(moduleTabs);
 	setCentralWidget(windowStack);
 }
 
@@ -217,7 +217,7 @@ void MainWindow::groupModulesFinished()
 
 void MainWindow::showAllModules()
 {
-	windowStack->raiseWidget(moduleTabs);
+	windowStack->setCurrentWidget(moduleTabs);
 
 	// Reset the widget for normal all widget viewing
 	groupWidget = 0;
@@ -275,7 +275,7 @@ void MainWindow::slotItemSelected( Q3IconViewItem *item ){
 	}
 
 	if( embeddedWindows ) {
-		windowStack->raiseWidget( scrollView );
+		windowStack->setCurrentWidget( scrollView );
 
 		setCaption( mItem->text() );
 		showAllAction->setEnabled(true);
@@ -351,7 +351,7 @@ void MainWindow::slotTopPage() {
 		currentRadioAction->setChecked(currentRadioAction==clickedRadioAction);
 	}
 
-	windowStack->raiseWidget(overviewPages.at(selectedPage));
+	windowStack->setCurrentWidget(overviewPages.at(selectedPage));
 }
 
 void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) {
