@@ -1,0 +1,24 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=kcmkwm
+Type=Service
+ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=window-behaviour
+X-KDE-System-Settings-Parent-Category=look-and-feel
+
+Name=Window Behavior
+Name[ar]=سوك النوافذ
+Name[bg]=Поведение на прозорците
+Name[br]=Emzalc'h ar prenester
+Name[da]=Vinduesopførsel
+Name[de]=Fensterverhalten
+Name[el]=Συμπεριφορά παραθύρων
+Name[es]=Comportamiento de la ventana
+Name[et]=Akende käitumine
+Name[fr]=Comportement des fenêtres
+Name[gl]=Comportamento das Fiestras
+Name[ja]=ウィンドウの挙動
+Name[nl]=Venstergedrag
+Name[pt]=Comportamento das Janelas
+Name[pt_BR]=Comportamento da Janela
+Name[sv]=Fönsterbeteende

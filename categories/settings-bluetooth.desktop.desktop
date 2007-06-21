@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=bluetooth
+X-KDE-System-Settings-Parent-Category=network-and-connectivity
+Icon=kdebluetooth
+
+Name=Bluetooth
+Name[sv]=Blåtand
+Name[zh_CN]=蓝牙

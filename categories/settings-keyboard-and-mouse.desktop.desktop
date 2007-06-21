@@ -1,0 +1,26 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=keyboard-and-mouse
+X-KDE-System-Settings-Parent-Category=computer-administration
+Icon=keyboard
+
+Name=Keyboard & Mouse
+Name[ar]=لوحة المفاتيح و الفأرة
+Name[bg]=Клавиатура и мишка
+Name[br]=Stokellaoueg ha logodenn
+Name[cs]=Uživatelé a skupiny
+Name[da]=Tastatur og mus
+Name[de]=Tastatur & Maus
+Name[el]=Πληκτρολόγιο & ποντίκι
+Name[es]=Teclado y ratón
+Name[et]=Klaviatuur ja hiir
+Name[fr]=Clavier & souris
+Name[ga]=Méarchlár & Luch
+Name[gl]=Teclado e Rato
+Name[ja]=キーボードとマウス
+Name[nl]=Toetsenbord en muis
+Name[pt]=Teclado e Rato
+Name[pt_BR]=Teclado & Mouse
+Name[sv]=Tangentbord och mus
