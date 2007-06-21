@@ -69,6 +69,7 @@ MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
 	buildActions();
 	setupGUI(ToolBar|Save|Create,QString::null);
 	widgetChange();
+	menuBar()->hide();
 }
 
 MainWindow::~MainWindow()
@@ -125,6 +126,7 @@ void MainWindow::buildActions()
 		showAllAction->setText( i18n("Overview") );
 		connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
 		showAllAction->setEnabled(false);
+		showAllAction->setShortcut(i18n("Ctrl+O"));
 	}
 
 	aboutModuleAction = actionCollection() -> addAction("help_about_module");
@@ -173,7 +175,7 @@ void MainWindow::buildActions()
 	searchAction->setDefaultWidget(hbox);
 	actionCollection()->addAction( "search", searchAction );
 	searchAction->setShortcutConfigurable( false );
-	search->setWhatsThis( i18n("Search Bar<p>Enter a search term.") );
+	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.") );
 
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
