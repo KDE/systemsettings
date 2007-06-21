@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Service
 ServiceTypes=SystemSettingsCategory
-X-KDE-System-Settings-Category=system-administration
+X-KDE-System-Settings-Category=computer-administration
 X-KDE-System-Settings-Parent-Category=general
 Icon=systemtray
 
