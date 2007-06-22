@@ -157,6 +157,8 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 	iconWidget->setGridSize(QSize(100, 48));
 	connect(iconWidget, SIGNAL( itemClicked( QListWidgetItem* ) ),
 		      this, SIGNAL( itemSelected( QListWidgetItem* ) ) );
+	connect(iconWidget, SIGNAL( itemActivated( QListWidgetItem* ) ),
+		      this, SIGNAL( itemSelected( QListWidgetItem* ) ) );
 	groups.append( iconWidget );
 	boxLayout->addWidget( iconWidget );
 
