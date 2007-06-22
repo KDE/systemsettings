@@ -29,6 +29,7 @@
 #include <kaboutapplicationdialog.h>
 #include <QLabel>
 #include <QStackedWidget>
+#include <QListWidgetItem>
 //Added by qt3to4:
 #include <Q3ValueList>
 #include <kaction.h>
@@ -94,7 +95,7 @@ void MainWindow::buildMainWidget()
 			modulesScroller = new KCScrollView(moduleTabs);
 			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller->viewport(), "modulesView" );
 			modulesViewList.append(modulesView);
-			connect(modulesView, SIGNAL(itemSelected(Q3IconViewItem* )), this, SLOT(slotItemSelected(Q3IconViewItem*)));
+			connect(modulesView, SIGNAL(itemSelected(QListWidgetItem* )), this, SLOT(slotItemSelected(QListWidgetItem*)));
 			modulesScroller->addChild(modulesView);
 			moduleTabs->addTab(modulesScroller, (*it).caption);
 			overviewPages.append(modulesScroller);
@@ -242,7 +243,7 @@ void MainWindow::showAllModules()
 	resetModuleHelp();
 }
 
-void MainWindow::slotItemSelected( Q3IconViewItem *item ){
+void MainWindow::slotItemSelected( QListWidgetItem *item ){
 	ModuleIconItem *mItem = (ModuleIconItem *)item;
 
 	if( !mItem )

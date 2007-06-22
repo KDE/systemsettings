@@ -22,6 +22,7 @@
 #include "kcmsearch.h"
 
 #include <qregexp.h>
+#include <QListWidgetItem>
 //Added by qt3to4:
 #include <Q3ValueList>
 #include <Q3PtrList>
@@ -32,7 +33,7 @@
 
 KcmSearch::KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent, const char *name )
 				: K3IconViewSearchLine(parent,
-                               static_cast<K3IconView*>(moduleViewList->at(0)->groups[0])
+                               moduleViewList->at(0)->oldIconView
                                ){
 
 	this->moduleViewList = moduleViewList;
@@ -40,7 +41,7 @@ KcmSearch::KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent, c
 
 void KcmSearch::updateSearch( const QString &search ) {
 	Q3ValueList<RowIconView*>::iterator it;
- 	Q3PtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
+	Q3PtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
 
 	ModulesView *mainView;
 	int page = 0;
@@ -51,12 +52,15 @@ void KcmSearch::updateSearch( const QString &search ) {
 
 		int count = 0;
 		for ( it = mainView->groups.begin(); it != mainView->groups.end(); ++it ){
-			Q3IconViewItem *item = (*it)->firstItem();
+			int itemCounter = 0;
+			QListWidgetItem *item = (*it)->item(itemCounter);
 			while( item ) {
 				bool hit = itemMatches(item, search);
 				((ModuleIconItem*)item)->loadIcon(hit);
 				count += hit ? 1 : 0;
-				item = item->nextItem();
+				//item = item->nextItem();
+				++itemCounter;
+				item = (*it)->item(itemCounter);
 			}
 
 		}
@@ -70,6 +74,10 @@ void KcmSearch::updateSearch( const QString &search ) {
 
 bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search ) const
 {
+	if (search.isEmpty()) {
+		return true;
+	}
+
 	// Look in keywords
 	QStringList kw = module.keywords();
 	for(QStringList::ConstIterator it = kw.begin(); it != kw.end(); ++it) {
@@ -89,8 +97,12 @@ bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search )
 	return false;
 }
 
-bool KcmSearch::itemMatches( const Q3IconViewItem *item, const QString & search ) const
+bool KcmSearch::itemMatches( const QListWidgetItem* item, const QString& search ) const
 {
+	if (search.isEmpty()) {
+		return true;
+	}
+
 	if( !item )
 		return false;
 

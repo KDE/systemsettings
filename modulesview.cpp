@@ -22,6 +22,7 @@
 
 #include <qlabel.h>
 //Added by qt3to4:
+#include <QListWidget>
 #include <Q3HBoxLayout>
 #include <Q3VBoxLayout>
 #include <Q3ValueList>
@@ -72,23 +73,20 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	layout->addStretch(1);
 
 	// Make empty iconView for the search widget
-	if( groups.count()==0 ) {
-		RowIconView *iconView = new RowIconView( this, "groupiconview" );
-		iconView->setLineWidth( 0 );
-		groups.append( iconView );
-	}
+	oldIconView = new K3IconView(this, "foo");
+	oldIconView->hide();
 
 	// set background colour to the icon row background colour
 	setAutoFillBackground(true);
-	QPalette rowPalette = groups[0]->palette();
+	QPalette rowPalette = oldIconView->palette();
 	QColor background = rowPalette.color(QPalette::Base);
 	QPalette palette;
 	palette.setColor(backgroundRole(), background);
 	setPalette(palette);
 
 	// Align them up!
+/*FIXME
 	{
-
 	uint most = 0;
 	Q3ValueList<RowIconView*>::iterator it;
 	for ( it = groups.begin(); it != groups.end(); ++it ){
@@ -99,11 +97,13 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 			item = item->nextItem();
 		}
 	}
-
+*/
+/*FIXME
 	for ( it = groups.begin(); it != groups.end(); ++it )
 		(*it)->setGridX(most);
 
 	}
+*/
 }
 
 ModulesView::~ModulesView()
@@ -147,24 +147,25 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 	boxLayout->addLayout( rowLayout );
 
 	// Make IconView
-	RowIconView *iconView = new RowIconView( this, "groupiconview" );
-	iconView->setFrameShape( RowIconView::NoFrame );
-	iconView->setLineWidth( 0 );
-	iconView->setSpacing( 0 );
-	iconView->setMargin( 0 );
-	iconView->setItemsMovable( false );
-	iconView->setSelectionMode(Q3IconView::NoSelection);
-	groups.append( iconView );
-	connect(iconView, SIGNAL( clicked( Q3IconViewItem* ) ),
-		      this, SIGNAL( itemSelected( Q3IconViewItem* ) ) );
-	boxLayout->addWidget( iconView );
+	RowIconView* iconWidget = new RowIconView( this );
+	iconWidget->setViewMode(QListView::IconMode);
+	iconWidget->setMovement(QListWidget::Static);
+	iconWidget->setFrameShape( RowIconView::NoFrame );
+	iconWidget->setLineWidth(0);
+	iconWidget->setSpacing(0);
+	iconWidget->setWordWrap(true);//FIXME why doesn't this work?
+	iconWidget->setGridSize(QSize(100, 48));
+	connect(iconWidget, SIGNAL( itemClicked( QListWidgetItem* ) ),
+		      this, SIGNAL( itemSelected( QListWidgetItem* ) ) );
+	groups.append( iconWidget );
+	boxLayout->addWidget( iconWidget );
 
 	// Add all the items in their proper order
 	Q3ValueList<MenuItem> list = rootMenu->menuList( parentPath );
  	Q3ValueList<MenuItem>::iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
 		if( !(*it).menu ) {
-			(void)new ModuleIconItem( iconView, (*it).item );
+			(void)new ModuleIconItem( iconWidget, (*it).item );
 		} else {
 			QString path = (*it).subMenu;
 
@@ -179,14 +180,14 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 			}
 
 			if ( ! iconFile.isEmpty() ) {
-				ModuleIconItem *item = new ModuleIconItem( ((K3IconView*)iconView), categoryCaption, iconFile);
+				ModuleIconItem *item = new ModuleIconItem( iconWidget, categoryCaption, iconFile);
 				item->modules = rootMenu->modules( path );
 			}
 		}
 	}
 
 	// Force the height for those items that have two words.
-	iconView->setMinimumHeight( iconView->minimumSizeHint().height() );
+	iconWidget->setMaximumHeight(iconWidget->minimumSizeHint().height());
 }
 
 void ModulesView::clearSelection() {

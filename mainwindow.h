@@ -46,18 +46,18 @@ class KAction;
 class KToolBarLabelAction;
 class KCModule;
 class KCModuleProxy;
+class QListWidgetItem;
 
 class MainWindow : public KXmlGuiWindow
 {
 	Q_OBJECT
 
 public:
-	MainWindow(bool embed=true, const QString &menufile="systemsettings", 
-									QWidget *parent=0);
+	MainWindow(bool embed=true, const QString &menufile="systemsettings", QWidget *parent=0);
 	~MainWindow();
 
 private slots:
-	void slotItemSelected( Q3IconViewItem* item );
+	void slotItemSelected( QListWidgetItem* item );
 	void showAllModules();
 	void aboutCurrentModule();
 	void updateModuleHelp( KCModuleProxy * );

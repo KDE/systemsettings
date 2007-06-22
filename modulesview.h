@@ -22,18 +22,21 @@
 #define MODULESVIEW_H
 
 #include <k3iconview.h>
+#include <QListWidget>
 //Added by qt3to4:
 #include <Q3ValueList>
+#include <QSizePolicy>
+
+#include <kdebug.h>
 
 /**
  * Overloaded to give a larger default size that fits with text of two lines.
  */
-class RowIconView : public K3IconView
+class RowIconView : public QListWidget
 {
 
 public:
-	RowIconView( QWidget* parent, const char *name=0 )
-					: K3IconView( parent, name ){ };
+	RowIconView( QWidget* parent ): QListWidget( parent ){ };
 		
 	// Figure out the hight/width to have only one row
 	QSize minimumSizeHint() const {
@@ -44,15 +47,16 @@ public:
 		width += spacing()*(count())+(margin()+frameWidth()+lineWidth()+midLineWidth())*2 ;
 		*/
 
-		width = count()*gridX()+frameWidth()*2;
+		//width = count()*gridX()+frameWidth()*2;
+		width = count()*gridSize().width()+frameWidth()*2;
 		
-		int height = 0;
-		for ( Q3IconViewItem *item = firstItem(); item; item = item->nextItem() )
-			if(item->height() > height)
-				height = item->height();
+		int height =48;
+//FIXME		for ( Q3IconViewItem *item = firstItem(); item; item = item->nextItem() )
+//			if(item->height() > height)
+//				height = item->height();
 		// I honestly don't know where the 4+4 is coming from...
 		// What other spacing did I miss?
-		height += (margin()+frameWidth()+spacing()+lineWidth()+midLineWidth())*2+8;
+		height += (/*margin()+*/frameWidth()+spacing()+lineWidth()+midLineWidth())*2+8;
 	
 /*	
 		int h = fontMetrics().height();
@@ -63,11 +67,12 @@ public:
 	*/	
 		return QSize( width, height );
 	};
-
 };
 
 class Q3BoxLayout;
 class KCModuleMenu;
+class QListWidget;
+class QListWidgetItem;
 
 /**
  * This widget contains the IconView's of all of the modules etc
@@ -84,11 +89,13 @@ public:
  QString displayName; 
 
 signals:
-	void itemSelected( Q3IconViewItem* item );
+	void itemSelected( QListWidgetItem* item );
 
 public:
 	ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent=0, const char *name=0 );
 	~ModulesView();
+
+	K3IconView* oldIconView;
 
 private:
 	Q3ValueList<RowIconView*> groups;

@@ -28,6 +28,7 @@
 #include <Q3PtrList>
 
 class ModulesView;
+class QListWidgetItem;
 
 /**
  * Searches all the ModuleIconItem's in MainWindow and "disables" the ones
@@ -49,7 +50,7 @@ public slots:
 	 * Check module associated with item or if a group check all modules of that group.
 	 * @return true if search is in the module(s) keywords
 	 */
-	virtual bool itemMatches ( const Q3IconViewItem *item, const QString &search ) const;
+	virtual bool itemMatches ( const QListWidgetItem* item, const QString& search ) const;
 
 signals:
 	void searchHits(const QString &query, int *hitList, int length);
