@@ -62,6 +62,7 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 			Q3Frame *line = new Q3Frame( this, "line");
 			line->setFrameShadow( Q3Frame::Sunken );
 			line->setFrameShape( Q3Frame::HLine );
+			line->setMargin(0);
 			layout->addWidget( line );
 		}
 
@@ -76,7 +77,14 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 		iconView->setLineWidth( 0 );
 		groups.append( iconView );
 	}
-	setPaletteBackgroundColor( groups[0]->paletteBackgroundColor() );
+
+	// set background colour to the icon row background colour
+	setAutoFillBackground(true);
+	QPalette rowPalette = groups[0]->palette();
+	QColor background = rowPalette.color(QPalette::Base);
+	QPalette palette;
+	palette.setColor(backgroundRole(), background);
+	setPalette(palette);
 
 	// Align them up!
 	{
