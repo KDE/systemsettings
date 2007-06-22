@@ -25,6 +25,7 @@
 #include <q3hbox.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
+#include <QProcess>
 //Added by qt3to4:
 #include <Q3HBoxLayout>
 #include <Q3Frame>
@@ -36,7 +37,6 @@
 #include <klibloader.h>
 #include <klocale.h>
 #include <kmessagebox.h>
-#include <k3process.h>
 #include <krun.h>
 #include <kstandardguiitem.h>
 #include <kuser.h>
@@ -190,11 +190,8 @@ void KCMultiWidget::slotHelp()
 	KUrl url( KUrl("help:/"), docPath );
 
 	if (url.protocol() == "help" || url.protocol() == "man" || url.protocol() == "info") {
-		K3Process process;
-		process << "khelpcenter"
-				<< url.url();
-		process.start(K3Process::DontCare);
-		process.detach();
+		QProcess process(this);
+		process.start("khelpcenter", QStringList() << url.url());
 	} else {
 		new KRun(url, this);
 	}
