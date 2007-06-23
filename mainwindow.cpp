@@ -21,7 +21,6 @@
 #include "mainwindow.h"
 
 #include <QObject>
-#include <QAction>
 #include <QIcon>
 #include <kstandardaction.h>
 #include <ktoolbarlabelaction.h>
@@ -53,12 +52,16 @@
 #include <qtabbar.h>
 #include <q3iconview.h>
 #include <qscrollarea.h>
+#include <kcmoduleinfo.h>
+#include <ktabwidget.h>
+#include <kaboutdata.h>
 
 #include "kcmsearch.h"
 #include "modulesview.h"
 #include "moduleiconitem.h"
 #include "kcmodulemenu.h"
 #include "kcmultiwidget.h"
+#include "kcscrollview.h"
 
 MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
 				KXmlGuiWindow(parent), menu(NULL), embeddedWindows(embed),

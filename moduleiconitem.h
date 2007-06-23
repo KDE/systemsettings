@@ -22,11 +22,10 @@
 #ifndef MODULEICONITEM_H
 #define MODULEICONITEM_H
 
-#include <kcmoduleinfo.h>
 #include <QListWidgetItem>
 #include <QList>
 
-class ConfigModule;
+class KCModuleInfo;
 
 /**
  * Stores information about what modules goes with this item.

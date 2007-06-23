@@ -21,9 +21,8 @@
 
 #include "moduleiconitem.h"
 #include <kiconloader.h>
-#include <k3iconview.h>
-#include <kicontheme.h>
 #include <kdebug.h>
+#include <kcmoduleinfo.h>
 
 #define IMAGE_SIZE 32
 

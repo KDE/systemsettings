@@ -21,13 +21,10 @@
 #ifndef MODULESVIEW_H
 #define MODULESVIEW_H
 
-#include <k3iconview.h>
 #include <QListWidget>
-//Added by qt3to4:
 #include <Q3ValueList>
-#include <QSizePolicy>
 
-#include <kdebug.h>
+class K3IconView;
 
 /**
  * Overloaded to give a larger default size that fits with text of two lines.
@@ -71,8 +68,6 @@ public:
 
 class Q3BoxLayout;
 class KCModuleMenu;
-class QListWidget;
-class QListWidgetItem;
 
 /**
  * This widget contains the IconView's of all of the modules etc

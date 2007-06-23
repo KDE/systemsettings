@@ -19,16 +19,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <QX11Info>
-#include <iostream>
 #include <kuniqueapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>
-#include <klocalizedstring.h>
 
 #include "mainwindow.h"
 #include "version.h"
+
+#include <iostream>
 
 static KCmdLineOptions options[] =
 {

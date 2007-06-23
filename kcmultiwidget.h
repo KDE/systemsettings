@@ -29,14 +29,12 @@
 #include <Q3ValueList>
 
 #include <kpagedialog.h>
-#include <klocale.h>
 #include <kservice.h>
 
 /* #include "kicongrouppage.h" */
 
 class KCModuleProxy;
 class KCModuleInfo;
-class KCModule;
 
 /**
  * @short A method that offers a KDialog containing arbitrary

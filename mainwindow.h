@@ -22,20 +22,8 @@
 #define MAINWINDOW_H
 
 #include <kxmlguiwindow.h>
-#include <kcmoduleinfo.h>
-#include <ktabwidget.h>
 #include <q3ptrdict.h>
-#include <qlabel.h>
-//Added by qt3to4:
 #include <Q3PtrList>
-#include <kaction.h>
-#include <ktoggleaction.h>
-#include <kaboutdata.h>
-#include <kaboutapplicationdialog.h>
-#include <QAction>
-
-#include "kcscrollview.h"
-#include "kcmodulemenu.h"
 
 class QStackedWidget;
 class Q3IconView;
@@ -48,6 +36,13 @@ class KCModule;
 class KCModuleProxy;
 class QListWidgetItem;
 class QScrollArea;
+class KTabWidget;
+class QLabel;
+class KToggleAction;
+class KAboutData;
+class QAction;
+class KCScrollView;
+class KCModuleMenu;
 
 class MainWindow : public KXmlGuiWindow
 {

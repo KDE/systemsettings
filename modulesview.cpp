@@ -21,19 +21,13 @@
 #include "modulesview.h"
 
 #include <qlabel.h>
-//Added by qt3to4:
 #include <QListWidget>
 #include <Q3HBoxLayout>
 #include <Q3VBoxLayout>
-#include <Q3ValueList>
-#include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>
 #include <kiconloader.h>
-#include <kcmultidialog.h>
-#include <kapplication.h>
 #include <kdebug.h>
-#include <q3iconview.h>
 #include <k3iconview.h>
 #include <kservicetypetrader.h>
 

@@ -27,6 +27,7 @@
 #include <Q3ValueList>
 #include <Q3PtrList>
 #include <kdebug.h>
+#include <k3iconview.h>
 
 #include "modulesview.h"
 #include "moduleiconitem.h"
