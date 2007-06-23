@@ -17,3 +17,4 @@ Comment=Configure Network Connections
 Terminal=false
 Name=Network Connections
 Keywords=Network,DNS,routes,interfaces
+Keywords[nb]=Nettverk,DNS,routes,grensesnitt
