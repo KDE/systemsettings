@@ -1,16 +1,3 @@
-FIND_PACKAGE(KDE4 REQUIRED)
-
-SET(CMAKE_VERBOSE_MAKEFILE ON)
-
-ADD_DEFINITIONS(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-
-LINK_DIRECTORIES(${KDE4_LIB_DIR})
-
-INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDE_DIR} ${QT_INCLUDE_DIR}  )
-
-
-########### install files ###############
-
 install( FILES audioencoding.desktop defaultapplication.desktop kcmfontinst.desktop kcm_knetworkconfmodule_ss.desktop laptoppowermanagement.desktop medianotifications.desktop  DESTINATION  ${XDG_APPS_DIR} )
 
 install( FILES system-settings.menu  DESTINATION  ${SYSCONF_INSTALL_DIR}/xdg/menus )
