@@ -20,7 +20,7 @@
  */
 
 #include <QX11Info>
-#include <iostream.h>
+#include <iostream>
 #include <kuniqueapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
@@ -63,7 +63,7 @@ int main( int argc, char *argv[] )
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
   if (!KUniqueApplication::start()) {
-    cerr << "This program is already running." << endl;
+    std::cerr << "This program is already running." << std::endl;
     return 0;
   }
   KUniqueApplication application;
