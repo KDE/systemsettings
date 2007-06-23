@@ -52,6 +52,7 @@
 #include <QToolButton>
 #include <qtabbar.h>
 #include <q3iconview.h>
+#include <qscrollarea.h>
 
 #include "kcmsearch.h"
 #include "modulesview.h"
@@ -89,15 +90,16 @@ void MainWindow::buildMainWidget()
 	// Top level pages.
 	Q3ValueList<MenuItem> subMenus = menu->menuList();
 	Q3ValueList<MenuItem>::iterator it;
-	KCScrollView *modulesScroller;
+	QScrollArea *modulesScroller;
 	moduleTabs->show();
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
 		if( (*it).menu ) {
-			modulesScroller = new KCScrollView(moduleTabs);
-			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller->viewport(), "modulesView" );
+			modulesScroller = new QScrollArea(moduleTabs);
+			modulesScroller->setWidgetResizable(true);
+			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller, "modulesView" );
 			modulesViewList.append(modulesView);
 			connect(modulesView, SIGNAL(itemSelected(QListWidgetItem* )), this, SLOT(slotItemSelected(QListWidgetItem*)));
-			modulesScroller->addChild(modulesView);
+			modulesScroller->setWidget(modulesView);
 			moduleTabs->addTab(modulesScroller, (*it).caption);
 			overviewPages.append(modulesScroller);
 		}
@@ -276,8 +278,6 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 			qDebug("adding %s %s", qPrintable((*it).moduleName()), qPrintable((*it).fileName()));
 			groupWidget->addModule(	*it );
 		}
-		groupWidget->setParent(scrollView->viewport());
-		scrollView->setParent(windowStack);
 	}
 
 	if( embeddedWindows ) {

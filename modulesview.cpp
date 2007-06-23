@@ -149,6 +149,8 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 
 	// Make IconView
 	RowIconView* iconWidget = new RowIconView( this );
+	iconWidget->setFlow(QListView::LeftToRight);
+	iconWidget->setResizeMode(QListView::Adjust);
 	iconWidget->setViewMode(QListView::IconMode);
 	iconWidget->setMovement(QListWidget::Static);
 	iconWidget->setFrameShape( RowIconView::NoFrame );
@@ -189,8 +191,10 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 		}
 	}
 
-	// Force the height for those items that have two words.
-	iconWidget->setMaximumHeight(iconWidget->minimumSizeHint().height());
+	// give the proper height to make all the items visible
+	// TODO: this should be done whenever the mainwindow is resized (eg dynamically adapt to its new size)
+	QRect r = iconWidget->visualItemRect(iconWidget->item(iconWidget->count() - 1));
+	iconWidget->setMaximumHeight(r.bottom());
 }
 
 void ModulesView::clearSelection() {

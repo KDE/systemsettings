@@ -47,6 +47,7 @@ class KToolBarLabelAction;
 class KCModule;
 class KCModuleProxy;
 class QListWidgetItem;
+class QScrollArea;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -86,7 +87,7 @@ private:
 	Q3PtrDict<KCScrollView> moduleItemToScrollerDict;
 
 	Q3PtrList<KToggleAction> pageActions;
-	Q3PtrList<KCScrollView> overviewPages;
+	Q3PtrList<QScrollArea> overviewPages;
 	int selectedPage;
 
 	QAction *resetModule;
