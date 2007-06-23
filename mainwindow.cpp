@@ -124,7 +124,7 @@ void MainWindow::buildActions()
 
 	if( embeddedWindows ) {
 		showAllAction = actionCollection()->addAction("showAll");
-		showAllAction->setIcon( KIcon(QApplication::reverseLayout()?"go-next":"go-previous") );
+		showAllAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
 		showAllAction->setText( i18n("Overview") );
 		connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
 		showAllAction->setEnabled(false);
@@ -138,7 +138,8 @@ void MainWindow::buildActions()
 	resetModuleHelp();
 
 	// "Search:" label, FIXME KToolBarLabelAction not working for me
-	QLabel *searchLabel = new QLabel( this, "SearchLabel");
+	QLabel *searchLabel = new QLabel( this );
+	searchLabel->setObjectName( QLatin1String("SearchLabel"));
 	searchLabel->setText( i18n("S&earch:") );
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
@@ -271,11 +272,11 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 
 		Q3ValueList<KCModuleInfo>::iterator it;
 		for ( it = list.begin(); it != list.end(); ++it ){
-			qDebug("adding %s %s", (*it).moduleName().latin1(), (*it).fileName().latin1());
+			qDebug("adding %s %s", qPrintable((*it).moduleName()), qPrintable((*it).fileName()));
 			groupWidget->addModule(	*it );
 		}
-		groupWidget->reparent(scrollView->viewport(), 0, QPoint());
-		scrollView->reparent(windowStack, 0, QPoint());
+		groupWidget->setParent(scrollView->viewport());
+		scrollView->setParent(windowStack);
 	}
 
 	if( embeddedWindows ) {
@@ -330,7 +331,7 @@ void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
 
 void MainWindow::resetModuleHelp() {
 	aboutModuleAction->setText(i18n("About Current Module"));
-	aboutModuleAction->setIconSet(QIcon());
+	aboutModuleAction->setIcon(QIcon());
 	aboutModuleAction->setEnabled(false);
 }
 

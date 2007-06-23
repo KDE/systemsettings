@@ -197,7 +197,7 @@ QList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
  */
 QString KCModuleMenu::deriveCaptionFromPath( const QString &menuPath )
 {
-	QStringList parts(QStringList::split("/",menuPath));
+	QStringList parts(menuPath.split("/", QString::SkipEmptyParts));
 
 	QStringListIterator it(parts);
 	it.toBack();

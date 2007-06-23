@@ -159,13 +159,13 @@ void KCMultiWidget::apply()
 			m->save();
 			QStringList * names = moduleParentComponents[ m ];
 			for( QStringList::ConstIterator it = names->begin(); it != names->end(); ++it )
-				if( updatedModules.find( *it ) == updatedModules.end() )
+				if( updatedModules.indexOf( *it ) == -1 )
 					updatedModules.append( *it );
 		}
 	}
 	for( QStringList::const_iterator it = updatedModules.begin(); it != updatedModules.end(); ++it )
 	{
-		kDebug() << k_funcinfo << *it << " " << ( *it ).latin1() << endl;
+		kDebug() << k_funcinfo << *it << " " << ( *it ) << endl;
 		emit configCommitted( ( *it ).latin1() );
 	}
 	emit configCommitted();

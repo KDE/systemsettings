@@ -43,7 +43,7 @@
 #include "kcmodulemenu.h"
 
 ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent,
-		const char *name ) : QWidget( parent, name ), rootMenu( NULL )
+		const char *name ) : QWidget( parent ), rootMenu( NULL )
 {
 	this->rootMenu = rootMenu;	
 	this->menuPath = menuPath;
@@ -128,14 +128,16 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 	Q3HBoxLayout *rowLayout = new Q3HBoxLayout( 0, 0, 6, "rowLayout" );
 
 	// Header Icon
-	QLabel *icon = new QLabel( this, "groupicon" );
+	QLabel *icon = new QLabel( this );
+	icon->setObjectName( QLatin1String( "groupicon" ) );
 	icon->setPixmap( SmallIcon( iconName ));
 	icon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1,
 		(QSizePolicy::SizeType)5, 0, 0, icon->sizePolicy().hasHeightForWidth() ) );
 	rowLayout->addWidget( icon );
 
 	// Header Name
-	QLabel *textLabel = new QLabel( this, "groupcaption" );
+	QLabel *textLabel = new QLabel( this );
+	textLabel->setObjectName( QLatin1String( "groupcaption" ) );
 	textLabel->setText( categoryName );
 	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
 		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
