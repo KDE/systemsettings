@@ -24,8 +24,7 @@
 
 #include <kcmoduleinfo.h>
 #include <QListWidgetItem>
-//Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 
 class ConfigModule;
 
@@ -37,7 +36,7 @@ class ModuleIconItem : public QListWidgetItem
 {
 
 public:
-  ModuleIconItem( QListWidget *parent, KCModuleInfo module );
+  ModuleIconItem( QListWidget *parent, const KCModuleInfo& module );
 	
   ModuleIconItem( QListWidget *parent, const QString &text, const QString &imageName );
 
@@ -47,7 +46,7 @@ public:
 	void loadIcon( bool enabled = true );
 
 	// The modules that go with this item
-	Q3ValueList<KCModuleInfo> modules;
+	QList<KCModuleInfo> modules;
 					
 private:
 	int currentState;

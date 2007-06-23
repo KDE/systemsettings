@@ -27,7 +27,7 @@
 
 #define IMAGE_SIZE 32
 
-ModuleIconItem::ModuleIconItem( QListWidget* parent, KCModuleInfo module)
+ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 	: QListWidgetItem(SmallIcon( module.icon(), IMAGE_SIZE ), module.moduleName(), parent),
 	imageName(module.icon())
 {

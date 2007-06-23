@@ -259,7 +259,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 	scrollView = moduleItemToScrollerDict.find(mItem);
 
 	if(groupWidget==0) {
-		Q3ValueList<KCModuleInfo> list = mItem->modules;
+		QList<KCModuleInfo> list = mItem->modules;
 
 		scrollView = new KCScrollView(windowStack);
 		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
@@ -273,7 +273,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
 		connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
-		Q3ValueList<KCModuleInfo>::iterator it;
+		QList<KCModuleInfo>::const_iterator it;
 		for ( it = list.begin(); it != list.end(); ++it ){
 			qDebug("adding %s %s", qPrintable((*it).moduleName()), qPrintable((*it).fileName()));
 			groupWidget->addModule(	*it );

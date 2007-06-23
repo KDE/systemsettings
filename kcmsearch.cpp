@@ -107,7 +107,7 @@ bool KcmSearch::itemMatches( const QListWidgetItem* item, const QString& search 
 		return false;
 
 	ModuleIconItem *mItem = (ModuleIconItem*)item;
-	Q3ValueList<KCModuleInfo>::iterator it;
+	QList<KCModuleInfo>::const_iterator it;
 	for ( it = mItem->modules.begin(); it != mItem->modules.end(); ++it ){
 		if( itemMatches( (*it), search ) )
 			return true;
