@@ -32,24 +32,19 @@
 //Added by qt3to4:
 #include <Q3ValueList>
 #include <kaction.h>
-#include <qtoolbutton.h>
 #include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>
 #include <qtimer.h>
 #include <kiconloader.h>
 #include <kcmoduleloader.h>
-#include <kpagedialog.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
+#include <qapplication.h>
 #include <kdebug.h>
 #include <kcmoduleproxy.h>
 #include <kbugreport.h>
 #include <kmenubar.h>
-#include <kaction.h>
 #include <ktoggleaction.h>
-#include <QToolButton>
-#include <qtabbar.h>
 #include <q3iconview.h>
 #include <qscrollarea.h>
 #include <kcmoduleinfo.h>

@@ -24,7 +24,6 @@
 #include <QListWidget>
 #include <Q3HBoxLayout>
 #include <Q3VBoxLayout>
-#include <kservicegroup.h>
 #include <qlayout.h>
 #include <kiconloader.h>
 #include <kdebug.h>
