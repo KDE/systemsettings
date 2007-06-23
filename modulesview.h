@@ -22,7 +22,7 @@
 #define MODULESVIEW_H
 
 #include <QListWidget>
-#include <Q3ValueList>
+#include <QList>
 
 class K3IconView;
 
@@ -93,7 +93,7 @@ public:
 	K3IconView* oldIconView;
 
 private:
-	Q3ValueList<RowIconView*> groups;
+	QList<RowIconView*> groups;
 	KCModuleMenu *rootMenu;
 	QString menuPath;
 

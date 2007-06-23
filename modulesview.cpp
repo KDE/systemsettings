@@ -29,6 +29,7 @@
 #include <kdebug.h>
 #include <k3iconview.h>
 #include <kservicetypetrader.h>
+#include <Q3ValueList>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -80,7 +81,7 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 /*FIXME
 	{
 	uint most = 0;
-	Q3ValueList<RowIconView*>::iterator it;
+	QList<RowIconView*>::iterator it;
 	for ( it = groups.begin(); it != groups.end(); ++it ){
 		Q3IconViewItem *item = (*it)->firstItem();
 		while( item ) {
@@ -193,7 +194,7 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 }
 
 void ModulesView::clearSelection() {
-	Q3ValueList<RowIconView*>::iterator it;
+	QList<RowIconView*>::const_iterator it;
 	for ( it = groups.begin(); it != groups.end(); ++it ) {
 		(*it)->clearSelection();
 	}

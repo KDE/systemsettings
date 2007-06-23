@@ -41,7 +41,7 @@ KcmSearch::KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent, c
 }
 
 void KcmSearch::updateSearch( const QString &search ) {
-	Q3ValueList<RowIconView*>::iterator it;
+	QList<RowIconView*>::iterator it;
 	Q3PtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
 
 	ModulesView *mainView;
