@@ -30,7 +30,6 @@
 #include <QStackedWidget>
 #include <QListWidgetItem>
 //Added by qt3to4:
-#include <Q3ValueList>
 #include <kaction.h>
 #include <klocale.h>
 #include <kservicegroup.h>
@@ -86,19 +85,23 @@ void MainWindow::buildMainWidget()
 	windowStack = new QStackedWidget(this);
 
 	// Top level pages.
-	Q3ValueList<MenuItem> subMenus = menu->menuList();
-	Q3ValueList<MenuItem>::iterator it;
+	QList<MenuItem> subMenus = menu->menuList();
+	QList<MenuItem>::iterator it;
 	QScrollArea *modulesScroller;
 	moduleTabs->show();
-	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
-		if( (*it).menu ) {
+
+    foreach( MenuItem item , subMenus ) {
+		if( item.menu ) {
 			modulesScroller = new QScrollArea(moduleTabs);
+
+            modulesScroller->setFrameStyle( QFrame::NoFrame );
+
 			modulesScroller->setWidgetResizable(true);
-			ModulesView *modulesView = new ModulesView( menu, (*it).subMenu, modulesScroller, "modulesView" );
+			ModulesView *modulesView = new ModulesView( menu, item.subMenu, modulesScroller, "modulesView" );
 			modulesViewList.append(modulesView);
 			connect(modulesView, SIGNAL(itemSelected(QListWidgetItem* )), this, SLOT(slotItemSelected(QListWidgetItem*)));
 			modulesScroller->setWidget(modulesView);
-			moduleTabs->addTab(modulesScroller, (*it).caption);
+			moduleTabs->addTab(modulesScroller, item.caption);
 			overviewPages.append(modulesScroller);
 		}
 	}
@@ -181,16 +184,12 @@ void MainWindow::buildActions()
 	searchAction->setShortcutConfigurable( false );
 	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.") );
 
-	// Top level pages.
-	Q3ValueList<MenuItem> subMenus = menu->menuList();
-	Q3ValueList<MenuItem>::iterator it;
-
 	// Now it's time to draw our display
-	for ( it = subMenus.begin(); it != subMenus.end(); ++it ) {
-		if( (*it).menu ) {
-			KServiceGroup::Ptr group = KServiceGroup::group( (*it).subMenu );
+    foreach( MenuItem item , menu->menuList() ) {
+        if( item.menu ) {
+			KServiceGroup::Ptr group = KServiceGroup::group( item.subMenu );
 			if ( !group ){
-				kDebug() << "Invalid Group \"" << (*it).subMenu << "\".  Check your installation."<< endl;
+				kDebug() << "Invalid Group \"" << item.subMenu << "\".  Check your installation."<< endl;
 				continue;
 			}
 
