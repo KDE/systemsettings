@@ -30,7 +30,6 @@
 #include <Q3PtrList>
 #include <kaction.h>
 #include <ktoggleaction.h>
-#include <k3iconviewsearchline.h> 
 #include <kaboutdata.h>
 #include <kaboutapplicationdialog.h>
 #include <QAction>
@@ -39,6 +38,7 @@
 #include "kcmodulemenu.h"
 
 class QStackedWidget;
+class Q3IconView;
 class Q3IconViewItem;
 class KCMultiWidget;
 class ModulesView;

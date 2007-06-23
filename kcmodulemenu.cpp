@@ -23,8 +23,6 @@
 #include <kservicegroup.h>
 #include <kdebug.h>
 #include <kservicetypetrader.h>
-#include <q3dict.h>
-//Added by qt3to4:
 #include <QList>
 
 #define USING_KDE4

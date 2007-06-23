@@ -26,7 +26,6 @@
 #include <Q3HBoxLayout>
 #include <Q3VBoxLayout>
 #include <Q3ValueList>
-#include <Q3Frame>
 #include <klocale.h>
 #include <kservicegroup.h>
 #include <qlayout.h>

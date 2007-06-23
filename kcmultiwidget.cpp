@@ -22,13 +22,9 @@
 */
 
 #include <qcursor.h>
-#include <q3hbox.h>
 #include <qlayout.h>
 #include <qpushbutton.h>
 #include <QProcess>
-//Added by qt3to4:
-#include <Q3HBoxLayout>
-#include <Q3Frame>
 
 #include <kaboutdata.h>
 #include <kapplication.h>

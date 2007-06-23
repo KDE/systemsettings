@@ -22,7 +22,6 @@
 #ifndef MODULEICONITEM_H
 #define MODULEICONITEM_H
 
-#include <k3iconview.h>
 #include <kcmoduleinfo.h>
 #include <QListWidgetItem>
 //Added by qt3to4:

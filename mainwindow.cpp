@@ -51,6 +51,7 @@
 #include <ktoggleaction.h>
 #include <QToolButton>
 #include <qtabbar.h>
+#include <q3iconview.h>
 
 #include "kcmsearch.h"
 #include "modulesview.h"
