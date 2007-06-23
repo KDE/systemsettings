@@ -68,10 +68,15 @@ int main( int argc, char *argv[] )
   }
   KUniqueApplication application;
 
-  MainWindow *mainWindow = new MainWindow(args->isSet("embed"), args->getOption("menu"));
+  bool embed = true;
+  if (args->isSet("e"))
+    embed = false;
+  MainWindow *mainWindow = new MainWindow(embed, args->getOption("menu"));
 
   application.setMainWidget( mainWindow );
   mainWindow->show();
+
+  args->clear();
 
   return application.exec();
 }
