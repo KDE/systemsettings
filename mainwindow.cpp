@@ -195,7 +195,7 @@ void MainWindow::buildActions()
 			}
 
 			KToggleAction *newAction = new KToggleAction( KIcon(group->icon()), group->caption(), this);
-			connect(newAction, SIGNAL(slotToggled(bool)), this, SLOT(slotTopPage()));
+			connect(newAction, SIGNAL(toggled(bool)), this, SLOT(slotTopPage()));
 
 			pageActions.append(newAction);
 			kDebug() << "relpath is :" << group->relPath() << endl;
