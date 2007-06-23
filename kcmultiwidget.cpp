@@ -162,7 +162,7 @@ void KCMultiWidget::apply()
 	for( QStringList::const_iterator it = updatedModules.begin(); it != updatedModules.end(); ++it )
 	{
 		kDebug() << k_funcinfo << *it << " " << ( *it ) << endl;
-		emit configCommitted( ( *it ).latin1() );
+		emit configCommitted( ( *it ).toLatin1() );
 	}
 	emit configCommitted();
 }

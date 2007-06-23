@@ -25,7 +25,6 @@
 
 #include <q3ptrdict.h>
 //Added by qt3to4:
-#include <Q3CString>
 #include <Q3ValueList>
 
 #include <kpagedialog.h>
@@ -143,7 +142,7 @@ signals:
 	 * @param instanceName The name of the instance that needs to reload its
 	 *					 configuration.
 	 */
-	void configCommitted( const Q3CString & instanceName );
+	void configCommitted( const QByteArray & instanceName );
 
 	/**
 	 * Emitted right before a module is shown.

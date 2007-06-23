@@ -123,16 +123,18 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 	QLabel *icon = new QLabel( this );
 	icon->setObjectName( QLatin1String( "groupicon" ) );
 	icon->setPixmap( SmallIcon( iconName ));
-	icon->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1,
-		(QSizePolicy::SizeType)5, 0, 0, icon->sizePolicy().hasHeightForWidth() ) );
+	QSizePolicy sp( QSizePolicy::Minimum, QSizePolicy::Preferred );
+	sp.setHeightForWidth( icon->sizePolicy().hasHeightForWidth() );
+	icon->setSizePolicy( sp );
 	rowLayout->addWidget( icon );
 
 	// Header Name
 	QLabel *textLabel = new QLabel( this );
 	textLabel->setObjectName( QLatin1String( "groupcaption" ) );
 	textLabel->setText( categoryName );
-	textLabel->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)7,
-		(QSizePolicy::SizeType)5, 0, 0, textLabel->sizePolicy().hasHeightForWidth()));
+	QSizePolicy sp1( QSizePolicy::Expanding, QSizePolicy::Preferred );
+	sp1.setHeightForWidth( textLabel->sizePolicy().hasHeightForWidth() );
+	textLabel->setSizePolicy( sp1 );
 	QFont textLabel_font(  textLabel->font() );
 	textLabel_font.setBold( true );
 	textLabel->setFont( textLabel_font );
