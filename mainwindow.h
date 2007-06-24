@@ -23,11 +23,8 @@
 
 #include <kxmlguiwindow.h>
 #include <q3ptrdict.h>
-#include <Q3PtrList>
 
 class QStackedWidget;
-class Q3IconView;
-class Q3IconViewItem;
 class KCMultiWidget;
 class ModulesView;
 class KAction;
@@ -73,7 +70,6 @@ private:
 	KTabWidget *moduleTabs;
 
 	QList<ModulesView*> modulesViewList;
-	Q3PtrList<Q3IconView> viewList;
 
 	KCMultiWidget *groupWidget;
 	KCScrollView *scrollView;

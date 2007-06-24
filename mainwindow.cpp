@@ -44,7 +44,6 @@
 #include <kbugreport.h>
 #include <kmenubar.h>
 #include <ktoggleaction.h>
-#include <q3iconview.h>
 #include <qscrollarea.h>
 #include <kcmoduleinfo.h>
 #include <ktabwidget.h>
