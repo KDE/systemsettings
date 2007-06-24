@@ -82,7 +82,7 @@ private:
 	Q3PtrDict<KCScrollView> moduleItemToScrollerDict;
 
 	QList<KToggleAction*> pageActions;
-	Q3PtrList<QScrollArea> overviewPages;
+	QList<QScrollArea*> overviewPages;
 	int selectedPage;
 
 	QAction *resetModule;
