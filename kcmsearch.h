@@ -24,8 +24,7 @@
 
 #include <k3iconviewsearchline.h> 
 #include "kcmodulemenu.h"
-//Added by qt3to4:
-#include <Q3PtrList>
+#include <QList>
 
 class ModulesView;
 class QListWidgetItem;
@@ -39,7 +38,7 @@ class KcmSearch : public K3IconViewSearchLine // FIXME: Should be a KListWidgetS
 	Q_OBJECT
 
 public:
-	KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent = 0, const char *name = 0 );
+	KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent = 0, const char *name = 0 );
 
 public slots:
 	/**
@@ -63,7 +62,7 @@ private:
 	bool itemMatches ( const KCModuleInfo &module, const QString &search ) const;
 
 	// Friend class whos groups parsed, 
-	Q3PtrList<ModulesView> *moduleViewList;
+	QList<ModulesView*> *moduleViewList;
 };
 
 #endif // KCMSEARCH_H

@@ -23,16 +23,13 @@
 
 #include <qregexp.h>
 #include <QListWidgetItem>
-//Added by qt3to4:
-#include <Q3ValueList>
-#include <Q3PtrList>
 #include <kdebug.h>
 #include <k3iconview.h>
 
 #include "modulesview.h"
 #include "moduleiconitem.h"
 
-KcmSearch::KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent, const char *name )
+KcmSearch::KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent, const char *name )
 				: K3IconViewSearchLine(parent,
                                moduleViewList->at(0)->oldIconView
                                ){
@@ -42,14 +39,14 @@ KcmSearch::KcmSearch( Q3PtrList<ModulesView> *moduleViewList, QWidget *parent, c
 
 void KcmSearch::updateSearch( const QString &search ) {
 	QList<RowIconView*>::iterator it;
-	Q3PtrListIterator<ModulesView> moduleViewListIt(*moduleViewList);
+	QListIterator<ModulesView*> moduleViewListIt(*moduleViewList);
 
 	ModulesView *mainView;
 	int page = 0;
 	int *hitArray = new int[moduleViewList->count()];
 
-	for ( ; moduleViewListIt.current(); ++moduleViewListIt) {
-		mainView = moduleViewListIt.current();
+	while ( moduleViewListIt.hasNext() ) {
+		mainView = moduleViewListIt.next();
 
 		int count = 0;
 		for ( it = mainView->groups.begin(); it != mainView->groups.end(); ++it ){

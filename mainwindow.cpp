@@ -75,7 +75,6 @@ MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
 MainWindow::~MainWindow()
 {
 	delete moduleTabs;
-	delete windowStack;
 	delete menu;	
 	delete dummyAbout;
 }
@@ -343,7 +342,7 @@ void MainWindow::widgetChange() {
 		setCaption( "" );
 		
 		ModulesView *modulesView;
-		for( modulesView = modulesViewList.first(); modulesView; modulesView = modulesViewList.next()) {
+		foreach( modulesView, modulesViewList ) {
 			modulesView->clearSelection();
 		}
 	}

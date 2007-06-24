@@ -72,7 +72,7 @@ private:
 	QStackedWidget *windowStack;
 	KTabWidget *moduleTabs;
 
-	Q3PtrList<ModulesView> modulesViewList;
+	QList<ModulesView*> modulesViewList;
 	Q3PtrList<Q3IconView> viewList;
 
 	KCMultiWidget *groupWidget;
