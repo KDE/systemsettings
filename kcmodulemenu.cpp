@@ -19,13 +19,11 @@
 
 #include "kcmodulemenu.h"
 
-#include <kapplication.h>
 #include <kservicegroup.h>
 #include <kdebug.h>
 #include <kservicetypetrader.h>
+#include <kauthorized.h>
 #include <QList>
-
-#define USING_KDE4
 
 class KCModuleMenuPrivate {
 public:
@@ -114,11 +112,9 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 	
   KSharedPtr<KService> service(static_cast<KService*>(entry));
 
-#ifndef USING_KDE4
-	if ( !kapp->authorizeControlModule( service->menuId()) ) {
+	if ( !KAuthorized::authorizeControlModule( service->menuId()) ) {
 		return false;
   }
-#endif
 
 	KCModuleInfo module( service );
 	if ( module.library().isEmpty() )
