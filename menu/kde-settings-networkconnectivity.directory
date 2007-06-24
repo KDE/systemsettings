@@ -2,4 +2,5 @@
 Encoding=UTF-8
 Type=Directory
 Name=Network & Connectivity
+Name[zh_TW]=網路連線
 Icon=network

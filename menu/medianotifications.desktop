@@ -11,9 +11,12 @@ X-KDE-FactoryName=media
 #X-KDE-ParentApp=kcontrol
 
 Name=Storage Media Notifications
+Name[zh_TW]=儲存媒體通知
 
 Comment=Configure Storage Media Notifications
+Comment[zh_TW]=設定儲存媒體通知
 
 Keywords=storage,media,usb,cdrom,device
+Keywords[zh_TW]=storage,media,usb,cdrom,device,儲存,媒體,光碟機,裝置
 
 #Categories=Qt;KDE;X-KDE-settings-peripherals

@@ -2,4 +2,5 @@
 Encoding=UTF-8
 Type=Directory
 Name=Look & Feel
+Name[zh_TW]=外觀與感覺
 Icon=looknfeel

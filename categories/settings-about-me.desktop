@@ -6,4 +6,5 @@ X-KDE-System-Settings-Category=about-me
 X-KDE-System-Settings-Parent-Category=personal
 
 Name=About Me
+Name[zh_TW]=關於我
 Icon=identity

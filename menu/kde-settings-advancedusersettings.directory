@@ -2,4 +2,5 @@
 Encoding=UTF-8
 
 Name=Advanced User Settings
+Name[zh_TW]=進階使用者設定
 Icon=userconfig.png

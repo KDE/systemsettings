@@ -14,7 +14,9 @@ Icon=knetworkconf
 DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
+Comment[zh_TW]=設定網路連線
 Terminal=false
 Name=Network Connections
+Name[zh_TW]=網路連線
 Keywords=Network,DNS,routes,interfaces
-Keywords[nb]=Nettverk,DNS,routes,grensesnitt
+Keywords[zh_TW]=網路,DNS,路由,介面,Network,routes,interfaces

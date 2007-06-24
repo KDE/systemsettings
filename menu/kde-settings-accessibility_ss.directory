@@ -2,4 +2,5 @@
 Encoding=UTF-8
 
 Name=Accessibility
+Name[zh_TW]=無障礙
 Icon=access

@@ -3,6 +3,7 @@ Encoding=UTF-8
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsCategory
 Name=System Settings Category
+Name[zh_TW]=系統設定類別
 
 # the category identifier
 [PropertyDef::X-KDE-System-Settings-Category]

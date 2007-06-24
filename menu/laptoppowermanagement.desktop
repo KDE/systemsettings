@@ -12,5 +12,7 @@ DocPath=kcontrol/laptop/index.html
 #Categories=Qt;KDE;X-KDE-settings-power;
 
 Comment=Laptop Power Management
+Comment[zh_TW]=筆記型電腦電源管理
 Name=Power Management
+Name[zh_TW]=電源管理
 Init=klaptop_check
