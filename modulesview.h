@@ -85,7 +85,7 @@ signals:
 	void itemSelected( QListWidgetItem* item );
 
 public:
-	ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent=0, const char *name=0 );
+	ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent=0 );
 	~ModulesView();
 
 private:

@@ -28,7 +28,7 @@
 #include "modulesview.h"
 #include "moduleiconitem.h"
 
-KcmSearch::KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent, const char *name )
+KcmSearch::KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent )
 				: KListWidgetSearchLine(parent, 0), dummyListWidget(this)
 {
 	dummyListWidget.hide();

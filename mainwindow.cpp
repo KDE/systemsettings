@@ -95,7 +95,8 @@ void MainWindow::buildMainWidget()
             modulesScroller->setFrameStyle( QFrame::NoFrame );
 
 			modulesScroller->setWidgetResizable(true);
-			ModulesView *modulesView = new ModulesView( menu, item.subMenu, modulesScroller, "modulesView" );
+			ModulesView *modulesView = new ModulesView( menu, item.subMenu, modulesScroller );
+			modulesView->setObjectName(QLatin1String("modulesView"));
 			modulesViewList.append(modulesView);
 			connect(modulesView, SIGNAL(itemSelected(QListWidgetItem* )), this, SLOT(slotItemSelected(QListWidgetItem*)));
 			modulesScroller->setWidget(modulesView);
@@ -154,7 +155,8 @@ void MainWindow::buildActions()
 	// Search edit box and result labels
 	QWidget *hbox = new QWidget(0);
 
-	KcmSearch* search = new KcmSearch(&modulesViewList, hbox, "search");
+	KcmSearch* search = new KcmSearch(&modulesViewList, hbox);
+	search->setObjectName(QLatin1String("search"));
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
 	searchLabel->setBuddy( search );
 

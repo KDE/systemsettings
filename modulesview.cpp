@@ -32,8 +32,7 @@
 #include "moduleiconitem.h"
 #include "kcmodulemenu.h"
 
-ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent,
-		const char *name ) : QWidget( parent ), rootMenu( NULL )
+ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent ) : QWidget( parent ), rootMenu( NULL )
 {
 	this->rootMenu = rootMenu;	
 	this->menuPath = menuPath;

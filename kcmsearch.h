@@ -39,7 +39,7 @@ class KcmSearch : public KListWidgetSearchLine
 	Q_OBJECT
 
 public:
-	KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent = 0, const char *name = 0 );
+	KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent = 0 );
 	virtual ~KcmSearch();
 
 public slots:
