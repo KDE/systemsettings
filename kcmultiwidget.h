@@ -23,10 +23,11 @@
 #ifndef KCMULTIDIALOG_H
 #define KCMULTIDIALOG_H
 
-#include <q3ptrdict.h>
-//Added by qt3to4:
-#include <Q3ValueList>
+// Qt
+#include <QtCore/QHash>
+#include <QtCore/QList>
 
+// KDE
 #include <kpagedialog.h>
 #include <kservice.h>
 
@@ -251,13 +252,13 @@ private:
 		bool adminmode;
 		int buttons;
 	};
-	typedef Q3ValueList<CreatedModule> ModuleList;
+	typedef QList<CreatedModule> ModuleList;
 	ModuleList m_modules;
 
 	typedef QMap<KService::Ptr, KCModuleProxy*> OrphanMap;
 	OrphanMap m_orphanModules;
 
-	Q3PtrDict<QStringList> moduleParentComponents;
+	QHash<KCModuleProxy*,QStringList> moduleParentComponents;
 	QString _docPath;
 	int dialogface;
 

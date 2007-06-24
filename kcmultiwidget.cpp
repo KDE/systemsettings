@@ -113,7 +113,6 @@ inline void KCMultiWidget::init()
 
 	connect( this, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)), this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
 	setInitialSize(QSize(640,480));
-	moduleParentComponents.setAutoDelete( true );
 	setFaceType( Auto );
 	connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
 	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
@@ -154,10 +153,13 @@ void KCMultiWidget::apply()
 		if( m && m->changed() )
 		{
 			m->save();
-			QStringList * names = moduleParentComponents[ m ];
-			for( QStringList::ConstIterator it = names->begin(); it != names->end(); ++it )
-				if( updatedModules.indexOf( *it ) == -1 )
-					updatedModules.append( *it );
+			QStringList names = moduleParentComponents[ m ];
+
+            foreach ( QString name , names )
+            {
+                if ( updatedModules.indexOf(name) == -1 )
+                    updatedModules.append(name);
+            }
 		}
 	}
 	for( QStringList::const_iterator it = updatedModules.begin(); it != updatedModules.end(); ++it )
@@ -264,7 +266,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		QStringList parentComponents = moduleinfo.service()->property(
 				"X-KDE-System-Settings-Parent-Category" ).toStringList();
 		moduleParentComponents.insert( module,
-				new QStringList( parentComponents ) );
+				parentComponents );
 
 		connect(module, SIGNAL(changed(bool)), this, SLOT(clientChanged(bool)));
 	}
