@@ -48,7 +48,6 @@ void ModuleIconItem::loadIcon( bool enabled )
 		return;
 
 	currentState = newState;
-//	setIcon( SmallIcon( imageName, IMAGE_SIZE , currentState ) );
-	setIcon( DesktopIcon( imageName, currentState ) );
+	setIcon( DesktopIcon( imageName, IMAGE_SIZE , currentState ) );
 }
 
