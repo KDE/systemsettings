@@ -50,7 +50,7 @@ class MainWindow : public KXmlGuiWindow
 	Q_OBJECT
 
 public:
-	MainWindow(bool embed=true, const QString &menufile="systemsettings", QWidget *parent=0);
+	MainWindow(const QString &menufile="systemsettings", QWidget *parent=0);
 	~MainWindow();
 
 private slots:
@@ -69,7 +69,6 @@ private slots:
 
 private:
 	KCModuleMenu *menu;
-	bool embeddedWindows;
 	QStackedWidget *windowStack;
 	KTabWidget *moduleTabs;
 

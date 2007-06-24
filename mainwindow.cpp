@@ -55,8 +55,8 @@
 #include "kcmodulemenu.h"
 #include "kcmultiwidget.h"
 
-MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
-				KXmlGuiWindow(parent), menu(NULL), embeddedWindows(embed),
+MainWindow::MainWindow(const QString & menuFile, QWidget *parent) :
+				KXmlGuiWindow(parent), menu(NULL),
 				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
 
 	// Load the menu structure in from disk.
@@ -124,14 +124,12 @@ void MainWindow::buildActions()
 	connect(defaultModule, SIGNAL(triggered()), this, SLOT(showAllModules()));;
 	defaultModule->setEnabled(false);
 
-	if( embeddedWindows ) {
 		showAllAction = actionCollection()->addAction("showAll");
 		showAllAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
 		showAllAction->setText( i18n("Overview") );
 		connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
 		showAllAction->setEnabled(false);
 		showAllAction->setShortcut(i18n("Ctrl+O"));
-	}
 
 	aboutModuleAction = actionCollection() -> addAction("help_about_module");
 	aboutModuleAction->setText(i18n("About Current Module"));
@@ -227,9 +225,7 @@ void MainWindow::showAllModules()
 	groupWidget = 0;
 	widgetChange();
 
-	if( embeddedWindows ) {
 		showAllAction->setEnabled(false);
-	}
 	aboutModuleAction->setEnabled(false);
 
 	searchText->setEnabled(true);
@@ -258,8 +254,9 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		QList<KCModuleInfo> list = mItem->modules;
 
 		scrollView = new QScrollArea(windowStack);
-		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+		groupWidget = new KCMultiWidget(0, scrollView, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
                 scrollView->setWidget(groupWidget);
+		scrollView->setWidgetResizable(true);
 		windowStack->addWidget(scrollView);
 		moduleItemToScrollerDict.insert(mItem,scrollView);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);
@@ -276,7 +273,6 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		}
 	}
 
-	if( embeddedWindows ) {
 		windowStack->setCurrentWidget( scrollView );
 
 		setCaption( mItem->text() );
@@ -290,9 +286,6 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 			currentRadioAction->setEnabled(false);
 		}
 
-	} else {
-		scrollView->show();
-	}
 	groupWidget->show();
 
 	// We resize and expand the window if neccessary, but only once the window has been updated.

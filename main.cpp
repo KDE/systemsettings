@@ -32,8 +32,6 @@
 static KCmdLineOptions options[] =
 {
 	{ "menu <argument>", I18N_NOOP("Menu file"), "systemsettings" },
-	{ "e", 0, 0 },
-	{ "noembed", I18N_NOOP("Embed windows"), 0 },
 	KCmdLineLastOption
 };
 
@@ -67,10 +65,7 @@ int main( int argc, char *argv[] )
   }
   KUniqueApplication application;
 
-  bool embed = true;
-  if (args->isSet("e"))
-    embed = false;
-  MainWindow *mainWindow = new MainWindow(embed, args->getOption("menu"));
+  MainWindow *mainWindow = new MainWindow(args->getOption("menu"));
 
   mainWindow->show();
 
