@@ -1,10 +1,6 @@
 PROJECT(systemsettings)
 
-SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
-
 FIND_PACKAGE(KDE4 REQUIRED)
-
-ADD_DEFINITIONS (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 
 ADD_DEFINITIONS(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 
@@ -22,7 +18,6 @@ SET(systemsettings_SRCS
    mainwindow.cpp
    moduleiconitem.cpp
    modulesview.cpp
-#   kcscrollview.cpp
 #   kicongrouppage.cpp
    )
 
