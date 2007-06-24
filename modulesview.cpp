@@ -26,7 +26,6 @@
 #include <kiconloader.h>
 #include <kdebug.h>
 #include <kservicetypetrader.h>
-#include <Q3ValueList>
 #include <QApplication>
 #include <Q3Frame>
 
@@ -47,8 +46,8 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 
 	displayName = this->rootMenu->caption;
 
-	Q3ValueList<MenuItem> subMenus = rootMenu->menuList(menuPath);
- 	Q3ValueList<MenuItem>::iterator it;
+	QList<MenuItem> subMenus = rootMenu->menuList(menuPath);
+ 	QList<MenuItem>::const_iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){
 		if( !(*it).menu )
 			continue;
@@ -163,8 +162,8 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	boxLayout->addWidget( iconWidget );
 
 	// Add all the items in their proper order
-	Q3ValueList<MenuItem> list = rootMenu->menuList( parentPath );
- 	Q3ValueList<MenuItem>::iterator it;
+	QList<MenuItem> list = rootMenu->menuList( parentPath );
+ 	QList<MenuItem>::const_iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
 		if( !(*it).menu ) {
 			(void)new ModuleIconItem( iconWidget, (*it).item );
