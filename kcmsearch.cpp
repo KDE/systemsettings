@@ -80,11 +80,13 @@ bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search )
 		return true;
 	}
 
+	QRegExp reSearch("*"+search+"*", Qt::CaseInsensitive, QRegExp::Wildcard);
+
 	// Look in keywords
 	QStringList kw = module.keywords();
 	for(QStringList::ConstIterator it = kw.begin(); it != kw.end(); ++it) {
 		QString name = (*it).toLower();
-		if ( QRegExp(search+"*", Qt::CaseInsensitive, QRegExp::Wildcard).indexIn(name) >= 0){
+		if ( reSearch.indexIn(name) >= 0){
 			//kdDebug() << "MATCH:" << module.moduleName().latin1()
 			//				  << "keyword:" <<  name.latin1() << endl;
 			return true;
@@ -92,7 +94,7 @@ bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search )
 	}
 
 	// Don't forget to check the name :)
-	if ( QRegExp(search+"*", Qt::CaseInsensitive, QRegExp::Wildcard).indexIn(module.moduleName()) >= 0)
+	if ( reSearch.indexIn(module.moduleName()) >= 0)
 		return true;
 
 	//kdDebug() << "No MATCH:" << module.moduleName().latin1() << endl;
