@@ -27,7 +27,6 @@
 #include <kdebug.h>
 #include <kservicetypetrader.h>
 #include <QApplication>
-#include <Q3Frame>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -54,10 +53,10 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 
 		// After the first time around add a line
 		if( it != subMenus.begin() ){
-			Q3Frame *line = new Q3Frame( this, "line");
-			line->setFrameShadow( Q3Frame::Sunken );
-			line->setFrameShape( Q3Frame::HLine );
-			line->setMargin(0);
+			QFrame *line = new QFrame( this );
+			line->setObjectName( QLatin1String( "line" ) );
+			line->setFrameShadow( QFrame::Sunken );
+			line->setFrameShape( QFrame::HLine );
 			layout->addWidget( line );
 		}
 
