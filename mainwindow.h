@@ -21,8 +21,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+// Qt
+#include <QtCore/QHash>
+
+// KDE
 #include <kxmlguiwindow.h>
-#include <q3ptrdict.h>
 
 class QStackedWidget;
 class KCMultiWidget;
@@ -40,6 +43,7 @@ class KAboutData;
 class QAction;
 class KCScrollView;
 class KCModuleMenu;
+class ModuleIconItem;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -74,8 +78,8 @@ private:
 	KCMultiWidget *groupWidget;
 	KCScrollView *scrollView;
 
-	Q3PtrDict<KCMultiWidget> moduleItemToWidgetDict;
-	Q3PtrDict<KCScrollView> moduleItemToScrollerDict;
+	QHash<ModuleIconItem*,KCMultiWidget*> moduleItemToWidgetDict;
+	QHash<ModuleIconItem*,KCScrollView*> moduleItemToScrollerDict;
 
 	QList<KToggleAction*> pageActions;
 	QList<QScrollArea*> overviewPages;

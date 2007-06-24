@@ -252,8 +252,8 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 
 
         kDebug() << "item selected: " << item->text() << endl;
-	groupWidget = moduleItemToWidgetDict.find(mItem);
-	scrollView = moduleItemToScrollerDict.find(mItem);
+	groupWidget = moduleItemToWidgetDict[mItem];
+	scrollView = moduleItemToScrollerDict[mItem];
 
 	if(groupWidget==0) {
 		QList<KCModuleInfo> list = mItem->modules;
