@@ -24,17 +24,21 @@
 #include <qregexp.h>
 #include <QListWidgetItem>
 #include <kdebug.h>
-#include <k3iconview.h>
 
 #include "modulesview.h"
 #include "moduleiconitem.h"
 
 KcmSearch::KcmSearch( QList<ModulesView*> *moduleViewList, QWidget *parent, const char *name )
-				: K3IconViewSearchLine(parent,
-                               moduleViewList->at(0)->oldIconView
-                               ){
-
+				: KListWidgetSearchLine(parent, 0), dummyListWidget(this)
+{
+	dummyListWidget.hide();
 	this->moduleViewList = moduleViewList;
+	setListWidget(&dummyListWidget);
+}
+
+KcmSearch::~KcmSearch()
+{
+	setListWidget(0);
 }
 
 void KcmSearch::updateSearch( const QString &search ) {
