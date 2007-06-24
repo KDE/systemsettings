@@ -4,8 +4,6 @@ SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
 FIND_PACKAGE(KDE4 REQUIRED)
 
-
-ADD_DEFINITIONS (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS -DKDE3_SUPPORT)
 ADD_DEFINITIONS (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
 
 ADD_DEFINITIONS(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
@@ -24,7 +22,7 @@ SET(systemsettings_SRCS
    mainwindow.cpp
    moduleiconitem.cpp
    modulesview.cpp
-   kcscrollview.cpp
+#   kcscrollview.cpp
 #   kicongrouppage.cpp
    )
 
@@ -32,7 +30,7 @@ KDE4_AUTOMOC(${systemsettings_SRCS})
 
 KDE4_ADD_EXECUTABLE(systemsettings ${systemsettings_SRCS})
 
-TARGET_LINK_LIBRARIES(systemsettings  ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBRARY} ${QT_QT3SUPPORT_LIBRARY} )
+TARGET_LINK_LIBRARIES(systemsettings  ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBRARY} )
 
 INSTALL( TARGETS systemsettings DESTINATION ${BIN_INSTALL_DIR})
 

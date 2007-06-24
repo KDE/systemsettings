@@ -76,10 +76,10 @@ private:
 	QList<ModulesView*> modulesViewList;
 
 	KCMultiWidget *groupWidget;
-	KCScrollView *scrollView;
+	QScrollArea *scrollView;
 
 	QHash<ModuleIconItem*,KCMultiWidget*> moduleItemToWidgetDict;
-	QHash<ModuleIconItem*,KCScrollView*> moduleItemToScrollerDict;
+	QHash<ModuleIconItem*,QScrollArea*> moduleItemToScrollerDict;
 
 	QList<KToggleAction*> pageActions;
 	QList<QScrollArea*> overviewPages;

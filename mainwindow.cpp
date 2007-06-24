@@ -54,7 +54,6 @@
 #include "moduleiconitem.h"
 #include "kcmodulemenu.h"
 #include "kcmultiwidget.h"
-#include "kcscrollview.h"
 
 MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
 				KXmlGuiWindow(parent), menu(NULL), embeddedWindows(embed),
@@ -258,9 +257,9 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 	if(groupWidget==0) {
 		QList<KCModuleInfo> list = mItem->modules;
 
-		scrollView = new KCScrollView(windowStack);
+		scrollView = new QScrollArea(windowStack);
 		groupWidget = new KCMultiWidget(0, scrollView->viewport(), Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
-                scrollView->addChild(groupWidget);
+                scrollView->setWidget(groupWidget);
 		windowStack->addWidget(scrollView);
 		moduleItemToScrollerDict.insert(mItem,scrollView);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);

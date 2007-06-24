@@ -334,12 +334,12 @@ void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* b
 
 void KCMultiWidget::slotAboutToShow(QWidget *page)
 {
-	QObject * obj = page->child( 0, "KCModuleProxy" );
-	if( ! obj ) {
-		obj = page;
-	}
+	QList<KCModuleProxy*> objects = page->findChildren<KCModuleProxy*>();
 
-	KCModuleProxy *module = qobject_cast<KCModuleProxy*>(obj);
+    // add fall back
+    objects.append( qobject_cast<KCModuleProxy*>(page) );
+
+	KCModuleProxy *module = objects.first();
 	if( ! module ) {
 		return;
 	}
