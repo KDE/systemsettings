@@ -24,8 +24,6 @@
 #include <QListWidget>
 #include <QList>
 
-class K3IconView;
-
 /**
  * Overloaded to give a larger default size that fits with text of two lines.
  */
@@ -89,8 +87,6 @@ signals:
 public:
 	ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidget *parent=0, const char *name=0 );
 	~ModulesView();
-
-	K3IconView* oldIconView;
 
 private:
 	QList<RowIconView*> groups;

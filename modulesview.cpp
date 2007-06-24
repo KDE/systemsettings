@@ -25,9 +25,10 @@
 #include <qlayout.h>
 #include <kiconloader.h>
 #include <kdebug.h>
-#include <k3iconview.h>
 #include <kservicetypetrader.h>
 #include <Q3ValueList>
+#include <QApplication>
+#include <Q3Frame>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -66,13 +67,9 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	}
 	layout->addStretch(1);
 
-	// Make empty iconView for the search widget
-	oldIconView = new K3IconView(this, "foo");
-	oldIconView->hide();
-
 	// set background colour to the icon row background colour
 	setAutoFillBackground(true);
-	QPalette rowPalette = oldIconView->palette();
+	QPalette rowPalette = QApplication::palette();
 	QColor background = rowPalette.color(QPalette::Base);
 	QPalette palette;
 	palette.setColor(backgroundRole(), background);
