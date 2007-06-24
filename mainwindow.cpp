@@ -63,7 +63,7 @@ MainWindow::MainWindow(bool embed, const QString & menuFile, QWidget *parent) :
 	// Load the menu structure in from disk.
 	menu = new KCModuleMenu( menuFile );
 
-	moduleTabs = new KTabWidget(this, QTabWidget::Top|QTabWidget::Rounded);
+	moduleTabs = new KTabWidget(this, QTabWidget::North|QTabWidget::Rounded);
 	buildMainWidget();
 	buildActions();
 	setupGUI(ToolBar|Save|Create,QString::null);

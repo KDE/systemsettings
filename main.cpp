@@ -72,7 +72,6 @@ int main( int argc, char *argv[] )
     embed = false;
   MainWindow *mainWindow = new MainWindow(embed, args->getOption("menu"));
 
-  application.setMainWidget( mainWindow );
   mainWindow->show();
 
   args->clear();
