@@ -311,7 +311,7 @@ void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
 	if ( currentModule->aboutData() ) {
 		aboutModuleAction->setText(i18nc("Help menu->about <modulename>", "About %1",
 				                             currentModule->moduleInfo().moduleName().replace("&","&&")));
-		aboutModuleAction->setIcon(QIcon(currentModule->moduleInfo().icon()));
+		aboutModuleAction->setIcon(KIcon(currentModule->moduleInfo().icon()));
 		aboutModuleAction->setEnabled(true);
 	}
 	else {
@@ -332,7 +332,7 @@ void MainWindow::widgetChange() {
 	}
 
 	if( !groupWidget ) {
-		setCaption( "" );
+		setCaption(QString());
 		
 		ModulesView *modulesView;
 		foreach( modulesView, modulesViewList ) {
@@ -354,9 +354,9 @@ void MainWindow::slotTopPage() {
 }
 
 void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) {
-	if(query=="") {
-		generalHitLabel->setText("");
-		advancedHitLabel->setText("");
+	if(query.isEmpty()) {
+		generalHitLabel->setText(QString());
+		advancedHitLabel->setText(QString());
 	} else {
 		
 		if(length>=1) {
