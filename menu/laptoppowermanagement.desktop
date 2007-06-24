@@ -12,7 +12,7 @@ DocPath=kcontrol/laptop/index.html
 #Categories=Qt;KDE;X-KDE-settings-power;
 
 Comment=Laptop Power Management
-Comment[zh_TW]=筆記型電腦電源管理
+Comment[sv]=Strömhantering för bärbar dator
 Name=Power Management
-Name[zh_TW]=電源管理
+Name[sv]=Energisparfunktion
 Init=klaptop_check

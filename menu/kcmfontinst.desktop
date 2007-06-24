@@ -13,12 +13,12 @@ X-KDE-RootOnly=true
 X-KDE-ParentApp=kcontrol
 
 Name=Fonts
-Name[zh_TW]=字型
+Name[sv]=Teckensnitt
 
 Comment=Install & preview fonts
-Comment[zh_TW]=安裝並預覽字型
+Comment[sv]=Installera och förhandsgranska teckensnitt
 
 Keywords=font,fonts,installer,truetype,type1,speedo,bitmap
-Keywords[zh_TW]=font,fonts,installer,truetype,type1,speedo,bitmap,字型,安裝程式,點陣
+Keywords[sv]=teckensnitt,installation,truetype,type1,speedo,bitmap
 
 Categories=Qt;KDE;X-KDE-settings-system;

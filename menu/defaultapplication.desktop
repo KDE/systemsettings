@@ -9,8 +9,9 @@ X-KDE-Library=componentchooser
 X-KDE-ParentApp=kcontrol
 
 Name=Default Applications
-Name[zh_TW]=預設應用程式
+Name[sv]=Förvalda program
 Comment=Choose the default application for various services
-Comment[zh_TW]=選擇各種服務的預設應用程式　
+Comment[sv]=Välj förvalt program för diverse tjänster
 Keywords=components,component chooser,resources, email client, terminal emulator, default, browser
+Keywords[sv]=komponenter,komponentväljare,resurser,epost-klient,terminalemulator,förval,webbläsare
 Categories=Qt;KDE;X-KDE-settings-components;
