@@ -75,7 +75,7 @@ KCMultiWidget::KCMultiWidget( int dialogFace, QWidget * parent, Qt::WindowModali
     dialogface( dialogFace ),
     d( new KCMultiWidgetPrivate )
 {
-  InitKIconDialog(i18n(""), modality);
+  InitKIconDialog(QString(), modality);
 	init();
 }
 

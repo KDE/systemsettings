@@ -315,7 +315,7 @@ void MainWindow::timerResize() {
 
 void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
 	if ( currentModule->aboutData() ) {
-		aboutModuleAction->setText(i18nc("Help menu->about <modulename>", "About %1").arg(
+		aboutModuleAction->setText(i18nc("Help menu->about <modulename>", "About %1",
 				                             currentModule->moduleInfo().moduleName().replace("&","&&")));
 		aboutModuleAction->setIcon(QIcon(currentModule->moduleInfo().icon()));
 		aboutModuleAction->setEnabled(true);
@@ -366,11 +366,11 @@ void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) 
 	} else {
 		
 		if(length>=1) {
-			generalHitLabel->setText(i18nc("%1 hit in General","%1 hits in General",hitList[0]).arg(hitList[0]));
+			generalHitLabel->setText(i18np("%1 hit in General","%1 hits in General",hitList[0]));
 		}
 	
 		if(length>=2) {
-			advancedHitLabel->setText(i18nc("%1 hit in Advanced","%1 hits in Advanced",hitList[1]).arg(hitList[1]));
+			advancedHitLabel->setText(i18np("%1 hit in Advanced","%1 hits in Advanced",hitList[1]));
 		}
 
 	}
