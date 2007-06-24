@@ -81,7 +81,7 @@ private:
 	Q3PtrDict<KCMultiWidget> moduleItemToWidgetDict;
 	Q3PtrDict<KCScrollView> moduleItemToScrollerDict;
 
-	Q3PtrList<KToggleAction> pageActions;
+	QList<KToggleAction*> pageActions;
 	Q3PtrList<QScrollArea> overviewPages;
 	int selectedPage;
 

@@ -236,7 +236,7 @@ void MainWindow::showAllModules()
 	searchAction->setEnabled(true);
 
 	KToggleAction *currentRadioAction;
-	for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+	foreach ( currentRadioAction, pageActions ) {
 		currentRadioAction->setEnabled(true);
 	}
 
@@ -286,7 +286,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		//searchAction->setEnabled(false);
 
 		KToggleAction *currentRadioAction;
-		for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+		foreach ( currentRadioAction, pageActions ) {
 			currentRadioAction->setEnabled(false);
 		}
 
@@ -350,10 +350,10 @@ void MainWindow::widgetChange() {
 
 void MainWindow::slotTopPage() {
 	KToggleAction *clickedRadioAction = (KToggleAction *)sender();
-	selectedPage = pageActions.find(clickedRadioAction);
+	selectedPage = pageActions.indexOf(clickedRadioAction);
 
 	KToggleAction *currentRadioAction;
-    for ( currentRadioAction = pageActions.first(); currentRadioAction; currentRadioAction = pageActions.next()) {
+	foreach ( currentRadioAction, pageActions ) {
 		currentRadioAction->setChecked(currentRadioAction==clickedRadioAction);
 	}
 
