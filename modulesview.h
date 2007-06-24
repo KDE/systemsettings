@@ -66,7 +66,7 @@ public:
 	};
 };
 
-class Q3BoxLayout;
+class QBoxLayout;
 class KCModuleMenu;
 
 /**
@@ -97,7 +97,7 @@ private:
 	KCModuleMenu *rootMenu;
 	QString menuPath;
 
-	void createRow( const QString &parentPath, Q3BoxLayout *layout );
+	void createRow( const QString &parentPath, QBoxLayout *layout );
 };
 
 #endif // MODULESVIEW_H

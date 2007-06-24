@@ -22,8 +22,6 @@
 
 #include <qlabel.h>
 #include <QListWidget>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
 #include <qlayout.h>
 #include <kiconloader.h>
 #include <kdebug.h>
@@ -41,7 +39,10 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	this->rootMenu = rootMenu;	
 	this->menuPath = menuPath;
 
-	Q3VBoxLayout *layout = new Q3VBoxLayout( this, 11, 6, "layout" );
+	QVBoxLayout *layout = new QVBoxLayout( this );
+	layout->setMargin( 11 );
+	layout->setSpacing( 6 );
+	layout->setObjectName( QLatin1String( "layout" ) );
 
 	displayName = this->rootMenu->caption;
 
@@ -103,7 +104,7 @@ ModulesView::~ModulesView()
 {
 }
 
-void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
+void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 {
 	//find the category name and search for it
 	QString categoryName = parentPath.section('/', -2, -2);
@@ -118,7 +119,10 @@ void ModulesView::createRow( const QString &parentPath, Q3BoxLayout *boxLayout )
 	}
 
 	// Make header
-	Q3HBoxLayout *rowLayout = new Q3HBoxLayout( 0, 0, 6, "rowLayout" );
+	QHBoxLayout *rowLayout = new QHBoxLayout();
+	rowLayout->setMargin( 0 );
+	rowLayout->setSpacing( 6 );
+	rowLayout->setObjectName( QLatin1String( "rowLayout" ) );
 
 	// Header Icon
 	QLabel *icon = new QLabel( this );
