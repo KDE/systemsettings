@@ -41,7 +41,6 @@ class QLabel;
 class KToggleAction;
 class KAboutData;
 class QAction;
-class KCScrollView;
 class KCModuleMenu;
 class ModuleIconItem;
 

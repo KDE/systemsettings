@@ -22,13 +22,13 @@
 #ifndef KCMSEARCH_H
 #define KCMSEARCH_H
 
-#include "kcmodulemenu.h"
 #include <QList>
 #include <QListWidget>
 #include <klistwidgetsearchline.h>
 
 class ModulesView;
 class QListWidgetItem;
+class KCModuleInfo;
 
 /**
  * Searches all the ModuleIconItem's in MainWindow and "disables" the ones

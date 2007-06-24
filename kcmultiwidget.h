@@ -40,7 +40,7 @@ class KCModuleInfo;
  * @short A method that offers a KDialog containing arbitrary
  *   Control Modules.
  */
-class KUTILS_EXPORT KCMultiWidget : public KPageDialog
+class /*KUTILS_EXPORT*/ KCMultiWidget : public KPageDialog
 {
 	Q_OBJECT
 

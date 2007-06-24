@@ -21,13 +21,11 @@
 
 */
 
-#include <qcursor.h>
+#include "kcmultiwidget.h"
+
 #include <qlayout.h>
-#include <qpushbutton.h>
 #include <QProcess>
 
-#include <kaboutdata.h>
-#include <kapplication.h>
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klibloader.h>
@@ -40,7 +38,6 @@
 
 #include "kcmoduleloader.h"
 #include "kcmoduleproxy.h"
-#include "kcmultiwidget.h"
 
 /*
 Button usage:

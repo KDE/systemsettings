@@ -20,7 +20,6 @@
 
 #include "mainwindow.h"
 
-#include <QObject>
 #include <QIcon>
 #include <kstandardaction.h>
 #include <ktoolbarlabelaction.h>
@@ -29,7 +28,6 @@
 #include <QLabel>
 #include <QStackedWidget>
 #include <QListWidgetItem>
-//Added by qt3to4:
 #include <kaction.h>
 #include <klocale.h>
 #include <kservicegroup.h>
