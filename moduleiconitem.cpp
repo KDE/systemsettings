@@ -28,17 +28,16 @@
 
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 	: QListWidgetItem(SmallIcon( module.icon(), IMAGE_SIZE ), module.moduleName(), parent),
-	imageName(module.icon())
+	currentState(K3Icon::DefaultState), imageName(module.icon())
 {
 	modules.append(module);
 }
 
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const QString &text,
-		const QString &imageName )
-	: QListWidgetItem( SmallIcon( imageName, IMAGE_SIZE ), text, parent )
-			//, currentState( K3Icon::ActiveState )
+		const QString &_imageName )
+	: QListWidgetItem( SmallIcon( _imageName, IMAGE_SIZE ), text, parent ),
+	currentState(K3Icon::DefaultState), imageName(_imageName)
 {
-	this->imageName = imageName;
 }
 
 void ModuleIconItem::loadIcon( bool enabled )
