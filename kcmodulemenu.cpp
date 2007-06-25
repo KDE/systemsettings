@@ -38,14 +38,9 @@ KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 	d( new KCModuleMenuPrivate )
 {
 	// Make sure we can find the menu
-	KServiceGroup::Ptr serviceGroup = KServiceGroup::baseGroup( menuName );
-	if( !serviceGroup ){
-		kDebug() << "Unable to load menu \"" << menuName << 
-						"\" from KServiceGroup." << endl;
-		return;
-	}
-	d->basePath = serviceGroup->relPath();
-	readMenu( "", "System Settings" );
+	QString menuRoot = "System Settings"; //just a handy key to use, not part of UI
+	d->basePath = menuRoot + "/";
+	readMenu( "", menuRoot );
 
 	QMapIterator<QString, QList<MenuItem> > i(d->menus);
 	/*debugging
