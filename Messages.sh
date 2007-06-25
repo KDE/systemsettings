@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-$XGETTEXT *.cpp *.h -o $podir/systemsettings.pot
+$XGETTEXT *.cpp -o $podir/systemsettings.pot
