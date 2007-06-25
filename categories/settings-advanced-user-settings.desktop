@@ -7,4 +7,6 @@ X-KDE-System-Settings-Parent-Category=advanced
 Icon=userconfig
 
 Name=Advanced User Settings
+Name[ja]=詳細なユーザ設定
 Name[sv]=Avancerade användarinställningar
+Name[zh_TW]=進階使用者設定

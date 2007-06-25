@@ -7,4 +7,6 @@ X-KDE-System-Settings-Parent-Category=personal
 Icon=locale
 
 Name=Regional & Language
+Name[ja]=国と言語
 Name[sv]=Region och språk
+Name[zh_TW]=國家與語言

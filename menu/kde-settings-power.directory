@@ -1,5 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Power
+Name[ja]=電源
 Name[sv]=Strömförsörjning
+Name[zh_TW]=電源
 Icon=ktip

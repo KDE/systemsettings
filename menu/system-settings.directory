@@ -1,7 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=System Settings
+Name[ja]=システム設定
 Name[sv]=Systeminställningar
+Name[zh_TW]=系統設定
 NoDisplay=true
 Icon=package_settings
 X-KDE-BaseGroup=systemsettings

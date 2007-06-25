@@ -1,5 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Connections
+Name[ja]=接続
 Name[sv]=Anslutningar
+Name[zh_TW]=連線
 Icon=network_local

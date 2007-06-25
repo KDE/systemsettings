@@ -2,5 +2,7 @@
 Encoding=UTF-8
 
 Name=Accessibility
+Name[ja]=アクセシビリティ
 Name[sv]=Handikappstöd
+Name[zh_TW]=無障礙
 Icon=access

@@ -14,10 +14,15 @@ Icon=knetworkconf
 DocPath=knetworkconf/index.docbook
 
 Comment=Configure Network Connections
+Comment[ja]=ネットワーク接続の設定
 Comment[sv]=Anpassa nätverksanslutningar
+Comment[zh_TW]=設定網路連線
 Terminal=false
 Name=Network Connections
+Name[ja]=ネットワーク接続
 Name[sv]=Nätverksanslutningar
+Name[zh_TW]=網路連線
 Keywords=Network,DNS,routes,interfaces
-Keywords[nb]=Nettverk,DNS,routes,grensesnitt
+Keywords[ja]=ネットワーク,DNS,ルート,インターフェース
 Keywords[sv]=Nätverk,DNS,route,gränssnitt
+Keywords[zh_TW]=網路,DNS,路由,介面,Network,routes,interfaces

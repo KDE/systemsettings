@@ -7,4 +7,6 @@ X-KDE-System-Settings-Parent-Category=personal
 Icon=access
 
 Name=Accessibility
+Name[ja]=アクセシビリティ
 Name[sv]=Handikappstöd
+Name[zh_TW]=無障礙

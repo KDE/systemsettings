@@ -2,4 +2,5 @@
 Encoding=UTF-8
 Name=Bluetooth
 Name[sv]=Blåtand
+Name[zh_TW]=藍芽
 Icon=kdebluetooth

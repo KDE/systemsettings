@@ -1,5 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Network Settings
+Name[ja]=ネットワークの設定
 Name[sv]=Nätverksinställningar
+Name[zh_TW]=網路設定
 Icon=network_local
