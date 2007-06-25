@@ -8,15 +8,10 @@ X-KDE-ModuleType=Library
 X-KDE-Library=audiocd
 
 Name=Audio Encoding
-Name[ja]=オーディオエンコーディング
 Name[sv]=Ljudkodning
-Name[zh_TW]=聲音編碼
 Comment=Audiocd IO Slave Configuration
-Comment[ja]=オーディオ CD IO スレーブの設定
-Comment[sv]=Inställning av I/O-slav för ljud-cd
-Comment[zh_TW]=音樂光碟 IO Slave 組態
+Comment[sv]=Anpassa I/O-slav för ljud-cd
 Keywords=Audio CD,CD,Ogg,Vorbis,Encoding,CDDA,Bitrate
-Keywords[ja]=オーディオ CD,CD,Ogg,Vorbis,エンコーディング,CDDA,ビットレート
 Keywords[sv]=ljud-cd,cd,Ogg,Vorbis,kodning,CDDA,bithastighet
 
 ## keep this out of kcontrol

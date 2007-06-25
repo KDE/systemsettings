@@ -2,7 +2,5 @@
 Encoding=UTF-8
 
 Name=Notifications
-Name[ja]=通知
 Name[sv]=Underrättelser
-Name[zh_TW]=通知
 Icon=knotify

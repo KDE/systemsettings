@@ -2,7 +2,5 @@
 Encoding=UTF-8
 Type=Directory
 Name=Computer Administration
-Name[ja]=コンピュータの管理
 Name[sv]=Datoradministration
-Name[zh_TW]=電腦管理
 Icon=systemtray

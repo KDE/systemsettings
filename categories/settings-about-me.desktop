@@ -6,7 +6,5 @@ X-KDE-System-Settings-Category=about-me
 X-KDE-System-Settings-Parent-Category=personal
 
 Name=About Me
-Name[ja]=個人情報
 Name[sv]=Om mig
-Name[zh_TW]=關於我
 Icon=identity

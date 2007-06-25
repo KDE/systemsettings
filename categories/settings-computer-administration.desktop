@@ -7,6 +7,4 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=systemtray
 
 Name=Computer Administration
-Name[ja]=コンピュータの管理
 Name[sv]=Datoradministration
-Name[zh_TW]=電腦管理
