@@ -119,13 +119,13 @@ void KIconGroupItem::setParent(QWidget* parent) {
   render();
 }
 
-void KIconGroupItem::setIcon(QIcon& icon) {
+void KIconGroupItem::setIcon(const QIcon& icon) {
   m_icon = icon;
 
   render();
 }
 
-void KIconGroupItem::setLabel(QString& label) {
+void KIconGroupItem::setLabel(const QString& label) {
   m_text = label;
 
   render();

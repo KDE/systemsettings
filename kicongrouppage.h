@@ -224,7 +224,7 @@ class KIconGroupItem : public QLabel {
    *
    * @param icon The icon to add to the group item
    **/
-  void setIcon(QIcon& icon);
+  void setIcon(const QIcon& icon);
 
   /**
    * Get the icon
@@ -238,7 +238,7 @@ class KIconGroupItem : public QLabel {
    *
    * @param label The label to set
    **/
-  void setLabel(QString& label);
+  void setLabel(const QString& label);
 
   /**
    * Fetch the label
