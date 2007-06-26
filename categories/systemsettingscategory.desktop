@@ -3,7 +3,6 @@ Encoding=UTF-8
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsCategory
 Name=System Settings Category
-Name[sv]=Systeminställningskategori
 
 # the category identifier
 [PropertyDef::X-KDE-System-Settings-Category]
