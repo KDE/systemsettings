@@ -7,3 +7,7 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=network_local
 
 Name=Network Settings
+Name[es]=Opciones de red
+Name[ja]=ネットワークの設定
+Name[sv]=Nätverksinställningar
+Name[zh_TW]=網路設定

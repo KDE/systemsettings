@@ -7,6 +7,10 @@ DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 
 Name=System Settings
+Name[es]=Opciones del sistema
+Name[ja]=システム設定
+Name[sv]=Systeminställningar
+Name[zh_TW]=系統設定
 
 X-DCOP-ServiceType=Unique
 Categories=Qt;KDE;Core;
