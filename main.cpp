@@ -46,9 +46,9 @@ int main( int argc, char *argv[] )
 	  "ben+systempreferences@meyerhome.net");
   aboutData.addAuthor("Jonathan Riddell", I18N_NOOP("Contributor"),
 	  "jriddell@ubuntu.com");
-  aboutData.addAuthor("Michael D. Stemle", I18N_NOOP("Contibutor"),
+  aboutData.addAuthor("Michael D. Stemle", I18N_NOOP("Contributor"),
 	  "manchicken@notsosoft.net");
-  aboutData.addAuthor("Simon Edwards", I18N_NOOP("Contibutor"),
+  aboutData.addAuthor("Simon Edwards", I18N_NOOP("Contributor"),
 	  "simon@simonzone.com");
   aboutData.addAuthor("Ellen Reitmayr", I18N_NOOP("Usability"),
 	  "ellen@kde.org");
