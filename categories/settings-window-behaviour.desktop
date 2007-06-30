@@ -8,7 +8,6 @@ X-KDE-System-Settings-Parent-Category=look-and-feel
 
 Name=Window Behavior
 Name[af]=Venster Gedrag
-Name[ar]=سلوك النوافذ
 Name[br]=Emzalc'h ar prenester
 Name[ca]=Comportament de les finestres
 Name[cs]=Chování oken
@@ -47,6 +46,7 @@ Name[nl]=Venstergedrag
 Name[nn]=Vindaugsåtferd
 Name[pa]=ਝਰੋਖਾ ਵਿਵਹਾਰ
 Name[pl]=Okna
+Name[pt]=Comportamento das Janelas
 Name[pt_BR]=Comportamento da Janela
 Name[ro]=Comportament fereastră
 Name[ru]=Поведение окна
