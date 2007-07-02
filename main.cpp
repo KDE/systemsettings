@@ -29,32 +29,29 @@
 
 #include <iostream>
 
-static KCmdLineOptions options[] =
-{
-	{ "menu <argument>", I18N_NOOP("Menu file"), "systemsettings" },
-	KCmdLineLastOption
-};
-
 int main( int argc, char *argv[] )
 {
   KLocale::setMainCatalog("systemsettings");
 	// About data
-  KAboutData aboutData("systemsettings", I18N_NOOP("System Settings"),
-	  SYSTEM_SETTINGS_VERSION, I18N_NOOP("System Settings"),
-	  KAboutData::License_LGPL, "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd", 0, 0);
-  aboutData.addAuthor("Benjamin C. Meyer", I18N_NOOP("Author"),
+  KAboutData aboutData("systemsettings", 0, ki18n("System Settings"),
+	  SYSTEM_SETTINGS_VERSION, ki18n("System Settings"),
+	  KAboutData::License_LGPL, ki18n("(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"));
+  aboutData.addAuthor(ki18n("Benjamin C. Meyer"), ki18n("Author"),
 	  "ben+systempreferences@meyerhome.net");
-  aboutData.addAuthor("Jonathan Riddell", I18N_NOOP("Contributor"),
+  aboutData.addAuthor(ki18n("Jonathan Riddell"), ki18n("Contributor"),
 	  "jriddell@ubuntu.com");
-  aboutData.addAuthor("Michael D. Stemle", I18N_NOOP("Contributor"),
+  aboutData.addAuthor(ki18n("Michael D. Stemle"), ki18n("Contributor"),
 	  "manchicken@notsosoft.net");
-  aboutData.addAuthor("Simon Edwards", I18N_NOOP("Contributor"),
+  aboutData.addAuthor(ki18n("Simon Edwards"), ki18n("Contributor"),
 	  "simon@simonzone.com");
-  aboutData.addAuthor("Ellen Reitmayr", I18N_NOOP("Usability"),
+  aboutData.addAuthor(ki18n("Ellen Reitmayr"), ki18n("Usability"),
 	  "ellen@kde.org");
   KCmdLineArgs::init(argc, argv, &aboutData);
 
   // Tell which options are supported
+
+  KCmdLineOptions options;
+  options.add("menu <argument>", ki18n("Menu file"), "systemsettings");
   KCmdLineArgs::addCmdLineOptions( options );
   KUniqueApplication::addCmdLineOptions();
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
