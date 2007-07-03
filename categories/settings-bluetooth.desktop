@@ -7,5 +7,6 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=kdebluetooth
 
 Name=Bluetooth
+Name[fa]=بلوتوث
 Name[sv]=Blåtand
 Name[zh_TW]=藍芽
