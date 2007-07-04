@@ -7,11 +7,13 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 
 Icon=folder_html
 Name=Sharing
+Name[el]=Διαμοιρασμός
 Name[es]=Compartición
 Name[fa]=اشتراک
 Name[ga]=Roinnt
 Name[ja]=共有
 Name[nds]=Delen
+Name[nl]=Delen
 Name[pt]=Partilha
 Name[pt_BR]=Partilha
 Name[sv]=Delning

@@ -7,11 +7,13 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=network_local
 
 Name=Network Settings
+Name[el]=Ρυθμίσεις δικτύου
 Name[es]=Opciones de red
 Name[fa]=تنظیمات شبکه
 Name[ga]=Socruithe Líonra
 Name[ja]=ネットワークの設定
 Name[nds]=Nettwarkinstellen
+Name[nl]=Netwerkinstellingen
 Name[pt]=Configuração da Rede
 Name[pt_BR]=Configuração da Rede
 Name[sv]=Nätverksinställningar

@@ -7,10 +7,12 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=preferences-desktop-personal
 
 Name=Personal
+Name[el]=Προσωπικά
 Name[fa]=شخصی
 Name[ga]=Pearsanta
 Name[ja]=個人
 Name[nds]=Persöönlich
+Name[nl]=Persoonlijk
 Name[pt]=Pessoal
 Name[pt_BR]=Pessoal
 Name[sv]=Personligt

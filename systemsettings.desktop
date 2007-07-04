@@ -7,11 +7,13 @@ DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 
 Name=System Settings
+Name[el]=Ρυθμίσεις συστήματος
 Name[es]=Opciones del sistema
 Name[fa]=تنظیمات سیستم
 Name[ga]=Socruithe an Chórais
 Name[ja]=システム設定
 Name[nds]=Systeeminstellen
+Name[nl]=Systeeminstellingen
 Name[pt]=Configuração do Sistema
 Name[pt_BR]=Configuração do Sistema
 Name[sv]=Systeminställningar

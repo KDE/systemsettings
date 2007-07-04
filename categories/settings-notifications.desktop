@@ -7,11 +7,13 @@ X-KDE-System-Settings-Parent-Category=look-and-feel
 Icon=knotify
 
 Name=Notifications
+Name[el]=Ειδοποιήσεις
 Name[es]=Notificaciones
 Name[fa]=اخطارها
 Name[ga]=Fógairt
 Name[ja]=通知
 Name[nds]=Bescheden
+Name[nl]=Meldingen
 Name[pt]=Notificações
 Name[pt_BR]=Notificações
 Name[sv]=Underrättelser

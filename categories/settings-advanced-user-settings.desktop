@@ -7,11 +7,13 @@ X-KDE-System-Settings-Parent-Category=advanced
 Icon=userconfig
 
 Name=Advanced User Settings
+Name[el]=Προχωρημένες ρυθμίσεις χρήστη
 Name[es]=Opciones para usuarios avanzados
 Name[fa]=تنظیمات کاربر پیشرفته
 Name[ga]=Ardsocruithe Úsáideora
 Name[ja]=詳細なユーザ設定
 Name[nds]=Verwiedert Brukerinstellen
+Name[nl]=Uitgebreide instellingen
 Name[pt]=Configuração Avançada do Utilizador
 Name[pt_BR]=Configuração Avançada do Utilizador
 Name[sv]=Avancerade användarinställningar

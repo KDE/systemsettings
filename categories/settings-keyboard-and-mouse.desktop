@@ -7,11 +7,13 @@ X-KDE-System-Settings-Parent-Category=computer-administration
 Icon=keyboard
 
 Name=Keyboard & Mouse
+Name[el]=Πληκτρολόγιο & ποντίκι
 Name[es]=Teclado y ratón
 Name[fa]=صفحه کلید و موشی
 Name[ga]=Méarchlár agus Luch
 Name[ja]=キーボードとマウス
 Name[nds]=Tastatuur un Muus
+Name[nl]=Toetsenbord en muis
 Name[pt]=Rato e Teclado
 Name[pt_BR]=Rato e Teclado
 Name[sv]=Tangentbord och mus
