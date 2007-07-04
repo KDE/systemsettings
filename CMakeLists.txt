@@ -1,4 +1,3 @@
-PROJECT(systemsettings)
 
 ADD_SUBDIRECTORY( categories ) 
 
