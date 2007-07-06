@@ -18,7 +18,7 @@ KDE4_AUTOMOC(${systemsettings_SRCS})
 
 KDE4_ADD_EXECUTABLE(systemsettings ${systemsettings_SRCS})
 
-TARGET_LINK_LIBRARIES(systemsettings  ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBRARY} )
+TARGET_LINK_LIBRARIES(systemsettings  ${KDE4_KUTILS_LIBS} )
 
 INSTALL( TARGETS systemsettings DESTINATION ${BIN_INSTALL_DIR})
 
