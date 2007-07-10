@@ -14,7 +14,6 @@ SET(systemsettings_SRCS
 #   kicongrouppage.cpp
    )
 
-KDE4_AUTOMOC(${systemsettings_SRCS})
 
 KDE4_ADD_EXECUTABLE(systemsettings ${systemsettings_SRCS})
 
