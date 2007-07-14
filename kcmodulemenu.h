@@ -77,7 +77,7 @@ class KCModuleMenuPrivate;
  */
 class MenuItem {
 public:
-	MenuItem( bool isMenu=false ){ menu = isMenu; };	
+	MenuItem( bool isMenu=false ){ menu = isMenu; }	
 	bool menu;
 	QString subMenu;
 	QString caption;

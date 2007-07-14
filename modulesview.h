@@ -31,7 +31,7 @@ class RowIconView : public QListWidget
 {
 
 public:
-	RowIconView( QWidget* parent ): QListWidget( parent ){ };
+	RowIconView( QWidget* parent ): QListWidget( parent ){ }
 		
 	// Figure out the hight/width to have only one row
 	QSize minimumSizeHint() const {
@@ -61,7 +61,7 @@ public:
 		int height = ( 2*h ) + f + spacing() * 2 + 32 + lineWidth()*2 + 10;
 	*/	
 		return QSize( width, height );
-	};
+	}
 };
 
 class QBoxLayout;
