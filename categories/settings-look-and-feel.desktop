@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=looknfeel
 
 Name=Look & Feel
+Name[de]=Erscheinungsbild & Verhalten
 Name[el]=Όψη & αίσθηση
 Name[es]=Aspecto y comportamiento
 Name[ja]=外観
@@ -15,4 +16,5 @@ Name[nl]=Uiterlijk en gedrag
 Name[pt]=Aparência e Comportamento
 Name[pt_BR]=Aparência e Comportamento
 Name[sv]=Utseende och känsla
+Name[uk]=Вигляд і поведінка
 Name[zh_TW]=外觀與感覺

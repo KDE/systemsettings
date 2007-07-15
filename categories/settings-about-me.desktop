@@ -6,6 +6,7 @@ X-KDE-System-Settings-Category=about-me
 X-KDE-System-Settings-Parent-Category=personal
 
 Name=About Me
+Name[de]=Persönliche Informationen
 Name[el]=Σχετικά με μένα
 Name[es]=Acerca de mí
 Name[ga]=Maidir Liomsa
@@ -15,5 +16,6 @@ Name[nl]=Info over mij
 Name[pt]=Acerca de Mim
 Name[pt_BR]=Acerca de Mim
 Name[sv]=Om mig
+Name[uk]=Про мене
 Name[zh_TW]=關於我
 Icon=identity

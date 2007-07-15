@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=personal
 Icon=locale
 
 Name=Regional & Language
+Name[de]=Land/Region & Sprache
 Name[el]=Τοπικές ρυθμίσεις & γλώσσα
 Name[es]=Región e idioma
 Name[fa]=منطقه‌ای و زبان
@@ -17,4 +18,5 @@ Name[nl]=Land/regio en taal
 Name[pt]=Região e Língua
 Name[pt_BR]=Região e Língua
 Name[sv]=Region och språk
+Name[uk]=Країна/регіон і мова
 Name[zh_TW]=地區與語言

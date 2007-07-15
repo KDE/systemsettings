@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=systemtray
 
 Name=Computer Administration
+Name[de]=Systemverwaltung
 Name[el]=Διαχείριση συστήματος
 Name[es]=Administración del equipo
 Name[fa]=سرپرستی رایانه
@@ -16,4 +17,5 @@ Name[nl]=Computerbeheer
 Name[pt]=Administração do Computador
 Name[pt_BR]=Administração do Computador
 Name[sv]=Datoradministration
+Name[uk]=Адміністрування комп'ютера
 Name[zh_TW]=電腦管理
