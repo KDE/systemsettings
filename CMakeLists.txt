@@ -24,7 +24,7 @@ INSTALL( TARGETS systemsettings DESTINATION ${BIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES systemsettings.desktop DESTINATION ${XDG_APPS_DIR} )
+install( FILES systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR} )
 install( FILES systemsettingsui.rc DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
 
