@@ -87,7 +87,7 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 	for (int i = 0; i < modules.size(); ++i) {
 		const KService* entry = modules.at(i).data();
 		QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-		if( category == parentName && parentName != "" ) {
+		if( category == parentName && !parentName.isEmpty() ) {
 			// Add the module info to the menu
 			KCModuleInfo module(entry->desktopEntryPath());
 			append(module);
