@@ -81,7 +81,7 @@ bool KcmSearch::itemMatches( const KCModuleInfo &module, const QString &search )
 		return true;
 	}
 
-	QRegExp reSearch("*"+search+"*", Qt::CaseInsensitive, QRegExp::Wildcard);
+	QRegExp reSearch('*'+search+'*', Qt::CaseInsensitive, QRegExp::Wildcard);
 
 	// Look in keywords
 	QStringList kw = module.keywords();

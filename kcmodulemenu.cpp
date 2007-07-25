@@ -39,7 +39,7 @@ KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 {
 	// Make sure we can find the menu
 	QString menuRoot = "System Settings"; //just a handy key to use, not part of UI
-	d->basePath = menuRoot + "/";
+	d->basePath = menuRoot + '/';
 	readMenu( "", menuRoot );
 
 	QMapIterator<QString, QList<MenuItem> > i(d->menus);
@@ -76,10 +76,10 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 		if ( parentCategory == parentName ){
 			MenuItem menuItem(true);
 			menuItem.caption = entry->name();
-			menuItem.subMenu = caption + "/" + entry->name() + "/";
+			menuItem.subMenu = caption + '/' + entry->name() + '/';
 			currentMenu.append( menuItem );
 
-			readMenu( category, caption + "/" + entry->name() );
+			readMenu( category, caption + '/' + entry->name() );
 		}
 	}
 
@@ -98,7 +98,7 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 		}
 	}
 
-	d->menus.insert( caption + "/", currentMenu );
+	d->menus.insert( caption + '/', currentMenu );
 }
 
 bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
