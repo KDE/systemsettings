@@ -286,7 +286,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 
 	groupWidget->show();
 
-	// We resize and expand the window if neccessary, but only once the window has been updated.
+	// We resize and expand the window if necessary, but only once the window has been updated.
 	// Some modules seem to dynamically change thier size. The new size is only available
 	// once the dialog is updated. :-/ -SBE
 
