@@ -14,7 +14,7 @@
  *
  * You should have received a copy of the GNU Library General Public License
  * along with this library; see the file COPYING.LIB.  If not, write to
- * the Free Software Foundation, Inc., 51 Franklin Steet, Fifth Floor,
+ * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  */
 
@@ -49,7 +49,7 @@ class MainWindow : public KXmlGuiWindow
 	Q_OBJECT
 
 public:
-	MainWindow(const QString &menufile="systemsettings", QWidget *parent=0);
+	explicit MainWindow(const QString &menufile="systemsettings", QWidget *parent=0);
 	~MainWindow();
 
 private slots:
