@@ -63,7 +63,7 @@ MainWindow::MainWindow(const QString & menuFile, QWidget *parent) :
 	moduleTabs = new KTabWidget(this, QTabWidget::North|QTabWidget::Rounded);
 	buildMainWidget();
 	buildActions();
-	setupGUI(ToolBar|Save|Create,QString::null);
+	setupGUI(ToolBar|Save|Create,QString());
 	widgetChange();
 	menuBar()->hide();
 }
@@ -177,7 +177,7 @@ void MainWindow::buildActions()
 	searchAction->setDefaultWidget(hbox);
 	actionCollection()->addAction( "search", searchAction );
 	searchAction->setShortcutConfigurable( false );
-	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.") );
+	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
 
 	// Now it's time to draw our display
     foreach( MenuItem item , menu->menuList() ) {

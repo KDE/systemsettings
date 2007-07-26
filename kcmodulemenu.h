@@ -113,21 +113,21 @@ public:
 	 * @param path to return submenus from.
 	 * @return all items in menuPath.
 	 */
-	QList<MenuItem> menuList( const QString &menuPath=QString::null );
+	QList<MenuItem> menuList( const QString &menuPath=QString() );
 
 	/**
 	 * Returns the modules in a menu path. An empty string is the top level.
 	 * @param menu to return modules from.
 	 * @returns only the top level modules of menuPath
 	 */
-	QList<KCModuleInfo> modules( const QString &menuPath=QString::null );
+	QList<KCModuleInfo> modules( const QString &menuPath=QString() );
 
 	/**
 	 * Returns the sub menus of a menu path. An empty string is the top level.
 	 * @param path to return submenus from.
 	 * @return only the submenus of menuPath.
 	 */
-	QStringList submenus( const QString &menuPath=QString::null );
+	QStringList submenus( const QString &menuPath=QString() );
 
 
 protected:
