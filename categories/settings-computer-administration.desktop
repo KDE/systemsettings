@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=computer-administration
 X-KDE-System-Settings-Parent-Category=general
-Icon=systemtray
+Icon=preferences-system
 
 Name=Computer Administration
 Name[bg]=Администрация

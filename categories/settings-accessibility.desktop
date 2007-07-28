@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=accessibility
 X-KDE-System-Settings-Parent-Category=personal
-Icon=access
+Icon=preferences-desktop-accessibility
 
 Name=Accessibility
 Name[af]=Toeganklikheid

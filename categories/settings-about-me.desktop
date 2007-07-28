@@ -4,6 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=about-me
 X-KDE-System-Settings-Parent-Category=personal
+Icon=preferences-desktop-user
 
 Name=About Me
 Name[de]=Persönliche Informationen
@@ -19,4 +20,3 @@ Name[pt_BR]=Acerca de Mim
 Name[sv]=Om mig
 Name[uk]=Про мене
 Name[zh_TW]=關於我
-Icon=identity

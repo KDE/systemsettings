@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=system
 X-KDE-System-Settings-Parent-Category=advanced
-Icon=kcmsystem
+Icon=preferences-system
 
 Name=System
 Name[af]=Stelsel

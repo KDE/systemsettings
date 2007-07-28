@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Icon=kcmkwm
 Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=window-behaviour
 X-KDE-System-Settings-Parent-Category=look-and-feel
+Icon=preferences-system-windows-behaviour
 
 Name=Window Behavior
 Name[af]=Venster Gedrag

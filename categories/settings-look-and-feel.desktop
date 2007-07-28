@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=look-and-feel
 X-KDE-System-Settings-Parent-Category=general
-Icon=looknfeel
+Icon=preferences-desktop-theme
 
 Name=Look & Feel
 Name[de]=Erscheinungsbild & Verhalten

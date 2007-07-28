@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=notifications
 X-KDE-System-Settings-Parent-Category=look-and-feel
-Icon=knotify
+Icon=preferences-desktop-notification
 
 Name=Notifications
 Name[bg]=Уведомяване

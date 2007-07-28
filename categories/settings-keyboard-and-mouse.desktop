@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=keyboard-and-mouse
 X-KDE-System-Settings-Parent-Category=computer-administration
-Icon=keyboard
+Icon=preferences-desktop-keyboard
 
 Name=Keyboard & Mouse
 Name[bg]=Клавиатурни подредби

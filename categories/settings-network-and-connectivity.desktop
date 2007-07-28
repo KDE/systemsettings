@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=network-and-connectivity
 X-KDE-System-Settings-Parent-Category=general
-Icon=network-wired
+Icon=preferences-system-network
 
 Name=Network & Connectivity
 Name[de]=Netzwerk & Verbindungen

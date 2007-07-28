@@ -4,8 +4,8 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=sharing
 X-KDE-System-Settings-Parent-Category=network-and-connectivity
+Icon=preferences-system-network-share
 
-Icon=folder_html
 Name=Sharing
 Name[bg]=Испания
 Name[de]=Freigabe

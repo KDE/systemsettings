@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=regional-and-language
 X-KDE-System-Settings-Parent-Category=personal
-Icon=locale
+Icon=preferences-desktop-locale
 
 Name=Regional & Language
 Name[bg]=Държава и език

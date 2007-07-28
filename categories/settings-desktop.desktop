@@ -1,11 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Type=Directory
 Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=desktop
 X-KDE-System-Settings-Parent-Category=look-and-feel
-Icon=desktop
+Icon=preferences-desktop
 
 Name=Desktop
 Name[af]=Werkskerm
