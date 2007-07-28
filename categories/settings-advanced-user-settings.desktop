@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=advanced
 Icon=userconfig
 
 Name=Advanced User Settings
+Name[bg]=Настройване предпазителя на екрана
 Name[de]=Erweiterte Benutzereinstellungen
 Name[el]=Προχωρημένες ρυθμίσεις χρήστη
 Name[es]=Opciones para usuarios avanzados
