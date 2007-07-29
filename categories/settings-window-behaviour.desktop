@@ -4,7 +4,7 @@ Type=Service
 ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=window-behaviour
 X-KDE-System-Settings-Parent-Category=look-and-feel
-Icon=preferences-system-windows-behaviour
+Icon=preferences-system-windows
 
 Name=Window Behavior
 Name[af]=Venster Gedrag
