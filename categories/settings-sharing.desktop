@@ -7,12 +7,13 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=preferences-system-network-share
 
 Name=Sharing
+Name[be]=Абмен
 Name[bg]=Испания
 Name[de]=Freigabe
 Name[el]=Διαμοιρασμός
 Name[es]=Compartición
 Name[fa]=اشتراک
-Name[ga]=Roinnt
+Name[ga]=Comhroinnt
 Name[ja]=共有
 Name[nds]=Delen
 Name[nl]=Delen
