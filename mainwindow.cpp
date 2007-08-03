@@ -184,7 +184,7 @@ void MainWindow::buildActions()
         if( item.menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( item.subMenu );
 			if ( !group ){
-				kDebug() << "Invalid Group \"" << item.subMenu << "\".  Check your installation."<< endl;
+				kDebug() << "Invalid Group \"" << item.subMenu << "\".  Check your installation.";
 				continue;
 			}
 
@@ -192,7 +192,7 @@ void MainWindow::buildActions()
 			connect(newAction, SIGNAL(toggled(bool)), this, SLOT(slotTopPage()));
 
 			pageActions.append(newAction);
-			kDebug() << "relpath is :" << group->relPath() << endl;
+			kDebug() << "relpath is :" << group->relPath();
 		}
 	}
 }
@@ -244,7 +244,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		return;
 
 
-        kDebug() << "item selected: " << item->text() << endl;
+        kDebug() << "item selected: " << item->text();
 	groupWidget = moduleItemToWidgetDict[mItem];
 	scrollView = moduleItemToScrollerDict[mItem];
 

@@ -161,7 +161,7 @@ void KCMultiWidget::apply()
 	}
 	for( QStringList::const_iterator it = updatedModules.begin(); it != updatedModules.end(); ++it )
 	{
-		kDebug() << k_funcinfo << *it << " " << ( *it ) << endl;
+		kDebug() << k_funcinfo << *it << " " << ( *it );
 		emit configCommitted( ( *it ).toLatin1() );
 	}
 	emit configCommitted();
@@ -200,7 +200,7 @@ void KCMultiWidget::slotClose() {
 
 void KCMultiWidget::clientChanged(bool state)
 {
-	kDebug( 710 ) << k_funcinfo << state << endl;
+	kDebug( 710 ) << k_funcinfo << state;
 	ModuleList::Iterator end = m_modules.end();
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
 		if( ( *it ).kcm->changed() ) {
@@ -228,12 +228,12 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		QStringList parentmodulenames, bool withfallback)
 {
 	if( !moduleinfo.service() ) {
-		kWarning() << "ModuleInfo has no associated KService" << endl;
+		kWarning() << "ModuleInfo has no associated KService" ;
 		return;
 	}
 
 	if ( !KAuthorized::authorizeControlModule( moduleinfo.service()->menuId() )) {
-		kWarning() << "Not authorised to load module" << endl;
+		kWarning() << "Not authorised to load module" ;
 		return;
 	}
 

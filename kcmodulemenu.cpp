@@ -46,7 +46,7 @@ KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 	/*debugging
 	while (i.hasNext()) {
 		i.next();
-		kDebug() << "menu: " << i.key() << endl;
+		kDebug() << "menu: " << i.key();
 		QList<MenuItem> items = i.value();
 		for (int i = 0; i < items.size(); ++i) {
 			kDebug() << "  item menu: " << items.at(i).caption <<  endl;
