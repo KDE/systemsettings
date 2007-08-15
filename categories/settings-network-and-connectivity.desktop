@@ -7,11 +7,13 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=preferences-system-network
 
 Name=Network & Connectivity
+Name[bg]=Интернет и мрежа
 Name[de]=Netzwerk & Verbindungen
 Name[el]=Δίκτυο & συνδεσιμότητα
 Name[es]=Red y conectividad
 Name[fa]=شبکه و اتصال
 Name[ga]=Líonra & Nascacht
+Name[he]=רשת וקישוריות
 Name[ja]=ネットワークと接続
 Name[km]=បណ្តាញ និង​ការតភ្ជាប់ 
 Name[nds]=Nettwark un Verbinnen
