@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=advanced
 Icon=system-users
 
 Name=Advanced User Settings
+Name[ar]=إعدادات المستخدم المتقدمة
 Name[be]=Адмысловыя настаўленні карыстальніка
 Name[bg]=Настройване предпазителя на екрана
 Name[de]=Erweiterte Benutzereinstellungen
@@ -18,6 +19,7 @@ Name[he]=הגדרות משתמש מתקדמות
 Name[ja]=詳細なユーザ設定
 Name[km]=ការ​កំណត់​អ្នកប្រើ​កម្រិត​ខ្ពស់
 Name[nds]=Verwiedert Brukerinstellen
+Name[ne]=उन्नत प्रयोगकर्ता सेटिङ
 Name[nl]=Uitgebreide instellingen
 Name[pa]=ਤਕਨੀਕੀ ਯੂਜ਼ਰ ਸੈਟਿੰਗ
 Name[pt]=Configuração Avançada do Utilizador

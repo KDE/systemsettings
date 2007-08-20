@@ -7,7 +7,7 @@ X-KDE-System-Settings-Parent-Category=personal
 Icon=preferences-desktop-user
 
 Name=About Me
-Name[ar]=أجهضت
+Name[ar]=نبذة عني
 Name[bg]=За мен
 Name[de]=Persönliche Informationen
 Name[el]=Σχετικά με μένα
@@ -18,6 +18,7 @@ Name[he]=אודותיי
 Name[ja]=個人情報
 Name[km]=អំពី​ខ្ញុំ​
 Name[nds]=Brukerdaten
+Name[ne]=मेरो बारेमा
 Name[nl]=Info over mij
 Name[pa]=ਮੇਰੇ ਬਾਰੇ
 Name[pt]=Acerca de Mim

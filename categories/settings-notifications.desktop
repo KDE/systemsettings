@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=look-and-feel
 Icon=preferences-desktop-notification
 
 Name=Notifications
+Name[ar]=إعلامات
 Name[be]=Абвяшчэнні
 Name[bg]=Уведомяване
 Name[de]=Benachrichtigungen
@@ -18,6 +19,7 @@ Name[he]=הודעות מערכת
 Name[ja]=通知
 Name[km]=សេចក្តីជូនដំណឹង​
 Name[nds]=Bescheden
+Name[ne]=सूचना
 Name[nl]=Meldingen
 Name[pa]=ਨੋਟੀਫਿਕੇਸ਼ਨ
 Name[pt]=Notificações

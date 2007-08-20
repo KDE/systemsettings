@@ -7,6 +7,7 @@ DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 
 Name=System Settings
+Name[ar]=إعدادات النظام
 Name[be]=Сістэмныя настаўленні
 Name[bg]=Системни настройки
 Name[de]=Systemeinstellungen
@@ -18,6 +19,7 @@ Name[he]=הגדרות מערכת
 Name[ja]=システム設定
 Name[km]=ការ​កំណត់​ប្រព័ន្ធ​
 Name[nds]=Systeeminstellen
+Name[ne]=प्रणाली सेटिङ
 Name[nl]=Systeeminstellingen
 Name[pa]=ਸਿਸਟਮ ਸੈਟਿੰਗ
 Name[pt]=Configuração do Sistema

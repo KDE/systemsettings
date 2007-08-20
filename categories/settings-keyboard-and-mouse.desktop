@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=computer-administration
 Icon=preferences-desktop-keyboard
 
 Name=Keyboard & Mouse
+Name[ar]=لوحة المفاتيح والفأرة
 Name[be]=Клавіятура і мыш
 Name[bg]=Клавиатурни подредби
 Name[de]=Tastatur & Maus
@@ -18,6 +19,7 @@ Name[he]=מקלדת ועכבר
 Name[ja]=キーボードとマウス
 Name[km]=ក្តារ​ចុច​ និង​កណ្តុរ​
 Name[nds]=Tastatuur un Muus
+Name[ne]=कुञ्जीपाटी र माउस
 Name[nl]=Toetsenbord en muis
 Name[pa]=ਕੀ-ਬੋਰਡ ਅਤੇ ਮਾਊਂਸ
 Name[pt]=Rato e Teclado

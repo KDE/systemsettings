@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=preferences-system
 
 Name=Computer Administration
+Name[ar]=إدارة الحاسوب
 Name[be]=Адміністраванне камп'ютэру
 Name[bg]=Администрация
 Name[de]=Systemverwaltung
@@ -17,6 +18,7 @@ Name[he]=ניהול המחשב
 Name[ja]=コンピュータの管理
 Name[km]=កា​រគ្រប់គ្រង​កុំព្យូទ័រ​
 Name[nds]=Systeempleeg
+Name[ne]=कम्प्युटर प्रशासन
 Name[nl]=Computerbeheer
 Name[pa]=ਕੰਪਿਊਟਰ ਪਰਸ਼ਾਸ਼ਨ
 Name[pt]=Administração do Computador

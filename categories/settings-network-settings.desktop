@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=preferences-system-network
 
 Name=Network Settings
+Name[ar]=إعدادات الشبكة
 Name[be]=Настаўленні сеткі
 Name[bg]=Мрежови настройки
 Name[de]=Netzwerk-Einstellungen
@@ -18,6 +19,7 @@ Name[he]=הגדרות רשת
 Name[ja]=ネットワークの設定
 Name[km]=ការ​កំណត់​បណ្តាញ​
 Name[nds]=Nettwarkinstellen
+Name[ne]=सञ्जाल सेटिङ
 Name[nl]=Netwerkinstellingen
 Name[pa]=ਨੈਟਵਰਕ ਸੈਟਿੰਗ
 Name[pt]=Configuração da Rede
