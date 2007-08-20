@@ -161,7 +161,7 @@ void KCMultiWidget::apply()
 	}
 	for( QStringList::const_iterator it = updatedModules.begin(); it != updatedModules.end(); ++it )
 	{
-		kDebug() << k_funcinfo << *it << " " << ( *it );
+		kDebug() << *it << " " << ( *it );
 		emit configCommitted( ( *it ).toLatin1() );
 	}
 	emit configCommitted();
@@ -200,7 +200,7 @@ void KCMultiWidget::slotClose() {
 
 void KCMultiWidget::clientChanged(bool state)
 {
-	kDebug( 710 ) << k_funcinfo << state;
+	kDebug( 710 ) << state;
 	ModuleList::Iterator end = m_modules.end();
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
 		if( ( *it ).kcm->changed() ) {
