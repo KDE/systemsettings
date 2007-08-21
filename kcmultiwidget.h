@@ -20,8 +20,8 @@
 
 */
 
-#ifndef KCMULTIDIALOG_H
-#define KCMULTIDIALOG_H
+#ifndef KCMULTIWIDGET_H
+#define KCMULTIWIDGET_H
 
 // Qt
 #include <QtCore/QHash>
@@ -262,5 +262,4 @@ private:
 /*   KIconGroupPage iconPage; */
 };
 
-#endif //KCMULTIDIALOG_H
-
+#endif //KCMULTIWIDGET_H

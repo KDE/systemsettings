@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KCMMODULEMENU_H
-#define KCMMODULEMENU_H
+#ifndef KCMODULEMENU_H
+#define KCMODULEMENU_H
 
 #include <kcmoduleinfo.h>
 //Added by qt3to4:
@@ -156,5 +156,4 @@ private:
 	QString deriveCaptionFromPath( const QString &menuPath );
 };
 
-#endif // KCMMODULEMENU_H
-
+#endif // KCMODULEMENU_H
