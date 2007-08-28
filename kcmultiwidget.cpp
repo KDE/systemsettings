@@ -238,7 +238,6 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 	}
 
 	if(moduleinfo.service()->noDisplay()) {
-		KCModuleLoader::unloadModule(moduleinfo);
 		return;
 	}
 	KCModuleProxy * module;
