@@ -110,28 +110,32 @@ void MainWindow::buildMainWidget()
 
 void MainWindow::buildActions()
 {
-	actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close()));
+	addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
 
 	resetModule = actionCollection() -> addAction("resetModule");
 	resetModule->setText(i18n("Undo Changes"));
 	connect(resetModule, SIGNAL(triggered()), this, SLOT(close()));
 	resetModule->setEnabled(false);
+	addAction(resetModule);
 
 	defaultModule = actionCollection() -> addAction("defaultModule");
 	defaultModule->setText(i18n("Reset to Defaults"));
 	connect(defaultModule, SIGNAL(triggered()), this, SLOT(showAllModules()));;
 	defaultModule->setEnabled(false);
+	addAction(defaultModule);
 
-		showAllAction = actionCollection()->addAction("showAll");
-		showAllAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
-		showAllAction->setText( i18n("Overview") );
-		connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
-		showAllAction->setEnabled(false);
-		showAllAction->setShortcut(i18n("Ctrl+O"));
+	showAllAction = actionCollection()->addAction("showAll");
+	showAllAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
+	showAllAction->setText( i18n("Overview") );
+	connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
+	showAllAction->setEnabled(false);
+	showAllAction->setShortcut(i18n("Ctrl+O"));
+	addAction(showAllAction);
 
 	aboutModuleAction = actionCollection() -> addAction("help_about_module");
 	aboutModuleAction->setText(i18n("About Current Module"));
 	connect(aboutModuleAction, SIGNAL(triggered()), this, SLOT(aboutCurrentModule()));
+	addAction(aboutModuleAction);
 
 	resetModuleHelp();
 
@@ -146,6 +150,7 @@ void MainWindow::buildActions()
 	searchText->setDefaultWidget(searchLabel);
 	actionCollection()->addAction( "searchText", searchText );
 	searchText->setShortcut(Qt::Key_F6);
+	addAction(searchText);
 
 	// Search edit box and result labels
 	QWidget *hbox = new QWidget(0);
@@ -154,6 +159,7 @@ void MainWindow::buildActions()
 	search->setObjectName(QLatin1String("search"));
 	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
 	searchLabel->setBuddy( search );
+	connect(searchText, SIGNAL(triggered()), search, SLOT(setFocus()));
 
 	QWidget* vbox = new QWidget(hbox);
 	generalHitLabel = new QLabel(vbox);
@@ -180,8 +186,8 @@ void MainWindow::buildActions()
 	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
 
 	// Now it's time to draw our display
-    foreach( MenuItem item , menu->menuList() ) {
-        if( item.menu ) {
+	foreach( MenuItem item , menu->menuList() ) {
+        	if( item.menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( item.subMenu );
 			if ( !group ){
 				kDebug() << "Invalid Group \"" << item.subMenu << "\".  Check your installation.";
@@ -223,7 +229,7 @@ void MainWindow::showAllModules()
 	groupWidget = 0;
 	widgetChange();
 
-		showAllAction->setEnabled(false);
+	showAllAction->setEnabled(false);
 	aboutModuleAction->setEnabled(false);
 
 	searchText->setEnabled(true);
