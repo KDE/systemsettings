@@ -147,7 +147,7 @@ signals:
 
 	/**
 	 * Emitted right before a module is shown.
-	 * Usefull for updating caption, help, etc
+	 * Useful for updating caption, help, etc
 	 *
 	 * @param moduleinfo The module that is about to be shown.
 	 * @sense 3.4
