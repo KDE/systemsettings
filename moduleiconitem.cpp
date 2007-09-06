@@ -24,13 +24,43 @@
 #include <kdebug.h>
 #include <kcmoduleinfo.h>
 
+#include <climits>
+
+#include <qapplication.h>
+#include <qpainter.h>
+
 #define IMAGE_SIZE 32
+#define ICON_WIDTH 100
+
+ModuleIconItemDelegate::ModuleIconItemDelegate(QObject *parent) : QItemDelegate(parent)
+{
+}
+
+void ModuleIconItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+	QStyle *style;
+	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
+		style = v3->widget->style();
+	else
+		style = QApplication::style();
+
+	const QSize &decorationSize = option.decorationSize;
+	const QPixmap &pixmap = qvariant_cast<QIcon>(index.data(Qt::DecorationRole)).pixmap(option.decorationSize);
+	int iconX = option.rect.left() + (option.rect.width() - decorationSize.width()) / 2;
+	painter->drawPixmap(iconX, 0, decorationSize.width(), decorationSize.height(), pixmap);
+	
+	QRect textRectangle = option.rect;
+	textRectangle.setTop(textRectangle.top() + decorationSize.height() + style->pixelMetric(QStyle::PM_FocusFrameVMargin));
+	painter->drawText(textRectangle, Qt::AlignHCenter | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString());
+}
+
 
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 	: QListWidgetItem(SmallIcon( module.icon(), IMAGE_SIZE ), module.moduleName(), parent),
 	currentState(K3Icon::DefaultState), imageName(module.icon())
 {
 	modules.append(module);
+	setSize();
 }
 
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const QString &text,
@@ -38,6 +68,7 @@ ModuleIconItem::ModuleIconItem( QListWidget* parent, const QString &text,
 	: QListWidgetItem( SmallIcon( _imageName, IMAGE_SIZE ), text, parent ),
 	currentState(K3Icon::DefaultState), imageName(_imageName)
 {
+	setSize();
 }
 
 void ModuleIconItem::loadIcon( bool enabled )
@@ -48,5 +79,13 @@ void ModuleIconItem::loadIcon( bool enabled )
 
 	currentState = newState;
 	setIcon( DesktopIcon( imageName, IMAGE_SIZE , currentState ) );
+}
+
+void ModuleIconItem::setSize()
+{
+	QStyle *style = listWidget()->style();
+	QFontMetrics fm(font());
+	const QRect &rect = fm.boundingRect(0, 0, ICON_WIDTH, INT_MAX, Qt::TextWordWrap, text());
+	setData(Qt::SizeHintRole, QSize(ICON_WIDTH, IMAGE_SIZE + style->pixelMetric(QStyle::PM_FocusFrameVMargin) + rect.height()));
 }
 

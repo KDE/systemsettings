@@ -143,15 +143,6 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 
 	// Make IconView
 	RowIconView* iconWidget = new RowIconView( this );
-	iconWidget->setFlow(QListView::LeftToRight);
-	iconWidget->setResizeMode(QListView::Adjust);
-	iconWidget->setViewMode(QListView::IconMode);
-	iconWidget->setMovement(QListWidget::Static);
-	iconWidget->setFrameShape( RowIconView::NoFrame );
-	iconWidget->setLineWidth(0);
-	iconWidget->setSpacing(0);
-	iconWidget->setWordWrap(true);//FIXME why doesn't this work?
-	iconWidget->setGridSize(QSize(100, 48));
 	connect(iconWidget, SIGNAL( itemClicked( QListWidgetItem* ) ),
 		      this, SIGNAL( itemSelected( QListWidgetItem* ) ) );
 	connect(iconWidget, SIGNAL( itemActivated( QListWidgetItem* ) ),
@@ -159,12 +150,14 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	groups.append( iconWidget );
 	boxLayout->addWidget( iconWidget );
 
+	int height = 0;
 	// Add all the items in their proper order
 	QList<MenuItem> list = rootMenu->menuList( parentPath );
  	QList<MenuItem>::const_iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
+		ModuleIconItem *item = NULL;
 		if( !(*it).menu ) {
-			(void)new ModuleIconItem( iconWidget, (*it).item );
+			item = new ModuleIconItem( iconWidget, (*it).item );
 		} else {
 			QString path = (*it).subMenu;
 
@@ -179,16 +172,15 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 			}
 
 			if ( ! iconFile.isEmpty() ) {
-				ModuleIconItem *item = new ModuleIconItem( iconWidget, categoryCaption, iconFile);
+				item = new ModuleIconItem( iconWidget, categoryCaption, iconFile);
 				item->modules = rootMenu->modules( path );
 			}
 		}
+		if (item) height = qMax(height, item->data(Qt::SizeHintRole).toSize().height());
 	}
 
 	// give the proper height to make all the items visible
-	// TODO: this should be done whenever the mainwindow is resized (eg dynamically adapt to its new size)
-	QRect r = iconWidget->visualItemRect(iconWidget->item(iconWidget->count() - 1));
-	iconWidget->setMaximumHeight(r.bottom());
+	iconWidget->setMinimumHeight(height);
 }
 
 void ModulesView::clearSelection() {

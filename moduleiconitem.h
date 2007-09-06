@@ -22,10 +22,19 @@
 #ifndef MODULEICONITEM_H
 #define MODULEICONITEM_H
 
+#include <QItemDelegate>
 #include <QListWidgetItem>
 #include <QList>
 
 class KCModuleInfo;
+
+class ModuleIconItemDelegate : public QItemDelegate
+{
+	public:
+		ModuleIconItemDelegate(QObject *parent);
+		
+		void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+};
 
 /**
  * Stores information about what modules goes with this item.
@@ -48,6 +57,8 @@ public:
 	QList<KCModuleInfo> modules;
 					
 private:
+	void setSize();
+
 	int currentState;
 	QString imageName;
 };

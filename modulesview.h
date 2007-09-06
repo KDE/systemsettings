@@ -21,6 +21,8 @@
 #ifndef MODULESVIEW_H
 #define MODULESVIEW_H
 
+#include "moduleiconitem.h"
+
 #include <QListWidget>
 #include <QList>
 
@@ -31,7 +33,15 @@ class RowIconView : public QListWidget
 {
 
 public:
-	RowIconView( QWidget* parent ): QListWidget( parent ){ }
+	RowIconView( QWidget* parent ) : QListWidget( parent )
+	{
+		setResizeMode(Adjust);
+		setViewMode(IconMode);
+		setMovement(Static);
+		setFrameShape(NoFrame);
+		setWordWrap(true);
+		setItemDelegate(new ModuleIconItemDelegate(this));
+	}
 		
 	// Figure out the hight/width to have only one row
 	QSize minimumSizeHint() const {
