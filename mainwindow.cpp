@@ -85,7 +85,7 @@ void MainWindow::buildMainWidget()
 	QScrollArea *modulesScroller;
 	moduleTabs->show();
 
-    foreach( MenuItem item , subMenus ) {
+    foreach( const MenuItem &item , subMenus ) {
 		if( item.menu ) {
 			modulesScroller = new QScrollArea(moduleTabs);
 
@@ -186,7 +186,7 @@ void MainWindow::buildActions()
 	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
 
 	// Now it's time to draw our display
-	foreach( MenuItem item , menu->menuList() ) {
+	foreach( const MenuItem &item , menu->menuList() ) {
         	if( item.menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( item.subMenu );
 			if ( !group ){

@@ -152,7 +152,7 @@ void KCMultiWidget::apply()
 			m->save();
 			QStringList names = moduleParentComponents[ m ];
 
-            foreach ( QString name , names )
+            foreach ( const QString &name , names )
             {
                 if ( updatedModules.indexOf(name) == -1 )
                     updatedModules.append(name);
