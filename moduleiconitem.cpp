@@ -38,20 +38,32 @@ ModuleIconItemDelegate::ModuleIconItemDelegate(QObject *parent) : QItemDelegate(
 
 void ModuleIconItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+	painter->save();
+	
 	QStyle *style;
-	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option))
+	bool selected = option.state & QStyle::State_Selected || option.state & QStyle::State_HasFocus;
+	if (const QStyleOptionViewItemV3 *v3 = qstyleoption_cast<const QStyleOptionViewItemV3 *>(&option)) {
 		style = v3->widget->style();
-	else
+		if (!v3->widget->hasFocus()) selected = false;
+	} else {
 		style = QApplication::style();
+	}
 
 	const QSize &decorationSize = option.decorationSize;
-	const QPixmap &pixmap = qvariant_cast<QIcon>(index.data(Qt::DecorationRole)).pixmap(option.decorationSize);
+	QIcon::Mode iconMode = QIcon::Normal;
+	if (selected) iconMode = QIcon::Selected;
+	const QPixmap &pixmap = qvariant_cast<QIcon>(index.data(Qt::DecorationRole)).pixmap(option.decorationSize, iconMode);
 	int iconX = option.rect.left() + (option.rect.width() - decorationSize.width()) / 2;
 	painter->drawPixmap(iconX, 0, decorationSize.width(), decorationSize.height(), pixmap);
 	
 	QRect textRectangle = option.rect;
 	textRectangle.setTop(textRectangle.top() + decorationSize.height() + style->pixelMetric(QStyle::PM_FocusFrameVMargin));
+	if (selected) {
+		painter->fillRect(textRectangle, option.palette.brush(QPalette::Normal, QPalette::Highlight));
+		painter->setPen(option.palette.color(QPalette::Normal, QPalette::HighlightedText));
+    }
 	painter->drawText(textRectangle, Qt::AlignHCenter | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString());
+	painter->restore();
 }
 
 
