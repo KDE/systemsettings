@@ -64,13 +64,8 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	}
 	layout->addStretch(1);
 
-	// set background colour to the icon row background colour
-	setAutoFillBackground(true);
-	QPalette rowPalette = QApplication::palette();
-	QColor background = rowPalette.color(QPalette::Base);
-	QPalette palette;
-	palette.setColor(backgroundRole(), background);
-	setPalette(palette);
+	setBackgroundRole(QPalette::Base);
+	setForegroundRole(QPalette::Text);
 
 	// Align them up!
 /*FIXME
