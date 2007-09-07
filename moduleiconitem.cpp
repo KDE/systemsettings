@@ -59,8 +59,8 @@ void ModuleIconItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 	QRect textRectangle = option.rect;
 	textRectangle.setTop(textRectangle.top() + decorationSize.height() + style->pixelMetric(QStyle::PM_FocusFrameVMargin));
 	if (selected) {
-		painter->fillRect(textRectangle, option.palette.brush(QPalette::Normal, QPalette::Highlight));
-		painter->setPen(option.palette.color(QPalette::Normal, QPalette::HighlightedText));
+		painter->fillRect(textRectangle, option.palette.brush(QPalette::Highlight));
+		painter->setPen(option.palette.color(QPalette::HighlightedText));
     }
 	painter->drawText(textRectangle, Qt::AlignHCenter | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString());
 	painter->restore();
