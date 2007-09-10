@@ -89,7 +89,7 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 		QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
 		if( category == parentName && !parentName.isEmpty() ) {
 			// Add the module info to the menu
-			KCModuleInfo module(entry->desktopEntryPath());
+			KCModuleInfo module(entry->entryPath());
 			append(module);
 			MenuItem infoItem(false);
 			infoItem.caption = entry->name();
