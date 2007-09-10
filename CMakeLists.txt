@@ -17,7 +17,8 @@ SET(systemsettings_SRCS
 
 KDE4_ADD_EXECUTABLE(systemsettings ${systemsettings_SRCS})
 
-TARGET_LINK_LIBRARIES(systemsettings  ${KDE4_KUTILS_LIBS} )
+# Uses KIO for KRun and KUtils for KCModuleInfo
+TARGET_LINK_LIBRARIES(systemsettings ${KDE4_KUTILS_LIBS} ${KDE4_KIO_LIBS} )
 
 INSTALL( TARGETS systemsettings DESTINATION ${BIN_INSTALL_DIR})
 
