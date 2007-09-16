@@ -166,9 +166,10 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 				}
 			}
 
-			if ( ! iconFile.isEmpty() ) {
+			const QList<KCModuleInfo> &modules = rootMenu->modules( path );
+			if ( ! iconFile.isEmpty() && modules.count() > 0 ) {
 				item = new ModuleIconItem( iconWidget, categoryCaption, iconFile);
-				item->modules = rootMenu->modules( path );
+				item->modules = modules;
 			}
 		}
 		if (item) height = qMax(height, item->data(Qt::SizeHintRole).toSize().height());
