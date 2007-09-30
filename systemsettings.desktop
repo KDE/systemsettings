@@ -37,5 +37,5 @@ Name[x-test]=xxSystem Settingsxx
 Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
-X-DCOP-ServiceType=Unique
+X-DBUS-ServiceType=Unique
 Categories=Qt;KDE;Core;
