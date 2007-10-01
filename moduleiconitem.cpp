@@ -69,7 +69,7 @@ void ModuleIconItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 	: QListWidgetItem(SmallIcon( module.icon(), IMAGE_SIZE ), module.moduleName(), parent),
-	currentState(K3Icon::DefaultState), imageName(module.icon())
+	currentState(KIconLoader::DefaultState), imageName(module.icon())
 {
 	modules.append(module);
 	setSize();
@@ -78,14 +78,14 @@ ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const QString &text,
 		const QString &_imageName )
 	: QListWidgetItem( SmallIcon( _imageName, IMAGE_SIZE ), text, parent ),
-	currentState(K3Icon::DefaultState), imageName(_imageName)
+	currentState(KIconLoader::DefaultState), imageName(_imageName)
 {
 	setSize();
 }
 
 void ModuleIconItem::loadIcon( bool enabled )
 {
-	int newState = enabled ? K3Icon::DefaultState : K3Icon::DisabledState;
+	int newState = enabled ? KIconLoader::DefaultState : KIconLoader::DisabledState;
 	if( newState == currentState )
 		return;
 
