@@ -36,6 +36,7 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 {
 	this->rootMenu = rootMenu;	
 	this->menuPath = menuPath;
+	this->categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
 
 	QVBoxLayout *layout = new QVBoxLayout( this );
 	layout->setMargin( 11 );
@@ -97,7 +98,6 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 {
 	//find the category name and search for it
 	QString categoryName = parentPath.section('/', -2, -2);
-	KService::List categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
 	QString iconName;
 	for (int i = 0; i < categories.size(); ++i) {
 		const KService* entry = categories.at(i).data();

@@ -26,6 +26,7 @@
 #include <QListWidget>
 #include <QList>
 
+#include <KService>
 /**
  * Overloaded to give a larger default size that fits with text of two lines.
  */
@@ -102,6 +103,7 @@ private:
 	QList<RowIconView*> groups;
 	KCModuleMenu *rootMenu;
 	QString menuPath;
+	KService::List categories;
 
 	void createRow( const QString &parentPath, QBoxLayout *layout );
 };
