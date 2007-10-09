@@ -28,10 +28,15 @@
 class KCModuleMenuPrivate {
 public:
 	KCModuleMenuPrivate(){
+		categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
+		modules = KServiceTypeTrader::self()->query("KCModule");
 	}
-				
+
 	QMap<QString, QList<MenuItem> > menus;
 	QString basePath;
+	KService::List categories;
+	KService::List modules;
+
 };
 
 KCModuleMenu::KCModuleMenu( const QString &menuName ) :
@@ -67,9 +72,8 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 	typedef KSharedPtr<KService> MySharedPtr_KService;
 
 	QList<MenuItem> currentMenu;
-	KService::List categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
-	for (int i = 0; i < categories.size(); ++i) {
-		const KService* entry = categories.at(i).data();
+	for (int i = 0; i < d->categories.size(); ++i) {
+		const KService* entry = d->categories.at(i).data();
 		QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
 		QString category = entry->property("X-KDE-System-Settings-Category").toString();
 
@@ -83,9 +87,8 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 		}
 	}
 
-	KService::List modules = KServiceTypeTrader::self()->query("KCModule");
-	for (int i = 0; i < modules.size(); ++i) {
-		const KService* entry = modules.at(i).data();
+	for (int i = 0; i < d->modules.size(); ++i) {
+		const KService* entry = d->modules.at(i).data();
 		QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
 		if( category == parentName && !parentName.isEmpty() ) {
 			// Add the module info to the menu
