@@ -50,6 +50,7 @@ void KcmSearch::updateSearch( const QString &search ) {
 	int page = 0;
 	int *hitArray = new int[moduleViewList->count()];
 
+	QRegExp reSearch('*'+search+'*', Qt::CaseInsensitive, QRegExp::Wildcard);
 	while ( moduleViewListIt.hasNext() ) {
 		mainView = moduleViewListIt.next();
 
@@ -58,7 +59,8 @@ void KcmSearch::updateSearch( const QString &search ) {
 			int itemCounter = 0;
 			QListWidgetItem *item = (*it)->item(itemCounter);
 			while( item ) {
-				bool hit = itemMatches(item, search);
+				bool hit = reSearch.indexIn( item->text() ) >= 0 ||
+						itemMatches(item, search);
 				((ModuleIconItem*)item)->loadIcon(hit);
 				count += hit ? 1 : 0;
 				//item = item->nextItem();
