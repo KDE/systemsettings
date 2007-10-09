@@ -59,7 +59,6 @@ KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 		}
 	}
 	*/
-	KService::List offers = KServiceTypeTrader::self()->query("KCModule");
 }
 
 KCModuleMenu::~KCModuleMenu()
