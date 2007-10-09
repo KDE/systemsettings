@@ -85,11 +85,11 @@ void MainWindow::buildMainWidget()
 	QScrollArea *modulesScroller;
 	moduleTabs->show();
 
-    foreach( const MenuItem &item , subMenus ) {
+	foreach( const MenuItem &item , subMenus ) {
 		if( item.menu ) {
 			modulesScroller = new QScrollArea(moduleTabs);
 
-            modulesScroller->setFrameStyle( QFrame::NoFrame );
+			modulesScroller->setFrameStyle( QFrame::NoFrame );
 
 			modulesScroller->setWidgetResizable(true);
 			ModulesView *modulesView = new ModulesView( menu, item.subMenu, modulesScroller );
@@ -187,7 +187,7 @@ void MainWindow::buildActions()
 
 	// Now it's time to draw our display
 	foreach( const MenuItem &item , menu->menuList() ) {
-        	if( item.menu ) {
+		if( item.menu ) {
 			KServiceGroup::Ptr group = KServiceGroup::group( item.subMenu );
 			if ( !group ){
 				kDebug() << "Invalid Group \"" << item.subMenu << "\".  Check your installation.";
