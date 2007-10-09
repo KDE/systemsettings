@@ -42,13 +42,14 @@ public:
 KCModuleMenu::KCModuleMenu( const QString &menuName ) :
 	d( new KCModuleMenuPrivate )
 {
+	Q_UNUSED(menuName);
 	// Make sure we can find the menu
 	QString menuRoot = "System Settings"; //just a handy key to use, not part of UI
 	d->basePath = menuRoot + '/';
 	readMenu( "", menuRoot );
 
-	QMapIterator<QString, QList<MenuItem> > i(d->menus);
 	/*debugging
+	QMapIterator<QString, QList<MenuItem> > i(d->menus);
 	while (i.hasNext()) {
 		i.next();
 		kDebug() << "menu: " << i.key();
@@ -100,6 +101,7 @@ void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 		}
 	}
 
+	qSort(currentMenu);
 	d->menus.insert( caption + '/', currentMenu );
 }
 
@@ -159,3 +161,18 @@ QList<MenuItem> KCModuleMenu::menuList( const QString &menuPath )
 	}
 	return d->menus[menuPath];
 }
+
+bool MenuItem::operator<(const MenuItem& rhs) const
+{
+    //kDebug() << "comparing" << caption << "to" << rhs.caption;
+    if (caption == i18n("General")) {
+        //kDebug() << "General tab ... we're always the smallest even if we have to lie about it";
+        return true;
+    } else if (rhs.caption == i18n("General")) {
+        //kDebug() << "Other guy is 'General', let's always say we're bigger";
+        return false;
+    }
+
+    return caption < rhs.caption;
+}
+
