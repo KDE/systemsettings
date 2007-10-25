@@ -69,8 +69,6 @@ KCModuleMenu::~KCModuleMenu()
 
 void KCModuleMenu::readMenu( const QString &parentName, const QString &caption )
 {
-	typedef KSharedPtr<KService> MySharedPtr_KService;
-
 	QList<MenuItem> currentMenu;
 	for (int i = 0; i < d->categories.size(); ++i) {
 		const KService* entry = d->categories.at(i).data();
@@ -109,11 +107,11 @@ bool KCModuleMenu::addEntry( KSycocaEntry *entry ){
 	if( !entry->isType(KST_KService) )
 		return false;
 	
-  KSharedPtr<KService> service(static_cast<KService*>(entry));
+	KService::Ptr service(static_cast<KService*>(entry));
 
 	if ( !KAuthorized::authorizeControlModule( service->menuId()) ) {
 		return false;
-  }
+	}
 
 	KCModuleInfo module( service );
 	if ( module.library().isEmpty() )
