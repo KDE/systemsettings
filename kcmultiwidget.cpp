@@ -348,12 +348,18 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 
 	ModuleList::Iterator end = m_modules.end();
 	int buttons = 0;
+        bool found = false;
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it ) {
 		if( ( *it ).kcm==d->currentModule) {
 			showButton(User3, ( *it ).adminmode);
 			buttons = ( *it ).buttons;
+                        found = true;
 		}
 	}
+        if (!found) {
+            buttons = d->currentModule->buttons();
+        }
+        //Q_ASSERT(found);
 
         showButton(Apply, buttons & KCModule::Apply);
         showButton(User1, buttons & KCModule::Apply);   // Reset button.
