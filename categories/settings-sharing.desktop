@@ -1,7 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
-ServiceTypes=SystemSettingsCategory
+X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=sharing
 X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=preferences-system-network-share

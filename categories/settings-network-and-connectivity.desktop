@@ -1,7 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Service
-ServiceTypes=SystemSettingsCategory
+X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=network-and-connectivity
 X-KDE-System-Settings-Parent-Category=general
 Icon=preferences-system-network
