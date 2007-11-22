@@ -167,7 +167,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 			}
 
 			const QList<KCModuleInfo> &modules = rootMenu->modules( path );
-			if ( ! iconFile.isEmpty() && modules.count() > 0 ) {
+			if ( modules.count() > 0 ) {
 				item = new ModuleIconItem( iconWidget, categoryCaption, iconFile);
 				item->modules = modules;
 			}
