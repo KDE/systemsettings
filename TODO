@@ -1,7 +1,7 @@
 Save to real config files.
 Module Help link
 Module Default/Reset link
-Use tabs
+X Use tabs
 View Menu should list of all modules
 Remove "module" string
 Fix connection
@@ -11,7 +11,7 @@ command line option to open in new window
 
 Modules
 -lilo _has_ to be spead up
--Date & Time icon should have a Clock
+X -Date & Time icon should have a Clock
 -Samba needs a new icon
 -Remote needs a new icon
 

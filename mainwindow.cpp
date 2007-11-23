@@ -22,8 +22,8 @@
 
 #include <QIcon>
 #include <kstandardaction.h>
-#include <ktoolbarlabelaction.h>
 #include <ktoggletoolbaraction.h>
+#include <ktoolbarspaceraction.h>
 #include <kaboutapplicationdialog.h>
 #include <QLabel>
 #include <QStackedWidget>
@@ -139,15 +139,23 @@ void MainWindow::buildActions()
 
 	resetModuleHelp();
 
-	// "Search:" label, FIXME KToolBarLabelAction not working for me
-	QLabel *searchLabel = new QLabel( this );
+	QWidget *searchWid = new QWidget( this );
+	QLabel * searchIcon = new QLabel( searchWid );
+	searchIcon->setPixmap( BarIcon( "system-search" ) );
+	QLabel *searchLabel = new QLabel( searchWid );
 	searchLabel->setObjectName( QLatin1String("SearchLabel"));
 	searchLabel->setText( i18n("S&earch:") );
 	searchLabel->setFont(KGlobalSettings::toolBarFont());
 	searchLabel->setMargin(2);
+	QHBoxLayout * hlay = new QHBoxLayout( searchWid );
+	hlay->addWidget( searchIcon );
+	hlay->addWidget( searchLabel );
+	searchWid->setLayout( hlay );
 
 	searchText = new KAction( this );
-	searchText->setDefaultWidget(searchLabel);
+	searchText->setDefaultWidget(searchWid);
+
+	//actionCollection()->addAction( "spacer", new KToolBarSpacerAction( this ) );
 	actionCollection()->addAction( "searchText", searchText );
 	searchText->setShortcut(Qt::Key_F6);
 	addAction(searchText);
@@ -259,14 +267,13 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 
 		scrollView = new QScrollArea(windowStack);
 		groupWidget = new KCMultiWidget(0, scrollView, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
-                scrollView->setWidget(groupWidget);
+		scrollView->setWidget(groupWidget);
 		scrollView->setWidgetResizable(true);
 		windowStack->addWidget(scrollView);
 		moduleItemToScrollerDict.insert(mItem,scrollView);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);
 
 		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
-		//FIXME		connect(groupWidget, SIGNAL(aboutToShowPage( QWidget* )), this, SLOT(widgetChange()));
 		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
 		connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
