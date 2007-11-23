@@ -59,7 +59,6 @@ public:
 private:
 	void setSize();
 
-	int currentState;
 	QString imageName;
 };
 

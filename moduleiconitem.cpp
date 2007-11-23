@@ -61,7 +61,10 @@ void ModuleIconItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 	if (selected) {
 		painter->fillRect(textRectangle, option.palette.brush(QPalette::Highlight));
 		painter->setPen(option.palette.color(QPalette::HighlightedText));
-    }
+	}
+	else if( index.data( Qt::UserRole ).toInt() == KIconLoader::DisabledState ) {
+		painter->setPen( option.palette.color( QPalette::Disabled, QPalette::Text ) );
+	}
 	painter->drawText(textRectangle, Qt::AlignHCenter | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString());
 	painter->restore();
 }
@@ -69,8 +72,9 @@ void ModuleIconItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 	: QListWidgetItem(SmallIcon( module.icon(), IMAGE_SIZE ), module.moduleName(), parent),
-	currentState(KIconLoader::DefaultState), imageName(module.icon())
+	imageName(module.icon())
 {
+	setData( Qt::UserRole, KIconLoader::DefaultState );
 	modules.append(module);
 	setSize();
 }
@@ -78,19 +82,20 @@ ModuleIconItem::ModuleIconItem( QListWidget* parent, const KCModuleInfo& module)
 ModuleIconItem::ModuleIconItem( QListWidget* parent, const QString &text,
 		const QString &_imageName )
 	: QListWidgetItem( SmallIcon( _imageName, IMAGE_SIZE ), text, parent ),
-	currentState(KIconLoader::DefaultState), imageName(_imageName)
+	imageName(_imageName)
 {
+	setData( Qt::UserRole, KIconLoader::DefaultState );
 	setSize();
 }
 
 void ModuleIconItem::loadIcon( bool enabled )
 {
 	int newState = enabled ? KIconLoader::DefaultState : KIconLoader::DisabledState;
-	if( newState == currentState )
+	if( newState == data( Qt::UserRole ).toInt() )
 		return;
 
-	currentState = newState;
-	setIcon( DesktopIcon( imageName, IMAGE_SIZE , currentState ) );
+	setData( Qt::UserRole, newState );
+	setIcon( DesktopIcon( imageName, IMAGE_SIZE , newState ) );
 }
 
 void ModuleIconItem::setSize()
