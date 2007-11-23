@@ -90,7 +90,7 @@ class ModulesView : public QWidget
 Q_OBJECT
 public:
 	void clearSelection();
- QString displayName; 
+	QString displayName; 
 
 signals:
 	void itemSelected( QListWidgetItem* item );

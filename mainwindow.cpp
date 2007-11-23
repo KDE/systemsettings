@@ -257,8 +257,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 	if( !mItem )
 		return;
 
-
-        kDebug() << "item selected: " << item->text();
+	kDebug() << "item selected: " << item->text();
 	groupWidget = moduleItemToWidgetDict[mItem];
 	scrollView = moduleItemToScrollerDict[mItem];
 
@@ -284,18 +283,18 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		}
 	}
 
-		windowStack->setCurrentWidget( scrollView );
+	windowStack->setCurrentWidget( scrollView );
 
-		setCaption( mItem->text() );
-		showAllAction->setEnabled(true);
-		//searchText->setEnabled(false);
-		//searchClear->setEnabled(false);
-		//searchAction->setEnabled(false);
+	setCaption( mItem->text() );
+	showAllAction->setEnabled(true);
+	//searchText->setEnabled(false);
+	//searchClear->setEnabled(false);
+	//searchAction->setEnabled(false);
 
-		KToggleAction *currentRadioAction;
-		foreach ( currentRadioAction, pageActions ) {
-			currentRadioAction->setEnabled(false);
-		}
+	KToggleAction *currentRadioAction;
+	foreach ( currentRadioAction, pageActions ) {
+		currentRadioAction->setEnabled(false);
+	}
 
 	groupWidget->show();
 

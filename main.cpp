@@ -31,42 +31,42 @@
 
 int main( int argc, char *argv[] )
 {
-  KLocale::setMainCatalog("systemsettings");
+	KLocale::setMainCatalog("systemsettings");
 	// About data
-  KAboutData aboutData("systemsettings", 0, ki18n("System Settings"),
-	  SYSTEM_SETTINGS_VERSION, ki18n("System Settings"),
-	  KAboutData::License_LGPL, ki18n("(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"));
-  aboutData.addAuthor(ki18n("Benjamin C. Meyer"), ki18n("Author"),
-	  "ben+systempreferences@meyerhome.net");
-  aboutData.addAuthor(ki18n("Jonathan Riddell"), ki18n("Contributor"),
-	  "jriddell@ubuntu.com");
-  aboutData.addAuthor(ki18n("Michael D. Stemle"), ki18n("Contributor"),
-	  "manchicken@notsosoft.net");
-  aboutData.addAuthor(ki18n("Simon Edwards"), ki18n("Contributor"),
-	  "simon@simonzone.com");
-  aboutData.addAuthor(ki18n("Ellen Reitmayr"), ki18n("Usability"),
-	  "ellen@kde.org");
-  KCmdLineArgs::init(argc, argv, &aboutData);
+	KAboutData aboutData("systemsettings", 0, ki18n("System Settings"),
+			SYSTEM_SETTINGS_VERSION, ki18n("System Settings"),
+			KAboutData::License_LGPL, ki18n("(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"));
+	aboutData.addAuthor(ki18n("Benjamin C. Meyer"), ki18n("Author"),
+			"ben+systempreferences@meyerhome.net");
+	aboutData.addAuthor(ki18n("Jonathan Riddell"), ki18n("Contributor"),
+			"jriddell@ubuntu.com");
+	aboutData.addAuthor(ki18n("Michael D. Stemle"), ki18n("Contributor"),
+			"manchicken@notsosoft.net");
+	aboutData.addAuthor(ki18n("Simon Edwards"), ki18n("Contributor"),
+			"simon@simonzone.com");
+	aboutData.addAuthor(ki18n("Ellen Reitmayr"), ki18n("Usability"),
+			"ellen@kde.org");
+	KCmdLineArgs::init(argc, argv, &aboutData);
 
-  // Tell which options are supported
+	// Tell which options are supported
 
-  KCmdLineOptions options;
-  options.add("menu <argument>", ki18n("Menu file"), "systemsettings");
-  KCmdLineArgs::addCmdLineOptions( options );
-  KUniqueApplication::addCmdLineOptions();
-  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+	KCmdLineOptions options;
+	options.add("menu <argument>", ki18n("Menu file"), "systemsettings");
+	KCmdLineArgs::addCmdLineOptions( options );
+	KUniqueApplication::addCmdLineOptions();
+	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-  if (!KUniqueApplication::start()) {
-    std::cerr << "This program is already running." << std::endl;
-    return 0;
-  }
-  KUniqueApplication application;
+	if (!KUniqueApplication::start()) {
+		std::cerr << "This program is already running." << std::endl;
+		return 0;
+	}
+	KUniqueApplication application;
 
-  MainWindow *mainWindow = new MainWindow(args->getOption("menu"));
+	MainWindow *mainWindow = new MainWindow(args->getOption("menu"));
 
-  mainWindow->show();
+	mainWindow->show();
 
-  args->clear();
+	args->clear();
 
-  return application.exec();
+	return application.exec();
 }

@@ -101,12 +101,12 @@ private:
 	QLabel *generalHitLabel;
 	QLabel *advancedHitLabel;
 
-  /**
-   * If someone wants to report a bug
-   * against a module with no about data
-   * we construct one for him
-   **/
-  KAboutData *dummyAbout;
+	/**
+	 * If someone wants to report a bug
+	 * against a module with no about data
+	 * we construct one for him
+	 **/
+	KAboutData *dummyAbout;
 };
 
 #endif

@@ -44,9 +44,9 @@ class ModuleIconItem : public QListWidgetItem
 {
 
 public:
-  ModuleIconItem( QListWidget *parent, const KCModuleInfo& module );
+	ModuleIconItem( QListWidget *parent, const KCModuleInfo& module );
 	
-  ModuleIconItem( QListWidget *parent, const QString &text, const QString &imageName );
+	ModuleIconItem( QListWidget *parent, const QString &text, const QString &imageName );
 
 	/**
 	 * Update the icon to either be enabled or not.

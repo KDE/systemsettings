@@ -46,7 +46,7 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	displayName = this->rootMenu->caption;
 
 	QList<MenuItem> subMenus = rootMenu->menuList(menuPath);
- 	QList<MenuItem>::const_iterator it;
+	QList<MenuItem>::const_iterator it;
 	for ( it = subMenus.begin(); it != subMenus.end(); ++it ){
 		if( !(*it).menu )
 			continue;
@@ -68,18 +68,17 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	setBackgroundRole(QPalette::Base);
 	setForegroundRole(QPalette::Text);
 
+	/*
 	// Align them up!
-/*FIXME
-	{
 	uint most = 0;
-	QList<RowIconView*>::iterator it;
-	for ( it = groups.begin(); it != groups.end(); ++it ){
-		Q3IconViewItem *item = (*it)->firstItem();
-		while( item ) {
-			if(item->width() > most)
-				most = item->width();
-			item = item->nextItem();
-		}
+	QList<RowIconView*>::iterator it2;
+	for ( it2 = groups.begin(); it2 != groups.end(); ++it2 ){
+		for (int i = 0; i < (*it2)->count(); ++i ) {
+			QListWidgetItem * item = (*it2)->item( i );
+			if ( item && item->sizeHint().width() > most ) {
+				most = item->sizeHint().width();
+			}
+			}
 	}
 */
 /*FIXME
@@ -148,7 +147,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 	int height = 0;
 	// Add all the items in their proper order
 	QList<MenuItem> list = rootMenu->menuList( parentPath );
- 	QList<MenuItem>::const_iterator it;
+	QList<MenuItem>::const_iterator it;
 	for ( it = list.begin(); it != list.end(); ++it ){
 		ModuleIconItem *item = NULL;
 		if( !(*it).menu ) {
