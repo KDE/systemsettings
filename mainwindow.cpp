@@ -256,6 +256,11 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 
 	if( !mItem )
 		return;
+	// Because some KCMultiWidgets take an age to load, it is possible
+	// for the user to click another ModuleIconItem while loading.
+	// This causes execution to return here while the first groupWidget is shown
+	if ( groupWidget )
+		return;
 
 	kDebug() << "item selected: " << item->text();
 	groupWidget = moduleItemToWidgetDict[mItem];
@@ -283,6 +288,10 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 		}
 	}
 
+	// calling this with a shown KCMultiWidget sets groupWidget to 0
+	// which makes the show() call below segfault.  The groupWidget test
+	// above should prevent execution reaching here while the KCMultiWidget is
+	// visible
 	windowStack->setCurrentWidget( scrollView );
 
 	setCaption( mItem->text() );
