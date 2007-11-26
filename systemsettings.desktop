@@ -48,4 +48,4 @@ Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
 X-DBUS-ServiceType=Unique
-Categories=Qt;KDE;Core;
+Categories=Qt;KDE;Settings;
