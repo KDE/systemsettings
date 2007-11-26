@@ -5,6 +5,8 @@ Type=Application
 X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 
+GenericName=System Settings
+
 Name=System Settings
 Name[ar]=إعدادات النظام
 Name[be]=Сістэмныя настаўленні
