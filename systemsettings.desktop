@@ -6,6 +6,16 @@ X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 
 GenericName=System Settings
+GenericName[de]=Systemeinstellungen
+GenericName[et]=Süsteemi seadistused
+GenericName[ga]=Socruithe an Chórais
+GenericName[ja]=システム設定
+GenericName[lv]=Sistēmas iestatījumi
+GenericName[nn]=Systemoppsett
+GenericName[pt]=Configuração do Sistema
+GenericName[pt_BR]=Configuração do Sistema
+GenericName[sv]=Systeminställningar
+GenericName[zh_TW]=系統設定
 
 Name=System Settings
 Name[ar]=إعدادات النظام
