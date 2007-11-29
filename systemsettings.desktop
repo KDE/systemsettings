@@ -6,7 +6,9 @@ X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 
 GenericName=System Settings
+GenericName[ca]=Arranjament del sistema
 GenericName[de]=Systemeinstellungen
+GenericName[el]=Ρυθμίσεις συστήματος
 GenericName[et]=Süsteemi seadistused
 GenericName[ga]=Socruithe an Chórais
 GenericName[ja]=システム設定
