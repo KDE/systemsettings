@@ -12,11 +12,17 @@ GenericName[el]=Ρυθμίσεις συστήματος
 GenericName[et]=Süsteemi seadistused
 GenericName[ga]=Socruithe an Chórais
 GenericName[ja]=システム設定
+GenericName[km]=ការ​កំណត់​ប្រព័ន្ធ​
 GenericName[lv]=Sistēmas iestatījumi
+GenericName[nds]=Systeeminstellen
+GenericName[nl]=Systeeminstellingen
 GenericName[nn]=Systemoppsett
 GenericName[pt]=Configuração do Sistema
 GenericName[pt_BR]=Configuração do Sistema
+GenericName[sr]=Системске поставке
+GenericName[sr@latin]=Sistemske postavke
 GenericName[sv]=Systeminställningar
+GenericName[zh_CN]=系统设置
 GenericName[zh_TW]=系統設定
 
 Name=System Settings
