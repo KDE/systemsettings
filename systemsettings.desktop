@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=systemsettings -caption "%c" %i
-Icon=systemsettings
+Icon=preferences-other
 Type=Application
 X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
