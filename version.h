@@ -21,7 +21,7 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define SYSTEM_SETTINGS_VERSION "0.2"
+#define SYSTEM_SETTINGS_VERSION "3.96.2"
 
 #endif // VERSION_H
 
