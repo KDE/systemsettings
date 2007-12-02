@@ -9,6 +9,7 @@ GenericName=System Settings
 GenericName[ca]=Arranjament del sistema
 GenericName[de]=Systemeinstellungen
 GenericName[el]=Ρυθμίσεις συστήματος
+GenericName[eo]=Sistema agordo
 GenericName[et]=Süsteemi seadistused
 GenericName[ga]=Socruithe an Chórais
 GenericName[ja]=システム設定
@@ -23,6 +24,8 @@ GenericName[pt_BR]=Configurações do Sistema
 GenericName[sr]=Системске поставке
 GenericName[sr@latin]=Sistemske postavke
 GenericName[sv]=Systeminställningar
+GenericName[wa]=Apontiaedjes do sistinme
+GenericName[x-test]=xxSystem Settingsxx
 GenericName[zh_CN]=系统设置
 GenericName[zh_TW]=系統設定
 
