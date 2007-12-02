@@ -29,6 +29,4 @@ install( FILES systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR} )
 install( FILES systemsettingsui.rc DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
 
-kde4_install_icons( ${ICON_INSTALL_DIR}  )
-
 
