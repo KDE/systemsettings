@@ -42,9 +42,8 @@
 /*
 Button usage:
 
-    User1 => Reset
-    User2 => Close
-    User3 => Admin (dead in KDE 4)
+    User1 => Close
+    User2 => Admin (dead in KDE 4)
 */
 
 class KCMultiWidget::KCMultiWidgetPrivate
@@ -86,11 +85,10 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
              KDialog::Cancel |
              KDialog::Apply |
              KDialog::Ok |
-             KDialog::User1 |
-             KDialog::User2);
+             KDialog::Reset |
+             KDialog::User1);
   setDefaultButton(KDialog::Ok);
-  setButtonGuiItem(KDialog::User1, KStandardGuiItem::reset());
-  setButtonGuiItem(KDialog::User2, KStandardGuiItem::close());
+  setButtonGuiItem(KDialog::User1, KStandardGuiItem::close());
 
   setWindowModality(modality);
 
@@ -102,11 +100,11 @@ inline void KCMultiWidget::init()
 	connect( this, SIGNAL( finished()), SLOT( dialogClosed()));
 	showButton( Ok, false );
 	showButton( Cancel, false );
-	showButton( User1, true );     // Reset button
-	showButton( User2, false );    // Close button.
+	showButton( Reset, true );     // Reset button
+	showButton( User1, false );    // Close button.
 
 	enableButton(Apply, false);
-	enableButton(User1, false);
+	enableButton(Reset, false);
 
 	connect( this, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)), this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
 	setInitialSize(QSize(640,480));
@@ -114,8 +112,8 @@ inline void KCMultiWidget::init()
 	connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
 	connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
 	connect( this, SIGNAL(applyClicked()), this, SLOT(slotApply()) );
-	connect( this, SIGNAL(user1Clicked()), this, SLOT(slotReset()) );
-	connect( this, SIGNAL(user2Clicked()), this, SLOT(slotClose()) );
+	connect( this, SIGNAL(resetClicked()), this, SLOT(slotReset()) );
+	connect( this, SIGNAL(user1Clicked()), this, SLOT(slotClose()) );
 }
 
 KCMultiWidget::~KCMultiWidget()
@@ -205,11 +203,11 @@ void KCMultiWidget::clientChanged(bool state)
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
 		if( ( *it ).kcm->changed() ) {
 			enableButton( Apply, true );
-                        enableButton( User1, true);
+                        enableButton( Reset, true);
 			return;
 		}
 	enableButton( Apply, false );
-        enableButton( User1, false);
+        enableButton( Reset, false);
 }
 
 void KCMultiWidget::addModule(const QString& path, bool withfallback)
@@ -351,7 +349,7 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
         bool found = false;
 	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it ) {
 		if( ( *it ).kcm==d->currentModule) {
-			showButton(User3, ( *it ).adminmode);
+			showButton(User2, ( *it ).adminmode);
 			buttons = ( *it ).buttons;
                         found = true;
 		}
@@ -362,10 +360,10 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
         //Q_ASSERT(found);
 
         showButton(Apply, buttons & KCModule::Apply);
-        showButton(User1, buttons & KCModule::Apply);   // Reset button.
+        showButton(Reset, buttons & KCModule::Apply);
 
         // Close button. No Apply button implies a Close button.
-        showButton(User2, (buttons & KCModule::Apply)==0);
+        showButton(User1, (buttons & KCModule::Apply)==0);
 
 	enableButton( KDialog::Help, buttons & KCModule::Help );
 	enableButton( KDialog::Default, buttons & KCModule::Default );
@@ -375,22 +373,22 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 // 	if (d->currentModule->moduleInfo().needsRootPrivileges() &&
 // 			!d->currentModule->rootMode() )
 // 	{ /* Enable the Admin Mode button */
-// 		enableButton( User3, true );
+// 		enableButton( User2, true );
 // 		connect( this, SIGNAL(user3Clicked()), d->currentModule, SLOT( runAsRoot() ));
 // 		connect( this, SIGNAL(user3Clicked()), SLOT( disableRModeButton() ));
 // 	} else {
-// 		enableButton( User3, false );
+// 		enableButton( User2, false );
 // 	}
 }
 
 void KCMultiWidget::rootExit()
 {
-	enableButton( User3, true);
+	enableButton( User2, true);
 }
 
 void KCMultiWidget::disableRModeButton()
 {
-	enableButton( User3, false );
+	enableButton( User2, false );
 	connect ( d->currentModule, SIGNAL( childClosed() ), SLOT( rootExit() ) );
 }
 
