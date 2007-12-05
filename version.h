@@ -21,7 +21,8 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define SYSTEM_SETTINGS_VERSION "3.96.2"
+#include <kdeversion.h>
+#define SYSTEM_SETTINGS_VERSION KDE_VERSION_STRING
 
 #endif // VERSION_H
 
