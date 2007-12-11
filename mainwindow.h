@@ -51,13 +51,14 @@ class MainWindow : public KXmlGuiWindow
 public:
 	explicit MainWindow(const QString &menufile="systemsettings", QWidget *parent=0);
 	~MainWindow();
+        virtual void closeEvent ( QCloseEvent * );
 
 private slots:
 	void slotItemSelected( QListWidgetItem* item );
 	void showAllModules();
 	void aboutCurrentModule();
 	void updateModuleHelp( KCModuleProxy * );
-	
+
 	void resetModuleHelp();
 	void groupModulesFinished();
 
@@ -85,7 +86,7 @@ private:
 
 	QAction *resetModule;
 	QAction *defaultModule;
-	
+
 	QAction *showAllAction;
 	//KToolBarLabelAction *searchText;
 	KAction *searchText;
@@ -94,7 +95,7 @@ private:
 	KAction *searchAction;
 
 	QAction *aboutModuleAction;
-	
+
 	void buildMainWidget();
 	void buildActions();
 

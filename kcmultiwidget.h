@@ -66,7 +66,7 @@ public:
    *    If @p Qt::NonModal, the rest of the	program interface
    *    (example: other dialogs) is accessible while the dialog is open.
 	 */
-	KCMultiWidget( int dialogFace, QWidget * parent = 0, 
+	KCMultiWidget( int dialogFace, QWidget * parent = 0,
                  Qt::WindowModality modality= Qt::NonModal );
 
   /**
@@ -118,7 +118,7 @@ public:
 	 * @return the current module that is being shown.
 	 */
 	KCModuleProxy * currentModule();
-	
+
 signals:
 	/**
 	 * Emitted after all KCModules have been told to save their configuration.
@@ -195,7 +195,7 @@ protected slots:
 	 * It reads the DocPath field of the currently selected KControl
 	 * module's .desktop file to find the path to the documentation,
 	 * which it then attempts to load.
-	 * 
+	 *
 	 * You can reimplement this slot if needed.
 	 *
 	 * @note Make sure you call the original implementation.
@@ -219,15 +219,17 @@ private slots:
 	void disableRModeButton();
 
 	/**
-	 * Called when the current module exits from root 
+	 * Called when the current module exits from root
 	 * mode. Enables the Administrator Mode button, again.
 	 */
 	void rootExit();
 
+public slots:
+
 	/**
 	 *
 	 * Called when the dialog is hidden. It unregisters the modules,
-	 * such that they don't hinder the same modules to be opened in 
+	 * such that they don't hinder the same modules to be opened in
 	 * another application.
 	 */
 	void dialogClosed();

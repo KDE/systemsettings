@@ -71,9 +71,15 @@ MainWindow::MainWindow(const QString & menuFile, QWidget *parent) :
 MainWindow::~MainWindow()
 {
 	delete moduleTabs;
-	delete menu;	
+	delete menu;
 	delete dummyAbout;
 }
+
+void MainWindow::closeEvent ( QCloseEvent * )
+{
+        groupWidget->dialogClosed();
+}
+
 
 void MainWindow::buildMainWidget()
 {
@@ -352,7 +358,7 @@ void MainWindow::widgetChange() {
 
 	if( !groupWidget ) {
 		setCaption(QString());
-		
+
 		ModulesView *modulesView;
 		foreach( modulesView, modulesViewList ) {
 			modulesView->clearSelection();
@@ -377,11 +383,11 @@ void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) 
 		generalHitLabel->setText(QString());
 		advancedHitLabel->setText(QString());
 	} else {
-		
+
 		if(length>=1) {
 			generalHitLabel->setText(i18np("%1 hit in General","%1 hits in General",hitList[0]));
 		}
-	
+
 		if(length>=2) {
 			advancedHitLabel->setText(i18np("%1 hit in Advanced","%1 hits in Advanced",hitList[1]));
 		}
