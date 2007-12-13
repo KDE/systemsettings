@@ -3,7 +3,7 @@ Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=sharing
 X-KDE-System-Settings-Parent-Category=network-and-connectivity
-Icon=preferences-system-network-share
+Icon=preferences-system-network-sharing
 
 Name=Sharing
 Name[ar]=مشاركة
