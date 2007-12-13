@@ -77,7 +77,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent ( QCloseEvent * )
 {
-        groupWidget->dialogClosed();
+	if ( groupWidget ) {
+	        groupWidget->dialogClosed();
+	}
 }
 
 
