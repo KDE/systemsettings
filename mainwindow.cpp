@@ -178,10 +178,14 @@ void MainWindow::buildActions()
 	connect(searchText, SIGNAL(triggered()), search, SLOT(setFocus()));
 
 	QWidget* vbox = new QWidget(hbox);
-	generalHitLabel = new QLabel(vbox);
-	advancedHitLabel = new QLabel(vbox);
+	// Set a non empty content to prevent the toolbar from getting taller when
+	// starting a search (at least with Oxygen style).
+	generalHitLabel = new QLabel(" ", vbox);
+	advancedHitLabel = new QLabel(" ", vbox);
 
 	QVBoxLayout* vlayout = new QVBoxLayout;
+	vlayout->setMargin(0);
+	vlayout->setSpacing(0);
 	vlayout->addWidget(generalHitLabel);
 	vlayout->addWidget(advancedHitLabel);
 	vlayout->setStretchFactor(generalHitLabel,1);
@@ -189,6 +193,7 @@ void MainWindow::buildActions()
 	vbox->setLayout(vlayout);
 
 	QHBoxLayout* hlayout = new QHBoxLayout;
+	hlayout->setMargin(0);
 	hlayout->addWidget(search);
 	hlayout->addWidget(vbox);
 	hlayout->setStretchFactor(search,1);
