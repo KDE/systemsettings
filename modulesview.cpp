@@ -155,7 +155,7 @@ void ModulesView::createRow( const QString &parentPath, QBoxLayout *boxLayout )
 		} else {
 			QString path = (*it).subMenu;
 
-			QString categoryCaption = path.section('/', -2, -2);
+			QString categoryCaption = (*it).caption;
 			QString iconFile;
 			for (int i = 0; i < categories.size(); ++i) {
 				const KService* entry = categories.at(i).data();
