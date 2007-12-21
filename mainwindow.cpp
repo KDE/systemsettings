@@ -277,17 +277,12 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 
 	kDebug() << "item selected: " << item->text();
 	groupWidget = moduleItemToWidgetDict[mItem];
-	scrollView = moduleItemToScrollerDict[mItem];
 
 	if(groupWidget==0) {
 		QList<KCModuleInfo> list = mItem->modules;
 
-		scrollView = new QScrollArea(windowStack);
-		groupWidget = new KCMultiWidget(0, scrollView, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
-		scrollView->setWidget(groupWidget);
-		scrollView->setWidgetResizable(true);
-		windowStack->addWidget(scrollView);
-		moduleItemToScrollerDict.insert(mItem,scrollView);
+		groupWidget = new KCMultiWidget(0, windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+		windowStack->addWidget(groupWidget);
 		moduleItemToWidgetDict.insert(mItem,groupWidget);
 
 		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
@@ -305,7 +300,7 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 	// which makes the show() call below segfault.  The groupWidget test
 	// above should prevent execution reaching here while the KCMultiWidget is
 	// visible
-	windowStack->setCurrentWidget( scrollView );
+	windowStack->setCurrentWidget( groupWidget );
 
 	setCaption( mItem->text() );
 	showAllAction->setEnabled(true);
@@ -317,8 +312,6 @@ void MainWindow::slotItemSelected( QListWidgetItem *item ){
 	foreach ( currentRadioAction, pageActions ) {
 		currentRadioAction->setEnabled(false);
 	}
-
-	groupWidget->show();
 
 	// We resize and expand the window if necessary, but only once the window has been updated.
 	// Some modules seem to dynamically change thier size. The new size is only available

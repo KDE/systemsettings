@@ -78,7 +78,6 @@ private:
 	QScrollArea *scrollView;
 
 	QHash<ModuleIconItem*,KCMultiWidget*> moduleItemToWidgetDict;
-	QHash<ModuleIconItem*,QScrollArea*> moduleItemToScrollerDict;
 
 	QList<KToggleAction*> pageActions;
 	QList<QScrollArea*> overviewPages;

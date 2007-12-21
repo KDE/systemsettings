@@ -25,6 +25,7 @@
 
 #include <qlayout.h>
 #include <QProcess>
+#include <QScrollArea>
 
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -97,6 +98,10 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
 
 inline void KCMultiWidget::init()
 {
+	// A bit hackish: KCMultiWidget inherits from KPageDialog, but it really is
+	// a widget...
+	setWindowFlags(Qt::Widget);
+
 	connect( this, SIGNAL( finished()), SLOT( dialogClosed()));
 	showButton( Ok, false );
 	showButton( Cancel, false );
@@ -239,6 +244,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		return;
 	}
 	KCModuleProxy * module;
+	QScrollArea * moduleScrollArea;
 	if( m_orphanModules.contains( moduleinfo.service() ) )
 	{
 		// the KCModule already exists - it was removed from the dialog in
@@ -252,10 +258,15 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 			clientChanged( true );
 		}
 
+		moduleScrollArea = static_cast<QScrollArea*>( module->parentWidget() );
 	}
 	else
 	{
-		module = new KCModuleProxy( moduleinfo, this );
+		moduleScrollArea = new QScrollArea( this );
+		module = new KCModuleProxy( moduleinfo, moduleScrollArea );
+		moduleScrollArea->setWidget( module );
+		moduleScrollArea->setWidgetResizable( true );
+		moduleScrollArea->setFrameStyle( QFrame::NoFrame );
 
 		QStringList parentComponents = moduleinfo.service()->property(
 				"X-KDE-System-Settings-Parent-Category" ).toStringList();
@@ -287,7 +298,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 	if( m_modules.count() == 1 ) {
 		slotAboutToShow( module );
 	}
-	KPageWidgetItem* page = addPage(module, moduleinfo.moduleName());
+	KPageWidgetItem* page = addPage(moduleScrollArea, moduleinfo.moduleName());
 	page->setIcon( KIcon(moduleinfo.icon()) );
 	page->setHeader(moduleinfo.comment());
 }
