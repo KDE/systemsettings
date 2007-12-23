@@ -23,6 +23,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>
+#include <kicon.h>
 
 #include "mainwindow.h"
 #include "version.h"
@@ -61,6 +62,8 @@ int main( int argc, char *argv[] )
 		return 0;
 	}
 	KUniqueApplication application;
+
+	QApplication::setWindowIcon(KIcon("preferences-system"));
 
 	MainWindow *mainWindow = new MainWindow(args->getOption("menu"));
 
