@@ -1,6 +1,7 @@
 /**
  * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
+ *           (C) 2007 Will Stephenson <wstephenson@kde.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,59 +21,110 @@
 
 #include "mainwindow.h"
 
-#include <QIcon>
 #include <kstandardaction.h>
 #include <ktoggletoolbaraction.h>
 #include <ktoolbarspaceraction.h>
 #include <kaboutapplicationdialog.h>
 #include <QLabel>
 #include <QStackedWidget>
-#include <QListWidgetItem>
-#include <kaction.h>
 #include <klocale.h>
-#include <kservicegroup.h>
 #include <qlayout.h>
 #include <qtimer.h>
+#include <KGlobalSettings>
 #include <kiconloader.h>
-#include <kcmoduleloader.h>
 #include <kactioncollection.h>
 #include <qapplication.h>
 #include <kdebug.h>
 #include <kcmoduleproxy.h>
-#include <kbugreport.h>
 #include <kmenubar.h>
 #include <ktoggleaction.h>
 #include <qscrollarea.h>
 #include <kcmoduleinfo.h>
 #include <ktabwidget.h>
-#include <kaboutdata.h>
+#include <kservicetypetrader.h>
+#include <kcategorizedsortfilterproxymodel.h>
+#include <KLineEdit>
+#include <KDialog> // for spacing
 
-#include "kcmsearch.h"
-#include "modulesview.h"
-#include "moduleiconitem.h"
-#include "kcmodulemenu.h"
+#include "kcategorizedview.h"
+#include "kcategorydrawer.h"
+#include "kcmodulemodel.h"
 #include "kcmultiwidget.h"
+#include "menuitem.h"
+
+
+Q_DECLARE_METATYPE(MenuItem *)
 
 MainWindow::MainWindow(const QString & menuFile, QWidget *parent) :
-				KXmlGuiWindow(parent), menu(NULL),
-				groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
+    KXmlGuiWindow(parent), categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
+    modules( KServiceTypeTrader::self()->query("KCModule") ),
+    rootItem(new MenuItem( true, 0 )),
+    groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
 
 	// Load the menu structure in from disk.
-	menu = new KCModuleMenu( menuFile );
-
+    readMenu( rootItem );
 	moduleTabs = new KTabWidget(this, QTabWidget::North|QTabWidget::Rounded);
-	buildMainWidget();
 	buildActions();
+	buildMainWidget();
 	setupGUI(ToolBar|Save|Create,QString());
-	widgetChange();
+	//widgetChange();
 	menuBar()->hide();
 }
 
 MainWindow::~MainWindow()
 {
 	delete moduleTabs;
-	delete menu;
+    delete rootItem;
 	delete dummyAbout;
+}
+
+void MainWindow::readMenu( MenuItem * parent )
+{
+    // look for any categories inside this level, and recurse into them
+    int depth = 0;
+    MenuItem * current = parent;
+    while ( current && current->parent ) {
+        depth++;
+        current = current->parent;
+    }
+
+    QString space;
+    space.fill( ' ', depth * 2 );
+    kDebug() << space << "Looking for children in '" << parent->name << "'";
+    for (int i = 0; i < categories.size(); ++i) {
+        const KService* entry = categories.at(i).data();
+        QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
+        QString category = entry->property("X-KDE-System-Settings-Category").toString();
+        //kDebug() << "Examining category " << parentCategory << "/" << category;
+        if ( parentCategory == parent->name ) {
+            kDebug() << space << "found category '" << entry->name() << "' " << entry->desktopEntryPath();
+
+            MenuItem * menuItem = new MenuItem(true, parent);
+            menuItem->name = category;
+            menuItem->service = entry;
+            readMenu( menuItem );
+        }
+    }
+
+    // scan for any modules at this level and add them
+    for (int i = 0; i < modules.size(); ++i) {
+        const KService* entry = modules.at(i).data();
+        QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
+        //kDebug() << "Examining module " << category;
+        if(!parent->name.isEmpty() && category == parent->name ) {
+            kDebug() << space << "found module '" << entry->name() << "' " << entry->desktopEntryPath();
+            // Add the module info to the menu
+            KCModuleInfo module(entry->entryPath());
+            kDebug() << space << "filename is " << module.fileName();
+            //append(module);
+            MenuItem * infoItem = new MenuItem(false, parent);
+            infoItem->name = category;
+            infoItem->service = entry;
+            infoItem->item = module;
+        }
+    }
+
+    //qSort(currentMenu); // TODO: sort by weight
 }
 
 void MainWindow::closeEvent ( QCloseEvent * )
@@ -85,35 +137,41 @@ void MainWindow::closeEvent ( QCloseEvent * )
 
 void MainWindow::buildMainWidget()
 {
-	windowStack = new QStackedWidget(this);
+    windowStack = new QStackedWidget(this);
 
-	// Top level pages.
-	QList<MenuItem> subMenus = menu->menuList();
-	QList<MenuItem>::iterator it;
-	QScrollArea *modulesScroller;
-	moduleTabs->show();
+    // Top level pages.
+    QScrollArea *modulesScroller;
+    moduleTabs->show();
 
-	foreach( const MenuItem &item , subMenus ) {
-		if( item.menu ) {
-			modulesScroller = new QScrollArea(moduleTabs);
-
-			modulesScroller->setFrameStyle( QFrame::NoFrame );
-
-			modulesScroller->setWidgetResizable(true);
-			ModulesView *modulesView = new ModulesView( menu, item.subMenu, modulesScroller );
-			modulesView->setObjectName(QLatin1String("modulesView"));
-			modulesViewList.append(modulesView);
-			connect(modulesView, SIGNAL(itemSelected(QListWidgetItem* )), this, SLOT(slotItemSelected(QListWidgetItem*)));
-			modulesScroller->setWidget(modulesView);
-			moduleTabs->addTab(modulesScroller, item.caption);
-			overviewPages.append(modulesScroller);
-		}
-	}
-
-	windowStack->setMinimumSize(700, 500);
-	windowStack->addWidget(moduleTabs);
-	windowStack->setCurrentWidget(moduleTabs);
-	setCentralWidget(windowStack);
+    foreach ( MenuItem* item, rootItem->children ) {
+        model = new KCModuleModel( item, this );
+        KCategoryDrawer * drawer = new KCategoryDrawer;
+        KCategorizedView * tv = new KCategorizedView( this );
+        tv->setSpacing(KDialog::spacingHint());
+        tv->setCategoryDrawer( drawer );
+        tv->setViewMode( QListView::IconMode );
+        KCategorizedSortFilterProxyModel * kcsfpm = new KCategorizedSortFilterProxyModel( this );
+        kcsfpm->setCategorizedModel( true );
+        kcsfpm->setSourceModel( model );
+        kcsfpm->setFilterRole( KCModuleModel::UserFilterRole );
+        kcsfpm->setFilterCaseSensitivity( Qt::CaseInsensitive );
+        kcsfpm->sort( 0 );
+        tv->setModel( kcsfpm );
+        connect( tv->selectionModel(),
+                SIGNAL(selectionChanged(const QItemSelection&,const QItemSelection&)),
+                SLOT(selectionChanged(const QItemSelection&, const QItemSelection&)) );
+        connect( search, SIGNAL(textChanged(const QString&)),
+                kcsfpm, SLOT(setFilterRegExp(const QString&)));
+        connect( kcsfpm, SIGNAL(layoutChanged()),
+                SLOT(updateSearchHits()) );
+        moduleTabs->addTab(tv, item->service->name() );
+        // record the index of the newly added tab so that we can later update the label showing
+        // number of search hits
+        modelToTabHash.insert( kcsfpm, moduleTabs->count() - 1 );
+    }
+    windowStack->addWidget(moduleTabs);
+    windowStack->setCurrentWidget(moduleTabs);
+    setCentralWidget(windowStack);
 }
 
 void MainWindow::buildActions()
@@ -169,11 +227,12 @@ void MainWindow::buildActions()
 	addAction(searchText);
 
 	// Search edit box and result labels
-	QWidget *hbox = new QWidget(0);
+	QWidget *hbox = new QWidget( this );
 
-	KcmSearch* search = new KcmSearch(&modulesViewList, hbox);
+    search = new KLineEdit( hbox );
 	search->setObjectName(QLatin1String("search"));
-	connect(search, SIGNAL(searchHits(const QString &, int *, int)), this, SLOT(slotSearchHits(const QString &, int *, int)));
+    search->setClearButtonShown( true );
+    search->setFocusPolicy( Qt::StrongFocus );
 	searchLabel->setBuddy( search );
 	connect(searchText, SIGNAL(triggered()), search, SLOT(setFocus()));
 
@@ -205,7 +264,7 @@ void MainWindow::buildActions()
 	actionCollection()->addAction( "search", searchAction );
 	searchAction->setShortcutConfigurable( false );
 	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
-
+#if 0
 	// Now it's time to draw our display
 	foreach( const MenuItem &item , menu->menuList() ) {
 		if( item.menu ) {
@@ -222,6 +281,7 @@ void MainWindow::buildActions()
 			kDebug() << "relpath is :" << group->relPath();
 		}
 	}
+#endif
 }
 
 void MainWindow::aboutCurrentModule()
@@ -254,6 +314,7 @@ void MainWindow::showAllModules()
 	aboutModuleAction->setEnabled(false);
 
 	searchText->setEnabled(true);
+    search->setEnabled(true);
 	searchAction->setEnabled(true);
 
 	KToggleAction *currentRadioAction;
@@ -264,72 +325,66 @@ void MainWindow::showAllModules()
 	resetModuleHelp();
 }
 
-void MainWindow::slotItemSelected( QListWidgetItem *item ){
-	ModuleIconItem *mItem = (ModuleIconItem *)item;
+void MainWindow::selectionChanged( const QItemSelection & selected, const QItemSelection & deselected )
+{
+    Q_UNUSED( deselected )
+    KCategorizedView * currentView = qobject_cast<KCategorizedView *>( moduleTabs->currentWidget() );
+    if ( !selected.indexes().isEmpty() ) {
+        QModelIndex i = selected.indexes().first();
+        if ( i.isValid() ) {
+            MenuItem * mItem = i.data( Qt::UserRole ).value<MenuItem*>();
+            if ( mItem ) {
+                kDebug() << "Selected item: " << mItem->service->name();
+                kDebug() << "Comment:       " << mItem->service->comment();
+            } else {
+                kDebug() << ":'( Got dud pointer from " << i.data( Qt::DisplayRole ).toString();
+            }
+            // Because some KCMultiWidgets take an age to load, it is possible
+            // for the user to click another ModuleIconItem while loading.
+            // This causes execution to return here while the first groupWidget is shown
+            if ( groupWidget )
+                return;
 
-	if( !mItem )
-		return;
-	// Because some KCMultiWidgets take an age to load, it is possible
-	// for the user to click another ModuleIconItem while loading.
-	// This causes execution to return here while the first groupWidget is shown
-	if ( groupWidget )
-		return;
+            groupWidget = moduleItemToWidgetDict[mItem->service];
 
-	kDebug() << "item selected: " << item->text();
-	groupWidget = moduleItemToWidgetDict[mItem];
+            if( !groupWidget ) {
+                groupWidget = new KCMultiWidget(0, windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+                windowStack->addWidget(groupWidget);
+                moduleItemToWidgetDict.insert(mItem->service,groupWidget);
 
-	if(groupWidget==0) {
-		QList<KCModuleInfo> list = mItem->modules;
+                connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
+                connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
+                connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
-		groupWidget = new KCMultiWidget(0, windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
-		windowStack->addWidget(groupWidget);
-		moduleItemToWidgetDict.insert(mItem,groupWidget);
+                QList<KCModuleInfo>::const_iterator it;
+                if ( mItem->children.isEmpty() ) {
+                    groupWidget->addModule( mItem->item );
+                } else {
+                    foreach ( MenuItem * i, mItem->children ) {
+                        kDebug() << "adding " , i->item.fileName();
+                        groupWidget->addModule( i->item );
+                    }
+                }
+            }
 
-		connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
-		connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
-		connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
+            // calling this with a shown KCMultiWidget sets groupWidget to 0
+            // which makes the show() call below segfault.  The groupWidget test
+            // above should prevent execution reaching here while the KCMultiWidget is
+            // visible
+            windowStack->setCurrentWidget( groupWidget );
 
-		QList<KCModuleInfo>::const_iterator it;
-		for ( it = list.begin(); it != list.end(); ++it ){
-			qDebug("adding %s %s", qPrintable((*it).moduleName()), qPrintable((*it).fileName()));
-			groupWidget->addModule(	*it );
-		}
-	}
+            setCaption( mItem->service->name() );
+            showAllAction->setEnabled(true);
+            searchText->setEnabled(false);
+            search->setEnabled(false);
+            searchAction->setEnabled(false);
 
-	// calling this with a shown KCMultiWidget sets groupWidget to 0
-	// which makes the show() call below segfault.  The groupWidget test
-	// above should prevent execution reaching here while the KCMultiWidget is
-	// visible
-	windowStack->setCurrentWidget( groupWidget );
-
-	setCaption( mItem->text() );
-	showAllAction->setEnabled(true);
-	//searchText->setEnabled(false);
-	//searchClear->setEnabled(false);
-	//searchAction->setEnabled(false);
-
-	KToggleAction *currentRadioAction;
-	foreach ( currentRadioAction, pageActions ) {
-		currentRadioAction->setEnabled(false);
-	}
-
-	// We resize and expand the window if necessary, but only once the window has been updated.
-	// Some modules seem to dynamically change thier size. The new size is only available
-	// once the dialog is updated. :-/ -SBE
-
-	//disable resizing, goes against HIG
-	//http://wiki.openusability.org/guidelines/index.php/Checklist_Configuration_Dialogs - jriddell
-	//QTimer::singleShot(0,this,SLOT(timerResize()));
-}
-
-//this method not called, see above
-void MainWindow::timerResize() {
-	QSize currentSize = size();
-	QSize newSize = currentSize.expandedTo(sizeHint());
-	// Avoid resizing if possible.
-	if(newSize!=currentSize) {
-		resize(newSize);
-	}
+            KToggleAction *currentRadioAction;
+            foreach ( currentRadioAction, pageActions ) {
+                currentRadioAction->setEnabled(false);
+            }
+        }
+    }
 }
 
 void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
@@ -351,19 +406,17 @@ void MainWindow::resetModuleHelp() {
 }
 
 void MainWindow::widgetChange() {
-	QString name;
-	if( groupWidget && groupWidget->currentModule()) {
-		name = groupWidget->currentModule()->moduleInfo().moduleName();
-	}
+    QString name;
+    if( groupWidget && groupWidget->currentModule()) {
+        name = groupWidget->currentModule()->moduleInfo().moduleName();
+    }
 
-	if( !groupWidget ) {
-		setCaption(QString());
+    if( !groupWidget ) {
+        setCaption(QString());
 
-		ModulesView *modulesView;
-		foreach( modulesView, modulesViewList ) {
-			modulesView->clearSelection();
-		}
-	}
+        KCategorizedView * currentView = qobject_cast<KCategorizedView *>( moduleTabs->currentWidget() );
+        currentView->selectionModel()->clear();
+    }
 }
 
 void MainWindow::slotTopPage() {
@@ -376,6 +429,31 @@ void MainWindow::slotTopPage() {
 	}
 
 	windowStack->setCurrentWidget(overviewPages.at(selectedPage));
+}
+
+void MainWindow::updateSearchHits()
+{
+    // if the search lineedit is empty, clear the search labels
+    if ( search->text().isEmpty() ) {
+        generalHitLabel->setText(QString());
+        advancedHitLabel->setText(QString());
+    } else { // otherwise update the tab for the sender()
+        for ( int i = 0; i < moduleTabs->count(); i++ ) {
+            const KCategorizedSortFilterProxyModel * kcsfpm = static_cast<KCategorizedSortFilterProxyModel*>( sender() );
+            if (kcsfpm && modelToTabHash.contains( kcsfpm ) ) {
+                switch ( modelToTabHash[ kcsfpm ] ) {
+                    case 0:
+                        generalHitLabel->setText(i18np("%1 hit in General","%1 hits in General", kcsfpm->rowCount()));
+                        break;
+                    case 1:
+                        advancedHitLabel->setText(i18np("%1 hit in Advanced","%1 hits in Advanced",kcsfpm->rowCount()));
+                        break;
+                    default:
+                        kDebug() << "Hits found in top level system settings other than General, Advanced, and the UI is hardcoded to only indicate hits in these tabs";
+                }
+            }
+        }
+    }
 }
 
 void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) {

@@ -3,15 +3,16 @@ ADD_SUBDIRECTORY( categories )
 
 ########### next target ###############
 
+INCLUDE_DIRECTORIES(../../apps/dolphin/src)
+
 SET(systemsettings_SRCS
-   kcmodulemenu.cpp
-   kcmsearch.cpp
+   kcmodulemodel.cpp
    kcmultiwidget.cpp
    main.cpp
    mainwindow.cpp
-   moduleiconitem.cpp
-   modulesview.cpp
-#   kicongrouppage.cpp
+   menuitem.cpp
+   ../../apps/dolphin/src/kcategorizedview.cpp
+   ../../apps/dolphin/src/kcategorydrawer.cpp
    )
 
 

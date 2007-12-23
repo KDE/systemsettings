@@ -1,6 +1,7 @@
 /**
  * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
+ *           (C) 2007 Will Stephenson <wstephenson@kde.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,10 +24,13 @@
 
 // Qt
 #include <QtCore/QHash>
+#include <QItemSelection>
 
 // KDE
 #include <kxmlguiwindow.h>
+#include <kservice.h>
 
+class QAbstractItemModel;
 class QStackedWidget;
 class KCMultiWidget;
 class ModulesView;
@@ -41,8 +45,9 @@ class QLabel;
 class KToggleAction;
 class KAboutData;
 class QAction;
-class KCModuleMenu;
-class ModuleIconItem;
+class KCModuleModel;
+class KLineEdit;
+class MenuItem;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -54,7 +59,8 @@ public:
         virtual void closeEvent ( QCloseEvent * );
 
 private slots:
-	void slotItemSelected( QListWidgetItem* item );
+    void selectionChanged( const QItemSelection & selected, const QItemSelection & deselected );
+    void updateSearchHits();
 	void showAllModules();
 	void aboutCurrentModule();
 	void updateModuleHelp( KCModuleProxy * );
@@ -63,21 +69,25 @@ private slots:
 	void groupModulesFinished();
 
 	void widgetChange();
-	void timerResize();
 	void slotTopPage();
 	void slotSearchHits(const QString &query, int *hitList, int length);
 
 private:
-	KCModuleMenu *menu;
+    void readMenu( MenuItem * );
+
+	KCModuleModel *model;
+	KService::List categories;
+	KService::List modules;
+	MenuItem * rootItem;
 	QStackedWidget *windowStack;
 	KTabWidget *moduleTabs;
-
-	QList<ModulesView*> modulesViewList;
+    KLineEdit * search;
 
 	KCMultiWidget *groupWidget;
 	QScrollArea *scrollView;
 
-	QHash<ModuleIconItem*,KCMultiWidget*> moduleItemToWidgetDict;
+	QHash<const KService*,KCMultiWidget*> moduleItemToWidgetDict;
+	QHash<const QAbstractItemModel *,int> modelToTabHash;
 
 	QList<KToggleAction*> pageActions;
 	QList<QScrollArea*> overviewPages;
@@ -87,10 +97,8 @@ private:
 	QAction *defaultModule;
 
 	QAction *showAllAction;
-	//KToolBarLabelAction *searchText;
 	KAction *searchText;
 	KAction *searchClear;
-	//KToolBarLabelAction *searchAction;
 	KAction *searchAction;
 
 	QAction *aboutModuleAction;
