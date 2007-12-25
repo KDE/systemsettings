@@ -51,6 +51,7 @@
 #include "kcmodulemodel.h"
 #include "kcmultiwidget.h"
 #include "menuitem.h"
+#include "moduleiconitem.h"
 
 
 Q_DECLARE_METATYPE(MenuItem *)
@@ -147,9 +148,13 @@ void MainWindow::buildMainWidget()
         model = new KCModuleModel( item, this );
         KCategoryDrawer * drawer = new KCategoryDrawer;
         KCategorizedView * tv = new KCategorizedView( this );
+        tv->setSelectionMode(QAbstractItemView::SingleSelection);
         tv->setSpacing(KDialog::spacingHint());
         tv->setCategoryDrawer( drawer );
         tv->setViewMode( QListView::IconMode );
+        tv->setItemDelegate( new ModuleIconItemDelegate( this ) );
+        tv->setMouseTracking( true );
+        tv->viewport()->setAttribute( Qt::WA_Hover );
         KCategorizedSortFilterProxyModel * kcsfpm = new KCategorizedSortFilterProxyModel( this );
         kcsfpm->setCategorizedModel( true );
         kcsfpm->setSourceModel( model );
@@ -157,9 +162,16 @@ void MainWindow::buildMainWidget()
         kcsfpm->setFilterCaseSensitivity( Qt::CaseInsensitive );
         kcsfpm->sort( 0 );
         tv->setModel( kcsfpm );
-        connect( tv->selectionModel(),
-                SIGNAL(selectionChanged(const QItemSelection&,const QItemSelection&)),
-                SLOT(selectionChanged(const QItemSelection&, const QItemSelection&)) );
+        connect( tv,
+                SIGNAL(activated(const QModelIndex&)),
+                SLOT(selectionChanged(const QModelIndex&)) );
+        if (KGlobalSettings::singleClick()) {
+            connect( tv, SIGNAL(clicked(const QModelIndex&)),
+                     SLOT(selectionChanged(const QModelIndex&)));
+        } else {
+            connect( tv, SIGNAL(doubleClicked(const QModelIndex&)),
+                     SLOT(selectionChanged(const QModelIndex&)));
+        }
         connect( search, SIGNAL(textChanged(const QString&)),
                 kcsfpm, SLOT(setFilterRegExp(const QString&)));
         connect( kcsfpm, SIGNAL(layoutChanged()),
@@ -325,64 +337,64 @@ void MainWindow::showAllModules()
 	resetModuleHelp();
 }
 
-void MainWindow::selectionChanged( const QItemSelection & selected, const QItemSelection & deselected )
+void MainWindow::selectionChanged( const QModelIndex& selected )
 {
-    Q_UNUSED( deselected )
+    if ( !selected.isValid() )
+        return;
+
     KCategorizedView * currentView = qobject_cast<KCategorizedView *>( moduleTabs->currentWidget() );
-    if ( !selected.indexes().isEmpty() ) {
-        QModelIndex i = selected.indexes().first();
-        if ( i.isValid() ) {
-            MenuItem * mItem = i.data( Qt::UserRole ).value<MenuItem*>();
-            if ( mItem ) {
-                kDebug() << "Selected item: " << mItem->service->name();
-                kDebug() << "Comment:       " << mItem->service->comment();
+
+    if ( selected.isValid() ) {
+        MenuItem * mItem = selected.data( Qt::UserRole ).value<MenuItem*>();
+        if ( mItem ) {
+            kDebug() << "Selected item: " << mItem->service->name();
+            kDebug() << "Comment:       " << mItem->service->comment();
+        } else {
+            kDebug() << ":'( Got dud pointer from " << selected.data( Qt::DisplayRole ).toString();
+        }
+        // Because some KCMultiWidgets take an age to load, it is possible
+        // for the user to click another ModuleIconItem while loading.
+        // This causes execution to return here while the first groupWidget is shown
+        if ( groupWidget )
+            return;
+
+        groupWidget = moduleItemToWidgetDict[mItem->service];
+
+        if( !groupWidget ) {
+            groupWidget = new KCMultiWidget(0, windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+            windowStack->addWidget(groupWidget);
+            moduleItemToWidgetDict.insert(mItem->service,groupWidget);
+
+            connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
+            connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
+            connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
+
+            QList<KCModuleInfo>::const_iterator it;
+            if ( mItem->children.isEmpty() ) {
+                groupWidget->addModule( mItem->item );
             } else {
-                kDebug() << ":'( Got dud pointer from " << i.data( Qt::DisplayRole ).toString();
-            }
-            // Because some KCMultiWidgets take an age to load, it is possible
-            // for the user to click another ModuleIconItem while loading.
-            // This causes execution to return here while the first groupWidget is shown
-            if ( groupWidget )
-                return;
-
-            groupWidget = moduleItemToWidgetDict[mItem->service];
-
-            if( !groupWidget ) {
-                groupWidget = new KCMultiWidget(0, windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
-                windowStack->addWidget(groupWidget);
-                moduleItemToWidgetDict.insert(mItem->service,groupWidget);
-
-                connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
-                connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
-                connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
-
-                QList<KCModuleInfo>::const_iterator it;
-                if ( mItem->children.isEmpty() ) {
-                    groupWidget->addModule( mItem->item );
-                } else {
-                    foreach ( MenuItem * i, mItem->children ) {
-                        kDebug() << "adding " , i->item.fileName();
-                        groupWidget->addModule( i->item );
-                    }
+                foreach ( MenuItem * i, mItem->children ) {
+                    kDebug() << "adding " , i->item.fileName();
+                    groupWidget->addModule( i->item );
                 }
             }
+        }
 
-            // calling this with a shown KCMultiWidget sets groupWidget to 0
-            // which makes the show() call below segfault.  The groupWidget test
-            // above should prevent execution reaching here while the KCMultiWidget is
-            // visible
-            windowStack->setCurrentWidget( groupWidget );
+        // calling this with a shown KCMultiWidget sets groupWidget to 0
+        // which makes the show() call below segfault.  The groupWidget test
+        // above should prevent execution reaching here while the KCMultiWidget is
+        // visible
+        windowStack->setCurrentWidget( groupWidget );
 
-            setCaption( mItem->service->name() );
-            showAllAction->setEnabled(true);
-            searchText->setEnabled(false);
-            search->setEnabled(false);
-            searchAction->setEnabled(false);
+        setCaption( mItem->service->name() );
+        showAllAction->setEnabled(true);
+        searchText->setEnabled(false);
+        search->setEnabled(false);
+        searchAction->setEnabled(false);
 
-            KToggleAction *currentRadioAction;
-            foreach ( currentRadioAction, pageActions ) {
-                currentRadioAction->setEnabled(false);
-            }
+        KToggleAction *currentRadioAction;
+        foreach ( currentRadioAction, pageActions ) {
+            currentRadioAction->setEnabled(false);
         }
     }
 }

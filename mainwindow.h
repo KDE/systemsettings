@@ -59,7 +59,7 @@ public:
         virtual void closeEvent ( QCloseEvent * );
 
 private slots:
-    void selectionChanged( const QItemSelection & selected, const QItemSelection & deselected );
+    void selectionChanged( const QModelIndex & selected );
     void updateSearchHits();
 	void showAllModules();
 	void aboutCurrentModule();

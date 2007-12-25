@@ -11,8 +11,9 @@ SET(systemsettings_SRCS
    main.cpp
    mainwindow.cpp
    menuitem.cpp
-   ../../apps/dolphin/src/kcategorizedview.cpp
-   ../../apps/dolphin/src/kcategorydrawer.cpp
+   moduleiconitem.cpp
+   kcategorizedview.cpp
+   kcategorydrawer.cpp
    )
 
 

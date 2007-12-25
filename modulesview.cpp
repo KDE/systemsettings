@@ -27,6 +27,7 @@
 #include <kdebug.h>
 #include <kservicetypetrader.h>
 #include <QApplication>
+#include <kdialog.h>
 
 #include "kcmsearch.h"
 #include "moduleiconitem.h"
@@ -39,8 +40,8 @@ ModulesView::ModulesView( KCModuleMenu *rootMenu, const QString &menuPath, QWidg
 	this->categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
 
 	QVBoxLayout *layout = new QVBoxLayout( this );
-	layout->setMargin( 11 );
-	layout->setSpacing( 6 );
+	layout->setMargin( KDialog::marginHint() );
+	layout->setSpacing( KDialog::spacingHint() );
 	layout->setObjectName( QLatin1String( "layout" ) );
 
 	displayName = this->rootMenu->caption;
