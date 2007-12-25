@@ -100,11 +100,12 @@ void MainWindow::readMenu( MenuItem * parent )
         //kDebug() << "Examining category " << parentCategory << "/" << category;
         if ( parentCategory == parent->name ) {
             kDebug() << space << "found category '" << entry->name() << "' " << entry->desktopEntryPath();
+            KCModuleInfo module(entry->entryPath());
 
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->name = category;
             menuItem->service = entry;
-            menuItem->item = entry;
+            menuItem->item = module;
             readMenu( menuItem );
         }
     }
