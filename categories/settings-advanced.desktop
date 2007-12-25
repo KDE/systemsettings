@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-Weight=200
 X-KDE-System-Settings-Category=advanced
 X-KDE-System-Settings-Parent-Category=
 

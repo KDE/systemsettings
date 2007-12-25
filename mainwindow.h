@@ -86,7 +86,7 @@ private:
 	KCMultiWidget *groupWidget;
 	QScrollArea *scrollView;
 
-	QHash<const KService*,KCMultiWidget*> moduleItemToWidgetDict;
+	QHash<KService::Ptr,KCMultiWidget*> moduleItemToWidgetDict;
 	QHash<const QAbstractItemModel *,int> modelToTabHash;
 
 	QList<KToggleAction*> pageActions;
@@ -116,6 +116,8 @@ private:
 	 **/
 	KAboutData *dummyAbout;
 };
+
+bool pageLessThan( MenuItem *page1, MenuItem *page2 );
 
 #endif
 

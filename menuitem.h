@@ -37,7 +37,7 @@ public:
     bool menu;
     QString name;
     QString caption;
-    const KService * service;
+    KService::Ptr service;
     KCModuleInfo item;
 };
 

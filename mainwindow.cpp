@@ -64,6 +64,7 @@ MainWindow::MainWindow(const QString & menuFile, QWidget *parent) :
 
 	// Load the menu structure in from disk.
     readMenu( rootItem );
+    qStableSort( rootItem->children.begin(), rootItem->children.end(), pageLessThan ); // sort tabs by weight
 	moduleTabs = new KTabWidget(this, QTabWidget::North|QTabWidget::Rounded);
 	buildActions();
 	buildMainWidget();
@@ -93,7 +94,7 @@ void MainWindow::readMenu( MenuItem * parent )
     space.fill( ' ', depth * 2 );
     kDebug() << space << "Looking for children in '" << parent->name << "'";
     for (int i = 0; i < categories.size(); ++i) {
-        const KService* entry = categories.at(i).data();
+        KService::Ptr entry = categories.at(i);
         QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         QString category = entry->property("X-KDE-System-Settings-Category").toString();
         //kDebug() << "Examining category " << parentCategory << "/" << category;
@@ -103,13 +104,14 @@ void MainWindow::readMenu( MenuItem * parent )
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->name = category;
             menuItem->service = entry;
+            menuItem->item = entry;
             readMenu( menuItem );
         }
     }
 
     // scan for any modules at this level and add them
     for (int i = 0; i < modules.size(); ++i) {
-        const KService* entry = modules.at(i).data();
+        KService::Ptr entry = modules.at(i);
         QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         //kDebug() << "Examining module " << category;
         if(!parent->name.isEmpty() && category == parent->name ) {
@@ -124,8 +126,6 @@ void MainWindow::readMenu( MenuItem * parent )
             infoItem->item = module;
         }
     }
-
-    //qSort(currentMenu); // TODO: sort by weight
 }
 
 void MainWindow::closeEvent ( QCloseEvent * )
@@ -134,7 +134,6 @@ void MainWindow::closeEvent ( QCloseEvent * )
 	        groupWidget->dialogClosed();
 	}
 }
-
 
 void MainWindow::buildMainWidget()
 {
@@ -483,6 +482,11 @@ void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) 
 		}
 
 	}
+}
+
+bool pageLessThan( MenuItem *page1, MenuItem *page2 )
+{
+    return page1->item.weight() < page2->item.weight();
 }
 
 #include "mainwindow.moc"
