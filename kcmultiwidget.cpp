@@ -267,7 +267,8 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
 		moduleScrollArea->setWidget( module );
 		moduleScrollArea->setWidgetResizable( true );
 		moduleScrollArea->setFrameStyle( QFrame::NoFrame );
-
+                moduleScrollArea->viewport()->setAutoFillBackground(false);
+                module->setAutoFillBackground(false);
 		QStringList parentComponents = moduleinfo.service()->property(
 				"X-KDE-System-Settings-Parent-Category" ).toStringList();
 		moduleParentComponents.insert( module,
