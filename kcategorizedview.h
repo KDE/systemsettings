@@ -23,8 +23,6 @@
 
 #include <QtGui/QListView>
 
-#include <libdolphin_export.h>
-
 class KCategoryDrawer;
 
 /**
@@ -38,7 +36,7 @@ class KCategoryDrawer;
   *
   * @author Rafael Fernández López <ereslibre@kde.org>
   */
-class LIBDOLPHINPRIVATE_EXPORT KCategorizedView
+class KCategorizedView
     : public QListView
 {
     Q_OBJECT
