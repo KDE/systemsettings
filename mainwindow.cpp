@@ -70,6 +70,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	setupGUI(ToolBar|Save|Create,QString());
 	//widgetChange();
 	menuBar()->hide();
+
+	connect(moduleTabs, SIGNAL(currentChanged(int)), SLOT(widgetChange()));
 }
 
 MainWindow::~MainWindow()
@@ -339,57 +341,55 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     if ( !selected.isValid() )
         return;
 
-    if ( selected.isValid() ) {
-        MenuItem * mItem = selected.data( Qt::UserRole ).value<MenuItem*>();
-        if ( mItem ) {
-            kDebug() << "Selected item: " << mItem->service->name();
-            kDebug() << "Comment:       " << mItem->service->comment();
+    MenuItem * mItem = selected.data( Qt::UserRole ).value<MenuItem*>();
+    if ( mItem ) {
+        kDebug() << "Selected item: " << mItem->service->name();
+        kDebug() << "Comment:       " << mItem->service->comment();
+    } else {
+        kDebug() << ":'( Got dud pointer from " << selected.data( Qt::DisplayRole ).toString();
+    }
+    // Because some KCMultiWidgets take an age to load, it is possible
+    // for the user to click another ModuleIconItem while loading.
+    // This causes execution to return here while the first groupWidget is shown
+    if ( groupWidget )
+        return;
+
+    groupWidget = moduleItemToWidgetDict[mItem->service];
+
+    if( !groupWidget ) {
+        groupWidget = new KCMultiWidget(windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+        windowStack->addWidget(groupWidget);
+        moduleItemToWidgetDict.insert(mItem->service,groupWidget);
+
+        connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
+        connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
+        connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
+
+        if ( mItem->children.isEmpty() ) {
+            groupWidget->addModule( mItem->item );
         } else {
-            kDebug() << ":'( Got dud pointer from " << selected.data( Qt::DisplayRole ).toString();
-        }
-        // Because some KCMultiWidgets take an age to load, it is possible
-        // for the user to click another ModuleIconItem while loading.
-        // This causes execution to return here while the first groupWidget is shown
-        if ( groupWidget )
-            return;
-
-        groupWidget = moduleItemToWidgetDict[mItem->service];
-
-        if( !groupWidget ) {
-            groupWidget = new KCMultiWidget(windowStack, Qt::NonModal);
-            windowStack->addWidget(groupWidget);
-            moduleItemToWidgetDict.insert(mItem->service,groupWidget);
-
-            connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
-            connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
-            connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
-
-            if ( mItem->children.isEmpty() ) {
-                groupWidget->addModule( mItem->item );
-            } else {
-                foreach ( MenuItem * i, mItem->children ) {
-                    kDebug() << "adding " , i->item.fileName();
-                    groupWidget->addModule( i->item );
-                }
+            foreach ( MenuItem * i, mItem->children ) {
+                kDebug() << "adding " , i->item.fileName();
+                groupWidget->addModule( i->item );
             }
         }
+    }
 
-        // calling this with a shown KCMultiWidget sets groupWidget to 0
-        // which makes the show() call below segfault.  The groupWidget test
-        // above should prevent execution reaching here while the KCMultiWidget is
-        // visible
-        windowStack->setCurrentWidget( groupWidget );
+    // calling this with a shown KCMultiWidget sets groupWidget to 0
+    // which makes the show() call below segfault.  The groupWidget test
+    // above should prevent execution reaching here while the KCMultiWidget is
+    // visible
+    windowStack->setCurrentWidget( groupWidget );
 
-        setCaption( mItem->service->name() );
-        showAllAction->setEnabled(true);
-        searchText->setEnabled(false);
-        search->setEnabled(false);
-        searchAction->setEnabled(false);
+    setCaption( mItem->service->name() );
+    showAllAction->setEnabled(true);
+    searchText->setEnabled(false);
+    search->setEnabled(false);
+    searchAction->setEnabled(false);
 
-        KToggleAction *currentRadioAction;
-        foreach ( currentRadioAction, pageActions ) {
-            currentRadioAction->setEnabled(false);
-        }
+    KToggleAction *currentRadioAction;
+    foreach ( currentRadioAction, pageActions ) {
+        currentRadioAction->setEnabled(false);
     }
 }
 
