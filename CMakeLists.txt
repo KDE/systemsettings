@@ -3,8 +3,6 @@ ADD_SUBDIRECTORY( categories )
 
 ########### next target ###############
 
-INCLUDE_DIRECTORIES(../../apps/dolphin/src)
-
 SET(systemsettings_SRCS
    kcmodulemodel.cpp
    kcmultiwidget.cpp
