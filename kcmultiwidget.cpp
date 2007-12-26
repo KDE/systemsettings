@@ -51,19 +51,18 @@ class KCMultiWidget::KCMultiWidgetPrivate
 {
 	public:
 		KCMultiWidgetPrivate()
-			: hasRootKCM( false ), currentModule( 0 )
+			: hasRootKCM( false )
 		{}
 
 		bool hasRootKCM;
-		KCModuleProxy* currentModule;
 };
 
  
 KCMultiWidget::KCMultiWidget(QWidget *parent, Qt::WindowModality modality)
-	: KPageDialog( parent ),
-    d( new KCMultiWidgetPrivate )
+	: KPageDialog( parent )
+	, d( new KCMultiWidgetPrivate )
 {
-  InitKIconDialog(i18n("Configure"), modality);
+	InitKIconDialog(i18n("Configure"), modality);
 	init();
 }
 
@@ -83,8 +82,6 @@ void KCMultiWidget::InitKIconDialog(const QString& caption,
   setButtonGuiItem(KDialog::User1, KStandardGuiItem::close());
 
   setWindowModality(modality);
-
-//   iconPage.setParent(this);
 }
 
 inline void KCMultiWidget::init()
@@ -114,9 +111,7 @@ inline void KCMultiWidget::init()
 
 KCMultiWidget::~KCMultiWidget()
 {
-	OrphanMap::Iterator end2 = m_orphanModules.end();
-	for( OrphanMap::Iterator it = m_orphanModules.begin(); it != end2; ++it )
-		delete ( *it );
+	qDeleteAll( m_orphanModules );
 	delete d;
 }
 
@@ -137,26 +132,25 @@ void KCMultiWidget::slotReset()
 void KCMultiWidget::apply()
 {
 	QStringList updatedModules;
-	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
+	foreach( const CreatedModule &it, m_modules )
 	{
-		KCModuleProxy * m = ( *it ).kcm;
+		KCModuleProxy * m = it.kcm;
 		if( m && m->changed() )
 		{
 			m->save();
 			QStringList names = moduleParentComponents[ m ];
 
-            foreach ( const QString &name , names )
-            {
-                if ( updatedModules.indexOf(name) == -1 )
-                    updatedModules.append(name);
-            }
+			foreach ( const QString &name , names )
+			{
+				if ( updatedModules.indexOf(name) == -1 )
+					updatedModules.append(name);
+			}
 		}
 	}
-	for( QStringList::const_iterator it = updatedModules.begin(); it != updatedModules.end(); ++it )
+	foreach( const QString &it, updatedModules )
 	{
-		kDebug() << *it << " " << ( *it );
-		emit configCommitted( ( *it ).toLatin1() );
+		kDebug() << it << " " << ( it );
+		emit configCommitted( it.toLatin1() );
 	}
 	emit configCommitted();
 }
@@ -195,9 +189,8 @@ void KCMultiWidget::slotClose() {
 void KCMultiWidget::clientChanged(bool state)
 {
 	kDebug( 710 ) << state;
-	ModuleList::Iterator end = m_modules.end();
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it )
-		if( ( *it ).kcm->changed() ) {
+	foreach( const CreatedModule &it, m_modules )
+		if( it.kcm->changed() ) {
 			enableButton( Apply, true );
                         enableButton( Reset, true);
 			return;
@@ -283,13 +276,14 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
 }
 
 KCModuleProxy* KCMultiWidget::currentModule() {
-	QWidget* pageWidget = currentPage()->widget();
-	KCModuleProxy* module = qobject_cast<KCModuleProxy*>(pageWidget);
-	if (!module) {
-		return NULL;
-	} else {
-		return module;
-	}
+	KPageWidgetItem *pageWidget = currentPage();
+	if ( pageWidget == 0 )
+		return 0;
+
+	QScrollArea *scrollArea = qobject_cast<QScrollArea*>( pageWidget->widget() );
+	KCModuleProxy *module = qobject_cast<KCModuleProxy*>( scrollArea->widget() );
+
+	return module;
 }
 
 void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
@@ -297,11 +291,11 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 		return;
 	
 	int res = KMessageBox::warningYesNo(this,
-				i18n("There are unsaved changes in the active module.\n"
-             "Do you want to apply the changes or discard them?"),
-                                      i18n("Unsaved Changes"),
-                                      KStandardGuiItem::apply(),
-                                      KStandardGuiItem::discard());
+	                                    i18n("There are unsaved changes in the active module.\n"
+	                                         "Do you want to apply the changes or discard them?"),
+	                                    i18n("Unsaved Changes"),
+	                                    KStandardGuiItem::apply(),
+	                                    KStandardGuiItem::discard());
 	if (res == KMessageBox::Yes) {
 		slotApply();
 	} else {
@@ -320,32 +314,30 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 {
 	QList<KCModuleProxy*> objects = page->findChildren<KCModuleProxy*>();
 
-    // add fall back
-    objects.append( qobject_cast<KCModuleProxy*>(page) );
+	// add fall back
+	objects.append( qobject_cast<KCModuleProxy*>(page) );
 
 	KCModuleProxy *module = objects.first();
 	if( ! module ) {
 		return;
 	}
 
-	if( d && d->currentModule ) {
-		applyOrRevert( d->currentModule );
+	if( currentModule() != 0 ) {
+		applyOrRevert( currentModule() );
 	}
-	d->currentModule = module;
-	emit ( aboutToShow( d->currentModule ) );
+	emit ( aboutToShow( module ) );
 
-	ModuleList::Iterator end = m_modules.end();
 	int buttons = 0;
         bool found = false;
-	for( ModuleList::Iterator it = m_modules.begin(); it != end; ++it ) {
-		if( ( *it ).kcm==d->currentModule) {
-			showButton(User2, ( *it ).adminmode);
-			buttons = ( *it ).buttons;
+	foreach( const CreatedModule &it, m_modules ) {
+		if( it.kcm==module) {
+			showButton(User2, it.adminmode);
+			buttons = it.buttons;
                         found = true;
 		}
 	}
         if (!found) {
-            buttons = d->currentModule->buttons();
+            buttons = module->buttons();
         }
         //Q_ASSERT(found);
 
@@ -360,11 +352,11 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
 
 	disconnect( this, SIGNAL(user3Clicked()), 0, 0 );
 
-// 	if (d->currentModule->moduleInfo().needsRootPrivileges() &&
-// 			!d->currentModule->rootMode() )
+// 	if (module->moduleInfo().needsRootPrivileges() &&
+// 			!module->rootMode() )
 // 	{ /* Enable the Admin Mode button */
 // 		enableButton( User2, true );
-// 		connect( this, SIGNAL(user3Clicked()), d->currentModule, SLOT( runAsRoot() ));
+// 		connect( this, SIGNAL(user3Clicked()), module, SLOT( runAsRoot() ));
 // 		connect( this, SIGNAL(user3Clicked()), SLOT( disableRModeButton() ));
 // 	} else {
 // 		enableButton( User2, false );
@@ -379,7 +371,7 @@ void KCMultiWidget::rootExit()
 void KCMultiWidget::disableRModeButton()
 {
 	enableButton( User2, false );
-	connect ( d->currentModule, SIGNAL( childClosed() ), SLOT( rootExit() ) );
+	connect ( currentModule(), SIGNAL( childClosed() ), SLOT( rootExit() ) );
 }
 
 void KCMultiWidget::slotCancel() {
@@ -388,7 +380,7 @@ void KCMultiWidget::slotCancel() {
 
 void KCMultiWidget::dialogClosed()
 {
-	applyOrRevert(d->currentModule);
+	applyOrRevert( currentModule() );
 }
 
 #include "kcmultiwidget.moc"
