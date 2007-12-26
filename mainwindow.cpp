@@ -365,7 +365,7 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
         connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
         connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
-        if ( mItem->children.isEmpty() ) {
+        if ( ! mItem->menu ) {
             groupWidget->addModule( mItem->item );
         } else {
             foreach ( MenuItem * i, mItem->children ) {
