@@ -67,7 +67,7 @@ int KCModuleModel::rowCount( const QModelIndex & index ) const
     return count;
 }
 
-int KCModuleModel::columnCount( const QModelIndex & index ) const
+int KCModuleModel::columnCount( const QModelIndex & /*index*/ ) const
 {
     return 2; // name and comment
 }

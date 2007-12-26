@@ -31,8 +31,6 @@
 #include <kpagedialog.h>
 #include <kservice.h>
 
-/* #include "kicongrouppage.h" */
-
 class KCModuleProxy;
 class KCModuleInfo;
 
@@ -45,8 +43,6 @@ class /*KUTILS_EXPORT*/ KCMultiWidget : public KPageDialog
 	Q_OBJECT
 
 public:
-        enum DialogType { TreeList, Tabbed, IconList, Plain };
-
 	/**
 	 * Constructs a new KCMultiWidget
 	 *
@@ -55,19 +51,6 @@ public:
 	 **/
 	KCMultiWidget( QWidget *parent=0,
                  Qt::WindowModality modality = Qt::NonModal );
-
-	/**
-	 * Construct a personalized KCMultiWidget.
-	 *
-	 * @param dialogFace You can use TreeList, Tabbed, Plain, Swallow or
-	 *		IconList.
-	 * @param parent Parent of the dialog.
-	 * @param modality Qt::WindowModality value indicating the modality of the window.
-   *    If @p Qt::NonModal, the rest of the	program interface
-   *    (example: other dialogs) is accessible while the dialog is open.
-	 */
-	KCMultiWidget( int dialogFace, QWidget * parent = 0,
-                 Qt::WindowModality modality= Qt::NonModal );
 
   /**
    * Initialize the KIconDialog widget
@@ -88,31 +71,11 @@ public:
 	/**
 	 * Add a module.
 	 *
-	 * @param module Specify the name of the module that is to be added
-	 *			   to the list of modules the dialog will show.
-	 *
-	 * @param withfallback Try harder to load the module. Might result
-	 *					 in the module appearing outside the dialog.
-	 **/
-	void addModule(const QString& module, bool withfallback=true);
-
-	/**
-	 * Add a module.
-	 *
 	 * @param moduleinfo Pass a KCModuleInfo object which will be
 	 *				   used for creating the module. It will be added
 	 *				   to the list of modules the dialog will show.
-	 *
-	 * @param parentmodulenames The names of the modules that should appear as
-	 *						  parents in the TreeList. Look at the
-	 *						  KDialog::addPage documentation for more info
-	 *						  on this.
-	 *
-	 * @param withfallback Try harder to load the module. Might result
-	 *					 in the module appearing outside the dialog.
 	 **/
-	void addModule(const KCModuleInfo& moduleinfo, QStringList
-			parentmodulenames = QStringList(), bool withfallback=false);
+	void addModule(const KCModuleInfo& moduleinfo);
 
 	/**
 	 * @return the current module that is being shown.
@@ -256,12 +219,9 @@ private:
 
 	QHash<KCModuleProxy*,QStringList> moduleParentComponents;
 	QString _docPath;
-	int dialogface;
 
 	class KCMultiWidgetPrivate;
 	KCMultiWidgetPrivate *d;
-
-/*   KIconGroupPage iconPage; */
 };
 
 #endif //KCMULTIWIDGET_H

@@ -67,15 +67,6 @@ KCMultiWidget::KCMultiWidget(QWidget *parent, Qt::WindowModality modality)
 	init();
 }
 
-KCMultiWidget::KCMultiWidget( int dialogFace, QWidget * parent, Qt::WindowModality modality )
-	: KPageDialog( parent ),
-    dialogface( dialogFace ),
-    d( new KCMultiWidgetPrivate )
-{
-  InitKIconDialog(QString(), modality);
-	init();
-}
-
 // Maybe move into init()?
 void KCMultiWidget::InitKIconDialog(const QString& caption,
                                     Qt::WindowModality modality)
@@ -215,20 +206,7 @@ void KCMultiWidget::clientChanged(bool state)
         enableButton( Reset, false);
 }
 
-void KCMultiWidget::addModule(const QString& path, bool withfallback)
-{
-	QString complete = path;
-
-	if( !path.endsWith( ".desktop" ))
-		complete += ".desktop";
-
-	KService::Ptr service = KService::serviceByStorageId( complete );
-
-	addModule( KCModuleInfo( service ), QStringList(), withfallback);
-}
-
-void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo,
-		QStringList parentmodulenames, bool withfallback)
+void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
 {
 	if( !moduleinfo.service() ) {
 		kWarning() << "ModuleInfo has no associated KService" ;
@@ -410,10 +388,7 @@ void KCMultiWidget::slotCancel() {
 
 void KCMultiWidget::dialogClosed()
 {
-	if(d)
-	{
-		applyOrRevert(d->currentModule);
-	}
+	applyOrRevert(d->currentModule);
 }
 
 #include "kcmultiwidget.moc"

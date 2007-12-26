@@ -29,7 +29,6 @@
 #include <QStackedWidget>
 #include <klocale.h>
 #include <qlayout.h>
-#include <qtimer.h>
 #include <KGlobalSettings>
 #include <kiconloader.h>
 #include <kactioncollection.h>
@@ -56,11 +55,11 @@
 
 Q_DECLARE_METATYPE(MenuItem *)
 
-MainWindow::MainWindow(const QString & menuFile, QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent) :
     KXmlGuiWindow(parent), categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
     modules( KServiceTypeTrader::self()->query("KCModule") ),
     rootItem(new MenuItem( true, 0 )),
-    groupWidget(NULL), selectedPage(0), dummyAbout(NULL) {
+    groupWidget(NULL), selectedPage(0) {
 
 	// Load the menu structure in from disk.
     readMenu( rootItem );
@@ -77,7 +76,6 @@ MainWindow::~MainWindow()
 {
 	delete moduleTabs;
     delete rootItem;
-	delete dummyAbout;
 }
 
 void MainWindow::readMenu( MenuItem * parent )
@@ -141,7 +139,6 @@ void MainWindow::buildMainWidget()
     windowStack = new QStackedWidget(this);
 
     // Top level pages.
-    QScrollArea *modulesScroller;
     moduleTabs->show();
 
     foreach ( MenuItem* item, rootItem->children ) {
@@ -342,8 +339,6 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     if ( !selected.isValid() )
         return;
 
-    KCategorizedView * currentView = qobject_cast<KCategorizedView *>( moduleTabs->currentWidget() );
-
     if ( selected.isValid() ) {
         MenuItem * mItem = selected.data( Qt::UserRole ).value<MenuItem*>();
         if ( mItem ) {
@@ -361,7 +356,7 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
         groupWidget = moduleItemToWidgetDict[mItem->service];
 
         if( !groupWidget ) {
-            groupWidget = new KCMultiWidget(0, windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+            groupWidget = new KCMultiWidget(windowStack, Qt::NonModal);
             windowStack->addWidget(groupWidget);
             moduleItemToWidgetDict.insert(mItem->service,groupWidget);
 

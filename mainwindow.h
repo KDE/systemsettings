@@ -22,28 +22,20 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-// Qt
-#include <QtCore/QHash>
-#include <QItemSelection>
-
 // KDE
 #include <kxmlguiwindow.h>
 #include <kservice.h>
 
 class QAbstractItemModel;
+class QModelIndex;
 class QStackedWidget;
 class KCMultiWidget;
-class ModulesView;
 class KAction;
-class KToolBarLabelAction;
-class KCModule;
 class KCModuleProxy;
-class QListWidgetItem;
 class QScrollArea;
 class KTabWidget;
 class QLabel;
 class KToggleAction;
-class KAboutData;
 class QAction;
 class KCModuleModel;
 class KLineEdit;
@@ -54,7 +46,7 @@ class MainWindow : public KXmlGuiWindow
 	Q_OBJECT
 
 public:
-	explicit MainWindow(const QString &menufile="systemsettings", QWidget *parent=0);
+	explicit MainWindow(QWidget *parent=0);
 	~MainWindow();
         virtual void closeEvent ( QCloseEvent * );
 
@@ -108,13 +100,6 @@ private:
 
 	QLabel *generalHitLabel;
 	QLabel *advancedHitLabel;
-
-	/**
-	 * If someone wants to report a bug
-	 * against a module with no about data
-	 * we construct one for him
-	 **/
-	KAboutData *dummyAbout;
 };
 
 bool pageLessThan( MenuItem *page1, MenuItem *page2 );

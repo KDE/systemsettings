@@ -49,14 +49,6 @@ int main( int argc, char *argv[] )
 			"ellen@kde.org");
 	KCmdLineArgs::init(argc, argv, &aboutData);
 
-	// Tell which options are supported
-
-	KCmdLineOptions options;
-	options.add("menu <argument>", ki18n("Menu file"), "systemsettings");
-	KCmdLineArgs::addCmdLineOptions( options );
-	KUniqueApplication::addCmdLineOptions();
-	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
 	if (!KUniqueApplication::start()) {
 		std::cerr << "This program is already running." << std::endl;
 		return 0;
@@ -65,11 +57,9 @@ int main( int argc, char *argv[] )
 
 	QApplication::setWindowIcon(KIcon("preferences-system"));
 
-	MainWindow *mainWindow = new MainWindow(args->getOption("menu"));
+	MainWindow *mainWindow = new MainWindow();
 
 	mainWindow->show();
-
-	args->clear();
 
 	return application.exec();
 }
