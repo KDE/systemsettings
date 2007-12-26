@@ -364,7 +364,6 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
             connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
             connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
-            QList<KCModuleInfo>::const_iterator it;
             if ( mItem->children.isEmpty() ) {
                 groupWidget->addModule( mItem->item );
             } else {
