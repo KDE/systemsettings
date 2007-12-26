@@ -21,13 +21,11 @@
 #ifndef KCATEGORYDRAWER_H
 #define KCATEGORYDRAWER_H
 
-#include <libdolphin_export.h>
-
 class QPainter;
 class QModelIndex;
 class QStyleOption;
 
-class LIBDOLPHINPRIVATE_EXPORT KCategoryDrawer
+class KCategoryDrawer
 {
 public:
     KCategoryDrawer();
