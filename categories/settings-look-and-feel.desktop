@@ -3,6 +3,7 @@ Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=look-and-feel
 X-KDE-System-Settings-Parent-Category=general
+X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Look & Feel

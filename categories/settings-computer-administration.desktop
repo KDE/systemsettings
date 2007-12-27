@@ -3,6 +3,7 @@ Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=computer-administration
 X-KDE-System-Settings-Parent-Category=general
+X-KDE-Weight=200
 Icon=preferences-system
 
 Name=Computer Administration
