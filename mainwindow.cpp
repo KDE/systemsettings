@@ -80,6 +80,11 @@ MainWindow::~MainWindow()
     delete rootItem;
 }
 
+QSize MainWindow::sizeHint() const
+{
+    return QSize(780, 580);
+}	
+
 void MainWindow::readMenu( MenuItem * parent )
 {
     // look for any categories inside this level, and recurse into them

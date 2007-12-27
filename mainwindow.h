@@ -50,6 +50,9 @@ public:
 	~MainWindow();
         virtual void closeEvent ( QCloseEvent * );
 
+protected:
+    virtual QSize sizeHint() const;
+
 private slots:
     void selectionChanged( const QModelIndex & selected );
     void updateSearchHits();
