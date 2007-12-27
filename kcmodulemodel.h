@@ -26,11 +26,19 @@
 class MenuItem;
 class KCModuleModelPrivate;
 
+class SystemSettingsProxyModel : public KCategorizedSortFilterProxyModel
+{
+public:
+    SystemSettingsProxyModel(QObject *parent = 0);
+    virtual ~SystemSettingsProxyModel();
+    virtual bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const;
+};
+
 class KCModuleModel : public QAbstractItemModel
 {
 Q_OBJECT
 public:
-    static const int UserFilterRole;
+    static const int UserFilterRole, WeightRole;
     KCModuleModel( MenuItem * menuRoot, QObject * parent = 0 );
     ~KCModuleModel();
     // setup method

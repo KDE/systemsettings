@@ -159,7 +159,7 @@ void MainWindow::buildMainWidget()
         tv->setItemDelegate( new ModuleIconItemDelegate( this ) );
         tv->setMouseTracking( true );
         tv->viewport()->setAttribute( Qt::WA_Hover );
-        KCategorizedSortFilterProxyModel * kcsfpm = new KCategorizedSortFilterProxyModel( this );
+        KCategorizedSortFilterProxyModel * kcsfpm = new SystemSettingsProxyModel( this );
         kcsfpm->setCategorizedModel( true );
         kcsfpm->setSourceModel( model );
         kcsfpm->setFilterRole( KCModuleModel::UserFilterRole );

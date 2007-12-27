@@ -22,6 +22,7 @@
 
 #include <QHash>
 #include <QList>
+#include <KDebug>
 #include <KIcon>
 #include <KServiceTypeTrader>
 
@@ -29,6 +30,39 @@
 #include "menuitem.h"
 
 Q_DECLARE_METATYPE(MenuItem *)
+
+SystemSettingsProxyModel::SystemSettingsProxyModel( QObject * parent )
+    : KCategorizedSortFilterProxyModel( parent )
+{
+
+}
+
+SystemSettingsProxyModel::~SystemSettingsProxyModel()
+{}
+
+bool SystemSettingsProxyModel::subSortLessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+    QVariant leftWeight = left.data( KCModuleModel::WeightRole );
+    QVariant rightWeight = right.data( KCModuleModel::WeightRole );
+
+    if ( !( leftWeight.isValid() && rightWeight.isValid() ) ) {
+        return KCategorizedSortFilterProxyModel::subSortLessThan( left, right );
+    } else {
+        kDebug() << "comparing " << left.data().toString() << " (" << leftWeight.toInt() << ") and " << right.data().toString() << " (" << rightWeight.toInt() << ")";
+        if ( leftWeight.toInt() == rightWeight.toInt() ) {
+            return left.data().toString() < right.data().toString();
+        } else {
+            return leftWeight.toInt() < rightWeight.toInt();
+        }
+    }
+}
+
+int weightOfService( const KService::Ptr service )
+{
+    QVariant tmp = service->property( "X-KDE-Weight", QVariant::Int );
+    int weight = tmp.isValid() ? tmp.toInt() : 100;
+    return weight;
+}
 
 class KCModuleModelPrivate {
 public:
@@ -39,6 +73,7 @@ public:
 };
 
 const int KCModuleModel::UserFilterRole = 0x015D1AE6;
+const int KCModuleModel::WeightRole = 0x03A8CC00;
 
 KCModuleModel::KCModuleModel( MenuItem * menuRoot, QObject * parent )
  : QAbstractItemModel( parent ), d( new KCModuleModelPrivate )
@@ -133,6 +168,9 @@ QVariant KCModuleModel::data(const QModelIndex &index, int role) const
                 theData = QVariant( KIcon( mi->service->icon() ) );
             break;
         case KCategorizedSortFilterProxyModel::CategorySortRole:
+            if ( mi->parent )
+                theData.setValue( QString("%1%2").arg( QString::number( weightOfService( mi->parent->service) ), 5, '0' ).arg( mi->parent->service->name() ) );
+            break;
         case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
             if ( mi->parent )
                 theData.setValue( mi->parent->service->name());
@@ -146,6 +184,9 @@ QVariant KCModuleModel::data(const QModelIndex &index, int role) const
             }
             searchKeyWords << mi->item.keywords() << mi->service->name();
             theData.setValue( searchKeyWords.join( QString() ) );
+            break;
+        case WeightRole:
+            theData.setValue( weightOfService( mi->service ) );
             break;
         default:
             break;
