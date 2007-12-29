@@ -36,6 +36,7 @@
 #include <kstandardguiitem.h>
 #include <kuser.h>
 #include <kauthorized.h>
+#include <ktoolinvocation.h>
 
 #include "kcmoduleloader.h"
 #include "kcmoduleproxy.h"
@@ -176,10 +177,9 @@ void KCMultiWidget::slotHelp()
 	KUrl url( KUrl("help:/"), docPath );
 
 	if (url.protocol() == "help" || url.protocol() == "man" || url.protocol() == "info") {
-		QProcess process(this);
-		process.start("khelpcenter", QStringList() << url.url());
+		QProcess::startDetached("khelpcenter", QStringList() << url.url());
 	} else {
-		new KRun(url, this);
+		KToolInvocation::invokeBrowser( url.url() );
 	}
 }
 
