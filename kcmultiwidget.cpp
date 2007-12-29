@@ -98,6 +98,8 @@ inline void KCMultiWidget::init()
 
 	enableButton(Apply, false);
 	enableButton(Reset, false);
+	enableButton(Default, false);
+	enableButton(Help, false);
 
 	connect( this, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)), this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
 	setInitialSize(QSize(640,480));
