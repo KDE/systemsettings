@@ -306,7 +306,7 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module){
 	}
 }
 
-void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before)
+void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* /*before*/)
 {
 	QWidget* sendingWidget = current->widget();
 	slotAboutToShow(sendingWidget);

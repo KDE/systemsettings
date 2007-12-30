@@ -35,7 +35,7 @@ KCategoryDrawer::~KCategoryDrawer()
 }
 
 void KCategoryDrawer::drawCategory(const QModelIndex &index,
-                                   int sortRole,
+                                   int /*sortRole*/,
                                    const QStyleOption &option,
                                    QPainter *painter) const
 {
