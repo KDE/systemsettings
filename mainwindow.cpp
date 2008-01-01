@@ -21,29 +21,30 @@
 
 #include "mainwindow.h"
 
-#include <kstandardaction.h>
-#include <ktoggletoolbaraction.h>
-#include <ktoolbarspaceraction.h>
-#include <kaboutapplicationdialog.h>
+#include <QApplication>
 #include <QLabel>
+#include <QLayout>
+#include <QScrollArea>
 #include <QStackedWidget>
-#include <klocale.h>
-#include <qlayout.h>
-#include <KGlobalSettings>
-#include <kiconloader.h>
-#include <kactioncollection.h>
-#include <qapplication.h>
-#include <kdebug.h>
-#include <kcmoduleproxy.h>
-#include <kmenubar.h>
-#include <ktoggleaction.h>
-#include <qscrollarea.h>
-#include <kcmoduleinfo.h>
-#include <ktabwidget.h>
-#include <kservicetypetrader.h>
-#include <kcategorizedsortfilterproxymodel.h>
-#include <KLineEdit>
+
+#include <KAboutApplicationDialog>
+#include <KActionCollection>
+#include <KCModuleInfo>
+#include <KCModuleProxy>
+#include <KDebug>
 #include <KDialog> // for spacing
+#include <KGlobalSettings>
+#include <KIconLoader>
+#include <KLineEdit>
+#include <KLocale>
+#include <KMenuBar>
+#include <KServiceTypeTrader>
+#include <KStandardAction>
+#include <KTabWidget>
+#include <KToggleAction>
+#include <KToggleToolBarAction>
+#include <KToolBarSpacerAction>
+#include <kcategorizedsortfilterproxymodel.h>
 
 #include "kcategorizedview.h"
 #include "kcategorydrawer.h"
@@ -51,7 +52,6 @@
 #include "kcmultiwidget.h"
 #include "menuitem.h"
 #include "moduleiconitem.h"
-
 
 Q_DECLARE_METATYPE(MenuItem *)
 

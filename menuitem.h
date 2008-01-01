@@ -23,7 +23,7 @@
 #include <QList>
 #include <QString>
 #include <KCModuleInfo>
-#include <kservice.h>  // for KService::Ptr
+#include <KService>  // for KService::Ptr
 
 /**
  * A menu consists of menu items.  An item is either another menu or a module.

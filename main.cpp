@@ -19,11 +19,11 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <kuniqueapplication.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <klocale.h>
-#include <kicon.h>
+#include <KAboutData>
+#include <KCmdLineArgs>
+#include <KIcon>
+#include <KLocale>
+#include <KUniqueApplication>
 
 #include "mainwindow.h"
 #include "version.h"

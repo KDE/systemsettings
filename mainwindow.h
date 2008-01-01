@@ -23,22 +23,22 @@
 #define MAINWINDOW_H
 
 // KDE
-#include <kxmlguiwindow.h>
-#include <kservice.h>
+#include <KService>
+#include <KXmlGuiWindow>
 
 class QAbstractItemModel;
+class QAction;
+class QLabel;
 class QModelIndex;
+class QScrollArea;
 class QStackedWidget;
-class KCMultiWidget;
 class KAction;
 class KCModuleProxy;
-class QScrollArea;
-class KTabWidget;
-class QLabel;
-class KToggleAction;
-class QAction;
 class KCModuleModel;
+class KCMultiWidget;
 class KLineEdit;
+class KTabWidget;
+class KToggleAction;
 class MenuItem;
 
 class MainWindow : public KXmlGuiWindow
