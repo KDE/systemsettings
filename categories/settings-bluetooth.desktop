@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=preferences-system-bluetooth
 
 Name=Bluetooth
+Name[ar]=بلوتوث
 Name[fa]=بلوتوث
 Name[hi]=ब्लूटूथ
 Name[is]=Blátönn
