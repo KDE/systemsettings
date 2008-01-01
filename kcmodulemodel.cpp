@@ -57,6 +57,15 @@ bool SystemSettingsProxyModel::subSortLessThan(const QModelIndex &left, const QM
     }
 }
 
+
+bool SystemSettingsProxyModel::filterAcceptsRow( int source_row, const QModelIndex & source_parent ) const
+{
+    QModelIndex index = sourceModel()->index( source_row, 0, source_parent );
+    MenuItem * mItem = index.data( Qt::UserRole ).value<MenuItem*>();
+    // accept either items with children or those that have valid KCModuleInfo
+    return !( mItem->children.isEmpty() && mItem->item.service().isNull() );
+}
+
 int weightOfService( const KService::Ptr service )
 {
     QVariant tmp = service->property( "X-KDE-Weight", QVariant::Int );

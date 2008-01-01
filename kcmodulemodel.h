@@ -32,6 +32,7 @@ public:
     SystemSettingsProxyModel(QObject *parent = 0);
     virtual ~SystemSettingsProxyModel();
     virtual bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const;
+    virtual bool filterAcceptsRow( int source_column, const QModelIndex & source_parent ) const;
 };
 
 class KCModuleModel : public QAbstractItemModel

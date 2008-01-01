@@ -104,13 +104,9 @@ void MainWindow::readMenu( MenuItem * parent )
         QString category = entry->property("X-KDE-System-Settings-Category").toString();
         //kDebug() << "Examining category " << parentCategory << "/" << category;
         if ( parentCategory == parent->name ) {
-            kDebug() << space << "found category '" << entry->name() << "' " << entry->desktopEntryPath();
-            KCModuleInfo module(entry->entryPath());
-
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->name = category;
             menuItem->service = entry;
-            menuItem->item = module;
             readMenu( menuItem );
         }
     }
