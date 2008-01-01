@@ -36,7 +36,7 @@ int main( int argc, char *argv[] )
 	// About data
 	KAboutData aboutData("systemsettings", 0, ki18n("System Settings"),
 			SYSTEM_SETTINGS_VERSION, ki18n("System Settings"),
-			KAboutData::License_LGPL, ki18n("(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"));
+			KAboutData::License_LGPL, ki18n("(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd; (c) 2007 Will Stephenson"));
 	aboutData.addAuthor(ki18n("Benjamin C. Meyer"), ki18n("Author"),
 			"ben+systempreferences@meyerhome.net");
 	aboutData.addAuthor(ki18n("Jonathan Riddell"), ki18n("Contributor"),
@@ -45,6 +45,8 @@ int main( int argc, char *argv[] )
 			"manchicken@notsosoft.net");
 	aboutData.addAuthor(ki18n("Simon Edwards"), ki18n("Contributor"),
 			"simon@simonzone.com");
+	aboutData.addAuthor(ki18n("Will Stephenson"), ki18n("Contributor"),
+			"wstephenson@kde.org");
 	aboutData.addAuthor(ki18n("Ellen Reitmayr"), ki18n("Usability"),
 			"ellen@kde.org");
 	KCmdLineArgs::init(argc, argv, &aboutData);
