@@ -62,8 +62,8 @@ bool SystemSettingsProxyModel::filterAcceptsRow( int source_row, const QModelInd
 {
     QModelIndex index = sourceModel()->index( source_row, 0, source_parent );
     MenuItem * mItem = index.data( Qt::UserRole ).value<MenuItem*>();
-    // accept either items with children or those that have valid KCModuleInfo
-    if ( mItem->children.isEmpty() && mItem->item.service().isNull() ) {
+    // accept only systemsettings categories that have children
+    if ( mItem->children.isEmpty() && mItem->service->serviceTypes().contains("SystemSettingsCategory" ) ) {
         return false;
     } else {
         return KCategorizedSortFilterProxyModel::filterAcceptsRow( source_row, source_parent );
