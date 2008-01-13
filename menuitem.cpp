@@ -21,7 +21,13 @@
 #include "menuitem.h"
 
 MenuItem::MenuItem( bool isMenu, MenuItem * itsParent )
-    : menu( isMenu ), parent( itsParent ), service( 0 )
+    : parent( itsParent ),
+      menu( isMenu ),
+      name( QString() ),
+      caption( QString() ),
+      service( NULL ),
+      item( NULL )
+    
 {
     if ( parent ) {
         parent->children.append( this );
