@@ -45,9 +45,9 @@
 #include <KToggleToolBarAction>
 #include <KToolBarSpacerAction>
 #include <kcategorizedsortfilterproxymodel.h>
+#include <kcategorizedview.h>
+#include <kcategorydrawer.h>
 
-#include "kcategorizedview.h"
-#include "kcategorydrawer.h"
 #include "kcmodulemodel.h"
 #include "kcmultiwidget.h"
 #include "menuitem.h"
