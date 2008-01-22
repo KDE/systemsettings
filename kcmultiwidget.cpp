@@ -307,8 +307,14 @@ void KCMultiWidget::applyOrRevert(KCModuleProxy * module)
     }
 }
 
-void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* /*before*/)
-{
+void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* before)
+ {
+    if( before != 0 ) {
+        QScrollArea *scrollArea = qobject_cast<QScrollArea*>( before->widget() );
+        KCModuleProxy *module = qobject_cast<KCModuleProxy*>( scrollArea->widget() );
+        applyOrRevert( module );
+    }
+ 
     QWidget* sendingWidget = current->widget();
     slotAboutToShow(sendingWidget);
 }
@@ -325,9 +331,6 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
         return;
     }
 
-    if( currentModule() != 0 ) {
-        applyOrRevert( currentModule() );
-    }
     emit ( aboutToShow( module ) );
 
     int buttons = 0;
