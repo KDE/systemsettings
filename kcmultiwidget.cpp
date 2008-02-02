@@ -23,7 +23,7 @@
 
 #include "kcmultiwidget.h"
 
-#include <qlayout.h>
+#include <QLayout>
 #include <QProcess>
 #include <QScrollArea>
 

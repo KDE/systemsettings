@@ -26,8 +26,8 @@
 
 #include <climits>
 
-#include <qapplication.h>
-#include <qpainter.h>
+#include <QApplication>
+#include <QPainter>
 
 #define IMAGE_SIZE 32
 #define ICON_WIDTH 100
