@@ -67,9 +67,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	moduleTabs = new KTabWidget(this, QTabWidget::North|QTabWidget::Rounded);
 	buildActions();
 	buildMainWidget();
-	setupGUI(ToolBar|Save|Create,QString());
-	//widgetChange();
-	menuBar()->hide();
+    // We hide the menubar. So ensure the toolbar is always visible because you cannot get it back
+    setupGUI(Save|Create,QString());
+    menuBar()->hide();
 
 	connect(moduleTabs, SIGNAL(currentChanged(int)), SLOT(widgetChange()));
 }
