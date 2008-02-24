@@ -30,15 +30,12 @@ class QAbstractItemModel;
 class QAction;
 class QLabel;
 class QModelIndex;
-class QScrollArea;
 class QStackedWidget;
 class KAction;
-class KCModuleProxy;
 class KCModuleModel;
 class KCMultiWidget;
 class KLineEdit;
 class KTabWidget;
-class KToggleAction;
 class MenuItem;
 
 class MainWindow : public KXmlGuiWindow
@@ -61,7 +58,6 @@ private slots:
 	void groupModulesFinished();
 
 	void widgetChange();
-	void slotTopPage();
 	void slotSearchHits(const QString &query, int *hitList, int length);
 
 private:
@@ -76,14 +72,9 @@ private:
     KLineEdit * search;
 
 	KCMultiWidget *groupWidget;
-	QScrollArea *scrollView;
 
 	QHash<KService::Ptr,KCMultiWidget*> moduleItemToWidgetDict;
 	QHash<const QAbstractItemModel *,int> modelToTabHash;
-
-	QList<KToggleAction*> pageActions;
-	QList<QScrollArea*> overviewPages;
-	int selectedPage;
 
 	QAction *showAllAction;
 	KAction *searchText;

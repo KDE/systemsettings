@@ -25,9 +25,9 @@
 #include <QLabel>
 
 #include <QLayout>
-#include <QScrollArea>
 #include <QStackedWidget>
 
+#include <KAction>
 #include <KActionCollection>
 #include <KCModuleInfo>
 #include <KCModuleProxy>
@@ -40,7 +40,6 @@
 #include <KServiceTypeTrader>
 #include <KStandardAction>
 #include <KTabWidget>
-#include <KToggleAction>
 #include <kcategorizedsortfilterproxymodel.h>
 #include <kcategorizedview.h>
 #include <kcategorydrawer.h>
@@ -53,10 +52,12 @@
 Q_DECLARE_METATYPE(MenuItem *)
 
 MainWindow::MainWindow(QWidget *parent) :
-    KXmlGuiWindow(parent), categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
+    KXmlGuiWindow(parent),
+    categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
     modules( KServiceTypeTrader::self()->query("KCModule") ),
     rootItem(new MenuItem( true, 0 )),
-    groupWidget(NULL), selectedPage(0) {
+    groupWidget(0)
+{
 
 	// Load the menu structure in from disk.
     readMenu( rootItem );
@@ -278,11 +279,6 @@ void MainWindow::showAllModules()
     search->setEnabled(true);
 	searchAction->setEnabled(true);
 
-	KToggleAction *currentRadioAction;
-	foreach ( currentRadioAction, pageActions ) {
-		currentRadioAction->setEnabled(true);
-	}
-
 }
 
 void MainWindow::selectionChanged( const QModelIndex& selected )
@@ -310,7 +306,6 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
         windowStack->addWidget(groupWidget);
         moduleItemToWidgetDict.insert(mItem->service,groupWidget);
 
-        connect(groupWidget, SIGNAL(aboutToShow( KCModuleProxy * )), this, SLOT(updateModuleHelp( KCModuleProxy * )));
         connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
         connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
 
@@ -335,11 +330,6 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     searchText->setEnabled(false);
     search->setEnabled(false);
     searchAction->setEnabled(false);
-
-    KToggleAction *currentRadioAction;
-    foreach ( currentRadioAction, pageActions ) {
-        currentRadioAction->setEnabled(false);
-    }
 }
 
 void MainWindow::widgetChange() {
@@ -356,17 +346,6 @@ void MainWindow::widgetChange() {
     }
 }
 
-void MainWindow::slotTopPage() {
-	KToggleAction *clickedRadioAction = (KToggleAction *)sender();
-	selectedPage = pageActions.indexOf(clickedRadioAction);
-
-	KToggleAction *currentRadioAction;
-	foreach ( currentRadioAction, pageActions ) {
-		currentRadioAction->setChecked(currentRadioAction==clickedRadioAction);
-	}
-
-	windowStack->setCurrentWidget(overviewPages.at(selectedPage));
-}
 
 void MainWindow::updateSearchHits()
 {
