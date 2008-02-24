@@ -176,7 +176,7 @@ void MainWindow::buildMainWidget()
         connect( search, SIGNAL(textChanged(const QString&)),
                 kcsfpm, SLOT(setFilterRegExp(const QString&)));
         connect( kcsfpm, SIGNAL(layoutChanged()),
-                SLOT(updateSearchHits()) );
+                this, SLOT(updateSearchHits()) );
         moduleTabs->addTab(tv, item->service->name() );
         // record the index of the newly added tab so that we can later update the label showing
         // number of search hits
@@ -214,7 +214,6 @@ void MainWindow::buildActions()
 	searchText = new KAction( this );
 	searchText->setDefaultWidget(searchWid);
 
-	//actionCollection()->addAction( "spacer", new KToolBarSpacerAction( this ) );
 	actionCollection()->addAction( "searchText", searchText );
 	searchText->setShortcut(Qt::Key_F6);
 	addAction(searchText);
@@ -227,6 +226,7 @@ void MainWindow::buildActions()
     search->setClearButtonShown( true );
     search->setFocusPolicy( Qt::StrongFocus );
 	searchLabel->setBuddy( search );
+    // Is that needed? I thought that's what a buddy is for?
 	connect(searchText, SIGNAL(triggered()), search, SLOT(setFocus()));
 
 	QWidget* vbox = new QWidget(hbox);
@@ -292,6 +292,8 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
         kDebug() << "Comment:       " << mItem->service->comment();
     } else {
         kDebug() << ":'( Got dud pointer from " << selected.data( Qt::DisplayRole ).toString();
+        Q_ASSERT(mItem); // Would core dump below. Do it now
+        return; // For production
     }
     // Because some KCMultiWidgets take an age to load, it is possible
     // for the user to click another ModuleIconItem while loading.
@@ -332,21 +334,25 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     searchAction->setEnabled(false);
 }
 
-void MainWindow::widgetChange() {
-    QString name;
-    if( groupWidget && groupWidget->currentModule()) {
-        name = groupWidget->currentModule()->moduleInfo().moduleName();
-    }
 
+/*
+ * This is called when we go back to the overview page. It resets the name and
+ * clears the selection 
+ */
+void MainWindow::widgetChange() {
     if( !groupWidget ) {
         setCaption(QString());
-
         KCategorizedView * currentView = qobject_cast<KCategorizedView *>( moduleTabs->currentWidget() );
         currentView->selectionModel()->clear();
     }
 }
 
 
+/* :BUG: This is a nice idea. It just doesn't work. It looks like that
+ * layoutChanged() signal connected to this slot doesn't work the way it is
+ * expected here. It signals that the order of the items changed. I can't find
+ * a signal that informs us that set sortfilterproxy has done it's work.
+ */
 void MainWindow::updateSearchHits()
 {
     // if the search lineedit is empty, clear the search labels
@@ -370,23 +376,6 @@ void MainWindow::updateSearchHits()
             }
         }
     }
-}
-
-void MainWindow::slotSearchHits(const QString &query, int *hitList, int length) {
-	if(query.isEmpty()) {
-		generalHitLabel->setText(QString());
-		advancedHitLabel->setText(QString());
-	} else {
-
-		if(length>=1) {
-			generalHitLabel->setText(i18np("%1 hit in General","%1 hits in General",hitList[0]));
-		}
-
-		if(length>=2) {
-			advancedHitLabel->setText(i18np("%1 hit in Advanced","%1 hits in Advanced",hitList[1]));
-		}
-
-	}
 }
 
 bool pageLessThan( MenuItem *page1, MenuItem *page2 )

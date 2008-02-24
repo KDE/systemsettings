@@ -58,7 +58,6 @@ private slots:
 	void groupModulesFinished();
 
 	void widgetChange();
-	void slotSearchHits(const QString &query, int *hitList, int length);
 
 private:
     void readMenu( MenuItem * );

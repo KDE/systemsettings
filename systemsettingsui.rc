@@ -10,7 +10,7 @@
 </ToolBar>
 
 <ActionProperties>
-	<Action shortcut="CTRL+A" name="showAll" />
+	<Action shortcut="Ctrl+O" name="showAll" />
 </ActionProperties>
 
 </kpartgui>
