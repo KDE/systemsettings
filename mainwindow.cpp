@@ -23,18 +23,17 @@
 
 #include <QApplication>
 #include <QLabel>
+
 #include <QLayout>
 #include <QScrollArea>
 #include <QStackedWidget>
 
-#include <KAboutApplicationDialog>
 #include <KActionCollection>
 #include <KCModuleInfo>
 #include <KCModuleProxy>
 #include <KDebug>
 #include <KDialog> // for spacing
 #include <KGlobalSettings>
-#include <KIconLoader>
 #include <KLineEdit>
 #include <KLocale>
 #include <KMenuBar>
@@ -42,8 +41,6 @@
 #include <KStandardAction>
 #include <KTabWidget>
 #include <KToggleAction>
-#include <KToggleToolBarAction>
-#include <KToolBarSpacerAction>
 #include <kcategorizedsortfilterproxymodel.h>
 #include <kcategorizedview.h>
 #include <kcategorydrawer.h>
@@ -193,32 +190,12 @@ void MainWindow::buildActions()
 {
 	addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
 
-	resetModule = actionCollection() -> addAction("resetModule");
-	resetModule->setText(i18n("Undo Changes"));
-	connect(resetModule, SIGNAL(triggered()), this, SLOT(close()));
-	resetModule->setEnabled(false);
-	addAction(resetModule);
-
-	defaultModule = actionCollection() -> addAction("defaultModule");
-	defaultModule->setText(i18n("Reset to Defaults"));
-	connect(defaultModule, SIGNAL(triggered()), this, SLOT(showAllModules()));;
-	defaultModule->setEnabled(false);
-	addAction(defaultModule);
-
 	showAllAction = actionCollection()->addAction("showAll");
 	showAllAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
 	showAllAction->setText( i18n("Overview") );
 	connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
 	showAllAction->setEnabled(false);
-	showAllAction->setShortcut(i18n("Ctrl+O"));
 	addAction(showAllAction);
-
-	aboutModuleAction = actionCollection() -> addAction("help_about_module");
-	aboutModuleAction->setText(i18n("About Current Module"));
-	connect(aboutModuleAction, SIGNAL(triggered()), this, SLOT(aboutCurrentModule()));
-	addAction(aboutModuleAction);
-
-	resetModuleHelp();
 
 	QWidget *searchWid = new QWidget( this );
 	QLabel * searchIcon = new QLabel( searchWid );
@@ -279,37 +256,7 @@ void MainWindow::buildActions()
 	actionCollection()->addAction( "search", searchAction );
 	searchAction->setShortcutConfigurable( false );
 	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
-#if 0
-	// Now it's time to draw our display
-	foreach( const MenuItem &item , menu->menuList() ) {
-		if( item.menu ) {
-			KServiceGroup::Ptr group = KServiceGroup::group( item.subMenu );
-			if ( !group ){
-				kDebug() << "Invalid Group \"" << item.subMenu << "\".  Check your installation.";
-				continue;
-			}
 
-			KToggleAction *newAction = new KToggleAction( KIcon(group->icon()), group->caption(), this);
-			connect(newAction, SIGNAL(toggled(bool)), this, SLOT(slotTopPage()));
-
-			pageActions.append(newAction);
-			kDebug() << "relpath is :" << group->relPath();
-		}
-	}
-#endif
-}
-
-void MainWindow::aboutCurrentModule()
-{
-	if(!groupWidget) {
-		return;
-	}
-
-	KCModuleProxy* module = groupWidget->currentModule();
-	if( module && module->aboutData() ){
-		KAboutApplicationDialog dlg( module->aboutData() );
-		dlg.exec();
-	}
 }
 
 void MainWindow::groupModulesFinished()
@@ -326,7 +273,6 @@ void MainWindow::showAllModules()
 	widgetChange();
 
 	showAllAction->setEnabled(false);
-	aboutModuleAction->setEnabled(false);
 
 	searchText->setEnabled(true);
     search->setEnabled(true);
@@ -337,7 +283,6 @@ void MainWindow::showAllModules()
 		currentRadioAction->setEnabled(true);
 	}
 
-	resetModuleHelp();
 }
 
 void MainWindow::selectionChanged( const QModelIndex& selected )
@@ -395,24 +340,6 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     foreach ( currentRadioAction, pageActions ) {
         currentRadioAction->setEnabled(false);
     }
-}
-
-void MainWindow::updateModuleHelp( KCModuleProxy *currentModule ) {
-	if ( currentModule->aboutData() ) {
-		aboutModuleAction->setText(i18nc("Help menu->about <modulename>", "About %1",
-				                             currentModule->moduleInfo().moduleName().replace("&","&&")));
-		aboutModuleAction->setIcon(KIcon(currentModule->moduleInfo().icon()));
-		aboutModuleAction->setEnabled(true);
-	}
-	else {
-		resetModuleHelp();
-	}
-}
-
-void MainWindow::resetModuleHelp() {
-	aboutModuleAction->setText(i18n("About Current Module"));
-	aboutModuleAction->setIcon(QIcon());
-	aboutModuleAction->setEnabled(false);
 }
 
 void MainWindow::widgetChange() {

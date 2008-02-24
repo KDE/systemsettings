@@ -1,22 +1,6 @@
 <!DOCTYPE kpartgui>
 <kpartgui name="systemsettings" version="1">
 
-<MenuBar>
-	<Menu name="file"><Text>&amp;File</Text>
-		<Action name="resetModule"/>
-		<Action name="defaultModule"/>
-		<Separator/>
-	</Menu>
-
-	<Menu name="view"><Text>&amp;View</Text>
-		<Action name="showAll"/>
-	</Menu>
-
-	<Menu name="help">
-		<Action name="help_about_module" append="about_merge"/>
-	</Menu>
-</MenuBar>
-
 <ToolBar name="mainToolBar" iconText="icontextright">
 	<Action name="showAll"/>
 	<Separator/>
@@ -26,7 +10,7 @@
 </ToolBar>
 
 <ActionProperties>
-	<Action name="showAll" />
+	<Action shortcut="CTRL+A" name="showAll" />
 </ActionProperties>
 
 </kpartgui>

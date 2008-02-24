@@ -57,10 +57,7 @@ private slots:
     void selectionChanged( const QModelIndex & selected );
     void updateSearchHits();
 	void showAllModules();
-	void aboutCurrentModule();
-	void updateModuleHelp( KCModuleProxy * );
 
-	void resetModuleHelp();
 	void groupModulesFinished();
 
 	void widgetChange();
@@ -88,15 +85,10 @@ private:
 	QList<QScrollArea*> overviewPages;
 	int selectedPage;
 
-	QAction *resetModule;
-	QAction *defaultModule;
-
 	QAction *showAllAction;
 	KAction *searchText;
 	KAction *searchClear;
 	KAction *searchAction;
-
-	QAction *aboutModuleAction;
 
 	void buildMainWidget();
 	void buildActions();
