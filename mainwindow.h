@@ -45,7 +45,11 @@ class MainWindow : public KXmlGuiWindow
 public:
 	explicit MainWindow(QWidget *parent=0);
 	~MainWindow();
-        virtual void closeEvent ( QCloseEvent * );
+
+    /**
+     * Called when the mainwindow is closed.
+     */
+    virtual bool queryClose();
 
 protected:
     virtual QSize sizeHint() const;
@@ -53,10 +57,7 @@ protected:
 private slots:
     void selectionChanged( const QModelIndex & selected );
     void updateSearchHits();
-	void showAllModules();
-
-	void groupModulesFinished();
-
+	void showOverview();
 	void widgetChange();
 
 private:
@@ -75,7 +76,7 @@ private:
 	QHash<KService::Ptr,KCMultiWidget*> moduleItemToWidgetDict;
 	QHash<const QAbstractItemModel *,int> modelToTabHash;
 
-	QAction *showAllAction;
+	QAction *showOverviewAction;
 	KAction *searchText;
 	KAction *searchClear;
 	KAction *searchAction;

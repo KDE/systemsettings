@@ -82,12 +82,16 @@ public:
      */
     KCModuleProxy * currentModule();
 
+    /**
+     * Ask if it is ok to close the dialog
+     */
+    bool queryClose();
+
 signals:
     /**
      * Emitted after all KCModules have been told to save their configuration.
      *
-     * The applyClicked and okClicked signals are emitted before the
-     * configuration is saved.
+     * The applyClicked signal is emitted before the configuration is saved.
      */
     void configCommitted();
 
@@ -100,8 +104,7 @@ signals:
      * application. instanceName tells you the instance that has to reload its
      * configuration.
      *
-     * The applyClicked and okClicked signals are emitted before the
-     * configuration is saved.
+     * The applyClicked signal is emitted before the configuration is saved.
      *
      * @param instanceName The name of the instance that needs to reload its
      *                     configuration.
@@ -116,9 +119,7 @@ signals:
      * @sense 3.4
      */
     void aboutToShow( KCModuleProxy *moduleProxy );
-
-    void close();
-
+    
 protected slots:
     /**
      * This slot is called when the user presses the "Default" Button.
@@ -135,7 +136,6 @@ protected slots:
      * @note Make sure you call the original implementation.
      */
     virtual void slotReset();
-    virtual void slotClose();
 
     /**
      * This slot is called when the user presses the "Apply" Button.
@@ -144,14 +144,6 @@ protected slots:
      * @note Make sure you call the original implementation.
      **/
     virtual void slotApply();
-
-    /**
-     * This slot is called when the user presses the "OK" Button.
-     * You can reimplement it if needed.
-     *
-     * @note Make sure you call the original implementation.
-     **/
-    virtual void slotOk();
 
     /**
      * This slot is called when the user presses the "Help" Button.
@@ -165,8 +157,6 @@ protected slots:
      **/
     virtual void slotHelp();
 
-    virtual void slotCancel();
-
 private slots:
 
     void slotAboutToShow(QWidget *);
@@ -175,6 +165,8 @@ private slots:
 
     void clientChanged(bool state);
 
+// Currently unused. Whenever root mode comes back
+#if 0
     /**
      * Called when entering root mode, and disables
      * the Admin Mode button such that the user doesn't do it
@@ -187,22 +179,18 @@ private slots:
      * mode. Enables the Administrator Mode button, again.
      */
     void rootExit();
-
-public slots:
-
-    /**
-     *
-     * Called when the dialog is hidden. It unregisters the modules,
-     * such that they don't hinder the same modules to be opened in
-     * another application.
-     */
-    void dialogClosed();
+#endif
 
 private:
-    void applyOrRevert(KCModuleProxy * module);
+
 
     void init();
-    void apply();
+
+    void apply(KCModuleProxy *module);
+    void reset(KCModuleProxy *module);
+    void defaults(KCModuleProxy *module);
+    
+    bool queryClose(KCModuleProxy *);
 
     struct CreatedModule
     {
@@ -213,9 +201,6 @@ private:
     };
     typedef QList<CreatedModule> ModuleList;
     ModuleList m_modules;
-
-    typedef QMap<KService::Ptr, KCModuleProxy*> OrphanMap;
-    OrphanMap m_orphanModules;
 
     QHash<KCModuleProxy*,QStringList> moduleParentComponents;
     QString _docPath;

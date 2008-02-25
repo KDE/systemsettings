@@ -131,12 +131,16 @@ void MainWindow::readMenu( MenuItem * parent )
     }
 }
 
-void MainWindow::closeEvent ( QCloseEvent * )
+
+// \virtual
+bool MainWindow::queryClose()
 {
 	if ( groupWidget ) {
-	        groupWidget->dialogClosed();
+	        return groupWidget->queryClose();
 	}
+    return true;
 }
+
 
 void MainWindow::buildMainWidget()
 {
@@ -191,12 +195,12 @@ void MainWindow::buildActions()
 {
 	addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
 
-	showAllAction = actionCollection()->addAction("showAll");
-	showAllAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
-	showAllAction->setText( i18n("Overview") );
-	connect(showAllAction, SIGNAL(triggered()), this, SLOT(showAllModules()));
-	showAllAction->setEnabled(false);
-	addAction(showAllAction);
+	showOverviewAction = actionCollection()->addAction("showAll");
+	showOverviewAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
+	showOverviewAction->setText( i18n("Overview") );
+	connect(showOverviewAction, SIGNAL(triggered()), this, SLOT(showOverview()));
+	showOverviewAction->setEnabled(false);
+	addAction(showOverviewAction);
 
 	QWidget *searchWid = new QWidget( this );
 	QLabel * searchIcon = new QLabel( searchWid );
@@ -260,20 +264,19 @@ void MainWindow::buildActions()
 
 }
 
-void MainWindow::groupModulesFinished()
-{
-	showAllModules();
-}
 
-void MainWindow::showAllModules()
+void MainWindow::showOverview()
 {
+    if (!groupWidget->queryClose()) {
+        return;
+    }
 	windowStack->setCurrentWidget(moduleTabs);
 
 	// Reset the widget for normal all widget viewing
 	groupWidget = 0;
 	widgetChange();
 
-	showAllAction->setEnabled(false);
+	showOverviewAction->setEnabled(false);
 
 	searchText->setEnabled(true);
     search->setEnabled(true);
@@ -308,8 +311,8 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
         windowStack->addWidget(groupWidget);
         moduleItemToWidgetDict.insert(mItem->service,groupWidget);
 
-        connect(groupWidget, SIGNAL(finished()), this, SLOT(groupModulesFinished()));
-        connect(groupWidget, SIGNAL(close()), this, SLOT(showAllModules()));
+        // That shouldn't be needed.
+        connect(groupWidget, SIGNAL(finished()), this, SLOT(showOverview()));
 
         if ( ! mItem->menu ) {
             groupWidget->addModule( mItem->item );
@@ -328,7 +331,7 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     windowStack->setCurrentWidget( groupWidget );
 
     setCaption( mItem->service->name() );
-    showAllAction->setEnabled(true);
+    showOverviewAction->setEnabled(true);
     searchText->setEnabled(false);
     search->setEnabled(false);
     searchAction->setEnabled(false);
