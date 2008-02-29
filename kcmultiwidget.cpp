@@ -3,6 +3,7 @@
    Copyright (c) 2003 Daniel Molkentin <molkentin@kde.org>
    Copyright (c) 2003 Matthias Kretz <kretz@kde.org>
    Copyright (c) 2004 Frans Englich <englich@kde.org>
+   Copyright (c) 2008 Michael Jansen <kde@michael-jansen.biz>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public

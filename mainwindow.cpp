@@ -2,6 +2,7 @@
  * This file is part of the System Settings package
  * Copyright (C) 2005 Benjamin C Meyer (ben+systempreferences at meyerhome dot net)
  *           (C) 2007 Will Stephenson <wstephenson@kde.org>
+ *           (C) 2007 Michael Jansen <kde@michael-jansen.biz>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

@@ -48,7 +48,7 @@ bool SystemSettingsProxyModel::subSortLessThan(const QModelIndex &left, const QM
     if ( !( leftWeight.isValid() && rightWeight.isValid() ) ) {
         return KCategorizedSortFilterProxyModel::subSortLessThan( left, right );
     } else {
-        kDebug() << "comparing " << left.data().toString() << " (" << leftWeight.toInt() << ") and " << right.data().toString() << " (" << rightWeight.toInt() << ")";
+        // kDebug() << "comparing " << left.data().toString() << " (" << leftWeight.toInt() << ") and " << right.data().toString() << " (" << rightWeight.toInt() << ")";
         if ( leftWeight.toInt() == rightWeight.toInt() ) {
             return left.data().toString() < right.data().toString();
         } else {
