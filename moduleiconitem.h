@@ -30,19 +30,6 @@
 
 class KCModuleInfo;
 
-class ModuleIconItemDelegate : public QItemDelegate
-{
-	public:
-		ModuleIconItemDelegate(QObject *parent);
-		
-		void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-
-	private:
-		// Method taken from KFileItemDelegate. Check whether it has been moved to
-		// kdefx/kdrawutil.cpp as the comment says on Fredrik's code. If so, remove
-		// this code (duplication), and use the library one.
-		QPainterPath roundedRectangle(const QRectF &rect, qreal radius) const;
-};
 
 /**
  * Stores information about what modules goes with this item.

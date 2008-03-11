@@ -158,7 +158,6 @@ void MainWindow::buildMainWidget()
         tv->setSpacing(KDialog::spacingHint());
         tv->setCategoryDrawer( drawer );
         tv->setViewMode( QListView::IconMode );
-        tv->setItemDelegate( new ModuleIconItemDelegate( this ) );
         tv->setMouseTracking( true );
         tv->viewport()->setAttribute( Qt::WA_Hover );
         KCategorizedSortFilterProxyModel * kcsfpm = new SystemSettingsProxyModel( this );

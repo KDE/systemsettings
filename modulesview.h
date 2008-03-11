@@ -41,7 +41,6 @@ public:
 		setMovement(Static);
 		setFrameShape(NoFrame);
 		setWordWrap(true);
-		setItemDelegate(new ModuleIconItemDelegate(this));
 	}
 		
 	// Figure out the hight/width to have only one row
