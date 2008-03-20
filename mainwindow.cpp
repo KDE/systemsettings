@@ -44,10 +44,12 @@
 #include <kcategorizedsortfilterproxymodel.h>
 #include <kcategorizedview.h>
 #include <kcategorydrawer.h>
+#include <kiconloader.h>
 
 #include "kcmodulemodel.h"
 #include "kcmultiwidget.h"
 #include "menuitem.h"
+#include "moduletab.h"
 #include "moduleiconitem.h"
 
 Q_DECLARE_METATYPE(MenuItem *)
@@ -63,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	// Load the menu structure in from disk.
     readMenu( rootItem );
     qStableSort( rootItem->children.begin(), rootItem->children.end(), pageLessThan ); // sort tabs by weight
-	moduleTabs = new KTabWidget(this, QTabWidget::North|QTabWidget::Rounded);
+	moduleTabs = new ModuleTab(this);
 	buildActions();
 	buildMainWidget();
     // We hide the menubar. So ensure the toolbar is always visible because you cannot get it back
@@ -119,7 +121,7 @@ void MainWindow::readMenu( MenuItem * parent )
         QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         //kDebug() << "Examining module " << category;
         if(!parent->name.isEmpty() && category == parent->name ) {
-            kDebug() << space << "found module '" << entry->name() << "' " << entry->desktopEntryPath();
+            kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
             // Add the module info to the menu
             KCModuleInfo module(entry->entryPath());
             kDebug() << space << "filename is " << module.fileName();
@@ -148,6 +150,7 @@ void MainWindow::buildMainWidget()
     windowStack = new QStackedWidget(this);
 
     // Top level pages.
+
     moduleTabs->show();
 
     foreach ( MenuItem* item, rootItem->children ) {
@@ -182,6 +185,9 @@ void MainWindow::buildMainWidget()
         connect( kcsfpm, SIGNAL(layoutChanged()),
                 this, SLOT(updateSearchHits()) );
         moduleTabs->addTab(tv, item->service->name() );
+        
+        
+
         // record the index of the newly added tab so that we can later update the label showing
         // number of search hits
         modelToTabHash.insert( kcsfpm, moduleTabs->count() - 1 );

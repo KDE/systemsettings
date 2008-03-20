@@ -35,7 +35,7 @@ class KAction;
 class KCModuleModel;
 class KCMultiWidget;
 class KLineEdit;
-class KTabWidget;
+class ModuleTab;
 class MenuItem;
 
 class MainWindow : public KXmlGuiWindow
@@ -68,7 +68,7 @@ private:
 	KService::List modules;
 	MenuItem * rootItem;
 	QStackedWidget *windowStack;
-	KTabWidget *moduleTabs;
+	ModuleTab *moduleTabs;
     KLineEdit * search;
 
 	KCMultiWidget *groupWidget;
