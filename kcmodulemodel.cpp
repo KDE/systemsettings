@@ -96,6 +96,7 @@ KCModuleModel::KCModuleModel( MenuItem * menuRoot, QObject * parent )
 
 KCModuleModel::~KCModuleModel()
 {
+    delete d;
 }
 
 int KCModuleModel::rowCount( const QModelIndex & index ) const
