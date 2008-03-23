@@ -110,3 +110,4 @@ Name[zh_TW]=系統設定
 
 X-DBUS-StartupType=Unique
 Categories=Qt;KDE;System;
+NoDisplay=true
