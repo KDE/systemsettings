@@ -49,7 +49,6 @@
 #include "kcmodulemodel.h"
 #include "kcmultiwidget.h"
 #include "menuitem.h"
-#include "moduletab.h"
 #include "moduleiconitem.h"
 
 Q_DECLARE_METATYPE(MenuItem *)
@@ -65,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	// Load the menu structure in from disk.
     readMenu( rootItem );
     qStableSort( rootItem->children.begin(), rootItem->children.end(), pageLessThan ); // sort tabs by weight
-	moduleTabs = new ModuleTab(this);
+	moduleTabs = new KTabWidget(this);
 	buildActions();
 	buildMainWidget();
     // We hide the menubar. So ensure the toolbar is always visible because you cannot get it back

@@ -10,8 +10,6 @@ SET(systemsettings_SRCS
    mainwindow.cpp
    menuitem.cpp
    moduleiconitem.cpp
-   moduletab.cpp
-   moduletabbar.cpp
    )
 
 
