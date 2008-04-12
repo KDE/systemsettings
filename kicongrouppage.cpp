@@ -20,10 +20,10 @@
 
 */
 
+#include "kicongrouppage.h"
+
 #include <QtAlgorithms>
 #include <QStyle>
-
-#include "kicongrouppage.h"
 
 /*********** KIconGroupPage **************/
 KIconGroupPage::KIconGroupPage(QWidget* parent) : QFrame(parent) {
