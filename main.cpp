@@ -21,7 +21,6 @@
 
 #include <KAboutData>
 #include <KCmdLineArgs>
-#include <KIcon>
 #include <KLocale>
 #include <KUniqueApplication>
 
@@ -47,6 +46,7 @@ int main( int argc, char *argv[] )
 			"simon@simonzone.com");
 	aboutData.addAuthor(ki18n("Ellen Reitmayr"), ki18n("Usability"),
 			"ellen@kde.org");
+	aboutData.setProgramIconName("preferences-system");
 	KCmdLineArgs::init(argc, argv, &aboutData);
 
 	if (!KUniqueApplication::start()) {
@@ -54,8 +54,6 @@ int main( int argc, char *argv[] )
 		return 0;
 	}
 	KUniqueApplication application;
-
-	QApplication::setWindowIcon(KIcon("preferences-system"));
 
 	// Some kcm's require native windows, the screensaver one for example.
 	// It's better to enable native windows here than to have the main window
