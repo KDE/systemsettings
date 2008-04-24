@@ -163,7 +163,7 @@ void MainWindow::buildMainWidget()
         tv->setViewMode( QListView::IconMode );
         tv->setMouseTracking( true );
         tv->viewport()->setAttribute( Qt::WA_Hover );
-        tv->setItemDelegate( new KFileItemDelegate() );
+        tv->setItemDelegate( new KFileItemDelegate( tv ) );
         KCategorizedSortFilterProxyModel * kcsfpm = new SystemSettingsProxyModel( this );
         kcsfpm->setCategorizedModel( true );
         kcsfpm->setSourceModel( model );
