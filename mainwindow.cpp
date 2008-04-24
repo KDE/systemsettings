@@ -45,6 +45,7 @@
 #include <kcategorizedview.h>
 #include <kcategorydrawer.h>
 #include <kiconloader.h>
+#include <kfileitemdelegate.h>
 
 #include "kcmodulemodel.h"
 #include "kcmultiwidget.h"
@@ -83,7 +84,7 @@ MainWindow::~MainWindow()
 QSize MainWindow::sizeHint() const
 {
     return QSize(780, 580);
-}	
+}
 
 void MainWindow::readMenu( MenuItem * parent )
 {
@@ -162,6 +163,7 @@ void MainWindow::buildMainWidget()
         tv->setViewMode( QListView::IconMode );
         tv->setMouseTracking( true );
         tv->viewport()->setAttribute( Qt::WA_Hover );
+        tv->setItemDelegate( new KFileItemDelegate() );
         KCategorizedSortFilterProxyModel * kcsfpm = new SystemSettingsProxyModel( this );
         kcsfpm->setCategorizedModel( true );
         kcsfpm->setSourceModel( model );
@@ -184,8 +186,8 @@ void MainWindow::buildMainWidget()
         connect( kcsfpm, SIGNAL(layoutChanged()),
                 this, SLOT(updateSearchHits()) );
         moduleTabs->addTab(tv, item->service->name() );
-        
-        
+
+
 
         // record the index of the newly added tab so that we can later update the label showing
         // number of search hits
@@ -345,7 +347,7 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
 
 /*
  * This is called when we go back to the overview page. It resets the name and
- * clears the selection 
+ * clears the selection
  */
 void MainWindow::widgetChange() {
     if( !groupWidget ) {
