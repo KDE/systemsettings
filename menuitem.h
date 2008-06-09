@@ -32,6 +32,8 @@ class MenuItem {
 public:
     MenuItem( bool isMenu, MenuItem * parent );
     ~MenuItem();
+    void sortChildrenByWeight();
+
     MenuItem * grandChildAt( int index );
     MenuItem * parent;
     QList< MenuItem * > children;

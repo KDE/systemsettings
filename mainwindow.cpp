@@ -132,6 +132,8 @@ void MainWindow::readMenu( MenuItem * parent )
             infoItem->item = module;
         }
     }
+
+    parent->sortChildrenByWeight();
 }
 
 

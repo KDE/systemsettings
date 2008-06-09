@@ -39,6 +39,22 @@ MenuItem::~MenuItem()
     qDeleteAll( children );
 }
 
+inline int weightOfService( const KService::Ptr service )
+{
+    QVariant tmp = service->property( "X-KDE-Weight", QVariant::Int );
+    return (tmp.isValid() ? tmp.toInt() : 100);
+}
+
+static bool childIsLessThan( MenuItem *left, MenuItem *right )
+{
+    return weightOfService( left->service ) < weightOfService( right->service );
+}
+
+void MenuItem::sortChildrenByWeight()
+{
+    qSort( children.begin(), children.end(), childIsLessThan );
+}
+
 MenuItem * MenuItem::grandChildAt( int index )
 {
     int count = 0;
