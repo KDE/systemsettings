@@ -77,7 +77,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-	delete moduleTabs;
+    delete moduleTabs;
     delete rootItem;
 }
 

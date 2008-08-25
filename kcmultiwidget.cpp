@@ -172,7 +172,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
         return;
     }
 
-    QScrollArea * moduleScrollArea = new QScrollArea( this );
+    QScrollArea* moduleScrollArea = new QScrollArea( this );
     KCModuleProxy *module = new KCModuleProxy( moduleinfo, moduleScrollArea );
     moduleScrollArea->setWidget( module );
     moduleScrollArea->setWidgetResizable( true );

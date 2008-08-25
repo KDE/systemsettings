@@ -35,8 +35,7 @@ class KCModuleProxy;
 class KCModuleInfo;
 
 /**
- * @short A method that offers a KDialog containing arbitrary
- *   Control Modules.
+ * @short A method that offers a KDialog containing arbitrary Control Modules.
  */
 class /*KUTILS_EXPORT*/ KCMultiWidget : public KPageDialog
 {
