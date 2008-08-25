@@ -70,7 +70,7 @@ bool SystemSettingsProxyModel::filterAcceptsRow( int source_row, const QModelInd
     }
 }
 
-int weightOfService( const KService::Ptr service )
+inline int weightOfService( const KService::Ptr service )
 {
     QVariant tmp = service->property( "X-KDE-Weight", QVariant::Int );
     int weight = tmp.isValid() ? tmp.toInt() : 100;
