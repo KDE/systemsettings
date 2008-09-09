@@ -7,6 +7,7 @@ X-KDE-StartupNotify=true
 
 GenericName=System Settings
 GenericName[ar]=إعدادات النظام
+GenericName[be@latin]=Systemnyja nałady
 GenericName[bg]=Системни настройки
 GenericName[bn_IN]=সিস্টেম সংক্রান্ত বৈশিষ্ট্য
 GenericName[ca]=Arranjament del sistema
@@ -70,7 +71,7 @@ GenericName[zh_TW]=系統設定
 Name=System Settings
 Name[ar]=إعدادات النظام
 Name[be]=Сістэмныя настаўленні
-Name[be@latin]=Сістэмныя настаўленні
+Name[be@latin]=Systemnyja nałady
 Name[bg]=Системни настройки
 Name[bn_IN]=সিস্টেম সংক্রান্ত বৈশিষ্ট্য
 Name[br]=Dibarzhoù ar reizhiad
