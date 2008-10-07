@@ -202,13 +202,18 @@ void MainWindow::buildMainWidget()
 
 void MainWindow::buildActions()
 {
-    addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
+    actionCollection()->addAction(
+            KStandardAction::Quit,
+            qobject_cast<QObject*>(this),
+            SLOT(close()));
 
-    showOverviewAction = KStandardAction::back(this, SLOT(showOverview()), actionCollection());
-    actionCollection()->addAction("showAll", showOverviewAction);
-    showOverviewAction->setText( i18n("Overview") );
+    showOverviewAction = actionCollection()->addAction(
+            KStandardAction::Back,
+            qobject_cast<QObject*>(this),
+            SLOT(showOverview()));
+    showOverviewAction->setText(
+            i18n("Overview(%1)", showOverviewAction->shortcut().primary().toString()));
     showOverviewAction->setEnabled(false);
-    addAction(showOverviewAction);
 
     QWidget *searchWid = new QWidget( this );
     QLabel * searchIcon = new QLabel( searchWid );
@@ -228,7 +233,6 @@ void MainWindow::buildActions()
 
     actionCollection()->addAction( "searchText", searchText );
     searchText->setShortcut(Qt::Key_F6);
-    addAction(searchText);
 
     // Search edit box and result labels
     QWidget *hbox = new QWidget( this );

@@ -2,15 +2,10 @@
 <kpartgui name="systemsettings" version="1">
 
 <ToolBar name="mainToolBar" iconText="icontextright">
-	<Action name="showAll"/>
+	<Action name="go_back"/>
 	<Separator/>
 	<Action name="spacer"/>
 	<Action name="searchText"/>
 	<Action name="search"/>
 </ToolBar>
-
-<ActionProperties>
-	<Action shortcut="Ctrl+O" name="showAll" />
-</ActionProperties>
-
 </kpartgui>

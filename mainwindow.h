@@ -76,7 +76,7 @@ private:
 	QHash<KService::Ptr,KCMultiWidget*> moduleItemToWidgetDict;
 	QHash<const QAbstractItemModel *,int> modelToTabHash;
 
-	QAction *showOverviewAction;
+	KAction *showOverviewAction;
 	KAction *searchText;
 	KAction *searchClear;
 	KAction *searchAction;
