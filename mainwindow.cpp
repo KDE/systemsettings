@@ -204,10 +204,9 @@ void MainWindow::buildActions()
 {
 	addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
 
-	showOverviewAction = actionCollection()->addAction("showAll");
-	showOverviewAction->setIcon( KIcon(QApplication::layoutDirection() == Qt::RightToLeft?"go-next":"go-previous") );
+        showOverviewAction = KStandardAction::back(this, SLOT(showOverview()), actionCollection());
+        actionCollection()->addAction("showAll", showOverviewAction);
 	showOverviewAction->setText( i18n("Overview") );
-	connect(showOverviewAction, SIGNAL(triggered()), this, SLOT(showOverview()));
 	showOverviewAction->setEnabled(false);
 	addAction(showOverviewAction);
 
