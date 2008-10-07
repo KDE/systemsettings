@@ -62,17 +62,17 @@ MainWindow::MainWindow(QWidget *parent) :
     groupWidget(0)
 {
 
-	// Load the menu structure in from disk.
+    // Load the menu structure in from disk.
     readMenu( rootItem );
     qStableSort( rootItem->children.begin(), rootItem->children.end(), pageLessThan ); // sort tabs by weight
-	moduleTabs = new KTabWidget(this);
-	buildActions();
-	buildMainWidget();
+    moduleTabs = new KTabWidget(this);
+    buildActions();
+    buildMainWidget();
     // We hide the menubar. So ensure the toolbar is always visible because you cannot get it back
     setupGUI(Save|Create,QString());
     menuBar()->hide();
 
-	connect(moduleTabs, SIGNAL(currentChanged(int)), SLOT(widgetChange()));
+    connect(moduleTabs, SIGNAL(currentChanged(int)), SLOT(widgetChange()));
 }
 
 MainWindow::~MainWindow()
@@ -140,9 +140,9 @@ void MainWindow::readMenu( MenuItem * parent )
 // \virtual
 bool MainWindow::queryClose()
 {
-	if ( groupWidget ) {
-	        return groupWidget->queryClose();
-	}
+    if ( groupWidget ) {
+            return groupWidget->queryClose();
+    }
     return true;
 }
 
@@ -202,73 +202,73 @@ void MainWindow::buildMainWidget()
 
 void MainWindow::buildActions()
 {
-	addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
+    addAction(actionCollection()->addAction(KStandardAction::Quit, qobject_cast<QObject*>(this), SLOT(close())));
 
-        showOverviewAction = KStandardAction::back(this, SLOT(showOverview()), actionCollection());
-        actionCollection()->addAction("showAll", showOverviewAction);
-	showOverviewAction->setText( i18n("Overview") );
-	showOverviewAction->setEnabled(false);
-	addAction(showOverviewAction);
+    showOverviewAction = KStandardAction::back(this, SLOT(showOverview()), actionCollection());
+    actionCollection()->addAction("showAll", showOverviewAction);
+    showOverviewAction->setText( i18n("Overview") );
+    showOverviewAction->setEnabled(false);
+    addAction(showOverviewAction);
 
-	QWidget *searchWid = new QWidget( this );
-	QLabel * searchIcon = new QLabel( searchWid );
-	searchIcon->setPixmap( BarIcon( "system-search" ) );
-	QLabel *searchLabel = new QLabel( searchWid );
-	searchLabel->setObjectName( QLatin1String("SearchLabel"));
-	searchLabel->setText( i18n("S&earch:") );
-	searchLabel->setFont(KGlobalSettings::toolBarFont());
-	searchLabel->setMargin(2);
-	QHBoxLayout * hlay = new QHBoxLayout( searchWid );
-	hlay->addWidget( searchIcon );
-	hlay->addWidget( searchLabel );
-	searchWid->setLayout( hlay );
+    QWidget *searchWid = new QWidget( this );
+    QLabel * searchIcon = new QLabel( searchWid );
+    searchIcon->setPixmap( BarIcon( "system-search" ) );
+    QLabel *searchLabel = new QLabel( searchWid );
+    searchLabel->setObjectName( QLatin1String("SearchLabel"));
+    searchLabel->setText( i18n("S&earch:") );
+    searchLabel->setFont(KGlobalSettings::toolBarFont());
+    searchLabel->setMargin(2);
+    QHBoxLayout * hlay = new QHBoxLayout( searchWid );
+    hlay->addWidget( searchIcon );
+    hlay->addWidget( searchLabel );
+    searchWid->setLayout( hlay );
 
-	searchText = new KAction( this );
-	searchText->setDefaultWidget(searchWid);
+    searchText = new KAction( this );
+    searchText->setDefaultWidget(searchWid);
 
-	actionCollection()->addAction( "searchText", searchText );
-	searchText->setShortcut(Qt::Key_F6);
-	addAction(searchText);
+    actionCollection()->addAction( "searchText", searchText );
+    searchText->setShortcut(Qt::Key_F6);
+    addAction(searchText);
 
-	// Search edit box and result labels
-	QWidget *hbox = new QWidget( this );
+    // Search edit box and result labels
+    QWidget *hbox = new QWidget( this );
 
     search = new KLineEdit( hbox );
-	search->setObjectName(QLatin1String("search"));
+    search->setObjectName(QLatin1String("search"));
     search->setClearButtonShown( true );
     search->setFocusPolicy( Qt::StrongFocus );
-	searchLabel->setBuddy( search );
+    searchLabel->setBuddy( search );
     // Is that needed? I thought that's what a buddy is for?
-	connect(searchText, SIGNAL(triggered()), search, SLOT(setFocus()));
+    connect(searchText, SIGNAL(triggered()), search, SLOT(setFocus()));
 
-	QWidget* vbox = new QWidget(hbox);
-	// Set a non empty content to prevent the toolbar from getting taller when
-	// starting a search (at least with Oxygen style).
-	generalHitLabel = new QLabel(" ", vbox);
-	advancedHitLabel = new QLabel(" ", vbox);
+    QWidget* vbox = new QWidget(hbox);
+    // Set a non empty content to prevent the toolbar from getting taller when
+    // starting a search (at least with Oxygen style).
+    generalHitLabel = new QLabel(" ", vbox);
+    advancedHitLabel = new QLabel(" ", vbox);
 
-	QVBoxLayout* vlayout = new QVBoxLayout;
-	vlayout->setMargin(0);
-	vlayout->setSpacing(0);
-	vlayout->addWidget(generalHitLabel);
-	vlayout->addWidget(advancedHitLabel);
-	vlayout->setStretchFactor(generalHitLabel,1);
-	vlayout->setStretchFactor(advancedHitLabel,1);
-	vbox->setLayout(vlayout);
+    QVBoxLayout* vlayout = new QVBoxLayout;
+    vlayout->setMargin(0);
+    vlayout->setSpacing(0);
+    vlayout->addWidget(generalHitLabel);
+    vlayout->addWidget(advancedHitLabel);
+    vlayout->setStretchFactor(generalHitLabel,1);
+    vlayout->setStretchFactor(advancedHitLabel,1);
+    vbox->setLayout(vlayout);
 
-	QHBoxLayout* hlayout = new QHBoxLayout;
-	hlayout->setMargin(0);
-	hlayout->addWidget(search);
-	hlayout->addWidget(vbox);
-	hlayout->setStretchFactor(search,1);
-	hlayout->setStretchFactor(vbox,1);
-	hbox->setLayout(hlayout);
+    QHBoxLayout* hlayout = new QHBoxLayout;
+    hlayout->setMargin(0);
+    hlayout->addWidget(search);
+    hlayout->addWidget(vbox);
+    hlayout->setStretchFactor(search,1);
+    hlayout->setStretchFactor(vbox,1);
+    hbox->setLayout(hlayout);
 
-	searchAction = new KAction( "none", this );
-	searchAction->setDefaultWidget(hbox);
-	actionCollection()->addAction( "search", searchAction );
-	searchAction->setShortcutConfigurable( false );
-	hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
+    searchAction = new KAction( "none", this );
+    searchAction->setDefaultWidget(hbox);
+    actionCollection()->addAction( "search", searchAction );
+    searchAction->setShortcutConfigurable( false );
+    hbox->setWhatsThis( i18n("Search Bar<p>Enter a search term.</p>") );
 
 }
 
@@ -278,17 +278,17 @@ void MainWindow::showOverview()
     if (!groupWidget->queryClose()) {
         return;
     }
-	windowStack->setCurrentWidget(moduleTabs);
+    windowStack->setCurrentWidget(moduleTabs);
 
-	// Reset the widget for normal all widget viewing
-	groupWidget = 0;
-	widgetChange();
+    // Reset the widget for normal all widget viewing
+    groupWidget = 0;
+    widgetChange();
 
-	showOverviewAction->setEnabled(false);
+    showOverviewAction->setEnabled(false);
 
-	searchText->setEnabled(true);
+    searchText->setEnabled(true);
     search->setEnabled(true);
-	searchAction->setEnabled(true);
+    searchAction->setEnabled(true);
 
 }
 
