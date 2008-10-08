@@ -212,7 +212,7 @@ void MainWindow::buildActions()
             qobject_cast<QObject*>(this),
             SLOT(showOverview()));
     showOverviewAction->setText(
-            i18n("Overview(%1)", showOverviewAction->shortcut().primary().toString()));
+            i18n("Overview (%1)", showOverviewAction->shortcut().primary().toString()));
     showOverviewAction->setEnabled(false);
 
     QWidget *searchWid = new QWidget( this );
