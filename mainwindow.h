@@ -64,8 +64,8 @@ private:
     void readMenu( MenuItem * );
 
 	KCModuleModel *model;
-	KService::List categories;
-	KService::List modules;
+	const KService::List categories;
+	const KService::List modules;
 	MenuItem * rootItem;
 	QStackedWidget *windowStack;
 	KTabWidget *moduleTabs;
