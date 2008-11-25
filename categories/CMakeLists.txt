@@ -14,12 +14,18 @@ install( FILES
          settings-about-me.desktop
          settings-accessibility.desktop
          settings-appearance.desktop
-         settings-bluetooth.desktop
-         settings-desktop.desktop
          settings-keyboard-and-mouse.desktop
          settings-notifications.desktop
          settings-regional-and-language.desktop
-         settings-sharing.desktop
          settings-window-behaviour.desktop
          settings-network-settings.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
+
+if (NOT WIN32)
+    install( FILES 
+         settings-bluetooth.desktop
+         settings-desktop.desktop
+         settings-sharing.desktop
+         DESTINATION  ${SERVICES_INSTALL_DIR} )
+endif (NOT WIN32)
+        
