@@ -12,7 +12,8 @@ SET(systemsettings_SRCS
    moduleiconitem.cpp
    )
 
-
+kde4_add_app_icon(systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png")
+   
 KDE4_ADD_EXECUTABLE(systemsettings ${systemsettings_SRCS})
 
 # Uses KIO for KRun and KUtils for KCModuleInfo
