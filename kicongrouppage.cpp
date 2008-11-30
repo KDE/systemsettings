@@ -32,7 +32,7 @@ KIconGroupPage::KIconGroupPage(QWidget* parent) : QFrame(parent) {
 
 KIconGroupPage::~KIconGroupPage() {
 	// Delete the rows...
-	qDeleteAll(m_rows.values().begin(), m_rows.values().end());
+	qDeleteAll(m_rows);
 	m_rows.clear();
 }
 
