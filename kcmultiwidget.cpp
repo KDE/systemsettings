@@ -189,7 +189,10 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
     cm.kcm = module;
     cm.service = moduleinfo.service();
     cm.adminmode = false;
-    cm.buttons = module->buttons();
+
+    // don't use module->buttons() here since it would load the real kcmodule plugin.
+    cm.buttons = KCModule::Buttons( KCModule::Help | KCModule::Default | KCModule::Apply );
+
     // "root KCMs are gone" says KControl
     //	if ( moduleinfo.needsRootPrivileges() && !d->hasRootKCM &&
     //			!KUser().isSuperUser() ) {/* If we're embedded, it's true */
