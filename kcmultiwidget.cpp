@@ -190,9 +190,6 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
     cm.service = moduleinfo.service();
     cm.adminmode = false;
 
-    // don't use module->buttons() here since it would load the real kcmodule plugin.
-    cm.buttons = KCModule::Buttons( KCModule::Help | KCModule::Default | KCModule::Apply );
-
     // "root KCMs are gone" says KControl
     //	if ( moduleinfo.needsRootPrivileges() && !d->hasRootKCM &&
     //			!KUser().isSuperUser() ) {/* If we're embedded, it's true */
@@ -264,7 +261,7 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
     foreach( const CreatedModule &it, m_modules ) {
         if( it.kcm==module) {
             showButton(User2, it.adminmode);
-            buttons = it.buttons;
+            buttons = it.kcm->buttons();
             found = true;
         }
     }
