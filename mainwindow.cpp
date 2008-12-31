@@ -72,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent) :
     setupGUI(Save|Create,QString());
     menuBar()->hide();
 
+    search->setFocus();
+
     connect(moduleTabs, SIGNAL(currentChanged(int)), SLOT(widgetChange()));
 }
 
