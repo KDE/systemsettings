@@ -1,4 +1,4 @@
-
+KDE4_NO_ENABLE_FINAL(systemsettings)
 ADD_SUBDIRECTORY( categories ) 
 
 ########### next target ###############
