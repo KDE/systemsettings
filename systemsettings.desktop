@@ -148,4 +148,4 @@ Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
 X-DBUS-StartupType=Unique
-Categories=Qt;KDE;System;
+Categories=Qt;KDE;Settings;
