@@ -66,6 +66,10 @@ MainWindow::MainWindow(QWidget *parent) :
     readMenu( rootItem );
     qStableSort( rootItem->children.begin(), rootItem->children.end(), pageLessThan ); // sort tabs by weight
     moduleTabs = new KTabWidget(this);
+
+    // Set a minimum size to avoid double scrollbars ... at least try.
+    setMinimumSize(800,480);
+
     buildActions();
     buildMainWidget();
     // We hide the menubar. So ensure the toolbar is always visible because you cannot get it back
