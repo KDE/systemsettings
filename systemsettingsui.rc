@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui>
-<kpartgui name="systemsettings" version="1">
+<kpartgui name="systemsettings" version="2">
 
 <ToolBar name="mainToolBar" iconText="icontextright">
 	<Action name="go_back"/>
