@@ -21,6 +21,7 @@
 #define SETTINGS_BASE_H
 
 #include "MenuItem.h"
+#include "ui_configDialog.h"
 
 #include <QMap>
 
@@ -47,8 +48,9 @@ private:
     MenuItem * initModuleLists(MenuItem * parent);
 
 private slots:
-    void configNow();
+    void configInit();
     void configUpdated();
+    void configShow();
     void goingToQuit();
     void about();
     void initAbout();
@@ -66,8 +68,8 @@ private:
     KAction * configureAction;
     KAction * aboutAction;
     // The configuration
-    KDialog configDialog;
-    QWidget configWidget;
+    KDialog * configDialog;
+    Ui::ConfigDialog configWidget;
     KConfigGroup mainConfigGroup;
     // The control module
     bool configDirty;

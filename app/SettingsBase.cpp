@@ -60,14 +60,14 @@ SettingsBase::SettingsBase( QWidget * parent ) :
   toolBar()->setMovable(false); // We don't allow any changes
   mainConfigGroup = KGlobal::config()->group( "Main" );
   // Fill the toolbar with default actions
-  configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configNow() ) );
+  configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
   toolBar()->addAction( configureAction );
   aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
-  connect(aboutAction, SIGNAL(clicked()), this, SLOT(about()));
   toolBar()->addAction( aboutAction );
   quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( goingToQuit() ) );
   toolBar()->addAction( quitAction );
   // We need to nominate the view to use
+  configInit();
   changePlugin();
 }
 
@@ -75,12 +75,29 @@ SettingsBase::~SettingsBase()
 {
 }
 
-void SettingsBase::configNow()
-{
+void SettingsBase::configInit()
+{   // Prepare dialog first
+    configDialog = new KDialog(this);
+    configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
+    configWidget.setupUi(configDialog->mainWidget());
+    // Get the list of modules
+    configWidget.CbPlugins->addItems( possibleViews.keys() );
+    connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
 
 void SettingsBase::configUpdated()
 {
+    mainConfigGroup.writeEntry( "ActiveView", configWidget.CbPlugins->currentText() );
+    changePlugin();
+}
+
+void SettingsBase::configShow()
+{
+    kWarning() << "Showing config";
+    QStringList pluginList = possibleViews.keys();
+    int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
+    configWidget.CbPlugins->setCurrentIndex( configIndex );
+    configDialog->show();
 }
 
 void SettingsBase::goingToQuit()
