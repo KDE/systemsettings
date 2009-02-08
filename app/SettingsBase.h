@@ -29,6 +29,8 @@
 #include <KConfigGroup>
 #include <KDialog>
 #include <ktoolbar.h>
+#include <KPageDialog>
+#include <KAboutApplicationDialog>
 
 class BaseMode;
 class KAction;
@@ -49,6 +51,7 @@ private slots:
     void configUpdated();
     void goingToQuit();
     void about();
+    void initAbout();
     void changePlugin();
     void toggleConfiguration(bool state);
     void initMenuList(MenuItem * parent);
@@ -73,5 +76,13 @@ private:
     MenuItem * rootModule;
     KService::List categories;
     KService::List modules;
+    // The about dialog
+    KPageDialog * aboutDialog;
+    KAboutApplicationDialog * applicationDialog;
+    KAboutApplicationDialog * viewDialog;
+    KAboutApplicationDialog * moduleDialog;
+    KPageWidgetItem * applicationPage;
+    KPageWidgetItem * viewPage;
+    KPageWidgetItem * modulePage;
 };
 #endif

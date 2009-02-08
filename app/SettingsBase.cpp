@@ -31,6 +31,7 @@
 #include <KDebug>
 #include <kactioncollection.h>
 #include <KConfigGroup>
+#include <KAboutData>
 
 SettingsBase::SettingsBase( QWidget * parent ) :
     KXmlGuiWindow(parent),
@@ -40,6 +41,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
   // Prepare the menu of all modules
   rootModule = new MenuItem( true, 0 );
   initMenuList(rootModule);
+  initAbout();
   // Load all possible views
   pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
   for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
@@ -61,6 +63,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
   configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configNow() ) );
   toolBar()->addAction( configureAction );
   aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
+  connect(aboutAction, SIGNAL(clicked()), this, SLOT(about()));
   toolBar()->addAction( aboutAction );
   quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( goingToQuit() ) );
   toolBar()->addAction( quitAction );
@@ -84,8 +87,57 @@ void SettingsBase::goingToQuit()
 {
 }
 
+void SettingsBase::initAbout()
+{
+    aboutDialog = new KPageDialog(this); // We create it on the first run
+    kWarning() << "Master about dialog created";
+    // We should create the application about page
+    kWarning() << "Starting app about creation";
+    const KAboutData * applicationAbout = KGlobal::activeComponent().aboutData();
+    applicationDialog = new KAboutApplicationDialog(applicationAbout, 0);
+    applicationPage = new KPageWidgetItem( applicationDialog, applicationAbout->programName() );
+    aboutDialog->addPage(applicationPage);
+}
+
 void SettingsBase::about()
 {
+    if( aboutDialog ) {
+    } else {
+        aboutDialog = new KPageDialog(this); // We create it on the first run
+        kWarning() << "Master about dialog created";
+    }
+    kWarning() << "Passed dialog creation";
+    // We should create the application about page
+    if( !applicationDialog ) {
+        kWarning() << "Starting app about creation";
+        const KAboutData * applicationAbout = KGlobal::activeComponent().aboutData();
+        applicationDialog = new KAboutApplicationDialog(applicationAbout, 0);
+        applicationPage = new KPageWidgetItem( applicationDialog, applicationAbout->programName() );
+        aboutDialog->addPage(applicationPage);
+    }
+    kWarning() << "Passed app about";
+    if( activeView && activeView->aboutData() ) {
+        kWarning() << "Started view about";
+        if( viewDialog ) {
+            delete viewDialog;
+        }
+        viewDialog = new KAboutApplicationDialog(activeView->aboutData(), 0);
+        viewPage = new KPageWidgetItem( viewDialog, activeView->aboutData()->programName() );
+        aboutDialog->addPage(viewPage);
+    }
+    kWarning() << "Passed view about";
+    if( activeView && activeView->activeModule() && activeView->activeModule()->aboutData() ) {
+        kWarning() << "Started module about";
+        if( moduleDialog ) {
+            delete moduleDialog;
+        }
+        const KAboutData * moduleAbout = activeView->activeModule()->aboutData();
+        moduleDialog = new KAboutApplicationDialog(moduleAbout, 0 );
+        modulePage = new KPageWidgetItem( moduleDialog, moduleAbout->programName() );
+        aboutDialog->addPage(modulePage);
+    }
+    kWarning() << "About to show";
+    aboutDialog->show();
 }
 
 void SettingsBase::changePlugin()
@@ -93,7 +145,7 @@ void SettingsBase::changePlugin()
   if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
   { return; } // Halt now!
 
-  QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "MacView" );
+  QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "IconView" );
   if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
       activeView = possibleViews.value(viewToUse);
   }
