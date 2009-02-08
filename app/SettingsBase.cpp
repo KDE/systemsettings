@@ -98,8 +98,9 @@ void SettingsBase::about()
     QList<const KAboutData *> listToAdd;
 
     // First we cleanup from previous runs
-    qDeleteAll(aboutAppDialog);
-    qDeleteAll(aboutAppPage);
+     while (!aboutAppPage.isEmpty()) {
+         aboutDialog->removePage(aboutAppPage.takeFirst());
+     }
     // Build the list of About Items to add
     if( KGlobal::activeComponent().aboutData() ) {
         listToAdd.append( KGlobal::activeComponent().aboutData() );
@@ -116,11 +117,9 @@ void SettingsBase::about()
         addingDialog->setButtons( KDialog::None );
         addingPage->setHeader( "" );
         addingPage->setIcon( KIcon(addingItem->programIconName()) );
-        aboutDialog->addPage(addingPage); 
-        aboutAppDialog.append( addingDialog );
-        aboutAppPage.append( addingPage );
+        aboutDialog->addPage(addingPage);
+        aboutAppPage.append(addingPage);
     }
-    kWarning() << "About to show";
     aboutDialog->show();
 }
 

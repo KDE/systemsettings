@@ -78,7 +78,6 @@ private:
     KService::List modules;
     // The about dialog
     KPageDialog * aboutDialog;
-    QList<KAboutApplicationDialog *> aboutAppDialog;
     QList<KPageWidgetItem *> aboutAppPage;
 };
 #endif
