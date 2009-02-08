@@ -78,11 +78,7 @@ private:
     KService::List modules;
     // The about dialog
     KPageDialog * aboutDialog;
-    KAboutApplicationDialog * applicationDialog;
-    KAboutApplicationDialog * viewDialog;
-    KAboutApplicationDialog * moduleDialog;
-    KPageWidgetItem * applicationPage;
-    KPageWidgetItem * viewPage;
-    KPageWidgetItem * modulePage;
+    QList<KAboutApplicationDialog *> aboutAppDialog;
+    QList<KPageWidgetItem *> aboutAppPage;
 };
 #endif

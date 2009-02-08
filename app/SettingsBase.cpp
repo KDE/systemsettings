@@ -90,51 +90,35 @@ void SettingsBase::goingToQuit()
 void SettingsBase::initAbout()
 {
     aboutDialog = new KPageDialog(this); // We create it on the first run
-    kWarning() << "Master about dialog created";
-    // We should create the application about page
-    kWarning() << "Starting app about creation";
-    const KAboutData * applicationAbout = KGlobal::activeComponent().aboutData();
-    applicationDialog = new KAboutApplicationDialog(applicationAbout, 0);
-    applicationPage = new KPageWidgetItem( applicationDialog, applicationAbout->programName() );
-    aboutDialog->addPage(applicationPage);
+    aboutDialog->setButtons( KDialog::Close );
 }
 
 void SettingsBase::about()
 {
-    if( aboutDialog ) {
-    } else {
-        aboutDialog = new KPageDialog(this); // We create it on the first run
-        kWarning() << "Master about dialog created";
+    QList<const KAboutData *> listToAdd;
+
+    // First we cleanup from previous runs
+    qDeleteAll(aboutAppDialog);
+    qDeleteAll(aboutAppPage);
+    // Build the list of About Items to add
+    if( KGlobal::activeComponent().aboutData() ) {
+        listToAdd.append( KGlobal::activeComponent().aboutData() );
     }
-    kWarning() << "Passed dialog creation";
-    // We should create the application about page
-    if( !applicationDialog ) {
-        kWarning() << "Starting app about creation";
-        const KAboutData * applicationAbout = KGlobal::activeComponent().aboutData();
-        applicationDialog = new KAboutApplicationDialog(applicationAbout, 0);
-        applicationPage = new KPageWidgetItem( applicationDialog, applicationAbout->programName() );
-        aboutDialog->addPage(applicationPage);
-    }
-    kWarning() << "Passed app about";
     if( activeView && activeView->aboutData() ) {
-        kWarning() << "Started view about";
-        if( viewDialog ) {
-            delete viewDialog;
-        }
-        viewDialog = new KAboutApplicationDialog(activeView->aboutData(), 0);
-        viewPage = new KPageWidgetItem( viewDialog, activeView->aboutData()->programName() );
-        aboutDialog->addPage(viewPage);
+        listToAdd.append( activeView->aboutData() );
     }
-    kWarning() << "Passed view about";
     if( activeView && activeView->activeModule() && activeView->activeModule()->aboutData() ) {
-        kWarning() << "Started module about";
-        if( moduleDialog ) {
-            delete moduleDialog;
-        }
-        const KAboutData * moduleAbout = activeView->activeModule()->aboutData();
-        moduleDialog = new KAboutApplicationDialog(moduleAbout, 0 );
-        modulePage = new KPageWidgetItem( moduleDialog, moduleAbout->programName() );
-        aboutDialog->addPage(modulePage);
+        listToAdd.append( activeView->activeModule()->aboutData() );
+    }
+    foreach( const KAboutData * addingItem, listToAdd ) {
+        KAboutApplicationDialog * addingDialog = new KAboutApplicationDialog(addingItem, 0);
+        KPageWidgetItem * addingPage = new KPageWidgetItem( addingDialog, addingItem->programName() );
+        addingDialog->setButtons( KDialog::None );
+        addingPage->setHeader( "" );
+        addingPage->setIcon( KIcon(addingItem->programIconName()) );
+        aboutDialog->addPage(addingPage); 
+        aboutAppDialog.append( addingDialog );
+        aboutAppPage.append( addingPage );
     }
     kWarning() << "About to show";
     aboutDialog->show();
