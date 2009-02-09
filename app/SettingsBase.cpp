@@ -48,7 +48,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
       const KService * activeService = pluginObjects.at( pluginsDone ).data();
       QString error;
       BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
-      if( controller ) {
+      if( error.isEmpty() ) {
           possibleViews.insert( activeService->library(), controller );
           controller->rootItem = rootModule;
           connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleConfiguration(bool))); 
@@ -145,7 +145,7 @@ void SettingsBase::changePlugin()
   if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
   { return; } // Halt now!
 
-  QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "IconView" );
+  QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_view" );
   if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
       activeView = possibleViews.value(viewToUse);
   }
