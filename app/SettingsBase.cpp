@@ -38,39 +38,39 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
     modules( KServiceTypeTrader::self()->query("KCModule") )
 { 
-  // Prepare the menu of all modules
-  configDirty = false;
-  rootModule = new MenuItem( true, 0 );
-  initMenuList(rootModule);
-  initAbout();
-  // Load all possible views
-  pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
-  for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
-      const KService * activeService = pluginObjects.at( pluginsDone ).data();
-      QString error;
-      BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
-      if( error.isEmpty() ) {
-          possibleViews.insert( activeService->library(), controller );
-          controller->rootItem = rootModule;
-          connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
-          connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
-      } else { 
-          kWarning() << error;
-      }
-  }
-  // Toolbar & Configuration
-  toolBar()->setMovable(false); // We don't allow any changes
-  mainConfigGroup = KGlobal::config()->group( "Main" );
-  // Fill the toolbar with default actions
-  configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
-  toolBar()->addAction( configureAction );
-  aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
-  toolBar()->addAction( aboutAction );
-  quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
-  toolBar()->addAction( quitAction );
-  // We need to nominate the view to use
-  configInit();
-  changePlugin();
+    // Prepare the menu of all modules
+    configDirty = false;
+    rootModule = new MenuItem( true, 0 );
+    initMenuList(rootModule);
+    initAbout();
+    // Load all possible views
+    pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
+    for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
+        const KService * activeService = pluginObjects.at( pluginsDone ).data();
+        QString error;
+        BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
+        if( error.isEmpty() ) {
+            possibleViews.insert( activeService->library(), controller );
+            controller->rootItem = rootModule;
+            connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
+            connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
+        } else { 
+            kWarning() << error;
+        }
+    }
+    // Toolbar & Configuration
+    toolBar()->setMovable(false); // We don't allow any changes
+    mainConfigGroup = KGlobal::config()->group( "Main" );
+    // Fill the toolbar with default actions
+    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
+    toolBar()->addAction( configureAction );
+    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
+    toolBar()->addAction( aboutAction );
+    quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
+    toolBar()->addAction( quitAction );
+    // We need to nominate the view to use
+    configInit();
+    changePlugin();
 }
 
 SettingsBase::~SettingsBase()
@@ -103,10 +103,11 @@ void SettingsBase::configShow()
 }
 
 bool SettingsBase::queryClose()
-{ if( configDirty ) {
-      return activeView->resolveDirtyState();
-  }
-  return true;
+{ 
+    if( configDirty ) {
+        return activeView->resolveDirtyState();
+    }
+    return true;
 }
 
 void SettingsBase::initAbout()
@@ -147,23 +148,23 @@ void SettingsBase::about()
 
 void SettingsBase::changePlugin()
 {
-  if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
-  { return; } // Halt now!
+    if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
+    { return; } // Halt now!
 
-  QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_view" );
-  if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
-      activeView = possibleViews.value(viewToUse);
-  }
-  else { // Otherwise we activate the failsafe
-      activeView = possibleViews.values().first();
-  }
-  setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
+    QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_view" );
+    if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
+        activeView = possibleViews.value(viewToUse);
+    }
+    else { // Otherwise we activate the failsafe
+        activeView = possibleViews.values().first();
+    }
+    setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
 }
 
 void SettingsBase::toggleDirtyState(bool state)
 { 
-  configDirty = state;
-  configureAction->setDisabled(state);
+    configDirty = state;
+    configureAction->setDisabled(state);
 }
 
 void SettingsBase::initMenuList(MenuItem * parent)
@@ -185,7 +186,6 @@ void SettingsBase::initMenuList(MenuItem * parent)
         QString category = entry->property("X-KDE-System-Settings-Category").toString();
         if ( parentCategory == parent->name ) {
             KCModuleInfo module( entry->entryPath() );
-
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->name = category;
             menuItem->service = entry;

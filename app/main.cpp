@@ -32,28 +32,26 @@
 
 int main( int argc, char *argv[] )
 {
-	KLocale::setMainCatalog("kcontrol4");
-	// About data
-	KAboutData aboutData("kcontrol4", 0, ki18n("KDE Control Center"),
-			"0.0.1", ki18n("KDE Control Center"),
-			KAboutData::License_LGPL, ki18n("(c) 2009, Ben Cooksley"));
-	aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Author"),
-			"ben@eclipse.endoftheinternet.org");
-	aboutData.setProgramIconName("preferences-system");
-	KCmdLineArgs::init(argc, argv, &aboutData);
+    KLocale::setMainCatalog("kcontrol4");
+    // About data
+    KAboutData aboutData("kcontrol4", 0, ki18n("KDE Control Center"), "0.0.1", ki18n("KDE Control Center"), 
+                         KAboutData::License_LGPL, ki18n("(c) 2009, Ben Cooksley"));
+    aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Author"), "ben@eclipse.endoftheinternet.org");
+    aboutData.setProgramIconName("preferences-system");
+    KCmdLineArgs::init(argc, argv, &aboutData);
 
-	if (!KUniqueApplication::start()) {
-		std::cerr << "This program is already running." << std::endl;
-		return 0;
-	}
-	KUniqueApplication application;
+    if (!KUniqueApplication::start()) {
+        std::cerr << "This program is already running." << std::endl;
+        return 0;
+    }
+    KUniqueApplication application;
 
-	// Some kcm's require native windows, the screensaver one for example.
-	// It's better to enable native windows here than to have the main window
-	// flicker later on when RandomWidget::winId() is called.
-	QApplication::setAttribute(Qt::AA_NativeWindows);
+    // Some kcm's require native windows, the screensaver one for example.
+    // It's better to enable native windows here than to have the main window
+    // flicker later on when RandomWidget::winId() is called.
+    QApplication::setAttribute(Qt::AA_NativeWindows);
 
-	SettingsBase *mainWindow = new SettingsBase();
-	mainWindow->show();
-	return application.exec();
+    SettingsBase *mainWindow = new SettingsBase();
+    mainWindow->show();
+    return application.exec();
 }
