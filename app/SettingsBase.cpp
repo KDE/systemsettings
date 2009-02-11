@@ -32,6 +32,7 @@
 #include <kactioncollection.h>
 #include <KConfigGroup>
 #include <KAboutData>
+#include <KLineEdit>
 
 SettingsBase::SettingsBase( QWidget * parent ) :
     KXmlGuiWindow(parent),
@@ -43,6 +44,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
     initAbout();
+    initSearch();
     // Load all possible views
     pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
     for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
@@ -54,14 +56,20 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             controller->rootItem = rootModule;
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
+            connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
         } else { 
             kWarning() << error;
         }
     }
     // Toolbar & Configuration
     toolBar()->setMovable(false); // We don't allow any changes
+    toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mainConfigGroup = KGlobal::config()->group( "Main" );
     // Fill the toolbar with default actions
+    searchAction = new KAction( this );
+    searchAction->setDefaultWidget(searchWidget);
+    actionCollection()->addAction( "searchText", searchAction );
+    toolBar()->addAction( searchAction );
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
     toolBar()->addAction( configureAction );
     aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
@@ -69,7 +77,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
     toolBar()->addAction( quitAction );
     // We need to nominate the view to use
-    configInit();
+    initConfig();
     changePlugin();
 }
 
@@ -77,7 +85,22 @@ SettingsBase::~SettingsBase()
 {
 }
 
-void SettingsBase::configInit()
+void SettingsBase::initSearch()
+{
+    searchWidget = new QWidget( this );
+    searchText = new KLineEdit( searchWidget );
+    QLabel * searchIcon = new QLabel( searchWidget );
+    searchIcon->setPixmap( BarIcon( "system-search" ) );
+    QLabel * searchLabel = new QLabel( searchWidget );
+    searchLabel->setText( i18n("Search: ") );
+    QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
+    searchLayout->addWidget( searchIcon );
+    searchLayout->addWidget( searchLabel );
+    searchLayout->addWidget( searchText );
+    searchWidget->setLayout( searchLayout );
+}
+
+void SettingsBase::initConfig()
 {   // Prepare dialog first
     configDialog = new KDialog(this);
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );

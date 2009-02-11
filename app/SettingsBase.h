@@ -35,6 +35,7 @@
 
 class BaseMode;
 class KAction;
+class KLineEdit;
 
 class SettingsBase : public KXmlGuiWindow
 {
@@ -49,7 +50,8 @@ private:
     MenuItem * initModuleLists(MenuItem * parent);
 
 private slots:
-    void configInit();
+    void initSearch();
+    void initConfig();
     void configUpdated();
     void configShow();
     void about();
@@ -64,7 +66,11 @@ private:
     QMap<QString, BaseMode *> possibleViews;
     KService::List pluginObjects;
     BaseMode * activeView;
+    // The search bar
+    QWidget * searchWidget;
+    KLineEdit * searchText;
     // The toolbar
+    KAction * searchAction;
     KAction * quitAction;
     KAction * configureAction;
     KAction * aboutAction;
