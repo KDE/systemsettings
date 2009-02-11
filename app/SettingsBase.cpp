@@ -52,6 +52,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
           possibleViews.insert( activeService->library(), controller );
           controller->rootItem = rootModule;
           connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleConfiguration(bool))); 
+          connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
       } else { 
           kWarning() << error;
       }
@@ -205,4 +206,18 @@ void SettingsBase::initMenuList(MenuItem * parent)
     }
 
     parent->sortChildrenByWeight();
+}
+
+void SettingsBase::updateViewActions()
+{
+    foreach( KAction * oldAction, viewActions ) {
+        toolBar()->removeAction( oldAction );
+    }
+    viewActions.clear();
+    if( activeView ) {
+        foreach( KAction * newAction, activeView->actionsList ) {
+            toolBar()->addAction( newAction );
+            viewActions.append( newAction );
+        }
+    }
 }

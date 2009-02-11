@@ -57,6 +57,7 @@ private slots:
     void changePlugin();
     void toggleConfiguration(bool state);
     void initMenuList(MenuItem * parent);
+    void updateViewActions();
 
 private:
     // The plugins
@@ -67,6 +68,7 @@ private:
     KAction * quitAction;
     KAction * configureAction;
     KAction * aboutAction;
+    QList<KAction *> viewActions;
     // The configuration
     KDialog * configDialog;
     Ui::ConfigDialog configWidget;
