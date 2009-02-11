@@ -39,6 +39,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     modules( KServiceTypeTrader::self()->query("KCModule") )
 { 
   // Prepare the menu of all modules
+  configDirty = false;
   rootModule = new MenuItem( true, 0 );
   initMenuList(rootModule);
   initAbout();
@@ -51,7 +52,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
       if( error.isEmpty() ) {
           possibleViews.insert( activeService->library(), controller );
           controller->rootItem = rootModule;
-          connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleConfiguration(bool))); 
+          connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
           connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
       } else { 
           kWarning() << error;
@@ -65,7 +66,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
   toolBar()->addAction( configureAction );
   aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
   toolBar()->addAction( aboutAction );
-  quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( goingToQuit() ) );
+  quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
   toolBar()->addAction( quitAction );
   // We need to nominate the view to use
   configInit();
@@ -101,8 +102,11 @@ void SettingsBase::configShow()
     configDialog->show();
 }
 
-void SettingsBase::goingToQuit()
-{
+bool SettingsBase::queryClose()
+{ if( configDirty ) {
+      return activeView->resolveDirtyState();
+  }
+  return true;
 }
 
 void SettingsBase::initAbout()
@@ -156,8 +160,9 @@ void SettingsBase::changePlugin()
   setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
 }
 
-void SettingsBase::toggleConfiguration(bool state)
-{ configDirty = state;
+void SettingsBase::toggleDirtyState(bool state)
+{ 
+  configDirty = state;
   configureAction->setDisabled(state);
 }
 

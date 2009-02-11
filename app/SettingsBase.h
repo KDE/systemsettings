@@ -43,6 +43,7 @@ class SettingsBase : public KXmlGuiWindow
 public:
     explicit SettingsBase(QWidget * parent = 0);
     ~SettingsBase();
+    bool queryClose();
 
 private:
     MenuItem * initModuleLists(MenuItem * parent);
@@ -51,11 +52,10 @@ private slots:
     void configInit();
     void configUpdated();
     void configShow();
-    void goingToQuit();
     void about();
     void initAbout();
     void changePlugin();
-    void toggleConfiguration(bool state);
+    void toggleDirtyState(bool state);
     void initMenuList(MenuItem * parent);
     void updateViewActions();
 
