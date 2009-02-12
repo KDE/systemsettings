@@ -53,7 +53,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
-            controller->rootItem = rootModule;
+            controller->init( rootModule );
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
