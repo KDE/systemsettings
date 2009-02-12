@@ -53,7 +53,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
-            controller->init( rootModule );
+            controller->init( rootModule, activeService );
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
@@ -106,13 +106,16 @@ void SettingsBase::initConfig()
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
     configWidget.setupUi(configDialog->mainWidget());
     // Get the list of modules
-    configWidget.CbPlugins->addItems( possibleViews.keys() );
+    foreach( BaseMode * mode, possibleViews.values() ) {
+        configWidget.CbPlugins->addItem( KIcon(mode->service->icon()), mode->service->name() );
+    }
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
 
 void SettingsBase::configUpdated()
 {
-    mainConfigGroup.writeEntry( "ActiveView", configWidget.CbPlugins->currentText() );
+    int currentIndex = configWidget.CbPlugins->currentIndex();
+    mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
     changePlugin();
 }
 
