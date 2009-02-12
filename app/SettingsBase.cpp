@@ -139,6 +139,7 @@ bool SettingsBase::queryClose()
 void SettingsBase::initAbout()
 {
     aboutDialog = new KPageDialog(this); // We create it on the first run
+    aboutDialog->setPlainCaption( i18n("About KDE Control Center") );
     aboutDialog->setButtons( KDialog::Close );
 }
 
