@@ -62,6 +62,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
         }
     }
     // Toolbar & Configuration
+    setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mainConfigGroup = KGlobal::config()->group( "Main" );
