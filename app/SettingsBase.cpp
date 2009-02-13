@@ -93,7 +93,7 @@ void SettingsBase::initSearch()
     QLabel * searchIcon = new QLabel( searchWidget );
     searchIcon->setPixmap( BarIcon( "system-search" ) );
     QLabel * searchLabel = new QLabel( searchWidget );
-    searchLabel->setText( i18n("Search: ") );
+    searchLabel->setText( i18n("Search modules: ") );
     QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
     searchLayout->addWidget( searchIcon );
     searchLayout->addWidget( searchLabel );
