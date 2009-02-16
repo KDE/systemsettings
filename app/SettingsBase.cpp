@@ -58,7 +58,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
         } else { 
-            kWarning() << error;
+            kWarning() << "View load error: " + error;
         }
     }
     // Toolbar & Configuration
@@ -106,6 +106,9 @@ void SettingsBase::initConfig()
     configDialog = new KDialog(this);
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
     configWidget.setupUi(configDialog->mainWidget());
+    configDialog->setCaption(i18n("Configure"));
+    configDialog->setInitialSize(QSize(400,130));
+    configDialog->restoreDialogSize( mainConfigGroup );
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews.values() ) {
         configWidget.CbPlugins->addItem( KIcon(mode->service->icon()), mode->service->name() );
@@ -115,6 +118,7 @@ void SettingsBase::initConfig()
 
 void SettingsBase::configUpdated()
 {
+    configDialog->saveDialogSize( mainConfigGroup );
     int currentIndex = configWidget.CbPlugins->currentIndex();
     mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
     changePlugin();
@@ -122,7 +126,6 @@ void SettingsBase::configUpdated()
 
 void SettingsBase::configShow()
 {
-    kWarning() << "Showing config";
     QStringList pluginList = possibleViews.keys();
     int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
     configWidget.CbPlugins->setCurrentIndex( configIndex );
@@ -237,7 +240,6 @@ void SettingsBase::initMenuList(MenuItem * parent)
             infoItem->item = module;
         }
     }
-
     parent->sortChildrenByWeight();
 }
 

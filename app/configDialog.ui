@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ConfigDialog</class>
- <widget class="QWidget" name="ConfigDialog" >
-  <property name="geometry" >
+ <widget class="QWidget" name="ConfigDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,21 +10,33 @@
     <height>125</height>
    </rect>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="1" column="0" >
-    <widget class="QLabel" name="LblPlugins" >
-     <property name="text" >
-      <string>Display view:</string>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0">
+    <widget class="QLabel" name="LblPlugins">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>View style:</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="1" >
-    <widget class="KComboBox" name="CbPlugins" />
+   <item row="1" column="1">
+    <widget class="KComboBox" name="CbPlugins"/>
    </item>
-   <item row="0" column="0" colspan="2" >
-    <widget class="QLabel" name="LblTitle" >
-     <property name="text" >
-      <string>KDE Control Center configuration</string>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="LblTitle">
+     <property name="text">
+      <string>Below you can select the view style that you prefer for the KDE Control Center</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
