@@ -48,7 +48,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     // Load all possible views
     pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
     for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
-        const KService * activeService = pluginObjects.at( pluginsDone ).data();
+        KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
