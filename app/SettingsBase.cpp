@@ -233,7 +233,6 @@ void SettingsBase::initMenuList(MenuItem * parent)
             kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
             // Add the module info to the menu
             KCModuleInfo module(entry->entryPath());
-            kDebug() << space << "filename is " << module.fileName();
             MenuItem * infoItem = new MenuItem(false, parent);
             infoItem->name = category;
             infoItem->service = entry;
