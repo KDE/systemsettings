@@ -33,6 +33,7 @@
 #include <KConfigGroup>
 #include <KAboutData>
 #include <KLineEdit>
+#include <KMessageBox>
 
 SettingsBase::SettingsBase( QWidget * parent ) :
     KXmlGuiWindow(parent),
@@ -130,7 +131,11 @@ void SettingsBase::configShow()
     QStringList pluginList = possibleViews.keys();
     int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
     configWidget.CbPlugins->setCurrentIndex( configIndex );
-    configDialog->show();
+    if( pluginList.count() == 0 ) {
+        KMessageBox::error(this, i18n("KDE Control Center was unable to find any views, and subsequently nothing is available to configure"), i18n("No views found"));
+    } else {
+        configDialog->show();
+    }
 }
 
 bool SettingsBase::queryClose()
@@ -185,12 +190,14 @@ void SettingsBase::about()
 void SettingsBase::changePlugin()
 {
     if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
-    { return; } // Halt now!
+    {   KMessageBox::error(this, i18n("KDE Control Center was unable to find any views, and subsequently cannot display anything"), i18n("No views found"));
+        return; // Halt now!
+    } 
 
     if( activeView ) {
         activeView->saveState();
     }
-    QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_view" );
+    QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_mode" );
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
     }
