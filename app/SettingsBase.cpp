@@ -36,6 +36,7 @@
 
 SettingsBase::SettingsBase( QWidget * parent ) :
     KXmlGuiWindow(parent),
+    activeView( NULL ),
     categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
     modules( KServiceTypeTrader::self()->query("KCModule") )
 { 
@@ -53,7 +54,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
-            controller->init( rootModule, activeService );
+            controller->init( rootModule, activeService, KGlobal::config()->group( activeService->name() ) );
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
@@ -134,6 +135,10 @@ void SettingsBase::configShow()
 
 bool SettingsBase::queryClose()
 { 
+    if( activeView ) {
+        activeView->saveState();
+    }
+    mainConfigGroup.sync();
     if( configDirty ) {
         return activeView->resolveDirtyState();
     }
@@ -182,6 +187,9 @@ void SettingsBase::changePlugin()
     if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
     { return; } // Halt now!
 
+    if( activeView ) {
+        activeView->saveState();
+    }
     QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_view" );
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
