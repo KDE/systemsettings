@@ -36,7 +36,10 @@ int main( int argc, char *argv[] )
     // About data
     KAboutData aboutData("kcontrol4", 0, ki18n("KDE Control Center"), "0.4", ki18n("Central configuration center for KDE"), 
                          KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
-    aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Author"), "ben@eclipse.endoftheinternet.org");
+    aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Maintainer, plugin actions, module search support, correct sort order and internal module model improvements"), "ben@eclipse.endoftheinternet.org");
+    aboutData.addAuthor(ki18n("Mathias Soeken"), ki18n("Control Module view"), "msoeken@informatik.uni-bremen.de");
+    aboutData.addAuthor(ki18n("Will Stephenson"), ki18n("Internal module representation, internal module model"), "wstephenson@kde.org");
+
     aboutData.setProgramIconName("preferences-system");
     KCmdLineArgs::init(argc, argv, &aboutData);
 
