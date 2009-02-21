@@ -66,6 +66,7 @@ MainWindow::MainWindow(QWidget *parent) :
     readMenu( rootItem );
     qStableSort( rootItem->children.begin(), rootItem->children.end(), pageLessThan ); // sort tabs by weight
     moduleTabs = new KTabWidget(this);
+    moduleTabs->setDocumentMode(true);
 
     // Set a minimum size to avoid double scrollbars ... at least try.
     setMinimumSize(800,480);
@@ -172,6 +173,7 @@ void MainWindow::buildMainWidget()
         tv->setMouseTracking( true );
         tv->viewport()->setAttribute( Qt::WA_Hover );
         tv->setItemDelegate( new KFileItemDelegate( tv ) );
+        tv->setFrameShape(QFrame::NoFrame);
         KCategorizedSortFilterProxyModel * kcsfpm = new SystemSettingsProxyModel( this );
         kcsfpm->setCategorizedModel( true );
         kcsfpm->setSourceModel( model );
