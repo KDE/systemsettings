@@ -35,6 +35,8 @@
 #include <KLineEdit>
 #include <KMessageBox>
 
+#include "ModuleView.h"
+
 SettingsBase::SettingsBase( QWidget * parent ) :
     KXmlGuiWindow(parent),
     activeView( NULL ),
@@ -201,6 +203,7 @@ void SettingsBase::changePlugin()
     else { // Otherwise we activate the failsafe
         activeView = possibleViews.values().first();
     }
+
     setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
 }
 
@@ -274,6 +277,10 @@ void SettingsBase::moduleChanged()
     KCModuleProxy * moduleProxy = activeView->activeModule(); 
     if( moduleProxy ) {
         setCaption( moduleProxy->moduleInfo().moduleName() );
+
+        if ( activeView->moduleView() ) {
+            activeView->moduleView()->loadModule( moduleProxy );
+        }
     } else {
         setCaption( "", false );
     }
