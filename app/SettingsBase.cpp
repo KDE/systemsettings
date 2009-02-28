@@ -42,7 +42,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     modules( KServiceTypeTrader::self()->query("KCModule") )
 { 
     // Prepare the menu of all modules
-    configDirty = false;
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
     initAbout();
@@ -59,6 +58,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
+            connect(controller, SIGNAL(moduleChange()), this, SLOT(moduleChanged()));
         } else { 
             kWarning() << "View load error: " + error;
         }
@@ -144,10 +144,7 @@ bool SettingsBase::queryClose()
         activeView->saveState();
     }
     mainConfigGroup.sync();
-    if( configDirty ) {
-        return activeView->resolveDirtyState();
-    }
-    return true;
+    return activeView->resolveDirtyState();
 }
 
 void SettingsBase::initAbout()
@@ -209,8 +206,9 @@ void SettingsBase::changePlugin()
 
 void SettingsBase::toggleDirtyState(bool state)
 { 
-    configDirty = state;
+    KCModuleProxy * moduleProxy = activeView->activeModule(); 
     configureAction->setDisabled(state);
+    setCaption( moduleProxy->moduleInfo().moduleName(), state );
 }
 
 void SettingsBase::initMenuList(MenuItem * parent)
@@ -268,5 +266,15 @@ void SettingsBase::updateViewActions()
             toolBar()->addAction( newAction );
             viewActions.append( newAction );
         }
+    }
+}
+
+void SettingsBase::moduleChanged()
+{
+    KCModuleProxy * moduleProxy = activeView->activeModule(); 
+    if( moduleProxy ) {
+        setCaption( moduleProxy->moduleInfo().moduleName() );
+    } else {
+        setCaption( "", false );
     }
 }

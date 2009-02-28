@@ -60,6 +60,7 @@ private slots:
     void toggleDirtyState(bool state);
     void initMenuList(MenuItem * parent);
     void updateViewActions();
+    void moduleChanged();
 
 private:
     // The plugins
@@ -80,7 +81,6 @@ private:
     Ui::ConfigDialog configWidget;
     KConfigGroup mainConfigGroup;
     // The control module
-    bool configDirty;
     KToolBar * viewToolbar;
     // The module list
     MenuItem * rootModule;
