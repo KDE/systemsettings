@@ -60,7 +60,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
-            connect(controller, SIGNAL(moduleChange()), this, SLOT(moduleChanged()));
         } else { 
             kWarning() << "View load error: " + error;
         }
@@ -204,6 +203,10 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.values().first();
     }
 
+    if ( activeView->moduleView() ) {
+      // FIXME this crashes
+      // connect(activeView->moduleView(), SIGNAL(moduleChanged()), this, SLOT(moduleChanged()));
+    }
     setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
 }
 
@@ -276,13 +279,9 @@ void SettingsBase::updateViewActions()
 
 void SettingsBase::moduleChanged()
 {
-    KCModuleInfo * moduleInfo = activeView->activeModule(); 
+    KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule(); 
     if( moduleInfo ) {
         setCaption( moduleInfo->moduleName() );
-
-        if ( activeView->moduleView() ) {
-            activeView->moduleView()->loadModule( moduleInfo );
-        }
     } else {
         setCaption( "", false );
     }
