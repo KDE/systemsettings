@@ -24,6 +24,7 @@
 #include "ui_configDialog.h"
 
 #include <QMap>
+#include <QStackedWidget>
 
 #include <KXmlGuiWindow>
 #include <KService>
@@ -82,6 +83,7 @@ private:
     KConfigGroup mainConfigGroup;
     // The control module
     KToolBar * viewToolbar;
+    QStackedWidget * stackedWidget;
     // The module list
     MenuItem * rootModule;
     KService::List categories;

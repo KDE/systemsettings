@@ -48,6 +48,9 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     initMenuList(rootModule);
     initAbout();
     initSearch();
+    // Prepare the view area
+    stackedWidget = new QStackedWidget( this );
+    setCentralWidget(stackedWidget);
     // Load all possible views
     pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
     for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
@@ -57,8 +60,10 @@ SettingsBase::SettingsBase( QWidget * parent ) :
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( rootModule, activeService, KGlobal::config()->group( activeService->name() ) );
+            stackedWidget->addWidget(controller->mainWidget());
             connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
+            connect(controller->moduleView(), SIGNAL(moduleChanged()), this, SLOT(moduleChanged()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
         } else { 
             kWarning() << "View load error: " + error;
@@ -195,6 +200,7 @@ void SettingsBase::changePlugin()
     if( activeView ) {
         activeView->saveState();
     }
+
     QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_mode" );
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
@@ -203,11 +209,7 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.values().first();
     }
 
-    setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
-
-    if ( activeView->moduleView() ) {     
-        connect(activeView->moduleView(), SIGNAL(moduleChanged()), this, SLOT(moduleChanged()));
-    }
+    stackedWidget->setCurrentWidget(activeView->mainWidget());
 }
 
 void SettingsBase::toggleDirtyState(bool state)
