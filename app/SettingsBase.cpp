@@ -212,11 +212,9 @@ void SettingsBase::changePlugin()
 
 void SettingsBase::toggleDirtyState(bool state)
 { 
-    Q_UNUSED( state );
-  // FIXME
-  /*    KCModuleProxy * moduleProxy = activeView->activeModule(); 
+    KCModuleInfo * moduleProxy = activeView->moduleView()->activeModule(); 
     configureAction->setDisabled(state);
-    setCaption( moduleProxy->moduleInfo().moduleName(), state );*/
+    setCaption( moduleProxy->moduleName(), state );
 }
 
 void SettingsBase::initMenuList(MenuItem * parent)
