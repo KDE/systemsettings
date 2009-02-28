@@ -171,8 +171,8 @@ void SettingsBase::about()
     if( activeView && activeView->aboutData() ) {
         listToAdd.append( activeView->aboutData() );
     }
-    if( activeView && activeView->activeModule() && activeView->activeModule()->aboutData() ) {
-        listToAdd.append( activeView->activeModule()->aboutData() );
+    if( activeView && activeView->moduleView() && activeView->moduleView()->aboutData() ) {
+        listToAdd.append( activeView->moduleView()->aboutData() );
     }
     foreach( const KAboutData * addingItem, listToAdd ) {
         KAboutApplicationDialog * addingDialog = new KAboutApplicationDialog(addingItem, 0);
@@ -209,9 +209,11 @@ void SettingsBase::changePlugin()
 
 void SettingsBase::toggleDirtyState(bool state)
 { 
-    KCModuleProxy * moduleProxy = activeView->activeModule(); 
+    Q_UNUSED( state );
+  // FIXME
+  /*    KCModuleProxy * moduleProxy = activeView->activeModule(); 
     configureAction->setDisabled(state);
-    setCaption( moduleProxy->moduleInfo().moduleName(), state );
+    setCaption( moduleProxy->moduleInfo().moduleName(), state );*/
 }
 
 void SettingsBase::initMenuList(MenuItem * parent)
@@ -274,12 +276,12 @@ void SettingsBase::updateViewActions()
 
 void SettingsBase::moduleChanged()
 {
-    KCModuleProxy * moduleProxy = activeView->activeModule(); 
-    if( moduleProxy ) {
-        setCaption( moduleProxy->moduleInfo().moduleName() );
+    KCModuleInfo * moduleInfo = activeView->activeModule(); 
+    if( moduleInfo ) {
+        setCaption( moduleInfo->moduleName() );
 
         if ( activeView->moduleView() ) {
-            activeView->moduleView()->loadModule( moduleProxy );
+            activeView->moduleView()->loadModule( moduleInfo );
         }
     } else {
         setCaption( "", false );
