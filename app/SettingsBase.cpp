@@ -203,11 +203,11 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.values().first();
     }
 
-    if ( activeView->moduleView() ) {
-      // FIXME this crashes
-      // connect(activeView->moduleView(), SIGNAL(moduleChanged()), this, SLOT(moduleChanged()));
-    }
     setCentralWidget(activeView->mainWidget()); // Now we set it as the main widget
+
+    if ( activeView->moduleView() ) {     
+        connect(activeView->moduleView(), SIGNAL(moduleChanged()), this, SLOT(moduleChanged()));
+    }
 }
 
 void SettingsBase::toggleDirtyState(bool state)
