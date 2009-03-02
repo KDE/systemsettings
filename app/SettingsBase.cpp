@@ -150,7 +150,7 @@ bool SettingsBase::queryClose()
         activeView->saveState();
     }
     mainConfigGroup.sync();
-    return activeView->resolveDirtyState();
+    return activeView->moduleView()->resolveChanges();
 }
 
 void SettingsBase::initAbout()
