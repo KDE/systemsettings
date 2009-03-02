@@ -61,10 +61,10 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             possibleViews.insert( activeService->library(), controller );
             controller->init( rootModule, activeService, KGlobal::config()->group( activeService->name() ) );
             stackedWidget->addWidget(controller->mainWidget());
-            connect(controller, SIGNAL(dirtyStateChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
-            connect(controller->moduleView(), SIGNAL(moduleChanged()), this, SLOT(moduleChanged()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
+            connect(controller->moduleView(), SIGNAL(moduleSwitched()), this, SLOT(moduleChanged()));
+            connect(controller->moduleView(), SIGNAL(configurationChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
         } else { 
             kWarning() << "View load error: " + error;
         }
