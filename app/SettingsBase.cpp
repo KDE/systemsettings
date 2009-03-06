@@ -283,6 +283,6 @@ void SettingsBase::moduleChanged()
     if( moduleInfo ) {
         setCaption( moduleInfo->moduleName() );
     } else {
-        setCaption( "", false );
+        setCaption( QString(), false );
     }
 }
