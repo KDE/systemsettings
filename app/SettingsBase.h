@@ -76,7 +76,7 @@ private:
     KAction * quitAction;
     KAction * configureAction;
     KAction * aboutAction;
-    QList<KAction *> viewActions;
+    QList<QAction *> viewActions;
     // The configuration
     KDialog * configDialog;
     Ui::ConfigDialog configWidget;

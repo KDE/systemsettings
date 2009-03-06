@@ -266,15 +266,14 @@ void SettingsBase::initMenuList(MenuItem * parent)
 
 void SettingsBase::updateViewActions()
 {
-    foreach( KAction * oldAction, viewActions ) {
+    foreach( QAction * oldAction, viewActions ) {
         toolBar()->removeAction( oldAction );
     }
     viewActions.clear();
     if( activeView ) {
-        foreach( KAction * newAction, activeView->actionsList ) {
-            toolBar()->addAction( newAction );
-            viewActions.append( newAction );
-        }
+        QAction *before = toolBar()->actions().value( 0 );
+        toolBar()->insertActions( before, activeView->actionsList );
+        viewActions << activeView->actionsList << toolBar()->addSeparator();
     }
 }
 
