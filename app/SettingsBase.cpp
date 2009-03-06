@@ -210,6 +210,7 @@ void SettingsBase::changePlugin()
     }
 
     stackedWidget->setCurrentWidget(activeView->mainWidget());
+    updateViewActions();
 }
 
 void SettingsBase::toggleDirtyState(bool state)
