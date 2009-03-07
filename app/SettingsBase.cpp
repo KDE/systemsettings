@@ -63,7 +63,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             stackedWidget->addWidget(controller->mainWidget());
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
-            connect(controller->moduleView(), SIGNAL(moduleSwitched()), this, SLOT(moduleChanged()));
+            connect(controller, SIGNAL(viewChanged()), this, SLOT(moduleChanged()));
             connect(controller->moduleView(), SIGNAL(configurationChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
         } else { 
             kWarning() << "View load error: " + error;
@@ -279,7 +279,7 @@ void SettingsBase::updateViewActions()
 
 void SettingsBase::moduleChanged()
 {
-    KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule(); 
+    KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule();
     if( moduleInfo ) {
         setCaption( moduleInfo->moduleName() );
     } else {
