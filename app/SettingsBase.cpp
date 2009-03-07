@@ -272,7 +272,7 @@ void SettingsBase::updateViewActions()
     if( activeView ) {
         QAction *before = toolBar()->actions().value( 0 );
         toolBar()->insertActions( before, activeView->actionsList );
-        viewActions << activeView->actionsList << toolBar()->addSeparator();
+        viewActions << activeView->actionsList << toolBar()->insertSeparator( before );
     }
 }
 
