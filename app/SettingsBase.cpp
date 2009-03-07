@@ -19,7 +19,6 @@
 
 #include "SettingsBase.h"
 #include "BaseMode.h"
-#include <iostream>
 
 #include <QVariantList>
 
@@ -286,3 +285,5 @@ void SettingsBase::moduleChanged()
         setCaption( QString(), false );
     }
 }
+
+#include "SettingsBase.moc"
