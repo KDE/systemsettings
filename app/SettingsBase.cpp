@@ -79,11 +79,11 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     actionCollection()->addAction( "searchText", searchAction );
     toolBar()->addAction( searchAction );
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
+    configureAction->setText( i18n("Configure") );
     toolBar()->addAction( configureAction );
     aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
+    aboutAction->setText( i18n("About") );
     toolBar()->addAction( aboutAction );
-    quitAction = actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
-    toolBar()->addAction( quitAction );
     // We need to nominate the view to use
     initConfig();
     changePlugin();
