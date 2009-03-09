@@ -26,6 +26,7 @@
 #include <KAction>
 #include <KStandardAction>
 #include <ktoolbar.h>
+#include <KCModuleInfo>
 #include <KConfig>
 #include <KDebug>
 #include <kactioncollection.h>
