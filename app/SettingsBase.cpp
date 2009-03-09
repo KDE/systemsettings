@@ -118,7 +118,7 @@ void SettingsBase::initConfig()
     configDialog->restoreDialogSize( mainConfigGroup );
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews.values() ) {
-        configWidget.CbPlugins->addItem( KIcon(mode->service->icon()), mode->service->name() );
+        configWidget.CbPlugins->addItem( KIcon(mode->service()->icon()), mode->service()->name() );
     }
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
@@ -226,24 +226,24 @@ void SettingsBase::initMenuList(MenuItem * parent)
     // look for any categories inside this level, and recurse into them
     int depth = 0;
     MenuItem * current = parent;
-    while ( current && current->parent ) {
+    while ( current && current->parent() ) {
         depth++;
-        current = current->parent;
+        current = current->parent();
     }
 
     QString space;
     space.fill( ' ', depth * 2 );
-    kDebug() << space << "Looking for children in '" << parent->name << "'";
+    kDebug() << space << "Looking for children in '" << parent->name() << "'";
     for (int i = 0; i < categories.size(); ++i) {
         KService::Ptr entry = categories.at(i);
         QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         QString category = entry->property("X-KDE-System-Settings-Category").toString();
-        if ( parentCategory == parent->name ) {
+        if ( parentCategory == parent->name() ) {
             KCModuleInfo module( entry->entryPath() );
             MenuItem * menuItem = new MenuItem(true, parent);
-            menuItem->name = category;
-            menuItem->service = entry;
-            menuItem->item = module;
+            menuItem->setName( category );
+            menuItem->setService( entry );
+            menuItem->setItem( module );
             initMenuList( menuItem );
         }
     }
@@ -252,14 +252,14 @@ void SettingsBase::initMenuList(MenuItem * parent)
     for (int i = 0; i < modules.size(); ++i) {
         KService::Ptr entry = modules.at(i);
         QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        if(!parent->name.isEmpty() && category == parent->name ) {
+        if(!parent->name().isEmpty() && category == parent->name() ) {
             kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
             // Add the module info to the menu
             KCModuleInfo module(entry->entryPath());
             MenuItem * infoItem = new MenuItem(false, parent);
-            infoItem->name = category;
-            infoItem->service = entry;
-            infoItem->item = module;
+            infoItem->setName( category );
+            infoItem->setService( entry );
+            infoItem->setItem( module );
         }
     }
     parent->sortChildrenByWeight();
@@ -273,8 +273,8 @@ void SettingsBase::updateViewActions()
     viewActions.clear();
     if( activeView ) {
         QAction *before = toolBar()->actions().value( 0 );
-        toolBar()->insertActions( before, activeView->actionsList );
-        viewActions << activeView->actionsList << toolBar()->insertSeparator( before );
+        toolBar()->insertActions( before, activeView->actionsList() );
+        viewActions << activeView->actionsList() << toolBar()->insertSeparator( before );
     }
 }
 
