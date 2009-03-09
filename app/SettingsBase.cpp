@@ -100,7 +100,7 @@ void SettingsBase::initSearch()
     QLabel * searchIcon = new QLabel( searchWidget );
     searchIcon->setPixmap( BarIcon( "system-search" ) );
     QLabel * searchLabel = new QLabel( searchWidget );
-    searchLabel->setText( i18n("Search modules: ") );
+    searchLabel->setText( i18n("Search:") );
     QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
     searchLayout->addWidget( searchIcon );
     searchLayout->addWidget( searchLabel );
@@ -210,6 +210,8 @@ void SettingsBase::changePlugin()
 
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
+
+    searchText->setFocus();
 }
 
 void SettingsBase::toggleDirtyState(bool state)
