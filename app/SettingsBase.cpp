@@ -98,11 +98,16 @@ void SettingsBase::initSearch()
 {
     searchWidget = new QWidget( this );
     searchText = new KLineEdit( searchWidget );
+    searchText->setClearButtonShown( true );
     QLabel * searchIcon = new QLabel( searchWidget );
+    searchIcon->setBuddy( searchText );
     searchIcon->setPixmap( BarIcon( "system-search" ) );
     QLabel * searchLabel = new QLabel( searchWidget );
+    searchLabel->setBuddy( searchText );
     searchLabel->setText( i18n("Search:") );
     QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
+    searchLayout->setMargin( 0 );
+    searchLayout->setSpacing( KDialog::spacingHint() );
     searchLayout->addWidget( searchIcon );
     searchLayout->addWidget( searchLabel );
     searchLayout->addWidget( searchText );
