@@ -92,6 +92,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
 
 SettingsBase::~SettingsBase()
 {
+    delete rootModule;
 }
 
 void SettingsBase::initSearch()
