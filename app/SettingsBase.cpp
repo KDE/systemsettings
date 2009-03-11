@@ -105,7 +105,7 @@ void SettingsBase::initSearch()
     searchIcon->setPixmap( BarIcon( "system-search" ) );
     QLabel * searchLabel = new QLabel( searchWidget );
     searchLabel->setBuddy( searchText );
-    searchLabel->setText( i18n("Search:") );
+    searchLabel->setText( i18nc("Search through a list of control modules","Search:") );
     QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
     searchLayout->setMargin( 0 );
     searchLayout->setSpacing( KDialog::spacingHint() );
