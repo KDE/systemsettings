@@ -18,23 +18,23 @@
  ***************************************************************************/
 
 #include "SettingsBase.h"
-#include "BaseMode.h"
 
 #include <QVariantList>
 
-#include <KServiceTypeTrader>
+#include <KAboutData>
 #include <KAction>
-#include <KStandardAction>
-#include <ktoolbar.h>
+#include <KActionCollection>
 #include <KCModuleInfo>
 #include <KConfig>
-#include <KDebug>
-#include <kactioncollection.h>
 #include <KConfigGroup>
-#include <KAboutData>
+#include <KDebug>
 #include <KLineEdit>
 #include <KMessageBox>
+#include <KServiceTypeTrader>
+#include <KStandardAction>
+#include <KToolBar>
 
+#include "BaseMode.h"
 #include "ModuleView.h"
 
 SettingsBase::SettingsBase( QWidget * parent ) :
