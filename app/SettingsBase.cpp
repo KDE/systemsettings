@@ -21,20 +21,15 @@
 
 #include <QVariantList>
 
-#include <KAboutData>
-#include <KAction>
-#include <KActionCollection>
-#include <KCModuleInfo>
-#include <KConfig>
-#include <KConfigGroup>
 #include <KDebug>
-#include <KLineEdit>
+#include <KConfig>
+#include <KAboutData>
 #include <KMessageBox>
-#include <KServiceTypeTrader>
+#include <KCModuleInfo>
 #include <KStandardAction>
-#include <KToolBar>
+#include <KActionCollection>
+#include <KServiceTypeTrader>
 
-#include "BaseMode.h"
 #include "ModuleView.h"
 
 SettingsBase::SettingsBase( QWidget * parent ) :
@@ -244,13 +239,9 @@ void SettingsBase::initMenuList(MenuItem * parent)
     for (int i = 0; i < categories.size(); ++i) {
         KService::Ptr entry = categories.at(i);
         QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        QString category = entry->property("X-KDE-System-Settings-Category").toString();
         if ( parentCategory == parent->name() ) {
-            KCModuleInfo module( entry->entryPath() );
             MenuItem * menuItem = new MenuItem(true, parent);
-            menuItem->setName( category );
             menuItem->setService( entry );
-            menuItem->setItem( module );
             initMenuList( menuItem );
         }
     }
@@ -262,11 +253,8 @@ void SettingsBase::initMenuList(MenuItem * parent)
         if(!parent->name().isEmpty() && category == parent->name() ) {
             kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
             // Add the module info to the menu
-            KCModuleInfo module(entry->entryPath());
             MenuItem * infoItem = new MenuItem(false, parent);
-            infoItem->setName( category );
             infoItem->setService( entry );
-            infoItem->setItem( module );
         }
     }
     parent->sortChildrenByWeight();

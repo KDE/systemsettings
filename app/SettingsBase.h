@@ -21,22 +21,21 @@
 #define SETTINGS_BASE_H
 
 #include "MenuItem.h"
+#include "BaseMode.h"
 #include "ui_configDialog.h"
 
 #include <QMap>
 #include <QStackedWidget>
 
-#include <KXmlGuiWindow>
-#include <KService>
-#include <KConfigGroup>
 #include <KDialog>
-#include <ktoolbar.h>
+#include <KAction>
+#include <KService>
+#include <KToolBar>
+#include <KLineEdit>
 #include <KPageDialog>
+#include <KConfigGroup>
+#include <KXmlGuiWindow>
 #include <KAboutApplicationDialog>
-
-class BaseMode;
-class KAction;
-class KLineEdit;
 
 class SettingsBase : public KXmlGuiWindow
 {
