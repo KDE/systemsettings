@@ -147,11 +147,13 @@ void SettingsBase::configShow()
 
 bool SettingsBase::queryClose()
 { 
+    bool changes = true;
     if( activeView ) {
         activeView->saveState();
+        changes = activeView->moduleView()->resolveChanges();
     }
     mainConfigGroup.sync();
-    return activeView->moduleView()->resolveChanges();
+    return changes;
 }
 
 void SettingsBase::initAbout()
