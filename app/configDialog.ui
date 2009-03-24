@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>424</width>
-    <height>125</height>
+    <width>447</width>
+    <height>145</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -37,6 +37,13 @@
      </property>
      <property name="wordWrap">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QCheckBox" name="ChTooltips">
+     <property name="text">
+      <string>Show tooltips</string>
      </property>
     </widget>
    </item>

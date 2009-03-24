@@ -90,5 +90,7 @@ private:
     // The about dialog
     KPageDialog * aboutDialog;
     QList<KPageWidgetItem *> aboutAppPage;
+    // Show enhanced tooltips
+    bool showTooltips;
 };
 #endif

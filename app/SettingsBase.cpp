@@ -81,6 +81,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     aboutAction->setText( i18n("About") );
     toolBar()->addAction( aboutAction );
     // We need to nominate the view to use
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false );
     initConfig();
     changePlugin();
 }
@@ -130,6 +131,8 @@ void SettingsBase::configUpdated()
     configDialog->saveDialogSize( mainConfigGroup );
     int currentIndex = configWidget.CbPlugins->currentIndex();
     mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
+    showTooltips = configWidget.ChTooltips->isChecked();
+    mainConfigGroup.writeEntry( "ShowTooltips", showTooltips );
     changePlugin();
 }
 
@@ -138,6 +141,7 @@ void SettingsBase::configShow()
     QStringList pluginList = possibleViews.keys();
     int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
     configWidget.CbPlugins->setCurrentIndex( configIndex );
+    configWidget.ChTooltips->setChecked( showTooltips );
     if( pluginList.count() == 0 ) {
         KMessageBox::error(this, i18n("KDE Control Center was unable to find any views, and subsequently nothing is available to configure"), i18n("No views found"));
     } else {
@@ -212,7 +216,7 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.values().first();
     }
 
-    activeView->setTooltipEnabled( true ); // TODO make this configurable
+    activeView->setTooltipEnabled( showTooltips );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 
