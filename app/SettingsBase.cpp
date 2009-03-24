@@ -212,6 +212,7 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.values().first();
     }
 
+    activeView->setTooltipEnabled( true ); // TODO make this configurable
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 
