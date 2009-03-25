@@ -112,7 +112,7 @@ void MainWindow::readMenu( MenuItem * parent )
         QString category = entry->property("X-KDE-System-Settings-Category").toString();
         //kDebug() << "Examining category " << parentCategory << "/" << category;
         if ( parentCategory == parent->name ) {
-            KCModuleInfo module( entry->entryPath() );
+            KCModuleInfo module(entry);
 
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->name = category;
@@ -130,7 +130,7 @@ void MainWindow::readMenu( MenuItem * parent )
         if(!parent->name.isEmpty() && category == parent->name ) {
             kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
             // Add the module info to the menu
-            KCModuleInfo module(entry->entryPath());
+            KCModuleInfo module(entry);
             kDebug() << space << "filename is " << module.fileName();
             //append(module);
             MenuItem * infoItem = new MenuItem(false, parent);
