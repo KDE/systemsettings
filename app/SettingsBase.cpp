@@ -117,7 +117,7 @@ void SettingsBase::initConfig()
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
     configWidget.setupUi(configDialog->mainWidget());
     configDialog->setCaption(i18n("Configure"));
-    configDialog->setInitialSize(QSize(400,130));
+    configDialog->setInitialSize(QSize(400,140));
     configDialog->restoreDialogSize( mainConfigGroup );
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews.values() ) {
@@ -216,7 +216,7 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.values().first();
     }
 
-    activeView->setTooltipEnabled( showTooltips );
+    activeView->setEnhancedTooltipEnabled( showTooltips );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 

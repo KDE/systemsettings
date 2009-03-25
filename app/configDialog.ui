@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>447</width>
-    <height>145</height>
+    <height>150</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -43,7 +43,7 @@
    <item row="2" column="1">
     <widget class="QCheckBox" name="ChTooltips">
      <property name="text">
-      <string>Show tooltips</string>
+      <string>Show detailed tooltips</string>
      </property>
     </widget>
    </item>
