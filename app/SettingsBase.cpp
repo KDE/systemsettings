@@ -30,6 +30,7 @@
 #include <KActionCollection>
 #include <KServiceTypeTrader>
 
+#include "BaseData.h"
 #include "ModuleView.h"
 
 SettingsBase::SettingsBase( QWidget * parent ) :
@@ -46,6 +47,8 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
     setCentralWidget(stackedWidget);
+    // Prepare the Base Data
+    BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
     pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
     for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
@@ -54,7 +57,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
-            controller->init( rootModule, activeService, KGlobal::config()->group( activeService->name() ) );
+            controller->init( activeService );
             stackedWidget->addWidget(controller->mainWidget());
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
