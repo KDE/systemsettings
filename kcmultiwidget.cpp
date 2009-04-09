@@ -4,6 +4,7 @@
    Copyright (c) 2003 Matthias Kretz <kretz@kde.org>
    Copyright (c) 2004 Frans Englich <englich@kde.org>
    Copyright (c) 2008 Michael Jansen <kde@michael-jansen.biz>
+   Copyright (c) 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,6 +29,10 @@
 #include <QProcess>
 #include <QScrollArea>
 
+#include <QtGui/QKeyEvent>
+#include <QtGui/QVBoxLayout>
+#include <QtGui/QWhatsThis>
+
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <klibloader.h>
@@ -38,6 +43,9 @@
 #include <kuser.h>
 #include <kauthorized.h>
 #include <ktoolinvocation.h>
+
+#include <kpushbutton.h>
+#include <kdialogbuttonbox.h>
 
 #include "kcmoduleloader.h"
 #include "kcmoduleproxy.h"
@@ -59,54 +67,74 @@ class KCMultiWidget::KCMultiWidgetPrivate
         bool hasRootKCM;
 };
 
-KCMultiWidget::KCMultiWidget(QWidget *parent, Qt::WindowModality modality)
-    : KPageDialog( parent ),
+KCMultiWidget::KCMultiWidget(QWidget *parent)
+    : QWidget( parent ),
     d( new KCMultiWidgetPrivate )
 {
-    InitKIconDialog(i18n("Configure"), modality);
-    init();
-}
-
-// Maybe move into init()?
-void KCMultiWidget::InitKIconDialog(const QString& caption,
-                                    Qt::WindowModality modality)
-{
-  setCaption(caption);
-  setButtons(KDialog::Help |
-             KDialog::Default |
-             KDialog::Apply |
-             KDialog::Reset );
-  setDefaultButton(KDialog::Reset);
-
-  setWindowModality(modality);
-}
-
-
-inline void KCMultiWidget::init()
-{
-    // A bit hackish: KCMultiWidget inherits from KPageDialog, but it really is
-    // a widget...
-    setWindowFlags(Qt::Widget);
-
-    enableButton(Apply, false);
-    enableButton(Reset, false);
-    enableButton(Default, false);
-    enableButton(Help, false);
-
-    connect( 
-        this, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)),
+    QVBoxLayout * mainLayout = new QVBoxLayout();
+    setLayout( mainLayout );
+    
+    m_pageWidget = new KPageWidget( this );
+    mainLayout->addWidget( m_pageWidget );
+    
+    connect( m_pageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)),
         this, SLOT(slotAboutToShow(KPageWidgetItem*, KPageWidgetItem* )) );
-    setInitialSize(QSize(640,480));
-    setFaceType( Auto );
-    connect( this, SIGNAL(helpClicked()), this, SLOT(slotHelp()) );
-    connect( this, SIGNAL(defaultClicked()), this, SLOT(slotDefault()) );
-    connect( this, SIGNAL(applyClicked()), this, SLOT(slotApply()) );
-    connect( this, SIGNAL(resetClicked()), this, SLOT(slotReset()) );
+    m_pageWidget->setFaceType( KPageWidget::Auto );
+    
+    m_buttonBox = new KDialogButtonBox( this, Qt::Horizontal );
+    mainLayout->addWidget( m_buttonBox );
+    setupButtonBox();
 }
 
 KCMultiWidget::~KCMultiWidget()
 {
     delete d;
+    delete m_pageWidget;
+}
+
+void KCMultiWidget::setupButtonBox()
+{
+    //Set up buttons
+    m_helpButton = m_buttonBox->addButton( KStandardGuiItem::help(), QDialogButtonBox::HelpRole );
+    m_defaultsButton = m_buttonBox->addButton( KStandardGuiItem::defaults(), QDialogButtonBox::ResetRole );
+    m_applyButton = m_buttonBox->addButton( KStandardGuiItem::apply(), QDialogButtonBox::ApplyRole );
+    m_resetButton = m_buttonBox->addButton( KStandardGuiItem::reset(), QDialogButtonBox::ResetRole );
+    
+    m_helpButton->setEnabled( false );
+    m_defaultsButton->setEnabled( false );
+    m_applyButton->setEnabled( false );
+    m_resetButton->setEnabled( false );
+    
+    connect( m_helpButton, SIGNAL(clicked()), this, SLOT(slotHelp()) );
+    connect( m_defaultsButton, SIGNAL(clicked()), this, SLOT(slotDefault()) );
+    connect( m_applyButton, SIGNAL(clicked()), this, SLOT(slotApply()) );
+    connect( m_resetButton, SIGNAL(clicked()), this, SLOT(slotReset()) );
+}
+
+void KCMultiWidget::keyPressEvent ( QKeyEvent * event )
+{
+    //Mimic part of the KDialog behaviour
+    if ( event->modifiers() == 0 ) {
+        if ( event->key() == Qt::Key_F1 ) {
+            if ( m_helpButton->isVisible() && m_helpButton->isEnabled() ) {
+                m_helpButton->animateClick();
+                event->accept();
+                return;
+            }
+        }
+        if ( event->key() == Qt::Key_Escape ) {
+            event->accept();
+            if( queryClose() ) //Close modules
+                emit finished();
+            return;
+        }
+    } else if ( event->key() == Qt::Key_F1 && event->modifiers() == Qt::ShiftModifier ) {
+        QWhatsThis::enterWhatsThisMode();
+        event->accept();
+        return;
+    }
+    
+    QWidget::keyPressEvent( event );
 }
 
 void KCMultiWidget::slotDefault()
@@ -147,12 +175,12 @@ void KCMultiWidget::clientChanged(bool state)
     kDebug( 710 ) << state;
     foreach( const CreatedModule &it, m_modules )
         if( it.kcm->changed() ) {
-            enableButton( Apply, true );
-            enableButton( Reset, true);
+            m_applyButton->setEnabled( true );
+            m_resetButton->setEnabled( true );
             return;
         }
-    enableButton( Apply, false );
-    enableButton( Reset, false);
+    m_applyButton->setEnabled( false );
+    m_resetButton->setEnabled( false );
 }
 
 
@@ -172,7 +200,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
         return;
     }
 
-    QScrollArea* moduleScrollArea = new QScrollArea( this );
+    QScrollArea* moduleScrollArea = new QScrollArea( m_pageWidget );
     KCModuleProxy *module = new KCModuleProxy( moduleinfo, moduleScrollArea );
     moduleScrollArea->setWidget( module );
     moduleScrollArea->setWidgetResizable( true );
@@ -207,7 +235,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
     if( m_modules.count() == 1 ) {
         slotAboutToShow( module );
     }
-    KPageWidgetItem* page = addPage(moduleScrollArea, moduleinfo.moduleName());
+    KPageWidgetItem* page = m_pageWidget->addPage(moduleScrollArea, moduleinfo.moduleName());
     page->setIcon( KIcon(moduleinfo.icon()) );
     page->setHeader(moduleinfo.comment());
 }
@@ -215,7 +243,7 @@ void KCMultiWidget::addModule(const KCModuleInfo& moduleinfo)
 
 KCModuleProxy* KCMultiWidget::currentModule() 
 {
-    KPageWidgetItem *pageWidget = currentPage();
+    KPageWidgetItem *pageWidget = m_pageWidget->currentPage();
     if ( pageWidget == 0 )
         return 0;
 
@@ -232,7 +260,7 @@ void KCMultiWidget::slotAboutToShow(KPageWidgetItem* current, KPageWidgetItem* b
         QScrollArea *scrollArea = qobject_cast<QScrollArea*>( before->widget() );
         KCModuleProxy *module = qobject_cast<KCModuleProxy*>( scrollArea->widget() );
         if (!queryClose(module)) {
-            setCurrentPage(before);
+            m_pageWidget->setCurrentPage(before);
             return;
         }
     }
@@ -260,7 +288,7 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
     bool found = false;
     foreach( const CreatedModule &it, m_modules ) {
         if( it.kcm==module) {
-            showButton(User2, it.adminmode);
+            //showButton(User2, it.adminmode);
             buttons = it.kcm->buttons();
             found = true;
         }
@@ -269,13 +297,13 @@ void KCMultiWidget::slotAboutToShow(QWidget *page)
         buttons = module->buttons();
     }
 
-    showButton(Apply, buttons & KCModule::Apply);
-    showButton(Reset, buttons & KCModule::Apply);
-
-    enableButton( KDialog::Help, buttons & KCModule::Help );
-    enableButton( KDialog::Default, buttons & KCModule::Default );
-
-    disconnect( this, SIGNAL(user3Clicked()), 0, 0 );
+    m_applyButton->setVisible( buttons & KCModule::Apply );
+    m_resetButton->setVisible( buttons & KCModule::Apply );
+    
+    m_helpButton->setEnabled( buttons & KCModule::Help );
+    m_defaultsButton->setEnabled( buttons & KCModule::Help );
+    
+    //disconnect( this, SIGNAL(user3Clicked()), 0, 0 );
 
     // 	if (module->moduleInfo().needsRootPrivileges() &&
     // 			!module->rootMode() )

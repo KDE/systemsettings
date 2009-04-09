@@ -327,7 +327,7 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
     groupWidget = moduleItemToWidgetDict[mItem->service];
 
     if( !groupWidget ) {
-        groupWidget = new KCMultiWidget(windowStack, Qt::NonModal); // THAT ZERO IS NEW (actually the 0 can go, jr)
+        groupWidget = new KCMultiWidget(windowStack);
         windowStack->addWidget(groupWidget);
         moduleItemToWidgetDict.insert(mItem->service,groupWidget);
 

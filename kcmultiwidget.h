@@ -28,16 +28,19 @@
 #include <QtCore/QList>
 
 // KDE
-#include <kpagedialog.h>
 #include <kservice.h>
+#include <kpagewidget.h>
 
+class QKeyEvent;
+class KDialogButtonBox;
+class KPushButton;
 class KCModuleProxy;
 class KCModuleInfo;
 
 /**
  * @short A method that offers a KDialog containing arbitrary Control Modules.
  */
-class /*KUTILS_EXPORT*/ KCMultiWidget : public KPageDialog
+class /*KUTILS_EXPORT*/ KCMultiWidget : public QWidget
 {
 Q_OBJECT
 
@@ -46,21 +49,8 @@ public:
      * Constructs a new KCMultiWidget
      *
      * @param parent The parent widget
-     * @param modality Qt::WindowModality value indicating the modality of the window.
      **/
-    KCMultiWidget( QWidget *parent=0,
-            Qt::WindowModality modality = Qt::NonModal );
-
-    /**
-     * Initialize the KIconDialog widget
-     *
-     * @param caption Specify the caption for the KIconDialog
-     * @param modality Qt::WindowModality value indicating the modality of the window.
-     *    If @p Qt::NonModal, the rest of the	program interface
-     *    (example: other dialogs) is accessible while the dialog is open.
-     **/
-    void InitKIconDialog(const QString& caption,
-            Qt::WindowModality modality = Qt::NonModal);
+    KCMultiWidget( QWidget *parent=0 );
 
     /**
      * Destructor
@@ -118,6 +108,12 @@ signals:
      * @sense 3.4
      */
     void aboutToShow( KCModuleProxy *moduleProxy );
+    
+    /**
+     * Signal to emulate former KDialog behaviour
+     * Emitted when quitting manually (Esc key)
+     */
+    void finished();
     
 protected slots:
     /**
@@ -181,10 +177,10 @@ private slots:
 #endif
 
 private:
+    void setupButtonBox();
 
-
-    void init();
-
+    void keyPressEvent(QKeyEvent *);
+    
     void apply(KCModuleProxy *module);
     void reset(KCModuleProxy *module);
     void defaults(KCModuleProxy *module);
@@ -203,6 +199,14 @@ private:
     QHash<KCModuleProxy*,QStringList> moduleParentComponents;
     QString _docPath;
 
+    KPageWidget         *   m_pageWidget;
+    KDialogButtonBox    *   m_buttonBox;
+    
+    KPushButton         *   m_helpButton;
+    KPushButton         *   m_resetButton;
+    KPushButton         *   m_defaultsButton;
+    KPushButton         *   m_applyButton;
+    
     class KCMultiWidgetPrivate;
     KCMultiWidgetPrivate *d;
 };
