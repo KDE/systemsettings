@@ -375,10 +375,10 @@ bool KCMultiWidget::queryClose(KCModuleProxy *module)
     // Let the user decide
     int res = KMessageBox::warningYesNoCancel(
         this,
-        i18n("There are unsaved changes in the active module.\n"
+        i18n("The current page has been modified.\n"
              "Do you want to apply the changes or discard them?"),
-        i18n("Unsaved Changes"),
-        KStandardGuiItem::save(),
+        i18n("Apply Settings"),
+        KStandardGuiItem::apply(),
         KStandardGuiItem::discard(),
         KStandardGuiItem::cancel() );
 
