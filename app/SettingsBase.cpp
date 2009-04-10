@@ -73,16 +73,24 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mainConfigGroup = KGlobal::config()->group( "Main" );
     // Fill the toolbar with default actions
+    // Configure goes at the end
+    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
+    configureAction->setText( i18n("Configure") );
+    toolBar()->addAction( configureAction );
+    // About after it
+    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
+    aboutAction->setText( i18n("About") );
+    toolBar()->addAction( aboutAction );
+    // Then a spacer so the search line-edit is kept seperate
+    spacerAction = new KAction( this );
+    spacerAction->setDefaultWidget(spacerWidget);
+    actionCollection()->addAction( "spacer", spacerAction );
+    toolBar()->addAction( spacerAction );
+    // Finally the search line-edit
     searchAction = new KAction( this );
     searchAction->setDefaultWidget(searchWidget);
     actionCollection()->addAction( "searchText", searchAction );
     toolBar()->addAction( searchAction );
-    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
-    configureAction->setText( i18n("Configure") );
-    toolBar()->addAction( configureAction );
-    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
-    aboutAction->setText( i18n("About") );
-    toolBar()->addAction( aboutAction );
     // We need to nominate the view to use
     showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false );
     initConfig();
@@ -99,19 +107,20 @@ void SettingsBase::initSearch()
     searchWidget = new QWidget( this );
     searchText = new KLineEdit( searchWidget );
     searchText->setClearButtonShown( true );
+    searchText->setClickMessage( i18nc("Search through a list of control modules","Search:") );
     QLabel * searchIcon = new QLabel( searchWidget );
     searchIcon->setBuddy( searchText );
     searchIcon->setPixmap( BarIcon( "system-search" ) );
-    QLabel * searchLabel = new QLabel( searchWidget );
-    searchLabel->setBuddy( searchText );
-    searchLabel->setText( i18nc("Search through a list of control modules","Search:") );
     QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
     searchLayout->setMargin( 0 );
     searchLayout->setSpacing( KDialog::spacingHint() );
     searchLayout->addWidget( searchIcon );
-    searchLayout->addWidget( searchLabel );
     searchLayout->addWidget( searchText );
     searchWidget->setLayout( searchLayout );
+    searchWidget->setMaximumWidth( 200 );
+
+    spacerWidget = new QWidget( this );
+    spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
 }
 
 void SettingsBase::initConfig()

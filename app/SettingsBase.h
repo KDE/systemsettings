@@ -70,8 +70,11 @@ private:
     // The search bar
     QWidget * searchWidget;
     KLineEdit * searchText;
+    // The spacer
+    QWidget * spacerWidget;
     // The toolbar
     KAction * searchAction;
+    KAction * spacerAction;
     KAction * quitAction;
     KAction * configureAction;
     KAction * aboutAction;
