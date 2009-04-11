@@ -23,6 +23,7 @@
 
 #include <KDebug>
 #include <KConfig>
+#include <KMenuBar>
 #include <KAboutData>
 #include <KMessageBox>
 #include <KCModuleInfo>
@@ -69,6 +70,9 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             kWarning() << "View load error: " + error;
         }
     }
+    // Initialise the Window
+    setupGUI(Save|Create,QString());
+    menuBar()->hide();
     // Toolbar & Configuration
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
@@ -103,6 +107,11 @@ SettingsBase::~SettingsBase()
     delete rootModule;
 }
 
+QSize SettingsBase::sizeHint() const
+{
+    return QSize(780, 580);
+}
+
 void SettingsBase::initSearch()
 {
     searchWidget = new QWidget( this );
@@ -129,7 +138,7 @@ void SettingsBase::initConfig()
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
     configWidget.setupUi(configDialog->mainWidget());
     configDialog->setCaption(i18n("Configure"));
-    configDialog->setInitialSize(QSize(400,140));
+    configDialog->setInitialSize(QSize(400,160));
     configDialog->restoreDialogSize( mainConfigGroup );
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews.values() ) {

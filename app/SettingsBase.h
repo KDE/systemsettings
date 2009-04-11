@@ -46,6 +46,9 @@ public:
     ~SettingsBase();
     bool queryClose();
 
+protected:
+    virtual QSize sizeHint() const;
+
 private:
     MenuItem * initModuleLists(MenuItem * parent);
 
