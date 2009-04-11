@@ -123,9 +123,8 @@ void KCMultiWidget::keyPressEvent ( QKeyEvent * event )
             }
         }
         if ( event->key() == Qt::Key_Escape ) {
+            emit requestClose();
             event->accept();
-            if( queryClose() ) //Close modules
-                emit finished();
             return;
         }
     } else if ( event->key() == Qt::Key_F1 && event->modifiers() == Qt::ShiftModifier ) {

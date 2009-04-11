@@ -287,6 +287,11 @@ void MainWindow::buildActions()
 
 void MainWindow::showOverview()
 {
+    //Some modules create duplicated keyboard event that may crash 
+    //the application if the pointer was already deassigned
+    if (!groupWidget) { 
+        return;
+    }
     if (!groupWidget->queryClose()) {
         return;
     }
@@ -301,7 +306,6 @@ void MainWindow::showOverview()
     searchText->setEnabled(true);
     search->setEnabled(true);
     searchAction->setEnabled(true);
-
 }
 
 void MainWindow::selectionChanged( const QModelIndex& selected )
@@ -332,7 +336,7 @@ void MainWindow::selectionChanged( const QModelIndex& selected )
         moduleItemToWidgetDict.insert(mItem->service,groupWidget);
 
         // That shouldn't be needed.
-        connect(groupWidget, SIGNAL(finished()), this, SLOT(showOverview()));
+        connect(groupWidget, SIGNAL(requestClose()), this, SLOT(showOverview()));
 
         if ( ! mItem->menu ) {
             groupWidget->addModule( mItem->item );

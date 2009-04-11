@@ -113,7 +113,7 @@ signals:
      * Signal to emulate former KDialog behaviour
      * Emitted when quitting manually (Esc key)
      */
-    void finished();
+    void requestClose();
     
 protected slots:
     /**
