@@ -38,11 +38,13 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     activeView( NULL ),
     categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
     modules( KServiceTypeTrader::self()->query("KCModule") )
-{ 
+{
+    // Ensure delayed loading doesn't cause a crash
+    aboutDialog = 0;
+    configDialog = 0;
     // Prepare the menu of all modules
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
-    initAbout();
     initSearch();
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
@@ -50,7 +52,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
-    pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
+    KService::List pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
     for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
@@ -92,8 +94,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     actionCollection()->addAction( "searchText", searchAction );
     toolBar()->addAction( searchAction );
     // We need to nominate the view to use
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false );
-    initConfig();
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false ); 
     changePlugin();
 }
 
@@ -117,7 +118,6 @@ void SettingsBase::initSearch()
     searchLayout->addWidget( searchIcon );
     searchLayout->addWidget( searchText );
     searchWidget->setLayout( searchLayout );
-    searchWidget->setMaximumWidth( 200 );
 
     spacerWidget = new QWidget( this );
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
@@ -143,13 +143,18 @@ void SettingsBase::configUpdated()
     configDialog->saveDialogSize( mainConfigGroup );
     int currentIndex = configWidget.CbPlugins->currentIndex();
     mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
-    showTooltips = configWidget.ChTooltips->isChecked();
+    showTooltips = configWidget.ChTooltips->isChecked();                                                                                   
     mainConfigGroup.writeEntry( "ShowTooltips", showTooltips );
     changePlugin();
 }
 
 void SettingsBase::configShow()
 {
+    // Initialise the configuration dialog if it hasn't already
+    if( !configDialog ) {
+        initConfig();
+    }
+
     QStringList pluginList = possibleViews.keys();
     int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
     configWidget.CbPlugins->setCurrentIndex( configIndex );
@@ -172,16 +177,16 @@ bool SettingsBase::queryClose()
     return changes;
 }
 
-void SettingsBase::initAbout()
-{
-    aboutDialog = new KPageDialog(this); // We create it on the first run
-    aboutDialog->setPlainCaption( i18n("About KDE Control Center") );
-    aboutDialog->setButtons( KDialog::Close );
-}
-
 void SettingsBase::about()
 {
     QList<const KAboutData *> listToAdd;
+
+    // We initialise if we haven't already
+    if( !aboutDialog ) {
+        aboutDialog = new KPageDialog(this); // We create it on the first run
+        aboutDialog->setPlainCaption( i18n("About KDE Control Center") );
+        aboutDialog->setButtons( KDialog::Close );
+    }
 
     // First we cleanup from previous runs
      while (!aboutAppPage.isEmpty()) {

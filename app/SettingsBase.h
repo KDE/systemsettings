@@ -55,7 +55,6 @@ private slots:
     void configUpdated();
     void configShow();
     void about();
-    void initAbout();
     void changePlugin();
     void toggleDirtyState(bool state);
     void initMenuList(MenuItem * parent);
@@ -65,7 +64,6 @@ private slots:
 private:
     // The plugins
     QMap<QString, BaseMode *> possibleViews;
-    KService::List pluginObjects;
     BaseMode * activeView;
     // The search bar
     QWidget * searchWidget;
@@ -95,5 +93,6 @@ private:
     QList<KPageWidgetItem *> aboutAppPage;
     // Show enhanced tooltips
     bool showTooltips;
+
 };
 #endif
