@@ -72,10 +72,10 @@ KCMultiWidget::KCMultiWidget(QWidget *parent)
     d( new KCMultiWidgetPrivate )
 {
     QVBoxLayout * mainLayout = new QVBoxLayout();
-    mainLayout->setMargin(0);
     setLayout( mainLayout );
     
     m_pageWidget = new KPageWidget( this );
+    m_pageWidget->layout()->setMargin(0);
     mainLayout->addWidget( m_pageWidget );
     
     connect( m_pageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)),
