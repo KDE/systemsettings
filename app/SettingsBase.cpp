@@ -141,7 +141,7 @@ void SettingsBase::initConfig()
     configDialog->setInitialSize(QSize(400,160));
     configDialog->restoreDialogSize( mainConfigGroup );
     // Get the list of modules
-    foreach( BaseMode * mode, possibleViews.values() ) {
+    foreach( BaseMode * mode, possibleViews ) {
         configWidget.CbPlugins->addItem( KIcon(mode->service()->icon()), mode->service()->name() );
     }
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
