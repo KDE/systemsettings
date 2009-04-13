@@ -117,7 +117,7 @@ void SettingsBase::initSearch()
     searchWidget = new QWidget( this );
     searchText = new KLineEdit( searchWidget );
     searchText->setClearButtonShown( true );
-    searchText->setClickMessage( i18nc("Search through a list of control modules","Search:") );
+    searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
     QLabel * searchIcon = new QLabel( searchWidget );
     searchIcon->setBuddy( searchText );
     searchIcon->setPixmap( BarIcon( "system-search" ) );
