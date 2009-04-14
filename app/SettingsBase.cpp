@@ -87,7 +87,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
     aboutAction->setText( i18n("About") );
     toolBar()->addAction( aboutAction );
-    // Then a spacer so the search line-edit is kept seperate
+    // Then a spacer so the search line-edit is kept separate
     spacerAction = new KAction( this );
     spacerAction->setDefaultWidget(spacerWidget);
     actionCollection()->addAction( "spacer", spacerAction );
