@@ -118,13 +118,9 @@ void SettingsBase::initSearch()
     searchText = new KLineEdit( searchWidget );
     searchText->setClearButtonShown( true );
     searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
-    QLabel * searchIcon = new QLabel( searchWidget );
-    searchIcon->setBuddy( searchText );
-    searchIcon->setPixmap( BarIcon( "system-search" ) );
     QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
     searchLayout->setMargin( 0 );
     searchLayout->setSpacing( KDialog::spacingHint() );
-    searchLayout->addWidget( searchIcon );
     searchLayout->addWidget( searchText );
     searchWidget->setLayout( searchLayout );
 
@@ -246,7 +242,7 @@ void SettingsBase::changePlugin()
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 
-    searchText->setFocus();
+    activeView->mainWidget()->setFocus();
 }
 
 void SettingsBase::toggleDirtyState(bool state)
