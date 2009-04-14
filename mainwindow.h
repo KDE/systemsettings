@@ -57,6 +57,7 @@ protected:
 private slots:
     void selectionChanged( const QModelIndex & selected );
     void updateSearchHits();
+    void toolBarIconSizeChanged();
 	void showOverview();
 	void widgetChange();
 
@@ -70,6 +71,7 @@ private:
 	QStackedWidget *windowStack;
 	KTabWidget *moduleTabs;
     KLineEdit * search;
+    QLabel *searchIcon;
 
 	KCMultiWidget *groupWidget;
 

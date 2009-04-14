@@ -41,6 +41,7 @@
 #include <KServiceTypeTrader>
 #include <KStandardAction>
 #include <KTabWidget>
+#include <KToolBar>
 #include <kcategorizedsortfilterproxymodel.h>
 #include <kcategorizedview.h>
 #include <kcategorydrawer.h>
@@ -80,6 +81,9 @@ MainWindow::MainWindow(QWidget *parent) :
     search->setFocus();
 
     connect(moduleTabs, SIGNAL(currentChanged(int)), SLOT(widgetChange()));
+    connect(toolBar("mainToolBar"), SIGNAL(iconSizeChanged(QSize)), SLOT(toolBarIconSizeChanged()));
+    // initial icon size
+    toolBarIconSizeChanged();
 }
 
 MainWindow::~MainWindow()
@@ -208,6 +212,13 @@ void MainWindow::buildMainWidget()
     setCentralWidget(windowStack);
 }
 
+
+void MainWindow::toolBarIconSizeChanged()
+{
+    searchIcon->setPixmap( KIcon( "system-search" ).pixmap(toolBar("mainToolBar")->iconSize()) );
+}
+
+
 void MainWindow::buildActions()
 {
     actionCollection()->addAction(
@@ -224,16 +235,16 @@ void MainWindow::buildActions()
     showOverviewAction->setEnabled(false);
 
     QWidget *searchWid = new QWidget( this );
-    QLabel * searchIcon = new QLabel( searchWid );
-    searchIcon->setPixmap( BarIcon( "system-search" ) );
+    searchIcon = new QLabel( searchWid );
     QLabel *searchLabel = new QLabel( searchWid );
     searchLabel->setObjectName( QLatin1String("SearchLabel"));
     searchLabel->setText( i18n("S&earch:") );
     searchLabel->setFont(KGlobalSettings::toolBarFont());
-    searchLabel->setMargin(2);
     QHBoxLayout * hlay = new QHBoxLayout( searchWid );
+    hlay->setMargin(0);
     hlay->addWidget( searchIcon );
     hlay->addWidget( searchLabel );
+    hlay->addSpacing( KDialog::spacingHint() );
     searchWid->setLayout( hlay );
 
     searchText = new KAction( this );
