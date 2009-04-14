@@ -69,13 +69,10 @@ MainWindow::MainWindow(QWidget *parent) :
     moduleTabs = new KTabWidget(this);
     moduleTabs->setDocumentMode(true);
 
-    // Set a minimum size to avoid double scrollbars ... at least try.
-    setMinimumSize(800,480);
-
     buildActions();
     buildMainWidget();
     // We hide the menubar. So ensure the toolbar is always visible because you cannot get it back
-    setupGUI(Save|Create,QString());
+    setupGUI(QSize(800, 480), Save | Create, QString());
     menuBar()->hide();
 
     search->setFocus();
@@ -242,6 +239,7 @@ void MainWindow::buildActions()
     searchLabel->setFont(KGlobalSettings::toolBarFont());
     QHBoxLayout * hlay = new QHBoxLayout( searchWid );
     hlay->setMargin(0);
+    hlay->addSpacing( KDialog::spacingHint() );
     hlay->addWidget( searchIcon );
     hlay->addWidget( searchLabel );
     hlay->addSpacing( KDialog::spacingHint() );

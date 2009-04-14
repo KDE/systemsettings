@@ -4,7 +4,6 @@
 <ToolBar name="mainToolBar" iconText="icontextright">
 	<Action name="go_back"/>
 	<Separator/>
-	<Action name="spacer"/>
 	<Action name="searchText"/>
 	<Action name="search"/>
 </ToolBar>
