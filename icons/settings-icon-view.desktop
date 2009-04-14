@@ -1,0 +1,10 @@
+[Desktop Entry]
+Icon=view-list-icons
+Type=Service
+X-KDE-ServiceTypes=BaseMode
+
+X-KDE-Library=icon_mode
+X-KDE-Keywords=System Settings
+
+Name=Icon View
+Comment=The KDE 4 icon view style
