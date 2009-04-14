@@ -165,7 +165,7 @@ void SettingsBase::configShow()
     configWidget.CbPlugins->setCurrentIndex( configIndex );
     configWidget.ChTooltips->setChecked( showTooltips );
     if( pluginList.count() == 0 ) {
-        KMessageBox::error(this, i18n("KDE Control Center was unable to find any views, and subsequently nothing is available to configure"), i18n("No views found"));
+        KMessageBox::error(this, i18n("The KDE Control Center was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
     } else {
         configDialog->show();
     }
@@ -222,7 +222,7 @@ void SettingsBase::about()
 void SettingsBase::changePlugin()
 {
     if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
-    {   KMessageBox::error(this, i18n("KDE Control Center was unable to find any views, and subsequently cannot display anything"), i18n("No views found"));
+    {   KMessageBox::error(this, i18n("The KDE Control Center was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         return; // Halt now!
     } 
 

@@ -30,7 +30,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="LblTitle">
      <property name="text">
-      <string>Below you can select the view style that you prefer for the KDE Control Center</string>
+      <string>Below you can select your preferred style for viewing the KDE Control Center.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
