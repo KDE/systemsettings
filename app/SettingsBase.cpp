@@ -70,6 +70,21 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             kWarning() << "View load error: " + error;
         }
     }
+    // Fill the toolbar with default actions
+    // Configure goes at the end
+    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
+    configureAction->setText( i18n("Configure") );
+    // About after it
+    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutKControl4", this, SLOT( about() ) );
+    aboutAction->setText( i18n("About") );
+    // Then a spacer so the search line-edit is kept separate
+    spacerAction = new KAction( this );
+    spacerAction->setDefaultWidget(spacerWidget);
+    actionCollection()->addAction( "spacer", spacerAction );
+    // Finally the search line-edit
+    searchAction = new KAction( this );
+    searchAction->setDefaultWidget(searchWidget);
+    actionCollection()->addAction( "searchText", searchAction );
     // Initialise the Window
     setupGUI(Save|Create,QString());
     menuBar()->hide();
@@ -78,25 +93,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     toolBar()->setMovable(false); // We don't allow any changes
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mainConfigGroup = KGlobal::config()->group( "Main" );
-    // Fill the toolbar with default actions
-    // Configure goes at the end
-    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
-    configureAction->setText( i18n("Configure") );
-    toolBar()->addAction( configureAction );
-    // About after it
-    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, this, SLOT( about() ) );
-    aboutAction->setText( i18n("About") );
-    toolBar()->addAction( aboutAction );
-    // Then a spacer so the search line-edit is kept separate
-    spacerAction = new KAction( this );
-    spacerAction->setDefaultWidget(spacerWidget);
-    actionCollection()->addAction( "spacer", spacerAction );
-    toolBar()->addAction( spacerAction );
-    // Finally the search line-edit
-    searchAction = new KAction( this );
-    searchAction->setDefaultWidget(searchWidget);
-    actionCollection()->addAction( "searchText", searchAction );
-    toolBar()->addAction( searchAction );
     // We need to nominate the view to use
     showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false ); 
     changePlugin();
@@ -109,7 +105,7 @@ SettingsBase::~SettingsBase()
 
 QSize SettingsBase::sizeHint() const
 {
-    return QSize(780, 580);
+    return QSize(850, 650);
 }
 
 void SettingsBase::initSearch()

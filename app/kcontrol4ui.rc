@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui name="kcontrol4"
+     version="1"
+     xmlns="http://www.kde.org/standards/kxmlgui/1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
+
+  <ToolBar name="mainToolBar" >
+    <text>Main Toolbar</text>
+    <Action name="options_configure" />
+    <Action name="aboutKControl4" />
+    <Action name="spacer" />
+    <Action name="searchText" />
+  </ToolBar>
+</gui>
