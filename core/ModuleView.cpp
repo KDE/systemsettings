@@ -69,13 +69,13 @@ ModuleView::ModuleView( QWidget * parent ) : QWidget( parent ), d( new Private()
     d->mLayout->addWidget(d->mButtons);
     // Create the buttons in it
     d->mApply = d->mButtons->addButton( KStandardGuiItem::apply(), QDialogButtonBox::ApplyRole );
-    d->mReset = d->mButtons->addButton( KStandardGuiItem::reset(), QDialogButtonBox::ResetRole );
     d->mDefault = d->mButtons->addButton( KStandardGuiItem::defaults(), QDialogButtonBox::ResetRole );
+    d->mReset = d->mButtons->addButton( KStandardGuiItem::reset(), QDialogButtonBox::ResetRole );
     d->mHelp = d->mButtons->addButton( KStandardGuiItem::help(), QDialogButtonBox::HelpRole );
     // Prevent the buttons from being used
     d->mApply->setEnabled(false);
-    d->mReset->setEnabled(false);
     d->mDefault->setEnabled(false);
+    d->mReset->setEnabled(false);
     d->mHelp->setEnabled(false);
     // Connect up the buttons
     connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
@@ -224,8 +224,9 @@ bool ModuleView::closeModules()
     }
 
     blockSignals(true);
-    QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator pageIterator;
-    for ( pageIterator = d->mPages.constBegin(); pageIterator != d->mPages.constEnd(); pageIterator = pageIterator + 1 ) {
+    QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator pageIterator = d->mPages.constBegin();
+    QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator endIterator = d->mPages.constEnd();
+    for ( ; pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
         d->mPageWidget->removePage( pageIterator.key() );
     }
     d->mPages.clear();
