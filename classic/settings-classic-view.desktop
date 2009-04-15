@@ -7,4 +7,6 @@ X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings
 
 Name=Classic Tree View
+Name[sv]=Klassisk trädvy
+Name[uk]=Класичний перегляд деревом
 Comment=A Classic KDE 3 KControl style system settings view.

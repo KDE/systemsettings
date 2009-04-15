@@ -2,3 +2,5 @@
 Type=ServiceType
 X-KDE-ServiceType=BaseMode
 Name=System Settings View
+Name[sv]=Systeminställningsvy
+Name[uk]=Вигляд «Системних параметрів»
