@@ -111,7 +111,10 @@ void SettingsBase::initToolBar()
     actionCollection()->addAction( "spacer", spacerAction );
     // Finally the search line-edit
     searchAction = new KAction( this );
-    searchAction->setDefaultWidget(searchWidget);
+    searchAction->setDefaultWidget(searchText);
+    searchAction->setShortcut(KShortcut(QKeySequence(Qt::CTRL + Qt::Key_F)));
+    connect( searchAction, SIGNAL(triggered(Qt::MouseButtons, Qt::KeyboardModifiers)),
+         searchText, SLOT(setFocus()));
     actionCollection()->addAction( "searchText", searchAction );
     // Initialise the Window
     setupGUI(Save|Create,QString());
@@ -124,15 +127,9 @@ void SettingsBase::initToolBar()
 
 void SettingsBase::initSearch()
 {
-    searchWidget = new QWidget( this );
-    searchText = new KLineEdit( searchWidget );
+    searchText = new KLineEdit( 0 );
     searchText->setClearButtonShown( true );
     searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
-    QHBoxLayout * searchLayout = new QHBoxLayout( searchWidget );
-    searchLayout->setMargin( 0 );
-    searchLayout->setSpacing( KDialog::spacingHint() );
-    searchLayout->addWidget( searchText );
-    searchWidget->setLayout( searchLayout );
 
     spacerWidget = new QWidget( this );
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );

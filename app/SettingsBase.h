@@ -71,7 +71,6 @@ private:
     QMap<QString, BaseMode *> possibleViews;
     BaseMode * activeView;
     // The search bar
-    QWidget * searchWidget;
     KLineEdit * searchText;
     // The spacer
     QWidget * spacerWidget;
