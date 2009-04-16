@@ -1,7 +1,7 @@
 [Desktop Entry]
 Icon=view-list-tree
 Type=Service
-X-KDE-ServiceTypes=BaseMode
+X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings

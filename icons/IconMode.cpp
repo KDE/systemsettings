@@ -168,6 +168,7 @@ void IconMode::changeModule( const QModelIndex& activeModule )
 
 void IconMode::moduleLoaded()
 {
+    d->iconWidget->hide();
     d->mainWidget->setCurrentWidget( d->moduleView );
     d->backAction->setEnabled( true );
 }
@@ -175,6 +176,7 @@ void IconMode::moduleLoaded()
 void IconMode::backToOverview()
 {
     if( d->moduleView->closeModules() ) {
+        d->iconWidget->show();
         d->mainWidget->setCurrentWidget( d->iconWidget );
         d->backAction->setEnabled( false );
         emit viewChanged();

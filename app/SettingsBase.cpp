@@ -19,6 +19,7 @@
 
 #include "SettingsBase.h"
 
+#include <QTimer>
 #include <QVariantList>
 
 #include <KDebug>
@@ -43,6 +44,22 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     // Ensure delayed loading doesn't cause a crash
     aboutDialog = 0;
     configDialog = 0;
+    // We can now launch the delayed loading safely
+    QTimer::singleShot(500, this, SLOT(initApplication()));
+}
+
+SettingsBase::~SettingsBase()
+{
+    delete rootModule;
+}
+
+QSize SettingsBase::sizeHint() const
+{
+    return QSize(850, 650);
+}
+
+void SettingsBase::initApplication()
+{
     // Prepare the menu of all modules
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
@@ -53,7 +70,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
-    KService::List pluginObjects = KServiceTypeTrader::self()->query( "BaseMode" );
+    KService::List pluginObjects = KServiceTypeTrader::self()->query( "SystemSettingsView" );
     for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
@@ -70,7 +87,18 @@ SettingsBase::SettingsBase( QWidget * parent ) :
             kWarning() << "View load error: " + error;
         }
     }
+    // We need to nominate the view to use
+    mainConfigGroup = KGlobal::config()->group( "Main" );
+    initToolBar();
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false ); 
+    changePlugin();
+}
+
+void SettingsBase::initToolBar()
+{
     // Fill the toolbar with default actions
+    // Exit is the very last action
+    actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
     configureAction->setText( i18n("Configure") );
@@ -92,20 +120,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    mainConfigGroup = KGlobal::config()->group( "Main" );
-    // We need to nominate the view to use
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false ); 
-    changePlugin();
-}
-
-SettingsBase::~SettingsBase()
-{
-    delete rootModule;
-}
-
-QSize SettingsBase::sizeHint() const
-{
-    return QSize(850, 650);
 }
 
 void SettingsBase::initSearch()
@@ -137,6 +151,44 @@ void SettingsBase::initConfig()
         configWidget.CbPlugins->addItem( KIcon(mode->service()->icon()), mode->service()->name() );
     }
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
+}
+
+
+void SettingsBase::initMenuList(MenuItem * parent)
+{
+    // look for any categories inside this level, and recurse into them
+    int depth = 0;
+    MenuItem * current = parent;
+    while ( current && current->parent() ) {
+        depth++;
+        current = current->parent();
+    }
+
+    QString space;
+    space.fill( ' ', depth * 2 );
+    kDebug() << space << "Looking for children in '" << parent->name() << "'";
+    for (int i = 0; i < categories.size(); ++i) {
+        KService::Ptr entry = categories.at(i);
+        QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
+        if ( parentCategory == parent->name() ) {
+            MenuItem * menuItem = new MenuItem(true, parent);
+            menuItem->setService( entry );
+            initMenuList( menuItem );
+        }
+    }
+
+    // scan for any modules at this level and add them
+    for (int i = 0; i < modules.size(); ++i) {
+        KService::Ptr entry = modules.at(i);
+        QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
+        if(!parent->name().isEmpty() && category == parent->name() ) {
+            kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
+            // Add the module info to the menu
+            MenuItem * infoItem = new MenuItem(false, parent);
+            infoItem->setService( entry );
+        }
+    }
+    parent->sortChildrenByWeight();
 }
 
 void SettingsBase::configUpdated()
@@ -246,43 +298,6 @@ void SettingsBase::toggleDirtyState(bool state)
     KCModuleInfo * moduleProxy = activeView->moduleView()->activeModule(); 
     configureAction->setDisabled(state);
     setCaption( moduleProxy->moduleName(), state );
-}
-
-void SettingsBase::initMenuList(MenuItem * parent)
-{
-    // look for any categories inside this level, and recurse into them
-    int depth = 0;
-    MenuItem * current = parent;
-    while ( current && current->parent() ) {
-        depth++;
-        current = current->parent();
-    }
-
-    QString space;
-    space.fill( ' ', depth * 2 );
-    kDebug() << space << "Looking for children in '" << parent->name() << "'";
-    for (int i = 0; i < categories.size(); ++i) {
-        KService::Ptr entry = categories.at(i);
-        QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        if ( parentCategory == parent->name() ) {
-            MenuItem * menuItem = new MenuItem(true, parent);
-            menuItem->setService( entry );
-            initMenuList( menuItem );
-        }
-    }
-
-    // scan for any modules at this level and add them
-    for (int i = 0; i < modules.size(); ++i) {
-        KService::Ptr entry = modules.at(i);
-        QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        if(!parent->name().isEmpty() && category == parent->name() ) {
-            kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
-            // Add the module info to the menu
-            MenuItem * infoItem = new MenuItem(false, parent);
-            infoItem->setService( entry );
-        }
-    }
-    parent->sortChildrenByWeight();
 }
 
 void SettingsBase::updateViewActions()

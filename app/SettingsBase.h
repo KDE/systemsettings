@@ -53,14 +53,16 @@ private:
     MenuItem * initModuleLists(MenuItem * parent);
 
 private slots:
+    void initApplication();
+    void initToolBar();
     void initSearch();
     void initConfig();
+    void initMenuList(MenuItem * parent);
     void configUpdated();
     void configShow();
     void about();
     void changePlugin();
     void toggleDirtyState(bool state);
-    void initMenuList(MenuItem * parent);
     void updateViewActions();
     void moduleChanged();
 

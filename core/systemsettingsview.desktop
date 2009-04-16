@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=ServiceType
-X-KDE-ServiceType=BaseMode
+X-KDE-ServiceType=SystemSettingsView
 Name=System Settings View
 Name[sv]=Systeminställningsvy
 Name[uk]=Вигляд «Системних параметрів»
