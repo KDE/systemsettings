@@ -7,9 +7,17 @@ X-KDE-Library=icon_mode
 X-KDE-Keywords=System Settings
 
 Name=Icon View
+Name[pt]=Vista por Ícones
+Name[pt_BR]=Vista por Ícones
 Name[sv]=Ikonvy
 Name[uk]=Перегляд піктограмами
+Name[x-test]=xxIcon Viewxx
+Name[zh_TW]=圖示檢視
 Comment=The KDE 4 icon view style
 Comment[en_GB]=The KDE 4 icon view style.
+Comment[pt]=O estilo de visualização em ícones do KDE 4
+Comment[pt_BR]=O estilo de visualização em ícones do KDE 4
 Comment[sv]=KDE 4 ikonvystil
 Comment[uk]=Стиль перегляду з піктограмами KDE 4
+Comment[x-test]=xxThe KDE 4 icon view stylexx
+Comment[zh_TW]=KDE4 風格圖示檢視
