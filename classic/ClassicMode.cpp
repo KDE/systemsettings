@@ -85,46 +85,17 @@ void ClassicMode::initEvent()
     d->proxyModel->setFilterRole( MenuModel::UserFilterRole );
     d->proxyModel->setFilterCaseSensitivity( Qt::CaseInsensitive );
     d->proxyModel->sort( 0 );
-
-    // Create the widget
     d->classicWidget = new QSplitter( Qt::Horizontal, 0 );
     d->classicWidget->setChildrenCollapsible( false );
-    d->classicTree = new QTreeView( d->classicWidget );
-    d->classicCategory = new CategoryList( d->classicWidget, d->proxyModel );
     d->moduleView = new ModuleView( d->classicWidget );
-
-    d->stackedWidget = new QStackedWidget( d->classicWidget );
-    d->stackedWidget->addWidget( d->classicCategory );
-    d->stackedWidget->addWidget( d->moduleView );
-
-    d->classicWidget->addWidget( d->classicTree );
-    d->classicWidget->addWidget( d->stackedWidget );
-
-    d->classicTree->setModel( d->proxyModel );
-    d->classicTree->setHeaderHidden( true );
-    d->classicTree->setIconSize( QSize( 24, 24 ) );
-    d->classicTree->setSortingEnabled( true );
-    d->classicTree->setMouseTracking( true );
-    d->classicTree->setMinimumWidth( 200 );
-    d->classicTree->setSelectionMode(QAbstractItemView::SingleSelection);
-    d->classicTree->sortByColumn( 0, Qt::AscendingOrder );
-
-    d->classicCategory->changeModule( d->classicTree->rootIndex() );
-
-    connect( d->classicCategory, SIGNAL(moduleSelected( QModelIndex )), this, SLOT(selectModule( QModelIndex )));
-    connect( d->classicTree, SIGNAL(activated(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)));
-    connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()));
-    connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()));
-    connect( d->moduleView, SIGNAL( moduleSwitched() ), this, SLOT( moduleLoaded() ) );
-
-    expandColumns();
-    QList<int> defaultSizes;
-    defaultSizes << 250 << 500;
-    d->classicWidget->setSizes( config().readEntry( "viewLayout", defaultSizes ) );
+    d->classicTree = 0;
 }
 
 QWidget * ClassicMode::mainWidget()
 {
+    if( !d->classicTree ) {
+        initWidget();
+    }
     return d->classicWidget;
 }
 
@@ -188,6 +159,42 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
 void ClassicMode::moduleLoaded()
 {
     d->stackedWidget->setCurrentWidget( d->moduleView );
+}
+
+void ClassicMode::initWidget()
+{
+    // Create the widget
+    d->classicTree = new QTreeView( d->classicWidget );
+    d->classicCategory = new CategoryList( d->classicWidget, d->proxyModel );
+
+    d->stackedWidget = new QStackedWidget( d->classicWidget );
+    d->stackedWidget->addWidget( d->classicCategory );
+    d->stackedWidget->addWidget( d->moduleView );
+
+    d->classicWidget->addWidget( d->classicTree );
+    d->classicWidget->addWidget( d->stackedWidget );
+
+    d->classicTree->setModel( d->proxyModel );
+    d->classicTree->setHeaderHidden( true );
+    d->classicTree->setIconSize( QSize( 24, 24 ) );
+    d->classicTree->setSortingEnabled( true );
+    d->classicTree->setMouseTracking( true );
+    d->classicTree->setMinimumWidth( 200 );
+    d->classicTree->setSelectionMode(QAbstractItemView::SingleSelection);
+    d->classicTree->sortByColumn( 0, Qt::AscendingOrder );
+
+    d->classicCategory->changeModule( d->classicTree->rootIndex() );
+
+    connect( d->classicCategory, SIGNAL(moduleSelected( QModelIndex )), this, SLOT(selectModule( QModelIndex )));
+    connect( d->classicTree, SIGNAL(activated(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)));
+    connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()));
+    connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()));
+    connect( d->moduleView, SIGNAL( moduleSwitched() ), this, SLOT( moduleLoaded() ) );
+
+    expandColumns();
+    QList<int> defaultSizes;
+    defaultSizes << 250 << 500;
+    d->classicWidget->setSizes( config().readEntry( "viewLayout", defaultSizes ) );
 }
 
 #include "ClassicMode.moc"

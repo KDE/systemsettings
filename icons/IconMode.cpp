@@ -92,7 +92,10 @@ ModuleView * IconMode::moduleView() const
 }
 
 QWidget * IconMode::mainWidget()
-{ 
+{
+    if( !d->iconWidget ) {
+        initWidget();
+    }
     return d->mainWidget;
 }
 
@@ -103,8 +106,6 @@ QList<QAbstractItemView*> IconMode::views() const
 
 void IconMode::initEvent()
 {
-    d->mainWidget = new QStackedWidget();
-
     foreach( MenuItem *childItem, rootItem()->children() ) {
         MenuModel *model = new MenuModel( childItem, this );
         model->addException( childItem ); 
@@ -118,39 +119,11 @@ void IconMode::initEvent()
         d->proxyList << proxyModel;
     }
 
-    // Create the widget
-    d->iconWidget = new KTabWidget( d->mainWidget );
-#if QT_VERSION >= 0x040500
-    d->iconWidget->setDocumentMode( true );
-#endif
-    foreach( MenuProxyModel *proxyModel, d->proxyList ) {
-        KCategoryDrawer *drawer = new KCategoryDrawer();
-        d->mCategoryDrawers << drawer;
-
-        KCategorizedView *tv = new KCategorizedView( d->iconWidget );
-        tv->setSelectionMode( QAbstractItemView::SingleSelection );
-        tv->setSpacing( KDialog::spacingHint() );
-        tv->setCategoryDrawer( drawer );
-        tv->setViewMode( QListView::IconMode );
-        tv->setMouseTracking( true );
-        tv->viewport()->setAttribute( Qt::WA_Hover );
-        tv->setItemDelegate( new KFileItemDelegate( tv ) );
-        tv->setFrameShape( QFrame::NoFrame );
-        tv->setModel( proxyModel );
-        d->iconWidget->addTab( tv, d->proxyMap.value( proxyModel ) );
-        connect( tv, SIGNAL( activated( const QModelIndex& ) ),
-                 this, SLOT( changeModule(const QModelIndex& ) ) );
-
-        d->mViews << tv;
-    }
-
+    d->mainWidget = new QStackedWidget();
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, SIGNAL( moduleSwitched() ), this, SLOT( moduleLoaded() ) );
     connect( d->moduleView, SIGNAL( closeRequest() ), this, SLOT( backToOverview() ) );
-
-    d->mainWidget->addWidget( d->iconWidget );
-    d->mainWidget->addWidget( d->moduleView );
-    d->mainWidget->setCurrentWidget( d->iconWidget );
+    d->iconWidget = 0;
 }
 
 void IconMode::searchChanged( const QString& text )
@@ -181,6 +154,39 @@ void IconMode::backToOverview()
         d->backAction->setEnabled( false );
         emit viewChanged();
     }
+}
+
+void IconMode::initWidget()
+{
+    // Create the widget
+    d->iconWidget = new KTabWidget( d->mainWidget );
+#if QT_VERSION >= 0x040500
+    d->iconWidget->setDocumentMode( true );
+#endif
+    foreach( MenuProxyModel *proxyModel, d->proxyList ) {
+        KCategoryDrawer *drawer = new KCategoryDrawer();
+        d->mCategoryDrawers << drawer;
+
+        KCategorizedView *tv = new KCategorizedView( d->iconWidget );
+        tv->setSelectionMode( QAbstractItemView::SingleSelection );
+        tv->setSpacing( KDialog::spacingHint() );
+        tv->setCategoryDrawer( drawer );
+        tv->setViewMode( QListView::IconMode );
+        tv->setMouseTracking( true );
+        tv->viewport()->setAttribute( Qt::WA_Hover );
+        tv->setItemDelegate( new KFileItemDelegate( tv ) );
+        tv->setFrameShape( QFrame::NoFrame );
+        tv->setModel( proxyModel );
+        d->iconWidget->addTab( tv, d->proxyMap.value( proxyModel ) );
+        connect( tv, SIGNAL( activated( const QModelIndex& ) ),
+                 this, SLOT( changeModule(const QModelIndex& ) ) );
+
+        d->mViews << tv;
+    }
+
+    d->mainWidget->addWidget( d->iconWidget );
+    d->mainWidget->addWidget( d->moduleView );
+    d->mainWidget->setCurrentWidget( d->iconWidget );
 }
 
 #include "IconMode.moc"

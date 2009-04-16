@@ -78,7 +78,6 @@ void SettingsBase::initApplication()
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
-            stackedWidget->addWidget(controller->mainWidget());
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
             connect(controller, SIGNAL(viewChanged()), this, SLOT(moduleChanged()));
@@ -281,6 +280,10 @@ void SettingsBase::changePlugin()
     }
     else { // Otherwise we activate the failsafe
         activeView = possibleViews.values().first();
+    }
+    
+    if( stackedWidget->indexOf(activeView->mainWidget()) == -1 ) {
+        stackedWidget->addWidget(activeView->mainWidget());
     }
 
     activeView->setEnhancedTooltipEnabled( showTooltips );
