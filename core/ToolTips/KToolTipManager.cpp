@@ -17,49 +17,64 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA            *
  ***************************************************************************/
 
-#ifndef KTOOLTIPMANAGER_H
-#define KTOOLTIPMANAGER_H
+#include "KToolTipManager.h"
 
-#include <QSharedData>
+#include <QToolTip>
+#include <QApplication>
 
-#include <KSharedPtr>
+KToolTipManager *KToolTipManager::s_instance = 0;
 
-#include "KTipLabel.h"
-#include "KStyleOptionToolTip.h"
-#include "KToolTipDelegate.h"
-
-class KToolTipManager : public QSharedData
+KToolTipManager::KToolTipManager()
+    : QSharedData(), label(new KTipLabel), currentItem(0), m_delegate(0)
 {
-public:
-    ~KToolTipManager();
+}
 
-    static KSharedPtr<KToolTipManager> instance() {
-        if (!s_instance)
-            s_instance = new KToolTipManager();
+KToolTipManager::~KToolTipManager()
+{
+    delete label;
+    delete currentItem;
+}
 
-        return KSharedPtr<KToolTipManager>(s_instance);
-    }
+void KToolTipManager::showTip(const QPoint &pos, KToolTipItem *item)
+{
+    hideTip();
+    label->showTip(pos, item);
+    currentItem = item;
+    m_tooltipPos = pos;
+}
 
-    void showTip(const QPoint &pos, KToolTipItem *item);
-    void hideTip();
+void KToolTipManager::hideTip()
+{
+    label->hideTip();
+    delete currentItem;
+    currentItem = 0;
+}
 
-    void initStyleOption(KStyleOptionToolTip *option) const;
+void KToolTipManager::initStyleOption(KStyleOptionToolTip *option) const
+{
+    option->direction      = QApplication::layoutDirection();
+    option->fontMetrics    = QFontMetrics(QToolTip::font());
+    option->activeCorner   = KStyleOptionToolTip::TopLeftCorner;
+    option->palette        = QToolTip::palette();
+    option->font           = QToolTip::font();
+    option->rect           = QRect();
+    option->state          = QStyle::State_None;
+    option->decorationSize = QSize(32, 32);
+}
 
-    void setDelegate(KToolTipDelegate *delegate);
-    KToolTipDelegate *delegate() const;
-    
-    void update();
+void KToolTipManager::setDelegate(KToolTipDelegate *delegate)
+{
+    m_delegate = delegate;
+}
 
-private:
-    KToolTipManager();
+void KToolTipManager::update()
+{
+    if (currentItem == 0)
+        return;
+    label->showTip(m_tooltipPos, currentItem);
+}
 
-    KTipLabel *label;
-    KToolTipItem *currentItem;
-    KToolTipDelegate *m_delegate;
-
-    QPoint m_tooltipPos;
-
-    static KToolTipManager *s_instance;
-};
-
-#endif
+KToolTipDelegate *KToolTipManager::delegate() const
+{
+    return m_delegate;
+}

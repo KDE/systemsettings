@@ -41,20 +41,34 @@
 
 K_GLOBAL_STATIC(KControlBalloonToolTipDelegate, g_delegate)
 
+class ToolTipManagerPrivate
+{
+public:
+    ToolTipManagerPrivate() :
+        view(0),
+        timer(0)
+        { }
+
+    QAbstractItemView* view;
+    KSharedPtr<KToolTipManager> tooltipManager;
+    QTimer* timer;
+    QModelIndex item;
+    QRect itemRect;
+};
+
 ToolTipManager::ToolTipManager(QAbstractItemView* parent) :
     QObject(parent),
-    m_view(parent),
-    m_timer(0),
-    m_item(),
-    m_itemRect()
+    d(new ToolTipManagerPrivate)
 {
+    d->view = parent;
+    d->tooltipManager = KToolTipManager::instance();
     KToolTip::setToolTipDelegate(g_delegate);
 
     connect(parent, SIGNAL(viewportEntered()), this, SLOT(hideToolTip()));
 
-    m_timer = new QTimer(this);
-    m_timer->setSingleShot(true);
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(prepareToolTip()));
+    d->timer = new QTimer(this);
+    d->timer->setSingleShot(true);
+    connect(d->timer, SIGNAL(timeout()), this, SLOT(prepareToolTip()));
 
     // When the mousewheel is used, the items don't get a hovered indication
     // (Qt-issue #200665). To assure that the tooltip still gets hidden,
@@ -62,28 +76,29 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent) :
     connect(parent->horizontalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(hideToolTip()));
     connect(parent->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(hideToolTip()));
 
-    m_view->viewport()->installEventFilter(this);
+    d->view->viewport()->installEventFilter(this);
 }
 
 ToolTipManager::~ToolTipManager()
 {
+    delete d;
 }
 
 bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
 {
-    if (watched == m_view->viewport()) {
+    if (watched == d->view->viewport()) {
         if (event->type() == QEvent::Leave) {
             hideToolTip();
         }
         if (event->type() == QEvent::ToolTip) {
             QHelpEvent * helpEvent = static_cast<QHelpEvent *>(event);
-            QModelIndex index = m_view->indexAt(helpEvent->pos());
+            QModelIndex index = d->view->indexAt(helpEvent->pos());
             if( index != QModelIndex() ) {
-                m_itemRect = m_view->visualRect(index);
-                const QPoint pos = m_view->viewport()->mapToGlobal(m_itemRect.topLeft());
-                m_itemRect.moveTo(pos);
-                m_item = index;
-                m_timer->start(500);
+                d->itemRect = d->view->visualRect(index);
+                const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
+                d->itemRect.moveTo(pos);
+                d->item = index;
+                d->timer->start(500);
             }
             return ( index != QModelIndex() );
         }
@@ -94,21 +109,21 @@ bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
 
 void ToolTipManager::hideToolTip()
 {
-    m_timer->stop();
+    d->timer->stop();
     KToolTip::hideTip();
 }
 
 void ToolTipManager::prepareToolTip()
 {
-    QAbstractItemModel * itemModel = m_view->model();
-    MenuItem * m_Menu = itemModel->data( m_item, Qt::UserRole ).value<MenuItem*>();
-    QString text = generateToolTipContent( m_item, m_Menu );
+    QAbstractItemModel * itemModel = d->view->model();
+    MenuItem * m_Menu = itemModel->data( d->item, Qt::UserRole ).value<MenuItem*>();
+    QString text = generateToolTipContent( d->item, m_Menu );
     KControlToolTipItem* toolTip = new KControlToolTipItem(KIcon( m_Menu->service()->icon() ), text);
 
-    for ( int done = 0; itemModel->rowCount( m_item ) > done; done = 1 + done ) {
-        QModelIndex childIndex = itemModel->index( done, 0, m_item );
+    for ( int done = 0; itemModel->rowCount( d->item ) > done; done = 1 + done ) {
+        QModelIndex childIndex = itemModel->index( done, 0, d->item );
         MenuItem * child = itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        QString text = generateToolTipContent( m_item, child );
+        QString text = generateToolTipContent( d->item, child );
         toolTip->addLine( KIcon( child->service()->icon() ), text );
     }
 
@@ -121,7 +136,7 @@ QString ToolTipManager::generateToolTipContent( QModelIndex index, MenuItem * it
     if ( !item->service()->comment().isEmpty() ) {
         text = text.arg( item->service()->comment() );
     } else {
-        int childCount = m_view->model()->rowCount( index );
+        int childCount = d->view->model()->rowCount( index );
         text = text.arg( i18np( "<i>Contains 1 submodule</i>", "<i>Contains %1 submodules</i>", childCount ) );
     }
     return text;
@@ -136,20 +151,20 @@ void ToolTipManager::showToolTip(KToolTipItem* tip)
     }
 
     KStyleOptionToolTip option;
-    KToolTipManager::instance()->initStyleOption(&option);
+    d->tooltipManager->initStyleOption(&option);
 
     QSize size = g_delegate->sizeHint(&option, tip);
-    const QRect desktop = QApplication::desktop()->screenGeometry(m_itemRect.bottomRight());
+    const QRect desktop = QApplication::desktop()->screenGeometry(d->itemRect.bottomRight());
 
     // m_itemRect defines the area of the item, where the tooltip should be
     // shown. Per default the tooltip is shown in the bottom right corner.
     // If the tooltip content exceeds the desktop borders, it must be assured that:
     // - the content is fully visible
     // - the content is not drawn inside m_itemRect
-    const bool hasRoomToLeft  = (m_itemRect.left()   - size.width()  >= desktop.left());
-    const bool hasRoomToRight = (m_itemRect.right()  + size.width()  <= desktop.right());
-    const bool hasRoomAbove   = (m_itemRect.top()    - size.height() >= desktop.top());
-    const bool hasRoomBelow   = (m_itemRect.bottom() + size.height() <= desktop.bottom());
+    const bool hasRoomToLeft  = (d->itemRect.left()   - size.width()  >= desktop.left());
+    const bool hasRoomToRight = (d->itemRect.right()  + size.width()  <= desktop.right());
+    const bool hasRoomAbove   = (d->itemRect.top()    - size.height() >= desktop.top());
+    const bool hasRoomBelow   = (d->itemRect.bottom() + size.height() <= desktop.bottom());
     if ( ( !hasRoomAbove && !hasRoomBelow ) || ( !hasRoomToLeft && !hasRoomToRight ) ) {
         delete tip;
         tip = 0;
@@ -163,10 +178,10 @@ void ToolTipManager::showToolTip(KToolTipItem* tip)
         if (x + size.width() >= desktop.right()) {
             x = desktop.right() - size.width();
         }
-        y = hasRoomBelow ? m_itemRect.bottom() : m_itemRect.top() - size.height();
+        y = hasRoomBelow ? d->itemRect.bottom() : d->itemRect.top() - size.height();
     } else {
         Q_ASSERT(hasRoomToLeft || hasRoomToRight);
-        x = hasRoomToRight ? m_itemRect.right() : m_itemRect.left() - size.width();
+        x = hasRoomToRight ? d->itemRect.right() : d->itemRect.left() - size.width();
 
         // Put the tooltip at the bottom of the screen. The x-coordinate has already
         // been adjusted, so that no overlapping with m_itemRect occurs.
