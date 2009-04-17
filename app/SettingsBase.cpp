@@ -45,7 +45,8 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     aboutDialog = 0;
     configDialog = 0;
     // We can now launch the delayed loading safely
-    QTimer::singleShot(500, this, SLOT(initApplication()));
+    QTimer::singleShot(0, this, SLOT(initApplication()));
+    kDebug() << "Init ok";
 }
 
 SettingsBase::~SettingsBase()
@@ -89,7 +90,7 @@ void SettingsBase::initApplication()
     // We need to nominate the view to use
     mainConfigGroup = KGlobal::config()->group( "Main" );
     initToolBar();
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", false ); 
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true ); 
     changePlugin();
 }
 
@@ -97,7 +98,7 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    actionCollection()->addAction( KStandardAction::Quit, this, SLOT( close() ) );
+    actionCollection()->addAction( KStandardAction::Quit, "quit", this, SLOT( close() ) );
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
     configureAction->setText( i18n("Configure") );

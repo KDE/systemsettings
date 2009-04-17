@@ -28,11 +28,11 @@
 #include <QSize>
 #include <QPainter>
 
-const int PREVIEW_WIDTH = 64;
-const int PREVIEW_HEIGHT = 64;
+const int PREVIEW_WIDTH = 32;
+const int PREVIEW_HEIGHT = 32;
 
-const int SUB_PREVIEW_WIDTH = 48;
-const int SUB_PREVIEW_HEIGHT = 48;
+const int SUB_PREVIEW_WIDTH = 24;
+const int SUB_PREVIEW_HEIGHT = 24;
 
 class KControlBalloonToolTipDelegate : public KFormattedBalloonTipDelegate
 {

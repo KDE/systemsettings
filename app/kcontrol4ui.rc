@@ -10,7 +10,6 @@
     <text>Main Toolbar</text>
     <Action name="options_configure" />
     <Action name="aboutKControl4" />
-    <Action name="file_quit" />
     <Action name="spacer" />
     <Action name="searchText" />
   </ToolBar>
