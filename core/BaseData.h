@@ -25,7 +25,6 @@
 
 class QString;
 class MenuItem;
-class KService;
 class KConfigGroup;
 
 /**
