@@ -46,7 +46,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     configDialog = 0;
     // We can now launch the delayed loading safely
     QTimer::singleShot(0, this, SLOT(initApplication()));
-    kDebug() << "Init ok";
 }
 
 SettingsBase::~SettingsBase()
