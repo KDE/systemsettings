@@ -116,9 +116,10 @@ void SettingsBase::initToolBar()
          searchText, SLOT(setFocus()));
     actionCollection()->addAction( "searchText", searchAction );
     // Initialise the Window
-    setupGUI(QSize(800,480), Save|Create,QString());
+    setupGUI(Save|Create,QString());
     menuBar()->hide();
     // Toolbar & Configuration
+    setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 }
