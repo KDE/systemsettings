@@ -49,11 +49,6 @@ int main( int argc, char *argv[] )
     }
     KUniqueApplication application;
 
-    // Some kcm's require native windows, the screensaver one for example.
-    // It's better to enable native windows here than to have the main window
-    // flicker later on when RandomWidget::winId() is called.
-    QApplication::setAttribute(Qt::AA_NativeWindows);
-
     SettingsBase *mainWindow = new SettingsBase();
     mainWindow->show();
     return application.exec();
