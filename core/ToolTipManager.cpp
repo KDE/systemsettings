@@ -41,10 +41,10 @@
 
 K_GLOBAL_STATIC(KControlBalloonToolTipDelegate, g_delegate)
 
-class ToolTipManagerPrivate
+class ToolTipManager::Private
 {
 public:
-    ToolTipManagerPrivate() :
+    Private() :
         view(0),
         timer(0)
         { }
@@ -58,7 +58,7 @@ public:
 
 ToolTipManager::ToolTipManager(QAbstractItemView* parent) :
     QObject(parent),
-    d(new ToolTipManagerPrivate)
+    d(new ToolTipManager::Private)
 {
     d->view = parent;
     d->tooltipManager = KToolTipManager::instance();

@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA          *
  ***************************************************************************/
 
-#ifndef BASEDATA
-#define BASEDATA
+#ifndef BASEDATA_H
+#define BASEDATA_H
 
 #include <QObject>
 #include "kcontrolview_export.h"
@@ -31,7 +31,7 @@ class KConfigGroup;
  * @brief Provides a interface sharing common data between modules in KControl
  *
  * BaseData is a standard interface in KControl to retrieve information that is shared between all modules.
- * It is a singleton, and will be automatically cleaned up, and does not need to be deleted. 
+ * It is a singleton, and will be automatically cleaned up. 
  *
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
 */
@@ -45,37 +45,38 @@ private:
 
 public:
     /**
-     * Provides a pointer to access the shared BaseData instance in order to retrieve data
-     * @returns Access to the shared instance of BaseData
+     * Provides a pointer to access the shared BaseData instance in order to retrieve data.
+     *
+     * @returns Access to the shared instance of BaseData.
      */
     static BaseData* instance();
 
     /**
-    * Normal destructor that ensures cleanup is done. Any objects created through BaseData must be assumed
+    * Normal destructor that handles cleanup. Any objects created through BaseData must be assumed
     * to be invalid afterwards.
     */
     ~BaseData();
 
     /**
-    * Provides the shared MenuItem which lists all categories and modules, for use with MenuModel
+    * Provides the shared MenuItem which lists all categories and modules, for use with MenuModel.
     *
-    * @returns the shared MenuItem
+    * @returns the shared MenuItem.
     */
     MenuItem * menuItem();
 
     /**
     * Sets the MenuItem which the Singleton will return.
+    * For internal use only.
     *
-    * @internal
     * @param item A pointer to the MenuItem object
     */
     void setMenuItem( MenuItem * item );
 
     /**
-    * Returns the configuration group by the name provided in the current applications configuration file
+    * Returns the configuration group by the name provided in the current applications configuration file.
     *
-    * @param pluginName the name of the group that is required
-    * @returns The configuration group that is required
+    * @param pluginName the name of the group that is required.
+    * @returns The configuration group that is required.
     */
     KConfigGroup configGroup( QString pluginName );
 

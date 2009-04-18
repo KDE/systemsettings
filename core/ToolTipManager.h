@@ -29,7 +29,6 @@
 class MenuItem;
 class KToolTipItem;
 class QAbstractItemView;
-class ToolTipManagerPrivate;
 
 /**
  * @brief Manages the tooltips for an item view.
@@ -45,9 +44,9 @@ class KCONTROLVIEW_EXPORT ToolTipManager : public QObject
 public:
     /**
     * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided
-    * view immediately
+    * view immediately.
     *
-    * @param parent The view which will have the tooltips displayed for
+    * @param parent The view which will have the tooltips displayed for.
     */
     explicit ToolTipManager(QAbstractItemView* parent);
     virtual ~ToolTipManager();
@@ -62,11 +61,11 @@ public slots:
 
 protected:
     /**
-    * Please see the Qt documentation for more details
+    * Please see the Qt documentation for more details.
     *
-    * @param watched The object that was being watched
-    * @param event The event object
-    * @returns true if the event was handled in this filter, or false if it was not
+    * @param watched The object that was being watched.
+    * @param event The event object.
+    * @returns true if the event was handled in this filter, or false if it was not.
     */
     virtual bool eventFilter(QObject* watched, QEvent* event);
 
@@ -77,7 +76,8 @@ private:
     void showToolTip(KToolTipItem* tip);
     QString generateToolTipContent( QModelIndex index, MenuItem * item );
 
-    ToolTipManagerPrivate* d;
+    class Private;
+    ToolTipManager::Private* d;
 };
 
 #endif

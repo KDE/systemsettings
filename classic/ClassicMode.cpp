@@ -82,8 +82,6 @@ void ClassicMode::initEvent()
     // Create the model
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setSourceModel( d->model );
-    d->proxyModel->setFilterRole( MenuModel::UserFilterRole );
-    d->proxyModel->setFilterCaseSensitivity( Qt::CaseInsensitive );
     d->proxyModel->sort( 0 );
     d->classicWidget = new QSplitter( Qt::Horizontal, 0 );
     d->classicWidget->setChildrenCollapsible( false );
@@ -131,7 +129,9 @@ void ClassicMode::expandColumns()
 void ClassicMode::searchChanged( const QString& text )
 {
     d->proxyModel->setFilterRegExp(text);
-    d->classicCategory->changeModule( d->classicTree->currentIndex() );
+    if( d->classicTree ) {
+        d->classicCategory->changeModule( d->classicTree->currentIndex() );
+    }
 }
 
 void ClassicMode::selectModule( const QModelIndex& selectedModule )

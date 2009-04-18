@@ -113,8 +113,6 @@ void IconMode::initEvent()
         MenuProxyModel *proxyModel = new MenuProxyModel( this );
         proxyModel->setCategorizedModel( true );
         proxyModel->setSourceModel( model );
-        proxyModel->setFilterRole( MenuModel::UserFilterRole );
-        proxyModel->setFilterCaseSensitivity( Qt::CaseInsensitive );
         proxyModel->sort( 0 );
         d->proxyMap.insert( proxyModel, childItem->service()->name() );
         d->proxyList << proxyModel;
