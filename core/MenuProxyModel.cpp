@@ -58,7 +58,7 @@ bool MenuProxyModel::filterAcceptsRow( int source_row, const QModelIndex &source
     if ( mItem->children().isEmpty() && mItem->service()->serviceTypes().contains( "SystemSettingsCategory" ) ) {
         return false;
     } else {
-        return true; // Items matching the regexp are greyed out, not hidden
+        return true; // Items matching the regexp are disabled, not hidden
     }
 }
 
