@@ -224,9 +224,14 @@ bool ModuleView::closeModules()
     }
 
     blockSignals(true);
-    QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator pageIterator = d->mPages.constBegin();
-    QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator endIterator = d->mPages.constEnd();
-    for ( ; pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
+    QMap<KPageWidgetItem*, KCModuleProxy*>::iterator pageIterator;
+    QMap<KPageWidgetItem*, KCModuleProxy*>::iterator endIterator = d->mPages.end();
+    // These two MUST be kept seperate in order to ensure modules aren't loaded during the closing procedure
+    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
+        delete pageIterator.value();
+        pageIterator.value() = 0;
+    }
+    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
         d->mPageWidget->removePage( pageIterator.key() );
     }
     d->mPages.clear();
