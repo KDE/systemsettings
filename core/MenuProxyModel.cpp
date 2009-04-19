@@ -26,6 +26,7 @@
 MenuProxyModel::MenuProxyModel( QObject * parent )
     : KCategorizedSortFilterProxyModel( parent )
 {
+    setSortRole( MenuModel::UserSortRole );
     setFilterRole( MenuModel::UserFilterRole );
     setFilterCaseSensitivity( Qt::CaseInsensitive );
 }
@@ -33,8 +34,8 @@ MenuProxyModel::MenuProxyModel( QObject * parent )
 bool MenuProxyModel::subSortLessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
     if( isCategorizedModel() ) {
-        QVariant leftWeight = left.data( MenuModel::WeightRole );
-        QVariant rightWeight = right.data( MenuModel::WeightRole );
+        QVariant leftWeight = left.data( MenuModel::UserSortRole );
+        QVariant rightWeight = right.data( MenuModel::UserSortRole );
 
         if ( !leftWeight.isValid() || !rightWeight.isValid() ) {
             return KCategorizedSortFilterProxyModel::subSortLessThan( left, right );

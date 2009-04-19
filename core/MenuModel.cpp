@@ -26,7 +26,7 @@
 #include "MenuItem.h"
 
 const int MenuModel::UserFilterRole = 0x015D1AE6;
-const int MenuModel::WeightRole = 0x03A8CC00;
+const int MenuModel::UserSortRole = 0x03A8CC00;
 
 inline int weightOfService( const KService::Ptr service )
 {
@@ -114,8 +114,8 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             searchKeyWords = mi->keywords();
             theData.setValue( searchKeyWords.join( QString() ) );
             break;
-        case MenuModel::WeightRole:
-            theData.setValue( weightOfService( mi->service() ) );
+        case MenuModel::UserSortRole:
+            theData.setValue( QString("%1%2").arg( QString::number( weightOfService( mi->service() ) ), 5, '0' ).arg( mi->service()->name() ) );
             break;
         default:
             break;

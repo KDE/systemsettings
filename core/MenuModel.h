@@ -138,7 +138,7 @@ public:
     /**
      * Role used to request the weight of a module, used to sort the items.
      */
-    static const int WeightRole;
+    static const int UserSortRole;
 
 protected:
     /**
