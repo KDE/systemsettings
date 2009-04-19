@@ -227,6 +227,7 @@ bool ModuleView::closeModules()
     QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator pageIterator = d->mPages.constBegin();
     QMap<KPageWidgetItem*, KCModuleProxy*>::const_iterator endIterator = d->mPages.constEnd();
     for ( ; pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
+        delete pageIterator.value();
         d->mPageWidget->removePage( pageIterator.key() );
     }
     d->mPages.clear();

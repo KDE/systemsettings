@@ -76,6 +76,7 @@ void CategoryList::updatePixmap()
     QString content;
     QString moduleName;
     KIconLoader * iconL = KIconLoader::global();
+    d->itemMap.clear();
 
     QString templatePath = KStandardDirs::locate( "data", "kcontrol4/classic/main.html" );
     QFile templateFile( templatePath );

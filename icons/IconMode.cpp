@@ -52,7 +52,6 @@ public:
     QStackedWidget * mainWidget;
     KTabWidget * iconWidget;
     QSortFilterProxyModel proxyModel;
-    MenuItem * treeItem;
     QList<MenuProxyModel *> proxyList;
     QHash<MenuProxyModel *, QString> proxyMap;
     KAboutData * aboutIcon;
