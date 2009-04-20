@@ -92,7 +92,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             break;
         case KCategorizedSortFilterProxyModel::CategorySortRole:
             if ( mi->parent() ) {
-                theData.setValue( QString("%1%2").arg( mi->parent()->weight(), 5, QChar('0') ).arg( mi->parent()->service()->name() ) );
+                theData.setValue( QString("%1%2").arg( QString::number(mi->parent()->weight()), 5, '0' ).arg( mi->parent()->service()->name() ) );
             }
             break;
         case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
@@ -108,7 +108,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             theData.setValue( searchKeyWords.join( QString() ) );
             break;
         case MenuModel::UserSortRole:
-            theData.setValue( QString("%1%2").arg( mi->weight(), 5, QChar('0') ).arg( mi->service()->name() ) );
+            theData.setValue( QString("%1%2").arg( QString::number(mi->weight()), 5, '0' ).arg( mi->service()->name() ) );
             break;
         default:
             break;
