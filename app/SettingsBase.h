@@ -65,6 +65,7 @@ private slots:
     void toggleDirtyState(bool state);
     void updateViewActions();
     void moduleChanged();
+    void changeToolBar( BaseMode::ToolBarItems toolbar );
 
 private:
     // The plugins

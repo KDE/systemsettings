@@ -145,6 +145,9 @@ void ClassicMode::selectModule( const QModelIndex& selectedModule )
 
 void ClassicMode::changeModule( const QModelIndex& activeModule )
 {
+    if( !d->moduleView->resolveChanges() ) {
+        return;
+    }
     d->moduleView->closeModules();
     if( d->proxyModel->rowCount(activeModule) > 0 ) {
         d->stackedWidget->setCurrentWidget( d->classicCategory );

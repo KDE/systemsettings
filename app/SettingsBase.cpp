@@ -78,6 +78,7 @@ void SettingsBase::initApplication()
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
+	    connect(controller, SIGNAL(changeToolBarItems(BaseMode::ToolBarItems)), this, SLOT(changeToolBar(BaseMode::ToolBarItems)));
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
             connect(controller, SIGNAL(viewChanged()), this, SLOT(moduleChanged()));
@@ -121,6 +122,8 @@ void SettingsBase::initToolBar()
     // Toolbar & Configuration
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
+    toolBar("configure")->setMovable(false);
+    toolBar("search")->setMovable(false);
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 }
 
@@ -320,6 +323,21 @@ void SettingsBase::moduleChanged()
         setCaption( moduleInfo->moduleName() );
     } else {
         setCaption( QString(), false );
+    }
+}
+
+void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
+{
+    if( sender() != activeView ) {
+        return;
+    }
+    toolBar("configure")->hide();
+    toolBar("search")->hide();
+    if ( BaseMode::Search & toolbar ) {
+        toolBar("search")->show();
+    }
+    if ( BaseMode::Configure & toolbar ) {
+        toolBar("configure")->show();
     }
 }
 

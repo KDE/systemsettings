@@ -62,6 +62,16 @@ public:
     virtual ~BaseMode();
 
     /**
+     * These flags are used to control the presence of the Search and Configure actions on the toolbar
+     */
+    enum ToolBarItemsFlags {
+        NoItems = 0x1,
+        Search = 0x2,
+        Configure = 0x4
+    };
+    Q_DECLARE_FLAGS(ToolBarItems, ToolBarItemsFlags)
+
+    /**
      * Performs internal setup.\n
      * Plugin developers should perform initialisation in initEvent() not here.
      *
@@ -162,6 +172,14 @@ Q_SIGNALS:
      * @warning Failure to emit this will result in inconsistent application headers and change state.
      */ 
     void viewChanged();
+    
+    /**
+     * Causes the host application to hide / show the toolbar items specified.
+     * This is used to control the display of the Configure and Search actions
+     *
+     * @param items The items that are wanted in the toolbar
+     */
+    void changeToolBarItems( BaseMode::ToolBarItems items );
 
 protected:
     /**
@@ -193,5 +211,7 @@ private:
     class Private;
     Private *const d;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(BaseMode::ToolBarItems)
 
 #endif

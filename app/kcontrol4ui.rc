@@ -8,11 +8,16 @@
 
   <MenuBar>
   </MenuBar>
-
-  <ToolBar name="mainToolBar" >
-    <text>Main Toolbar</text>
+  <ToolBar name="configure" >
+    <text>Configuration</text>
     <Action name="options_configure" />
+  </ToolBar>
+  <ToolBar name="mainToolBar" >
+    <text>About KControl4</text>
     <Action name="aboutKControl4" />
+  </ToolBar>
+  <ToolBar name="search">
+    <text>Search modules</text>
     <Action name="spacer" />
     <Action name="searchText" />
   </ToolBar>

@@ -142,6 +142,7 @@ void IconMode::moduleLoaded()
     d->iconWidget->hide();
     d->mainWidget->setCurrentWidget( d->moduleView );
     d->backAction->setEnabled( true );
+    emit changeToolBarItems(BaseMode::NoItems);
 }
 
 void IconMode::backToOverview()
@@ -150,6 +151,7 @@ void IconMode::backToOverview()
         d->iconWidget->show();
         d->mainWidget->setCurrentWidget( d->iconWidget );
         d->backAction->setEnabled( false );
+        emit changeToolBarItems( BaseMode::Search | BaseMode::Configure );
         emit viewChanged();
     }
 }
