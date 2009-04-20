@@ -82,6 +82,11 @@ MenuItem * MenuItem::child( int index )
     return d->children.at(index);
 }
 
+MenuItem * MenuItem::grandChild( int index )
+{
+    return d->grandChildren.at(index);
+}
+
 QStringList MenuItem::keywords()
 {
     QStringList listOfKeywords;

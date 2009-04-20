@@ -147,7 +147,7 @@ QModelIndex MenuModel::index( int row, int column, const QModelIndex &parent ) c
 
     MenuItem *childItem;
     if( d->exceptions.contains(parentItem) ) {
-        childItem = parentItem->grandChildren().at(row);
+        childItem = parentItem->grandChild( row );
     } else {
         childItem = parentItem->child( row );
     }

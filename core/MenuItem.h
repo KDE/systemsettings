@@ -79,6 +79,14 @@ public:
      * @returns The MenuItem object of the specified child.
      */
     MenuItem * child( int index );
+
+    /**
+     * Provides the MenuItem for the grand child at the specified index.
+     *
+     * @param index The index of the grand child.
+     * @returns The MenuItem object of the specified grand child.
+     */
+    MenuItem * grandChild( int index );
  
     /**
      * Returns the list of keywords, which is used for searching the list of categories and modules.
