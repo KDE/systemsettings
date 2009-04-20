@@ -28,13 +28,6 @@
 const int MenuModel::UserFilterRole = 0x015D1AE6;
 const int MenuModel::UserSortRole = 0x03A8CC00;
 
-inline int weightOfService( const KService::Ptr service )
-{
-    QVariant tmp = service->property( "X-KDE-Weight", QVariant::Int );
-    int weight = tmp.isValid() ? tmp.toInt() : 100;
-    return weight;
-}
-
 class MenuModel::Private {
 public:
     Private() {}
@@ -99,7 +92,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             break;
         case KCategorizedSortFilterProxyModel::CategorySortRole:
             if ( mi->parent() ) {
-                theData.setValue( QString("%1%2").arg( QString::number( weightOfService( mi->parent()->service() ) ), 5, '0' ).arg( mi->parent()->service()->name() ) );
+                theData.setValue( QString("%1%2").arg( mi->parent()->weight(), 5, QChar('0') ).arg( mi->parent()->service()->name() ) );
             }
             break;
         case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
@@ -115,7 +108,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             theData.setValue( searchKeyWords.join( QString() ) );
             break;
         case MenuModel::UserSortRole:
-            theData.setValue( QString("%1%2").arg( QString::number( weightOfService( mi->service() ) ), 5, '0' ).arg( mi->service()->name() ) );
+            theData.setValue( QString("%1%2").arg( mi->weight(), 5, QChar('0') ).arg( mi->service()->name() ) );
             break;
         default:
             break;

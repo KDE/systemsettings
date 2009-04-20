@@ -140,6 +140,14 @@ public:
     QString& name() const;
 
     /**
+     * Provides the weight of the current item, as determined by its service.
+     * If the service does not specify a weight, it is 100
+     *
+     * @returns The weight of the service
+     */
+    int weight();
+
+    /**
      * Provides information on which type the current item is.
      *
      * @returns true if it is a category.

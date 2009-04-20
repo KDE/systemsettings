@@ -26,6 +26,11 @@
 
 #include <KCModuleInfo>
 
+static bool childIsLessThan( MenuItem *left, MenuItem *right )
+{
+    return left->weight() < right->weight();
+}
+
 class MenuItem::Private {
 public:
     Private() {}
@@ -35,6 +40,7 @@ public:
     QList<MenuItem*> grandChildren;
     bool menu;
     QString name;
+    int weight;
     KService::Ptr service;
     KCModuleInfo item;
 };
@@ -59,17 +65,6 @@ MenuItem::~MenuItem()
     qDeleteAll( d->children );
     d->grandChildren.clear();
     delete d;
-}
-
-inline int weightOfService( const KService::Ptr service )
-{
-    QVariant tmp = service->property( "X-KDE-Weight", QVariant::Int );
-    return ( tmp.isValid() ? tmp.toInt() : 100 );
-}
-
-static bool childIsLessThan( MenuItem *left, MenuItem *right )
-{
-    return weightOfService( left->service() ) < weightOfService( right->service() );
 }
 
 void MenuItem::sortChildrenByWeight()
@@ -128,6 +123,11 @@ QString& MenuItem::name() const
     return d->name;
 }
 
+int MenuItem::weight()
+{
+    return d->weight;
+}
+
 bool MenuItem::menu() const
 {
     return d->menu;
@@ -138,4 +138,10 @@ void MenuItem::setService( const KService::Ptr& service )
     d->service = service;
     d->name = service->property("X-KDE-System-Settings-Category").toString();
     d->item = KCModuleInfo( service->entryPath() );
+    QVariant itemWeight = d->service->property( "X-KDE-Weight", QVariant::Int );
+    if( itemWeight.isValid() ) {
+        d->weight = itemWeight.toInt();
+    } else {
+        d->weight = 100;
+    }
 }
