@@ -123,7 +123,9 @@ void SettingsBase::initToolBar()
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
     toolBar("configure")->setMovable(false);
+    toolBar("configure")->show();
     toolBar("search")->setMovable(false);
+    toolBar("search")->show();
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 }
 
