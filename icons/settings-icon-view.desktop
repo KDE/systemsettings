@@ -7,6 +7,7 @@ X-KDE-Library=icon_mode
 X-KDE-Keywords=System Settings
 
 Name=Icon View
+Name[et]=Ikoonivaade
 Name[pt]=Vista por Ícones
 Name[pt_BR]=Vista por Ícones
 Name[sv]=Ikonvy
@@ -16,6 +17,7 @@ Name[x-test]=xxIcon Viewxx
 Name[zh_TW]=圖示檢視
 Comment=The KDE 4 icon view style
 Comment[en_GB]=The KDE 4 icon view style.
+Comment[et]=KDE4 ikoonivaate stiil
 Comment[pt]=O estilo de visualização em ícones do KDE 4
 Comment[pt_BR]=O estilo de visualização em ícones do KDE 4
 Comment[sv]=KDE 4 ikonvystil
