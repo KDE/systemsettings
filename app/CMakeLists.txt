@@ -1,8 +1,10 @@
 SET( kcontrol4_SRCS
+     KControlApp.cpp
      SettingsBase.cpp
      main.cpp )
 
 KDE4_ADD_UI_FILES( kcontrol4_SRCS configDialog.ui )
+QT4_ADD_DBUS_ADAPTOR( kcontrol4_SRCS org.kde.kcontrol4.xml KControlApp.h KControlApp  )
 
 KDE4_ADD_EXECUTABLE( kcontrol4 ${kcontrol4_SRCS})
 

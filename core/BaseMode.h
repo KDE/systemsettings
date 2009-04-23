@@ -65,9 +65,9 @@ public:
      * These flags are used to control the presence of the Search and Configure actions on the toolbar
      */
     enum ToolBarItemsFlags {
-        NoItems = 0x1,
-        Search = 0x2,
-        Configure = 0x4
+        NoItems = 0x1, /**< The Toolbar will not have any items added by KControl */
+        Search = 0x2, /**< The Toolbar will have the search bar added by KControl */
+        Configure = 0x4 /**< The Toolbar will have configure added by KControl */
     };
     Q_DECLARE_FLAGS(ToolBarItems, ToolBarItemsFlags)
 
@@ -174,7 +174,7 @@ Q_SIGNALS:
     void viewChanged();
     
     /**
-     * Causes the host application to hide / show the toolbar items specified.
+     * Causes KControl to hide / show the toolbar items specified.
      * This is used to control the display of the Configure and Search actions
      *
      * @param items The items that are wanted in the toolbar

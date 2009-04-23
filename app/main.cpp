@@ -26,6 +26,7 @@
 #include <KCmdLineArgs>
 #include <KUniqueApplication>
 
+#include "KControlApp.h"
 #include "SettingsBase.h"
 
 #include <iostream>
@@ -43,13 +44,10 @@ int main( int argc, char *argv[] )
     aboutData.setProgramIconName("preferences-system");
     KCmdLineArgs::init(argc, argv, &aboutData);
 
-    if (!KUniqueApplication::start()) {
-        std::cerr << "This program is already running." << std::endl;
-        return 0;
-    }
-    KUniqueApplication application;
+    KControlApp application;
 
     SettingsBase *mainWindow = new SettingsBase();
     mainWindow->show();
+    application.setMainWindow(mainWindow);
     return application.exec();
 }

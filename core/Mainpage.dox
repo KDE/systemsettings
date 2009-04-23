@@ -1,9 +1,9 @@
-/** @mainpage KControl plugin interface
+/** @mainpage KControl view interface
 
-This provides a standardised interface for plugins to KControl, allowing you to provide your own view on the list of modules and categories. In order to simplify this task, a number of convienence classes are available.
+This provides a standardised interface for views to KControl, allowing you to provide your own view on the list of modules and categories. In order to simplify this task, a number of convienence classes are available.
 
 These classes include:
-- <a href="classBaseMode.html">BaseMode</a> the base plugin interface.
+- <a href="classBaseMode.html">BaseMode</a> the base view plugin interface.
 - <a href="classBaseData.html">BaseData</a> providing access to data shared between all plugins.
 - <a href="classMenuItem.html">MenuItem</a> the categories and modules information.
 - <a href="classMenuModel.html">MenuModel</a> uses MenuItem to provide a tree structure of information about the modules.
@@ -12,5 +12,6 @@ These classes include:
 - <a href="classToolTipManager.html">ToolTipManager</a> provides large informative tooltips, containing detailed information. This is handled automatically for you in most cases
 */
 
-// DOXYGEN_NAME=kcontrolview
-// DOXYGEN_ENABLE=YES
+// DOXYGEN_SET_PROJECT_NAME = KControlView
+// DOXYGEN_ENABLE = YES
+// DOXYGEN_SET_EXCLUDE_PATTERNS += */ToolTips/*
