@@ -5,6 +5,7 @@ X-KDE-Weight=100
 X-KDE-System-Settings-Category=general
 X-KDE-System-Settings-Parent-Category=
 
+# ctxt: Settings for common user needs (tab in System Settings).
 Name=General
 Name[af]=Algemeen
 Name[ar]=عام
