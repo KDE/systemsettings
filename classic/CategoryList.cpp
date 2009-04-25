@@ -100,7 +100,7 @@ void CategoryList::updatePixmap()
     for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; done = 1 + done ) {
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        content += "<tr><td class=\"kc_leftcol\"><img src=\"%1\"></td><td class=\"kc_middlecol\">";
+        content += "<tr><td class=\"kc_leftcol\"><img src=\"%1\" width=\"24\" height=\"24\"></td><td class=\"kc_middlecol\">";
         QString szName = childItem->service()->name();
         QString szComment = childItem->service()->comment();
         content += "<a href=\"%2\">" + szName + "</a></td><td class=\"kc_rightcol\">" + szComment;
