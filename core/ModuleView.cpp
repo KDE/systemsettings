@@ -63,6 +63,7 @@ ModuleView::ModuleView( QWidget * parent ) : QWidget( parent ), d( new Private()
     d->mLayout = new QVBoxLayout(this);
     // Create the Page Widget
     d->mPageWidget = new KPageWidget(this);
+    d->mPageWidget->layout()->setMargin(0);
     d->mLayout->addWidget(d->mPageWidget);
     // Create the dialog
     d->mButtons = new KDialogButtonBox( this, Qt::Horizontal );
