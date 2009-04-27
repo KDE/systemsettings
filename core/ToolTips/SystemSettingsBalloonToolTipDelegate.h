@@ -18,29 +18,32 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA              *
  *****************************************************************************/
 
-#ifndef KCONTROLTOOLTIPITEM_H
-#define KCONTROLTOOLTIPITEM_H
+#ifndef SYSTEMSETTINGSBALLOONTOOLTIPDELEGATE_H
+#define SYSTEMSETTINGSBALLOONTOOLTIPDELEGATE_H
+
+#include "KFormattedBalloonTipDelegate.h"
 
 #include "KToolTipItem.h"
 
-#include <QPair>
-#include <QList>
-#include <QIcon>
+#include <QSize>
+#include <QPainter>
 
-class Private;
+const int PREVIEW_WIDTH = 32;
+const int PREVIEW_HEIGHT = 32;
 
-class KControlToolTipItem : public KToolTipItem 
+const int SUB_PREVIEW_WIDTH = 24;
+const int SUB_PREVIEW_HEIGHT = 24;
+
+class SystemSettingsBalloonToolTipDelegate : public KFormattedBalloonTipDelegate
 {
+    Q_OBJECT
 public:
-    KControlToolTipItem( const QIcon &icon, const QString &text, int type = DefaultType );
-    virtual ~KControlToolTipItem();
+    SystemSettingsBalloonToolTipDelegate();
+    virtual ~SystemSettingsBalloonToolTipDelegate();
 
-    void addLine( const QIcon &icon, const QString &text );
-    const QList<QPair<QIcon, QString> >& lines() const;
-
-private:
-    class Private;
-    Private *const d;
+    virtual QSize sizeHint( const KStyleOptionToolTip* option, const KToolTipItem* item ) const;
+    virtual void paint( QPainter* painter, const KStyleOptionToolTip* option, const KToolTipItem* item ) const;
 };
 
 #endif
+

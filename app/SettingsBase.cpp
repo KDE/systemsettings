@@ -103,7 +103,7 @@ void SettingsBase::initToolBar()
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
     configureAction->setText( i18n("Configure") );
     // About after it
-    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutKControl4", this, SLOT( about() ) );
+    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutSystemSettings", this, SLOT( about() ) );
     aboutAction->setText( i18n("About") );
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new KAction( this );
@@ -214,7 +214,7 @@ void SettingsBase::configShow()
     configWidget.CbPlugins->setCurrentIndex( configIndex );
     configWidget.ChTooltips->setChecked( showTooltips );
     if( pluginList.count() == 0 ) {
-        KMessageBox::error(this, i18n("The KDE Control Center was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
+        KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
     } else {
         configDialog->show();
     }
@@ -238,7 +238,7 @@ void SettingsBase::about()
     // We initialise if we haven't already
     if( !aboutDialog ) {
         aboutDialog = new KPageDialog(this); // We create it on the first run
-        aboutDialog->setPlainCaption( i18n("About KDE Control Center") );
+        aboutDialog->setPlainCaption( i18n("About System Settings") );
         aboutDialog->setButtons( KDialog::Close );
     }
 
@@ -271,7 +271,7 @@ void SettingsBase::about()
 void SettingsBase::changePlugin()
 {
     if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
-    {   KMessageBox::error(this, i18n("The KDE Control Center was unable to find any views, and hence has nothing to display."), i18n("No views found"));
+    {   KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         return; // Halt now!
     } 
 

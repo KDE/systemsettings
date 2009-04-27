@@ -22,7 +22,7 @@
 #define MODULE_VIEW_H
 
 #include <QWidget>
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 class MenuItem;
 class KAboutData;
@@ -46,7 +46,7 @@ class KPageWidgetItem;
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
  */
-class KCONTROLVIEW_EXPORT ModuleView : public QWidget
+class SYSTEMSETTINGSVIEW_EXPORT ModuleView : public QWidget
 {
     Q_OBJECT
 

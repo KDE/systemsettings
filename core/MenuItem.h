@@ -22,7 +22,7 @@
 #ifndef MENUITEM_H
 #define MENUITEM_H
 
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 #include <KService>
 
@@ -35,10 +35,10 @@ template<typename T> class QList;
  *
  * This provides convienent access to the list of modules, providing information about them 
  * such as name, module information and its service object.\n
- * This is created automatically by KControl, and is shared among all plugins and so should not
+ * This is created automatically by System Settings, and is shared among all plugins and so should not
  * be modified under any circumstances.\n
  * 
- * KControl creates it in a tree like manner, with categories containing subcategories and modules,
+ * System Settings creates it in a tree like manner, with categories containing subcategories and modules,
  * and subcategories repeating this.\n
  * 
  * The service object must be set, unless it is the top level item, otherwise using applications
@@ -47,7 +47,7 @@ template<typename T> class QList;
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
-class KCONTROLVIEW_EXPORT MenuItem
+class SYSTEMSETTINGSVIEW_EXPORT MenuItem
 {
 public:
     /**

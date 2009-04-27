@@ -24,8 +24,8 @@
 #include "KToolTip.h"
 #include "KToolTipManager.h"
 #include "KToolTipDelegate.h"
-#include "KControlToolTipItem.h"
-#include "KControlBalloonToolTipDelegate.h"
+#include "SystemSettingsToolTipItem.h"
+#include "SystemSettingsBalloonToolTipDelegate.h"
 
 #include <QRect>
 #include <QTimer>
@@ -39,7 +39,7 @@
 #include <KIcon>
 #include <kio/previewjob.h>
 
-K_GLOBAL_STATIC(KControlBalloonToolTipDelegate, g_delegate)
+K_GLOBAL_STATIC(SystemSettingsBalloonToolTipDelegate, g_delegate)
 
 class ToolTipManager::Private
 {
@@ -118,7 +118,7 @@ void ToolTipManager::prepareToolTip()
     QAbstractItemModel * itemModel = d->view->model();
     MenuItem * m_Menu = itemModel->data( d->item, Qt::UserRole ).value<MenuItem*>();
     QString text = generateToolTipContent( d->item, m_Menu );
-    KControlToolTipItem* toolTip = new KControlToolTipItem(KIcon( m_Menu->service()->icon() ), text);
+    SystemSettingsToolTipItem* toolTip = new SystemSettingsToolTipItem(KIcon( m_Menu->service()->icon() ), text);
 
     for ( int done = 0; itemModel->rowCount( d->item ) > done; done = 1 + done ) {
         QModelIndex childIndex = itemModel->index( done, 0, d->item );

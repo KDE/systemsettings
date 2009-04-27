@@ -26,7 +26,7 @@
 #include <KCmdLineArgs>
 #include <KUniqueApplication>
 
-#include "KControlApp.h"
+#include "SystemSettingsApp.h"
 #include "SettingsBase.h"
 
 #include <iostream>
@@ -35,7 +35,7 @@ int main( int argc, char *argv[] )
 {
     KLocale::setMainCatalog("kcontrol4");
     // About data
-    KAboutData aboutData("kcontrol4", 0, ki18n("KDE Control Center"), "1.0", ki18n("Central configuration center for KDE."), 
+    KAboutData aboutData("systemsettings", 0, ki18n("System Settings"), "1.0", ki18n("Central configuration center for KDE."), 
                          KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
     aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Maintainer"), "ben@eclipse.endoftheinternet.org");
     aboutData.addAuthor(ki18n("Mathias Soeken"), ki18n("Developer"), "msoeken@informatik.uni-bremen.de");
@@ -44,7 +44,7 @@ int main( int argc, char *argv[] )
     aboutData.setProgramIconName("preferences-system");
     KCmdLineArgs::init(argc, argv, &aboutData);
 
-    KControlApp application;
+    SystemSettingsApp application;
 
     SettingsBase *mainWindow = new SettingsBase();
     mainWindow->show();

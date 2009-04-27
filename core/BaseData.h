@@ -21,21 +21,21 @@
 #define BASEDATA_H
 
 #include <QObject>
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 class QString;
 class MenuItem;
 class KConfigGroup;
 
 /**
- * @brief Provides a interface sharing common data between modules in KControl
+ * @brief Provides a interface sharing common data between modules in System Settings
  *
- * BaseData is a standard interface in KControl to retrieve information that is shared between all modules.
+ * BaseData is a standard interface in System Settings to retrieve information that is shared between all modules.
  * It is a singleton, and will be automatically cleaned up. 
  *
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
 */
-class KCONTROLVIEW_EXPORT BaseData : public QObject 
+class SYSTEMSETTINGSVIEW_EXPORT BaseData : public QObject 
 {
     Q_OBJECT
     Q_DISABLE_COPY(BaseData)

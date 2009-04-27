@@ -34,9 +34,9 @@
 #include <KStandardDirs>
 #include <KGlobalSettings>
 
-static const char kcc_infotext[]= I18N_NOOP("KDE Control Center");
+static const char kcc_infotext[]= I18N_NOOP("System Settings");
 static const char title_infotext[]= I18N_NOOP("Configure your system");
-static const char intro_infotext[]= I18N_NOOP("Welcome to the \"KDE Control Center\", "
+static const char intro_infotext[]= I18N_NOOP("Welcome to \"System Settings\", "
     "a central place to configure your computer system.");
 
 class CategoryList::Private {
@@ -78,7 +78,7 @@ void CategoryList::updatePixmap()
     KIconLoader * iconL = KIconLoader::global();
     d->itemMap.clear();
 
-    QString templatePath = KStandardDirs::locate( "data", "kcontrol4/classic/main.html" );
+    QString templatePath = KStandardDirs::locate( "data", "systemsettings/classic/main.html" );
     QFile templateFile( templatePath );
     templateFile.open( QIODevice::ReadOnly );
     QTextStream templateText( &templateFile );

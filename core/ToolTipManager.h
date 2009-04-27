@@ -21,7 +21,7 @@
 #define TOOLTIPMANAGER_H
 
 #include <QObject>
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 #include <QRect>
 #include <QModelIndex>
@@ -37,7 +37,7 @@ class QAbstractItemView;
  * a short timeout. The tooltip is hidden again when the
  * viewport is hovered or the item view has been left.
  */
-class KCONTROLVIEW_EXPORT ToolTipManager : public QObject
+class SYSTEMSETTINGSVIEW_EXPORT ToolTipManager : public QObject
 {
     Q_OBJECT
 

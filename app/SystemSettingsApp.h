@@ -17,20 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KCONTROLAPP_H
-#define KCONTROLAPP_H
+/**
+ * Any changes to this header file need to have the following command executed afterwards to regenerate the dbus interface
+ * qdbuscpp2xml SystemSettingsApp.h -o org.kde.systemsettings.xml
+ */
+
+#ifndef SYSTEMSETTINGSAPP_H
+#define SYSTEMSETTINGSAPP_H
 
 #include <KUniqueApplication>
 
 #include "SettingsBase.h"
 
-class KControlApp : public KUniqueApplication
+class SystemSettingsApp : public KUniqueApplication
 {
     Q_OBJECT
 
 public:
-   KControlApp();
-   ~KControlApp();
+   SystemSettingsApp();
+   ~SystemSettingsApp();
 
    void setMainWindow(SettingsBase * main);
 

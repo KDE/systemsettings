@@ -22,7 +22,7 @@
 #define MENUMODEL_H
 
 #include <QAbstractItemModel>
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 class MenuItem;
 
@@ -36,7 +36,7 @@ class MenuItem;
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
  * @author Will Stephenson <wstephenson@kde.org> 
  */
-class KCONTROLVIEW_EXPORT MenuModel : public QAbstractItemModel
+class SYSTEMSETTINGSVIEW_EXPORT MenuModel : public QAbstractItemModel
 {
     Q_OBJECT
 

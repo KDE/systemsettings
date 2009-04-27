@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gui name="kcontrol4"
+<gui name="systemsettings"
      version="1"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,8 +13,8 @@
     <Action name="options_configure" />
   </ToolBar>
   <ToolBar name="mainToolBar" >
-    <text>About KControl4</text>
-    <Action name="aboutKControl4" />
+    <text>About System Settings</text>
+    <Action name="aboutSystemSettings" />
   </ToolBar>
   <ToolBar name="search">
     <text>Search modules</text>

@@ -17,9 +17,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA            *
  ***************************************************************************/
 
-#include "KControlBalloonToolTipDelegate.h"
+#include "SystemSettingsBalloonToolTipDelegate.h"
 
-#include "KControlToolTipItem.h"
+#include "SystemSettingsToolTipItem.h"
 
 #include <QList>
 #include <QPair>
@@ -28,15 +28,15 @@
 #include <KDebug>
 #include <KColorScheme>
 
-KControlBalloonToolTipDelegate::KControlBalloonToolTipDelegate()
+SystemSettingsBalloonToolTipDelegate::SystemSettingsBalloonToolTipDelegate()
 {
 }
 
-KControlBalloonToolTipDelegate::~KControlBalloonToolTipDelegate()
+SystemSettingsBalloonToolTipDelegate::~SystemSettingsBalloonToolTipDelegate()
 {
 }
 
-QSize KControlBalloonToolTipDelegate::sizeHint(const KStyleOptionToolTip* option, const KToolTipItem* item) const
+QSize SystemSettingsBalloonToolTipDelegate::sizeHint(const KStyleOptionToolTip* option, const KToolTipItem* item) const
 {
     Q_UNUSED( option );
 
@@ -51,7 +51,7 @@ QSize KControlBalloonToolTipDelegate::sizeHint(const KStyleOptionToolTip* option
     // assure that the content height is large enough for the icon and the document
     contentSize.setHeight( qMax( iconSize.height(), (int)doc.size().height() ) );
 
-    const KControlToolTipItem* controlItem = static_cast<const KControlToolTipItem*>( item );
+    const SystemSettingsToolTipItem* controlItem = static_cast<const SystemSettingsToolTipItem*>( item );
     if ( controlItem->lines().count() ) {
         contentSize += QSize( 0, ( controlItem->lines().count() * SUB_PREVIEW_HEIGHT ) + 4 );
 
@@ -64,7 +64,7 @@ QSize KControlBalloonToolTipDelegate::sizeHint(const KStyleOptionToolTip* option
     return contentSize + QSize(Border * 3, Border * 2);
 }
 
-void KControlBalloonToolTipDelegate::paint(QPainter* painter, const KStyleOptionToolTip* option, const KToolTipItem* item) const
+void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyleOptionToolTip* option, const KToolTipItem* item) const
 {
     QColor toColor = option->palette.brush(QPalette::ToolTipBase).color();
     QColor fromColor = KColorScheme::shade(toColor, KColorScheme::LightShade, 0.2);
@@ -105,7 +105,7 @@ void KControlBalloonToolTipDelegate::paint(QPainter* painter, const KStyleOption
     const QRect docRect(QPoint(x, y), doc.size().toSize());
     painter->drawPixmap(docRect, bitmap);
 
-    const KControlToolTipItem *controlItem = static_cast<const KControlToolTipItem*>( item );
+    const SystemSettingsToolTipItem *controlItem = static_cast<const SystemSettingsToolTipItem*>( item );
     if ( controlItem->lines().count() ) {
         int ypos = Border + qMax( PREVIEW_HEIGHT, doc.size().toSize().height() ) + 2;
         painter->setPen( Qt::gray );
@@ -131,4 +131,4 @@ void KControlBalloonToolTipDelegate::paint(QPainter* painter, const KStyleOption
     }
 }
 
-#include "KControlBalloonToolTipDelegate.moc"
+#include "SystemSettingsBalloonToolTipDelegate.moc"

@@ -22,7 +22,7 @@
 #define MENUPROXYMODEL_H
 
 #include <KCategorizedSortFilterProxyModel>
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 /**
  * @brief Provides a filter model for MenuModel
@@ -36,7 +36,7 @@
  * @author Will Stephenson <wstephenson@kde.org> 
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
  */
-class KCONTROLVIEW_EXPORT MenuProxyModel : public KCategorizedSortFilterProxyModel
+class SYSTEMSETTINGSVIEW_EXPORT MenuProxyModel : public KCategorizedSortFilterProxyModel
 {
     Q_OBJECT
 

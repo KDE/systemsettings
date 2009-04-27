@@ -21,7 +21,7 @@
 #define BASEMODE_H
 
 #include <QObject>
-#include "kcontrolview_export.h"
+#include "systemsettingsview_export.h"
 
 #include <KService>
 
@@ -32,9 +32,9 @@ class QAbstractItemView;
 template<typename T> class QList;
 
 /**
- * @brief Provides a interface for KControl views
+ * @brief Provides a interface for System Settings views
  *
- * BaseMode is a standard interface for all plugins to KControl to allow them to provide
+ * BaseMode is a standard interface for all plugins to System Settings to allow them to provide
  * their own interface to KDE control modules.\n
  *
  * The developer need only ensure that they perform all initialization of their plugin in
@@ -43,13 +43,13 @@ template<typename T> class QList;
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
 */
-class KCONTROLVIEW_EXPORT BaseMode : public QObject
+class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
 {
     Q_OBJECT
 
 public:
     /**
-     * Constructs a BaseMode for use in KControl.\n
+     * Constructs a BaseMode for use in System Settings.\n
      * Plugin developers should perform all initialisation in initEvent() not here.
      *
      * @param parent The parent of this BaseMode.
@@ -65,9 +65,9 @@ public:
      * These flags are used to control the presence of the Search and Configure actions on the toolbar
      */
     enum ToolBarItemsFlags {
-        NoItems = 0x1, /**< The Toolbar will not have any items added by KControl */
-        Search = 0x2, /**< The Toolbar will have the search bar added by KControl */
-        Configure = 0x4 /**< The Toolbar will have configure added by KControl */
+        NoItems = 0x1, /**< The Toolbar will not have any items added by System Settings */
+        Search = 0x2, /**< The Toolbar will have the search bar added by System Settings */
+        Configure = 0x4 /**< The Toolbar will have configure added by System Settings */
     };
     Q_DECLARE_FLAGS(ToolBarItems, ToolBarItemsFlags)
 
@@ -75,7 +75,7 @@ public:
      * Performs internal setup.\n
      * Plugin developers should perform initialisation in initEvent() not here.
      *
-     * @param modeService Plugins service object, used for providing extra information to KControl.
+     * @param modeService Plugins service object, used for providing extra information to System Settings.
      */
     void init( const KService::Ptr modeService );
 
@@ -87,7 +87,7 @@ public:
     virtual void initEvent();
 
     /**
-     * Returns the widget to be displayed in the center of KControl.\n
+     * Returns the widget to be displayed in the center of System Settings.\n
      * The widget should be created the first time this function is called.
      *
      * @warning This function is called multiple times, ensure the widget is only created once.
@@ -96,7 +96,7 @@ public:
     virtual QWidget * mainWidget();
 
     /**
-     * Provides information about the plugin, which is used in the About dialog of KControl.\n
+     * Provides information about the plugin, which is used in the About dialog of System Settings.\n
      * This does not need to be implemented, and need only be implemented if the author
      * wants information about the view displayed in the About dialog.
      *
@@ -120,7 +120,7 @@ public:
     virtual ModuleView * moduleView() const;
 
     /**
-     * Provides the list of actions the plugin wants KControl to display in the toolbar when
+     * Provides the list of actions the plugin wants System Settings to display in the toolbar when
      * it is loaded. This function does not need to be implemented if adding actions to the toolbar
      * is not required.
      *
@@ -174,7 +174,7 @@ Q_SIGNALS:
     void viewChanged();
     
     /**
-     * Causes KControl to hide / show the toolbar items specified.
+     * Causes System Settings to hide / show the toolbar items specified.
      * This is used to control the display of the Configure and Search actions
      *
      * @param items The items that are wanted in the toolbar
@@ -187,7 +187,7 @@ protected:
      * This is usually passed to the constructor of MenuModel.
      *
      * @warning This is shared between all views, and should not be deleted manually.
-     * @returns The root menu item as provided by KControl.
+     * @returns The root menu item as provided by System Settings.
      */
     MenuItem * rootItem() const;
 

@@ -17,23 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KControlApp.h"
+#include "SystemSettingsApp.h"
 
-KControlApp::KControlApp() : KUniqueApplication()
+SystemSettingsApp::SystemSettingsApp() : KUniqueApplication()
 {
     window = 0;
 }
 
-KControlApp::~KControlApp()
+SystemSettingsApp::~SystemSettingsApp()
 {
 }
 
-void KControlApp::setMainWindow(SettingsBase * main)
+void SystemSettingsApp::setMainWindow(SettingsBase * main)
 {
     window = main;
 }
 
-void KControlApp::quit()
+void SystemSettingsApp::quit()
 {
     if( window ) {
         if( !window->queryClose() ) {
@@ -43,4 +43,4 @@ void KControlApp::quit()
     KUniqueApplication::quit();
 }
 
-#include "KControlApp.moc"
+#include "SystemSettingsApp.moc"
