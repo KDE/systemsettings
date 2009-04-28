@@ -60,10 +60,14 @@ QSize SettingsBase::sizeHint() const
 
 void SettingsBase::initApplication()
 {
+    // Initialise the window so we don't flicker
+    mainConfigGroup = KGlobal::config()->group( "Main" );
+    initSearch();
+    initToolBar();
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true ); 
     // Prepare the menu of all modules
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
-    initSearch();
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
     setCentralWidget(stackedWidget);
@@ -87,10 +91,6 @@ void SettingsBase::initApplication()
             kWarning() << "View load error: " + error;
         }
     }
-    // We need to nominate the view to use
-    mainConfigGroup = KGlobal::config()->group( "Main" );
-    initToolBar();
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true ); 
     changePlugin();
 }
 
