@@ -44,6 +44,11 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     // Ensure delayed loading doesn't cause a crash
     aboutDialog = 0;
     configDialog = 0;
+    // Initialise the window so we don't flicker
+    mainConfigGroup = KGlobal::config()->group( "Main" );
+    initSearch();
+    initToolBar();
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true ); 
     // We can now launch the delayed loading safely
     QTimer::singleShot(0, this, SLOT(initApplication()));
 }
@@ -60,11 +65,6 @@ QSize SettingsBase::sizeHint() const
 
 void SettingsBase::initApplication()
 {
-    // Initialise the window so we don't flicker
-    mainConfigGroup = KGlobal::config()->group( "Main" );
-    initSearch();
-    initToolBar();
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true ); 
     // Prepare the menu of all modules
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
