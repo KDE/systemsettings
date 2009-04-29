@@ -28,6 +28,7 @@
 #include <KAboutData>
 #include <KMessageBox>
 #include <KCModuleInfo>
+#include <KXMLGUIFactory>
 #include <KStandardAction>
 #include <KActionCollection>
 #include <KServiceTypeTrader>
@@ -122,11 +123,8 @@ void SettingsBase::initToolBar()
     // Toolbar & Configuration
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
-    toolBar("configure")->setMovable(false);
-    toolBar("configure")->show();
-    toolBar("search")->setMovable(false);
-    toolBar("search")->show();
     toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    changeToolBar( BaseMode::Search | BaseMode::Configure );
 }
 
 void SettingsBase::initSearch()
@@ -307,15 +305,8 @@ void SettingsBase::toggleDirtyState(bool state)
 
 void SettingsBase::updateViewActions()
 {
-    foreach( QAction * oldAction, viewActions ) {
-        toolBar()->removeAction( oldAction );
-    }
-    viewActions.clear();
-    if( activeView ) {
-        QAction *before = toolBar()->actions().value( 0 );
-        toolBar()->insertActions( before, activeView->actionsList() );
-        viewActions << activeView->actionsList() << toolBar()->insertSeparator( before );
-    }
+    guiFactory()->unplugActionList( this, "viewActions" );
+    guiFactory()->plugActionList( this, "viewActions", activeView->actionsList() );
 }
 
 void SettingsBase::moduleChanged()
@@ -333,13 +324,17 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     if( sender() != activeView ) {
         return;
     }
-    toolBar("configure")->hide();
-    toolBar("search")->hide();
+    guiFactory()->unplugActionList( this, "configure" );
+    guiFactory()->unplugActionList( this, "search" );
     if ( BaseMode::Search & toolbar ) {
-        toolBar("search")->show();
+        QList<QAction*> searchBarActions;
+	searchBarActions << spacerAction << searchAction;
+        guiFactory()->plugActionList( this, "search", searchBarActions );
     }
     if ( BaseMode::Configure & toolbar ) {
-        toolBar("configure")->show();
+        QList<QAction*> configureBarActions;
+	configureBarActions << configureAction;
+        guiFactory()->plugActionList( this, "configure", configureBarActions );
     }
 }
 

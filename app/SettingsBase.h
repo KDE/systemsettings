@@ -73,7 +73,6 @@ private:
     BaseMode * activeView;
     // The search bar
     KLineEdit * searchText;
-    // The spacer
     QWidget * spacerWidget;
     // The toolbar
     KAction * searchAction;
@@ -81,7 +80,6 @@ private:
     KAction * quitAction;
     KAction * configureAction;
     KAction * aboutAction;
-    QList<QAction *> viewActions;
     // The configuration
     KDialog * configDialog;
     Ui::ConfigDialog configWidget;

@@ -8,17 +8,12 @@
 
   <MenuBar>
   </MenuBar>
-  <ToolBar name="configure" >
-    <text>Configuration</text>
-    <Action name="options_configure" />
-  </ToolBar>
   <ToolBar name="mainToolBar" >
     <text>About System Settings</text>
+    <ActionList name="viewActions" />
+    <Seperator />
     <Action name="aboutSystemSettings" />
-  </ToolBar>
-  <ToolBar name="search">
-    <text>Search modules</text>
-    <Action name="spacer" />
-    <Action name="searchText" />
+    <ActionList name="configure" />
+    <ActionList name="search" />
   </ToolBar>
 </gui>
