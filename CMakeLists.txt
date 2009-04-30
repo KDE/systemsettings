@@ -1,31 +1,13 @@
-KDE4_NO_ENABLE_FINAL(systemsettings)
-ADD_SUBDIRECTORY( categories ) 
+PROJECT (systemsettings)
+find_package(KDE4 REQUIRED)
 
-########### next target ###############
+SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -pedantic" )
+INCLUDE (KDE4Defaults)
+ADD_DEFINITIONS (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+INCLUDE_DIRECTORIES (${CMAKE_CURRENT_SOURCE_DIR}/core ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 
-SET(systemsettings_SRCS
-   kcmodulemodel.cpp
-   kcmultiwidget.cpp
-   main.cpp
-   mainwindow.cpp
-   menuitem.cpp
-   moduleiconitem.cpp
-   )
-
-kde4_add_app_icon(systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png")
-   
-KDE4_ADD_EXECUTABLE(systemsettings ${systemsettings_SRCS})
-
-# Uses KIO for KRun and KUtils for KCModuleInfo
-TARGET_LINK_LIBRARIES(systemsettings ${KDE4_KUTILS_LIBS} ${KDE4_KIO_LIBS} )
-
-INSTALL( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS})
-
-
-########### install files ###############
-
-install( FILES systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
-install( FILES systemsettingsrc DESTINATION ${SYSCONF_INSTALL_DIR} )
-install( FILES systemsettingsui.rc DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
-
-
+ADD_SUBDIRECTORY(core)
+ADD_SUBDIRECTORY(app)
+ADD_SUBDIRECTORY(categories)
+ADD_SUBDIRECTORY(classic)
+ADD_SUBDIRECTORY(icons)

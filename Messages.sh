@@ -1,2 +1,4 @@
 #! /usr/bin/env bash
-$XGETTEXT *.cpp -o $podir/systemsettings.pot
+$EXTRACTRC `find . -name \*.ui -o -name \*.rc -o -name \*.kcfg` >> rc.cpp
+$XGETTEXT `find . -name \*.cpp` -o $podir/kcontrol4.pot
+rm -f rc.cpp
