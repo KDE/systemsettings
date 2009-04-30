@@ -33,7 +33,6 @@
 
 int main( int argc, char *argv[] )
 {
-    KLocale::setMainCatalog("kcontrol4");
     // About data
     KAboutData aboutData("systemsettings", 0, ki18n("System Settings"), "1.0", ki18n("Central configuration center for KDE."), 
                          KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
