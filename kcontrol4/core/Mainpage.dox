@@ -1,0 +1,17 @@
+/** @mainpage System Settings view interface
+
+This provides a standardised interface for views to System Settings, allowing you to provide your own view on the list of modules and categories. In order to simplify this task, a number of convienence classes are available.
+
+These classes include:
+- <a href="classBaseMode.html">BaseMode</a> the base view plugin interface.
+- <a href="classBaseData.html">BaseData</a> providing access to data shared between all plugins.
+- <a href="classMenuItem.html">MenuItem</a> the categories and modules information.
+- <a href="classMenuModel.html">MenuModel</a> uses MenuItem to provide a tree structure of information about the modules.
+- <a href="classMenuProxyModel.html">MenuProxyModel</a> ensures that only System Settings modules are displayed, and provides filtering capabilities
+- <a href="classModuleView.html">ModuleView</a> provides an easy interface to load and display control modules, as well as handle saving of configuration correctly
+- <a href="classToolTipManager.html">ToolTipManager</a> provides large informative tooltips, containing detailed information. This is handled automatically for you in most cases
+*/
+
+// DOXYGEN_SET_PROJECT_NAME = SystemSettingsView
+// DOXYGEN_ENABLE = YES
+// DOXYGEN_SET_EXCLUDE_PATTERNS += */ToolTips/*

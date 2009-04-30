@@ -1,0 +1,28 @@
+[Desktop Entry]
+Icon=view-list-tree
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsView
+
+X-KDE-Library=classic_mode
+X-KDE-Keywords=System Settings
+
+Name=Classic Tree View
+Name[de]=Klassische Baumansicht
+Name[et]=Klassikaline puuvaade
+Name[pt]=Vista em Árvore Clássica
+Name[pt_BR]=Vista em Árvore Clássica
+Name[sv]=Klassisk trädvy
+Name[tr]=Klasik Ağaç Görünümü
+Name[uk]=Класичний перегляд деревом
+Name[x-test]=xxClassic Tree Viewxx
+Name[zh_TW]=傳統樹狀檢視
+Comment=A Classic KDE 3 KControl style system settings view.
+Comment[de]=Eine klassische Ansicht der Systemeinstellungen im Stil von KControl aus KDE3.
+Comment[et]=KDE3 klassikalise juhtimiskeskuse laadis süsteemi seadistuste vaade.
+Comment[pt]=Uma vista da configuração do sistema com o estilo clássico do KControl para o KDE 3.
+Comment[pt_BR]=Uma vista da configuração do sistema com o estilo clássico do KControl para o KDE 3.
+Comment[sv]=En klassisk KDE 3 inställningscentralstil för systeminställningar.
+Comment[tr]=Klasik KDE3 KControl biçimi sistem ayarları görünümü.
+Comment[uk]=Класичний перегляд параметрів у стилі KControl з KDE 3.
+Comment[x-test]=xxA Classic KDE 3 KControl style system settings view.xx
+Comment[zh_TW]=傳統 KDE3 KControl 樣式的系統設定檢視。
