@@ -12,3 +12,4 @@ TARGET_LINK_LIBRARIES( systemsettings ${KDE4_KIO_LIBS} systemsettingsview )
 
 INSTALL( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
 INSTALL( FILES systemsettingsui.rc DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
+INSTALL( FILES systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
