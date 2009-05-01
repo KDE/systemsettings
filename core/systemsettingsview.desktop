@@ -2,3 +2,8 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsView
 Name=System Settings View
+Name[pt]=Vista da Configuração do Sistema
+Name[pt_BR]=Vista da Configuração do Sistema
+Name[sv]=Systeminställningsvy
+Name[uk]=Вигляд «Системних параметрів»
+Name[zh_TW]=系統設定檢視
