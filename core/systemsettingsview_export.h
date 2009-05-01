@@ -24,7 +24,7 @@
 #include <kdemacros.h>
  
 #ifndef SYSTEMSETTINGSVIEW_EXPORT
-# if defined(MAKE_SYSTEMSETTNGSVIEW_LIB)
+# if defined(MAKE_SYSTEMSETTINGSVIEW_LIB)
    // We are building this library
 #  define SYSTEMSETTINGSVIEW_EXPORT KDE_EXPORT
 # else
