@@ -137,7 +137,7 @@ QString ToolTipManager::generateToolTipContent( QModelIndex index, MenuItem * it
         text = text.arg( item->service()->comment() );
     } else {
         int childCount = d->view->model()->rowCount( index );
-        text = text.arg( i18np( "<i>Contains 1 submodule</i>", "<i>Contains %1 submodules</i>", childCount ) );
+        text = text.arg( i18np( "<i>Contains 1 item</i>", "<i>Contains %1 items</i>", childCount ) );
     }
     return text;
 }
