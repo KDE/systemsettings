@@ -79,7 +79,6 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
     }
 
     mi = static_cast<MenuItem*>( index.internalPointer() );
-    QStringList searchKeyWords;
     switch ( role ) {
         case Qt::DisplayRole:
             theData.setValue( mi->service()->name() );
@@ -104,8 +103,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             theData.setValue( mi );
             break;
         case MenuModel::UserFilterRole:
-            searchKeyWords = mi->keywords();
-            theData.setValue( searchKeyWords.join( QString() ) );
+	    theData.setValue( mi->keywords().join( QString() ) );
             break;
         case MenuModel::UserSortRole:
             theData.setValue( QString("%1%2").arg( QString::number(mi->weight()), 5, '0' ).arg( mi->service()->name() ) );

@@ -73,6 +73,8 @@ ModuleView::ModuleView( QWidget * parent ) : QWidget( parent ), d( new Private()
     d->mDefault = d->mButtons->addButton( KStandardGuiItem::defaults(), QDialogButtonBox::ResetRole );
     d->mReset = d->mButtons->addButton( KStandardGuiItem::reset(), QDialogButtonBox::ResetRole );
     d->mHelp = d->mButtons->addButton( KStandardGuiItem::help(), QDialogButtonBox::HelpRole );
+    // Set some more sensible tooltips
+    d->mReset->setToolTip( i18n("Reset all current changes to previous values") );
     // Prevent the buttons from being used
     d->mApply->setEnabled(false);
     d->mDefault->setEnabled(false);
