@@ -140,7 +140,7 @@ void SettingsBase::initHelpMenu()
     actionCollection()->addAction( "helpMenu", helpActionMenu );
     // Add the custom actions
     aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutModule", this, SLOT( about() ) );
-    changeAboutMenu( 0, aboutModuleAction, i18n("About active module") );
+    changeAboutMenu( 0, aboutModuleAction, i18n("About Active Module") );
     aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutView", this, SLOT( about() ) );
     helpActionMenu->insertAction( helpMenuObject->action( KHelpMenu::menuAboutApp ), aboutModuleAction );
     helpActionMenu->insertAction( aboutModuleAction, aboutViewAction );
@@ -275,7 +275,7 @@ void SettingsBase::changePlugin()
         stackedWidget->addWidget(activeView->mainWidget());
     }
 
-    changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About active view") );
+    changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
     moduleChanged();
     activeView->setEnhancedTooltipEnabled( showTooltips );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
