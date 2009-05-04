@@ -133,7 +133,7 @@ void SettingsBase::initToolBar()
 
 void SettingsBase::initHelpMenu()
 {
-    helpMenuObject = new KHelpMenu( this );
+    helpMenuObject = new KHelpMenu( this, KGlobal::activeComponent().aboutData() );
     helpActionMenu = new KActionMenu( KIcon("system-help"), i18n("Help"), this );
     helpActionMenu->setMenu( helpMenuObject->menu() );
     helpActionMenu->setDelayed( false );
