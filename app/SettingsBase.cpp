@@ -140,8 +140,7 @@ void SettingsBase::initHelpMenu()
     actionCollection()->addAction( "helpMenu", helpActionMenu );
     // Add the custom actions
     aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutModule", this, SLOT( about() ) );
-    aboutModuleAction->setText( i18n("About current module") );
-    aboutModuleAction->setEnabled(false);
+    changeAboutMenu( 0, aboutModuleAction, i18n("About active module") );
     aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutView", this, SLOT( about() ) );
     helpActionMenu->insertAction( helpMenuObject->action( KHelpMenu::menuAboutApp ), aboutModuleAction );
     helpActionMenu->insertAction( aboutModuleAction, aboutViewAction );
