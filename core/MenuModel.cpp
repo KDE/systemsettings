@@ -103,7 +103,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             theData.setValue( mi );
             break;
         case MenuModel::UserFilterRole:
-	    theData.setValue( mi->keywords().join( QString() ) );
+            theData.setValue( mi->keywords().join( QString() ) );
             break;
         case MenuModel::UserSortRole:
             theData.setValue( QString("%1%2").arg( QString::number(mi->weight()), 5, '0' ).arg( mi->service()->name() ) );

@@ -62,7 +62,7 @@ public:
 ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
     : BaseMode( parent ), d( new Private() )
 {
-    d->aboutClassic = new KAboutData( "KControl4_TreeView", 0, ki18n("Control Center Tree View"),
+    d->aboutClassic = new KAboutData( "TreeView", 0, ki18n("Tree View"),
                                    "1.0", ki18n("Provides a classic tree-based view of control modules."),
                                    KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
     d->aboutClassic->addAuthor(ki18n("Ben Cooksley"), ki18n("Author"), "ben@eclipse.endoftheinternet.org");

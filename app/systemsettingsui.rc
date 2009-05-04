@@ -12,7 +12,7 @@
     <text>About System Settings</text>
     <ActionList name="viewActions" />
     <Separator />
-    <Action name="aboutSystemSettings" />
+    <Action name="helpMenu" />
     <ActionList name="configure" />
     <ActionList name="search" />
   </ToolBar>

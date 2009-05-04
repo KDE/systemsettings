@@ -28,11 +28,11 @@
 #include <QStackedWidget>
 
 #include <KDialog>
-#include <KAction>
 #include <KService>
 #include <KToolBar>
 #include <KLineEdit>
-#include <KPageDialog>
+#include <KHelpMenu>
+#include <KActionMenu>
 #include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KAboutApplicationDialog>
@@ -55,7 +55,7 @@ private:
 private slots:
     void initApplication();
     void initToolBar();
-    void initSearch();
+    void initHelpMenu();
     void initConfig();
     void initMenuList(MenuItem * parent);
     void configUpdated();
@@ -66,6 +66,7 @@ private slots:
     void updateViewActions();
     void moduleChanged();
     void changeToolBar( BaseMode::ToolBarItems toolbar );
+    void changeAboutMenu( const KAboutData * menuAbout, KAction * menuItem, QString fallback );
 
 private:
     // The plugins
@@ -79,7 +80,11 @@ private:
     KAction * spacerAction;
     KAction * quitAction;
     KAction * configureAction;
-    KAction * aboutAction;
+    // The help menu
+    KAction * aboutViewAction;
+    KAction * aboutModuleAction;
+    KHelpMenu * helpMenuObject;
+    KActionMenu * helpActionMenu;
     // The configuration
     KDialog * configDialog;
     Ui::ConfigDialog configWidget;
@@ -92,8 +97,7 @@ private:
     KService::List categories;
     KService::List modules;
     // The about dialog
-    KPageDialog * aboutDialog;
-    QList<KPageWidgetItem *> aboutAppPage;
+    KAboutApplicationDialog * aboutDialog;
     // Show enhanced tooltips
     bool showTooltips;
 

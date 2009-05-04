@@ -51,7 +51,6 @@ public:
     QList<QAbstractItemView*> mViews;
     QStackedWidget * mainWidget;
     KTabWidget * iconWidget;
-    QSortFilterProxyModel proxyModel;
     QList<MenuProxyModel *> proxyList;
     QHash<MenuProxyModel *, QString> proxyMap;
     KAboutData * aboutIcon;
@@ -62,7 +61,7 @@ public:
 IconMode::IconMode( QObject *parent, const QVariantList& )
     : BaseMode( parent ), d( new Private() )
 {
-    d->aboutIcon = new KAboutData( "KControl4_IconView", 0, ki18n( "Control Center Icons View" ),
+    d->aboutIcon = new KAboutData( "IconView", 0, ki18n( "Icon View" ),
                                  "1.0", ki18n( "Provides a categorized icons view of control modules." ),
                                  KAboutData::License_GPL, ki18n( "(c) 2009, Ben Cooksley" ) );
     d->aboutIcon->addAuthor( ki18n( "Ben Cooksley" ), ki18n( "Author" ), "ben@eclipse.endoftheinternet.org" );
@@ -108,7 +107,7 @@ void IconMode::initEvent()
 {
     foreach( MenuItem *childItem, rootItem()->children() ) {
         MenuModel *model = new MenuModel( childItem, this );
-        model->addException( childItem ); 
+        model->addException( childItem );
         MenuProxyModel *proxyModel = new MenuProxyModel( this );
         proxyModel->setCategorizedModel( true );
         proxyModel->setSourceModel( model );

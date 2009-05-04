@@ -111,7 +111,7 @@ bool KToolTipDelegate::haveAlphaChannel() const
 #ifdef Q_WS_X11
     return QX11Info::isCompositingManagerRunning();
 #else
-	return false;
+    return false;
 #endif
 }
 

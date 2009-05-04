@@ -38,18 +38,24 @@
 
 SettingsBase::SettingsBase( QWidget * parent ) :
     KXmlGuiWindow(parent),
-    activeView( NULL ),
     categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
     modules( KServiceTypeTrader::self()->query("KCModule") )
 {
     // Ensure delayed loading doesn't cause a crash
+    activeView = 0;
     aboutDialog = 0;
     configDialog = 0;
-    // Initialise the window so we don't flicker
+    // Initialise search
     mainConfigGroup = KGlobal::config()->group( "Main" );
-    initSearch();
+    searchText = new KLineEdit( this );
+    searchText->setClearButtonShown( true );
+    searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
+
+    spacerWidget = new QWidget( this );
+    spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+    // Initalise the window so we don't flicker
     initToolBar();
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true ); 
+    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true );
     // We can now launch the delayed loading safely
     QTimer::singleShot(0, this, SLOT(initApplication()));
 }
@@ -83,12 +89,12 @@ void SettingsBase::initApplication()
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
-	    connect(controller, SIGNAL(changeToolBarItems(BaseMode::ToolBarItems)), this, SLOT(changeToolBar(BaseMode::ToolBarItems)));
+            connect(controller, SIGNAL(changeToolBarItems(BaseMode::ToolBarItems)), this, SLOT(changeToolBar(BaseMode::ToolBarItems)));
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
             connect(controller, SIGNAL(viewChanged()), this, SLOT(moduleChanged()));
-            connect(controller->moduleView(), SIGNAL(configurationChanged(bool)), this, SLOT(toggleDirtyState(bool))); 
-        } else { 
+            connect(controller->moduleView(), SIGNAL(configurationChanged(bool)), this, SLOT(toggleDirtyState(bool)));
+        } else {
             kWarning() << "View load error: " + error;
         }
     }
@@ -103,9 +109,8 @@ void SettingsBase::initToolBar()
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
     configureAction->setText( i18n("Configure") );
-    // About after it
-    aboutAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutSystemSettings", this, SLOT( about() ) );
-    aboutAction->setText( i18n("About") );
+    // Help after it
+    initHelpMenu();
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new KAction( this );
     spacerAction->setDefaultWidget(spacerWidget);
@@ -123,22 +128,28 @@ void SettingsBase::initToolBar()
     // Toolbar & Configuration
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
-    toolBar()->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     changeToolBar( BaseMode::Search | BaseMode::Configure );
 }
 
-void SettingsBase::initSearch()
+void SettingsBase::initHelpMenu()
 {
-    searchText = new KLineEdit( 0 );
-    searchText->setClearButtonShown( true );
-    searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
-
-    spacerWidget = new QWidget( this );
-    spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+    helpMenuObject = new KHelpMenu( this );
+    helpActionMenu = new KActionMenu( KIcon("system-help"), i18n("Help"), this );
+    helpActionMenu->setMenu( helpMenuObject->menu() );
+    helpActionMenu->setDelayed( false );
+    actionCollection()->addAction( "helpMenu", helpActionMenu );
+    // Add the custom actions
+    aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutModule", this, SLOT( about() ) );
+    aboutModuleAction->setText( i18n("About current module") );
+    aboutModuleAction->setEnabled(false);
+    aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutView", this, SLOT( about() ) );
+    helpActionMenu->insertAction( helpMenuObject->action( KHelpMenu::menuAboutApp ), aboutModuleAction );
+    helpActionMenu->insertAction( aboutModuleAction, aboutViewAction );
 }
 
 void SettingsBase::initConfig()
-{   // Prepare dialog first
+{
+    // Prepare dialog first
     configDialog = new KDialog(this);
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
     configWidget.setupUi(configDialog->mainWidget());
@@ -156,16 +167,6 @@ void SettingsBase::initConfig()
 void SettingsBase::initMenuList(MenuItem * parent)
 {
     // look for any categories inside this level, and recurse into them
-    int depth = 0;
-    MenuItem * current = parent;
-    while ( current && current->parent() ) {
-        depth++;
-        current = current->parent();
-    }
-
-    QString space;
-    space.fill( ' ', depth * 2 );
-    kDebug() << space << "Looking for children in '" << parent->name() << "'";
     for (int i = 0; i < categories.size(); ++i) {
         KService::Ptr entry = categories.at(i);
         QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
@@ -181,7 +182,6 @@ void SettingsBase::initMenuList(MenuItem * parent)
         KService::Ptr entry = modules.at(i);
         QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         if(!parent->name().isEmpty() && category == parent->name() ) {
-            kDebug() << space << "found module '" << entry->name() << "' " << entry->entryPath();
             // Add the module info to the menu
             MenuItem * infoItem = new MenuItem(false, parent);
             infoItem->setService( entry );
@@ -195,7 +195,7 @@ void SettingsBase::configUpdated()
     configDialog->saveDialogSize( mainConfigGroup );
     int currentIndex = configWidget.CbPlugins->currentIndex();
     mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
-    showTooltips = configWidget.ChTooltips->isChecked();                                                                                   
+    showTooltips = configWidget.ChTooltips->isChecked();
     mainConfigGroup.writeEntry( "ShowTooltips", showTooltips );
     changePlugin();
 }
@@ -219,7 +219,7 @@ void SettingsBase::configShow()
 }
 
 bool SettingsBase::queryClose()
-{ 
+{
     bool changes = true;
     if( activeView ) {
         activeView->saveState();
@@ -231,47 +231,30 @@ bool SettingsBase::queryClose()
 
 void SettingsBase::about()
 {
-    QList<const KAboutData *> listToAdd;
-
-    // We initialise if we haven't already
-    if( !aboutDialog ) {
-        aboutDialog = new KPageDialog(this); // We create it on the first run
-        aboutDialog->setPlainCaption( i18n("About System Settings") );
-        aboutDialog->setButtons( KDialog::Close );
+    if( aboutDialog ) {
+        delete aboutDialog;
+        aboutDialog = 0;
     }
 
-    // First we cleanup from previous runs
-     while (!aboutAppPage.isEmpty()) {
-         aboutDialog->removePage(aboutAppPage.takeFirst());
-     }
-    // Build the list of About Items to add
-    if( KGlobal::activeComponent().aboutData() ) {
-        listToAdd.append( KGlobal::activeComponent().aboutData() );
+    const KAboutData * about = 0;
+    if( sender() == aboutViewAction ) {
+        about = activeView->aboutData();
+    } else if( sender() == aboutModuleAction && activeView->moduleView() ) {
+        about = activeView->moduleView()->aboutData();
     }
-    if( activeView && activeView->aboutData() ) {
-        listToAdd.append( activeView->aboutData() );
+
+    if( about ) {
+        aboutDialog = new KAboutApplicationDialog(about, 0);
+        aboutDialog->show();
     }
-    if( activeView && activeView->moduleView() && activeView->moduleView()->aboutData() ) {
-        listToAdd.append( activeView->moduleView()->aboutData() );
-    }
-    foreach( const KAboutData * addingItem, listToAdd ) {
-        KAboutApplicationDialog * addingDialog = new KAboutApplicationDialog(addingItem, 0);
-        KPageWidgetItem * addingPage = new KPageWidgetItem( addingDialog, addingItem->programName() );
-        addingDialog->setButtons( KDialog::None );
-        addingPage->setHeader( "" );
-        addingPage->setIcon( KIcon(addingItem->programIconName()) );
-        aboutDialog->addPage(addingPage);
-        aboutAppPage.append(addingPage);
-    }
-    aboutDialog->show();
 }
 
 void SettingsBase::changePlugin()
 {
-    if( possibleViews.count() == 0 ) // We should ensure we have a plugin available to choose 
-    {   KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
+    if( possibleViews.count() == 0 ) { // We should ensure we have a plugin available to choose
+        KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         return; // Halt now!
-    } 
+    }
 
     if( activeView ) {
         activeView->saveState();
@@ -284,11 +267,13 @@ void SettingsBase::changePlugin()
     else { // Otherwise we activate the failsafe
         activeView = possibleViews.values().first();
     }
-    
+
     if( stackedWidget->indexOf(activeView->mainWidget()) == -1 ) {
         stackedWidget->addWidget(activeView->mainWidget());
     }
 
+    changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About active view") );
+    moduleChanged();
     activeView->setEnhancedTooltipEnabled( showTooltips );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
@@ -297,8 +282,8 @@ void SettingsBase::changePlugin()
 }
 
 void SettingsBase::toggleDirtyState(bool state)
-{ 
-    KCModuleInfo * moduleProxy = activeView->moduleView()->activeModule(); 
+{
+    KCModuleInfo * moduleProxy = activeView->moduleView()->activeModule();
     configureAction->setDisabled(state);
     setCaption( moduleProxy->moduleName(), state );
 }
@@ -317,6 +302,7 @@ void SettingsBase::moduleChanged()
     } else {
         setCaption( QString(), false );
     }
+    changeAboutMenu( activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About active module") );
 }
 
 void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
@@ -328,13 +314,30 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     guiFactory()->unplugActionList( this, "search" );
     if ( BaseMode::Search & toolbar ) {
         QList<QAction*> searchBarActions;
-	searchBarActions << spacerAction << searchAction;
+        searchBarActions << spacerAction << searchAction;
         guiFactory()->plugActionList( this, "search", searchBarActions );
     }
     if ( BaseMode::Configure & toolbar ) {
         QList<QAction*> configureBarActions;
-	configureBarActions << configureAction;
+        configureBarActions << configureAction;
         guiFactory()->plugActionList( this, "configure", configureBarActions );
+    }
+}
+
+void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, KAction * menuItem, QString fallback )
+{
+    if( !menuItem ) {
+        return;
+    }
+
+    if( menuAbout ) {
+        menuItem->setText( i18n( "About %1", menuAbout->programName() ) );
+        menuItem->setIcon( KIcon( menuAbout->programIconName() ) );
+        menuItem->setEnabled(true);
+    } else {
+        menuItem->setText( fallback );
+        menuItem->setIcon( KIcon( KGlobal::activeComponent().aboutData()->programIconName() ) );
+        menuItem->setEnabled(false);
     }
 }
 
