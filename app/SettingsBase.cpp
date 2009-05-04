@@ -208,7 +208,11 @@ void SettingsBase::configShow()
 
     QStringList pluginList = possibleViews.keys();
     int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
-    configWidget.CbPlugins->setCurrentIndex( configIndex );
+    if( configIndex == -1 ) {
+        configWidget.CbPlugins->setCurrentIndex( 0 );
+    } else {
+        configWidget.CbPlugins->setCurrentIndex( configIndex );
+    }
     configWidget.ChTooltips->setChecked( showTooltips );
     if( pluginList.count() == 0 ) {
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
