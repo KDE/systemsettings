@@ -304,7 +304,7 @@ void SettingsBase::moduleChanged()
     } else {
         setCaption( QString(), false );
     }
-    changeAboutMenu( activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About active module") );
+    changeAboutMenu( activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About Active Module") );
 }
 
 void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
