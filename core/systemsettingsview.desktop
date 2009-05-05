@@ -2,6 +2,9 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsView
 Name=System Settings View
+Name[et]=Süsteemi seadistuste vaade
+Name[km]=ទិដ្ឋភាព​ការ​កំណត់​ប្រព័ន្ធ​
+Name[nds]=Systeeminstellen-Anischt
 Name[pt]=Vista da Configuração do Sistema
 Name[pt_BR]=Vista da Configuração do Sistema
 Name[sv]=Systeminställningsvy
