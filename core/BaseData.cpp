@@ -21,7 +21,6 @@
 
 #include "MenuItem.h"
 
-#include <KService>
 #include <KConfigGroup>
 
 class DataHelper {

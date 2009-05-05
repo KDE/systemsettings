@@ -18,7 +18,6 @@
  ***************************************************************************/
 
 #include "BaseMode.h"
-#include "BaseData.h"
 
 #include <QList>
 #include <QAction>
@@ -28,8 +27,8 @@
 #include <KServiceTypeTrader>
 
 #include "MenuItem.h"
+#include "BaseData.h"
 #include "ModuleView.h"
-
 #include "ToolTipManager.h"
 
 class BaseMode::Private {
@@ -45,7 +44,7 @@ public:
 
 BaseMode::BaseMode(QObject* parent)
     : QObject( parent ), d( new Private() )
-{ 
+{
 }
 
 BaseMode::~BaseMode()
@@ -67,7 +66,7 @@ void BaseMode::initEvent()
 }
 
 QWidget * BaseMode::mainWidget()
-{ 
+{
     return 0;
 }
 

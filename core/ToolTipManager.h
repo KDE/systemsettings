@@ -23,7 +23,6 @@
 #include <QObject>
 #include "systemsettingsview_export.h"
 
-#include <QRect>
 #include <QModelIndex>
 
 class MenuItem;

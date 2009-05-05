@@ -29,9 +29,7 @@
 
 #include <KDialog>
 #include <KService>
-#include <KToolBar>
 #include <KLineEdit>
-#include <KHelpMenu>
 #include <KActionMenu>
 #include <KConfigGroup>
 #include <KXmlGuiWindow>
@@ -78,19 +76,16 @@ private:
     // The toolbar
     KAction * searchAction;
     KAction * spacerAction;
-    KAction * quitAction;
     KAction * configureAction;
     // The help menu
     KAction * aboutViewAction;
     KAction * aboutModuleAction;
-    KHelpMenu * helpMenuObject;
     KActionMenu * helpActionMenu;
     // The configuration
     KDialog * configDialog;
     Ui::ConfigDialog configWidget;
     KConfigGroup mainConfigGroup;
     // The control module
-    KToolBar * viewToolbar;
     QStackedWidget * stackedWidget;
     // The module list
     MenuItem * rootModule;

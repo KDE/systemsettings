@@ -22,9 +22,11 @@
 #include <QTimer>
 #include <QVariantList>
 
+#include <KMenu>
 #include <KDebug>
 #include <KConfig>
 #include <KMenuBar>
+#include <KToolBar>
 #include <KAboutData>
 #include <KMessageBox>
 #include <KCModuleInfo>
@@ -126,6 +128,7 @@ void SettingsBase::initToolBar()
     setupGUI(Save|Create,QString());
     menuBar()->hide();
     // Toolbar & Configuration
+    helpActionMenu->setMenu( dynamic_cast<KMenu*>( factory()->container("help", this) ) );
     setMinimumSize(800,480);
     toolBar()->setMovable(false); // We don't allow any changes
     changeToolBar( BaseMode::Search | BaseMode::Configure );
@@ -133,17 +136,13 @@ void SettingsBase::initToolBar()
 
 void SettingsBase::initHelpMenu()
 {
-    helpMenuObject = new KHelpMenu( this, KGlobal::activeComponent().aboutData() );
     helpActionMenu = new KActionMenu( KIcon("system-help"), i18n("Help"), this );
-    helpActionMenu->setMenu( helpMenuObject->menu() );
     helpActionMenu->setDelayed( false );
-    actionCollection()->addAction( "helpMenu", helpActionMenu );
+    actionCollection()->addAction( "help_toolbar_menu", helpActionMenu );
     // Add the custom actions
-    aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutModule", this, SLOT( about() ) );
+    aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "help_about_module", this, SLOT( about() ) );
     changeAboutMenu( 0, aboutModuleAction, i18n("About Active Module") );
-    aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "aboutView", this, SLOT( about() ) );
-    helpActionMenu->insertAction( helpMenuObject->action( KHelpMenu::menuAboutApp ), aboutModuleAction );
-    helpActionMenu->insertAction( aboutModuleAction, aboutViewAction );
+    aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "help_about_view", this, SLOT( about() ) );
 }
 
 void SettingsBase::initConfig()

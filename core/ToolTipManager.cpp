@@ -23,7 +23,6 @@
 
 #include "KToolTip.h"
 #include "KToolTipManager.h"
-#include "KToolTipDelegate.h"
 #include "SystemSettingsToolTipItem.h"
 #include "SystemSettingsBalloonToolTipDelegate.h"
 
@@ -37,7 +36,6 @@
 #include <QAbstractItemView>
 
 #include <KIcon>
-#include <kio/previewjob.h>
 
 K_GLOBAL_STATIC(SystemSettingsBalloonToolTipDelegate, g_delegate)
 

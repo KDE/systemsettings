@@ -26,7 +26,6 @@
 
 #include <QStackedWidget>
 
-#include <KDebug>
 #include <KAction>
 #include <KDialog>
 #include <KTabWidget>

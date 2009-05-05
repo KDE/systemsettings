@@ -27,7 +27,6 @@
 #include <QWhatsThis>
 #include <QScrollArea>
 #include <QVBoxLayout>
-#include <QDialogButtonBox>
 
 #include <KDebug>
 #include <KDialog>
@@ -115,7 +114,7 @@ const KAboutData * ModuleView::aboutData() const
     if ( aboutData ) {
         aboutData->setProgramIconName( activeModule->moduleInfo().service()->icon() );
         return aboutData;
-    } 
+    }
     return 0;
 }
 
@@ -314,7 +313,7 @@ void ModuleView::keyPressEvent ( QKeyEvent * event )
         event->accept();
         return;
     }
-    
+
     QWidget::keyPressEvent( event );
 }
 
