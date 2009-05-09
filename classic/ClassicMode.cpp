@@ -72,6 +72,7 @@ ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
 
 ClassicMode::~ClassicMode()
 {
+    delete d->classicWidget;
     delete d;
 }
 
