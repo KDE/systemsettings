@@ -30,11 +30,11 @@ class MenuItem;
  * @brief Provides a menu of the MenuItem objects
  *
  * Provides a standardised model to be used with views to display the list of modules in a variety of ways.\n
- * It is recommended to also use this with the MenuProxyModel to provide searching 
+ * It is recommended to also use this with the MenuProxyModel to provide searching
  * and correct ordering of modules.
  *
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
- * @author Will Stephenson <wstephenson@kde.org> 
+ * @author Will Stephenson <wstephenson@kde.org>
  */
 class SYSTEMSETTINGSVIEW_EXPORT MenuModel : public QAbstractItemModel
 {
@@ -147,6 +147,14 @@ protected:
      * @returns The MenuItem used internally.
      */
     MenuItem* rootItem() const;
+
+    /**
+     * Provides a list of children of an item which has been altered by the exceptions list
+     *
+     * @param parent The parent of the children desired
+     * @returns The list of children for the item specified
+     */
+    QList<MenuItem*> childrenList( MenuItem * parent ) const;
 
 private:
     class Private;

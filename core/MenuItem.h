@@ -33,14 +33,14 @@ template<typename T> class QList;
 /**
  * @brief Provides a specific item in the list of modules or categories
  *
- * This provides convienent access to the list of modules, providing information about them 
+ * This provides convienent access to the list of modules, providing information about them
  * such as name, module information and its service object.\n
  * This is created automatically by System Settings, and is shared among all plugins and so should not
  * be modified under any circumstances.\n
- * 
+ *
  * System Settings creates it in a tree like manner, with categories containing subcategories and modules,
  * and subcategories repeating this.\n
- * 
+ *
  * The service object must be set, unless it is the top level item, otherwise using applications
  * will crash when attempting to sort the children by weight
  *
@@ -81,14 +81,6 @@ public:
     MenuItem * child( int index );
 
     /**
-     * Provides the MenuItem for the grand child at the specified index.
-     *
-     * @param index The index of the grand child.
-     * @returns The MenuItem object of the specified grand child.
-     */
-    MenuItem * grandChild( int index );
- 
-    /**
      * Returns the list of keywords, which is used for searching the list of categories and modules.
      *
      * @note The parent items share all the keywords of their children.
@@ -111,20 +103,13 @@ public:
     QList<MenuItem*>& children() const;
 
     /**
-     * Provides the list of all grand children this item has. Excludes its children.
-     *
-     * @returns The list of grand children this item has.
-     */
-    QList<MenuItem*>& grandChildren() const;
-
-    /**
      * Returns the service object of this item, which contains useful information about it.
      *
      * @returns The service object of this item if it has been set.
      */
     KService::Ptr& service() const;
 
-    /** 
+    /**
      * Provides the KDE control module information item, which can be used to load control modules
      * by the ModuleView.
      *

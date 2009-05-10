@@ -106,7 +106,9 @@ void IconMode::initEvent()
 {
     foreach( MenuItem *childItem, rootItem()->children() ) {
         MenuModel *model = new MenuModel( childItem, this );
-        model->addException( childItem );
+        foreach( MenuItem * child, childItem->children() ) {
+            model->addException( child );
+        }
         MenuProxyModel *proxyModel = new MenuProxyModel( this );
         proxyModel->setCategorizedModel( true );
         proxyModel->setSourceModel( model );

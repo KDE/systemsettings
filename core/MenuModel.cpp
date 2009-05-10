@@ -62,12 +62,8 @@ int MenuModel::rowCount( const QModelIndex &parent ) const
     } else {
         mi = d->rootItem;
     }
-    if ( mi && d->exceptions.contains(mi) ) {
-        return mi->grandChildren().count();
-    } else if ( mi ) {
-        return mi->children().count();
-    }
-    return 0;
+
+    return childrenList(mi).count();
 }
 
 QVariant MenuModel::data( const QModelIndex &index, int role ) const
@@ -136,13 +132,7 @@ QModelIndex MenuModel::index( int row, int column, const QModelIndex &parent ) c
         parentItem = static_cast<MenuItem*>( parent.internalPointer() );
     }
 
-    MenuItem *childItem;
-    if( d->exceptions.contains(parentItem) ) {
-        childItem = parentItem->grandChild( row );
-    } else {
-        childItem = parentItem->child( row );
-    }
-
+    MenuItem *childItem = childrenList(parentItem).value(row);
     if ( childItem ) {
         return createIndex( row, column, childItem );
     } else {
@@ -152,27 +142,37 @@ QModelIndex MenuModel::index( int row, int column, const QModelIndex &parent ) c
 
 QModelIndex MenuModel::parent( const QModelIndex &index ) const
 {
-    if ( !index.isValid() ) {
+    MenuItem *childItem = static_cast<MenuItem*>( index.internalPointer() );
+    if( !childItem ) {
         return QModelIndex();
     }
 
-    MenuItem *childItem = static_cast<MenuItem*>( index.internalPointer() );
-    MenuItem *parentItem;
-    MenuItem *grandParent = childItem->parent()->parent();
-    int childRow = 0;
+    MenuItem * parentItem = childItem->parent();
+    if( d->exceptions.contains(parentItem) ) {
+        parentItem = parentItem->parent();
+    }
 
-    if( d->exceptions.contains(grandParent) ) {
-        parentItem = grandParent;
-        childRow = grandParent->grandChildren().indexOf( parentItem );
-    } else {
-        parentItem = childItem->parent();
-        childRow = grandParent->children().indexOf( parentItem );
+    int childRow = 0;
+	if( parentItem->parent() ) {
+        childRow = childrenList(parentItem->parent()).indexOf( parentItem );
     }
 
     if ( parentItem == d->rootItem ) {
         return QModelIndex();
     }
     return createIndex( childRow, 0, parentItem );
+}
+
+QList<MenuItem*> MenuModel::childrenList( MenuItem * parent ) const
+{
+    QList<MenuItem*> children = parent->children();
+    foreach( MenuItem * child, children ) {
+        if( d->exceptions.contains( child ) ) {
+            children.removeAll(child);
+            children.append(child->children());
+        }
+    }
+    return children;
 }
 
 MenuItem * MenuModel::rootItem() const
@@ -182,6 +182,9 @@ MenuItem * MenuModel::rootItem() const
 
 void MenuModel::addException( MenuItem * exception )
 {
+    if( exception == d->rootItem ) {
+        return;
+    }
     d->exceptions.append(exception);
 }
 

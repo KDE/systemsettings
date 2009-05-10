@@ -7,7 +7,7 @@
    published by the Free Software Foundation; either version 2 of
    the License or (at your option) version 3 or any later version
    accepted by the membership of KDE e.V. (or its successor approved
-   by the membership of KDE e.V.), which shall act as a proxy 
+   by the membership of KDE e.V.), which shall act as a proxy
    defined in Section 14 of version 3 of the license.
 
    This program is distributed in the hope that it will be useful,
@@ -37,7 +37,6 @@ public:
 
     MenuItem *parent;
     QList<MenuItem*> children;
-    QList<MenuItem*> grandChildren;
     bool menu;
     QString name;
     int weight;
@@ -53,17 +52,12 @@ MenuItem::MenuItem( bool isMenu, MenuItem * itsParent )
 
     if ( d->parent ) {
         d->parent->children().append( this );
-        MenuItem * grandParent = d->parent->parent();
-        if( grandParent ) {
-            grandParent->grandChildren().append(this);
-        }
     }
 }
 
 MenuItem::~MenuItem()
 {
     qDeleteAll( d->children );
-    d->grandChildren.clear();
     delete d;
 }
 
@@ -75,11 +69,6 @@ void MenuItem::sortChildrenByWeight()
 MenuItem * MenuItem::child( int index )
 {
     return d->children.at(index);
-}
-
-MenuItem * MenuItem::grandChild( int index )
-{
-    return d->grandChildren.at(index);
 }
 
 QStringList MenuItem::keywords()
@@ -101,11 +90,6 @@ MenuItem* MenuItem::parent() const
 QList<MenuItem*>& MenuItem::children() const
 {
     return d->children;
-}
-
-QList<MenuItem*>& MenuItem::grandChildren() const
-{
-    return d->grandChildren;
 }
 
 KService::Ptr& MenuItem::service() const

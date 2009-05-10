@@ -72,7 +72,9 @@ ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
 
 ClassicMode::~ClassicMode()
 {
-    delete d->classicWidget;
+    if( !d->classicTree ) {
+        delete d->classicWidget;
+    }
     delete d;
 }
 
@@ -80,7 +82,9 @@ void ClassicMode::initEvent()
 {
     // Create the model
     d->model = new MenuModel( rootItem(), this );
-    d->model->addException( rootItem() );
+    foreach( MenuItem * child, rootItem()->children() ) {
+        d->model->addException( child );
+	}
     // Create the model
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setSourceModel( d->model );
@@ -125,7 +129,6 @@ void ClassicMode::saveState()
 void ClassicMode::expandColumns()
 {
     d->classicTree->resizeColumnToContents(0);
-    d->classicTree->resizeColumnToContents(1);
 }
 
 void ClassicMode::searchChanged( const QString& text )
