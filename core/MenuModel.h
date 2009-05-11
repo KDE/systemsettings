@@ -156,6 +156,14 @@ protected:
      */
     QList<MenuItem*> childrenList( MenuItem * parent ) const;
 
+    /**
+     * Provides the parent of the child specified altered by the exceptions list
+     *
+     * @param child The child of the parent
+     * @returns The exceptions list affected parent of the child
+     */
+    MenuItem* parentItem( MenuItem * child ) const;
+
 private:
     class Private;
     Private *const d;

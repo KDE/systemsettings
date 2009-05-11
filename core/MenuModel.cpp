@@ -147,20 +147,18 @@ QModelIndex MenuModel::parent( const QModelIndex &index ) const
         return QModelIndex();
     }
 
-    MenuItem * parentItem = childItem->parent();
-    if( d->exceptions.contains(parentItem) ) {
-        parentItem = parentItem->parent();
-    }
+    MenuItem * parent = parentItem(childItem);
+    MenuItem * grandParent = parentItem(parent);
 
     int childRow = 0;
-	if( parentItem->parent() ) {
-        childRow = childrenList(parentItem->parent()).indexOf( parentItem );
+    if( grandParent ) {
+        childRow = childrenList( grandParent ).indexOf( parent );
     }
 
-    if ( parentItem == d->rootItem ) {
+    if ( parent == d->rootItem ) {
         return QModelIndex();
     }
-    return createIndex( childRow, 0, parentItem );
+    return createIndex( childRow, 0, parent );
 }
 
 QList<MenuItem*> MenuModel::childrenList( MenuItem * parent ) const
@@ -168,11 +166,20 @@ QList<MenuItem*> MenuModel::childrenList( MenuItem * parent ) const
     QList<MenuItem*> children = parent->children();
     foreach( MenuItem * child, children ) {
         if( d->exceptions.contains( child ) ) {
-            children.removeAll(child);
+            children.removeOne(child);
             children.append(child->children());
         }
     }
     return children;
+}
+
+MenuItem * MenuModel::parentItem( MenuItem * child ) const
+{
+    MenuItem * parent = child->parent();
+    if( d->exceptions.contains(parent) ) {
+        parent = parentItem(parent);
+    }
+    return parent;
 }
 
 MenuItem * MenuModel::rootItem() const
