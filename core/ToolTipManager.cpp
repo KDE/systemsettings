@@ -121,7 +121,7 @@ void ToolTipManager::prepareToolTip()
     for ( int done = 0; itemModel->rowCount( d->item ) > done; done = 1 + done ) {
         QModelIndex childIndex = itemModel->index( done, 0, d->item );
         MenuItem * child = itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        QString text = QString( "<b>%1</b><br />" ).arg( child->service()->name() );
+        QString text = QString( "%1<br />" ).arg( child->service()->name() );
         toolTip->addLine( KIcon( child->service()->icon() ), text );
     }
 
