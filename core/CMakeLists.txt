@@ -6,7 +6,7 @@ set(systemsettingsview_LIB_SRCS
     MenuProxyModel.cpp
     ModuleView.cpp
     BaseData.cpp
-    BaseMode.cpp 
+    BaseMode.cpp
     ToolTips/SystemSettingsBalloonToolTipDelegate.cpp
     ToolTips/KFormattedBalloonTipDelegate.cpp
     ToolTips/SystemSettingsToolTipItem.cpp
@@ -34,5 +34,5 @@ kde4_add_library( systemsettingsview SHARED ${systemsettingsview_LIB_SRCS} )
 target_link_libraries( systemsettingsview ${KDE4_KDECORE_LIBS} ${KDE4_KUTILS_LIBS} )
 
 install( TARGETS systemsettingsview  ${INSTALL_TARGETS_DEFAULT_ARGS} )
-install( FILES ${systemsettings_LIB_HDRS} DESTINATION ${INCLUDE_INSTALL_DIR}/systemsettingsview COMPONENT Devel )
+install( FILES ${systemsettingsview_LIB_HDRS} DESTINATION ${INCLUDE_INSTALL_DIR}/systemsettingsview COMPONENT Devel )
 INSTALL( FILES systemsettingsview.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
