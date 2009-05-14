@@ -20,10 +20,10 @@
 #ifndef TOOLTIPMANAGER_H
 #define TOOLTIPMANAGER_H
 
-#include <QObject>
+#include <QtCore/QObject>
 #include "systemsettingsview_export.h"
 
-#include <QModelIndex>
+#include <QtCore/QModelIndex>
 
 class MenuItem;
 class KToolTipItem;
@@ -50,7 +50,7 @@ public:
     explicit ToolTipManager(QAbstractItemView* parent);
     virtual ~ToolTipManager();
 
-public slots:
+public Q_SLOTS:
     /**
      * Hides the currently shown tooltip. Invoking this method is
      * only needed when the tooltip should be hidden although
@@ -68,7 +68,7 @@ protected:
     */
     virtual bool eventFilter(QObject* watched, QEvent* event);
 
-private slots:
+private Q_SLOTS:
     void prepareToolTip();
 
 private:

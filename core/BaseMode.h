@@ -20,10 +20,10 @@
 #ifndef BASEMODE_H
 #define BASEMODE_H
 
-#include <QObject>
+#include <QtCore/QObject>
 #include "systemsettingsview_export.h"
 
-#include <KService>
+#include <KDE/KService>
 
 class QAction;
 class MenuItem;

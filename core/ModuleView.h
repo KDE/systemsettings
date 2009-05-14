@@ -21,7 +21,7 @@
 #ifndef MODULE_VIEW_H
 #define MODULE_VIEW_H
 
-#include <QWidget>
+#include <QtGui/QWidget>
 #include "systemsettingsview_export.h"
 
 class MenuItem;
