@@ -96,7 +96,7 @@ bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
                 const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
                 d->itemRect.moveTo(pos);
                 d->item = index;
-                d->timer->start(500);
+                d->timer->start(100);
             }
             return ( index != QModelIndex() );
         }
