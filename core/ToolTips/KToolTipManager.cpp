@@ -33,6 +33,7 @@ KToolTipManager::~KToolTipManager()
 {
     delete label;
     delete currentItem;
+    s_instance = 0;
 }
 
 void KToolTipManager::showTip(const QPoint &pos, KToolTipItem *item)
