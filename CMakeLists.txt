@@ -1,9 +1,3 @@
-PROJECT (systemsettings)
-
-find_package(KDE4 REQUIRED)
-include (KDE4Defaults)
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-
 INCLUDE_DIRECTORIES (${CMAKE_CURRENT_SOURCE_DIR}/core ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 
 ADD_SUBDIRECTORY(core)
