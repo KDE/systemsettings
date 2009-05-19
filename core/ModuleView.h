@@ -39,7 +39,7 @@ class KPageWidgetItem;
  *
  * It also provides checking for when a module has changed its configuration, and will prompt
  * if the user tries to change module or view if BaseMode is reimplemented correctly
- * 
+ *
  * It also provides signals for active module changes, configuration changes and for when it has
  * been requested to close by button press
  *
@@ -123,7 +123,7 @@ public Q_SLOTS:
      */
     void moduleDefaults();
 
-    /** 
+    /**
      * Reimplemented for internal reasons.\n
      */
     void keyPressEvent( QKeyEvent * event );
@@ -135,18 +135,13 @@ private:
 private Q_SLOTS:
     void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous);
     void updateButtons();
-    void moduleChanged( bool change );
 
 Q_SIGNALS:
     /**
-     * Emitted when the currently active module is switched. Currently used to update the window caption
+     * Emitted when the currently active module is changed. This occurs whenever the active module or
+     * its configuration changes. This causes the window caption to update.
      */
-    void moduleSwitched();
-
-    /** 
-     * Emitted when the currently active module configuration changes. Also updates the window caption
-     */
-    void configurationChanged( bool change );
+    void moduleChanged( bool state );
 
     /**
      * Emitted when the ModuleView is asked to close.\n

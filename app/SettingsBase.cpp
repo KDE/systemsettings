@@ -94,8 +94,7 @@ void SettingsBase::initApplication()
             connect(controller, SIGNAL(changeToolBarItems(BaseMode::ToolBarItems)), this, SLOT(changeToolBar(BaseMode::ToolBarItems)));
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
             connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
-            connect(controller, SIGNAL(viewChanged()), this, SLOT(moduleChanged()));
-            connect(controller->moduleView(), SIGNAL(configurationChanged(bool)), this, SLOT(toggleDirtyState(bool)));
+            connect(controller, SIGNAL(viewChanged(bool)), this, SLOT(viewChange(bool)));
         } else {
             kWarning() << "View load error: " + error;
         }
@@ -275,7 +274,7 @@ void SettingsBase::changePlugin()
     }
 
     changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
-    moduleChanged();
+    viewChange(false);
     activeView->setEnhancedTooltipEnabled( showTooltips );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
@@ -283,28 +282,22 @@ void SettingsBase::changePlugin()
     activeView->mainWidget()->setFocus();
 }
 
-void SettingsBase::toggleDirtyState(bool state)
+void SettingsBase::viewChange(bool state)
 {
-    KCModuleInfo * moduleProxy = activeView->moduleView()->activeModule();
+    KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule();
     configureAction->setDisabled(state);
-    setCaption( moduleProxy->moduleName(), state );
+    if( moduleInfo ) {
+        setCaption( moduleInfo->moduleName(), state );
+    } else {
+        setCaption( QString(), state );
+    }
+    changeAboutMenu( activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About Active Module") );
 }
 
 void SettingsBase::updateViewActions()
 {
     guiFactory()->unplugActionList( this, "viewActions" );
     guiFactory()->plugActionList( this, "viewActions", activeView->actionsList() );
-}
-
-void SettingsBase::moduleChanged()
-{
-    KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule();
-    if( moduleInfo ) {
-        setCaption( moduleInfo->moduleName() );
-    } else {
-        setCaption( QString(), false );
-    }
-    changeAboutMenu( activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About Active Module") );
 }
 
 void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )

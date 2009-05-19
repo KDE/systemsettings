@@ -60,9 +60,8 @@ private slots:
     void configShow();
     void about();
     void changePlugin();
-    void toggleDirtyState(bool state);
+    void viewChange(bool state);
     void updateViewActions();
-    void moduleChanged();
     void changeToolBar( BaseMode::ToolBarItems toolbar );
     void changeAboutMenu( const KAboutData * menuAbout, KAction * menuItem, QString fallback );
 

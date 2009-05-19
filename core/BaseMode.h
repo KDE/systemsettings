@@ -38,7 +38,7 @@ template<typename T> class QList;
  * their own interface to KDE control modules.\n
  *
  * The developer need only ensure that they perform all initialization of their plugin in
- * initEvent() to ensure that the plugin is displayed, and initial actions are loaded. 
+ * initEvent() to ensure that the plugin is displayed, and initial actions are loaded.
  *
  * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
@@ -169,10 +169,11 @@ Q_SIGNALS:
      * Should be emitted when the type ( list of modules / display of module )
      * of displayed view is changed.
      *
+     * @param state Determines whether changes have been made in the view.
      * @warning Failure to emit this will result in inconsistent application headers and change state.
-     */ 
-    void viewChanged();
-    
+     */
+    void viewChanged( bool state );
+
     /**
      * Causes System Settings to hide / show the toolbar items specified.
      * This is used to control the display of the Configure and Search actions

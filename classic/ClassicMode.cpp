@@ -157,7 +157,7 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
     if( d->proxyModel->rowCount(activeModule) > 0 ) {
         d->stackedWidget->setCurrentWidget( d->classicCategory );
         d->classicCategory->changeModule(activeModule);
-        emit viewChanged();
+        emit viewChanged( false );
     } else {
         MenuItem *menuItem = d->proxyModel->data( activeModule, Qt::UserRole ).value<MenuItem*>();
         d->moduleView->loadModule( menuItem );

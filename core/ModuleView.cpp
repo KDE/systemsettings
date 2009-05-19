@@ -86,7 +86,7 @@ ModuleView::ModuleView( QWidget * parent ) : QWidget( parent ), d( new Private()
     connect( d->mDefault, SIGNAL(clicked()), this, SLOT(moduleDefaults()) );
     connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)),
              this, SLOT(activeModuleChanged(KPageWidgetItem*, KPageWidgetItem*)) );
-    connect( this, SIGNAL(moduleSwitched()), this, SLOT(updateButtons()) );
+    connect( this, SIGNAL(moduleChanged(bool)), this, SLOT(updateButtons()) );
 }
 
 ModuleView::~ModuleView()
@@ -136,7 +136,7 @@ void ModuleView::loadModule( MenuItem *menuItem )
     foreach ( KCModuleInfo *module, modules ) {
         addModule(module);
     }
-    emit moduleSwitched();
+    emit moduleChanged( false );
 }
 
 void ModuleView::addModule( KCModuleInfo *module )
@@ -172,7 +172,7 @@ void ModuleView::addModule( KCModuleInfo *module )
     page->setIcon( KIcon( module->service()->icon() ) );
     page->setHeader( module->service()->comment() );
     // Allow it to signal properly
-    connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(moduleChanged(bool)));
+    connect( moduleProxy, SIGNAL(changed(bool)), this, SIGNAL(moduleChanged(bool)));
     // Set it to be shown and signal that
     d->mPageWidget->addPage( page );
     d->mPages.insert( page, moduleProxy );
@@ -281,13 +281,6 @@ void ModuleView::moduleHelp()
     QProcess::startDetached("khelpcenter", QStringList() << url.url());
 }
 
-void ModuleView::moduleChanged(bool change)
-{
-    d->mApply->setEnabled(change);
-    d->mReset->setEnabled(change);
-    emit configurationChanged(change);
-}
-
 void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem * previous)
 {
     d->mPageWidget->blockSignals(true);
@@ -297,7 +290,15 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
         d->mPageWidget->setCurrentPage(current);
     }
     d->mPageWidget->blockSignals(false);
-    emit moduleSwitched();
+    // We need to get the state of the now active module
+    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    bool change = false;
+    if( activeModule ) {
+        change = activeModule->changed();
+    }
+    d->mApply->setEnabled(change);
+    d->mReset->setEnabled(change);
+    emit moduleChanged( change );
 }
 
 void ModuleView::keyPressEvent ( QKeyEvent * event )

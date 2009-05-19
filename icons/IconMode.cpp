@@ -119,7 +119,7 @@ void IconMode::initEvent()
 
     d->mainWidget = new QStackedWidget();
     d->moduleView = new ModuleView( d->mainWidget );
-    connect( d->moduleView, SIGNAL( moduleSwitched() ), this, SLOT( moduleLoaded() ) );
+    connect( d->moduleView, SIGNAL( moduleChanged(bool) ), this, SLOT( moduleLoaded() ) );
     connect( d->moduleView, SIGNAL( closeRequest() ), this, SLOT( backToOverview() ) );
     d->iconWidget = 0;
 }
@@ -152,7 +152,7 @@ void IconMode::backToOverview()
         d->mainWidget->setCurrentWidget( d->iconWidget );
         d->backAction->setEnabled( false );
         emit changeToolBarItems( BaseMode::Search | BaseMode::Configure );
-        emit viewChanged();
+        emit viewChanged( false );
     }
 }
 
