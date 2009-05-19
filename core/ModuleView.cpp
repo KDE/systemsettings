@@ -136,7 +136,7 @@ void ModuleView::loadModule( MenuItem *menuItem )
     foreach ( KCModuleInfo *module, modules ) {
         addModule(module);
     }
-    emit moduleChanged( false );
+    stateChanged();
 }
 
 void ModuleView::addModule( KCModuleInfo *module )
@@ -172,7 +172,7 @@ void ModuleView::addModule( KCModuleInfo *module )
     page->setIcon( KIcon( module->service()->icon() ) );
     page->setHeader( module->service()->comment() );
     // Allow it to signal properly
-    connect( moduleProxy, SIGNAL(changed(bool)), this, SIGNAL(moduleChanged(bool)));
+    connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
     // Set it to be shown and signal that
     d->mPageWidget->addPage( page );
     d->mPages.insert( page, moduleProxy );
@@ -291,6 +291,11 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
     }
     d->mPageWidget->blockSignals(false);
     // We need to get the state of the now active module
+    stateChanged();
+}
+
+void ModuleView::stateChanged()
+{
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
     bool change = false;
     if( activeModule ) {

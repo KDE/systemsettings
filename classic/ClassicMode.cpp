@@ -27,7 +27,6 @@
 #include <QStackedWidget>
 #include <QAbstractItemModel>
 
-#include <KDebug>
 #include <KDialog>
 #include <KAboutData>
 #include <KCModuleInfo>
@@ -166,7 +165,6 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
 
 void ClassicMode::moduleLoaded()
 {
-    kDebug();
     d->stackedWidget->setCurrentWidget( d->moduleView );
 }
 
