@@ -290,11 +290,13 @@ void ModuleView::moduleChanged(bool change)
 
 void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem * previous)
 {
-    Q_UNUSED( current );
+    d->mPageWidget->blockSignals(true);
+    d->mPageWidget->setCurrentPage(previous);
     KCModuleProxy * previousModule = d->mPages.value(previous);
-    if( !resolveChanges(previousModule) ) {
-        d->mPageWidget->setCurrentPage(previous);
+    if( resolveChanges(previousModule) ) {
+        d->mPageWidget->setCurrentPage(current);
     }
+    d->mPageWidget->blockSignals(false);
     emit moduleSwitched();
 }
 
