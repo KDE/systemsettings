@@ -24,6 +24,7 @@ set(systemsettingsview_LIB_HDRS
     MenuItem.h
     MenuModel.h
     MenuProxyModel.h
+    BaseData.h
     BaseMode.h
     ModuleView.h
     ToolTipManager.h
