@@ -20,7 +20,7 @@
 #ifndef BASEDATA_H
 #define BASEDATA_H
 
-#include <QObject>
+#include <QtCore/QObject>
 #include "systemsettingsview_export.h"
 
 class QString;
