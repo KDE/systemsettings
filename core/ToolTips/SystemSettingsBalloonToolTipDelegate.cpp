@@ -66,7 +66,8 @@ QSize SystemSettingsBalloonToolTipDelegate::sizeHint(const KStyleOptionToolTip* 
 
 void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyleOptionToolTip* option, const KToolTipItem* item) const
 {
-    QColor toColor = option->palette.brush(QPalette::ToolTipBase).color();
+    KColorScheme paintColors( QPalette::Normal, KColorScheme::Tooltip );
+    QColor toColor = paintColors.background().color();
     QColor fromColor = KColorScheme::shade(toColor, KColorScheme::LightShade, 0.2);
 
     QPainterPath path = createPath(*option);
