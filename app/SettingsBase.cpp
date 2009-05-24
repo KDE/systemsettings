@@ -152,7 +152,7 @@ void SettingsBase::initConfig()
     configWidget.setupUi(configDialog->mainWidget());
     configDialog->setCaption(i18n("Configure"));
     configDialog->setInitialSize(QSize(400,160));
-    configDialog->restoreDialogSize( mainConfigGroup );
+    configDialog->restoreDialogSize( KGlobal::config()->group("ConfigDialog") );
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews ) {
         configWidget.CbPlugins->addItem( KIcon(mode->service()->icon()), mode->service()->name() );
@@ -189,7 +189,8 @@ void SettingsBase::initMenuList(MenuItem * parent)
 
 void SettingsBase::configUpdated()
 {
-    configDialog->saveDialogSize( mainConfigGroup );
+    KConfigGroup dialogConfig = KGlobal::config()->group("ConfigDialog");
+    configDialog->saveDialogSize( dialogConfig );
     int currentIndex = configWidget.CbPlugins->currentIndex();
     mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
     showTooltips = configWidget.ChTooltips->isChecked();
