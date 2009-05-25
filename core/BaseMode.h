@@ -111,10 +111,18 @@ public:
     virtual void saveState();
 
     /**
+     * Causes the view to unload all modules in the module view, and return to their module selection state
+     *
+     * @warning Failure to reimplement will cause modules to not be unloaded when changing views.
+     * This must be implemented.
+     */
+    virtual void leaveModuleView();
+
+    /**
      * Provides access to the ModuleView the application uses to display control modules.\n
      *
      * @warning Failure to reimplement will cause modules not to be checked for configuration
-     * changes, and for the module to not be displayed in the About dialog.
+     * changes, and for the module to not be displayed in the About dialog. It must be implemented.
      * @returns The ModuleView used by the plugin for handling modules.
      */
     virtual ModuleView * moduleView() const;

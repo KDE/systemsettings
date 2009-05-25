@@ -85,14 +85,10 @@ public:
     /**
      * Closes all active modules, after checking there are no active changes.
      *
-     * @warning The modules will not be closed if the currently active module has
-     *          changes and the user cancels the closing.
-     *
-     * @returns true if the modules were all closed successfully.
-     * @returns false if the modules were not closed successfully, this usually only
-                happens when the user cancels the closing.
+     * @warning This forces all modules to be destroyed regardless of if changes exist or not
+     * If possible, always check with resolveChanges() first.
      */
-    bool closeModules();
+    void closeModules();
 
 public Q_SLOTS:
     /**

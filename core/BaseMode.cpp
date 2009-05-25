@@ -117,6 +117,10 @@ void BaseMode::saveState()
 {
 }
 
+void BaseMode::leaveModuleView()
+{
+}
+
 MenuItem * BaseMode::rootItem() const
 {
     return d->rootItem;

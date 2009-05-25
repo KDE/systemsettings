@@ -204,6 +204,9 @@ void SettingsBase::configShow()
     if( !configDialog ) {
         initConfig();
     }
+    if( activeView && activeView->moduleView() && !activeView->moduleView()->resolveChanges() ) {
+        return; // It shouldn't be triggering anyway, since the action is disabled
+    }
 
     QStringList pluginList = possibleViews.keys();
     int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
@@ -260,6 +263,7 @@ void SettingsBase::changePlugin()
 
     if( activeView ) {
         activeView->saveState();
+        activeView->leaveModuleView();
     }
 
     QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_mode" );

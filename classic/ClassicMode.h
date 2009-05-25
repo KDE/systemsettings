@@ -32,6 +32,7 @@ public:
     ClassicMode(QObject * parent, const QVariantList& );
     ~ClassicMode();
     void initEvent();
+    void leaveModuleView();
     QWidget * mainWidget();
     KAboutData * aboutData();
     ModuleView * moduleView() const;

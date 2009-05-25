@@ -147,7 +147,8 @@ void IconMode::moduleLoaded()
 
 void IconMode::backToOverview()
 {
-    if( d->moduleView->closeModules() ) {
+    if( d->moduleView->resolveChanges() ) {
+        d->moduleView->closeModules();
         d->iconWidget->show();
         d->mainWidget->setCurrentWidget( d->iconWidget );
         d->backAction->setEnabled( false );
@@ -187,6 +188,12 @@ void IconMode::initWidget()
     d->mainWidget->addWidget( d->iconWidget );
     d->mainWidget->addWidget( d->moduleView );
     d->mainWidget->setCurrentWidget( d->iconWidget );
+}
+
+void IconMode::leaveModuleView()
+{
+    d->moduleView->closeModules(); // We have to force it here
+    backToOverview();
 }
 
 #include "IconMode.moc"

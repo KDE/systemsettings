@@ -219,12 +219,8 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
     }
 }
 
-bool ModuleView::closeModules()
+void ModuleView::closeModules()
 {
-    if( !resolveChanges() ) {
-        return false;
-    }
-
     blockSignals(true);
     QMap<KPageWidgetItem*, KCModuleProxy*>::iterator pageIterator;
     QMap<KPageWidgetItem*, KCModuleProxy*>::iterator endIterator = d->mPages.end();
@@ -239,7 +235,6 @@ bool ModuleView::closeModules()
     d->mPages.clear();
     d->mModules.clear();
     blockSignals(false);
-    return true;
 }
 
 void ModuleView::moduleSave()

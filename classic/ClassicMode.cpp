@@ -205,4 +205,10 @@ void ClassicMode::initWidget()
     d->classicWidget->setSizes( config().readEntry( "viewLayout", defaultSizes ) );
 }
 
+void ClassicMode::leaveModuleView()
+{
+    d->moduleView->closeModules();
+    d->stackedWidget->setCurrentWidget( d->classicCategory );
+}
+
 #include "ClassicMode.moc"
