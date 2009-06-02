@@ -194,7 +194,7 @@ void ClassicMode::initWidget()
     d->classicCategory->changeModule( d->classicTree->rootIndex() );
 
     connect( d->classicCategory, SIGNAL(moduleSelected( QModelIndex )), this, SLOT(selectModule( QModelIndex )));
-    connect( d->classicTree, SIGNAL(activated(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)));
+    connect( d->classicTree, SIGNAL(clicked(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)));
     connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()));
     connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()));
     connect( d->moduleView, SIGNAL( moduleChanged(bool) ), this, SLOT( moduleLoaded() ) );
