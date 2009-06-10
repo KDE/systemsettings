@@ -9,5 +9,5 @@ TARGET_LINK_LIBRARIES(classic_mode ${KDE4_KUTILS_LIBS} ${KDE4_KHTML_LIBS} system
 
 INSTALL( TARGETS classic_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
 INSTALL( FILES settings-classic-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-INSTALL( FILES main.html systemsettings-classic.css top-right-systemsettings.png  DESTINATION ${DATA_INSTALL_DIR}/systemsettings/classic/ )
+INSTALL( FILES main.html systemsettings-classic.css DESTINATION ${DATA_INSTALL_DIR}/systemsettings/classic/ )
 

@@ -1,12 +1,4 @@
 
-#headerR {
-  position: absolute;
-  right: 0px;
-  width: 430px;
-  height: 131px;
-  background-image: url(top-right-systemsettings.png);
-}
-
 #title {
   right: 80px;
   font-size: x-large;
