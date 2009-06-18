@@ -66,7 +66,9 @@ void KTipLabel::paintEvent(QPaintEvent*)
     QPainter p(this);
     p.setFont(option.font);
     p.setPen(QPen(option.palette.brush(QPalette::Text), 0));
-    delegate()->paint(&p, &option, currentItem);
+    if( currentItem ) {
+        delegate()->paint(&p, &option, currentItem);
+    }
 }
 
 QSize KTipLabel::sizeHint() const
