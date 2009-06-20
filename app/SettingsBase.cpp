@@ -83,8 +83,9 @@ void SettingsBase::initApplication()
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
-    KService::List pluginObjects = KServiceTypeTrader::self()->query( "SystemSettingsView" );
-    for( int pluginsDone = 0; pluginsDone < pluginObjects.count(); pluginsDone = pluginsDone + 1 ) {
+    const KService::List pluginObjects = KServiceTypeTrader::self()->query( "SystemSettingsView" );
+    const int nbPlugins = pluginObjects.count();
+    for( int pluginsDone = 0; pluginsDone < nbPlugins ; ++pluginsDone ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
@@ -165,8 +166,8 @@ void SettingsBase::initMenuList(MenuItem * parent)
 {
     // look for any categories inside this level, and recurse into them
     for (int i = 0; i < categories.size(); ++i) {
-        KService::Ptr entry = categories.at(i);
-        QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
+        const KService::Ptr entry = categories.at(i);
+        const QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         if ( parentCategory == parent->name() ) {
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->setService( entry );
@@ -176,8 +177,8 @@ void SettingsBase::initMenuList(MenuItem * parent)
 
     // scan for any modules at this level and add them
     for (int i = 0; i < modules.size(); ++i) {
-        KService::Ptr entry = modules.at(i);
-        QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
+        const KService::Ptr entry = modules.at(i);
+        const QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         if(!parent->name().isEmpty() && category == parent->name() ) {
             // Add the module info to the menu
             MenuItem * infoItem = new MenuItem(false, parent);
@@ -191,7 +192,7 @@ void SettingsBase::configUpdated()
 {
     KConfigGroup dialogConfig = KGlobal::config()->group("ConfigDialog");
     configDialog->saveDialogSize( dialogConfig );
-    int currentIndex = configWidget.CbPlugins->currentIndex();
+    const int currentIndex = configWidget.CbPlugins->currentIndex();
     mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
     showTooltips = configWidget.ChTooltips->isChecked();
     mainConfigGroup.writeEntry( "ShowTooltips", showTooltips );
@@ -208,15 +209,15 @@ void SettingsBase::configShow()
         return; // It shouldn't be triggering anyway, since the action is disabled
     }
 
-    QStringList pluginList = possibleViews.keys();
-    int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
+    const QStringList pluginList = possibleViews.keys();
+    const int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
     if( configIndex == -1 ) {
         configWidget.CbPlugins->setCurrentIndex( 0 );
     } else {
         configWidget.CbPlugins->setCurrentIndex( configIndex );
     }
     configWidget.ChTooltips->setChecked( showTooltips );
-    if( pluginList.count() == 0 ) {
+    if( pluginList.isEmpty() ) {
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
     } else {
         configDialog->show();
@@ -266,7 +267,7 @@ void SettingsBase::changePlugin()
         activeView->leaveModuleView();
     }
 
-    QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_mode" );
+    const QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_mode" );
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
     }

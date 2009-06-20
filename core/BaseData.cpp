@@ -62,7 +62,7 @@ void BaseData::setMenuItem( MenuItem * item )
     rootMenu = item;
 }
 
-KConfigGroup BaseData::configGroup( QString pluginName )
+KConfigGroup BaseData::configGroup( const QString& pluginName )
 {
     return KGlobal::config()->group( pluginName );
 }

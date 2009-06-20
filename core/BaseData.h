@@ -78,7 +78,7 @@ public:
     * @param pluginName the name of the group that is required.
     * @returns The configuration group that is required.
     */
-    KConfigGroup configGroup( QString pluginName );
+    KConfigGroup configGroup( const QString& pluginName );
 
 private:
     MenuItem * rootMenu;

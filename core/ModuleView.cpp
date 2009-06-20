@@ -192,7 +192,7 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
     }
 
     // Let the user decide
-    int queryUser = KMessageBox::warningYesNoCancel(
+    const int queryUser = KMessageBox::warningYesNoCancel(
         this,
         i18n("The settings of the current module have changed.\n"
              "Do you want to apply the changes or discard them?"),
@@ -225,11 +225,11 @@ void ModuleView::closeModules()
     QMap<KPageWidgetItem*, KCModuleProxy*>::iterator pageIterator;
     QMap<KPageWidgetItem*, KCModuleProxy*>::iterator endIterator = d->mPages.end();
     // These two MUST be kept separate in order to ensure modules aren't loaded during the closing procedure
-    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
+    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; ++pageIterator ) {
         delete pageIterator.value();
         pageIterator.value() = 0;
     }
-    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; pageIterator = pageIterator + 1 ) {
+    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; ++pageIterator ) {
         d->mPageWidget->removePage( pageIterator.key() );
     }
     d->mPages.clear();
@@ -327,7 +327,7 @@ void ModuleView::updateButtons()
         return;
     }
 
-    int buttons = activeModule->buttons();
+    const int buttons = activeModule->buttons();
 
     d->mApply->setShown(buttons & KCModule::Apply );
     d->mReset->setShown(buttons & KCModule::Apply );

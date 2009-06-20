@@ -122,7 +122,7 @@ void MenuItem::setService( const KService::Ptr& service )
     d->service = service;
     d->name = service->property("X-KDE-System-Settings-Category").toString();
     d->item = KCModuleInfo( service->entryPath() );
-    QVariant itemWeight = d->service->property( "X-KDE-Weight", QVariant::Int );
+    const QVariant itemWeight = d->service->property( "X-KDE-Weight", QVariant::Int );
     if( itemWeight.isValid() ) {
         d->weight = itemWeight.toInt();
     } else {

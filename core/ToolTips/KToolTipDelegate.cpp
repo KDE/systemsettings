@@ -51,7 +51,7 @@ QSize KToolTipDelegate::sizeHint(const KStyleOptionToolTip *option, const KToolT
 void KToolTipDelegate::paint(QPainter *painter, const KStyleOptionToolTip *option,
                              const KToolTipItem *item) const
 {
-    bool haveAlpha = haveAlphaChannel();
+    const bool haveAlpha = haveAlphaChannel();
     painter->setRenderHint(QPainter::Antialiasing);
 
     QPainterPath path;

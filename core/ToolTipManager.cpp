@@ -115,13 +115,13 @@ void ToolTipManager::prepareToolTip()
 {
     QAbstractItemModel * itemModel = d->view->model();
     MenuItem * m_Menu = itemModel->data( d->item, Qt::UserRole ).value<MenuItem*>();
-    QString text = generateToolTipContent( d->item, m_Menu );
+    const QString text = generateToolTipContent( d->item, m_Menu );
     SystemSettingsToolTipItem* toolTip = new SystemSettingsToolTipItem(KIcon( m_Menu->service()->icon() ), text);
 
     for ( int done = 0; itemModel->rowCount( d->item ) > done; done = 1 + done ) {
         QModelIndex childIndex = itemModel->index( done, 0, d->item );
         MenuItem * child = itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        QString text = QString( "%1<br />" ).arg( child->service()->name() );
+        const QString text = QString( "%1<br />" ).arg( child->service()->name() );
         toolTip->addLine( KIcon( child->service()->icon() ), text );
     }
 

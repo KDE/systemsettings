@@ -78,7 +78,7 @@ void CategoryList::updatePixmap()
     KIconLoader * iconL = KIconLoader::global();
     d->itemMap.clear();
 
-    QString templatePath = KStandardDirs::locate( "data", "systemsettings/classic/main.html" );
+    const QString templatePath = KStandardDirs::locate( "data", "systemsettings/classic/main.html" );
     QFile templateFile( templatePath );
     templateFile.open( QIODevice::ReadOnly );
     QTextStream templateText( &templateFile );
@@ -97,14 +97,14 @@ void CategoryList::updatePixmap()
     }
     content += "<div id=\"tableTitle\">" + moduleName + "</div>";
     content += "<table class=\"kc_table\">\n";
-    for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; done = 1 + done ) {
+    for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; ++done ) {
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
         content += "<tr><td class=\"kc_leftcol\"><img src=\"%1\" width=\"24\" height=\"24\"></td><td class=\"kc_middlecol\">";
-        QString szName = childItem->service()->name();
-        QString szComment = childItem->service()->comment();
+        const QString szName = childItem->service()->name();
+        const QString szComment = childItem->service()->comment();
         content += "<a href=\"%2\">" + szName + "</a></td><td class=\"kc_rightcol\">" + szComment;
-        QString linkURL( "kcm://" + childItem->item().fileName() );
+        const QString linkURL( "kcm://" + childItem->item().fileName() );
         KUrl link( linkURL );
         content = content.arg( iconL->iconPath(childItem->service()->icon(), - KIconLoader::SizeSmallMedium ) );
         content = content.arg( link.url() );
