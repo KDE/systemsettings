@@ -151,7 +151,7 @@ void ToolTipManager::showToolTip(KToolTipItem* tip)
     KStyleOptionToolTip option;
     d->tooltipManager->initStyleOption(&option);
 
-    QSize size = g_delegate->sizeHint(&option, tip);
+    QSize size = g_delegate->sizeHint(option, *tip);
     const QRect desktop = QApplication::desktop()->screenGeometry(d->itemRect.bottomRight());
 
     // m_itemRect defines the area of the item, where the tooltip should be

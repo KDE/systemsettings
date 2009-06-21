@@ -31,15 +31,15 @@ KToolTipDelegate::~KToolTipDelegate()
 {
 }
 
-QSize KToolTipDelegate::sizeHint(const KStyleOptionToolTip *option, const KToolTipItem *item) const
+QSize KToolTipDelegate::sizeHint(const KStyleOptionToolTip &option, const KToolTipItem &item) const
 {
     QSize size;
-    size.rwidth() = option->fontMetrics.width(item->text());
-    size.rheight() = option->fontMetrics.lineSpacing();
+    size.rwidth() = option.fontMetrics.width(item.text());
+    size.rheight() = option.fontMetrics.lineSpacing();
 
-    QIcon icon = item->icon();
+    QIcon icon = item.icon();
     if (!icon.isNull()) {
-        const QSize iconSize = icon.actualSize(option->decorationSize);
+        const QSize iconSize = icon.actualSize(option.decorationSize);
         size.rwidth() += iconSize.width() + 4;
         size.rheight() = qMax(size.height(), iconSize.height());
     }
@@ -48,19 +48,20 @@ QSize KToolTipDelegate::sizeHint(const KStyleOptionToolTip *option, const KToolT
 
 }
 
-void KToolTipDelegate::paint(QPainter *painter, const KStyleOptionToolTip *option,
-                             const KToolTipItem *item) const
+void KToolTipDelegate::paint(QPainter *painter,
+                             const KStyleOptionToolTip &option,
+                             const KToolTipItem &item) const
 {
     const bool haveAlpha = haveAlphaChannel();
     painter->setRenderHint(QPainter::Antialiasing);
 
     QPainterPath path;
     if (haveAlpha)
-        path.addRoundRect(option->rect.adjusted(0, 0, -1, -1), 25);
+        path.addRoundRect(option.rect.adjusted(0, 0, -1, -1), 25);
     else
-        path.addRect(option->rect.adjusted(0, 0, -1, -1));
+        path.addRect(option.rect.adjusted(0, 0, -1, -1));
 
-    QColor color = option->palette.color(QPalette::ToolTipBase);
+    QColor color = option.palette.color(QPalette::ToolTipBase);
     QColor from = color.lighter(105);
     QColor to   = color.darker(120);
 
@@ -81,29 +82,29 @@ void KToolTipDelegate::paint(QPainter *painter, const KStyleOptionToolTip *optio
         gradient.setColorAt(0, QColor(0, 0, 0, 192));
         gradient.setColorAt(1, QColor(0, 0, 0, 72));
         painter->setCompositionMode(QPainter::CompositionMode_DestinationIn);
-        painter->fillRect(option->rect, gradient);
+        painter->fillRect(option.rect, gradient);
         painter->setCompositionMode(QPainter::CompositionMode_SourceOver);
     }
 
-    QRect textRect = option->rect.adjusted(10, 10, -10, -10);
+    QRect textRect = option.rect.adjusted(10, 10, -10, -10);
 
-    QIcon icon = item->icon();
+    QIcon icon = item.icon();
     if (!icon.isNull()) {
-        const QSize iconSize = icon.actualSize(option->decorationSize);
+        const QSize iconSize = icon.actualSize(option.decorationSize);
         painter->drawPixmap(textRect.topLeft(), icon.pixmap(iconSize));
         textRect.adjust(iconSize.width() + 4, 0, 0, 0);
     }
-    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignVCenter, item->text());
+    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignVCenter, item.text());
 }
 
-QRegion KToolTipDelegate::inputShape(const KStyleOptionToolTip *option) const
+QRegion KToolTipDelegate::inputShape(const KStyleOptionToolTip &option) const
 {
-    return QRegion(option->rect);
+    return QRegion(option.rect);
 }
 
-QRegion KToolTipDelegate::shapeMask(const KStyleOptionToolTip *option) const
+QRegion KToolTipDelegate::shapeMask(const KStyleOptionToolTip &option) const
 {
-    return QRegion(option->rect);
+    return QRegion(option.rect);
 }
 
 bool KToolTipDelegate::haveAlphaChannel() const

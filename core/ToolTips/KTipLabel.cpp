@@ -61,13 +61,13 @@ void KTipLabel::paintEvent(QPaintEvent*)
     if (QX11Info::isCompositingManagerRunning())
         XShapeCombineRegion(x11Info().display(), winId(), ShapeInput, 0, 0, delegate()->inputShape(&option).handle(), ShapeSet);
     else */
-    setMask(delegate()->shapeMask(&option));
+    setMask(delegate()->shapeMask(option));
 
     QPainter p(this);
     p.setFont(option.font);
     p.setPen(QPen(option.palette.brush(QPalette::Text), 0));
     if( currentItem ) {
-        delegate()->paint(&p, &option, currentItem);
+        delegate()->paint(&p, option, *currentItem);
     }
 }
 
@@ -77,7 +77,7 @@ QSize KTipLabel::sizeHint() const
         return QSize();
 
     KStyleOptionToolTip option = styleOption();
-    return delegate()->sizeHint(&option, currentItem);
+    return delegate()->sizeHint(option, *currentItem);
 }
 
 KStyleOptionToolTip KTipLabel::styleOption() const
