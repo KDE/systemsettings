@@ -7,6 +7,7 @@ X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings
 
 Name=Classic Tree View
+Name[bg]=Класически изглед (дърво)
 Name[ca]=Vista d'arbre clàssica
 Name[ca@valencia]=Vista d'arbre clàssica
 Name[csb]=Klasykòwi wëzdrzatk drzewiã
@@ -39,6 +40,7 @@ Name[x-test]=xxClassic Tree Viewxx
 Name[zh_CN]=经典树形视图
 Name[zh_TW]=傳統樹狀檢視
 Comment=A Classic KDE 3 KControl style system settings view.
+Comment[bg]=Класически изглед (като KDE 3).
 Comment[ca]=Una vista de l'arranjament del sistema a l'estil clàssic del KControl del KDE 3.
 Comment[ca@valencia]=Una vista de l'arranjament del sistema a l'estil clàssic del KControl del KDE 3.
 Comment[csb]=Systemòwi nastôw w klasykòwim sztélu KDE 3

@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsView
 Name=System Settings View
+Name[bg]=Системни настройки
 Name[ca]=Vista de l'arranjament del sistema
 Name[ca@valencia]=Vista de l'arranjament del sistema
 Name[csb]=Wëzdrzatk systemòwégò nastôwù

@@ -7,6 +7,7 @@ X-KDE-System-Settings-Parent-Category=
 
 # ctxt: Settings for common user needs (tab in System Settings).
 Name=General
+Name[bg]=Основни
 Name[cs]=Obecné
 Name[csb]=Spòdlowé
 Name[da]=Generelt
