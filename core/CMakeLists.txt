@@ -30,7 +30,11 @@ set(systemsettingsview_LIB_HDRS
     ToolTipManager.h
 )
 
+if(MINGW)
+kde4_add_library( systemsettingsview ${systemsettingsview_LIB_SRCS} )
+else(MINGW)
 kde4_add_library( systemsettingsview SHARED ${systemsettingsview_LIB_SRCS} )
+endif(MINGW)
 
 target_link_libraries( systemsettingsview ${KDE4_KDECORE_LIBS} ${KDE4_KUTILS_LIBS} )
 
