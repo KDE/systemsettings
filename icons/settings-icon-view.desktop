@@ -7,6 +7,7 @@ X-KDE-Library=icon_mode
 X-KDE-Keywords=System Settings
 
 Name=Icon View
+Name[ar]=عرض الأيقونات
 Name[be]=Значкі
 Name[be@latin]=Значкі
 Name[bg]=Икони
@@ -62,6 +63,7 @@ Name[x-test]=xxIcon Viewxx
 Name[zh_CN]=图标视图
 Name[zh_TW]=圖示檢視
 Comment=The KDE 4 icon view style
+Comment[ar]=أسلوب عرض الأيقونات الموجود في كدي 4
 Comment[bg]=Стилът на иконите в KDE 4
 Comment[ca]=L'estil de vista d'icones del KDE 4
 Comment[ca@valencia]=L'estil de vista d'icones del KDE 4
