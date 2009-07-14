@@ -46,6 +46,7 @@ public Q_SLOTS:
     void selectModule( const QModelIndex& selectedModule );
     void changeModule( const QModelIndex& activeModule );
     void saveState();
+    void giveFocus();
 
 private Q_SLOTS:
     void moduleLoaded();

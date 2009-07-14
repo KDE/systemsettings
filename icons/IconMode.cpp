@@ -196,4 +196,9 @@ void IconMode::leaveModuleView()
     backToOverview();
 }
 
+void IconMode::giveFocus()
+{
+    d->iconWidget->currentWidget()->setFocus();
+}
+
 #include "IconMode.moc"

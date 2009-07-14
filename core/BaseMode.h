@@ -119,6 +119,13 @@ public:
     virtual void leaveModuleView();
 
     /**
+     * Used to give focus to the plugin. Plugin should call setFocus() on the appropriate widget
+     *
+     * @note Failure to reimplement will cause keyboard accessibiltity and widget focusing problems
+     */
+    virtual void giveFocus();
+
+    /**
      * Provides access to the ModuleView the application uses to display control modules.\n
      *
      * @warning Failure to reimplement will cause modules not to be checked for configuration

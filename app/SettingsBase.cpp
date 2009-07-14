@@ -47,6 +47,9 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     activeView = 0;
     aboutDialog = 0;
     configDialog = 0;
+    // Prepare the view area
+    stackedWidget = new QStackedWidget( this );
+    setCentralWidget(stackedWidget);
     // Initialise search
     mainConfigGroup = KGlobal::config()->group( "Main" );
     searchText = new KLineEdit( this );
@@ -77,9 +80,6 @@ void SettingsBase::initApplication()
     // Prepare the menu of all modules
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
-    // Prepare the view area
-    stackedWidget = new QStackedWidget( this );
-    setCentralWidget(stackedWidget);
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
@@ -285,7 +285,7 @@ void SettingsBase::changePlugin()
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 
-    activeView->mainWidget()->setFocus();
+    activeView->giveFocus();
 }
 
 void SettingsBase::viewChange(bool state)

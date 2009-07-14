@@ -121,6 +121,10 @@ void BaseMode::leaveModuleView()
 {
 }
 
+void BaseMode::giveFocus()
+{
+}
+
 MenuItem * BaseMode::rootItem() const
 {
     return d->rootItem;

@@ -211,4 +211,9 @@ void ClassicMode::leaveModuleView()
     d->stackedWidget->setCurrentWidget( d->classicCategory );
 }
 
+void ClassicMode::giveFocus()
+{
+    d->classicTree->setFocus();
+}
+
 #include "ClassicMode.moc"

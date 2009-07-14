@@ -36,6 +36,7 @@ public:
     ~IconMode();
     QWidget * mainWidget();
     void initEvent();
+    void giveFocus();
     void leaveModuleView();
     KAboutData * aboutData();
     ModuleView * moduleView() const;
