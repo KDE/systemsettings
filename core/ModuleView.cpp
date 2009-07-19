@@ -229,6 +229,7 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 void ModuleView::closeModules()
 {
     blockSignals(true);
+    d->mPageWidget->hide();
     QMap<KPageWidgetItem*, KCModuleProxy*>::iterator module;
     QMap<KPageWidgetItem*, KCModuleProxy*>::iterator moduleEnd = d->mPages.end();
     // These two MUST be kept separate in order to ensure modules aren't loaded during the closing procedure
@@ -244,6 +245,7 @@ void ModuleView::closeModules()
 
     d->mPages.clear();
     d->mModules.clear();
+    d->mPageWidget->show();
     blockSignals(false);
 }
 
