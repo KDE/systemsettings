@@ -30,6 +30,7 @@
 #include <KDialog>
 #include <KTabWidget>
 #include <KAboutData>
+#include <KGlobalSettings>
 #include <KStandardAction>
 #include <KCategoryDrawer>
 #include <KCategorizedView>
@@ -164,6 +165,11 @@ void IconMode::initWidget()
 #if QT_VERSION >= 0x040500
     d->iconWidget->setDocumentMode( true );
 #endif
+    // Generate the grid size to be shared between views
+    int itemHeight = KIconLoader::SizeMedium + QFontMetrics(KGlobalSettings::generalFont()).height() * 2 + 10;
+    int itemWidth = 104;
+    QSize maximumSize = QSize( itemWidth, itemHeight );
+    // Actually build the views
     foreach( MenuProxyModel *proxyModel, d->proxyList ) {
         KCategoryDrawer *drawer = new KCategoryDrawer();
         d->mCategoryDrawers << drawer;
@@ -175,8 +181,12 @@ void IconMode::initWidget()
         tv->setViewMode( QListView::IconMode );
         tv->setMouseTracking( true );
         tv->viewport()->setAttribute( Qt::WA_Hover );
-        tv->setItemDelegate( new KFileItemDelegate( tv ) );
+        KFileItemDelegate * delegate = new KFileItemDelegate( tv );
+        delegate->setMaximumSize( maximumSize );
+        tv->setItemDelegate( delegate );
         tv->setFrameShape( QFrame::NoFrame );
+        tv->setGridSize( maximumSize );
+        tv->setWordWrap( true );
         tv->setModel( proxyModel );
         d->iconWidget->addTab( tv, d->proxyMap.value( proxyModel ) );
         connect( tv, SIGNAL( activated( const QModelIndex& ) ),

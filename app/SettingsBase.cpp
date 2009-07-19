@@ -71,7 +71,7 @@ SettingsBase::~SettingsBase()
 
 QSize SettingsBase::sizeHint() const
 {
-    return QSize(850, 650);
+    return QSize(780, 520);
 }
 
 void SettingsBase::initApplication()
@@ -131,7 +131,7 @@ void SettingsBase::initToolBar()
     menuBar()->hide();
     // Toolbar & Configuration
     helpActionMenu->setMenu( dynamic_cast<KMenu*>( factory()->container("help", this) ) );
-    setMinimumSize(800,480);
+    setMinimumSize(780,520);
     toolBar()->setMovable(false); // We don't allow any changes
     changeToolBar( BaseMode::Search | BaseMode::Configure );
 }
