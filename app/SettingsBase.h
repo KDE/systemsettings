@@ -31,7 +31,6 @@
 #include <KService>
 #include <KLineEdit>
 #include <KActionMenu>
-#include <KConfigGroup>
 #include <KXmlGuiWindow>
 #include <KAboutApplicationDialog>
 
@@ -80,7 +79,6 @@ private:
     // The configuration
     KDialog * configDialog;
     Ui::ConfigDialog configWidget;
-    KConfigGroup mainConfigGroup;
     // The control module
     QStackedWidget * stackedWidget;
     // The module list
@@ -89,8 +87,5 @@ private:
     KService::List modules;
     // The about dialog
     KAboutApplicationDialog * aboutDialog;
-    // Show enhanced tooltips
-    bool showTooltips;
-
 };
 #endif

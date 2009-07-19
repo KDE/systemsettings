@@ -18,17 +18,18 @@
  ***************************************************************************/
 
 #include "SettingsBase.h"
+#include "BaseConfig.h"
 
 #include <QTimer>
 #include <QVariantList>
 
 #include <KMenu>
 #include <KDebug>
-#include <KConfig>
 #include <KMenuBar>
 #include <KToolBar>
 #include <KAboutData>
 #include <KMessageBox>
+#include <KConfigGroup>
 #include <KCModuleInfo>
 #include <KXMLGUIFactory>
 #include <KStandardAction>
@@ -49,7 +50,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     stackedWidget = new QStackedWidget( this );
     setCentralWidget(stackedWidget);
     // Initialise search
-    mainConfigGroup = KGlobal::config()->group( "Main" );
     searchText = new KLineEdit( this );
     searchText->setClearButtonShown( true );
     searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
@@ -59,7 +59,6 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
     // Initalise the window so we don't flicker
     initToolBar();
-    showTooltips = mainConfigGroup.readEntry( "ShowTooltips", true );
     // We can now launch the delayed loading safely
     QTimer::singleShot(0, this, SLOT(initApplication()));
 }
@@ -195,9 +194,8 @@ void SettingsBase::configUpdated()
     KConfigGroup dialogConfig = KGlobal::config()->group("ConfigDialog");
     configDialog->saveDialogSize( dialogConfig );
     const int currentIndex = configWidget.CbPlugins->currentIndex();
-    mainConfigGroup.writeEntry( "ActiveView", possibleViews.keys().at(currentIndex) );
-    showTooltips = configWidget.ChTooltips->isChecked();
-    mainConfigGroup.writeEntry( "ShowTooltips", showTooltips );
+    BaseConfig::setActiveView( possibleViews.keys().at(currentIndex) );
+    BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
     changePlugin();
 }
 
@@ -212,13 +210,13 @@ void SettingsBase::configShow()
     }
 
     const QStringList pluginList = possibleViews.keys();
-    const int configIndex = pluginList.indexOf(mainConfigGroup.readEntry( "ActiveView", "icon_mode" ));
+    const int configIndex = pluginList.indexOf( BaseConfig::activeView() );
     if( configIndex == -1 ) {
         configWidget.CbPlugins->setCurrentIndex( 0 );
     } else {
         configWidget.CbPlugins->setCurrentIndex( configIndex );
     }
-    configWidget.ChTooltips->setChecked( showTooltips );
+    configWidget.ChTooltips->setChecked( BaseConfig::showToolTips() );
     if( pluginList.isEmpty() ) {
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
     } else {
@@ -233,7 +231,7 @@ bool SettingsBase::queryClose()
         activeView->saveState();
         changes = activeView->moduleView()->resolveChanges();
     }
-    mainConfigGroup.sync();
+    BaseConfig::self()->writeConfig();
     return changes;
 }
 
@@ -269,7 +267,7 @@ void SettingsBase::changePlugin()
         activeView->leaveModuleView();
     }
 
-    const QString viewToUse = mainConfigGroup.readEntry( "ActiveView", "icon_mode" );
+    const QString viewToUse = BaseConfig::activeView();
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
     }
@@ -283,9 +281,9 @@ void SettingsBase::changePlugin()
 
     changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
     viewChange(false);
-    activeView->setEnhancedTooltipEnabled( showTooltips );
     searchText->completionObject()->setIgnoreCase( true );
     searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
+    activeView->setEnhancedTooltipEnabled( BaseConfig::showToolTips() );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 
