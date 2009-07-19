@@ -39,6 +39,7 @@ public:
     QList<MenuItem*> children;
     bool menu;
     QString name;
+    QString category;
     int weight;
     KService::Ptr service;
     KCModuleInfo item;
@@ -75,7 +76,7 @@ QStringList MenuItem::keywords()
 {
     QStringList listOfKeywords;
 
-    listOfKeywords << d->item.keywords() << d->service->name();
+    listOfKeywords << d->item.keywords() << d->name;
     foreach ( MenuItem * child, d->children ) {
         listOfKeywords += child->keywords();
     }
@@ -107,6 +108,11 @@ QString& MenuItem::name() const
     return d->name;
 }
 
+QString& MenuItem::category() const
+{
+    return d->category;
+}
+
 int MenuItem::weight()
 {
     return d->weight;
@@ -120,7 +126,8 @@ bool MenuItem::menu() const
 void MenuItem::setService( const KService::Ptr& service )
 {
     d->service = service;
-    d->name = service->property("X-KDE-System-Settings-Category").toString();
+    d->category = service->property("X-KDE-System-Settings-Category").toString();
+    d->name = service->name();
     d->item = KCModuleInfo( service->entryPath() );
     const QVariant itemWeight = d->service->property( "X-KDE-Weight", QVariant::Int );
     if( itemWeight.isValid() ) {

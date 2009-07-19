@@ -121,7 +121,7 @@ void ToolTipManager::prepareToolTip()
     for ( int done = 0; itemModel->rowCount( d->item ) > done; done = 1 + done ) {
         QModelIndex childIndex = itemModel->index( done, 0, d->item );
         MenuItem * child = itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        const QString text = QString( "%1<br />" ).arg( child->service()->name() );
+        const QString text = QString( "%1<br />" ).arg( child->name() );
         toolTip->addLine( KIcon( child->service()->icon() ), text );
     }
 
@@ -130,7 +130,7 @@ void ToolTipManager::prepareToolTip()
 
 QString ToolTipManager::generateToolTipContent( QModelIndex index, MenuItem * item )
 {
-    QString text = QString( "<b>%1</b><br />%2" ).arg( item->service()->name() );
+    QString text = QString( "<b>%1</b><br />%2" ).arg( item->name() );
     if ( !item->service()->comment().isEmpty() ) {
         text = text.arg( item->service()->comment() );
     } else {

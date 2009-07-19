@@ -55,6 +55,7 @@ SettingsBase::SettingsBase( QWidget * parent ) :
     searchText = new KLineEdit( this );
     searchText->setClearButtonShown( true );
     searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
+    searchText->setCompletionMode( KGlobalSettings::CompletionPopup );
 
     spacerWidget = new QWidget( this );
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
@@ -168,7 +169,7 @@ void SettingsBase::initMenuList(MenuItem * parent)
     for (int i = 0; i < categories.size(); ++i) {
         const KService::Ptr entry = categories.at(i);
         const QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        if ( parentCategory == parent->name() ) {
+        if ( parentCategory == parent->category() ) {
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->setService( entry );
             initMenuList( menuItem );
@@ -179,7 +180,7 @@ void SettingsBase::initMenuList(MenuItem * parent)
     for (int i = 0; i < modules.size(); ++i) {
         const KService::Ptr entry = modules.at(i);
         const QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        if(!parent->name().isEmpty() && category == parent->name() ) {
+        if( !parent->category().isEmpty() && category == parent->category() ) {
             // Add the module info to the menu
             MenuItem * infoItem = new MenuItem(false, parent);
             infoItem->setService( entry );
@@ -282,6 +283,8 @@ void SettingsBase::changePlugin()
     changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
     viewChange(false);
     activeView->setEnhancedTooltipEnabled( showTooltips );
+    searchText->completionObject()->setIgnoreCase( true );
+    searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 

@@ -125,6 +125,13 @@ public:
     QString& name() const;
 
     /**
+     * Convienence function which provides the System Settings category of the current item.
+     *
+     * @returns The category of the item, if the service object has been set.
+     */
+    QString& category() const;
+
+    /**
      * Provides the weight of the current item, as determined by its service.
      * If the service does not specify a weight, it is 100
      *

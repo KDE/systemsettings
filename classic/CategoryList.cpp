@@ -93,7 +93,7 @@ void CategoryList::updatePixmap()
     templateString = templateString.arg( i18n( title_infotext ) );
     templateString = templateString.arg( i18n( intro_infotext ) );
     if ( d->categoryMenu.isValid() ) {
-        moduleName = d->itemModel->data( d->categoryMenu, Qt::UserRole ).value<MenuItem*>()->service()->name();
+        moduleName = d->itemModel->data( d->categoryMenu, Qt::DisplayRole ).toString();
     }
     content += "<div id=\"tableTitle\">" + moduleName + "</div>";
     content += "<table class=\"kc_table\">\n";
@@ -101,7 +101,7 @@ void CategoryList::updatePixmap()
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
         content += "<tr><td class=\"kc_leftcol\"><img src=\"%1\" width=\"24\" height=\"24\"></td><td class=\"kc_middlecol\">";
-        const QString szName = childItem->service()->name();
+        const QString szName = childItem->name();
         const QString szComment = childItem->service()->comment();
         content += "<a href=\"%2\">" + szName + "</a></td><td class=\"kc_rightcol\">" + szComment;
         const QString linkURL( "kcm://" + childItem->item().fileName() );

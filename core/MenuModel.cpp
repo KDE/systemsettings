@@ -77,7 +77,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
     mi = static_cast<MenuItem*>( index.internalPointer() );
     switch ( role ) {
         case Qt::DisplayRole:
-            theData.setValue( mi->service()->name() );
+            theData.setValue( mi->name() );
             break;
         case Qt::ToolTipRole:
             theData.setValue( mi->service()->comment() );
@@ -87,12 +87,12 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             break;
         case KCategorizedSortFilterProxyModel::CategorySortRole:
             if ( mi->parent() ) {
-                theData.setValue( QString("%1%2").arg( QString::number(mi->parent()->weight()), 5, '0' ).arg( mi->parent()->service()->name() ) );
+                theData.setValue( QString("%1%2").arg( QString::number(mi->parent()->weight()), 5, '0' ).arg( mi->parent()->name() ) );
             }
             break;
         case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
             if ( mi->parent() ) {
-                theData.setValue( mi->parent()->service()->name() );
+                theData.setValue( mi->parent()->name() );
             }
             break;
         case Qt::UserRole:
@@ -102,7 +102,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             theData.setValue( mi->keywords().join( QString() ) );
             break;
         case MenuModel::UserSortRole:
-            theData.setValue( QString("%1%2").arg( QString::number(mi->weight()), 5, '0' ).arg( mi->service()->name() ) );
+            theData.setValue( QString("%1%2").arg( QString::number(mi->weight()), 5, '0' ).arg( mi->name() ) );
             break;
         default:
             break;

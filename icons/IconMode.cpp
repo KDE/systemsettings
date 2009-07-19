@@ -113,7 +113,7 @@ void IconMode::initEvent()
         proxyModel->setCategorizedModel( true );
         proxyModel->setSourceModel( model );
         proxyModel->sort( 0 );
-        d->proxyMap.insert( proxyModel, childItem->service()->name() );
+        d->proxyMap.insert( proxyModel, childItem->name() );
         d->proxyList << proxyModel;
     }
 
