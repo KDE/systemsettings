@@ -19,6 +19,8 @@ set(systemsettingsview_LIB_SRCS
     ToolTipManager.cpp
 )
 
+KDE4_ADD_UI_FILES( systemsettingsview_LIB_SRCS externalModule.ui )
+
 set(systemsettingsview_LIB_HDRS
     systemsettingsview_export.h
     MenuItem.h
@@ -36,4 +38,4 @@ target_link_libraries( systemsettingsview ${KDE4_KDECORE_LIBS} ${KDE4_KUTILS_LIB
 
 install( TARGETS systemsettingsview  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES ${systemsettingsview_LIB_HDRS} DESTINATION ${INCLUDE_INSTALL_DIR}/systemsettingsview COMPONENT Devel )
-INSTALL( FILES systemsettingsview.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+INSTALL( FILES systemsettingsview.desktop systemsettingsexternalapp.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )

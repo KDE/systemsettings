@@ -39,9 +39,7 @@
 #include "ModuleView.h"
 
 SettingsBase::SettingsBase( QWidget * parent ) :
-    KXmlGuiWindow(parent),
-    categories( KServiceTypeTrader::self()->query("SystemSettingsCategory") ),
-    modules( KServiceTypeTrader::self()->query("KCModule") )
+    KXmlGuiWindow(parent)
 {
     // Ensure delayed loading doesn't cause a crash
     activeView = 0;
@@ -79,6 +77,9 @@ QSize SettingsBase::sizeHint() const
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
+    categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
+    modules = KServiceTypeTrader::self()->query("KCModule");
+    modules += KServiceTypeTrader::self()->query("SystemSettingsExternalApp");
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
     // Prepare the Base Data

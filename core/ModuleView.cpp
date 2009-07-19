@@ -19,6 +19,7 @@
  *****************************************************************************/
 
 #include "ModuleView.h"
+#include "ui_externalModule.h"
 
 #include <QMap>
 #include <QList>
@@ -46,7 +47,8 @@ class ModuleView::Private {
 public:
     Private() { }
     QMap<KPageWidgetItem*, KCModuleProxy*> mPages;
-    QMap<KCModuleProxy*, KCModuleInfo*> mModules;
+    QMap<KPageWidgetItem*, KCModuleInfo*> mModules;
+    Ui::ExternalModule externalModule;
     KPageWidget* mPageWidget;
     QVBoxLayout* mLayout;
     KDialogButtonBox* mButtons;
@@ -96,12 +98,7 @@ ModuleView::~ModuleView()
 
 KCModuleInfo * ModuleView::activeModule() const
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( activeModule ) {
-        return d->mModules.value(activeModule);
-    } else {
-        return 0;
-    }
+    return d->mModules.value( d->mPageWidget->currentPage() );
 }
 
 const KAboutData * ModuleView::aboutData() const
@@ -156,27 +153,37 @@ void ModuleView::addModule( KCModuleInfo *module )
         return;
     }
 
-    // Create the items
+    // Create the scroller
     QScrollArea * moduleScroll = new QScrollArea( this );
-    KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
-    // Prepare the module
-    moduleProxy->setAutoFillBackground( false );
     // Prepare the scroll area
     moduleScroll->setWidgetResizable( true );
     moduleScroll->setFrameStyle( QFrame::NoFrame );
     moduleScroll->viewport()->setAutoFillBackground( false );
-    moduleScroll->setWidget( moduleProxy );
     // Create the page
     KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
+
+    if( module->service()->hasServiceType("SystemSettingsExternalApp") ) { // Is it an external app?
+        QProcess::startDetached( module->service()->exec() ); // Launch it!
+        QWidget * externalWidget = new QWidget( this );
+        d->externalModule.setupUi( externalWidget );
+        d->externalModule.LblText->setText( i18n("%1 is an external application and has been automatically launched", module->moduleName() ) );
+        d->externalModule.PbRelaunch->setText( i18n("Relaunch %1", module->moduleName()) );
+        connect( d->externalModule.PbRelaunch, SIGNAL(clicked()), this, SLOT(runExternal()) );
+        moduleScroll->setWidget( externalWidget );
+    } else { // It must be a normal module then
+        KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
+        moduleScroll->setWidget( moduleProxy );
+        moduleProxy->setAutoFillBackground( false );
+        connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
+        d->mPages.insert( page, moduleProxy );
+    }
+
     // Provide information to the users
     page->setIcon( KIcon( module->service()->icon() ) );
     page->setHeader( module->service()->comment() );
-    // Allow it to signal properly
-    connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
-    // Set it to be shown and signal that
+    d->mModules.insert( page, module );
+    // Add the new page
     d->mPageWidget->addPage( page );
-    d->mPages.insert( page, moduleProxy );
-    d->mModules.insert( moduleProxy, module );
 }
 
 bool ModuleView::resolveChanges()
@@ -222,16 +229,19 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 void ModuleView::closeModules()
 {
     blockSignals(true);
-    QMap<KPageWidgetItem*, KCModuleProxy*>::iterator pageIterator;
-    QMap<KPageWidgetItem*, KCModuleProxy*>::iterator endIterator = d->mPages.end();
+    QMap<KPageWidgetItem*, KCModuleProxy*>::iterator module;
+    QMap<KPageWidgetItem*, KCModuleProxy*>::iterator moduleEnd = d->mPages.end();
     // These two MUST be kept separate in order to ensure modules aren't loaded during the closing procedure
-    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; ++pageIterator ) {
-        delete pageIterator.value();
-        pageIterator.value() = 0;
+    for ( module = d->mPages.begin(); module != moduleEnd; ++module ) {
+        delete module.value();
+        module.value() = 0;
     }
-    for ( pageIterator = d->mPages.begin(); pageIterator != endIterator; ++pageIterator ) {
-        d->mPageWidget->removePage( pageIterator.key() );
+    QMap<KPageWidgetItem*, KCModuleInfo*>::iterator page = d->mModules.begin();
+    QMap<KPageWidgetItem*, KCModuleInfo*>::iterator pageEnd = d->mModules.end();
+    for ( page = d->mModules.begin(); page != pageEnd; ++page ) {
+        d->mPageWidget->removePage( page.key() );
     }
+
     d->mPages.clear();
     d->mModules.clear();
     blockSignals(false);
@@ -263,12 +273,12 @@ void ModuleView::moduleDefaults()
 
 void ModuleView::moduleHelp()
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    KCModuleInfo * activeModule = d->mModules.value( d->mPageWidget->currentPage() );
     if( !activeModule ) {
         return;
     }
 
-    QString docPath = activeModule->moduleInfo().docPath();
+    QString docPath = activeModule->docPath();
     if( docPath.isEmpty() ) {
         return;
     }
@@ -334,6 +344,11 @@ void ModuleView::updateButtons()
 
     d->mHelp->setEnabled(buttons & KCModule::Help );
     d->mDefault->setEnabled(buttons & KCModule::Default );
+}
+
+void ModuleView::runExternal()
+{
+    QProcess::startDetached( activeModule()->service()->exec() ); // Launch it!
 }
 
 #include "ModuleView.moc"

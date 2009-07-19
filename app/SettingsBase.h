@@ -47,9 +47,6 @@ public:
 protected:
     virtual QSize sizeHint() const;
 
-private:
-    MenuItem * initModuleLists(MenuItem * parent);
-
 private slots:
     void initApplication();
     void initToolBar();
