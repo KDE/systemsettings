@@ -2,3 +2,9 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsExternalApp
 Name=System Settings External Application
+Name[nds]=Systeeminstellen Extern Programm
+Name[pt]=Aplicação Externa da Configuração do Sistema
+Name[pt_BR]=Aplicação Externa da Configuração do Sistema
+Name[sv]=Externt program för systeminställningar
+Name[uk]=Зовнішня програма системних параметрів
+Name[x-test]=xxSystem Settings External Applicationxx
