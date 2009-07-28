@@ -55,6 +55,8 @@ private Q_SLOTS:
 
 private:
     class Private;
+    class CategoryDrawer;
+    class CategorizedView;
     Private *const d;
 };
 
