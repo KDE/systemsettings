@@ -1,5 +1,7 @@
 SET( icon_mode_srcs
      IconMode.cpp
+     CategoryDrawer.cpp
+     CategorizedView.cpp
 ) 
 
 KDE4_ADD_PLUGIN(icon_mode ${icon_mode_srcs})

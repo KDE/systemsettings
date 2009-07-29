@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Ben Cooksley <ben@eclipse.endoftheinternet.org> *
+ *   Copyright (C) 2009 by Rafael Fernández López <ereslibre@kde.org>      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,45 +17,17 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA          *
  ***************************************************************************/
 
-#ifndef ICONMODE_H
-#define ICONMODE_H
+#ifndef CATEGORIZEDVIEW_H
+#define CATEGORIZEDVIEW_H
 
-#include "BaseMode.h"
+#include <KCategorizedView>
 
-class ModuleView;
-class KAboutData;
-class QModelIndex;
-class QAbstractItemView;
-
-class IconMode : public BaseMode
+class CategorizedView : public KCategorizedView
 {
-    Q_OBJECT
-
 public:
-    IconMode(QObject * parent, const QVariantList& );
-    ~IconMode();
-    QWidget * mainWidget();
-    void initEvent();
-    void giveFocus();
-    void leaveModuleView();
-    KAboutData * aboutData();
-    ModuleView * moduleView() const;
+    CategorizedView( QWidget *parent = 0 );
 
-protected:
-    QList<QAbstractItemView*> views() const;
-
-public Q_SLOTS:
-    void searchChanged( const QString& text );
-
-private Q_SLOTS:
-    void changeModule( const QModelIndex& activeModule );
-    void moduleLoaded();
-    void backToOverview();
-    void initWidget();
-
-private:
-    class Private;
-    Private *const d;
+    virtual void setModel( QAbstractItemModel *model );
 };
 
 #endif

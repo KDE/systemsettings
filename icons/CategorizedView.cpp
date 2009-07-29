@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Ben Cooksley <ben@eclipse.endoftheinternet.org> *
+ *   Copyright (C) 2009 by Rafael Fernández López <ereslibre@kde.org>      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,45 +17,27 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA          *
  ***************************************************************************/
 
-#ifndef ICONMODE_H
-#define ICONMODE_H
+#include "CategorizedView.h"
 
-#include "BaseMode.h"
+#include <KFileItemDelegate>
 
-class ModuleView;
-class KAboutData;
-class QModelIndex;
-class QAbstractItemView;
-
-class IconMode : public BaseMode
+CategorizedView::CategorizedView( QWidget *parent )
+    : KCategorizedView( parent )
 {
-    Q_OBJECT
+    setWordWrap( true );
+}
 
-public:
-    IconMode(QObject * parent, const QVariantList& );
-    ~IconMode();
-    QWidget * mainWidget();
-    void initEvent();
-    void giveFocus();
-    void leaveModuleView();
-    KAboutData * aboutData();
-    ModuleView * moduleView() const;
-
-protected:
-    QList<QAbstractItemView*> views() const;
-
-public Q_SLOTS:
-    void searchChanged( const QString& text );
-
-private Q_SLOTS:
-    void changeModule( const QModelIndex& activeModule );
-    void moduleLoaded();
-    void backToOverview();
-    void initWidget();
-
-private:
-    class Private;
-    Private *const d;
-};
-
-#endif
+void CategorizedView::setModel( QAbstractItemModel *model )
+{
+    KCategorizedView::setModel( model );
+    int maxWidth = -1;
+    int maxHeight = -1;
+    for ( int i = 0; i < model->rowCount(); ++i ) {
+        const QModelIndex index = model->index(i, modelColumn(), rootIndex());
+        const QSize size = sizeHintForIndex( index );
+        maxWidth = qMax( maxWidth, size.width() );
+        maxHeight = qMax( maxHeight, size.height() );
+    }
+    setGridSize( QSize( maxWidth, maxHeight ) );
+    static_cast<KFileItemDelegate*>( itemDelegate() )->setMaximumSize( QSize( maxWidth, maxHeight ) );
+}
