@@ -39,8 +39,8 @@
 #include "BaseData.h"
 #include "ModuleView.h"
 
-SettingsBase::SettingsBase( QWidget * parent ) :
-    KXmlGuiWindow(parent)
+SettingsBase::SettingsBase( QWidget * parent )
+    : KXmlGuiWindow(parent)
 {
     // Ensure delayed loading doesn't cause a crash
     activeView = 0;
@@ -70,7 +70,7 @@ SettingsBase::~SettingsBase()
 
 QSize SettingsBase::sizeHint() const
 {
-    return QSize(780, 520);
+    return QSize(720, 600);
 }
 
 void SettingsBase::initApplication()
@@ -130,7 +130,7 @@ void SettingsBase::initToolBar()
     menuBar()->hide();
     // Toolbar & Configuration
     helpActionMenu->setMenu( dynamic_cast<KMenu*>( factory()->container("help", this) ) );
-    setMinimumSize(780,520);
+    setMinimumSize(720,600);
     toolBar()->setMovable(false); // We don't allow any changes
     changeToolBar( BaseMode::Search | BaseMode::Configure );
 }

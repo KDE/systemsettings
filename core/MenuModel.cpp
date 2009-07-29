@@ -37,7 +37,8 @@ public:
 };
 
 MenuModel::MenuModel( MenuItem * menuRoot, QObject *parent )
-  : QAbstractItemModel( parent ), d( new Private() )
+    : QAbstractItemModel( parent )
+    , d( new Private() )
 {
     d->rootItem = menuRoot;
 }

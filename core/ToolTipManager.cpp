@@ -54,9 +54,9 @@ public:
     QRect itemRect;
 };
 
-ToolTipManager::ToolTipManager(QAbstractItemView* parent) :
-    QObject(parent),
-    d(new ToolTipManager::Private)
+ToolTipManager::ToolTipManager(QAbstractItemView* parent)
+    : QObject(parent)
+    , d(new ToolTipManager::Private)
 {
     d->view = parent;
     d->tooltipManager = KToolTipManager::instance();

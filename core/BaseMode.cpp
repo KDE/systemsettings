@@ -42,8 +42,9 @@ public:
     QList<ToolTipManager*> tooltipManagers;
 };
 
-BaseMode::BaseMode(QObject* parent)
-    : QObject( parent ), d( new Private() )
+BaseMode::BaseMode( QObject* parent )
+    : QObject( parent )
+    , d( new Private() )
 {
 }
 

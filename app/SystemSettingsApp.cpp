@@ -19,7 +19,8 @@
 
 #include "SystemSettingsApp.h"
 
-SystemSettingsApp::SystemSettingsApp() : KUniqueApplication()
+SystemSettingsApp::SystemSettingsApp()
+    : KUniqueApplication()
 {
     window = 0;
 }

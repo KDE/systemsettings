@@ -58,7 +58,9 @@ public:
     KPushButton* mHelp;
 };
 
-ModuleView::ModuleView( QWidget * parent ) : QWidget( parent ), d( new Private() )
+ModuleView::ModuleView( QWidget * parent )
+    : QWidget( parent )
+    , d( new Private() )
 {
     // Configure a layout first
     d->mLayout = new QVBoxLayout(this);
