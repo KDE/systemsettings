@@ -130,7 +130,7 @@ void SettingsBase::initToolBar()
     menuBar()->hide();
     // Toolbar & Configuration
     helpActionMenu->setMenu( dynamic_cast<KMenu*>( factory()->container("help", this) ) );
-    setMinimumSize(720,600);
+    setMinimumSize(620,430);
     toolBar()->setMovable(false); // We don't allow any changes
     changeToolBar( BaseMode::Search | BaseMode::Configure );
 }
