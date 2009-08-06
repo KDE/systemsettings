@@ -109,7 +109,7 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
     const SystemSettingsToolTipItem* controlItem = static_cast<const SystemSettingsToolTipItem*>( &item );
     if ( controlItem->lines().count() ) {
         int ypos = Border + qMax( PREVIEW_HEIGHT, doc.size().toSize().height() ) + 2;
-        painter->setPen( Qt::gray );
+        painter->setBrush( paintColors.foreground() );
         painter->drawLine( Border + option.rect.x(), ypos, option.rect.right() - Border, ypos );
         ypos += 2;
 
