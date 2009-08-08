@@ -97,7 +97,7 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
     }
 
     QTextDocument doc;
-    doc.setHtml(item.text());
+    doc.setHtml( "<font color=\"" + paintColors.foreground().color().name() + "\">" + item.text() + "</font>" );
     QPixmap bitmap(doc.size().toSize());
     bitmap.fill(Qt::transparent);
     QPainter p(&bitmap);
@@ -118,7 +118,7 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
             painter->drawPixmap( QPoint( Border + option.rect.x(), ypos ), controlItem->lines()[i].first.pixmap( subIconSize ) );
 
             QTextDocument doc;
-            doc.setHtml( controlItem->lines()[i].second );
+            doc.setHtml( "<font color=\"" + paintColors.foreground().color().name() + "\">" + controlItem->lines()[i].second + "</font>" );
             QPixmap bitmap( doc.size().toSize() );
             bitmap.fill( Qt::transparent );
             QPainter p( &bitmap );
