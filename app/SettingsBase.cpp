@@ -151,14 +151,19 @@ void SettingsBase::initHelpMenu()
 void SettingsBase::initConfig()
 {
     // Prepare dialog first
-    configDialog = new KDialog(this);
+    configDialog = new KConfigDialog( this, "systemsettingsconfig", BaseConfig::self() );
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
-    configWidget.setupUi(configDialog->mainWidget());
-    configDialog->setCaption(i18n("Configure"));
     configDialog->setInitialSize(QSize(400,160));
     configDialog->restoreDialogSize( KGlobal::config()->group("ConfigDialog") );
+
+    // Add our page
+    QWidget * configPage = new QWidget( configDialog );
+    configWidget.setupUi(configPage);
+    QString iconName = KGlobal::activeComponent().aboutData()->programIconName();
+    configDialog->addPage( configPage, i18n("General"), iconName );
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews ) {
+        mode->addConfiguration( configDialog );
         configWidget.CbPlugins->addItem( KIcon(mode->service()->icon()), mode->service()->name() );
     }
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));

@@ -28,10 +28,10 @@
 #include <QMap>
 #include <QStackedWidget>
 
-#include <KDialog>
 #include <KService>
 #include <KLineEdit>
 #include <KActionMenu>
+#include <KConfigDialog>
 #include <KXmlGuiWindow>
 #include <KAboutApplicationDialog>
 
@@ -79,7 +79,7 @@ private:
     KAction * aboutModuleAction;
     KActionMenu * helpActionMenu;
     // The configuration
-    KDialog * configDialog;
+    KConfigDialog * configDialog;
     Ui::ConfigDialog configWidget;
     // The control module
     QStackedWidget * stackedWidget;

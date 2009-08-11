@@ -28,6 +28,7 @@
 class QAction;
 class MenuItem;
 class ModuleView;
+class KConfigDialog;
 class QAbstractItemView;
 template<typename T> class QList;
 
@@ -162,6 +163,13 @@ public Q_SLOTS:
      * @warning Search will not work in the view if this function is not implemented.
      */
     virtual void searchChanged( const QString& text );
+
+    /**
+     * Allows views to add custom configuration pages to the System Settings configure dialog
+     *
+     * @warning Deleting the config object will cause System Settings to crash
+     */
+    virtual void addConfiguration( KConfigDialog * config );
 
 Q_SIGNALS:
     /**

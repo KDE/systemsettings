@@ -24,6 +24,7 @@
 #include <QAbstractItemView>
 
 #include <KConfigGroup>
+#include <KConfigDialog>
 #include <KServiceTypeTrader>
 
 #include "MenuItem.h"
@@ -104,6 +105,11 @@ void BaseMode::leaveModuleView()
 
 void BaseMode::giveFocus()
 {
+}
+
+void BaseMode::addConfiguration( KConfigDialog * config )
+{
+    Q_UNUSED( config );
 }
 
 MenuItem * BaseMode::rootItem() const
