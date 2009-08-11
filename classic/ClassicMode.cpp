@@ -19,6 +19,7 @@
 ***************************************************************************/
 
 #include "ClassicMode.h"
+#include "ui_configClassic.h"
 
 #include <QLayout>
 #include <QSplitter>
@@ -27,9 +28,9 @@
 #include <QStackedWidget>
 #include <QAbstractItemModel>
 
-#include <KDialog>
 #include <KAboutData>
 #include <KCModuleInfo>
+#include <KConfigDialog>
 
 #include "MenuItem.h"
 #include "MenuModel.h"
@@ -49,6 +50,7 @@ public:
 
     QSplitter * classicWidget;
     QTreeView * classicTree;
+    Ui::ConfigClassic classicConfig;
     CategoryList * classicCategory;
     QStackedWidget * stackedWidget;
     ModuleView * moduleView;
@@ -199,6 +201,12 @@ void ClassicMode::initWidget()
     connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()));
     connect( d->moduleView, SIGNAL( moduleChanged(bool) ), this, SLOT( moduleLoaded() ) );
 
+    if( config().readEntry( "autoExpandOneLevel", false ) ) {
+        for( int processed = 0; d->proxyModel->rowCount() > processed; processed++ ) {
+            d->classicTree->setExpanded( d->proxyModel->index( processed, 0 ), true );
+        }
+    }
+
     expandColumns();
     QList<int> defaultSizes;
     defaultSizes << 250 << 500;
@@ -214,6 +222,23 @@ void ClassicMode::leaveModuleView()
 void ClassicMode::giveFocus()
 {
     d->classicTree->setFocus();
+}
+
+void ClassicMode::addConfiguration( KConfigDialog * config )
+{
+    QWidget * configWidget = new QWidget( config );
+    d->classicConfig.setupUi( configWidget );
+    config->addPage( configWidget, i18n("Tree View"), aboutData()->programIconName() );
+}
+
+void ClassicMode::loadConfiguration()
+{
+    d->classicConfig.CbExpand->setChecked( config().readEntry( "autoExpandOneLevel", false ) );
+}
+
+void ClassicMode::saveConfiguration()
+{
+    config().writeEntry("autoExpandOneLevel", d->classicConfig.CbExpand->isChecked());
 }
 
 #include "ClassicMode.moc"

@@ -1,8 +1,9 @@
-SET(classic_mode_srcs 
+SET(classic_mode_srcs
     ClassicMode.cpp
     CategoryList.cpp
-) 
+)
 
+KDE4_ADD_UI_FILES( classic_mode_srcs configClassic.ui )
 KDE4_ADD_PLUGIN(classic_mode ${classic_mode_srcs})
 
 TARGET_LINK_LIBRARIES(classic_mode ${KDE4_KUTILS_LIBS} ${KDE4_KHTML_LIBS} systemsettingsview )

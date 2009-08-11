@@ -47,6 +47,9 @@ public Q_SLOTS:
     void changeModule( const QModelIndex& activeModule );
     void saveState();
     void giveFocus();
+    void addConfiguration( KConfigDialog * config );
+    void loadConfiguration();
+    void saveConfiguration();
 
 private Q_SLOTS:
     void moduleLoaded();
