@@ -81,6 +81,7 @@ private:
     // The configuration
     KConfigDialog * configDialog;
     Ui::ConfigDialog configWidget;
+    QButtonGroup viewSelection;
     // The control module
     QStackedWidget * stackedWidget;
     // The module list

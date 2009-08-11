@@ -21,6 +21,7 @@
 #include "BaseConfig.h"
 
 #include <QTimer>
+#include <QRadioButton>
 #include <QVariantList>
 
 #include <KMenu>
@@ -160,12 +161,17 @@ void SettingsBase::initConfig()
     QWidget * configPage = new QWidget( configDialog );
     configWidget.setupUi(configPage);
     QString iconName = KGlobal::activeComponent().aboutData()->programIconName();
-    configDialog->addPage( configPage, i18n("General"), iconName );
+    configDialog->addPage( configPage, i18nc("General config for System Settings", "General"), iconName );
+    QVBoxLayout * configLayout = new QVBoxLayout;
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews ) {
         mode->addConfiguration( configDialog );
-        configWidget.CbPlugins->addItem( KIcon(mode->service()->icon()), mode->service()->name() );
+        QRadioButton * radioButton = new QRadioButton( mode->service()->name(), configWidget.GbViewStyle );
+        radioButton->setIcon( KIcon(mode->service()->icon()) );
+        configLayout->addWidget( radioButton );
+        viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }
+    configWidget.GbViewStyle->setLayout( configLayout );
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
 
@@ -200,8 +206,7 @@ void SettingsBase::configUpdated()
 {
     KConfigGroup dialogConfig = KGlobal::config()->group("ConfigDialog");
     configDialog->saveDialogSize( dialogConfig );
-    const int currentIndex = configWidget.CbPlugins->currentIndex();
-    BaseConfig::setActiveView( possibleViews.keys().at(currentIndex) );
+    BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->saveConfiguration();
     changePlugin();
@@ -221,10 +226,8 @@ void SettingsBase::configShow()
 
     const QStringList pluginList = possibleViews.keys();
     const int configIndex = pluginList.indexOf( BaseConfig::activeView() );
-    if( configIndex == -1 ) {
-        configWidget.CbPlugins->setCurrentIndex( 0 );
-    } else {
-        configWidget.CbPlugins->setCurrentIndex( configIndex );
+    if( configIndex != -1 ) {
+        viewSelection.button( configIndex )->setChecked(true);
     }
     configWidget.ChTooltips->setChecked( BaseConfig::showToolTips() );
     if( pluginList.isEmpty() ) {
