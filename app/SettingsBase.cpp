@@ -203,6 +203,7 @@ void SettingsBase::configUpdated()
     const int currentIndex = configWidget.CbPlugins->currentIndex();
     BaseConfig::setActiveView( possibleViews.keys().at(currentIndex) );
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
+    activeView->saveConfiguration();
     changePlugin();
 }
 
@@ -215,6 +216,8 @@ void SettingsBase::configShow()
     if( activeView && activeView->moduleView() && !activeView->moduleView()->resolveChanges() ) {
         return; // It shouldn't be triggering anyway, since the action is disabled
     }
+
+    activeView->loadConfiguration();
 
     const QStringList pluginList = possibleViews.keys();
     const int configIndex = pluginList.indexOf( BaseConfig::activeView() );

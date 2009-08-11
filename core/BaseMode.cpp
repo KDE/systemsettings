@@ -112,6 +112,14 @@ void BaseMode::addConfiguration( KConfigDialog * config )
     Q_UNUSED( config );
 }
 
+void BaseMode::loadConfiguration()
+{
+}
+
+void BaseMode::saveConfiguration()
+{
+}
+
 MenuItem * BaseMode::rootItem() const
 {
     return d->rootItem;

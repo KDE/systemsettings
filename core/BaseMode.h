@@ -171,6 +171,18 @@ public Q_SLOTS:
      */
     virtual void addConfiguration( KConfigDialog * config );
 
+    /**
+     * Allows views to load their configuration before the configuration dialog is shown
+     * Views should revert any changes that have not been saved
+     */
+    virtual void loadConfiguration();
+
+    /**
+     * Should be implmented to ensure that views settings are saved when the user confirms their changes
+     * Views should also apply the configuration at the same time
+     */
+    virtual void saveConfiguration();
+
 Q_SIGNALS:
     /**
      * Triggers a reload of the views actions by the host application.
