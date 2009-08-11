@@ -101,6 +101,8 @@ void SettingsBase::initApplication()
             kWarning() << "View load error: " + error;
         }
     }
+    searchText->completionObject()->setIgnoreCase( true );
+    searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
     changePlugin();
 }
 
@@ -279,11 +281,19 @@ void SettingsBase::changePlugin()
         stackedWidget->addWidget(activeView->mainWidget());
     }
 
+    // Handle the tooltips
+    qDeleteAll( tooltipManagers );
+    tooltipManagers.clear();
+    if ( BaseConfig::showToolTips() ) {
+        QList<QAbstractItemView*> theViews = activeView->views();
+        foreach ( QAbstractItemView* view, theViews ) {
+            tooltipManagers << new ToolTipManager( view );
+        }
+    }
+
     changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
     viewChange(false);
-    searchText->completionObject()->setIgnoreCase( true );
-    searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
-    activeView->setEnhancedTooltipEnabled( BaseConfig::showToolTips() );
+
     stackedWidget->setCurrentWidget(activeView->mainWidget());
     updateViewActions();
 

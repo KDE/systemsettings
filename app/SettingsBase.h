@@ -22,6 +22,7 @@
 
 #include "MenuItem.h"
 #include "BaseMode.h"
+#include "ToolTipManager.h"
 #include "ui_configDialog.h"
 
 #include <QMap>
@@ -64,6 +65,7 @@ private slots:
 private:
     // The plugins
     QMap<QString, BaseMode *> possibleViews;
+    QList<ToolTipManager*> tooltipManagers;
     BaseMode * activeView;
     // The search bar
     KLineEdit * searchText;

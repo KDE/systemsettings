@@ -47,6 +47,11 @@ class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
 {
     Q_OBJECT
 
+    /**
+     * System Settings main application is allowed privilaged access to handle tooltips
+     */
+    friend class SettingsBase;
+
 public:
     /**
      * Constructs a BaseMode for use in System Settings.\n
@@ -150,14 +155,6 @@ public:
      */
     const KService::Ptr& service() const;
 
-    /**
-     * Returns whether the enhanced tooltip is enabled. This tooltip
-     * can only be enabled when an item view is provided by views().
-     *
-     * @returns true if the enhanced tooltip is enabled.
-     */
-    bool isEnhancedTooltipEnabled() const;
-
 public Q_SLOTS:
     /**
      * Called when the text in the search box changes allowing the display to be filtered.
@@ -165,12 +162,6 @@ public Q_SLOTS:
      * @warning Search will not work in the view if this function is not implemented.
      */
     virtual void searchChanged( const QString& text );
-
-    /**
-     * Enables or disables the enhanced tooltip. The normal tooltip will be shown if this is disabled.
-     * For internal use only.
-     */
-    void setEnhancedTooltipEnabled( bool enable );
 
 Q_SIGNALS:
     /**

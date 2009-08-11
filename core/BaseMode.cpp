@@ -29,7 +29,6 @@
 #include "MenuItem.h"
 #include "BaseData.h"
 #include "ModuleView.h"
-#include "ToolTipManager.h"
 
 class BaseMode::Private {
 public:
@@ -39,7 +38,6 @@ public:
     KService::Ptr service;
     MenuItem *rootItem;
     KConfigGroup config;
-    QList<ToolTipManager*> tooltipManagers;
 };
 
 BaseMode::BaseMode( QObject* parent )
@@ -91,27 +89,9 @@ const KService::Ptr& BaseMode::service() const
     return d->service;
 }
 
-bool BaseMode::isEnhancedTooltipEnabled() const
-{
-    return !d->tooltipManagers.empty();
-}
-
 void BaseMode::searchChanged( const QString& text )
 {
     Q_UNUSED( text );
-}
-
-void BaseMode::setEnhancedTooltipEnabled( bool enable )
-{
-    QList<QAbstractItemView*> theViews = views();
-    if ( enable && d->tooltipManagers.empty() && !theViews.empty() ) {
-        foreach ( QAbstractItemView* view, theViews ) {
-            d->tooltipManagers << new ToolTipManager( view );
-        }
-    } else if ( !enable && !d->tooltipManagers.empty() ) {
-        qDeleteAll( d->tooltipManagers );
-        d->tooltipManagers.clear();
-    }
 }
 
 void BaseMode::saveState()
