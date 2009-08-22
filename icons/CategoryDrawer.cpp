@@ -181,6 +181,9 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
 
 int CategoryDrawer::categoryHeight(const QModelIndex &index, const QStyleOption &option) const
 {
+    Q_UNUSED( index );
+    Q_UNUSED( option );
+
     QFont font(QApplication::font());
     font.setBold(true);
     const QFontMetrics fontMetrics = QFontMetrics(font);
