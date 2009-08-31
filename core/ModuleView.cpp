@@ -174,17 +174,24 @@ void ModuleView::addModule( KCModuleInfo *module )
         d->externalModule.PbRelaunch->setText( i18n("Relaunch %1", module->moduleName()) );
         connect( d->externalModule.PbRelaunch, SIGNAL(clicked()), this, SLOT(runExternal()) );
         moduleScroll->setWidget( externalWidget );
+        // Provide information to the users
+        page->setIcon( KIcon( module->service()->icon() ) );
+        page->setHeader( module->service()->comment() );
     } else { // It must be a normal module then
         KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
         moduleScroll->setWidget( moduleProxy );
         moduleProxy->setAutoFillBackground( false );
         connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
         d->mPages.insert( page, moduleProxy );
+        if (moduleProxy->useRootOnlyMessage()) {
+            page->setHeader( "<b>"+module->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
+            page->setIcon( KIcon( module->icon(), 0, QStringList() << "dialog-warning" ) );
+        } else {
+            page->setHeader( module->comment() );
+            page->setIcon( KIcon( module->icon() ) );
+        }
     }
 
-    // Provide information to the users
-    page->setIcon( KIcon( module->service()->icon() ) );
-    page->setHeader( module->service()->comment() );
     d->mModules.insert( page, module );
     // Add the new page
     d->mPageWidget->addPage( page );
