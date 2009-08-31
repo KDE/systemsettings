@@ -112,7 +112,12 @@ public Q_SLOTS:
     /**
      * Causes the active module to save its configuration, applying all changes.
      */
-    void moduleSave();
+    bool moduleSave();
+    
+    /**
+     * Causes the specified module to save its configuration, applying all changes.
+     */ 
+    bool moduleSave(KCModuleProxy *module);
 
     /**
      * Causes the active module to revert all changes to the configuration, and return to defaults.

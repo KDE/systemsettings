@@ -40,6 +40,7 @@
 #include <KCModuleProxy>
 #include <KStandardGuiItem>
 #include <KDialogButtonBox>
+#include <kauthaction.h>
 
 #include "MenuItem.h"
 
@@ -71,6 +72,7 @@ ModuleView::ModuleView( QWidget * parent )
     // Create the dialog
     d->mButtons = new KDialogButtonBox( this, Qt::Horizontal );
     d->mLayout->addWidget(d->mButtons);
+
     // Create the buttons in it
     d->mApply = d->mButtons->addButton( KStandardGuiItem::apply(), QDialogButtonBox::ApplyRole );
     d->mDefault = d->mButtons->addButton( KStandardGuiItem::defaults(), QDialogButtonBox::ResetRole );
@@ -201,19 +203,20 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
     }
 
     // Let the user decide
+    KGuiItem applyItem = KStandardGuiItem::apply();
+    applyItem.setIcon( KIcon(d->mApply->icon()) );
     const int queryUser = KMessageBox::warningYesNoCancel(
         this,
         i18n("The settings of the current module have changed.\n"
              "Do you want to apply the changes or discard them?"),
         i18n("Apply Settings"),
-        KStandardGuiItem::apply(),
+        applyItem,
         KStandardGuiItem::discard(),
         KStandardGuiItem::cancel() );
 
     switch (queryUser) {
         case KMessageBox::Yes:
-            currentProxy->save();
-            return true;
+            return moduleSave(currentProxy);
 
         case KMessageBox::No:
             currentProxy->load();
@@ -251,12 +254,20 @@ void ModuleView::closeModules()
     blockSignals(false);
 }
 
-void ModuleView::moduleSave()
+bool ModuleView::moduleSave()
 {
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( activeModule ) {
-        activeModule->save();
+    KCModuleProxy * moduleProxy = d->mPages.value( d->mPageWidget->currentPage() );
+    return moduleSave( moduleProxy );
+}
+
+bool ModuleView::moduleSave(KCModuleProxy *module)
+{
+    if( !module ) {
+        return false;
     }
+
+    module->save();
+    return true;
 }
 
 void ModuleView::moduleLoad()
@@ -309,9 +320,22 @@ void ModuleView::stateChanged()
     bool change = false;
     if( activeModule ) {
         change = activeModule->changed();
+
+	qDebug() << "checking";
+        if (activeModule->realModule()->authAction()) {
+	    qDebug() << activeModule->realModule()->authAction()->name();
+            d->mApply->setAuthAction(activeModule->realModule()->authAction());
+	    disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
+	    connect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+	} else {
+	    d->mApply->setAuthAction(0);
+	    connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
+	    disconnect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+	}
     }
-    d->mApply->setEnabled(change);
-    d->mReset->setEnabled(change);
+
+    d->mApply->setEnabled( change );
+    d->mReset->setEnabled( change );
     emit moduleChanged( change );
 }
 
