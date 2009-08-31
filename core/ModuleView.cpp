@@ -321,17 +321,16 @@ void ModuleView::stateChanged()
     if( activeModule ) {
         change = activeModule->changed();
 
-	qDebug() << "checking";
+        disconnect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+        disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
+
         if (activeModule->realModule()->authAction()) {
-	    qDebug() << activeModule->realModule()->authAction()->name();
             d->mApply->setAuthAction(activeModule->realModule()->authAction());
-	    disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-	    connect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
-	} else {
-	    d->mApply->setAuthAction(0);
-	    connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-	    disconnect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
-	}
+            connect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+        } else {
+            d->mApply->setAuthAction(0);
+            connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
+        }
     }
 
     d->mApply->setEnabled( change );
