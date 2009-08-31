@@ -154,8 +154,6 @@ void SettingsBase::initConfig()
     // Prepare dialog first
     configDialog = new KConfigDialog( this, "systemsettingsconfig", BaseConfig::self() );
     configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
-    configDialog->setInitialSize(QSize(400,160));
-    configDialog->restoreDialogSize( KGlobal::config()->group("ConfigDialog") );
 
     // Add our page
     QWidget * configPage = new QWidget( configDialog );
@@ -172,6 +170,7 @@ void SettingsBase::initConfig()
         viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }
     configWidget.GbViewStyle->setLayout( configLayout );
+    configDialog->restoreDialogSize( KGlobal::config()->group("ConfigDialog") );
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
 
