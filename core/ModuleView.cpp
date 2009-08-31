@@ -321,12 +321,12 @@ void ModuleView::stateChanged()
     if( activeModule ) {
         change = activeModule->changed();
 
-        disconnect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+        disconnect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
         disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
 
         if (activeModule->realModule()->authAction()) {
             d->mApply->setAuthAction(activeModule->realModule()->authAction());
-            connect( d->mApply, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
+            connect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
         } else {
             d->mApply->setAuthAction(0);
             connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
