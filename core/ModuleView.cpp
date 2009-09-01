@@ -165,6 +165,9 @@ void ModuleView::addModule( KCModuleInfo *module )
     moduleScroll->viewport()->setAutoFillBackground( false );
     // Create the page
     KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
+    // Provide information to the users
+    page->setHeader( module->comment() );
+    page->setIcon( KIcon( module->icon() ) );
 
     if( module->service()->hasServiceType("SystemSettingsExternalApp") ) { // Is it an external app?
         QProcess::startDetached( module->service()->exec() ); // Launch it!
@@ -174,21 +177,16 @@ void ModuleView::addModule( KCModuleInfo *module )
         d->externalModule.PbRelaunch->setText( i18n("Relaunch %1", module->moduleName()) );
         connect( d->externalModule.PbRelaunch, SIGNAL(clicked()), this, SLOT(runExternal()) );
         moduleScroll->setWidget( externalWidget );
-        // Provide information to the users
-        page->setIcon( KIcon( module->service()->icon() ) );
-        page->setHeader( module->service()->comment() );
     } else { // It must be a normal module then
         KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
         moduleScroll->setWidget( moduleProxy );
         moduleProxy->setAutoFillBackground( false );
         connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
         d->mPages.insert( page, moduleProxy );
-        if (moduleProxy->useRootOnlyMessage()) {
-            page->setHeader( "<b>"+module->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
+        // We show the root only message if it is needed
+        if( moduleProxy->useRootOnlyMessage() ) {
+            page->setHeader( "<b>" + module->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
             page->setIcon( KIcon( module->icon(), 0, QStringList() << "dialog-warning" ) );
-        } else {
-            page->setHeader( module->comment() );
-            page->setIcon( KIcon( module->icon() ) );
         }
     }
 
@@ -330,9 +328,8 @@ void ModuleView::stateChanged()
 
         disconnect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
         disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-
-        if (activeModule->realModule()->authAction()) {
-            d->mApply->setAuthAction(activeModule->realModule()->authAction());
+        if( activeModule->realModule()->authAction() ) {
+            d->mApply->setAuthAction( activeModule->realModule()->authAction() );
             connect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
         } else {
             d->mApply->setAuthAction(0);

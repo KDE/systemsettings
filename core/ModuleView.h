@@ -113,11 +113,6 @@ public Q_SLOTS:
      * Causes the active module to save its configuration, applying all changes.
      */
     bool moduleSave();
-    
-    /**
-     * Causes the specified module to save its configuration, applying all changes.
-     */ 
-    bool moduleSave(KCModuleProxy *module);
 
     /**
      * Causes the active module to revert all changes to the configuration, and return to defaults.
@@ -132,6 +127,7 @@ public Q_SLOTS:
 private:
     bool resolveChanges( KCModuleProxy *currentProxy );
     void addModule( KCModuleInfo *module );
+    bool moduleSave( KCModuleProxy *module );
 
 private Q_SLOTS:
     void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous);
