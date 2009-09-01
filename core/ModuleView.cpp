@@ -122,7 +122,7 @@ const KAboutData * ModuleView::aboutData() const
 void ModuleView::loadModule( MenuItem *menuItem )
 {
     if ( !menuItem ) {
-      return;
+        return;
     }
 
     QList<KCModuleInfo*> modules;
@@ -166,8 +166,6 @@ void ModuleView::addModule( KCModuleInfo *module )
     // Create the page
     KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
     // Provide information to the users
-    page->setHeader( module->comment() );
-    page->setIcon( KIcon( module->icon() ) );
 
     if( module->service()->hasServiceType("SystemSettingsExternalApp") ) { // Is it an external app?
         QProcess::startDetached( module->service()->exec() ); // Launch it!
@@ -183,16 +181,26 @@ void ModuleView::addModule( KCModuleInfo *module )
         moduleProxy->setAutoFillBackground( false );
         connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
         d->mPages.insert( page, moduleProxy );
-        // We show the root only message if it is needed
-        if( moduleProxy->useRootOnlyMessage() ) {
-            page->setHeader( "<b>" + module->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
-            page->setIcon( KIcon( module->icon(), 0, QStringList() << "dialog-warning" ) );
-        }
     }
 
     d->mModules.insert( page, module );
+    updatePageIconHeader( page );
     // Add the new page
     d->mPageWidget->addPage( page );
+}
+
+void ModuleView::updatePageIconHeader( KPageWidgetItem * page )
+{
+    KCModuleProxy * moduleProxy = d->mPages.value( page );
+    KCModuleInfo * moduleInfo = d->mModules.value( page );
+
+    if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
+        page->setHeader( "<b>" + moduleInfo->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
+        page->setIcon( KIcon( moduleInfo->icon(), 0, QStringList() << "dialog-warning" ) );
+    } else {
+        page->setHeader( moduleInfo->comment() );
+        page->setIcon( KIcon( moduleInfo->icon() ) );
+    }
 }
 
 bool ModuleView::resolveChanges()
@@ -337,6 +345,7 @@ void ModuleView::stateChanged()
         }
     }
 
+    updatePageIconHeader( d->mPageWidget->currentPage() );
     d->mApply->setEnabled( change );
     d->mReset->setEnabled( change );
     emit moduleChanged( change );

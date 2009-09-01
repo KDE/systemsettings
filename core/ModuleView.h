@@ -128,6 +128,7 @@ private:
     bool resolveChanges( KCModuleProxy *currentProxy );
     void addModule( KCModuleInfo *module );
     bool moduleSave( KCModuleProxy *module );
+    void updatePageIconHeader( KPageWidgetItem * page );
 
 private Q_SLOTS:
     void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous);
