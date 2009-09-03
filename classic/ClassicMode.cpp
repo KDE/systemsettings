@@ -85,7 +85,7 @@ void ClassicMode::initEvent()
     d->model = new MenuModel( rootItem(), this );
     foreach( MenuItem * child, rootItem()->children() ) {
         d->model->addException( child );
-	}
+    }
     // Create the model
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setSourceModel( d->model );
@@ -190,16 +190,16 @@ void ClassicMode::initWidget()
     d->classicTree->setSortingEnabled( true );
     d->classicTree->setMouseTracking( true );
     d->classicTree->setMinimumWidth( 200 );
-    d->classicTree->setSelectionMode(QAbstractItemView::SingleSelection);
+    d->classicTree->setSelectionMode( QAbstractItemView::SingleSelection );
     d->classicTree->sortByColumn( 0, Qt::AscendingOrder );
 
     d->classicCategory->changeModule( d->classicTree->rootIndex() );
 
-    connect( d->classicCategory, SIGNAL(moduleSelected( QModelIndex )), this, SLOT(selectModule( QModelIndex )));
-    connect( d->classicTree, SIGNAL(clicked(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)));
-    connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()));
-    connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()));
-    connect( d->moduleView, SIGNAL( moduleChanged(bool) ), this, SLOT( moduleLoaded() ) );
+    connect( d->classicCategory, SIGNAL(moduleSelected( QModelIndex )), this, SLOT(selectModule( QModelIndex )) );
+    connect( d->classicTree, SIGNAL(activated(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)) );
+    connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
+    connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
+    connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
 
     if( config().readEntry( "autoExpandOneLevel", false ) ) {
         for( int processed = 0; d->proxyModel->rowCount() > processed; processed++ ) {
