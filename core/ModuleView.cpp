@@ -137,7 +137,7 @@ void ModuleView::loadModule( MenuItem *menuItem )
     foreach ( KCModuleInfo *module, modules ) {
         addModule(module);
     }
-    stateChanged();
+    // changing state is not needed here as the adding / changing of pages does it
 }
 
 void ModuleView::addModule( KCModuleInfo *module )
@@ -330,6 +330,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
 void ModuleView::stateChanged()
 {
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    KAuth::Action * moduleAction = 0;
     bool change = false;
     if( activeModule ) {
         change = activeModule->changed();
@@ -337,15 +338,15 @@ void ModuleView::stateChanged()
         disconnect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
         disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
         if( activeModule->realModule()->authAction() ) {
-            d->mApply->setAuthAction( activeModule->realModule()->authAction() );
             connect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
+            moduleAction = activeModule->realModule()->authAction();
         } else {
-            d->mApply->setAuthAction(0);
             connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
         }
     }
 
     updatePageIconHeader( d->mPageWidget->currentPage() );
+    d->mApply->setAuthAction( moduleAction );
     d->mApply->setEnabled( change );
     d->mReset->setEnabled( change );
     emit moduleChanged( change );
