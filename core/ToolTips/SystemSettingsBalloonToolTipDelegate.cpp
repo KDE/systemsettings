@@ -25,7 +25,7 @@
 #include <QPair>
 #include <QTextDocument>
 
-#include <KDebug>
+#include <KApplication>
 #include <KColorScheme>
 
 SystemSettingsBalloonToolTipDelegate::SystemSettingsBalloonToolTipDelegate()
@@ -70,6 +70,11 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
     QColor toColor = paintColors.background().color();
     QColor fromColor = KColorScheme::shade(toColor, KColorScheme::LightShade, 0.2);
 
+    QString itemTextTemplate = "<font color=\"" + paintColors.foreground().color().name() + "\">%2</font>";
+    if ( kapp->layoutDirection() == Qt::RightToLeft ) {
+        itemTextTemplate = "<body style=\"direction: rtl\">" + itemTextTemplate + "</body>";
+    }
+
     QPainterPath path = createPath(option);
     if (haveAlphaChannel()) {
         painter->setRenderHint(QPainter::Antialiasing);
@@ -97,7 +102,7 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
     }
 
     QTextDocument doc;
-    doc.setHtml( "<font color=\"" + paintColors.foreground().color().name() + "\">" + item.text() + "</font>" );
+    doc.setHtml( itemTextTemplate.arg( item.text() ) );
     QPixmap bitmap(doc.size().toSize());
     bitmap.fill(Qt::transparent);
     QPainter p(&bitmap);
@@ -118,7 +123,7 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
             painter->drawPixmap( QPoint( Border + option.rect.x(), ypos ), controlItem->lines()[i].first.pixmap( subIconSize ) );
 
             QTextDocument doc;
-            doc.setHtml( "<font color=\"" + paintColors.foreground().color().name() + "\">" + controlItem->lines()[i].second + "</font>" );
+            doc.setHtml( itemTextTemplate.arg( controlItem->lines()[i].second ) );
             QPixmap bitmap( doc.size().toSize() );
             bitmap.fill( Qt::transparent );
             QPainter p( &bitmap );
