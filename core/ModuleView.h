@@ -134,7 +134,6 @@ private Q_SLOTS:
     void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous);
     void updateButtons();
     void stateChanged();
-    void runExternal();
 
 Q_SIGNALS:
     /**

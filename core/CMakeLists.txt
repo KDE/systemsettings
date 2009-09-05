@@ -17,6 +17,7 @@ set(systemsettingsview_LIB_SRCS
     ToolTips/KToolTipItem.cpp
     ToolTips/KToolTipManager.cpp
     ToolTipManager.cpp
+    ExternalAppModule.cpp
 )
 
 KDE4_ADD_UI_FILES( systemsettingsview_LIB_SRCS externalModule.ui )

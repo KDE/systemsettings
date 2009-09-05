@@ -19,7 +19,7 @@
  *****************************************************************************/
 
 #include "ModuleView.h"
-#include "ui_externalModule.h"
+#include "ExternalAppModule.h"
 
 #include <QMap>
 #include <QList>
@@ -49,7 +49,6 @@ public:
     Private() { }
     QMap<KPageWidgetItem*, KCModuleProxy*> mPages;
     QMap<KPageWidgetItem*, KCModuleInfo*> mModules;
-    Ui::ExternalModule externalModule;
     KPageWidget* mPageWidget;
     QVBoxLayout* mLayout;
     KDialogButtonBox* mButtons;
@@ -168,12 +167,7 @@ void ModuleView::addModule( KCModuleInfo *module )
     // Provide information to the users
 
     if( module->service()->hasServiceType("SystemSettingsExternalApp") ) { // Is it an external app?
-        QProcess::startDetached( module->service()->exec() ); // Launch it!
-        QWidget * externalWidget = new QWidget( this );
-        d->externalModule.setupUi( externalWidget );
-        d->externalModule.LblText->setText( i18n("%1 is an external application and has been automatically launched", module->moduleName() ) );
-        d->externalModule.PbRelaunch->setText( i18n("Relaunch %1", module->moduleName()) );
-        connect( d->externalModule.PbRelaunch, SIGNAL(clicked()), this, SLOT(runExternal()) );
+        QWidget * externalWidget = new ExternalAppModule( this, module );
         moduleScroll->setWidget( externalWidget );
     } else { // It must be a normal module then
         KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
@@ -385,11 +379,6 @@ void ModuleView::updateButtons()
 
     d->mHelp->setEnabled(buttons & KCModule::Help );
     d->mDefault->setEnabled(buttons & KCModule::Default );
-}
-
-void ModuleView::runExternal()
-{
-    QProcess::startDetached( activeModule()->service()->exec() ); // Launch it!
 }
 
 #include "ModuleView.moc"
