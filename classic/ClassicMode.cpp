@@ -31,6 +31,7 @@
 #include <KAboutData>
 #include <KCModuleInfo>
 #include <KConfigDialog>
+#include <KGlobalSettings>
 
 #include "MenuItem.h"
 #include "MenuModel.h"
@@ -200,6 +201,11 @@ void ClassicMode::initWidget()
     connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
+
+    if( !KGlobalSettings::singleClick() ) {
+        // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
+        connect( d->classicTree, SIGNAL(clicked(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)) );
+    }
 
     if( config().readEntry( "autoExpandOneLevel", false ) ) {
         for( int processed = 0; d->proxyModel->rowCount() > processed; processed++ ) {
