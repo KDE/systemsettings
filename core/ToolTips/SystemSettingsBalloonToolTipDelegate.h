@@ -37,12 +37,16 @@ const int SUB_PREVIEW_HEIGHT = 24;
 class SystemSettingsBalloonToolTipDelegate : public KFormattedBalloonTipDelegate
 {
     Q_OBJECT
+
 public:
     SystemSettingsBalloonToolTipDelegate();
     virtual ~SystemSettingsBalloonToolTipDelegate();
 
     virtual QSize sizeHint( const KStyleOptionToolTip& option, const KToolTipItem& item ) const;
     virtual void paint( QPainter* painter, const KStyleOptionToolTip& option, const KToolTipItem& item ) const;
+
+private:
+    static void paintItem( QPainter * painter, QIcon icon, QSize itemIconSize, QString text );
 };
 
 #endif

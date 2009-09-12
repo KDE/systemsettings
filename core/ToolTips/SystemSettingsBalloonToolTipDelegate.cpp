@@ -28,6 +28,9 @@
 #include <KApplication>
 #include <KColorScheme>
 
+QPoint currentPosition;
+QRect docRect;
+
 SystemSettingsBalloonToolTipDelegate::SystemSettingsBalloonToolTipDelegate()
 {
 }
@@ -70,11 +73,9 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
     QColor toColor = paintColors.background().color();
     QColor fromColor = KColorScheme::shade(toColor, KColorScheme::LightShade, 0.2);
 
-    QString itemTextTemplate = "<font color=\"" + paintColors.foreground().color().name() + "\">%2</font>";
-    if ( kapp->layoutDirection() == Qt::RightToLeft ) {
-        itemTextTemplate = "<body style=\"direction: rtl\">" + itemTextTemplate + "</body>";
-    }
+    QString itemTextTemplate = "<font color=\"" + paintColors.foreground().color().name() + "\">%1</font>";
 
+    /// HANDLE BACKGROUND
     QPainterPath path = createPath(option);
     if (haveAlphaChannel()) {
         painter->setRenderHint(QPainter::Antialiasing);
@@ -90,51 +91,68 @@ void SystemSettingsBalloonToolTipDelegate::paint(QPainter* painter, const KStyle
     painter->setBrush(gradient);
 
     painter->drawPath(path);
+    /// END BACKGROUND
 
-    const QIcon icon = item.icon();
-    int x = Border;
-    const int y = Border;
-    if (!icon.isNull()) {
-        const QSize iconSize = QSize( PREVIEW_WIDTH, PREVIEW_HEIGHT );
-        const QPoint pos(x + option.rect.x(), y + option.rect.y());
-        painter->drawPixmap(pos, icon.pixmap(iconSize));
-        x += iconSize.width() + Border;
-    }
+    // Initialise constants
+    const QSize iconSize = QSize( PREVIEW_WIDTH, PREVIEW_HEIGHT );
+    const QSize subIconSize = QSize( SUB_PREVIEW_WIDTH, SUB_PREVIEW_HEIGHT );
 
-    QTextDocument doc;
-    doc.setHtml( itemTextTemplate.arg( item.text() ) );
-    QPixmap bitmap(doc.size().toSize());
-    bitmap.fill(Qt::transparent);
-    QPainter p(&bitmap);
-    doc.drawContents(&p);
+    // Set initial configuration
+    currentPosition = QPoint( Border, Border );
+    docRect = QRect( QPoint(0, 0), sizeHint( option, item ) );
 
-    const QRect docRect(QPoint(x, y), doc.size().toSize());
-    painter->drawPixmap(docRect, bitmap);
+    // Paint primary item
+    paintItem( painter, item.icon(), iconSize, itemTextTemplate.arg( item.text() ) );
 
-    const SystemSettingsToolTipItem* controlItem = static_cast<const SystemSettingsToolTipItem*>( &item );
+    const SystemSettingsToolTipItem * controlItem = static_cast<const SystemSettingsToolTipItem*>( &item );
     if ( controlItem->lines().count() ) {
-        int ypos = Border + qMax( PREVIEW_HEIGHT, doc.size().toSize().height() ) + 2;
+        currentPosition.setY( currentPosition.y() + 2 );
         painter->setBrush( paintColors.foreground() );
-        painter->drawLine( Border + option.rect.x(), ypos, option.rect.right() - Border, ypos );
-        ypos += 2;
+        painter->drawLine( docRect.left() + Border, currentPosition.y(), docRect.right() - Border, currentPosition.y() );
 
-        const QSize subIconSize = QSize( SUB_PREVIEW_WIDTH, SUB_PREVIEW_HEIGHT );
         for ( int i = 0; i < controlItem->lines().count(); ++i ) {
-            painter->drawPixmap( QPoint( Border + option.rect.x(), ypos ), controlItem->lines()[i].first.pixmap( subIconSize ) );
-
-            QTextDocument doc;
-            doc.setHtml( itemTextTemplate.arg( controlItem->lines()[i].second ) );
-            QPixmap bitmap( doc.size().toSize() );
-            bitmap.fill( Qt::transparent );
-            QPainter p( &bitmap );
-            doc.drawContents( &p );
-
-            const QRect docRect( QPoint( 2 * Border + option.rect.x() + subIconSize.width(), ypos ), doc.size().toSize() );
-            painter->drawPixmap( docRect, bitmap );
-
-            ypos += SUB_PREVIEW_HEIGHT;
+            QString subItemText = itemTextTemplate.arg( controlItem->lines()[i].second );
+            paintItem( painter, controlItem->lines()[i].first, subIconSize, subItemText );
         }
     }
+
+}
+
+void SystemSettingsBalloonToolTipDelegate::paintItem( QPainter * painter, QIcon icon, QSize itemIconSize, QString text )
+{
+    QTextDocument itemDoc;
+    itemDoc.setHtml( text );
+
+    // Get sizes
+    const QSize itemTextSize = itemDoc.size().toSize();
+    int itemHeight = itemIconSize.height();
+
+    if( itemIconSize.height() == PREVIEW_HEIGHT ) {
+        itemHeight = qMax( itemIconSize.height(), itemTextSize.height() );
+    }
+
+    // Paint icon if we have one
+    if( !icon.isNull() ) {
+        const QRect preIconRect( currentPosition, itemIconSize );
+        const QRect iconRect = QStyle::visualRect( kapp->layoutDirection(), docRect, preIconRect );
+        painter->drawPixmap( iconRect, icon.pixmap(itemIconSize) );
+        currentPosition.setX( Border + itemIconSize.width() );
+    }
+
+    // Paint text to a temporary buffer
+    QPixmap textBitmap( itemTextSize );
+    textBitmap.fill( Qt::transparent );
+    QPainter textPainter( &textBitmap );
+    itemDoc.drawContents( &textPainter );
+
+    // Paint text to screen
+    const QRect textPosition( currentPosition, itemTextSize );
+    const QRect textRect = QStyle::visualRect( kapp->layoutDirection(), docRect, textPosition );
+    painter->drawPixmap( textRect, textBitmap );
+
+    // Reset position
+    currentPosition.setX( Border );
+    currentPosition.setY( itemHeight + currentPosition.y() );
 }
 
 #include "SystemSettingsBalloonToolTipDelegate.moc"
