@@ -135,12 +135,13 @@ void IconMode::searchChanged( const QString& text )
 void IconMode::changeModule( const QModelIndex& activeModule )
 {
     MenuItem *menuItem = activeModule.model()->data( activeModule, Qt::UserRole ).value<MenuItem*>();
+    d->iconWidget->setEnabled( false );
     d->moduleView->loadModule( menuItem );
 }
 
 void IconMode::moduleLoaded()
 {
-    d->iconWidget->hide();
+    d->iconWidget->setEnabled( true );
     d->mainWidget->setCurrentWidget( d->moduleView );
     d->backAction->setEnabled( true );
     emit changeToolBarItems(BaseMode::NoItems);
