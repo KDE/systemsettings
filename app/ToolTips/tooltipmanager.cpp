@@ -56,7 +56,8 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
     d->view = parent;
 
     connect(parent, SIGNAL(viewportEntered()), this, SLOT(hideToolTip()));
-
+    connect(parent, SIGNAL(entered(const QModelIndex&)), this, SLOT(requestToolTip(const QModelIndex&)));
+            
     d->timer = new QTimer(this);
     d->timer->setSingleShot(true);
     connect(d->timer, SIGNAL(timeout()), this, SLOT(prepareToolTip()));
@@ -77,25 +78,37 @@ ToolTipManager::~ToolTipManager()
 
 bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
 {
-    if (watched == d->view->viewport()) {
-        if (event->type() == QEvent::Leave) {
-            hideToolTip();
-        }
-        if (event->type() == QEvent::ToolTip) {
-            QHelpEvent * helpEvent = static_cast<QHelpEvent *>(event);
-            QModelIndex index = d->view->indexAt(helpEvent->pos());
-            if( index != QModelIndex() ) {
-                d->itemRect = d->view->visualRect(index);
-                const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
-                d->itemRect.moveTo(pos);
-                d->item = index;
-                d->timer->start(50);
-            }
-            return ( index != QModelIndex() );
+    if ( watched == d->view->viewport() ) {
+        switch ( event->type() ) {
+            case QEvent::Leave:
+            case QEvent::MouseButtonPress:
+                hideToolTip();
+                break;
+            case QEvent::ToolTip:
+                return true;
+            default:
+                break;
         }
     }
-
+    
     return QObject::eventFilter(watched, event);
+}
+
+void ToolTipManager::requestToolTip(const QModelIndex& index)
+{
+    // only request a tooltip for the name column and when no selection or
+    // drag & drop operation is done (indicated by the left mouse button)
+    if ( !(QApplication::mouseButtons() & Qt::LeftButton) ) {
+        KToolTip::hideTip();
+        
+        d->itemRect = d->view->visualRect(index);
+        const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
+        d->itemRect.moveTo(pos);
+        d->item = index;
+        d->timer->start(50);
+    } else {
+        hideToolTip();
+    }
 }
 
 void ToolTipManager::hideToolTip()

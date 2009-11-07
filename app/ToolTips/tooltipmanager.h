@@ -70,6 +70,7 @@ protected:
 
 private Q_SLOTS:
     void prepareToolTip();
+    void requestToolTip(const QModelIndex& index);
 
 private:
     void showToolTip( QModelIndex menuItem );
