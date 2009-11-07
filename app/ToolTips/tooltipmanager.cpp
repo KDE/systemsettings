@@ -17,27 +17,23 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA                *
  *******************************************************************************/
 
-#include "ToolTipManager.h"
+#include "tooltipmanager.h"
 
 #include "MenuItem.h"
 
-#include "KToolTip.h"
-#include "KToolTipManager.h"
-#include "SystemSettingsToolTipItem.h"
-#include "SystemSettingsBalloonToolTipDelegate.h"
+#include "ktooltip.h"
 
 #include <QRect>
+#include <QLabel>
 #include <QTimer>
-#include <QToolTip>
 #include <QHelpEvent>
 #include <QScrollBar>
+#include <QGridLayout>
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QAbstractItemView>
 
 #include <KIcon>
-
-K_GLOBAL_STATIC(SystemSettingsBalloonToolTipDelegate, g_delegate)
 
 class ToolTipManager::Private
 {
@@ -48,7 +44,6 @@ public:
         { }
 
     QAbstractItemView* view;
-    KSharedPtr<KToolTipManager> tooltipManager;
     QTimer* timer;
     QModelIndex item;
     QRect itemRect;
@@ -59,8 +54,6 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
     , d(new ToolTipManager::Private)
 {
     d->view = parent;
-    d->tooltipManager = KToolTipManager::instance();
-    KToolTip::setToolTipDelegate(g_delegate);
 
     connect(parent, SIGNAL(viewportEntered()), this, SLOT(hideToolTip()));
 
@@ -113,62 +106,36 @@ void ToolTipManager::hideToolTip()
 
 void ToolTipManager::prepareToolTip()
 {
-    QAbstractItemModel * itemModel = d->view->model();
-    MenuItem * m_Menu = itemModel->data( d->item, Qt::UserRole ).value<MenuItem*>();
-    const QString text = generateToolTipContent( d->item, m_Menu );
-    SystemSettingsToolTipItem* toolTip = new SystemSettingsToolTipItem(KIcon( m_Menu->service()->icon() ), text);
-
-    for ( int done = 0; itemModel->rowCount( d->item ) > done; done = 1 + done ) {
-        QModelIndex childIndex = itemModel->index( done, 0, d->item );
-        MenuItem * child = itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        const QString text = QString( "%1<br />" ).arg( child->name() );
-        toolTip->addLine( KIcon( child->service()->icon() ), text );
-    }
-
-    showToolTip(toolTip);
+    showToolTip( d->item );
 }
 
-QString ToolTipManager::generateToolTipContent( QModelIndex index, MenuItem * item )
-{
-    QString text = QString( "<b>%1</b><br />%2" ).arg( item->name() );
-    if ( !item->service()->comment().isEmpty() ) {
-        text = text.arg( item->service()->comment() );
-    } else {
-        int childCount = d->view->model()->rowCount( index );
-        text = text.arg( i18np( "<i>Contains 1 item</i>", "<i>Contains %1 items</i>", childCount ) );
-    }
-    return text;
-}
-
-void ToolTipManager::showToolTip(KToolTipItem* tip)
+void ToolTipManager::showToolTip( QModelIndex menuItem )
 {
     if (QApplication::mouseButtons() & Qt::LeftButton) {
-        delete tip;
-        tip = 0;
         return;
     }
-
-    KStyleOptionToolTip option;
-    d->tooltipManager->initStyleOption(&option);
-
-    QSize size = g_delegate->sizeHint(option, *tip);
-    const QRect desktop = QApplication::desktop()->screenGeometry(d->itemRect.bottomRight());
-
-    // m_itemRect defines the area of the item, where the tooltip should be
+    
+    QWidget * tip = createTipContent( menuItem );
+    
+    // calculate the x- and y-position of the tooltip
+    const QSize size = tip->sizeHint();
+    const QRect desktop = QApplication::desktop()->screenGeometry( d->itemRect.bottomRight() );
+    
+    // d->itemRect defines the area of the item, where the tooltip should be
     // shown. Per default the tooltip is shown in the bottom right corner.
     // If the tooltip content exceeds the desktop borders, it must be assured that:
     // - the content is fully visible
-    // - the content is not drawn inside m_itemRect
+    // - the content is not drawn inside d->itemRect
     const bool hasRoomToLeft  = (d->itemRect.left()   - size.width()  >= desktop.left());
     const bool hasRoomToRight = (d->itemRect.right()  + size.width()  <= desktop.right());
     const bool hasRoomAbove   = (d->itemRect.top()    - size.height() >= desktop.top());
     const bool hasRoomBelow   = (d->itemRect.bottom() + size.height() <= desktop.bottom());
-    if ( ( !hasRoomAbove && !hasRoomBelow ) || ( !hasRoomToLeft && !hasRoomToRight ) ) {
+    if (!hasRoomAbove && !hasRoomBelow && !hasRoomToLeft && !hasRoomToRight) {
         delete tip;
         tip = 0;
         return;
     }
-
+    
     int x = 0;
     int y = 0;
     if (hasRoomBelow || hasRoomAbove) {
@@ -180,13 +147,66 @@ void ToolTipManager::showToolTip(KToolTipItem* tip)
     } else {
         Q_ASSERT(hasRoomToLeft || hasRoomToRight);
         x = hasRoomToRight ? d->itemRect.right() : d->itemRect.left() - size.width();
-
+        
         // Put the tooltip at the bottom of the screen. The x-coordinate has already
-        // been adjusted, so that no overlapping with m_itemRect occurs.
+        // been adjusted, so that no overlapping with d->itemRect occurs.
         y = desktop.bottom() - size.height();
     }
-
+    
+    // the ownership of tip is transferred to KToolTip
     KToolTip::showTip(QPoint(x, y), tip);
 }
 
-#include "ToolTipManager.moc"
+QWidget * ToolTipManager::createTipContent( QModelIndex item )
+{
+    QWidget * tipContent = new QWidget();
+    QGridLayout* tipLayout = new QGridLayout();
+    
+    QLayout * primaryLine = generateToolTipLine( &item, tipContent, QSize(32,32), true );
+    tipLayout->addLayout( primaryLine, 0, 0 );
+
+    for ( int done = 0; d->view->model()->rowCount( item ) > done; done = 1 + done ) {
+        QModelIndex childItem = d->view->model()->index( done, 0, item );
+        QLayout * subLine = generateToolTipLine( &childItem, tipContent, QSize(24,24), false );
+        tipLayout->addLayout( subLine, done + 1, 0 );
+    }
+    
+    tipLayout->setVerticalSpacing( 0 );
+    tipContent->setLayout( tipLayout );
+    return tipContent;
+}
+
+QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * toolTip, QSize iconSize, bool comment )
+{
+    // Get MenuItem
+    MenuItem * menuItem = d->view->model()->data( *item, Qt::UserRole ).value<MenuItem*>();
+
+    // Generate text
+    QString text = QString( "<b>%1</b>" ).arg( menuItem->name() );
+    if ( comment ) {
+        text += "<br />";
+        if ( !menuItem->service()->comment().isEmpty() ) {
+            text += menuItem->service()->comment();
+        } else {
+            int childCount = d->view->model()->rowCount( *item );
+            text += i18np( "<i>Contains 1 item</i>", "<i>Contains %1 items</i>", childCount );
+        }
+    }
+    QLabel * textLabel = new QLabel( toolTip );
+    textLabel->setText( text );
+    
+    // Get icon
+    KIcon icon( menuItem->service()->icon() );
+    QLabel * iconLabel = new QLabel( toolTip );
+    iconLabel->setPixmap( icon.pixmap(iconSize) );
+    iconLabel->setMaximumSize( iconSize );
+    
+    // Generate layout
+    QHBoxLayout * layout = new QHBoxLayout();
+    layout->addWidget( iconLabel );
+    layout->addWidget( textLabel );
+    
+    return layout;
+}
+
+#include "tooltipmanager.moc"

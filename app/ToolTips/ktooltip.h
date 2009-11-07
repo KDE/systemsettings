@@ -17,59 +17,30 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA            *
  ***************************************************************************/
 
-#include "KToolTipItem.h"
+#ifndef KTOOLTIP_H
+#define KTOOLTIP_H
 
-#include "KToolTipManager.h"
+class QPoint;
+class QString;
+class QWidget;
 
-class KToolTipItemPrivate
+/**
+ * Allows to show tooltips having a widget as content.
+ */
+namespace KToolTip
 {
-public:
-    QMap<int, QVariant> map;
-    int type;
-};
-
-KToolTipItem::KToolTipItem(const QString &text, int type)
-    : d(new KToolTipItemPrivate)
-{
-    d->map[Qt::DisplayRole] = text;
-    d->type = type;
+    void showText(const QPoint& pos, const QString& text);
+    
+    /**
+     * Shows the tip @p content at the global position indicated by @p pos.
+     *
+     * Ownership of the content widget is transferred to KToolTip. The widget will be deleted
+     * automatically when it is hidden.
+     *
+     * The tip is shown immediately when this function is called.
+     */
+    void showTip(const QPoint& pos, QWidget* content);
+    void hideTip();
 }
 
-KToolTipItem::KToolTipItem(const QIcon &icon, const QString &text, int type)
-    : d(new KToolTipItemPrivate)
-{
-    d->map[Qt::DecorationRole] = icon;
-    d->map[Qt::DisplayRole]    = text;
-    d->type = type;
-}
-
-KToolTipItem::~KToolTipItem()
-{
-    delete d;
-}
-
-int KToolTipItem::type() const
-{
-    return d->type;
-}
-
-QString KToolTipItem::text() const
-{
-    return data(Qt::DisplayRole).toString();
-}
-
-QIcon KToolTipItem::icon() const
-{
-    return qvariant_cast<QIcon>(data(Qt::DecorationRole));
-}
-
-QVariant KToolTipItem::data(int role) const
-{
-    return d->map.value(role);
-}
-
-void KToolTipItem::setData(int role, const QVariant &data)
-{
-    d->map[role] = data;
-    KToolTipManager::instance()->update();
-}
+#endif

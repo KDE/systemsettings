@@ -17,49 +17,85 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA            *
  ***************************************************************************/
 
-#ifndef KTOOLTIPMANAGER_H
-#define KTOOLTIPMANAGER_H
+#include "ktooltip.h"
+#include "ktooltipwindow_p.h"
+#include <QLabel>
+#include <QPoint>
+#include <QWidget>
 
-#include <QSharedData>
-
-#include <KSharedPtr>
-
-#include "KTipLabel.h"
-#include "KStyleOptionToolTip.h"
-#include "KToolTipDelegate.h"
-
-class KToolTipManager : public QSharedData
+class KToolTipManager
 {
 public:
     ~KToolTipManager();
 
-    static KSharedPtr<KToolTipManager> instance() {
-        if (!s_instance)
-            s_instance = new KToolTipManager();
+    static KToolTipManager* instance();
 
-        return KSharedPtr<KToolTipManager>(s_instance);
-    }
-
-    void showTip(const QPoint &pos, KToolTipItem *item);
+    void showTip(const QPoint& pos, QWidget* content);
     void hideTip();
-
-    void initStyleOption(KStyleOptionToolTip *option) const;
-
-    void setDelegate(KToolTipDelegate *delegate);
-    KToolTipDelegate *delegate() const;
-    
-    void update();
 
 private:
     KToolTipManager();
 
-    KTipLabel *label;
-    KToolTipItem *currentItem;
-    KToolTipDelegate *m_delegate;
-
-    QPoint m_tooltipPos;
-
+    KToolTipWindow* m_window;
     static KToolTipManager *s_instance;
 };
 
-#endif
+KToolTipManager *KToolTipManager::s_instance = 0;
+
+KToolTipManager::KToolTipManager() :
+    m_window(0)
+{
+}
+
+KToolTipManager::~KToolTipManager()
+{
+    delete m_window;
+    m_window = 0;
+}
+
+KToolTipManager* KToolTipManager::instance()
+{
+    if (s_instance == 0) {
+        s_instance = new KToolTipManager();
+    }
+
+    return s_instance;
+}
+
+void KToolTipManager::showTip(const QPoint& pos, QWidget* content)
+{
+    hideTip();
+    Q_ASSERT(m_window == 0);
+    m_window = new KToolTipWindow(content);
+    m_window->move(pos);
+    m_window->show();
+}
+
+void KToolTipManager::hideTip()
+{
+    if (m_window != 0) {
+        m_window->hide();
+        delete m_window;
+        m_window = 0;
+    }
+}
+
+namespace KToolTip
+{
+    void showText(const QPoint& pos, const QString& text)
+    {
+        QLabel* label = new QLabel(text);
+        showTip(pos, label);
+    }
+
+    void showTip(const QPoint& pos, QWidget* content)
+    {
+        KToolTipManager::instance()->showTip(pos, content);
+    }
+
+    void hideTip()
+    {
+        KToolTipManager::instance()->hideTip();
+    }
+}
+

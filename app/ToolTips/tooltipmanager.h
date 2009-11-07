@@ -21,10 +21,10 @@
 #define TOOLTIPMANAGER_H
 
 #include <QtCore/QObject>
-#include "systemsettingsview_export.h"
 
 #include <QtCore/QModelIndex>
 
+class QLayout;
 class MenuItem;
 class KToolTipItem;
 class QAbstractItemView;
@@ -36,7 +36,7 @@ class QAbstractItemView;
  * a short timeout. The tooltip is hidden again when the
  * viewport is hovered or the item view has been left.
  */
-class SYSTEMSETTINGSVIEW_EXPORT ToolTipManager : public QObject
+class ToolTipManager : public QObject
 {
     Q_OBJECT
 
@@ -66,14 +66,15 @@ protected:
     * @param event The event object.
     * @returns true if the event was handled in this filter, or false if it was not.
     */
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual bool eventFilter( QObject* watched, QEvent* event );
 
 private Q_SLOTS:
     void prepareToolTip();
 
 private:
-    void showToolTip(KToolTipItem* tip);
-    QString generateToolTipContent( QModelIndex index, MenuItem * item );
+    void showToolTip( QModelIndex menuItem );
+    QWidget * createTipContent( QModelIndex item );
+    QLayout * generateToolTipLine( QModelIndex * item, QWidget * toolTip, QSize iconSize, bool comment );
 
     class Private;
     ToolTipManager::Private* d;

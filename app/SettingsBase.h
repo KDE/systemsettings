@@ -22,7 +22,7 @@
 
 #include "MenuItem.h"
 #include "BaseMode.h"
-#include "ToolTipManager.h"
+#include "tooltipmanager.h"
 #include "ui_configDialog.h"
 
 #include <QMap>

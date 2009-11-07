@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Fredrik Höglund <fredrik@kde.org>               *
+ *   Copyright (C) 2009 by Peter Penz <peter.penz@gmx.at>                  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,37 +17,29 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA            *
  ***************************************************************************/
 
-#include "KToolTip.h"
+#ifndef KTOOLTIPWINDOW_H
+#define KTOOLTIPWINDOW_H
 
-#include "KToolTipManager.h"
+#include <QWidget>
+class QPaintEvent;
 
-namespace KToolTip
+class KToolTipWindow : public QWidget
 {
-    void showText(const QPoint &pos, const QString &text, QWidget *widget, const QRect &rect)
-    {
-        Q_UNUSED(widget)
-        Q_UNUSED(rect)
-        KToolTipItem *item = new KToolTipItem(text);
-        KToolTipManager::instance()->showTip(pos, item);
-    }
+    Q_OBJECT
 
-    void showText(const QPoint &pos, const QString &text, QWidget *widget)
-    {
-        showText(pos, text, widget, QRect());
-    }
+public:
+    explicit KToolTipWindow(QWidget* content);
+    virtual ~KToolTipWindow();
 
-    void showTip(const QPoint &pos, KToolTipItem *item)
-    {
-        KToolTipManager::instance()->showTip(pos, item);
-    }
+protected:
+    virtual void paintEvent(QPaintEvent* event);
 
-    void hideTip()
-    {
-        KToolTipManager::instance()->hideTip();
-    }
+private:
+    /**
+     * Helper method for KToolTipWindow::paintEvent() to adjust the painter path \p path
+     * by rounded corners.
+     */
+    static void arc(QPainterPath& path, qreal cx, qreal cy, qreal radius, qreal angle, qreal sweeplength);
+};
 
-    void setToolTipDelegate(KToolTipDelegate *delegate)
-    {
-        KToolTipManager::instance()->setDelegate(delegate);
-    }
-}
+#endif

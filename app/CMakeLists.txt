@@ -1,6 +1,11 @@
+include_directories( ToolTips )
+
 SET( systemsettings_SRCS
      SystemSettingsApp.cpp
      SettingsBase.cpp
+     ToolTips/ktooltip.cpp
+     ToolTips/ktooltipwindow.cpp
+     ToolTips/tooltipmanager.cpp
      main.cpp )
 
 KDE4_ADD_APP_ICON( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
