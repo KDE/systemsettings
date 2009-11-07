@@ -194,8 +194,12 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
     // Get MenuItem
     MenuItem * menuItem = d->view->model()->data( *item, Qt::UserRole ).value<MenuItem*>();
 
+    QString text = menuItem->name(); 
+    if ( comment ) {
+        text = QString( "<b>%1</b>" ).arg( menuItem->name() );
+    }
+
     // Generate text
-    QString text = QString( "<b>%1</b>" ).arg( menuItem->name() );
     if ( comment ) {
         text += "<br />";
         if ( !menuItem->service()->comment().isEmpty() ) {
