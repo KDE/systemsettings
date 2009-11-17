@@ -210,6 +210,7 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
         }
     }
     QLabel * textLabel = new QLabel( toolTip );
+    textLabel->setForegroundRole(QPalette::ToolTipText);
     textLabel->setText( text );
     
     // Get icon
