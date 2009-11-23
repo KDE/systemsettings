@@ -79,6 +79,11 @@ ModuleView::ModuleView( QWidget * parent )
     d->mHelp = d->mButtons->addButton( KStandardGuiItem::help(), QDialogButtonBox::HelpRole );
     // Set some more sensible tooltips
     d->mReset->setToolTip( i18n("Reset all current changes to previous values") );
+    // Set Auto-Default mode ( KDE Bug #211187 )
+    d->mApply->setAutoDefault(true);
+    d->mDefault->setAutoDefault(true);
+    d->mReset->setAutoDefault(true);
+    d->mHelp->setAutoDefault(true);
     // Prevent the buttons from being used
     d->mApply->setEnabled(false);
     d->mDefault->setEnabled(false);
