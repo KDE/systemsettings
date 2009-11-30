@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsExternalApp
 Name=System Settings External Application
+Name[da]=Eksternt program til Systemindstillinger
 Name[en_GB]=System Settings External Application
 Name[et]=Süsteemi seadistuste väline rakendus
 Name[gl]=Programa externo de configuración do sistema
