@@ -149,8 +149,8 @@ void IconMode::moduleLoaded()
 void IconMode::backToOverview()
 {
     if( d->moduleView->resolveChanges() ) {
+        d->mainWidget->setCurrentWidget( d->iconWidget );
         d->moduleView->closeModules();
-        d->iconWidget->show();
         d->mainWidget->setCurrentWidget( d->iconWidget );
         d->backAction->setEnabled( false );
         emit changeToolBarItems( BaseMode::Search | BaseMode::Configure );

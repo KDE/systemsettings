@@ -245,16 +245,14 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 
 void ModuleView::closeModules()
 {
-    blockSignals(true);
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator page = d->mModules.begin();
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator pageEnd = d->mModules.end();
-    for ( page = d->mModules.begin(); page != pageEnd; ++page ) {
+    for ( ; page != pageEnd; ++page ) {
         d->mPageWidget->removePage( page.key() );
     }
 
     d->mPages.clear();
     d->mModules.clear();
-    blockSignals(false);
 }
 
 bool ModuleView::moduleSave()
