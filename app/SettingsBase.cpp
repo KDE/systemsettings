@@ -115,6 +115,7 @@ void SettingsBase::initToolBar()
     actionCollection()->addAction( KStandardAction::Quit, "quit", this, SLOT( close() ) );
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
+    configureAction->setShortcut(KShortcut(QKeySequence(Qt::CTRL + Qt::Key_M)));
     configureAction->setText( i18n("Configure") );
     // Help after it
     initHelpMenu();
