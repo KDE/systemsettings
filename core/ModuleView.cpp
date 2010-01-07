@@ -190,6 +190,11 @@ void ModuleView::addModule( KCModuleInfo *module )
 
 void ModuleView::updatePageIconHeader( KPageWidgetItem * page )
 {
+    if( !page ) {
+        // Page is invalid. Probably means we have a race condition during closure of everyone so do nothing
+        return;
+    }
+
     KCModuleProxy * moduleProxy = d->mPages.value( page );
     KCModuleInfo * moduleInfo = d->mModules.value( page );
 
