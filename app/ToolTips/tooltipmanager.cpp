@@ -26,6 +26,7 @@
 #include <QRect>
 #include <QLabel>
 #include <QTimer>
+#include <QPainter>
 #include <QHelpEvent>
 #include <QScrollBar>
 #include <QGridLayout>
@@ -33,7 +34,12 @@
 #include <QDesktopWidget>
 #include <QAbstractItemView>
 
+#ifdef Q_WS_X11
+#include <QX11Info>
+#endif
+
 #include <KIcon>
+#include <KColorScheme>
 
 class ToolTipManager::Private
 {
@@ -174,18 +180,41 @@ QWidget * ToolTipManager::createTipContent( QModelIndex item )
 {
     QWidget * tipContent = new QWidget();
     QGridLayout* tipLayout = new QGridLayout();
-    
+
     QLayout * primaryLine = generateToolTipLine( &item, tipContent, QSize(32,32), true );
     tipLayout->addLayout( primaryLine, 0, 0 );
 
     for ( int done = 0; d->view->model()->rowCount( item ) > done; done = 1 + done ) {
         QModelIndex childItem = d->view->model()->index( done, 0, item );
         QLayout * subLine = generateToolTipLine( &childItem, tipContent, QSize(24,24), false );
-        tipLayout->addLayout( subLine, done + 1, 0 );
+        tipLayout->addLayout( subLine, done + 2, 0 );
     }
-    
+
     tipLayout->setVerticalSpacing( 0 );
     tipContent->setLayout( tipLayout );
+
+    if( d->view->model()->rowCount( item ) > 0 ) {
+        QLabel * seperatorLine = new QLabel( tipContent );
+        tipLayout->addWidget( seperatorLine, 1, 0 );
+
+        int width = tipContent->sizeHint().width();
+        QPixmap seperatorPixmap( width, 3 );
+        seperatorPixmap.fill( Qt::transparent );
+
+        QPainter painter( &seperatorPixmap );
+        KColorScheme paintColors( QPalette::Normal, KColorScheme::Tooltip );
+        painter.setBrush( paintColors.foreground() );
+
+        #ifdef Q_WS_X11
+        if( QX11Info::isCompositingManagerRunning() ) {
+            painter.setRenderHint(QPainter::Antialiasing);
+        }
+        #endif
+
+        painter.drawLine( 0, 1, width, 1 );
+        seperatorLine->setPixmap( seperatorPixmap );
+    }
+
     return tipContent;
 }
 
