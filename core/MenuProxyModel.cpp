@@ -31,6 +31,22 @@ MenuProxyModel::MenuProxyModel( QObject * parent )
     setFilterCaseSensitivity( Qt::CaseInsensitive );
 }
 
+bool MenuProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
+{
+    if( isCategorizedModel() ) {
+        return KCategorizedSortFilterProxyModel::lessThan( left, right );
+    }
+    
+    QVariant leftWeight = left.data( MenuModel::UserSortRole );
+    QVariant rightWeight = right.data( MenuModel::UserSortRole );
+
+    if ( leftWeight.toInt() == rightWeight.toInt() ) {
+        return left.data().toString() < right.data().toString();
+    }
+
+    return leftWeight.toInt() < rightWeight.toInt();
+}
+
 bool MenuProxyModel::subSortLessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
     if( isCategorizedModel() ) {
