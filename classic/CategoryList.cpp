@@ -102,15 +102,16 @@ void CategoryList::updatePixmap()
     for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; ++done ) {
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        const QString linkURL( "kcm://" + childItem->item().fileName() );
-        KUrl link( linkURL );
+        KUrl link( "kcm://" );
+        link.setFileName( childItem->item().fileName() );
+        kWarning() << childItem->name() << childItem->item().fileName() << link.url();
         const QString szLink = "<a href=\"" + link.url() + "\" >";
         content += "<tr><td class=\"kc_leftcol\">" + szLink + "<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">";
         const QString szName = childItem->name();
         const QString szComment = childItem->service()->comment();
         content += szLink + szName + "</a></td><td class=\"kc_rightcol\">" + szLink + szComment + "</a>";
         content = content.arg( iconL->iconPath(childItem->service()->icon(), - KIconLoader::SizeSmallMedium ) );
-        d->itemMap.insert( linkURL, childIndex );
+        d->itemMap.insert( link.url(), childIndex );
         content += "</td></tr>\n";
     }
     content += "</table>";
