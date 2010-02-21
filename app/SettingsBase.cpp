@@ -286,7 +286,7 @@ void SettingsBase::changePlugin()
         activeView = possibleViews.value(viewToUse);
     }
     else { // Otherwise we activate the failsafe
-        activeView = possibleViews.values().first();
+        activeView = possibleViews.begin().value();
     }
 
     if( stackedWidget->indexOf(activeView->mainWidget()) == -1 ) {
