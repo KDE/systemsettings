@@ -18,6 +18,7 @@
     <Separator />
     <ActionList name="configure" />
     <Action name="help_toolbar_menu" />
+    <Action name="quit" />
     <ActionList name="search" />
   </ToolBar>
 </gui>
