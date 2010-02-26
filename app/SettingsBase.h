@@ -74,6 +74,7 @@ private:
     KAction * searchAction;
     KAction * spacerAction;
     KAction * configureAction;
+    KAction * quitAction;
     // The help menu
     KAction * aboutViewAction;
     KAction * aboutModuleAction;

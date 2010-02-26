@@ -153,7 +153,7 @@ void IconMode::backToOverview()
         d->moduleView->closeModules();
         d->mainWidget->setCurrentWidget( d->iconWidget );
         d->backAction->setEnabled( false );
-        emit changeToolBarItems( BaseMode::Search | BaseMode::Configure );
+        emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
         emit viewChanged( false );
     }
 }

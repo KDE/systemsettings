@@ -73,7 +73,8 @@ public:
     enum ToolBarItemsFlags {
         NoItems = 0x1, /**< The Toolbar will not have any items added by System Settings */
         Search = 0x2, /**< The Toolbar will have the search bar added by System Settings */
-        Configure = 0x4 /**< The Toolbar will have configure added by System Settings */
+        Configure = 0x4, /**< The Toolbar will have configure added by System Settings */
+        Quit = 0x8, /**< The toolbar will have exit added by System Settings */
     };
     Q_DECLARE_FLAGS(ToolBarItems, ToolBarItemsFlags)
 

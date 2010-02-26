@@ -112,7 +112,7 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    actionCollection()->addAction( KStandardAction::Quit, "quit", this, SLOT( close() ) );
+    quitAction = actionCollection()->addAction( KStandardAction::Quit, "quit_action", this, SLOT( close() ) );
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
     configureAction->setShortcut(KShortcut(QKeySequence(Qt::CTRL + Qt::Key_M)));
@@ -137,7 +137,7 @@ void SettingsBase::initToolBar()
     helpActionMenu->setMenu( dynamic_cast<KMenu*>( factory()->container("help", this) ) );
     setMinimumSize(620,430);
     toolBar()->setMovable(false); // We don't allow any changes
-    changeToolBar( BaseMode::Search | BaseMode::Configure );
+    changeToolBar( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
 }
 
 void SettingsBase::initHelpMenu()
@@ -337,6 +337,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     }
     guiFactory()->unplugActionList( this, "configure" );
     guiFactory()->unplugActionList( this, "search" );
+    guiFactory()->unplugActionList( this, "quit" );
     if ( BaseMode::Search & toolbar ) {
         QList<QAction*> searchBarActions;
         searchBarActions << spacerAction << searchAction;
@@ -346,6 +347,11 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
         QList<QAction*> configureBarActions;
         configureBarActions << configureAction;
         guiFactory()->plugActionList( this, "configure", configureBarActions );
+    }
+    if ( BaseMode::Quit & toolbar ) {
+        QList<QAction*> quitBarActions;
+        quitBarActions << quitAction;
+        guiFactory()->plugActionList( this, "quit", quitBarActions );
     }
 }
 
