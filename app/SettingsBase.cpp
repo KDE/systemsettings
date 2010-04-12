@@ -79,10 +79,19 @@ void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
     categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
-    modules = KServiceTypeTrader::self()->query("KCModule");
+    modules = KServiceTypeTrader::self()->query("KCModule", "[X-KDE-System-Settings-Parent-Category] != ''");
     modules += KServiceTypeTrader::self()->query("SystemSettingsExternalApp");
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
+    // Handle lost+found modules...
+    MenuItem * lostFound = new MenuItem( true, rootModule->children().first() );
+    lostFound->setName( i18n("Lost and Found") );
+    for (int i = 0; i < modules.size(); ++i) {
+        const KService::Ptr entry = modules.at(i);
+        MenuItem * infoItem = new MenuItem(false, lostFound);
+        infoItem->setService( entry );
+        kWarning() << "Added " << entry->name();
+    }
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
@@ -190,6 +199,8 @@ void SettingsBase::initMenuList(MenuItem * parent)
         }
     }
 
+    KService::List removeList;
+
     // scan for any modules at this level and add them
     for (int i = 0; i < modules.size(); ++i) {
         const KService::Ptr entry = modules.at(i);
@@ -198,8 +209,14 @@ void SettingsBase::initMenuList(MenuItem * parent)
             // Add the module info to the menu
             MenuItem * infoItem = new MenuItem(false, parent);
             infoItem->setService( entry );
+            removeList.append( modules.at(i) );
         }
     }
+
+    for (int i = 0; i < removeList.size(); ++i) {
+        modules.removeOne( removeList.at(i) );
+    }
+    
     parent->sortChildrenByWeight();
 }
 

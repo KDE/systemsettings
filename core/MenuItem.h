@@ -155,6 +155,13 @@ public:
      */
     void setService( const KService::Ptr& service );
 
+    /**
+     * Sets the name of the object, which is used for categories which have no service object
+     *
+     * @param name The name of the item.
+     */
+    void setName( const QString& name );
+
 private:
     class Private;
     Private *const d;

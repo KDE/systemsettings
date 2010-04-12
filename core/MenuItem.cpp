@@ -136,3 +136,8 @@ void MenuItem::setService( const KService::Ptr& service )
         d->weight = 100;
     }
 }
+
+void MenuItem::setName( const QString& name )
+{
+    d->name = name;
+}
