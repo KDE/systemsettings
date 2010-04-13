@@ -84,8 +84,6 @@ void SettingsBase::initApplication()
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
     // Handle lost+found modules...
-    MenuItem * lostFound = new MenuItem( true, rootModule->children().first() );
-    lostFound->setName( i18n("Lost and Found") );
     for (int i = 0; i < modules.size(); ++i) {
         const KService::Ptr entry = modules.at(i);
         MenuItem * infoItem = new MenuItem(false, lostFound);
@@ -195,6 +193,10 @@ void SettingsBase::initMenuList(MenuItem * parent)
         if ( parentCategory == parent->category() ) {
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->setService( entry );
+            if( menuItem->category() == "lost-and-found" ) {
+                lostFound = menuItem;
+                continue;
+            }
             initMenuList( menuItem );
         }
     }

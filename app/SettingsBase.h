@@ -87,6 +87,7 @@ private:
     QStackedWidget * stackedWidget;
     // The module list
     MenuItem * rootModule;
+    MenuItem * lostFound;
     KService::List categories;
     KService::List modules;
     // The about dialog

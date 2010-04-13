@@ -19,6 +19,7 @@ install( FILES
          settings-regional-and-language.desktop
          settings-window-behaviour.desktop
          settings-network-settings.desktop
+         settings-lost-and-found.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 if (NOT WIN32)
