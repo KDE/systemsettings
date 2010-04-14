@@ -7,3 +7,4 @@ X-KDE-Weight=250
 Icon=applications-system
 
 Name=Lost and Found
+Name[x-test]=xxLost and Foundxx
