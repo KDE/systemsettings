@@ -7,4 +7,7 @@ X-KDE-Weight=250
 Icon=applications-system
 
 Name=Lost and Found
+Name[pt]=Perdidos e Achados
+Name[sv]=Hittegods
+Name[uk]=Втрачено і знайдено
 Name[x-test]=xxLost and Foundxx
