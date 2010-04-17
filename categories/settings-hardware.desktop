@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=hardware
+X-KDE-System-Settings-Parent-Category=general
+X-KDE-Weight=200
+Icon=preferences-desktop-peripherals
+
+Name=Hardware
