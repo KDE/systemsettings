@@ -11,31 +11,31 @@ install( FILES
 		 settings-application-appearance-and-behavior.desktop
 		 settings-application-and-system-notifications.desktop
 		 settings-account-details.desktop
+		 settings-audio-and-video.desktop
+		 settings-network-and-connectivity.desktop
+		 settings-system-administration.desktop
+		 settings-permissions.desktop
+		 settings-security.desktop
+		 settings-startup-and-shutdown.desktop
+		 settings-desktop-appearance.desktop
+		 settings-workspace-appearance-and-behavior.desktop
+		 settings-main-input-devices.desktop
+		 settings-removable-devices.desktop
+		 settings-other-input-devices.desktop
 
-         settings-advanced.desktop
-         settings-advanced-user-settings.desktop
-         settings-computer-administration.desktop
          settings-display.desktop
          settings-general.desktop
-         settings-look-and-feel.desktop
-         settings-network-and-connectivity.desktop
-         settings-personal.desktop
-         settings-system.desktop
-         settings-about-me.desktop
          settings-accessibility.desktop
-         settings-keyboard-and-mouse.desktop
          settings-notifications.desktop
-         settings-regional-and-language.desktop
          settings-window-behaviour.desktop
          settings-network-settings.desktop
          settings-lost-and-found.desktop
-		 settings-hardware.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 if (NOT WIN32)
     install( FILES 
          settings-bluetooth.desktop
-         settings-desktop.desktop
+         #settings-desktop.desktop
          settings-sharing.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
 endif (NOT WIN32)

@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
-X-KDE-System-Settings-Category=computer-administration
+X-KDE-System-Settings-Category=system-administration
 X-KDE-System-Settings-Parent-Category=general
 X-KDE-Weight=200
 Icon=preferences-system
 
-Name=Computer Administration
+Name=System Administration
 Name[ar]=إدارة الحاسوب
 Name[be]=Адміністраванне камп'ютэру
 Name[be@latin]=Administravańnie kamputaram

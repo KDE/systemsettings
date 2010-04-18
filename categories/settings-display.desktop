@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=display
-X-KDE-System-Settings-Parent-Category=computer-administration
+X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-display
 
-Name=Display
+Name=Display and Monitor
 Name[af]=Skerm
 Name[ar]=العرض
 Name[be]=Экран

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=main-input-devices
+X-KDE-System-Settings-Parent-Category=hardware
+Icon=preferences-desktop-keyboard
+
+Name=Main Input Devices

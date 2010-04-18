@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=permissions
+X-KDE-System-Settings-Parent-Category=system-administration
+Icon=preferences-other
+
+Name=Permissions
