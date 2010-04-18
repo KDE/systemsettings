@@ -6,4 +6,5 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-keyboard
 
 Name=Shortcuts and Gestures
+Name[x-test]=xxShortcuts and Gesturesxx
 

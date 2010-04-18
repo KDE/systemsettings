@@ -6,3 +6,4 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-notification
 
 Name=Application and System Notifications
+Name[x-test]=xxApplication and System Notificationsxx
