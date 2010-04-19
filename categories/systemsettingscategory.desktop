@@ -84,3 +84,7 @@ Type=QString
 # the parent category identifier
 [PropertyDef::X-KDE-System-Settings-Parent-Category]
 Type=QString
+
+# parent category identifier version 2
+[PropertyDef::X-KDE-System-Settings-Parent-Category-V2]
+Type=QString
