@@ -19,9 +19,8 @@ install( FILES
 		 settings-startup-and-shutdown.desktop
 		 settings-desktop-appearance.desktop
 		 settings-workspace-appearance-and-behavior.desktop
-		 settings-main-input-devices.desktop
+		 settings-input-devices.desktop
 		 settings-removable-devices.desktop
-		 settings-other-input-devices.desktop
 
          settings-display.desktop
          settings-general.desktop
