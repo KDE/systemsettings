@@ -6,3 +6,4 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-keyboard
 
 Name=Other Input Devices
+Name[x-test]=xxOther Input Devicesxx

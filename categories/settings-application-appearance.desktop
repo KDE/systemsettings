@@ -6,4 +6,6 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-theme
 
 Name=Application Appearance
+Name[sv]=Programutseende
+Name[uk]=Вигляд вікон програм
 Name[x-test]=xxApplication Appearancexx

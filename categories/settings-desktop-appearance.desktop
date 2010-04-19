@@ -7,3 +7,4 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Desktop Appearance
+Name[x-test]=xxDesktop Appearancexx

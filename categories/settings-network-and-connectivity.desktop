@@ -6,3 +6,4 @@ X-KDE-System-Settings-Parent-Category=general
 Icon=preferences-system-network-connection
 
 Name=Network and Connectivity
+Name[x-test]=xxNetwork and Connectivityxx

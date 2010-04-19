@@ -7,3 +7,4 @@ X-KDE-Weight=200
 Icon=preferences-desktop-peripherals
 
 Name=Audio and Video
+Name[x-test]=xxAudio and Videoxx

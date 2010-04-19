@@ -6,3 +6,4 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Security
+Name[x-test]=xxSecurityxx

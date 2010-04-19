@@ -7,3 +7,4 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Workspace Appearance and Behavior
+Name[x-test]=xxWorkspace Appearance and Behaviorxx
