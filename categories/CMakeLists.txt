@@ -23,7 +23,6 @@ install( FILES
 		 settings-removable-devices.desktop
 
          settings-display.desktop
-         settings-general.desktop
          settings-accessibility.desktop
          settings-notifications.desktop
          settings-window-behaviour.desktop

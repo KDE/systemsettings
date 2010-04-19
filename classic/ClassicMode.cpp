@@ -84,10 +84,8 @@ void ClassicMode::initEvent()
 {
     // Create the model
     d->model = new MenuModel( rootItem(), this );
-    foreach( MenuItem * child, rootItem()->children() ) {
-        d->model->addException( child );
-    }
-    // Create the model
+
+    // Create the proxy model
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setSourceModel( d->model );
     d->proxyModel->sort( 0 );

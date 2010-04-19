@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=lost-and-found
-X-KDE-System-Settings-Parent-Category=general
+X-KDE-System-Settings-Parent-Category=
 X-KDE-Weight=250
 Icon=applications-system
 

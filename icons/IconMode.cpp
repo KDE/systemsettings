@@ -40,18 +40,16 @@ K_EXPORT_PLUGIN( IconModeFactory( "icon_mode" ) )
 
 class IconMode::Private {
 public:
-    Private() : moduleView( 0 ) {}
+    Private() : categoryDrawer( 0 ),  categoryView( 0 ), moduleView( 0 ) {}
     virtual ~Private() {
-        qDeleteAll( mCategoryDrawers );
+        delete categoryDrawer;
         delete aboutIcon;
     }
 
-    QList<KCategoryDrawer*> mCategoryDrawers;
-    QList<QAbstractItemView*> mViews;
+    KCategoryDrawer * categoryDrawer;
+    KCategorizedView * categoryView;
     QStackedWidget * mainWidget;
-    KTabWidget * iconWidget;
-    QList<MenuProxyModel *> proxyList;
-    QHash<MenuProxyModel *, QString> proxyMap;
+    MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
     KAction * backAction;
@@ -92,7 +90,7 @@ ModuleView * IconMode::moduleView() const
 
 QWidget * IconMode::mainWidget()
 {
-    if( !d->iconWidget ) {
+    if( !d->categoryView ) {
         initWidget();
     }
     return d->mainWidget;
@@ -100,36 +98,33 @@ QWidget * IconMode::mainWidget()
 
 QList<QAbstractItemView*> IconMode::views() const
 {
-    return d->mViews;
+    QList<QAbstractItemView*> list;
+    list.append( d->categoryView );
+    return list;
 }
 
 void IconMode::initEvent()
 {
-    foreach( MenuItem *childItem, rootItem()->children() ) {
-        MenuModel *model = new MenuModel( childItem, this );
-        foreach( MenuItem * child, childItem->children() ) {
-            model->addException( child );
-        }
-        MenuProxyModel *proxyModel = new MenuProxyModel( this );
-        proxyModel->setCategorizedModel( true );
-        proxyModel->setSourceModel( model );
-        proxyModel->sort( 0 );
-        d->proxyMap.insert( proxyModel, childItem->name() );
-        d->proxyList << proxyModel;
+    MenuModel * model = new MenuModel( rootItem(), this );
+    foreach( MenuItem * child, rootItem()->children() ) {
+        model->addException( child );
     }
+
+    d->proxyModel = new MenuProxyModel( this );
+    d->proxyModel->setCategorizedModel( true );
+    d->proxyModel->setSourceModel( model );
+    d->proxyModel->sort( 0 );
 
     d->mainWidget = new QStackedWidget();
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, SIGNAL( moduleChanged(bool) ), this, SLOT( moduleLoaded() ) );
     connect( d->moduleView, SIGNAL( closeRequest() ), this, SLOT( backToOverview() ) );
-    d->iconWidget = 0;
+    d->categoryView = 0;
 }
 
 void IconMode::searchChanged( const QString& text )
 {
-    foreach( MenuProxyModel *proxyModel, d->proxyList ) {
-        proxyModel->setFilterRegExp( text );
-    }
+    d->proxyModel->setFilterRegExp( text );
 }
 
 void IconMode::changeModule( const QModelIndex& activeModule )
@@ -149,9 +144,9 @@ void IconMode::moduleLoaded()
 void IconMode::backToOverview()
 {
     if( d->moduleView->resolveChanges() ) {
-        d->mainWidget->setCurrentWidget( d->iconWidget );
+        d->mainWidget->setCurrentWidget( d->categoryView );
         d->moduleView->closeModules();
-        d->mainWidget->setCurrentWidget( d->iconWidget );
+        d->mainWidget->setCurrentWidget( d->categoryView );
         d->backAction->setEnabled( false );
         emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
         emit viewChanged( false );
@@ -161,36 +156,28 @@ void IconMode::backToOverview()
 void IconMode::initWidget()
 {
     // Create the widget
-    d->iconWidget = new KTabWidget( d->mainWidget );
-#if QT_VERSION >= 0x040500
-    d->iconWidget->setDocumentMode( true );
-#endif
-    foreach( MenuProxyModel *proxyModel, d->proxyList ) {
-        KCategoryDrawer *drawer = new CategoryDrawer();
-        d->mCategoryDrawers << drawer;
+    d->categoryDrawer = new CategoryDrawer();
+    d->categoryView = new CategorizedView( d->mainWidget );
 
-        KCategorizedView *tv = new CategorizedView( d->iconWidget );
-        tv->setSelectionMode( QAbstractItemView::SingleSelection );
-        tv->setSpacing( KDialog::spacingHint() );
-        tv->setCategoryDrawer( drawer );
-        tv->setViewMode( QListView::IconMode );
-        tv->setMouseTracking( true );
-        tv->viewport()->setAttribute( Qt::WA_Hover );
-        KFileItemDelegate *delegate = new KFileItemDelegate( tv );
-        delegate->setWrapMode( QTextOption::WordWrap );
-        tv->setItemDelegate( delegate );
-        tv->setFrameShape( QFrame::NoFrame );
-        tv->setModel( proxyModel );
-        d->iconWidget->addTab( tv, d->proxyMap.value( proxyModel ) );
-        connect( tv, SIGNAL( activated( const QModelIndex& ) ),
-                 this, SLOT( changeModule(const QModelIndex& ) ) );
+    d->categoryView->setSelectionMode( QAbstractItemView::SingleSelection );
+    d->categoryView->setSpacing( KDialog::spacingHint() );
+    d->categoryView->setCategoryDrawer( d->categoryDrawer );
+    d->categoryView->setViewMode( QListView::IconMode );
+    d->categoryView->setMouseTracking( true );
+    d->categoryView->viewport()->setAttribute( Qt::WA_Hover );
 
-        d->mViews << tv;
-    }
+    KFileItemDelegate *delegate = new KFileItemDelegate( d->categoryView );
+    delegate->setWrapMode( QTextOption::WordWrap );
+    d->categoryView->setItemDelegate( delegate );
 
-    d->mainWidget->addWidget( d->iconWidget );
+    d->categoryView->setFrameShape( QFrame::NoFrame );
+    d->categoryView->setModel( d->proxyModel );
+    connect( d->categoryView, SIGNAL( activated( const QModelIndex& ) ),
+             this, SLOT( changeModule(const QModelIndex& ) ) );
+
+    d->mainWidget->addWidget( d->categoryView );
     d->mainWidget->addWidget( d->moduleView );
-    d->mainWidget->setCurrentWidget( d->iconWidget );
+    d->mainWidget->setCurrentWidget( d->categoryView );
 }
 
 void IconMode::leaveModuleView()
@@ -201,7 +188,7 @@ void IconMode::leaveModuleView()
 
 void IconMode::giveFocus()
 {
-    d->iconWidget->currentWidget()->setFocus();
+    d->categoryView->setFocus();
 }
 
 #include "IconMode.moc"
