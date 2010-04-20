@@ -6,4 +6,8 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Startup and Shutdown
+Name[pt]=Arranque e Paragem
+Name[sv]=Start och avslutning
+Name[uk]=Запуск і вихід
 Name[x-test]=xxStartup and Shutdownxx
+Name[zh_TW]=啟動與關閉

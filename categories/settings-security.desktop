@@ -6,4 +6,8 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Security
+Name[pt]=Segurança
+Name[sv]=Säkerhet
+Name[uk]=Безпека
 Name[x-test]=xxSecurityxx
+Name[zh_TW]=安全性

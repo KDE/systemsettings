@@ -6,6 +6,9 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-notification
 
 Name=Application and System Notifications
+Name[ia]=Applicationes e Notificationes de Systema
+Name[pt]=Notificações das Aplicações e do Sistema
 Name[sv]=Program- och systemunderrättelser
 Name[uk]=Сповіщення програм і системи
 Name[x-test]=xxApplication and System Notificationsxx
+Name[zh_TW]=應用程式與系統通知

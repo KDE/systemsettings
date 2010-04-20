@@ -6,7 +6,12 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-display
 
 Name=Display and Monitor
+Name[ia]=Monstrator e Monitor
+Name[pt]=Ecrã e Monitor
+Name[sv]=Bildskärm
+Name[uk]=Показ зображення і монітор
 Name[x-test]=xxDisplay and Monitorxx
+Name[zh_TW]=顯示與螢幕
 Comment=Display Settings
 Comment[af]=Skerm Instellings
 Comment[ar]=إعدادات العرض

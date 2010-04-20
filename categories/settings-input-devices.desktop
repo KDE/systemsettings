@@ -6,7 +6,10 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-peripherals
 
 Name=Input Devices
+Name[ia]=Dispositivos de Ingresso
+Name[pt]=Dispositivos de Entrada
 Name[sv]=Inmatningsenheter
 Name[uk]=Пристрої введення
 Name[x-test]=xxInput Devicesxx
+Name[zh_TW]=輸入裝置
 
