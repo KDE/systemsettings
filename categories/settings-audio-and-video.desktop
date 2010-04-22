@@ -7,8 +7,11 @@ X-KDE-Weight=200
 Icon=applications-multimedia
 
 Name=Audio and Video
+Name[cs]=Audio a video
 Name[ia]= Audio e Video
+Name[kk]=Аудио мен Видео
 Name[pt]=Áudio e Vídeo
+Name[pt_BR]=Áudio e vídeo
 Name[sv]=Ljud och video
 Name[uk]=Звук та відео
 Name[x-test]=xxAudio and Videoxx

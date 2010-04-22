@@ -6,8 +6,11 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-user
 
 Name=Personal Information
+Name[cs]=Osobní informace
 Name[ia]=Information Personal
+Name[kk]=Дербес мәлімет
 Name[pt]=Informação Pessoal
+Name[pt_BR]=Informações pessoais
 Name[sv]=Personlig information
 Name[uk]=Особисті відомості
 Name[x-test]=xxPersonal Informationxx

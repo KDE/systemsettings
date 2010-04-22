@@ -7,7 +7,10 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Workspace Appearance and Behavior
+Name[ia]=Apparentia e Comportamento de le Spatio de Labor (Workspace)
+Name[kk]=Жұмыс орның көрініс пен тәртібі
 Name[pt]=Aparência e Comportamento da Área de Trabalho
+Name[pt_BR]=Comportamento e aparência do espaço de trabalho
 Name[sv]=Arbetsytans utseende och beteende
 Name[uk]=Вигляд і поведінка робочого простору
 Name[x-test]=xxWorkspace Appearance and Behaviorxx
