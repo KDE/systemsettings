@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-user
 
 Name=Account Details
+Name[en_GB]=Account Details
 Name[ia]=Detalios de Conto
 Name[kk]=Тіркелгі егжей-тегжейі
 Name[pt]=Detalhes da Conta

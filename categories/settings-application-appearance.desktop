@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-theme
 
 Name=Application Appearance
+Name[en_GB]=Application Appearance
 Name[ia]=Apparentia  de Application
 Name[kk]=Қолданба көрінісі
 Name[pt]=Aparência das Aplicações

@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-keyboard
 
 Name=Shortcuts and Gestures
+Name[en_GB]=Shortcuts and Gestures
 Name[ia]=Vias Breve e Gestures
 Name[kk]=Тіркесімдер мен ым қимылдары
 Name[pt]=Atalhos e Gestos

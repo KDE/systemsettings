@@ -7,6 +7,7 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Application Appearance and Behavior
+Name[en_GB]=Application Appearance and Behaviour
 Name[kk]=Қолданба көрнісі мен тәртібі
 Name[pt]=Aparência e Comportamento das Aplicações
 Name[pt_BR]=Aparência e comportamento dos aplicativos
