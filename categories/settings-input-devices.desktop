@@ -7,9 +7,12 @@ Icon=preferences-desktop-peripherals
 
 Name=Input Devices
 Name[cs]=Vstupní zařízení
+Name[de]=Eingabegeräte
 Name[en_GB]=Input Devices
 Name[ia]=Dispositivos de Ingresso
 Name[kk]=Енгізу құрылғылар
+Name[nb]=Inndataenheter
+Name[nl]=Invoerapparaten
 Name[pt]=Dispositivos de Entrada
 Name[pt_BR]=Dispositivos de entrada
 Name[sv]=Inmatningsenheter

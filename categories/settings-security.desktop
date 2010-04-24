@@ -7,10 +7,13 @@ Icon=preferences-other
 
 Name=Security
 Name[cs]=Bezpečnost
+Name[de]=Sicherheit
 Name[en_GB]=Security
 Name[ia]=Securitate
 Name[kk]=Қауіпсіздік
+Name[lt]=Saugumas
 Name[nb]=Sikkerhet
+Name[nl]=Beveiliging
 Name[pt]=Segurança
 Name[pt_BR]=Segurança
 Name[sv]=Säkerhet
