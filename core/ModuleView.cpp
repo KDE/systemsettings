@@ -56,6 +56,7 @@ public:
     KPushButton* mReset;
     KPushButton* mDefault;
     KPushButton* mHelp;
+    bool pageChangeSupressed;
 };
 
 ModuleView::ModuleView( QWidget * parent )
@@ -183,12 +184,12 @@ void ModuleView::addModule( KCModuleInfo *module )
     }
 
     d->mModules.insert( page, module );
-    updatePageIconHeader( page );
+    updatePageIconHeader( page, true );
     // Add the new page
     d->mPageWidget->addPage( page );
 }
 
-void ModuleView::updatePageIconHeader( KPageWidgetItem * page )
+void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
 {
     if( !page ) {
         // Page is invalid. Probably means we have a race condition during closure of everyone so do nothing
@@ -198,12 +199,15 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page )
     KCModuleProxy * moduleProxy = d->mPages.value( page );
     KCModuleInfo * moduleInfo = d->mModules.value( page );
 
+    page->setHeader( moduleInfo->comment() );
+    page->setIcon( KIcon( moduleInfo->icon() ) );
+    if( light ) {
+        return;
+    }
+
     if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
         page->setHeader( "<b>" + moduleInfo->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
         page->setIcon( KIcon( moduleInfo->icon(), 0, QStringList() << "dialog-warning" ) );
-    } else {
-        page->setHeader( moduleInfo->comment() );
-        page->setIcon( KIcon( moduleInfo->icon() ) );
     }
 }
 
@@ -250,6 +254,7 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 
 void ModuleView::closeModules()
 {
+    d->pageChangeSupressed = true;
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator page = d->mModules.begin();
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator pageEnd = d->mModules.end();
     for ( ; page != pageEnd; ++page ) {
@@ -258,6 +263,7 @@ void ModuleView::closeModules()
 
     d->mPages.clear();
     d->mModules.clear();
+    d->pageChangeSupressed = false;
 }
 
 bool ModuleView::moduleSave()
@@ -316,6 +322,9 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
         d->mPageWidget->setCurrentPage(current);
     }
     d->mPageWidget->blockSignals(false);
+    if( d->pageChangeSupressed ) {
+        return;
+    }
     // We need to get the state of the now active module
     stateChanged();
 }

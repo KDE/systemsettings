@@ -146,7 +146,6 @@ void IconMode::backToOverview()
     if( d->moduleView->resolveChanges() ) {
         d->mainWidget->setCurrentWidget( d->categoryView );
         d->moduleView->closeModules();
-        d->mainWidget->setCurrentWidget( d->categoryView );
         d->backAction->setEnabled( false );
         emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
         emit viewChanged( false );
