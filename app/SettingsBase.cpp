@@ -47,6 +47,7 @@ SettingsBase::SettingsBase( QWidget * parent )
     activeView = 0;
     aboutDialog = 0;
     configDialog = 0;
+    lostFound = 0;
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
     setCentralWidget(stackedWidget);
@@ -84,12 +85,15 @@ void SettingsBase::initApplication()
     rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
     // Handle lost+found modules...
-    for (int i = 0; i < modules.size(); ++i) {
-        const KService::Ptr entry = modules.at(i);
-        MenuItem * infoItem = new MenuItem(false, lostFound);
-        infoItem->setService( entry );
-        kWarning() << "Added " << entry->name();
+    if (lostFound) {
+        for (int i = 0; i < modules.size(); ++i) {
+            const KService::Ptr entry = modules.at(i);
+            MenuItem * infoItem = new MenuItem(false, lostFound);
+            infoItem->setService( entry );
+            kWarning() << "Added " << entry->name();
+        }
     }
+
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
     // Load all possible views
