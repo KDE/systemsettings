@@ -111,7 +111,7 @@ void ToolTipManager::requestToolTip(const QModelIndex& index)
         const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
         d->itemRect.moveTo(pos);
         d->item = index;
-        d->timer->start(50);
+        d->timer->start(300);
     } else {
         hideToolTip();
     }
