@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Startup and Shutdown
+Name[bn]=স্টার্ট-আপ এবং শাটডাউন
 Name[de]=Starten und Beenden
 Name[en_GB]=Startup and Shutdown
 Name[es]=Arranque y apagado

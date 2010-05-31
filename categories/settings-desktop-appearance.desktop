@@ -7,9 +7,12 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Workspace Appearance
+Name[bn]=ওয়ার্কস্পেস-এর চেহারা
 Name[ca]=Aparença de l'espai de treball
 Name[ca@valencia]=Aparença de l'espai de treball
 Name[de]=Erscheinungsbild der Arbeitsfläche
+Name[en_GB]=Workspace Appearance
+Name[hr]=Izgled radnog prostora
 Name[ia]=Apparentia  de le Spatio de Labor (Workspace)
 Name[id]=Tampilan Ruang Kerja
 Name[ja]=ワークスペースの外観

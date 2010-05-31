@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=preferences-desktop-locale
 
 Name=Locale
+Name[bn]=লোকেল
 Name[cs]=Lokalizace
 Name[en_GB]=Locale
 Name[ia]=Local

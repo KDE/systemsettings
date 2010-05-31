@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=
 Icon=preferences-system-network-connection
 
 Name=Network and Connectivity
+Name[bn]=নেটওয়ার্ক এবং সংযোগ
 Name[cs]=Síť a připojení
 Name[de]=Netzwerk und Verbindungen
 Name[en_GB]=Network and Connectivity

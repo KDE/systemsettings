@@ -7,11 +7,13 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Workspace Appearance and Behavior
+Name[bn]=ওয়ার্কস্পেস-এর চেহারা এবং আচরণ
 Name[ca]=Aparença i comportament de l'espai de treball
 Name[ca@valencia]=Aparença i comportament de l'espai de treball
 Name[de]=Erscheinungsbild und Verhalten der Arbeitsfläche
 Name[en_GB]=Workspace Appearance and Behaviour
 Name[es]=Apariencia y comportamiento del espacio de trabajo
+Name[hr]=Izgled i ponašanje radnog prostora
 Name[ia]=Apparentia e Comportamento de le Spatio de Labor (Workspace)
 Name[id]=Tampilan dan Perilaku Ruang Kerja
 Name[is]=Útlit og hegðun vinnusvæðis

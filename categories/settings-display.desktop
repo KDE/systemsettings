@@ -6,8 +6,10 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-display
 
 Name=Display and Monitor
+Name[bn]=ডিসপ্লে ও মনিটর
 Name[de]=Anzeige und Monitor
 Name[en_GB]=Display and Monitor
+Name[hr]=Zaslon i monitor
 Name[ia]=Monstrator e Monitor
 Name[id]=Tampilan dan Monitor
 Name[is]=Skjáir og birting
