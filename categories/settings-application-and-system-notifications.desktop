@@ -7,9 +7,12 @@ Icon=preferences-desktop-notification
 
 Name=Application and System Notifications
 Name[bn]=অ্যাপলিকেশন এবং সিস্টেম বিজ্ঞপ্তি
+Name[cs]=Oznamování aplikací a systému
+Name[da]=Program- og systembekendtgørelser
 Name[de]=Anwendungs- und Systembenachrichtigungen
 Name[en_GB]=Application and System Notifications
 Name[es]=Notificaciones de aplicaciones y del sistema
+Name[et]=Rakenduste ja süsteemi märguanded
 Name[ia]=Applicationes e Notificationes de Systema
 Name[id]=Notifikasi Sistem dan Aplikasi
 Name[is]=Tilkynningar kerfis og forrita
