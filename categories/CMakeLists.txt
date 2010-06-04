@@ -15,7 +15,6 @@ install( FILES
 		 settings-network-and-connectivity.desktop
 		 settings-system-administration.desktop
 		 settings-permissions.desktop
-		 settings-security.desktop
 		 settings-startup-and-shutdown.desktop
 		 settings-desktop-appearance.desktop
 		 settings-workspace-appearance-and-behavior.desktop
