@@ -196,25 +196,9 @@ QWidget * ToolTipManager::createTipContent( QModelIndex item )
     tipContent->setLayout( tipLayout );
 
     if( d->view->model()->rowCount( item ) > 0 ) {
-        QLabel * seperatorLine = new QLabel( tipContent );
-        tipLayout->addWidget( seperatorLine, 1, 0 );
-
-        int width = tipContent->sizeHint().width();
-        QPixmap seperatorPixmap( width, 3 );
-        seperatorPixmap.fill( Qt::transparent );
-
-        QPainter painter( &seperatorPixmap );
-        KColorScheme paintColors( QPalette::Normal, KColorScheme::Tooltip );
-        painter.setBrush( paintColors.foreground() );
-
-        #ifdef Q_WS_X11
-        if( QX11Info::isCompositingManagerRunning() ) {
-            painter.setRenderHint(QPainter::Antialiasing);
-        }
-        #endif
-
-        painter.drawLine( 0, 1, width, 1 );
-        seperatorLine->setPixmap( seperatorPixmap );
+        QFrame * separatorLine = new QFrame( tipContent );
+        separatorLine->setFrameStyle( QFrame::HLine );
+        tipLayout->addWidget( separatorLine, 1, 0 );
     }
 
     return tipContent;
