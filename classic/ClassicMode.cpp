@@ -159,8 +159,7 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
         d->classicCategory->changeModule(activeModule);
         emit viewChanged( false );
     } else {
-        MenuItem *menuItem = d->proxyModel->data( activeModule, Qt::UserRole ).value<MenuItem*>();
-        d->moduleView->loadModule( menuItem );
+        d->moduleView->loadModule( activeModule );
     }
 }
 

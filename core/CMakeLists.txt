@@ -26,7 +26,7 @@ kde4_add_library( systemsettingsview SHARED ${systemsettingsview_LIB_SRCS} )
 
 target_link_libraries( systemsettingsview ${KDE4_KDECORE_LIBS} ${KDE4_KCMUTILS_LIBS} )
 
-set_target_properties( systemsettingsview PROPERTIES SOVERSION 1 )
+set_target_properties( systemsettingsview PROPERTIES SOVERSION 2 )
 
 install( TARGETS systemsettingsview  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES ${systemsettingsview_LIB_HDRS} DESTINATION ${INCLUDE_INSTALL_DIR}/systemsettingsview COMPONENT Devel )

@@ -130,8 +130,7 @@ void IconMode::searchChanged( const QString& text )
 void IconMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
-    MenuItem *menuItem = activeModule.model()->data( activeModule, Qt::UserRole ).value<MenuItem*>();
-    d->moduleView->loadModule( menuItem );
+    d->moduleView->loadModule( activeModule );
 }
 
 void IconMode::moduleLoaded()

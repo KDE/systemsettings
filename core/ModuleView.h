@@ -22,6 +22,7 @@
 #define MODULE_VIEW_H
 
 #include <QtGui/QWidget>
+#include <QtCore/QModelIndex>
 #include "systemsettingsview_export.h"
 
 class MenuItem;
@@ -95,9 +96,9 @@ public Q_SLOTS:
      * Loads the module specified by menuItem.\n
      * If the module has children, they will all be loaded instead of the module.
      *
-     * @param menuItem the MenuItem that you want to load.
+     * @param menuItem the QModelIndex that you want to load. Must be sourced from either MenuModel or MenuProxyModel
      */
-    void loadModule( MenuItem *menuItem );
+    void loadModule( QModelIndex menuItem );
 
     /**
      * Will open KHelpCenter, and load the help for the active module.

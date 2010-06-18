@@ -28,6 +28,7 @@
 #include <QWhatsThis>
 #include <QScrollArea>
 #include <QVBoxLayout>
+#include <QAbstractItemModel>
 
 #include <KDebug>
 #include <KDialog>
@@ -124,23 +125,23 @@ const KAboutData * ModuleView::aboutData() const
     return 0;
 }
 
-void ModuleView::loadModule( MenuItem *menuItem )
+void ModuleView::loadModule( QModelIndex menuItem )
 {
-    if ( !menuItem ) {
+    if ( !menuItem.isValid() ) {
         return;
     }
 
-    QList<KCModuleInfo*> modules;
-    if ( menuItem->children().empty() ) {
-        modules << &menuItem->item();
-    } else {
-        foreach ( MenuItem *child, menuItem->children() ) {
-            modules << &child->item();
-        }
+    QList<QModelIndex> indexes;
+    for ( int done = 0; menuItem.model()->rowCount( menuItem ) > done; done = 1 + done ) {
+        indexes << menuItem.model()->index( done, 0, menuItem );
+    }
+    if ( indexes.empty() ) {
+        indexes << menuItem;
     }
 
-    foreach ( KCModuleInfo *module, modules ) {
-        addModule(module);
+    foreach ( QModelIndex module, indexes ) {
+        MenuItem *menuItem = module.data( Qt::UserRole ).value<MenuItem*>();
+        addModule( &menuItem->item() );
     }
     // changing state is not needed here as the adding / changing of pages does it
 }
