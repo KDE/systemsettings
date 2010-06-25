@@ -256,6 +256,7 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 void ModuleView::closeModules()
 {
     d->pageChangeSupressed = true;
+    d->mApply->setAuthAction( 0 ); // Ensure KAuth knows that authentication is now pointless...
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator page = d->mModules.begin();
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator pageEnd = d->mModules.end();
     for ( ; page != pageEnd; ++page ) {
