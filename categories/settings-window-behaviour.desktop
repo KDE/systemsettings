@@ -6,6 +6,8 @@ X-KDE-System-Settings-Parent-Category=workspace-appearance-and-behavior
 Icon=preferences-system-windows
 
 Name=Workspace Behavior
+Name[nl]=Gedrag van werkruimte
+Name[pt]=Comportamento da Área de Trabalho
 Name[pt_BR]=Comportamento do espaço de trabalho
 Name[uk]=Поведінка робочого простору
 Name[x-test]=xxWorkspace Behaviorxx
