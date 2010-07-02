@@ -200,6 +200,11 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
     KCModuleProxy * moduleProxy = d->mPages.value( page );
     KCModuleInfo * moduleInfo = d->mModules.value( page );
 
+    if( !moduleInfo ) {
+        // Seems like we have some form of a race condition going on here...
+        return; 
+    }
+
     page->setHeader( moduleInfo->comment() );
     page->setIcon( KIcon( moduleInfo->icon() ) );
     if( light ) {
