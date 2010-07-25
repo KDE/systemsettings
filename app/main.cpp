@@ -33,7 +33,7 @@ int main( int argc, char *argv[] )
 {
     // About data
     KAboutData aboutData("systemsettings", 0, ki18n("System Settings"), "1.0", ki18n("Central configuration center for KDE."),
-                         KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
+                         KAboutData::License_GPL, ki18n("Copyright © 2009–2011 System Settings authors"));
     aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Maintainer"), "ben@eclipse.endoftheinternet.org");
     aboutData.addAuthor(ki18n("Mathias Soeken"), ki18n("Developer"), "msoeken@informatik.uni-bremen.de");
     aboutData.addAuthor(ki18n("Will Stephenson"), ki18n("Internal module representation, internal module model"), "wstephenson@kde.org");
