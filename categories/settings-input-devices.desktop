@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-peripherals
 
 Name=Input Devices
+Name[ar]=أجهزة الإدخال
 Name[bn]=ইনপুট ডিভাইস
 Name[ca]=Dispositius d'entrada
 Name[ca@valencia]=Dispositius d'entrada

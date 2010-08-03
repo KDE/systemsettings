@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsExternalApp
 Name=System Settings External Application
+Name[ar]=التطبيقات الخارجية لإعدادات النظام
 Name[bn]=সিস্টেম সেটিংস বহিঃস্থ অ্যাপলিকেশন
 Name[ca]=Aplicació externa d'arranjament del sistema
 Name[ca@valencia]=Aplicació externa d'arranjament del sistema

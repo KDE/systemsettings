@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Startup and Shutdown
+Name[ar]=البدء و ايقاف التشغيل
 Name[bn]=স্টার্ট-আপ এবং শাটডাউন
 Name[ca]=Engegada i aturada
 Name[ca@valencia]=Engegada i aturada

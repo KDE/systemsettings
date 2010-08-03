@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Permissions
+Name[ar]=الصلاحيات
 Name[bn]=অনুমতি
 Name[ca]=Permisos
 Name[ca@valencia]=Permisos

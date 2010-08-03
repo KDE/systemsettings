@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-desktop-display
 
 Name=Display and Monitor
+Name[ar]=العرض و الشاشة
 Name[bn]=ডিসপ্লে ও মনিটর
 Name[ca]=Pantalla i monitor
 Name[ca@valencia]=Pantalla i monitor

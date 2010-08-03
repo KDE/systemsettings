@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=drive-removable-media
 
 Name=Removable Devices
+Name[ar]=أجهزة قابل للإزالة
 Name[bn]=অপসারণযোগ্য ডিভাইস
 Name[ca]=Dispositius extraïbles
 Name[ca@valencia]=Dispositius extraïbles
