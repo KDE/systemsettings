@@ -90,7 +90,7 @@ void SettingsBase::initApplication()
             const KService::Ptr entry = modules.at(i);
             MenuItem * infoItem = new MenuItem(false, lostFound);
             infoItem->setService( entry );
-            kWarning() << "Added " << entry->name();
+            kDebug() << "Added " << entry->name();
         }
     }
 
