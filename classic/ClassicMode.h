@@ -21,6 +21,7 @@
 
 #include "BaseMode.h"
 
+class MenuItem;
 class ModuleView;
 class QModelIndex;
 
@@ -54,6 +55,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void moduleLoaded();
     void initWidget();
+    void moveUp( MenuItem * item );
 
 private:
     class Private;

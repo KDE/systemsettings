@@ -84,6 +84,9 @@ void ClassicMode::initEvent()
 {
     // Create the model
     d->model = new MenuModel( rootItem(), this );
+    
+    // Move items that are the sole child of a category up....
+    moveUp( rootItem() );
 
     // Create the proxy model
     d->proxyModel = new MenuProxyModel( this );
@@ -242,6 +245,16 @@ void ClassicMode::loadConfiguration()
 void ClassicMode::saveConfiguration()
 {
     config().writeEntry("autoExpandOneLevel", d->classicConfig.CbExpand->isChecked());
+}
+
+void ClassicMode::moveUp( MenuItem * item )
+{
+    foreach( MenuItem * child, item->children() ) {
+        if( child->children().count() == 1 ) {
+            d->model->addException( child );
+        }
+        moveUp( child );
+    }
 }
 
 #include "ClassicMode.moc"
