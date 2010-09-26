@@ -24,6 +24,7 @@ install( FILES
          settings-display.desktop
          settings-accessibility.desktop
          settings-window-behaviour.desktop
+         settings-workspace-behavior.desktop
          settings-network-settings.desktop
          settings-lost-and-found.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
