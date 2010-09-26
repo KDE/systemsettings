@@ -1,0 +1,36 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=workspace-behavior
+X-KDE-System-Settings-Parent-Category=workspace-appearance-and-behavior
+Icon=plasma
+
+Name=Workspace Behavior
+Name[ar]=سلوك مساحة العمل
+Name[cs]=Chování pracovní plochy
+Name[de]=Verhalten der Arbeitsfläche
+Name[en_GB]=Workspace Behaviour
+Name[es]=Comportamiento del espacio de trabajo
+Name[hr]=Ponašanje radnog prostora
+Name[ia]=Comportamento de spatio de labor
+Name[ja]=ワークスペースの挙動
+Name[kk]=Жұмыс орның қасиеттері
+Name[ko]=작업 공간 행동
+Name[lt]=Darbo erdvės elgsena
+Name[nb]=Oppførsel for arbeidsflaten
+Name[nds]=Arbeitrebeet-Bedregen
+Name[nl]=Gedrag van werkruimte
+Name[nn]=Åtferd til arbeids­område
+Name[pt]=Comportamento da Área de Trabalho
+Name[pt_BR]=Comportamento do espaço de trabalho
+Name[ru]=Поведение среды рабочего стола
+Name[sr]=Понашање радног простора
+Name[sr@ijekavian]=Понашање радног простора
+Name[sr@ijekavianlatin]=Ponašanje radnog prostora
+Name[sr@latin]=Ponašanje radnog prostora
+Name[sv]=Arbetsytans beteende
+Name[tg]=Рафтори муҳити корӣ
+Name[uk]=Поведінка робочого простору
+Name[x-test]=xxWorkspace Behaviorxx
+Name[zh_CN]=工作空间行为
+Name[zh_TW]=工作空間行為
