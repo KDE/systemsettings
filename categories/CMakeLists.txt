@@ -20,6 +20,7 @@ install( FILES
 		 settings-workspace-appearance-and-behavior.desktop
 		 settings-input-devices.desktop
 		 settings-removable-devices.desktop
+		 settings-power-management.desktop
 
          settings-display.desktop
          settings-accessibility.desktop
