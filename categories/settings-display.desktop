@@ -7,6 +7,7 @@ Icon=preferences-desktop-display
 
 Name=Display and Monitor
 Name[ar]=العرض والشاشة
+Name[ast]=Pantalla y monitor
 Name[bn]=ডিসপ্লে ও মনিটর
 Name[ca]=Pantalla i monitor
 Name[ca@valencia]=Pantalla i monitor
@@ -54,6 +55,7 @@ Name[zh_TW]=顯示與螢幕
 Comment=Display Settings
 Comment[af]=Skerm Instellings
 Comment[ar]=إعدادات العرض
+Comment[ast]=Preferencies de la pantalla
 Comment[be]=Настаўленні экрану
 Comment[be@latin]=Nałady ekrana
 Comment[bg]=Настройване на екрана

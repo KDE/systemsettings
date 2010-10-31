@@ -8,6 +8,7 @@ Icon=applications-system
 
 Name=Lost and Found
 Name[ar]=المفقودات
+Name[ast]=Oxetos perdíos
 Name[bn]=হারানো প্রাপ্তি
 Name[ca]=Perdut i trobat
 Name[ca@valencia]=Perdut i trobat
@@ -49,6 +50,7 @@ Name[sr@ijekavian]=Изгубљено-нађено
 Name[sr@ijekavianlatin]=Izgubljeno-nađeno
 Name[sr@latin]=Izgubljeno-nađeno
 Name[sv]=Hittegods
+Name[th]=หาไม่เจอดูที่นี่
 Name[uk]=Втрачено і знайдено
 Name[x-test]=xxLost and Foundxx
 Name[zh_CN]=未知类别

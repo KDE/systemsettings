@@ -8,6 +8,7 @@ X-KDE-Keywords=System Settings
 
 Name=Classic Tree View
 Name[ar]=مشهد الشجرة التقليدي
+Name[ast]=Vista d'árbol clásica
 Name[bg]=Класически изглед (дърво)
 Name[bn]=ক্লাসিক ট্রি ভিউ
 Name[ca]=Vista d'arbre clàssica
@@ -73,6 +74,7 @@ Name[zh_CN]=经典树形视图
 Name[zh_TW]=傳統樹狀檢視
 Comment=A Classic KDE 3 KControl style system settings view.
 Comment[ar]=عرض إعدادات النظام بأسلوب KControl  الموجود في كدي 3 .
+Comment[ast]=Una vista clásica de KControl de KDE de les preferencies del sistema.
 Comment[bg]=Класически изглед (като KDE 3).
 Comment[bn]=ক্লাসিক KDE 3 কে-কন্ট্রোল-এর মত একটি সিস্টেম সেটিংস ভিউ।
 Comment[ca]=Una vista de l'arranjament del sistema a l'estil clàssic del KControl del KDE 3.
