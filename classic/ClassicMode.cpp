@@ -1,5 +1,5 @@
 /**************************************************************************
- * Copyright (C) 2009 Ben Cooksley <ben@eclipse.endoftheinternet.org>     *
+ * Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                    *
  * Copyright (C) 2008 Mathias Soeken <msoeken@informatik.uni-bremen.de>   *
  *                                                                        *
  * This program is free software; you can redistribute it and/or          *
@@ -67,7 +67,7 @@ ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
     d->aboutClassic = new KAboutData( "TreeView", 0, ki18n("Tree View"),
                                    "1.0", ki18n("Provides a classic tree-based view of control modules."),
                                    KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
-    d->aboutClassic->addAuthor(ki18n("Ben Cooksley"), ki18n("Author"), "ben@eclipse.endoftheinternet.org");
+    d->aboutClassic->addAuthor(ki18n("Ben Cooksley"), ki18n("Author"), "bcooksley@kde.org");
     d->aboutClassic->addAuthor(ki18n("Mathias Soeken"), ki18n("Developer"), "msoeken@informatik.uni-bremen.de");
     d->aboutClassic->setProgramIconName("view-list-tree");
 }

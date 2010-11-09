@@ -1,5 +1,5 @@
 /**************************************************************************
- * Copyright (C) 2009 Ben Cooksley <ben@eclipse.endoftheinternet.org>     *
+ * Copyright (C) 2009 by Ben Cooksley <bcooksley@kde.org>                 *
  *                                                                        *
  * This program is free software; you can redistribute it and/or          *
  * modify it under the terms of the GNU General Public License            *
@@ -62,7 +62,7 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
     d->aboutIcon = new KAboutData( "IconView", 0, ki18n( "Icon View" ),
                                  "1.0", ki18n( "Provides a categorized icons view of control modules." ),
                                  KAboutData::License_GPL, ki18n( "(c) 2009, Ben Cooksley" ) );
-    d->aboutIcon->addAuthor( ki18n( "Ben Cooksley" ), ki18n( "Author" ), "ben@eclipse.endoftheinternet.org" );
+    d->aboutIcon->addAuthor( ki18n( "Ben Cooksley" ), ki18n( "Author" ), "bcooksley@kde.org" );
     d->aboutIcon->addAuthor( ki18n( "Mathias Soeken" ), ki18n( "Developer" ), "msoeken@informatik.uni-bremen.de" );
     d->aboutIcon->setProgramIconName( "view-list-icons" );
 

@@ -1,5 +1,5 @@
 /**************************************************************************
- * Copyright (C) 2009 Ben Cooksley <ben@eclipse.endoftheinternet.org>     *
+ * Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                    *
  * Copyright (C) 2007 Will Stephenson <wstephenson@kde.org>               *
  *                                                                        *
  * This program is free software; you can redistribute it and/or          *
@@ -34,7 +34,7 @@
  * Items that do not match the search parameters will be disabled, not hidden.
  *
  * @author Will Stephenson <wstephenson@kde.org> 
- * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
+ * @author Ben Cooksley <bcooksley@kde.org>
  */
 class SYSTEMSETTINGSVIEW_EXPORT MenuProxyModel : public KCategorizedSortFilterProxyModel
 {

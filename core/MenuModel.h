@@ -1,5 +1,5 @@
 /**************************************************************************
- * Copyright (C) 2009 Ben Cooksley <ben@eclipse.endoftheinternet.org>     *
+ * Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                    *
  * Copyright (C) 2007 Will Stephenson <wstephenson@kde.org>               *
  *                                                                        *
  * This program is free software; you can redistribute it and/or          *
@@ -33,7 +33,7 @@ class MenuItem;
  * It is recommended to also use this with the MenuProxyModel to provide searching
  * and correct ordering of modules.
  *
- * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
+ * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
 class SYSTEMSETTINGSVIEW_EXPORT MenuModel : public QAbstractItemModel

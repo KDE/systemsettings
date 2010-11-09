@@ -1,7 +1,7 @@
 /***************************************************************************
  *   This file is part of the KDE project                                  *
  *   Copyright 2007 Will Stephenson <wstephenson@kde.org>                  *
- *   Copyright 2009 Ben Cooksley <ben@eclipse.endoftheinternet.org>        *
+ *   Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -44,7 +44,7 @@ template<typename T> class QList;
  * The service object must be set, unless it is the top level item, otherwise using applications
  * will crash when attempting to sort the children by weight
  *
- * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
+ * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
 class SYSTEMSETTINGSVIEW_EXPORT MenuItem

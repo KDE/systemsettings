@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright (C) 2009 by Ben Cooksley <ben@eclipse.endoftheinternet.org>   *
+ *   Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                     *
  *   Copyright (C) 2009 by Mathias Soeken <msoeken@informatik.uni-bremen.de> *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *

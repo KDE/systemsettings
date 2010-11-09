@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright (C) 2009 by Ben Cooksley <ben@eclipse.endoftheinternet.org>   *
+ *   Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                     *
  *                                                                           *
  *   This program is free software; you can redistribute it and/or modify    *
  *   it under the terms of the GNU General Public License as published by    *
@@ -41,7 +41,7 @@ template<typename T> class QList;
  * The developer need only ensure that they perform all initialization of their plugin in
  * initEvent() to ensure that the plugin is displayed, and initial actions are loaded.
  *
- * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
+ * @author Ben Cooksley <bcooksley@kde.org>
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
 */
 class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject

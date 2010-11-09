@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Ben Cooksley <ben@eclipse.endoftheinternet.org> *
+ *   Copyright (C) 2009 Ben Cooksley <bcooksley@kde.org>                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,7 +33,7 @@ class KConfigGroup;
  * BaseData is a standard interface in System Settings to retrieve information that is shared between all modules.
  * It is a singleton, and will be automatically cleaned up. 
  *
- * @author Ben Cooksley <ben@eclipse.endoftheinternet.org>
+ * @author Ben Cooksley <bcooksley@kde.org>
 */
 class SYSTEMSETTINGSVIEW_EXPORT BaseData : public QObject 
 {
