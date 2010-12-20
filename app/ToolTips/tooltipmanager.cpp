@@ -224,6 +224,7 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
             text += i18np( "<i>Contains 1 item</i>", "<i>Contains %1 items</i>", childCount );
         }
     }
+    text = text.replace( QChar('&'), "&&" );
     QLabel * textLabel = new QLabel( toolTip );
     textLabel->setForegroundRole(QPalette::ToolTipText);
     textLabel->setText( text );
