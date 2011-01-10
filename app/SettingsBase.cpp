@@ -278,10 +278,8 @@ bool SettingsBase::queryClose()
 
 void SettingsBase::about()
 {
-    if( aboutDialog ) {
-        delete aboutDialog;
-        aboutDialog = 0;
-    }
+    delete aboutDialog;
+    aboutDialog = 0;
 
     const KAboutData * about = 0;
     if( sender() == aboutViewAction ) {
