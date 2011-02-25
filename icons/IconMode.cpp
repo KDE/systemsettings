@@ -130,12 +130,12 @@ void IconMode::searchChanged( const QString& text )
 void IconMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
+    d->mainWidget->setCurrentWidget( d->moduleView );
     d->moduleView->loadModule( activeModule );
 }
 
 void IconMode::moduleLoaded()
 {
-    d->mainWidget->setCurrentWidget( d->moduleView );
     d->backAction->setEnabled( true );
     emit changeToolBarItems(BaseMode::NoItems);
 }
