@@ -33,13 +33,6 @@ public:
 
 protected:
     virtual void paintEvent(QPaintEvent* event);
-
-private:
-    /**
-     * Helper method for KToolTipWindow::paintEvent() to adjust the painter path \p path
-     * by rounded corners.
-     */
-    static void arc(QPainterPath& path, qreal cx, qreal cy, qreal radius, qreal angle, qreal sweeplength);
 };
 
 #endif
