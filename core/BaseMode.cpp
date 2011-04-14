@@ -56,7 +56,7 @@ void BaseMode::init( const KService::Ptr modeService )
 {
     d->rootItem = BaseData::instance()->menuItem();
     d->service = modeService;
-    d->config = BaseData::instance()->configGroup( modeService->name() );
+    d->config = BaseData::instance()->configGroup( modeService->library() );
     initEvent();
     connect( moduleView(), SIGNAL( moduleChanged( bool ) ), this, SIGNAL( viewChanged( bool ) ) );
 }
