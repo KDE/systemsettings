@@ -93,49 +93,84 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
     }
     //END: decoration gradient
 
-//     {
-//         QRect newOptRect(optRect);
-//         newOptRect.setLeft(newOptRect.left() + 1);
-//         newOptRect.setTop(newOptRect.top() + 1);
-// 
-//         //BEGIN: inner top left corner
-//         {
-//             painter->save();
-//             painter->setPen(option.palette.base().color());
-//             const QPointF topLeft(newOptRect.topLeft());
-//             QRectF arc(topLeft, QSizeF(4, 4));
-//             arc.translate(0.5, 0.5);
-//             painter->drawArc(arc, 1440, 1440);
-//             painter->restore();
-//         }
-//         //END: inner top left corner
-// 
-//         //BEGIN: inner left vertical line
-//         {
-//             QPoint start(newOptRect.topLeft());
-//             start.ry() += 3;
-//             QPoint verticalGradBottom(newOptRect.topLeft());
-//             verticalGradBottom.ry() += newOptRect.height() - 3;
-//             QLinearGradient gradient(start, verticalGradBottom);
-//             gradient.setColorAt(0, option.palette.base().color());
-//             gradient.setColorAt(1, Qt::transparent);
-//             painter->fillRect(QRect(start, QSize(1, newOptRect.height() - 3)), gradient);
-//         }
-//         //END: inner left vertical line
-// 
-//         //BEGIN: inner horizontal line
-//         {
-//             QPoint start(newOptRect.topLeft());
-//             start.rx() += 3;
-//             QPoint horizontalGradTop(newOptRect.topLeft());
-//             horizontalGradTop.rx() += newOptRect.width() - 3;
-//             QLinearGradient gradient(start, horizontalGradTop);
-//             gradient.setColorAt(0, option.palette.base().color());
-//             gradient.setColorAt(1, Qt::transparent);
-//             painter->fillRect(QRect(start, QSize(newOptRect.width() - 3, 1)), gradient);
-//         }
-//         //END: inner horizontal line
-//     }
+    {
+        QRect newOptRect(optRect);
+
+        if (leftToRight) {
+            newOptRect.translate(1, 1);
+        } else {
+            newOptRect.translate(-1, 1);
+        }
+
+        //BEGIN: inner top left corner
+        {
+            painter->save();
+            painter->setPen(option.palette.base().color());
+            QRectF arc;
+            if (leftToRight) {
+                const QPointF topLeft(newOptRect.topLeft());
+                arc = QRectF(topLeft, QSizeF(4, 4));
+                arc.translate(0.5, 0.5);
+                painter->drawArc(arc, 1440, 1440);
+            } else {
+                QPointF topRight(newOptRect.topRight());
+                topRight.rx() -= 4;
+                arc = QRectF(topRight, QSizeF(4, 4));
+                arc.translate(-0.5, 0.5);
+                painter->drawArc(arc, 0, 1440);
+            }
+            painter->restore();
+        }
+        //END: inner top left corner
+
+        //BEGIN: inner left vertical line
+        {
+            QPoint start;
+            QPoint verticalGradBottom;
+            if (leftToRight) {
+                start = newOptRect.topLeft();
+                verticalGradBottom = newOptRect.topLeft();
+            } else {
+                start = newOptRect.topRight();
+                verticalGradBottom = newOptRect.topRight();
+            }
+            start.ry() += 3;
+            verticalGradBottom.ry() += newOptRect.height() - 3;
+            QLinearGradient gradient(start, verticalGradBottom);
+            gradient.setColorAt(0, option.palette.base().color());
+            gradient.setColorAt(1, Qt::transparent);
+            painter->fillRect(QRect(start, QSize(1, newOptRect.height() - 3)), gradient);
+        }
+        //END: inner left vertical line
+
+        //BEGIN: inner horizontal line
+        {
+            QPoint start;
+            QPoint horizontalGradTop;
+            if (leftToRight) {
+                start = newOptRect.topLeft();
+                horizontalGradTop = newOptRect.topLeft();
+                start.rx() += 3;
+                horizontalGradTop.rx() += newOptRect.width() - 3;
+            } else {
+                start = newOptRect.topRight();
+                horizontalGradTop = newOptRect.topRight();
+                start.rx() -= 3;
+                horizontalGradTop.rx() -= newOptRect.width() - 3;
+            }
+            QLinearGradient gradient(start, horizontalGradTop);
+            gradient.setColorAt(0, option.palette.base().color());
+            gradient.setColorAt(1, Qt::transparent);
+            QSize rectSize;
+            if (leftToRight) {
+                rectSize = QSize(newOptRect.width() - 3, 1);
+            } else {
+                rectSize = QSize(-newOptRect.width() + 3, 1);
+            }
+            painter->fillRect(QRect(start, rectSize), gradient);
+        }
+        //END: inner horizontal line
+    }
 
     QColor outlineColor = option.palette.text().color();
     outlineColor.setAlphaF(0.35);
