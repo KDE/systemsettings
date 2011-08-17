@@ -196,15 +196,15 @@ void ClassicMode::initWidget()
 
     d->classicCategory->changeModule( d->classicTree->rootIndex() );
 
-    connect( d->classicCategory, SIGNAL(moduleSelected( QModelIndex )), this, SLOT(selectModule( QModelIndex )) );
-    connect( d->classicTree, SIGNAL(activated(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)) );
+    connect( d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)) );
+    connect( d->classicTree, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
     connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
 
     if( !KGlobalSettings::singleClick() ) {
         // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
-        connect( d->classicTree, SIGNAL(clicked(const QModelIndex&)), this, SLOT(changeModule(const QModelIndex&)) );
+        connect( d->classicTree, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
     }
 
     if( config().readEntry( "autoExpandOneLevel", false ) ) {

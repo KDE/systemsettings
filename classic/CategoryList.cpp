@@ -65,7 +65,7 @@ CategoryList::CategoryList( QWidget *parent, QAbstractItemModel *model )
              SIGNAL( openUrlRequest( const KUrl&,
                                      const KParts::OpenUrlArguments&,
                                      const KParts::BrowserArguments& ) ),
-             this, SLOT(slotModuleLinkClicked( const KUrl& ) ) );
+             this, SLOT(slotModuleLinkClicked(KUrl)) );
 }
 
 CategoryList::~CategoryList()

@@ -62,7 +62,7 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
     d->view = parent;
 
     connect(parent, SIGNAL(viewportEntered()), this, SLOT(hideToolTip()));
-    connect(parent, SIGNAL(entered(const QModelIndex&)), this, SLOT(requestToolTip(const QModelIndex&)));
+    connect(parent, SIGNAL(entered(QModelIndex)), this, SLOT(requestToolTip(QModelIndex)));
             
     d->timer = new QTimer(this);
     d->timer->setSingleShot(true);

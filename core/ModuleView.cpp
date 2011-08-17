@@ -96,8 +96,8 @@ ModuleView::ModuleView( QWidget * parent )
     connect( d->mReset, SIGNAL(clicked()), this, SLOT(moduleLoad()) );
     connect( d->mHelp, SIGNAL(clicked()), this, SLOT(moduleHelp()) );
     connect( d->mDefault, SIGNAL(clicked()), this, SLOT(moduleDefaults()) );
-    connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*, KPageWidgetItem*)),
-             this, SLOT(activeModuleChanged(KPageWidgetItem*, KPageWidgetItem*)) );
+    connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
+             this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
     connect( this, SIGNAL(moduleChanged(bool)), this, SLOT(updateButtons()) );
 }
 

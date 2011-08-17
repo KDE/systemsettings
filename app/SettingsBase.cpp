@@ -108,7 +108,7 @@ void SettingsBase::initApplication()
             controller->init( activeService );
             connect(controller, SIGNAL(changeToolBarItems(BaseMode::ToolBarItems)), this, SLOT(changeToolBar(BaseMode::ToolBarItems)));
             connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
-            connect(searchText, SIGNAL(textChanged(const QString&)), controller, SLOT(searchChanged(const QString&)));
+            connect(searchText, SIGNAL(textChanged(QString)), controller, SLOT(searchChanged(QString)));
             connect(controller, SIGNAL(viewChanged(bool)), this, SLOT(viewChange(bool)));
         } else {
             kWarning() << "View load error: " + error;
@@ -123,9 +123,9 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    quitAction = actionCollection()->addAction( KStandardAction::Quit, "quit_action", this, SLOT( close() ) );
+    quitAction = actionCollection()->addAction( KStandardAction::Quit, "quit_action", this, SLOT(close()) );
     // Configure goes at the end
-    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT( configShow() ) );
+    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT(configShow()) );
     configureAction->setShortcut(KShortcut(QKeySequence(Qt::CTRL + Qt::Key_M)));
     configureAction->setText( i18n("Configure") );
     // Help after it
@@ -138,7 +138,7 @@ void SettingsBase::initToolBar()
     searchAction = new KAction( this );
     searchAction->setDefaultWidget(searchText);
     searchAction->setShortcut(KShortcut(QKeySequence(Qt::CTRL + Qt::Key_F)));
-    connect( searchAction, SIGNAL(triggered(Qt::MouseButtons, Qt::KeyboardModifiers)),
+    connect( searchAction, SIGNAL(triggered(Qt::MouseButtons,Qt::KeyboardModifiers)),
          searchText, SLOT(setFocus()));
     actionCollection()->addAction( "searchText", searchAction );
     // Initialise the Window
@@ -157,9 +157,9 @@ void SettingsBase::initHelpMenu()
     helpActionMenu->setDelayed( false );
     actionCollection()->addAction( "help_toolbar_menu", helpActionMenu );
     // Add the custom actions
-    aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "help_about_module", this, SLOT( about() ) );
+    aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, "help_about_module", this, SLOT(about()) );
     changeAboutMenu( 0, aboutModuleAction, i18n("About Active Module") );
-    aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "help_about_view", this, SLOT( about() ) );
+    aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, "help_about_view", this, SLOT(about()) );
 }
 
 void SettingsBase::initConfig()

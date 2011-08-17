@@ -66,7 +66,7 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
     d->aboutIcon->addAuthor( ki18n( "Mathias Soeken" ), ki18n( "Developer" ), "msoeken@informatik.uni-bremen.de" );
     d->aboutIcon->setProgramIconName( "view-list-icons" );
 
-    d->backAction = KStandardAction::back( this, SLOT( backToOverview() ), this );
+    d->backAction = KStandardAction::back( this, SLOT(backToOverview()), this );
     d->backAction->setText( i18n( "Overview" ) );
     d->backAction->setToolTip( i18n("Keyboard Shortcut: %1", d->backAction->shortcut().primary().toString( QKeySequence::NativeText )) );
     d->backAction->setEnabled( false );
@@ -117,8 +117,8 @@ void IconMode::initEvent()
 
     d->mainWidget = new QStackedWidget();
     d->moduleView = new ModuleView( d->mainWidget );
-    connect( d->moduleView, SIGNAL( moduleChanged(bool) ), this, SLOT( moduleLoaded() ) );
-    connect( d->moduleView, SIGNAL( closeRequest() ), this, SLOT( backToOverview() ) );
+    connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
+    connect( d->moduleView, SIGNAL(closeRequest()), this, SLOT(backToOverview()) );
     d->categoryView = 0;
 }
 
@@ -170,8 +170,8 @@ void IconMode::initWidget()
 
     d->categoryView->setFrameShape( QFrame::NoFrame );
     d->categoryView->setModel( d->proxyModel );
-    connect( d->categoryView, SIGNAL( activated( const QModelIndex& ) ),
-             this, SLOT( changeModule(const QModelIndex& ) ) );
+    connect( d->categoryView, SIGNAL(activated(QModelIndex)),
+             this, SLOT(changeModule(QModelIndex)) );
 
     d->mainWidget->addWidget( d->categoryView );
     d->mainWidget->addWidget( d->moduleView );
