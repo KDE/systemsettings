@@ -173,7 +173,8 @@ void ModuleView::addModule( KCModuleInfo *module )
     KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
     // Provide information to the users
 
-    if( module->service()->hasServiceType("SystemSettingsExternalApp") ) { // Is it an external app?
+    if( module->service()->hasServiceType("SystemSettingsExternalApp") ||  // Is it an external app?
+            module->service()->substituteUid() ) { // ...or does it require UID substituion?
         QWidget * externalWidget = new ExternalAppModule( this, module );
         moduleScroll->setWidget( externalWidget );
     } else { // It must be a normal module then
