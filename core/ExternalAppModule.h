@@ -20,13 +20,12 @@
 #ifndef EXTERNALAPPMODULE_H
 #define EXTERNALAPPMODULE_H
 
-#include <KCModuleInfo>
-
 #include <QtGui/QWidget>
-#include <QtCore/QProcess>
-#include <QtGui/QShowEvent>
 
 #include "ui_externalModule.h"
+
+class QShowEvent;
+class KCModuleInfo;
 
 class ExternalAppModule : public QWidget
 {
