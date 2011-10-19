@@ -1,5 +1,3 @@
-include_directories( ToolTips )
-
 set(systemsettingsview_LIB_SRCS
     MenuItem.cpp
     MenuModel.cpp
