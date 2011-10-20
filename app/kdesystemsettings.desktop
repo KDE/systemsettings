@@ -1,0 +1,14 @@
+[Desktop Entry]
+Exec=systemsettings -caption "%c" %i
+Icon=preferences-system
+Type=Application
+X-DocPath=systemsettings/index.html
+X-KDE-StartupNotify=true
+NotShowIn=KDE
+
+GenericName=KDE System Settings
+
+Name=KDE System Settings
+
+X-DBUS-StartupType=Unique
+Categories=Qt;KDE;Settings;
