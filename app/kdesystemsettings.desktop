@@ -4,7 +4,7 @@ Icon=preferences-system
 Type=Application
 X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
-NotShowIn=KDE
+NotShowIn=KDE;
 
 GenericName=KDE System Settings
 GenericName[hu]=KDE Rendszerbeállítások
