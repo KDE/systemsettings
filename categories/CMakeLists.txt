@@ -2,32 +2,30 @@
 install( FILES systemsettingscategory.desktop DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
 
 install( FILES 
-		 settings-application-and-system-notifications.desktop
-		 settings-application-appearance.desktop
-		 settings-shortcuts-and-gestures.desktop
-		 settings-personal-information.desktop
-		 settings-locale.desktop
-		 settings-hardware.desktop
-		 settings-application-appearance-and-behavior.desktop
-		 settings-application-and-system-notifications.desktop
-		 settings-account-details.desktop
-		 settings-audio-and-video.desktop
-		 settings-network-and-connectivity.desktop
-		 settings-system-administration.desktop
-		 settings-permissions.desktop
-		 settings-startup-and-shutdown.desktop
-		 settings-desktop-appearance.desktop
-		 settings-workspace-appearance-and-behavior.desktop
-		 settings-input-devices.desktop
-		 settings-removable-devices.desktop
-		 settings-power-management.desktop
-
-         settings-display.desktop
-         settings-accessibility.desktop
-         settings-window-behaviour.desktop
-         settings-workspace-behavior.desktop
-         settings-network-settings.desktop
-         settings-lost-and-found.desktop
+               settings-accessibility.desktop
+               settings-account-details.desktop
+               settings-application-and-system-notifications.desktop
+               settings-application-appearance-and-behavior.desktop
+               settings-application-appearance.desktop
+               settings-audio-and-video.desktop
+               settings-desktop-appearance.desktop
+               settings-display.desktop
+               settings-hardware.desktop
+               settings-input-devices.desktop
+               settings-locale.desktop
+               settings-lost-and-found.desktop
+               settings-network-and-connectivity.desktop
+               settings-network-settings.desktop
+               settings-permissions.desktop
+               settings-personal-information.desktop
+               settings-power-management.desktop
+               settings-removable-devices.desktop
+               settings-shortcuts-and-gestures.desktop
+               settings-startup-and-shutdown.desktop
+               settings-system-administration.desktop
+               settings-window-behaviour.desktop
+               settings-workspace-appearance-and-behavior.desktop
+               settings-workspace-behavior.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 if (NOT WIN32)
