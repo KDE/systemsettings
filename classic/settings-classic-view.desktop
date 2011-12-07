@@ -5,6 +5,12 @@ X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings
+X-KDE-Keywords[kk]=System Settings,Жүйе параметрлері
+X-KDE-Keywords[nl]=Systeeminstellingen
+X-KDE-Keywords[pt_BR]=Configurações do sistema
+X-KDE-Keywords[sv]=Systeminställningar
+X-KDE-Keywords[uk]=система,параметри,System Settings,системні параметри
+X-KDE-Keywords[x-test]=xxSystem Settingsxx
 
 Name=Classic Tree View
 Name[ar]=مشهد الشجرة التقليدي
