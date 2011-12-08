@@ -5,8 +5,11 @@ X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings
+X-KDE-Keywords[cs]=Nastavení systému
+X-KDE-Keywords[ia]=Preferentias de systema
 X-KDE-Keywords[kk]=System Settings,Жүйе параметрлері
 X-KDE-Keywords[nl]=Systeeminstellingen
+X-KDE-Keywords[pt]=Configuração do Sistema
 X-KDE-Keywords[pt_BR]=Configurações do sistema
 X-KDE-Keywords[sv]=Systeminställningar
 X-KDE-Keywords[uk]=система,параметри,System Settings,системні параметри
