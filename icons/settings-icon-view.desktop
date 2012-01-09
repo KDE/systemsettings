@@ -6,6 +6,7 @@ X-KDE-ServiceTypes=SystemSettingsView
 X-KDE-Library=icon_mode
 X-KDE-Keywords=System Settings
 X-KDE-Keywords[ca]=Arranjament del sistema
+X-KDE-Keywords[ca@valencia]=Arranjament del sistema
 X-KDE-Keywords[cs]=Nastavení systému
 X-KDE-Keywords[da]=Systemindstillinger
 X-KDE-Keywords[de]=Systemeinstellungen
