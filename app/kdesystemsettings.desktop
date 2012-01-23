@@ -7,6 +7,7 @@ X-KDE-StartupNotify=true
 NotShowIn=KDE;
 
 GenericName=KDE System Settings
+GenericName[ar]=إعدادات نظام كدي
 GenericName[ca]=Arranjament del sistema del KDE
 GenericName[ca@valencia]=Arranjament del sistema del KDE
 GenericName[cs]=Nastavení systému KDE
@@ -44,6 +45,7 @@ GenericName[zh_CN]=KDE 系统设置
 GenericName[zh_TW]=KDE 系統設定
 
 Name=KDE System Settings
+Name[ar]=إعدادات نظام كدي
 Name[ca]=Arranjament del sistema del KDE
 Name[ca@valencia]=Arranjament del sistema del KDE
 Name[cs]=Nastavení systému KDE
