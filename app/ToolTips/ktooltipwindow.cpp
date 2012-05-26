@@ -2,6 +2,7 @@
  *   Copyright (C) 2008 by Fredrik Höglund <fredrik@kde.org>                   *
  *   Copyright (C) 2008 by Konstantin Heil <konst.heil@stud.uni-heidelberg.de> *
  *   Copyright (C) 2009 by Peter Penz <peter.penz@gmx.at>                      *
+ *   Copyright (C) 2012 by Mark Gaiser <markg85@gmail.com>                     *
  *                                                                             *
  *   This program is free software; you can redistribute it and/or modify      *
  *   it under the terms of the GNU General Public License as published by      *
@@ -26,6 +27,9 @@
 #include <QStylePainter>
 #include <QStyleOptionFrame>
 
+// For the blurred tooltip background
+#include <plasma/windoweffects.h>
+
 KToolTipWindow::KToolTipWindow(QWidget* content) :
     QWidget(0)
 {
@@ -49,6 +53,12 @@ void KToolTipWindow::paintEvent(QPaintEvent* event)
    painter.end();
 
    QWidget::paintEvent(event);
+}
+
+void KToolTipWindow::showEvent(QShowEvent *)
+{
+    Plasma::WindowEffects::overrideShadow(winId(), true);
+    Plasma::WindowEffects::enableBlurBehind(winId(), true, mask());
 }
 
 #include "ktooltipwindow_p.moc"

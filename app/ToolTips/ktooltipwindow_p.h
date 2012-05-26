@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2009 by Peter Penz <peter.penz@gmx.at>                  *
+ *   Copyright (C) 2012 by Mark Gaiser <markg85@gmail.com>                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,6 +34,7 @@ public:
 
 protected:
     virtual void paintEvent(QPaintEvent* event);
+    virtual void showEvent(QShowEvent *);
 };
 
 #endif
