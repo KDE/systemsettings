@@ -21,6 +21,8 @@
 
 #include <KFileItemDelegate>
 
+#include <QScrollBar>
+
 CategorizedView::CategorizedView( QWidget *parent )
     : KCategorizedView( parent )
 {
@@ -40,4 +42,12 @@ void CategorizedView::setModel( QAbstractItemModel *model )
     }
     setGridSize( QSize( maxWidth, maxHeight ) );
     static_cast<KFileItemDelegate*>( itemDelegate() )->setMaximumSize( QSize( maxWidth, maxHeight ) );
+}
+
+void CategorizedView::wheelEvent(QWheelEvent* event)
+{
+    // this is a workaround because scrolling by mouse wheel is broken in Qt list views for big items
+    // https://bugreports.qt-project.org/browse/QTBUG-7232
+    verticalScrollBar()->setSingleStep(10);
+    KCategorizedView::wheelEvent(event);
 }

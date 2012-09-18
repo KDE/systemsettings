@@ -28,6 +28,8 @@ public:
     CategorizedView( QWidget *parent = 0 );
 
     virtual void setModel( QAbstractItemModel *model );
+protected:
+    virtual void wheelEvent(QWheelEvent *);
 };
 
 #endif
