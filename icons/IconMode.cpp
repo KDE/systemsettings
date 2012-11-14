@@ -125,6 +125,18 @@ void IconMode::initEvent()
 void IconMode::searchChanged( const QString& text )
 {
     d->proxyModel->setFilterRegExp( text );
+    if ( d->categoryView ) {
+        QAbstractItemModel *model = d->categoryView->model();
+        const int column = d->categoryView->modelColumn();
+        const QModelIndex root = d->categoryView->rootIndex();
+        for ( int i = 0; i < model->rowCount(); ++i ) {
+            const QModelIndex index = model->index( i, column, root );
+            if ( model->flags( index ) & Qt::ItemIsEnabled ) {
+                d->categoryView->scrollTo( index );
+                break;
+            }
+        }
+    }
 }
 
 void IconMode::changeModule( const QModelIndex& activeModule )
