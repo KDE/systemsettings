@@ -8,6 +8,7 @@ NotShowIn=KDE;
 
 GenericName=KDE System Settings
 GenericName[ar]=إعدادات نظام كدي
+GenericName[bs]=Sistemske postavke KDE-a
 GenericName[ca]=Arranjament del sistema del KDE
 GenericName[ca@valencia]=Arranjament del sistema del KDE
 GenericName[cs]=Nastavení systému KDE
@@ -56,6 +57,7 @@ GenericName[zh_TW]=KDE 系統設定
 
 Name=KDE System Settings
 Name[ar]=إعدادات نظام كدي
+Name[bs]=Sistemske postavke KDE-a
 Name[ca]=Arranjament del sistema del KDE
 Name[ca@valencia]=Arranjament del sistema del KDE
 Name[cs]=Nastavení systému KDE
