@@ -63,7 +63,7 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
 
     connect(parent, SIGNAL(viewportEntered()), this, SLOT(hideToolTip()));
     connect(parent, SIGNAL(entered(QModelIndex)), this, SLOT(requestToolTip(QModelIndex)));
-            
+
     d->timer = new QTimer(this);
     d->timer->setSingleShot(true);
     connect(d->timer, SIGNAL(timeout()), this, SLOT(prepareToolTip()));
@@ -96,7 +96,7 @@ bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
                 break;
         }
     }
-    
+
     return QObject::eventFilter(watched, event);
 }
 
@@ -106,7 +106,7 @@ void ToolTipManager::requestToolTip(const QModelIndex& index)
     // drag & drop operation is done (indicated by the left mouse button)
     if ( !(QApplication::mouseButtons() & Qt::LeftButton) ) {
         KToolTip::hideTip();
-        
+
         d->itemRect = d->view->visualRect(index);
         const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
         d->itemRect.moveTo(pos);
@@ -209,7 +209,7 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
     // Get MenuItem
     MenuItem * menuItem = d->view->model()->data( *item, Qt::UserRole ).value<MenuItem*>();
 
-    QString text = menuItem->name(); 
+    QString text = menuItem->name();
     if ( comment ) {
         text = QString( "<b>%1</b>" ).arg( menuItem->name() );
     }
@@ -227,18 +227,18 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
     QLabel * textLabel = new QLabel( toolTip );
     textLabel->setForegroundRole(QPalette::ToolTipText);
     textLabel->setText( text );
-    
+
     // Get icon
     KIcon icon( menuItem->service()->icon() );
     QLabel * iconLabel = new QLabel( toolTip );
     iconLabel->setPixmap( icon.pixmap(iconSize) );
     iconLabel->setMaximumSize( iconSize );
-    
+
     // Generate layout
     QHBoxLayout * layout = new QHBoxLayout();
     layout->addWidget( iconLabel );
     layout->addWidget( textLabel );
-    
+
     return layout;
 }
 
