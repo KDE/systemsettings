@@ -39,6 +39,7 @@
 #endif
 
 #include <KIcon>
+#include <KIconLoader>
 #include <KColorScheme>
 
 class ToolTipManager::Private
@@ -180,15 +181,18 @@ void ToolTipManager::showToolTip( QModelIndex menuItem )
 
 QWidget * ToolTipManager::createTipContent( QModelIndex item )
 {
+    const QSize dialogIconSize = QSize(IconSize(KIconLoader::Dialog), IconSize(KIconLoader::Dialog));
+    const QSize toolbarIconSize = QSize(IconSize(KIconLoader::MainToolbar), IconSize(KIconLoader::MainToolbar));
+
     QWidget * tipContent = new QWidget();
     QGridLayout* tipLayout = new QGridLayout();
 
-    QLayout * primaryLine = generateToolTipLine( &item, tipContent, QSize(32,32), true );
+    QLayout * primaryLine = generateToolTipLine( &item, tipContent, dialogIconSize, true );
     tipLayout->addLayout( primaryLine, 0, 0 );
 
     for ( int done = 0; d->view->model()->rowCount( item ) > done; done = 1 + done ) {
         QModelIndex childItem = d->view->model()->index( done, 0, item );
-        QLayout * subLine = generateToolTipLine( &childItem, tipContent, QSize(24,24), false );
+        QLayout * subLine = generateToolTipLine( &childItem, tipContent, toolbarIconSize, false );
         tipLayout->addLayout( subLine, done + 2, 0 );
     }
 
