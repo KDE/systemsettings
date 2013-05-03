@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=systemsettings -caption "%c" %i
+Exec=systemsettings -caption %c %i
 Icon=preferences-system
 Type=Application
 X-DocPath=systemsettings/index.html
