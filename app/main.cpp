@@ -25,6 +25,7 @@
 #include <KAboutData>
 #include <KCmdLineArgs>
 #include <KUniqueApplication>
+#include <kdeversion.h>
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
@@ -32,8 +33,7 @@
 int main( int argc, char *argv[] )
 {
     // About data
-    KAboutData aboutData("systemsettings", 0, ki18n("System Settings"), "1.0", ki18n("Central configuration center for KDE."),
-                         KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
+    KAboutData aboutData("systemsettings", 0, ki18n("System Settings"), KDE_VERSION_STRING, ki18n("Central configuration center for KDE."), KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
     aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Maintainer"), "bcooksley@kde.org");
     aboutData.addAuthor(ki18n("Mathias Soeken"), ki18n("Developer"), "msoeken@informatik.uni-bremen.de");
     aboutData.addAuthor(ki18n("Will Stephenson"), ki18n("Internal module representation, internal module model"), "wstephenson@kde.org");
