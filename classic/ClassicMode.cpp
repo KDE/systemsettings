@@ -40,7 +40,6 @@
 #include "MenuProxyModel.h"
 
 K_PLUGIN_FACTORY(ClassicModeFactory, registerPlugin<ClassicMode>();)
-K_EXPORT_PLUGIN(ClassicModeFactory("classic_mode"))
 
 class ClassicMode::Private {
 public:

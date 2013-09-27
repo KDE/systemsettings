@@ -36,7 +36,6 @@
 #include <KFileItemDelegate>
 
 K_PLUGIN_FACTORY( IconModeFactory, registerPlugin<IconMode>(); )
-K_EXPORT_PLUGIN( IconModeFactory( "icon_mode" ) )
 
 class IconMode::Private {
 public:
