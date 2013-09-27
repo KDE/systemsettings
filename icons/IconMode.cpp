@@ -52,7 +52,7 @@ public:
     MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
-    KAction * backAction;
+    QAction * backAction;
 };
 
 IconMode::IconMode( QObject *parent, const QVariantList& )

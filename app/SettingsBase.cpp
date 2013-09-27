@@ -36,6 +36,7 @@
 #include <KStandardAction>
 #include <KActionCollection>
 #include <KServiceTypeTrader>
+#include <KAction>
 
 #include "BaseData.h"
 #include "ModuleView.h"
@@ -381,7 +382,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     }
 }
 
-void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, KAction * menuItem, QString fallback )
+void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, QString fallback )
 {
     if( !menuItem ) {
         return;
