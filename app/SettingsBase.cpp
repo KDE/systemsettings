@@ -57,7 +57,7 @@ SettingsBase::SettingsBase( QWidget * parent )
     searchText = new KLineEdit( this );
     searchText->setClearButtonShown( true );
     searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
-    searchText->setCompletionMode( KGlobalSettings::CompletionPopup );
+    searchText->setCompletionMode( KCompletion::CompletionPopup );
 
     spacerWidget = new QWidget( this );
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
