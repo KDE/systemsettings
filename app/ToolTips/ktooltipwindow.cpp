@@ -28,7 +28,7 @@
 #include <QStyleOptionFrame>
 
 // For the blurred tooltip background
-#include <plasma/windoweffects.h>
+#include <kwindoweffects.h>
 
 KToolTipWindow::KToolTipWindow(QWidget* content) :
     QWidget(0)
@@ -57,8 +57,7 @@ void KToolTipWindow::paintEvent(QPaintEvent* event)
 
 void KToolTipWindow::showEvent(QShowEvent *)
 {
-    Plasma::WindowEffects::overrideShadow(winId(), true);
-    Plasma::WindowEffects::enableBlurBehind(winId(), true, mask());
+    KWindowEffects::enableBlurBehind(winId(), true, mask());
 }
 
 #include "ktooltipwindow_p.moc"
