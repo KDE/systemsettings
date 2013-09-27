@@ -184,7 +184,7 @@ void SettingsBase::initConfig()
         viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }
     configWidget.GbViewStyle->setLayout( configLayout );
-    configDialog->restoreDialogSize( KGlobal::config()->group("ConfigDialog") );
+    configDialog->restoreDialogSize( KSharedConfig::openConfig()->group("ConfigDialog") );
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
 
@@ -233,7 +233,7 @@ void SettingsBase::initMenuList(MenuItem * parent)
 
 void SettingsBase::configUpdated()
 {
-    KConfigGroup dialogConfig = KGlobal::config()->group("ConfigDialog");
+    KConfigGroup dialogConfig = KSharedConfig::openConfig()->group("ConfigDialog");
     configDialog->saveDialogSize( dialogConfig );
     BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
