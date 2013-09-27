@@ -58,6 +58,8 @@ CategoryList::CategoryList( QWidget *parent, QAbstractItemModel *model )
 
     // set what's this help
     this->setWhatsThis( i18n( intro_infotext ) );
+#warning KHTML doesn't want to link
+#if 0
     d->categoryView = new KHTMLPart( this );
     d->categoryView->view()->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
     d->categoryView->widget()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
@@ -66,6 +68,7 @@ CategoryList::CategoryList( QWidget *parent, QAbstractItemModel *model )
                                      const KParts::OpenUrlArguments&,
                                      const KParts::BrowserArguments& ) ),
              this, SLOT(slotModuleLinkClicked(KUrl)) );
+#endif
 }
 
 CategoryList::~CategoryList()
