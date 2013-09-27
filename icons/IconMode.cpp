@@ -68,7 +68,7 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
 
     d->backAction = KStandardAction::back( this, SLOT(backToOverview()), this );
     d->backAction->setText( i18n( "Overview" ) );
-    d->backAction->setToolTip( i18n("Keyboard Shortcut: %1", d->backAction->shortcut().primary().toString( QKeySequence::NativeText )) );
+    d->backAction->setToolTip( i18n("Keyboard Shortcut: %1", d->backAction->shortcut().toString( QKeySequence::NativeText )) );
     d->backAction->setEnabled( false );
     actionsList() << d->backAction;
 }
