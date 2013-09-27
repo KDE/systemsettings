@@ -390,8 +390,8 @@ void ModuleView::updateButtons()
 
     const int buttons = activeModule->buttons();
 
-    d->mApply->setShown(buttons & KCModule::Apply );
-    d->mReset->setShown(buttons & KCModule::Apply );
+    d->mApply->setVisible(buttons & KCModule::Apply );
+    d->mReset->setVisible(buttons & KCModule::Apply );
 
     d->mHelp->setEnabled(buttons & KCModule::Help );
     d->mDefault->setEnabled(buttons & KCModule::Default );
