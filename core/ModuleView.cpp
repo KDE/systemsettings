@@ -42,6 +42,8 @@
 #include <KStandardGuiItem>
 #include <KDialogButtonBox>
 #include <kauthaction.h>
+#include <KIcon>
+#include <KUrl>
 
 #include "MenuItem.h"
 

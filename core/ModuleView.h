@@ -21,7 +21,7 @@
 #ifndef MODULE_VIEW_H
 #define MODULE_VIEW_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QtCore/QModelIndex>
 #include "systemsettingsview_export.h"
 

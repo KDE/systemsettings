@@ -60,4 +60,4 @@ void KToolTipWindow::showEvent(QShowEvent *)
     KWindowEffects::enableBlurBehind(winId(), true, mask());
 }
 
-#include "ktooltipwindow_p.moc"
+#include "moc_ktooltipwindow_p.cpp"

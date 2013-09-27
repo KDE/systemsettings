@@ -30,6 +30,7 @@
 
 #include <KAboutData>
 #include <KCModuleInfo>
+#include <KConfigGroup>
 #include <KConfigDialog>
 #include <KGlobalSettings>
 

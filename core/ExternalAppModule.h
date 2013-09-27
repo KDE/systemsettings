@@ -20,7 +20,7 @@
 #ifndef EXTERNALAPPMODULE_H
 #define EXTERNALAPPMODULE_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 #include "ui_externalModule.h"
 

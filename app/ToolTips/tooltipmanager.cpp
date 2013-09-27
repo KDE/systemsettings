@@ -41,6 +41,7 @@
 #include <KIcon>
 #include <KIconLoader>
 #include <KColorScheme>
+#include <KLocalizedString>
 
 class ToolTipManager::Private
 {

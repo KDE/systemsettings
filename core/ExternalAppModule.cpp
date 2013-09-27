@@ -19,10 +19,11 @@
 
 #include "ExternalAppModule.h"
 
-#include <QtGui/QApplication>
+#include <QApplication>
 
 #include <KCModuleInfo>
 #include <KRun>
+#include <KUrl>
 
 ExternalAppModule::ExternalAppModule(QWidget * parent, KCModuleInfo * module)
 {

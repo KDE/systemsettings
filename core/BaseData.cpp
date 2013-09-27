@@ -22,6 +22,7 @@
 #include "MenuItem.h"
 
 #include <KConfigGroup>
+#include <KGlobal>
 
 class DataHelper {
 

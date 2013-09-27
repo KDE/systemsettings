@@ -34,6 +34,7 @@
 #include <KAboutData>
 #include <KStandardAction>
 #include <KFileItemDelegate>
+#include <KLocalizedString>
 
 K_PLUGIN_FACTORY( IconModeFactory, registerPlugin<IconMode>(); )
 

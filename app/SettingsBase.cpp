@@ -37,6 +37,9 @@
 #include <KActionCollection>
 #include <KServiceTypeTrader>
 #include <KAction>
+#include <KComponentData>
+#include <KIcon>
+#include <KGlobal>
 #include <kwindowconfig.h>
 
 #include "BaseData.h"
