@@ -28,6 +28,7 @@
 class QAction;
 class MenuItem;
 class ModuleView;
+class KAboutData;
 class KConfigDialog;
 class QAbstractItemView;
 template<typename T> class QList;

@@ -64,11 +64,15 @@ public:
 ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
     : BaseMode( parent ), d( new Private() )
 {
-    d->aboutClassic = new KAboutData( "TreeView", 0, ki18n("Tree View"),
-                                   "1.0", ki18n("Provides a classic tree-based view of control modules."),
-                                   KAboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
-    d->aboutClassic->addAuthor(ki18n("Ben Cooksley"), ki18n("Author"), "bcooksley@kde.org");
-    d->aboutClassic->addAuthor(ki18n("Mathias Soeken"), ki18n("Developer"), "msoeken@informatik.uni-bremen.de");
+    d->aboutClassic = new KAboutData(QStringLiteral("TreeView"),
+                                     QString(),
+                                     i18n("Tree View"),
+                                     QStringLiteral("1.0"),
+                                     i18n("Provides a classic tree-based view of control modules."),
+                                     KAboutData::License_GPL,
+                                     i18n("(c) 2009, Ben Cooksley"));
+    d->aboutClassic->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
+    d->aboutClassic->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
     d->aboutClassic->setProgramIconName("view-list-tree");
 }
 

@@ -28,7 +28,7 @@
 #include <KDebug>
 #include <KMenuBar>
 #include <KToolBar>
-#include <KAboutData>
+#include <k4aboutdata.h>
 #include <KMessageBox>
 #include <KConfigGroup>
 #include <KCModuleInfo>
@@ -289,7 +289,7 @@ void SettingsBase::about()
     }
 
     if( about ) {
-        aboutDialog = new KAboutApplicationDialog(about, 0);
+        aboutDialog = new KAboutApplicationDialog(*about, 0);
         aboutDialog->show();
     }
 }
@@ -388,7 +388,7 @@ void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, KAction * menu
     }
 
     if( menuAbout ) {
-        menuItem->setText( i18n( "About %1", menuAbout->programName() ) );
+        menuItem->setText( i18n( "About %1", menuAbout->displayName() ) );
         menuItem->setIcon( KIcon( menuAbout->programIconName() ) );
         menuItem->setEnabled(true);
     } else {
