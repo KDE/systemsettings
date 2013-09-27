@@ -37,6 +37,7 @@
 #include <KActionCollection>
 #include <KServiceTypeTrader>
 #include <KAction>
+#include <kwindowconfig.h>
 
 #include "BaseData.h"
 #include "ModuleView.h"
@@ -184,7 +185,7 @@ void SettingsBase::initConfig()
         viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }
     configWidget.GbViewStyle->setLayout( configLayout );
-    configDialog->restoreDialogSize( KSharedConfig::openConfig()->group("ConfigDialog") );
+    KWindowConfig::restoreWindowSize(configDialog->windowHandle(), KSharedConfig::openConfig()->group("ConfigDialog"));
     connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
 }
 
@@ -234,7 +235,7 @@ void SettingsBase::initMenuList(MenuItem * parent)
 void SettingsBase::configUpdated()
 {
     KConfigGroup dialogConfig = KSharedConfig::openConfig()->group("ConfigDialog");
-    configDialog->saveDialogSize( dialogConfig );
+    KWindowConfig::saveWindowSize(configDialog->windowHandle(), dialogConfig);
     BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->saveConfiguration();
