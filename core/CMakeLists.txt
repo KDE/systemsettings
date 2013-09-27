@@ -22,7 +22,14 @@ set(systemsettingsview_LIB_HDRS
 
 kde4_add_library( systemsettingsview SHARED ${systemsettingsview_LIB_SRCS} )
 
-target_link_libraries( systemsettingsview ${KDE4_KDECORE_LIBS} ${KDE4_KIO_LIBRARY} ${KDE4_KCMUTILS_LIBS} )
+target_link_libraries( systemsettingsview
+    KF5::ItemViews
+    KF5::KCMUtils
+    KF5::KI18n
+    KF5::KIOWidgets
+    KF5::KService
+    ${KDE4Support_LIBRARIES}
+ )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 2 )
 

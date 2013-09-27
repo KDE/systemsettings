@@ -6,7 +6,13 @@ SET( icon_mode_srcs
 
 KDE4_ADD_PLUGIN(icon_mode ${icon_mode_srcs})
 
-TARGET_LINK_LIBRARIES(icon_mode ${KDE4_KIO_LIBS} ${KDE4_KCMUTILS_LIBS} systemsettingsview )
+TARGET_LINK_LIBRARIES(icon_mode systemsettingsview
+    KF5::ItemViews
+    KF5::KCMUtils
+    KF5::KI18n
+    KF5::KIOWidgets
+    KF5::KService
+    ${KDE4Support_LIBRARIES})
 
 INSTALL( TARGETS icon_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
 INSTALL( FILES settings-icon-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
