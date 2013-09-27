@@ -340,14 +340,14 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
 void ModuleView::stateChanged()
 {
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    KAuth::Action * moduleAction = 0;
+    KAuth::Action moduleAction;
     bool change = false;
     if( activeModule ) {
         change = activeModule->changed();
 
         disconnect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
         disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-        if( activeModule->realModule()->authAction() ) {
+        if( activeModule->realModule()->authAction().isValid() ) {
             connect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
             moduleAction = activeModule->realModule()->authAction();
         } else {
