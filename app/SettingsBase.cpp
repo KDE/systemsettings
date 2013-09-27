@@ -167,7 +167,7 @@ void SettingsBase::initConfig()
 {
     // Prepare dialog first
     configDialog = new KConfigDialog( this, "systemsettingsconfig", BaseConfig::self() );
-    configDialog->setButtons( KDialog::Ok | KDialog::Cancel );
+    configDialog->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
     // Add our page
     QWidget * configPage = new QWidget( configDialog );
