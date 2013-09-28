@@ -60,7 +60,7 @@ CategoryList::CategoryList( QWidget *parent, QAbstractItemModel *model )
 
     // set what's this help
     this->setWhatsThis( i18n( intro_infotext ) );
-#warning KHTML doesn't want to link
+#warning KHTML does not want to link
 #if 0
     d->categoryView = new KHTMLPart( this );
     d->categoryView->view()->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
