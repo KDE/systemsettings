@@ -27,8 +27,6 @@
 
 CategoryDrawer::CategoryDrawer()
 {
-    setLeftMargin( 7 );
-    setRightMargin( 7 );
 }
 
 void CategoryDrawer::drawCategory(const QModelIndex &index,
@@ -271,4 +269,14 @@ int CategoryDrawer::categoryHeight(const QModelIndex &index, const QStyleOption 
     const QFontMetrics fontMetrics = QFontMetrics(font);
 
     return fontMetrics.height() + 2 + 12 /* vertical spacing */;
+}
+
+int CategoryDrawer::leftMargin() const
+{
+    return 7;
+}
+
+int CategoryDrawer::rightMargin() const
+{
+    return 7;
 }

@@ -37,6 +37,8 @@ public:
                               QPainter *painter) const;
 
     virtual int categoryHeight(const QModelIndex &index, const QStyleOption &option) const;
+    virtual int leftMargin() const;
+    virtual int rightMargin() const;
 };
 
 #endif
