@@ -42,7 +42,6 @@ class IconMode::Private {
 public:
     Private() : categoryDrawer( 0 ),  categoryView( 0 ), moduleView( 0 ) {}
     virtual ~Private() {
-        delete categoryDrawer;
         delete aboutIcon;
     }
 
@@ -166,8 +165,8 @@ void IconMode::backToOverview()
 void IconMode::initWidget()
 {
     // Create the widget
-    d->categoryDrawer = new CategoryDrawer();
     d->categoryView = new CategorizedView( d->mainWidget );
+    d->categoryDrawer = new CategoryDrawer(d->categoryView);
 
     d->categoryView->setSelectionMode( QAbstractItemView::SingleSelection );
     d->categoryView->setSpacing( KDialog::spacingHint() );

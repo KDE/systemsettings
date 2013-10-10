@@ -25,7 +25,8 @@
 #include <QApplication>
 #include <QStyleOption>
 
-CategoryDrawer::CategoryDrawer()
+CategoryDrawer::CategoryDrawer(KCategorizedView *view)
+: KCategoryDrawerV3(view)
 {
 }
 
@@ -267,6 +268,7 @@ int CategoryDrawer::categoryHeight(const QModelIndex &index, const QStyleOption 
     QFont font(QApplication::font());
     font.setBold(true);
     const QFontMetrics fontMetrics = QFontMetrics(font);
+
 
     return fontMetrics.height() + 2 + 12 /* vertical spacing */;
 }
