@@ -14,7 +14,7 @@ TARGET_LINK_LIBRARIES(classic_mode systemsettingsview
     KF5::KI18n
     KF5::KIOWidgets
     KF5::KService
-    ${KDE4Support_LIBRARIES}
+    KF5::KDE4Support
 )
 
 INSTALL( TARGETS classic_mode DESTINATION ${PLUGIN_INSTALL_DIR} )

@@ -24,7 +24,7 @@ TARGET_LINK_LIBRARIES( systemsettings systemsettingsview
     KF5::KService
     KF5::KWindowSystem
     KF5::XmlGui
-    ${KDE4Support_LIBRARIES}
+    KF5::KDE4Support
  )
 
 INSTALL( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
