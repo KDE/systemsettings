@@ -34,5 +34,5 @@ if (NOT WIN32)
          #settings-desktop.desktop
          settings-sharing.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
-endif (NOT WIN32)
+endif ()
         
