@@ -1,4 +1,4 @@
-PROJECT(systemsettings)
+project(systemsettings)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
 # IF(CMAKE_SOURCE_DIR STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -11,8 +11,8 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FR
 
 # INCLUDE_DIRECTORIES (${CMAKE_CURRENT_SOURCE_DIR}/core ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 
-ADD_SUBDIRECTORY(core)
-ADD_SUBDIRECTORY(app)
-ADD_SUBDIRECTORY(categories)
+add_subdirectory(core)
+add_subdirectory(app)
+add_subdirectory(categories)
 #ADD_SUBDIRECTORY(classic)
-ADD_SUBDIRECTORY(icons)
+add_subdirectory(icons)

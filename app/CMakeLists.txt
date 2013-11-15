@@ -1,6 +1,6 @@
 include_directories( ToolTips )
 
-SET( systemsettings_SRCS
+set( systemsettings_SRCS
      SystemSettingsApp.cpp
      SettingsBase.cpp
      ToolTips/ktooltip.cpp
@@ -8,14 +8,14 @@ SET( systemsettings_SRCS
      ToolTips/tooltipmanager.cpp
      main.cpp )
 
-KDE4_ADD_APP_ICON( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
-KDE4_ADD_UI_FILES( systemsettings_SRCS configDialog.ui )
-KDE4_ADD_KCFG_FILES( systemsettings_SRCS BaseConfig.kcfgc )
-QT4_ADD_DBUS_ADAPTOR( systemsettings_SRCS org.kde.systemsettings.xml SystemSettingsApp.h SystemSettingsApp  )
+kde4_add_app_icon( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
+kde4_add_ui_files( systemsettings_SRCS configDialog.ui )
+kde4_add_kcfg_files( systemsettings_SRCS BaseConfig.kcfgc )
+qt4_add_dbus_adaptor( systemsettings_SRCS org.kde.systemsettings.xml SystemSettingsApp.h SystemSettingsApp  )
 
-KDE4_ADD_EXECUTABLE( systemsettings ${systemsettings_SRCS})
+add_executable( systemsettings ${systemsettings_SRCS})
 
-TARGET_LINK_LIBRARIES( systemsettings systemsettingsview
+target_link_libraries( systemsettings systemsettingsview
     KF5::ItemViews
     KF5::KCMUtils
     KF5::KI18n
@@ -27,6 +27,6 @@ TARGET_LINK_LIBRARIES( systemsettings systemsettingsview
     KF5::KDE4Support
  )
 
-INSTALL( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
-INSTALL( FILES systemsettingsui.rc systemsettings.kcfg DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
-INSTALL( PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install( FILES systemsettingsui.rc systemsettings.kcfg DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
+install( PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )

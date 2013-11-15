@@ -1,12 +1,12 @@
-SET( icon_mode_srcs
+set( icon_mode_srcs
      IconMode.cpp
      CategoryDrawer.cpp
      CategorizedView.cpp
 ) 
 
-KDE4_ADD_PLUGIN(icon_mode ${icon_mode_srcs})
+add_library(icon_mode MODULE ${icon_mode_srcs})
 
-TARGET_LINK_LIBRARIES(icon_mode systemsettingsview
+target_link_libraries(icon_mode systemsettingsview
     KF5::ItemViews
     KF5::KCMUtils
     KF5::KI18n
@@ -14,6 +14,6 @@ TARGET_LINK_LIBRARIES(icon_mode systemsettingsview
     KF5::KService
     KF5::KDE4Support)
 
-INSTALL( TARGETS icon_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
-INSTALL( FILES settings-icon-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+install( TARGETS icon_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
+install( FILES settings-icon-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
