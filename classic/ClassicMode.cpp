@@ -161,6 +161,7 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
         return;
     }
     d->moduleView->closeModules();
+    d->currentItem = activeModule;
     if( d->proxyModel->rowCount(activeModule) > 0 ) {
         d->stackedWidget->setCurrentWidget( d->classicCategory );
         d->classicCategory->changeModule(activeModule);
@@ -168,7 +169,6 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
     } else {
         d->moduleView->loadModule( activeModule );
     }
-    d->currentItem = activeModule;
 }
 
 void ClassicMode::moduleLoaded()
