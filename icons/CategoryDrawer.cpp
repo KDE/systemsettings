@@ -26,7 +26,7 @@
 #include <QStyleOption>
 
 CategoryDrawer::CategoryDrawer(KCategorizedView *view)
-: KCategoryDrawerV3(view)
+: KCategoryDrawer(view)
 {
 }
 
