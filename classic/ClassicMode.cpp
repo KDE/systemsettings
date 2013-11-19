@@ -55,6 +55,7 @@ public:
     CategoryList * classicCategory;
     QStackedWidget * stackedWidget;
     ModuleView * moduleView;
+    QModelIndex currentItem;
 
     MenuProxyModel * proxyModel;
     MenuModel * model;
@@ -153,6 +154,9 @@ void ClassicMode::selectModule( const QModelIndex& selectedModule )
 
 void ClassicMode::changeModule( const QModelIndex& activeModule )
 {
+    if( activeModule == d->currentItem ) {
+        return;
+    }
     if( !d->moduleView->resolveChanges() ) {
         return;
     }
@@ -164,6 +168,7 @@ void ClassicMode::changeModule( const QModelIndex& activeModule )
     } else {
         d->moduleView->loadModule( activeModule );
     }
+    d->currentItem = activeModule;
 }
 
 void ClassicMode::moduleLoaded()
