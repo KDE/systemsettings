@@ -189,7 +189,7 @@ void SettingsBase::initConfig()
     }
     configWidget.GbViewStyle->setLayout( configLayout );
     KWindowConfig::restoreWindowSize(configDialog->windowHandle(), KSharedConfig::openConfig()->group("ConfigDialog"));
-    connect(configDialog, SIGNAL(okClicked()), this, SLOT(configUpdated()));
+    connect(configDialog, SIGNAL(accepted()), this, SLOT(configUpdated()));
 }
 
 
