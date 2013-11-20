@@ -64,10 +64,10 @@ CategoryList::CategoryList( QWidget *parent, QAbstractItemModel *model )
     d->categoryView->view()->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
     d->categoryView->widget()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     connect( d->categoryView->browserExtension(),
-             SIGNAL( openUrlRequest( const KUrl&,
+             SIGNAL( openUrlRequest( const QUrl&,
                                      const KParts::OpenUrlArguments&,
                                      const KParts::BrowserArguments& ) ),
-             this, SLOT(slotModuleLinkClicked(KUrl)) );
+             this, SLOT(slotModuleLinkClicked(QUrl)) );
 }
 
 CategoryList::~CategoryList()
@@ -128,7 +128,7 @@ void CategoryList::changeModule( QModelIndex newItem )
     updatePixmap();
 }
 
-void CategoryList::slotModuleLinkClicked( const KUrl& moduleName ) 
+void CategoryList::slotModuleLinkClicked( const QUrl& moduleName )
 {
     QModelIndex module = d->itemMap.value( moduleName.url() );
     kDebug() << "Link name: " + moduleName.url();

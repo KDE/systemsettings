@@ -40,7 +40,7 @@ Q_SIGNALS:
     void moduleSelected( QModelIndex itemSelected );
 
 private Q_SLOTS:
-    void slotModuleLinkClicked( const KUrl& );
+    void slotModuleLinkClicked( const QUrl& moduleName );
 
 private:
     void updatePixmap();
