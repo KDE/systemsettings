@@ -14,5 +14,5 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FR
 add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)
-#ADD_SUBDIRECTORY(classic)
+add_subdirectory(classic)
 add_subdirectory(icons)

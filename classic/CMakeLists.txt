@@ -14,6 +14,7 @@ target_link_libraries(classic_mode systemsettingsview
     KF5::KI18n
     KF5::KIOWidgets
     KF5::KService
+    KF5::KHtml
     KF5::KDE4Support
 )
 
