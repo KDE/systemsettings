@@ -34,10 +34,6 @@
 #include <QDesktopWidget>
 #include <QAbstractItemView>
 
-#ifdef Q_WS_X11
-#include <QX11Info>
-#endif
-
 #include <KIcon>
 #include <KIconLoader>
 #include <KColorScheme>
