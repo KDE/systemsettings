@@ -21,27 +21,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <KLocale>
-#include <k4aboutdata.h>
-#include <KCmdLineArgs>
-#include <KUniqueApplication>
 #include <kdeversion.h>
+#include <QCommandLineParser>
+#include <KAboutData>
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
+#include <QDebug>
 
 int main( int argc, char *argv[] )
 {
+    SystemSettingsApp application(argc, argv);
+
     // About data
-    K4AboutData aboutData("systemsettings", 0, ki18n("System Settings"), KDE_VERSION_STRING, ki18n("Central configuration center for KDE."), K4AboutData::License_GPL, ki18n("(c) 2009, Ben Cooksley"));
-    aboutData.addAuthor(ki18n("Ben Cooksley"), ki18n("Maintainer"), "bcooksley@kde.org");
-    aboutData.addAuthor(ki18n("Mathias Soeken"), ki18n("Developer"), "msoeken@informatik.uni-bremen.de");
-    aboutData.addAuthor(ki18n("Will Stephenson"), ki18n("Internal module representation, internal module model"), "wstephenson@kde.org");
+    KAboutData aboutData("systemsettings", 0, i18n("System Settings"), KDE_VERSION_STRING, i18n("Central configuration center for KDE."), KAboutData::License_GPL, i18n("(c) 2009, Ben Cooksley"));
+    aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), "bcooksley@kde.org");
+    aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), "msoeken@informatik.uni-bremen.de");
+    aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), "wstephenson@kde.org");
+    KAboutData::setApplicationData(aboutData);
 
     aboutData.setProgramIconName("preferences-system");
-    KCmdLineArgs::init(argc, argv, &aboutData);
-
-    SystemSettingsApp application;
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+    aboutData.setupCommandLine(&parser);
+    parser.process(application);
+    aboutData.processCommandLine(&parser);
 
     SettingsBase *mainWindow = new SettingsBase();
     mainWindow->show();

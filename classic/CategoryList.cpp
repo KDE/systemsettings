@@ -25,7 +25,6 @@
 #include <QModelIndex>
 #include <QTextStream>
 
-#include <KDebug>
 #include <KLocale>
 #include <KCursor>
 #include <KHTMLPart>
@@ -106,7 +105,6 @@ void CategoryList::updatePixmap()
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
         KUrl link( "kcm://" );
         link.setFileName( childItem->item().fileName() );
-        kDebug() << childItem->name() << childItem->item().fileName() << link.url();
         const QString szLink = "<a href=\"" + link.url() + "\" >";
         content += "<tr><td class=\"kc_leftcol\">" + szLink + "<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">";
         const QString szName = childItem->name();
@@ -131,7 +129,7 @@ void CategoryList::changeModule( QModelIndex newItem )
 void CategoryList::slotModuleLinkClicked( const QUrl& moduleName )
 {
     QModelIndex module = d->itemMap.value( moduleName.url() );
-    kDebug() << "Link name: " + moduleName.url();
+    qDebug() << "Link name: " + moduleName.url();
     emit moduleSelected( module );
 }
 

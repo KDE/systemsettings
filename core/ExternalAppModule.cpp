@@ -23,7 +23,6 @@
 
 #include <KCModuleInfo>
 #include <KRun>
-#include <KUrl>
 
 ExternalAppModule::ExternalAppModule(QWidget * parent, KCModuleInfo * module)
 {
@@ -52,7 +51,7 @@ void ExternalAppModule::showEvent(QShowEvent * event)
 
 void ExternalAppModule::runExternal()
 {
-    KRun::run( *(moduleInfo->service()), KUrl::List(), qApp->activeWindow() ); // Launch it!
+    KRun::run( *(moduleInfo->service()), QList<QUrl>(), qApp->activeWindow() ); // Launch it!
 }
 
 #include "ExternalAppModule.moc"

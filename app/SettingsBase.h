@@ -35,8 +35,6 @@
 #include <KXmlGuiWindow>
 #include <KAboutApplicationDialog>
 
-class KAction;
-
 class SettingsBase : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -73,8 +71,8 @@ private:
     KLineEdit * searchText;
     QWidget * spacerWidget;
     // The toolbar
-    KAction * searchAction;
-    KAction * spacerAction;
+    QWidgetAction * searchAction;
+    QWidgetAction * spacerAction;
     QAction * configureAction;
     QAction * quitAction;
     // The help menu

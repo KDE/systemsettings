@@ -23,12 +23,11 @@
 #include <QTimer>
 #include <QRadioButton>
 #include <QVariantList>
+#include <QLoggingCategory>
+#include <QMenu>
+#include <QMenuBar>
 
-#include <KMenu>
-#include <KDebug>
-#include <KMenuBar>
-#include <KToolBar>
-#include <k4aboutdata.h>
+#include <kaboutdata.h>
 #include <KMessageBox>
 #include <KConfigGroup>
 #include <KCModuleInfo>
@@ -36,10 +35,7 @@
 #include <KStandardAction>
 #include <KActionCollection>
 #include <KServiceTypeTrader>
-#include <KAction>
-#include <KComponentData>
-#include <KIcon>
-#include <KGlobal>
+#include <KToolBar>
 #include <kwindowconfig.h>
 
 #include "BaseData.h"
@@ -60,7 +56,7 @@ SettingsBase::SettingsBase( QWidget * parent )
     // Initialise search
     searchText = new KLineEdit( this );
     searchText->setClearButtonShown( true );
-    searchText->setClickMessage( i18nc( "Search through a list of control modules", "Search" ) );
+    searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
     searchText->setCompletionMode( KCompletion::CompletionPopup );
 
     spacerWidget = new QWidget( this );
@@ -95,7 +91,7 @@ void SettingsBase::initApplication()
             const KService::Ptr entry = modules.at(i);
             MenuItem * infoItem = new MenuItem(false, lostFound);
             infoItem->setService( entry );
-            kDebug() << "Added " << entry->name();
+            qDebug() << "Added " << entry->name();
         }
     }
 
@@ -116,7 +112,7 @@ void SettingsBase::initApplication()
             connect(searchText, SIGNAL(textChanged(QString)), controller, SLOT(searchChanged(QString)));
             connect(controller, SIGNAL(viewChanged(bool)), this, SLOT(viewChange(bool)));
         } else {
-            kWarning() << "View load error: " + error;
+            qWarning() << "View load error: " + error;
         }
     }
     searchText->completionObject()->setIgnoreCase( true );
@@ -136,21 +132,20 @@ void SettingsBase::initToolBar()
     // Help after it
     initHelpMenu();
     // Then a spacer so the search line-edit is kept separate
-    spacerAction = new KAction( this );
+    spacerAction = new QWidgetAction( this );
     spacerAction->setDefaultWidget(spacerWidget);
     actionCollection()->addAction( "spacer", spacerAction );
     // Finally the search line-edit
-    searchAction = new KAction( this );
+    searchAction = new QWidgetAction( this );
     searchAction->setDefaultWidget(searchText);
     searchAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_F));
-    connect( searchAction, SIGNAL(triggered(Qt::MouseButtons,Qt::KeyboardModifiers)),
-         searchText, SLOT(setFocus()));
+    connect( searchAction, SIGNAL(triggered(bool)), searchText, SLOT(setFocus()));
     actionCollection()->addAction( "searchText", searchAction );
     // Initialise the Window
     setupGUI(Save|Create,QString());
     menuBar()->hide();
-    // Toolbar & Configuration
 
+    // Toolbar & Configuration
     helpActionMenu->setMenu( dynamic_cast<QMenu*>( factory()->container("help", this) ) );
     setMinimumSize(620,430);
     toolBar()->setMovable(false); // We don't allow any changes
@@ -159,7 +154,7 @@ void SettingsBase::initToolBar()
 
 void SettingsBase::initHelpMenu()
 {
-    helpActionMenu = new KActionMenu( KIcon("system-help"), i18n("Help"), this );
+    helpActionMenu = new KActionMenu( QIcon::fromTheme("system-help"), i18n("Help"), this );
     helpActionMenu->setDelayed( false );
     actionCollection()->addAction( "help_toolbar_menu", helpActionMenu );
     // Add the custom actions
@@ -177,14 +172,14 @@ void SettingsBase::initConfig()
     // Add our page
     QWidget * configPage = new QWidget( configDialog );
     configWidget.setupUi(configPage);
-    QString iconName = KGlobal::activeComponent().aboutData()->programIconName();
+    QString iconName = KAboutData::applicationData().programIconName();
     configDialog->addPage( configPage, i18nc("General config for System Settings", "General"), iconName );
     QVBoxLayout * configLayout = new QVBoxLayout;
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews ) {
         mode->addConfiguration( configDialog );
         QRadioButton * radioButton = new QRadioButton( mode->service()->name(), configWidget.GbViewStyle );
-        radioButton->setIcon( KIcon(mode->service()->icon()) );
+        radioButton->setIcon( QIcon::fromTheme(mode->service()->icon()) );
         configLayout->addWidget( radioButton );
         viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }
@@ -395,11 +390,11 @@ void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menu
 
     if( menuAbout ) {
         menuItem->setText( i18n( "About %1", menuAbout->displayName() ) );
-        menuItem->setIcon( KIcon( menuAbout->programIconName() ) );
+        menuItem->setIcon( QIcon::fromTheme( menuAbout->programIconName() ) );
         menuItem->setEnabled(true);
     } else {
         menuItem->setText( fallback );
-        menuItem->setIcon( KIcon( KGlobal::activeComponent().aboutData()->programIconName() ) );
+        menuItem->setIcon( QIcon::fromTheme( KAboutData::applicationData().programIconName() ) );
         menuItem->setEnabled(false);
     }
 }

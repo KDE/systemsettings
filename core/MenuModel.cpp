@@ -20,8 +20,8 @@
 
 #include "MenuModel.h"
 
-#include <KIcon>
 #include <KCategorizedSortFilterProxyModel>
+#include <QIcon>
 
 #include "MenuItem.h"
 
@@ -84,7 +84,7 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             theData.setValue( mi->service()->comment() );
             break;
         case Qt::DecorationRole:
-            theData = QVariant( KIcon( mi->service()->icon() ) );
+            theData = QVariant( QIcon::fromTheme( mi->service()->icon() ) );
             break;
         case KCategorizedSortFilterProxyModel::CategorySortRole:
             if ( mi->parent() ) {

@@ -1,3 +1,4 @@
+
 include_directories( ToolTips )
 
 set( systemsettings_SRCS
@@ -24,8 +25,8 @@ target_link_libraries( systemsettings systemsettingsview
     KF5::KService
     KF5::KWindowSystem
     KF5::XmlGui
-    KF5::KDE4Support
- )
+    KF5::KDBusAddons
+)
 
 install( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES systemsettingsui.rc systemsettings.kcfg DESTINATION ${DATA_INSTALL_DIR}/systemsettings )

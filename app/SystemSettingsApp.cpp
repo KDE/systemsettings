@@ -18,11 +18,14 @@
  */
 
 #include "SystemSettingsApp.h"
+#include <kdbusservice.h>
 
-SystemSettingsApp::SystemSettingsApp()
-    : KUniqueApplication()
+SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])
+    : QApplication(argc, argv)
+    , window(0)
 {
-    window = 0;
+    setOrganizationDomain("kde.org");
+    new KDBusService(KDBusService::Unique, this);
 }
 
 SystemSettingsApp::~SystemSettingsApp()
@@ -36,12 +39,8 @@ void SystemSettingsApp::setMainWindow(SettingsBase * main)
 
 void SystemSettingsApp::quit()
 {
-    if( window ) {
-        if( !window->queryClose() ) {
-            return;
-        }
+    if( window && !window->queryClose() ) {
+        return;
     }
-    KUniqueApplication::quit();
+    QApplication::quit();
 }
-
-#include "SystemSettingsApp.moc"

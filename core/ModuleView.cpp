@@ -29,36 +29,36 @@
 #include <QScrollArea>
 #include <QVBoxLayout>
 #include <QAbstractItemModel>
+#include <QPushButton>
+#include <QLoggingCategory>
+#include <QDialogButtonBox>
 
-#include <KDebug>
-#include <KDialog>
-#include <KAboutData>
 #include <KPageWidget>
-#include <KPushButton>
 #include <KAuthorized>
 #include <KMessageBox>
 #include <KCModuleInfo>
 #include <KCModuleProxy>
 #include <KStandardGuiItem>
-#include <KDialogButtonBox>
 #include <kauthaction.h>
-#include <KIcon>
-#include <KUrl>
+#include <KIconLoader>
+#include <KAboutData>
+#include <kauthobjectdecorator.h>
 
 #include "MenuItem.h"
 
 class ModuleView::Private {
 public:
-    Private() { }
+    Private() {}
     QMap<KPageWidgetItem*, KCModuleProxy*> mPages;
     QMap<KPageWidgetItem*, KCModuleInfo*> mModules;
     KPageWidget* mPageWidget;
     QVBoxLayout* mLayout;
-    KDialogButtonBox* mButtons;
-    KPushButton* mApply;
-    KPushButton* mReset;
-    KPushButton* mDefault;
-    KPushButton* mHelp;
+    QDialogButtonBox* mButtons;
+    KAuth::ObjectDecorator* mApplyAuthorize;
+    QPushButton* mApply;
+    QPushButton* mReset;
+    QPushButton* mDefault;
+    QPushButton* mHelp;
     bool pageChangeSupressed;
 };
 
@@ -73,14 +73,14 @@ ModuleView::ModuleView( QWidget * parent )
     d->mPageWidget->layout()->setMargin(0);
     d->mLayout->addWidget(d->mPageWidget);
     // Create the dialog
-    d->mButtons = new KDialogButtonBox( this, Qt::Horizontal );
+    d->mButtons = new QDialogButtonBox( Qt::Horizontal, this );
     d->mLayout->addWidget(d->mButtons);
 
     // Create the buttons in it
-    d->mApply = d->mButtons->addButton( KStandardGuiItem::apply(), QDialogButtonBox::ApplyRole );
-    d->mDefault = d->mButtons->addButton( KStandardGuiItem::defaults(), QDialogButtonBox::ResetRole );
-    d->mReset = d->mButtons->addButton( KStandardGuiItem::reset(), QDialogButtonBox::ResetRole );
-    d->mHelp = d->mButtons->addButton( KStandardGuiItem::help(), QDialogButtonBox::HelpRole );
+    d->mApply = d->mButtons->addButton( QDialogButtonBox::Apply );
+    d->mDefault = d->mButtons->addButton( QDialogButtonBox::RestoreDefaults );
+    d->mReset = d->mButtons->addButton( QDialogButtonBox::Reset );
+    d->mHelp = d->mButtons->addButton( QDialogButtonBox::Help );
     // Set some more sensible tooltips
     d->mReset->setToolTip( i18n("Reset all current changes to previous values") );
     // Set Auto-Default mode ( KDE Bug #211187 )
@@ -101,6 +101,9 @@ ModuleView::ModuleView( QWidget * parent )
     connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
              this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
     connect( this, SIGNAL(moduleChanged(bool)), this, SLOT(updateButtons()) );
+
+    d->mApplyAuthorize = new KAuth::ObjectDecorator(d->mApply);
+    d->mApplyAuthorize->setAuthAction( KAuth::Action() );
 }
 
 ModuleView::~ModuleView()
@@ -154,11 +157,11 @@ void ModuleView::addModule( KCModuleInfo *module )
         return;
     }
     if( !module->service() ) {
-        kWarning() << "ModuleInfo has no associated KService" ;
+        qWarning() << "ModuleInfo has no associated KService" ;
         return;
     }
     if ( !KAuthorized::authorizeControlModule( module->service()->menuId() ) ) {
-        kWarning() << "Not authorised to load module" ;
+        qWarning() << "Not authorised to load module" ;
         return;
     }
     if( module->service()->noDisplay() ) {
@@ -209,14 +212,14 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
     }
 
     page->setHeader( moduleInfo->comment() );
-    page->setIcon( KIcon( moduleInfo->icon() ) );
+    page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
     if( light ) {
         return;
     }
 
     if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
         page->setHeader( "<b>" + moduleInfo->comment() + "</b><br><i>" + moduleProxy->rootOnlyMessage() + "</i>" );
-        page->setIcon( KIcon( moduleInfo->icon(), 0, QStringList() << "dialog-warning" ) );
+        page->setIcon( KDE::icon( moduleInfo->icon(), QStringList() << "dialog-warning" ) );
     }
 }
 
@@ -234,7 +237,7 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 
     // Let the user decide
     KGuiItem applyItem = KStandardGuiItem::apply();
-    applyItem.setIcon( KIcon(d->mApply->icon()) );
+    applyItem.setIcon( d->mApply->icon() );
     const int queryUser = KMessageBox::warningYesNoCancel(
         this,
         i18n("The settings of the current module have changed.\n"
@@ -264,7 +267,7 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
 void ModuleView::closeModules()
 {
     d->pageChangeSupressed = true;
-    d->mApply->setAuthAction( 0 ); // Ensure KAuth knows that authentication is now pointless...
+    d->mApplyAuthorize->setAuthAction( KAuth::Action() ); // Ensure KAuth knows that authentication is now pointless...
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator page = d->mModules.begin();
     QMap<KPageWidgetItem*, KCModuleInfo*>::iterator pageEnd = d->mModules.end();
     for ( ; page != pageEnd; ++page ) {
@@ -319,7 +322,7 @@ void ModuleView::moduleHelp()
     if( docPath.isEmpty() ) {
         return;
     }
-    KUrl url( KUrl("help:/"), docPath );
+    QUrl url( "help:/"+docPath );
     QProcess::startDetached("khelpcenter", QStringList() << url.url());
 }
 
@@ -347,10 +350,10 @@ void ModuleView::stateChanged()
     if( activeModule ) {
         change = activeModule->changed();
 
-        disconnect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
+        disconnect( d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
         disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
         if( activeModule->realModule()->authAction().isValid() ) {
-            connect( d->mApply, SIGNAL(authorized(KAuth::Action*)), this, SLOT(moduleSave()) );
+            connect( d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
             moduleAction = activeModule->realModule()->authAction();
         } else {
             connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
@@ -358,7 +361,7 @@ void ModuleView::stateChanged()
     }
 
     updatePageIconHeader( d->mPageWidget->currentPage() );
-    d->mApply->setAuthAction( moduleAction );
+    d->mApplyAuthorize->setAuthAction( moduleAction );
     d->mApply->setEnabled( change );
     d->mReset->setEnabled( change );
     emit moduleChanged( change );

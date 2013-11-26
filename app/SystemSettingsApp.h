@@ -25,16 +25,16 @@
 #ifndef SYSTEMSETTINGSAPP_H
 #define SYSTEMSETTINGSAPP_H
 
-#include <KUniqueApplication>
+#include <QApplication>
 
 #include "SettingsBase.h"
 
-class SystemSettingsApp : public KUniqueApplication
+class SystemSettingsApp : public QApplication
 {
     Q_OBJECT
 
 public:
-   SystemSettingsApp();
+   SystemSettingsApp(int& argc, char* argv[]);
    ~SystemSettingsApp();
 
    void setMainWindow(SettingsBase * main);

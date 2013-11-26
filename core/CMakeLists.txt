@@ -28,7 +28,7 @@ target_link_libraries( systemsettingsview
     KF5::KI18n
     KF5::KIOWidgets
     KF5::KService
-    KF5::KDE4Support
+    KF5::KIconThemes
  )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 2 )
