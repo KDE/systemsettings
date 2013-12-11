@@ -19,13 +19,13 @@ add_executable( systemsettings ${systemsettings_SRCS})
 target_link_libraries( systemsettings systemsettingsview
     KF5::ItemViews
     KF5::KCMUtils
-    KF5::KI18n
-    KF5::KIconThemes
+    KF5::I18n
+    KF5::IconThemes
     KF5::KIOWidgets
-    KF5::KService
-    KF5::KWindowSystem
+    KF5::Service
+    KF5::WindowSystem
     KF5::XmlGui
-    KF5::KDBusAddons
+    KF5::DBusAddons
 )
 
 install( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )

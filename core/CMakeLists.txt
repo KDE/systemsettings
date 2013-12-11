@@ -25,10 +25,10 @@ add_library( systemsettingsview SHARED ${systemsettingsview_LIB_SRCS} )
 target_link_libraries( systemsettingsview
     KF5::ItemViews
     KF5::KCMUtils
-    KF5::KI18n
+    KF5::I18n
     KF5::KIOWidgets
-    KF5::KService
-    KF5::KIconThemes
+    KF5::Service
+    KF5::IconThemes
  )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 2 )

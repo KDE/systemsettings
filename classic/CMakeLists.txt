@@ -8,12 +8,12 @@ add_library(classic_mode MODULE ${classic_mode_srcs})
 
 target_link_libraries(classic_mode systemsettingsview
     KF5::ItemViews
-    KF5::KConfigCore
+    KF5::ConfigCore
     KF5::KCMUtils
-    KF5::KIconThemes
-    KF5::KI18n
+    KF5::IconThemes
+    KF5::I18n
     KF5::KIOWidgets
-    KF5::KService
+    KF5::Service
     KF5::KHtml
     KF5::KDE4Support
 )
