@@ -51,6 +51,8 @@ SettingsBase::SettingsBase( QWidget * parent )
     lostFound = 0;
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
+    setWindowTitle(i18n("System Settings"));
+    setWindowIcon(QIcon::fromTheme("preferences-system"));
     setCentralWidget(stackedWidget);
     setWindowFlags( windowFlags() | Qt::WindowContextHelpButtonHint );
     // Initialise search
