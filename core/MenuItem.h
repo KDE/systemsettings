@@ -24,7 +24,7 @@
 
 #include "systemsettingsview_export.h"
 
-#include <KDE/KService>
+#include <KService>
 
 class QString;
 class KCModuleInfo;

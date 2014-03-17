@@ -23,7 +23,7 @@
 #include <QtCore/QObject>
 #include "systemsettingsview_export.h"
 
-#include <KDE/KService>
+#include <KService>
 
 class QAction;
 class MenuItem;

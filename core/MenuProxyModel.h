@@ -21,7 +21,7 @@
 #ifndef MENUPROXYMODEL_H
 #define MENUPROXYMODEL_H
 
-#include <KDE/KCategorizedSortFilterProxyModel>
+#include <KCategorizedSortFilterProxyModel>
 #include "systemsettingsview_export.h"
 
 /**
