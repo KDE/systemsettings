@@ -22,7 +22,6 @@
 #include "MenuItem.h"
 
 #include <KConfigGroup>
-#include <KGlobal>
 
 class DataHelper {
 
@@ -34,7 +33,7 @@ public:
     BaseData * object;
 };
 
-K_GLOBAL_STATIC(DataHelper, internalInstance)
+Q_GLOBAL_STATIC(DataHelper, internalInstance)
 
 BaseData::BaseData()
 {

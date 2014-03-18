@@ -11,7 +11,7 @@ set(systemsettingsview_LIB_SRCS
 kde4_add_ui_files( systemsettingsview_LIB_SRCS externalModule.ui )
 
 set(systemsettingsview_LIB_HDRS
-    systemsettingsview_export.h
+    ${CMAKE_CURRENT_BINARY_DIR}/systemsettingsview_export.h
     MenuItem.h
     MenuModel.h
     MenuProxyModel.h
@@ -20,7 +20,8 @@ set(systemsettingsview_LIB_HDRS
     ModuleView.h
 )
 
-add_library( systemsettingsview SHARED ${systemsettingsview_LIB_SRCS} )
+add_library( systemsettingsview ${systemsettingsview_LIB_SRCS} )
+generate_export_header(systemsettingsview)
 
 target_link_libraries( systemsettingsview
     KF5::ItemViews
