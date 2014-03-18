@@ -25,7 +25,6 @@
 #include <QModelIndex>
 #include <QTextStream>
 
-#include <KLocale>
 #include <KCursor>
 #include <KHTMLPart>
 #include <KHTMLView>

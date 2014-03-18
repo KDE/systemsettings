@@ -21,7 +21,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <kdeversion.h>
 #include <QCommandLineParser>
 #include <KAboutData>
 #include <config-workspace.h>
