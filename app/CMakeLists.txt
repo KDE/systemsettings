@@ -15,6 +15,7 @@ kconfig_add_kcfg_files( systemsettings_SRCS BaseConfig.kcfgc )
 qt5_add_dbus_adaptor( systemsettings_SRCS org.kde.systemsettings.xml SystemSettingsApp.h SystemSettingsApp  )
 
 add_executable( systemsettings ${systemsettings_SRCS})
+target_compile_definitions(systemsettings PRIVATE -DSYSTEMSETTINGS_STRING_VERSION="${SYSTEMSETTINGS_STRING_VERSION}")
 
 target_link_libraries( systemsettings systemsettingsview
     KF5::ItemViews

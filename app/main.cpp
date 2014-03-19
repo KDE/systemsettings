@@ -23,7 +23,6 @@
 
 #include <QCommandLineParser>
 #include <KAboutData>
-#include <config-workspace.h>
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
@@ -34,7 +33,7 @@ int main( int argc, char *argv[] )
     SystemSettingsApp application(argc, argv);
 
     // About data
-    KAboutData aboutData("systemsettings", 0, i18n("System Settings"), WORKSPACE_VERSION_STRING, i18n("Central configuration center for KDE."), KAboutData::License_GPL, i18n("(c) 2009, Ben Cooksley"));
+    KAboutData aboutData("systemsettings", 0, i18n("System Settings"), SYSTEMSETTINGS_STRING_VERSION, i18n("Central configuration center for KDE."), KAboutData::License_GPL, i18n("(c) 2009, Ben Cooksley"));
     aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), "bcooksley@kde.org");
     aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), "msoeken@informatik.uni-bremen.de");
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), "wstephenson@kde.org");
