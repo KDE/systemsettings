@@ -1,0 +1,476 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&systemsettings;">
+  <!ENTITY package "kdebase-workspace">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+<book id="systemsettings" lang="&language;">
+
+<bookinfo>
+<title>The &systemsettings; Handbook</title>
+
+<authorgroup>
+<author>
+&Richard.Johnson;
+&Richard.Johnson.mail;
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2007</year>
+<holder>&Richard.Johnson;</holder>
+</copyright>
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2013-12-05</date>
+<releaseinfo>4.12 (&kde; 4.12)</releaseinfo>
+
+<abstract>
+<para>
+This documentation describes &kde;&apos;s system configuration and administration center.
+</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>System</keyword>
+<keyword>Settings</keyword>
+<keyword>configuration</keyword>
+<keyword>administration</keyword>
+<keyword>config</keyword>
+<keyword>admin</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+The &kde; &systemsettings; provides the user with a centralized and convenient way to configure all of the &kde; settings.
+</para>
+
+<para>
+&systemsettings; is made up of multiple modules. Each module is a separate application, however the &kde; &systemsettings; organizes all of these applications into a single location.
+</para>
+
+<tip>
+<para>
+Each &systemsettings; module can be executed individually
+</para>
+<para>
+See section entitled <link linkend="run-modules-individually">Running
+individual &systemsettings; modules</link> for more information.
+</para>
+</tip>
+
+<para>
+&systemsettings; groups all of the configuration modules into several categories:
+<itemizedlist>
+<listitem><para><link linkend="application-appearance">Common Appearance and Behavior</link></para></listitem>
+<listitem><para><link linkend="workspace-appearance">Workspace Appearance and Behavior</link></para></listitem>
+<listitem><para><link linkend="network">Network and Connectivity</link></para></listitem>
+<listitem><para><link linkend="hardware">Hardware</link></para></listitem>
+<listitem><para><link linkend="system-administration">System Administration</link></para></listitem>
+</itemizedlist>
+</para>
+
+<para>
+The modules that make up &systemsettings; fall under one of the above categories, making it easier to locate the correct configuration module.
+</para>
+
+</chapter>
+
+<chapter id="using-kapp">
+<title>Using &systemsettings;</title>
+
+<para>
+This section details the use of &systemsettings; itself. For information on each individual module, please see <link linkend="modules">&systemsettings; Modules</link>.
+</para>
+
+<sect1 id="starting">
+<title>Starting &systemsettings;</title>
+
+<para>
+The &kde; &systemsettings; can be started in one of three ways:
+</para>
+
+<orderedlist>
+<listitem>
+<para>
+By selecting <menuchoice><guimenu>K Button</guimenu><guisubmenu>Applications</guisubmenu><guimenuitem>System Settings</guimenuitem></menuchoice>.
+</para>
+</listitem>
+<listitem>
+<para>
+  By pressing <keycombo>&Alt;<keycap>F2</keycap></keycombo>. This will bring up the &krunner; dialog. Type <command>systemsettings</command>, and press &Enter;.
+</para>
+</listitem>
+<listitem>
+<para>
+Type <command>systemsettings &amp;</command> at any command prompt.
+</para>
+</listitem>
+</orderedlist>
+
+<para>
+All three of these methods are equivalent, and produce the same result.
+</para>
+</sect1>
+
+<sect1 id="screen">
+<title>The &kde; &systemsettings; Screen</title>
+
+<para>
+When you start &systemsettings;, you are presented with a window, which is divided into three functional parts.
+</para>
+
+<para>
+Across the top is a toolbar. The toolbar provides the user with the ability to go back into the main view from within a module using the <guibutton>Overview</guibutton>.
+You can also find a <guimenu>Help</guimenu> menu as well as a <guibutton>Configure</guibutton> button which provides you a dialog with alternate view settings.
+</para>
+<para>To search for something within all of the modules, start to type keywords into the search field at the right of the toolbar in the <guibutton>Overview</guibutton>. When you start typing, a list of matching topics will popup. Select one and only the groups with settings for this  keyword are enabled, the other are greyed out.</para>
+<para>When the icon window has the focus, you can type the first letter of 
+any module or module group name to select it. Typing this letter again the 
+selection moves to the next match.
+</para>
+<para>
+Underneath the toolbar is an icon view of the individual modules or module groups that 
+make up &systemsettings; grouped by different categories. By default, 
+if your mouse stays a few seconds over an icon, a detailed tooltip 
+appears, explaining the purpose of the module or the modules in this group.
+</para>
+</sect1>
+
+<sect1 id="general">
+<title>&systemsettings; Categories and Modules</title>
+<para>A brief overview of all categories and their modules:</para>
+
+<variablelist>
+<varlistentry id="application-appearance" >
+<term>Common Appearance and Behavior</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+Account Details (Password &amp; User Account, Paths, KDE Wallet, Social Desktop, Web Shortcuts)
+</para></listitem>
+<listitem><para>
+Application Appearance (Style, Colors, Icons, Fonts, Emoticons)
+</para></listitem>
+<listitem><para>
+Application and System Notifications (Manage Notifications, System Bell, Launch Feedback)
+</para></listitem>
+<listitem><para>
+File Associations
+</para></listitem>
+<listitem><para>
+Locale (Country/Region &amp; Language, Spell Checker)
+</para></listitem>
+<listitem><para>
+Personal Information (Akonadi Resources Configuration)
+</para></listitem>
+<listitem><para>
+Shortcuts and Gestures (Custom Shortcuts, Standard Keyboard Shortcuts, Global Keyboard Shortcuts)
+</para></listitem>
+</itemizedlist>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="workspace-appearance" >
+<term>Workspace Appearance and Behavior</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+Desktop Effects
+</para></listitem>
+<listitem><para>
+Workspace Appearance (Window Decorations, Cursor Theme, Desktop Theme, Splash Screen)
+</para></listitem>
+<listitem><para>
+Accessibility (Accessibility, Text-to-Speech)
+</para></listitem>
+<listitem><para>
+Default Applications
+</para></listitem>
+<listitem><para>
+Desktop Search
+</para></listitem>
+<listitem><para>
+Window Behavior (Task Switcher, Window Behavior, KWin Scripts, Window Rules)
+</para></listitem>
+<listitem><para>
+Workspace Behavior (Activities, Virtual Desktops, Screen Edges, Workspace)
+</para></listitem>
+</itemizedlist>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="network" >
+<term>Network and Connectivity</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+Network Settings (Proxy, Connection Preferences, Service Discovery)
+</para></listitem>
+<listitem><para>
+Sharing (Windows Shares)
+</para></listitem>
+<listitem><para>
+SSL Preferences
+</para></listitem>
+</itemizedlist>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="hardware" >
+<term>Hardware</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+Device Actions
+</para></listitem>
+<listitem><para>
+Digital Camera
+</para></listitem>
+<listitem><para>
+Display and Monitor (Size &amp; Orientation, Screen Locker, Gamma)
+</para></listitem>
+<listitem><para>
+Information Sources
+</para></listitem>
+<listitem><para>
+Input Devices (Keyboard, Mouse, Joystick, Remote Controls)
+</para></listitem>
+<listitem><para>
+Power Management (Energy Savings Settings, Activity Settings, Advanced Settings)
+</para></listitem>
+<listitem><para>
+Printers
+</para></listitem>
+<listitem><para>
+Removable Devices
+</para></listitem>
+<listitem><para>
+Multimedia (Audio CDs, Audio and Video Settings, CDDB Retrieval)
+</para></listitem>
+</itemizedlist>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="system-administration" >
+<term>System Administration</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+Date &amp; Time
+</para></listitem>
+<listitem><para>
+Font Management
+</para></listitem>
+<listitem><para>
+Login Screen
+</para></listitem>
+<listitem><para>
+Startup and Shutdown (Autostart, Service Manager, Session Management)
+</para></listitem>
+<listitem><para>
+Task Scheduler
+</para></listitem>
+</itemizedlist>
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<tip><para>Use the search field in <guibutton>Overview</guibutton> to find all matching modules for a given keyword.</para></tip>
+</sect1>
+<sect1 id="exiting">
+<title>Exiting the &kde; &systemsettings;</title>
+
+<para>
+&systemsettings; can be exited in one of two ways:
+</para>
+
+<orderedlist>
+<listitem>
+<para>
+Press <keycombo>&Ctrl;<keycap>Q</keycap></keycombo> on the keyboard.
+</para>
+</listitem>
+<listitem>
+<para>
+Click on the <guibutton>Close</guibutton> button located in the toolbar.
+</para>
+</listitem>
+</orderedlist>
+</sect1>
+
+<sect1 id="configuring">
+<title>Configuring &systemsettings;</title>
+
+<para>
+The <guiicon>Configure</guiicon> icon in the toolbar allows you to change some &systemsettings; parameters.
+You can change from <guilabel>Icon View</guilabel> (default view) to <guilabel>Classic Tree View</guilabel>.
+</para>
+
+<para>
+You can also turn off the detailed tooltips by unchecking <guilabel>Show detailed tooltips</guilabel>. 
+You will then get only normal tooltips and not the content of a module group.
+</para>
+</sect1>
+
+<sect1 id="run-modules-individually">
+<title>Running Individual &systemsettings; Modules</title>
+
+<para>
+Individual modules can be run without running &systemsettings; using the command <command>kcmshell4</command> from the command line. Type <command>kcmshell4 --list</command> to see a list of the available &kde; &systemsettings; modules.
+</para>
+<!--FIXME kcmshell4 - -list has ~30 more kcms than in systemsettings-->
+</sect1>
+</chapter>
+
+<chapter id="modules">
+<title>The &kde; &systemsettings; Modules</title>
+
+<para>
+In order to make it as easy as possible, the &kde; &systemsettings; has organized options into five categories. Under each category, there are icons grouped together under subcategories. Each icon is called a module. When you double click on a module icon, you will be presented with the options of the module in the main window.
+</para>
+
+<para>
+Each module will have some or all of the following buttons:
+</para>
+
+<variablelist>
+<varlistentry>
+<term>Help</term>
+<listitem>
+<para>
+This button will provide help specific to the current module. Clicking the button will open &khelpcenter; in a new window providing detailed information on the module.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Defaults</term>
+<listitem>
+<para>
+Clicking this button will restore this module to its default values. You must click <guibutton>Apply</guibutton> to save the options.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Reset</term>
+<listitem>
+<para>
+This button will &quot;Reset&quot; the module to the previous settings.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Apply</term>
+<listitem>
+<para>
+Clicking this button will save all changes to &kde;. If you have changed anything, clicking <guibutton>Apply</guibutton> will cause the changes to take effect.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<note>
+<para>
+You must either &quot;Reset&quot; or &quot;Apply&quot; the changes before changing to another module.
+</para>
+<para>
+If you try to change without saving or resetting your options, you will be asked if you want to save your changes, or discard them.
+</para>
+</note>
+
+</chapter>
+
+<chapter id="credits">
+
+<title>Credits and License</title>
+
+<para>
+&systemsettings;
+</para>
+<para>
+Program copyright 2007 Benjamin C. Meyer.
+</para>
+<para>
+Program copyright 2009 Ben Cooksley.
+</para>
+<para>
+Contributors:
+<itemizedlist>
+<listitem>
+<para>
+Will Stephenson <email>wstepheson@kde.org</email>
+</para>
+</listitem>
+<listitem>
+<para>Michael D. Stemle, Jr. <email>manchicken@notsosoft.net</email>
+</para>
+</listitem>
+<listitem>
+<para>
+Matthias Kretz <email>kretz@kde.org</email>
+</para>
+</listitem>
+<listitem>
+<para>
+&Daniel.Molkentin; &Daniel.Molkentin.mail;
+</para>
+</listitem>
+<listitem>
+<para>
+&Matthias.Elter; &Matthias.Elter.mail;
+</para>
+</listitem>
+<listitem>
+<para>
+Frans Englich <email>englich@kde.org</email>
+</para>
+</listitem>
+<listitem>
+<para>
+Michael Jansen <email>kde@michael-jansen.biz</email>
+</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>
+Documentation Copyright &copy; 2008 &Richard.Johnson; &Richard.Johnson.mail;
+</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underGPL;
+</chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
