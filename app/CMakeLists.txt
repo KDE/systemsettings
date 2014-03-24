@@ -27,6 +27,7 @@ target_link_libraries( systemsettings systemsettingsview
     KF5::WindowSystem
     KF5::XmlGui
     KF5::DBusAddons
+    KF5::ConfigGui
 )
 
 install( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
