@@ -30,6 +30,7 @@ class MenuItem;
 class ModuleView;
 class KAboutData;
 class KConfigDialog;
+class KConfigGroup;
 class QAbstractItemView;
 template<typename T> class QList;
 
