@@ -18,7 +18,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 CONFIG REQUIRED COMPONENTS
+find_package(KF5 REQUIRED COMPONENTS
     ItemViews
     KCMUtils
     I18n
