@@ -6,5 +6,6 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=drive-removable-media
 
 Name=Removable Devices
+Name[nl]=Verwijderbare apparaten
 Name[uk]=Портативні пристрої
 Name[x-test]=xxRemovable Devicesxx

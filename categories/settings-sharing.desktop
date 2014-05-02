@@ -6,5 +6,6 @@ X-KDE-System-Settings-Parent-Category=network-and-connectivity
 Icon=preferences-system-network-sharing
 
 Name=Sharing
+Name[nl]=Delen
 Name[uk]=Спільне користування
 Name[x-test]=xxSharingxx

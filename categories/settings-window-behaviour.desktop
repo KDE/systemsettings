@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=workspace-appearance-and-behavior
 Icon=preferences-system-windows
 
 Name=Window Behavior
+Name[nl]=Venstergedrag
 Name[uk]=Поведінка вікон
 Name[x-test]=xxWindow Behaviorxx
 

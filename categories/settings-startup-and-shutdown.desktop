@@ -6,5 +6,6 @@ X-KDE-System-Settings-Parent-Category=system-administration
 Icon=preferences-other
 
 Name=Startup and Shutdown
+Name[nl]=Opstarten en afsluiten
 Name[uk]=Запуск і вихід
 Name[x-test]=xxStartup and Shutdownxx

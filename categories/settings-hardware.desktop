@@ -7,5 +7,6 @@ X-KDE-Weight=200
 Icon=preferences-desktop-peripherals
 
 Name=Hardware
+Name[nl]=Hardware
 Name[uk]=Обладнання
 Name[x-test]=xxHardwarexx

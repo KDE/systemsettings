@@ -7,5 +7,6 @@ X-KDE-Weight=200
 Icon=preferences-system
 
 Name=System Administration
+Name[nl]=Systeemadministratie
 Name[uk]=Керування системою
 Name[x-test]=xxSystem Administrationxx

@@ -6,10 +6,12 @@ X-KDE-StartupNotify=true
 NotShowIn=KDE;
 
 GenericName=KDE System Settings
+GenericName[nl]=KDE-systeeminstellingen
 GenericName[uk]=Системні параметри KDE
 GenericName[x-test]=xxKDE System Settingsxx
 
 Name=KDE System Settings
+Name[nl]=KDE-systeeminstellingen
 Name[uk]=Системні параметри KDE
 Name[x-test]=xxKDE System Settingsxx
 

@@ -6,5 +6,6 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=preferences-system-power-management
 
 Name=Power Management
+Name[nl]=Energiebeheer
 Name[uk]=Керування живленням
 Name[x-test]=xxPower Managementxx

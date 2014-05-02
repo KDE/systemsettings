@@ -7,5 +7,6 @@ X-KDE-Weight=200
 Icon=applications-multimedia
 
 Name=Multimedia
+Name[nl]=Multimedia
 Name[uk]=Мультимедіа
 Name[x-test]=xxMultimediaxx

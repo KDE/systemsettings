@@ -7,10 +7,12 @@ X-KDE-StartupNotify=true
 OnlyShowIn=KDE;
 
 GenericName=System Settings
+GenericName[nl]=Systeeminstellingen
 GenericName[uk]=Системні параметри
 GenericName[x-test]=xxSystem Settingsxx
 
 Name=System Settings
+Name[nl]=Systeeminstellingen
 Name[uk]=Системні параметри
 Name[x-test]=xxSystem Settingsxx
 

@@ -5,12 +5,15 @@ X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings
+X-KDE-Keywords[nl]=Systeeminstellingen
 X-KDE-Keywords[uk]=система,параметри,System Settings,системні параметри
 X-KDE-Keywords[x-test]=xxSystem Settingsxx
 
 Name=Classic Tree View
+Name[nl]=Klassieke boomweergave
 Name[uk]=Класичний перегляд деревом
 Name[x-test]=xxClassic Tree Viewxx
 Comment=A Classic KDE 3 KControl style system settings view.
+Comment[nl]=Een systeeminstelling voor een klassieke KDE3 KControl weergave.
 Comment[uk]=Класичний перегляд параметрів у стилі KControl з KDE 3.
 Comment[x-test]=xxA Classic KDE 3 KControl style system settings view.xx

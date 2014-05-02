@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=SystemSettingsCategory
 Name=System Settings Category
+Name[nl]=Systeeminstellingen-catagorie
 Name[uk]=Категорія системних параметрів
 Name[x-test]=xxSystem Settings Categoryxx
 

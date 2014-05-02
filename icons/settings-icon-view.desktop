@@ -5,12 +5,15 @@ X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=icon_mode
 X-KDE-Keywords=System Settings
+X-KDE-Keywords[nl]=Systeeminstellingen
 X-KDE-Keywords[uk]=система,параметри,System Settings,системні параметри
 X-KDE-Keywords[x-test]=xxSystem Settingsxx
 
 Name=Icon View
+Name[nl]=Pictogramweergave
 Name[uk]=Переглядач шрифтів
 Name[x-test]=xxIcon Viewxx
 Comment=The KDE 4 icon view style
+Comment[nl]=Stijl voor KDE4 pictogramweergave
 Comment[uk]=Стиль перегляду з піктограмами KDE 4
 Comment[x-test]=xxThe KDE 4 icon view stylexx
