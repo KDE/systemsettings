@@ -327,7 +327,7 @@ You will then get only normal tooltips and not the content of a module group.
 <title>Running Individual &systemsettings; Modules</title>
 
 <para>
-Individual modules can be run without running &systemsettings; using the command <command>kcmshell4</command> from the command line. Type <command>kcmshell4 --list</command> to see a list of the available &kde; &systemsettings; modules.
+Individual modules can be run without running &systemsettings; using the command <command>kcmshell5</command> from the command line. Type <command>kcmshell5 --list</command> to see a list of the available &kde; &systemsettings; modules.
 </para>
 <!--FIXME kcmshell4 - -list has ~30 more kcms than in systemsettings-->
 </sect1>
