@@ -120,6 +120,7 @@ void SettingsBase::initApplication()
     searchText->completionObject()->setIgnoreCase( true );
     searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
     changePlugin();
+    activateWindow();
 }
 
 void SettingsBase::initToolBar()
