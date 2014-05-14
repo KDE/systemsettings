@@ -58,9 +58,9 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
     : BaseMode( parent )
     , d( new Private() )
 {
-    d->aboutIcon = new KAboutData( "IconView", 0, i18n( "Icon View" ),
+    d->aboutIcon = new KAboutData( "IconView", i18n( "Icon View" ),
                                  "1.0", i18n( "Provides a categorized icons view of control modules." ),
-                                 KAboutData::License_GPL, i18n( "(c) 2009, Ben Cooksley" ) );
+                                 KAboutLicense::GPL, i18n( "(c) 2009, Ben Cooksley" ) );
     d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), "bcooksley@kde.org" );
     d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), "msoeken@informatik.uni-bremen.de" );
     d->aboutIcon->setProgramIconName( "view-list-icons" );

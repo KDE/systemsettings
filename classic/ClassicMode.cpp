@@ -66,11 +66,10 @@ ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
     : BaseMode( parent ), d( new Private() )
 {
     d->aboutClassic = new KAboutData(QStringLiteral("TreeView"),
-                                     QString(),
                                      i18n("Tree View"),
                                      QStringLiteral("1.0"),
                                      i18n("Provides a classic tree-based view of control modules."),
-                                     KAboutData::License_GPL,
+                                     KAboutLicense::GPL,
                                      i18n("(c) 2009, Ben Cooksley"));
     d->aboutClassic->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
     d->aboutClassic->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
