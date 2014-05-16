@@ -26,6 +26,7 @@
 #include <QLoggingCategory>
 #include <QMenu>
 #include <QMenuBar>
+#include <QScreen>
 
 #include <kaboutdata.h>
 #include <KMessageBox>
@@ -76,7 +77,9 @@ SettingsBase::~SettingsBase()
 
 QSize SettingsBase::sizeHint() const
 {
-    return QSize(720, 600);
+    qreal factor = qBound(1., QGuiApplication::primaryScreen()->physicalDotsPerInch()/96., 3.);
+
+    return QSize(720*factor, 600*factor);
 }
 
 void SettingsBase::initApplication()
