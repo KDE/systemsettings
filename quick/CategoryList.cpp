@@ -1,6 +1,7 @@
 /*
  Copyright (c) 2000,2001 Matthias Elter <elter@kde.org>
  Copyright (c) 2009 Ben Cooksley <bcooksley@kde.org>
+ Copyright 2014 Sebastian Kügler <sebas@kde.org>
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

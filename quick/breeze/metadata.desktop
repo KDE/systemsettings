@@ -1,0 +1,23 @@
+[Desktop Entry]
+Name=Breeze View
+Comment=Breeze User Experience for System Settings
+Encoding=UTF-8
+
+Type=Service
+Icon=applications-science
+X-KDE-ParentApp=systemsettings
+X-KDE-ServiceTypes=Plasma/Generic
+
+X-KDE-PluginInfo-Author=Sebastian Kügler
+X-KDE-PluginInfo-Email=sebas@kde.org
+X-KDE-PluginInfo-Name=org.kde.systemsettings.breeze
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://kde.org/
+X-KDE-PluginInfo-Category=SystemSettingsMode
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-Version=1.0
+
+#X-Plasma-MainScript=ui/main.qml
+
