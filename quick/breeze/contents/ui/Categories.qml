@@ -18,16 +18,56 @@
  */
 
 import QtQuick 2.0
-// import org.kde.plasma.core 2.0 as PlasmaCore
-// import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
     id: main
 
-    Rectangle { color: "green"; anchors.fill: parent; opacity: .4; }
+    Rectangle { color: "green"; anchors.fill: parent; anchors.margins: 50; opacity: .4; }
 
     PlasmaExtras.Title {
-        text: "Breeze of Categories"
+        id: titleLabel
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            margins: units.gridUnit
+
+        }
+        text: "Breeze: " + testString
+    }
+
+    ListView {
+        id: categoriesList
+
+        anchors {
+            top: titleLabel.bottom
+            bottom: secondLabel.top
+            left: parent.left
+            right: parent.right
+            margins: units.gridUnit
+
+        }
+
+        model: menuModel
+
+        delegate: Text {
+            height: 32
+            width: 200
+            text: "Cat: " + displayRole
+        }
+    }
+    PlasmaComponents.Label {
+        id: secondLabel
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            margins: units.gridUnit
+
+        }
+        text: "No of Categories: " + (menuModel != undefined ? "Yes" + menuModel.length : "No")
     }
 }

@@ -25,7 +25,7 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 Item {
     id: main
 
-    Rectangle { color: "yellow"; anchors.fill: parent; opacity: .4; }
+    Rectangle { color: "yellow"; anchors.fill: parent; anchors.margins: 50; opacity: .4; }
 
     PlasmaExtras.Title {
         text: "Breeze of Modules"
