@@ -93,6 +93,20 @@ Qt::ItemFlags MenuProxyModel::flags( const QModelIndex &index ) const
     }
 }
 
+QHash< int, QByteArray > MenuProxyModel::roleNames() const
+{
+    QHash<int, QByteArray> rn;
+    rn[Qt::DisplayRole] = "displayRole";
+    rn[Qt::ToolTipRole] = "toolTipRole";
+    rn[Qt::DecorationRole] = "decorationRole";
+    rn[KCategorizedSortFilterProxyModel::CategorySortRole] = "categorySortRole";
+    rn[KCategorizedSortFilterProxyModel::CategoryDisplayRole] = "categoryDisplayRole";
+    rn[Qt::UserRole] = "userRole";
+    rn[MenuModel::UserFilterRole] = "userFilterRole";
+    rn[MenuModel::UserSortRole] = "userSortRole";
+    return rn;
+}
+
 void MenuProxyModel::setFilterRegExp ( const QString & pattern )
 {
     emit layoutAboutToBeChanged ();
