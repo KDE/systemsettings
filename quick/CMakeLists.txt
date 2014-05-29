@@ -7,6 +7,8 @@ kde4_add_ui_files( quick_mode_srcs configClassic.ui )
 add_library(quick_mode MODULE ${quick_mode_srcs})
 
 target_link_libraries(quick_mode systemsettingsview
+    Qt5::Quick
+    Qt5::QuickWidgets
     KF5::ItemViews
     KF5::ConfigCore
     KF5::KCMUtils

@@ -50,7 +50,7 @@ public:
     }
 
     QSplitter * classicWidget;
-    QTreeView * classicTree;
+    QTreeView * categoriesWidget;
     Ui::ConfigClassic classicConfig;
     CategoryList * classicCategory;
     QStackedWidget * stackedWidget;

@@ -20,19 +20,20 @@
 #ifndef CATEGORYLIST_H
 #define CATEGORYLIST_H
 
-#include <KHBox>
+#include <QQuickWidget>
+#include <KGlobalSettings>
 
 class QModelIndex;
 class QAbstractItemModel;
 
 class KUrl;
 
-class CategoryList : public KHBox
+class CategoryList : public QQuickWidget
 {
     Q_OBJECT
 
 public:
-    explicit CategoryList( QWidget *parent, QAbstractItemModel *model );
+    explicit CategoryList(const QString &path, QWidget *parent, QAbstractItemModel *model );
     virtual ~CategoryList();
 
     void changeModule( QModelIndex newItem);
@@ -42,9 +43,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void slotModuleLinkClicked( const QUrl& moduleName );
-
-private:
-    void updatePixmap();
 
 private:
     class Private;

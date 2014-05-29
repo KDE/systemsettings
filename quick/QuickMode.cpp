@@ -29,6 +29,7 @@
 #include <QModelIndex>
 #include <QStackedWidget>
 #include <QAbstractItemModel>
+#include <QtQuickWidgets/QQuickWidget>
 
 #include <Plasma/Package>
 #include <Plasma/PackageStructure>
@@ -56,7 +57,7 @@ public:
     }
 
     QSplitter * classicWidget;
-    QTreeView * classicTree;
+    QQuickWidget * categoriesWidget;
     Ui::ConfigClassic classicConfig;
     CategoryList * classicCategory;
     QStackedWidget * stackedWidget;
@@ -103,7 +104,7 @@ QuickMode::QuickMode( QObject * parent, const QVariantList& )
 
 QuickMode::~QuickMode()
 {
-    if( !d->classicTree ) {
+    if( !d->categoriesWidget ) {
         delete d->classicWidget;
     }
     delete d;
@@ -124,12 +125,12 @@ void QuickMode::initEvent()
     d->classicWidget = new QSplitter( Qt::Horizontal, 0 );
     d->classicWidget->setChildrenCollapsible( false );
     d->moduleView = new ModuleView( d->classicWidget );
-    d->classicTree = 0;
+    d->categoriesWidget = 0;
 }
 
 QWidget * QuickMode::mainWidget()
 {
-    if( !d->classicTree ) {
+    if( !d->categoriesWidget ) {
         initWidget();
     }
     return d->classicWidget;
@@ -148,7 +149,7 @@ ModuleView * QuickMode::moduleView() const
 QList<QAbstractItemView*> QuickMode::views() const
 {
     QList<QAbstractItemView*> theViews;
-    theViews << d->classicTree;
+    //theViews << d->categoriesWidget;
     return theViews;
 }
 
@@ -160,22 +161,22 @@ void QuickMode::saveState()
 
 void QuickMode::expandColumns()
 {
-    d->classicTree->resizeColumnToContents(0);
+    //d->categoriesWidget->resizeColumnToContents(0);
 }
 
 void QuickMode::searchChanged( const QString& text )
 {
     d->proxyModel->setFilterRegExp(text);
-    if( d->classicTree ) {
-        d->classicCategory->changeModule( d->classicTree->currentIndex() );
+    if( d->categoriesWidget ) {
+        //d->classicCategory->changeModule( d->categoriesWidget->currentIndex() );
     }
 }
 
 void QuickMode::selectModule( const QModelIndex& selectedModule )
 {
-    d->classicTree->setCurrentIndex( selectedModule );
+    //d->categoriesWidget->setCurrentIndex( selectedModule );
     if( d->proxyModel->rowCount(selectedModule) > 0 ) {
-        d->classicTree->setExpanded(selectedModule, true);
+        //d->categoriesWidget->setExpanded(selectedModule, true);
     }
     changeModule( selectedModule );
 }
@@ -207,42 +208,44 @@ void QuickMode::moduleLoaded()
 void QuickMode::initWidget()
 {
     // Create the widget
-    d->classicTree = new QTreeView( d->classicWidget );
-    d->classicCategory = new CategoryList( d->classicWidget, d->proxyModel );
+    d->categoriesWidget = new QQuickWidget( d->classicWidget );
+    d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->proxyModel );
 
     d->stackedWidget = new QStackedWidget( d->classicWidget );
     d->stackedWidget->layout()->setMargin(0);
     d->stackedWidget->addWidget( d->classicCategory );
     d->stackedWidget->addWidget( d->moduleView );
 
-    d->classicWidget->addWidget( d->classicTree );
+    d->classicWidget->addWidget( d->categoriesWidget );
     d->classicWidget->addWidget( d->stackedWidget );
 
-    d->classicTree->setModel( d->proxyModel );
-    d->classicTree->setHeaderHidden( true );
-    d->classicTree->setIconSize( QSize( 24, 24 ) );
-    d->classicTree->setSortingEnabled( true );
-    d->classicTree->setMouseTracking( true );
-    d->classicTree->setMinimumWidth( 200 );
-    d->classicTree->setSelectionMode( QAbstractItemView::SingleSelection );
-    d->classicTree->sortByColumn( 0, Qt::AscendingOrder );
+    d->categoriesWidget->setSource(d->package.filePath("Categories"));
+    d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+//     d->categoriesWidget->setModel( d->proxyModel );
+//     d->categoriesWidget->setHeaderHidden( true );
+//     d->categoriesWidget->setIconSize( QSize( 24, 24 ) );
+//     d->categoriesWidget->setSortingEnabled( true );
+//     d->categoriesWidget->setMouseTracking( true );
+//     d->categoriesWidget->setMinimumWidth( 200 );
+//     d->categoriesWidget->setSelectionMode( QAbstractItemView::SingleSelection );
+//     d->categoriesWidget->sortByColumn( 0, Qt::AscendingOrder );
 
-    d->classicCategory->changeModule( d->classicTree->rootIndex() );
+    //d->classicCategory->changeModule( d->categoriesWidget->rootIndex() );
 
     connect( d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)) );
-    connect( d->classicTree, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
-    connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
-    connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
+//     connect( d->categoriesWidget, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
+//     connect( d->categoriesWidget, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
+//     connect( d->categoriesWidget, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
 
     if( !KGlobalSettings::singleClick() ) {
         // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
-        connect( d->classicTree, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
+        connect( d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
     }
 
     if( config().readEntry( "autoExpandOneLevel", false ) ) {
         for( int processed = 0; d->proxyModel->rowCount() > processed; processed++ ) {
-            d->classicTree->setExpanded( d->proxyModel->index( processed, 0 ), true );
+            //d->categoriesWidget->setExpanded( d->proxyModel->index( processed, 0 ), true );
         }
     }
 
@@ -260,7 +263,7 @@ void QuickMode::leaveModuleView()
 
 void QuickMode::giveFocus()
 {
-    d->classicTree->setFocus();
+    d->categoriesWidget->setFocus();
 }
 
 void QuickMode::addConfiguration( KConfigDialog * config )
