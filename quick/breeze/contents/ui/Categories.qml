@@ -20,12 +20,14 @@
 import QtQuick 2.0
 // import org.kde.plasma.core 2.0 as PlasmaCore
 // import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.components 2.0 as PlasmaExtras
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
     id: main
 
+    Rectangle { color: "green"; anchors.fill: parent; opacity: .4; }
+
     PlasmaExtras.Title {
-        id: "Breeze of Categories"
+        text: "Breeze of Categories"
     }
 }
