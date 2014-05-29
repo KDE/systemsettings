@@ -38,5 +38,6 @@ add_subdirectory(app)
 add_subdirectory(categories)
 add_subdirectory(classic)
 add_subdirectory(icons)
+add_subdirectory(quick)
 add_subdirectory(doc)
 
