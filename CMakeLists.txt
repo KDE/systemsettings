@@ -16,6 +16,8 @@ include(KDECompilerSettings)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
+    Quick
+    QuickWidgets
 )
 
 find_package(KF5 REQUIRED COMPONENTS
@@ -31,6 +33,7 @@ find_package(KF5 REQUIRED COMPONENTS
     Config
     KHtml
     KDE4Support
+    Plasma
 )
 
 add_subdirectory(core)
