@@ -26,15 +26,11 @@
 #include <QModelIndex>
 #include <QTextStream>
 
-#include <KCursor>
-#include <KHTMLPart>
-#include <KHTMLView>
-#include <KApplication>
 #include <KCModuleInfo>
-#include <KStandardDirs>
-#include <KGlobalSettings>
 #include <KIconLoader>
-#include <KUrl>
+#include <KLocalizedString>
+
+#include <QDebug>
 
 static const char kcc_infotext[]= I18N_NOOP("System Settings");
 static const char title_infotext[]= I18N_NOOP("Configure your system");
@@ -53,7 +49,14 @@ public:
 CategoryList::CategoryList(const QString &path, QWidget *parent, QAbstractItemModel *model )
     : QQuickWidget(parent), d( new Private() )
 {
+    setAttribute(Qt::WA_TranslucentBackground, true);
+    setStyleSheet(QString("background:transparent;"));
+//     QPalette pal = palette();
+//     pal.setColor(QPalette::Base, Qt::transparent);
+//     setPalette(pal);
     setMinimumSize( 400, 400 );
+    setResizeMode(QQuickWidget::SizeRootObjectToView);
+
     d->itemModel = model;
     setSource(path);
 

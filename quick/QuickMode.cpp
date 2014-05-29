@@ -25,11 +25,12 @@
 #include <QDebug>
 #include <QLayout>
 #include <QSplitter>
-#include <QTreeView>
+//#include <QTreeView>
 #include <QModelIndex>
 #include <QStackedWidget>
 #include <QAbstractItemModel>
-#include <QtQuickWidgets/QQuickWidget>
+#include <QQuickWidget>
+#include <QQmlContext>
 
 #include <Plasma/Package>
 #include <Plasma/PackageStructure>
@@ -39,7 +40,7 @@
 #include <KCModuleInfo>
 #include <KConfigGroup>
 #include <KConfigDialog>
-#include <KGlobalSettings>
+//#include <KGlobalSettings>
 
 #include "MenuItem.h"
 #include "MenuModel.h"
@@ -211,6 +212,7 @@ void QuickMode::initWidget()
     d->categoriesWidget = new QQuickWidget( d->classicWidget );
     d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->proxyModel );
 
+
     d->stackedWidget = new QStackedWidget( d->classicWidget );
     d->stackedWidget->layout()->setMargin(0);
     d->stackedWidget->addWidget( d->classicCategory );
@@ -219,8 +221,23 @@ void QuickMode::initWidget()
     d->classicWidget->addWidget( d->categoriesWidget );
     d->classicWidget->addWidget( d->stackedWidget );
 
-    d->categoriesWidget->setSource(d->package.filePath("Categories"));
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+    d->categoriesWidget->rootContext()->setContextProperty("menuModel", d->proxyModel);
+    d->categoriesWidget->rootContext()->setContextProperty("testString", "Found it!");
+
+    d->classicCategory->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->classicCategory->setStyleSheet(QString("background:transparent;"));
+
+    d->categoriesWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->categoriesWidget->setStyleSheet(QString("background:transparent;"));
+
+    d->classicWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->classicWidget->setStyleSheet(QString("background:transparent;"));
+
+    d->stackedWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->stackedWidget->setStyleSheet(QString("background:transparent;"));
+
 //     d->categoriesWidget->setModel( d->proxyModel );
 //     d->categoriesWidget->setHeaderHidden( true );
 //     d->categoriesWidget->setIconSize( QSize( 24, 24 ) );
@@ -232,16 +249,18 @@ void QuickMode::initWidget()
 
     //d->classicCategory->changeModule( d->categoriesWidget->rootIndex() );
 
+    d->categoriesWidget->setSource(d->package.filePath("Categories"));
+
     connect( d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)) );
 //     connect( d->categoriesWidget, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
 //     connect( d->categoriesWidget, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
 //     connect( d->categoriesWidget, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
 
-    if( !KGlobalSettings::singleClick() ) {
+//     if( !KGlobalSettings::singleClick() ) {
         // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
         connect( d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
-    }
+//     }
 
     if( config().readEntry( "autoExpandOneLevel", false ) ) {
         for( int processed = 0; d->proxyModel->rowCount() > processed; processed++ ) {
