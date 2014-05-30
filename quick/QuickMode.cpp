@@ -83,7 +83,7 @@ QuickMode::QuickMode( QObject * parent, const QVariantList& )
     d->aboutClassic->addAuthor(i18n("Sebastian Kügler"), i18n("Author"), QStringLiteral("sebas@kde.org"));
     d->aboutClassic->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
     d->aboutClassic->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
-    d->aboutClassic->setProgramIconName("view-list-tree");
+    d->aboutClassic->setProgramIconName("applications-science");
 
 
     const QString packageRoot = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "plasma/packages/org.kde.systemsettings.breeze", QStandardPaths::LocateDirectory);
@@ -210,6 +210,7 @@ void QuickMode::initWidget()
 {
     // Create the widget
     d->categoriesWidget = new QQuickWidget( d->classicWidget );
+    d->categoriesWidget->setAutoFillBackground(false);
     d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->proxyModel );
 
 
@@ -226,17 +227,30 @@ void QuickMode::initWidget()
     d->categoriesWidget->rootContext()->setContextProperty("menuModel", d->proxyModel);
     d->categoriesWidget->rootContext()->setContextProperty("testString", "Found it!");
 
-    d->classicCategory->setAttribute(Qt::WA_TranslucentBackground, true);
-    d->classicCategory->setStyleSheet(QString("background:transparent;"));
+    QSurfaceFormat format;
+    //QSurfaceFormat format = view.format();
+    format.setAlphaBufferSize(8);
+    format.setRenderableType(QSurfaceFormat::OpenGL);
+    qDebug() << format.hasAlpha();
 
+
+/*
     d->categoriesWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->categoriesWidget->setAttribute(Qt::WA_NoSystemBackground);
+    d->categoriesWidget->setFormat(format);
+    d->categoriesWidget->setAutoFillBackground(false);
     d->categoriesWidget->setStyleSheet(QString("background:transparent;"));
 
     d->classicWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->classicWidget->setAttribute(Qt::WA_NoSystemBackground);
+    d->classicWidget->setAutoFillBackground(false);
     d->classicWidget->setStyleSheet(QString("background:transparent;"));
 
     d->stackedWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+    d->stackedWidget->setAttribute(Qt::WA_NoSystemBackground);
+    d->stackedWidget->setAutoFillBackground(false);
     d->stackedWidget->setStyleSheet(QString("background:transparent;"));
+*/
 
 //     d->categoriesWidget->setModel( d->proxyModel );
 //     d->categoriesWidget->setHeaderHidden( true );
@@ -247,7 +261,7 @@ void QuickMode::initWidget()
 //     d->categoriesWidget->setSelectionMode( QAbstractItemView::SingleSelection );
 //     d->categoriesWidget->sortByColumn( 0, Qt::AscendingOrder );
 
-    //d->classicCategory->changeModule( d->categoriesWidget->rootIndex() );
+//     d->classicCategory->changeModule( d->categoriesWidget->rootIndex() );
 
     d->categoriesWidget->setSource(d->package.filePath("Categories"));
 
@@ -289,7 +303,7 @@ void QuickMode::addConfiguration( KConfigDialog * config )
 {
     QWidget * configWidget = new QWidget( config );
     d->classicConfig.setupUi( configWidget );
-    config->addPage( configWidget, i18n("Tree View"), aboutData()->programIconName() );
+    config->addPage( configWidget, i18n("Breeze View"), aboutData()->programIconName() );
 }
 
 void QuickMode::loadConfiguration()

@@ -56,7 +56,7 @@ Item {
         delegate: Text {
             height: 32
             width: 200
-            text: "Cat: " + displayRole
+            text: displayRole
         }
     }
     PlasmaComponents.Label {

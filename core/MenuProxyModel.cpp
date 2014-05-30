@@ -36,7 +36,7 @@ bool MenuProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right
     if( isCategorizedModel() ) {
         return KCategorizedSortFilterProxyModel::lessThan( left, right );
     }
-    
+
     QVariant leftWeight = left.data( MenuModel::UserSortRole );
     QVariant rightWeight = right.data( MenuModel::UserSortRole );
 
@@ -91,20 +91,6 @@ Qt::ItemFlags MenuProxyModel::flags( const QModelIndex &index ) const
     } else {
         return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
     }
-}
-
-QHash< int, QByteArray > MenuProxyModel::roleNames() const
-{
-    QHash<int, QByteArray> rn;
-    rn[Qt::DisplayRole] = "displayRole";
-    rn[Qt::ToolTipRole] = "toolTipRole";
-    rn[Qt::DecorationRole] = "decorationRole";
-    rn[KCategorizedSortFilterProxyModel::CategorySortRole] = "categorySortRole";
-    rn[KCategorizedSortFilterProxyModel::CategoryDisplayRole] = "categoryDisplayRole";
-    rn[Qt::UserRole] = "userRole";
-    rn[MenuModel::UserFilterRole] = "userFilterRole";
-    rn[MenuModel::UserSortRole] = "userSortRole";
-    return rn;
 }
 
 void MenuProxyModel::setFilterRegExp ( const QString & pattern )

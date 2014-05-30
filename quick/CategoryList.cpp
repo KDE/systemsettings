@@ -51,9 +51,7 @@ CategoryList::CategoryList(const QString &path, QWidget *parent, QAbstractItemMo
 {
     setAttribute(Qt::WA_TranslucentBackground, true);
     setStyleSheet(QString("background:transparent;"));
-//     QPalette pal = palette();
-//     pal.setColor(QPalette::Base, Qt::transparent);
-//     setPalette(pal);
+
     setMinimumSize( 400, 400 );
     setResizeMode(QQuickWidget::SizeRootObjectToView);
 

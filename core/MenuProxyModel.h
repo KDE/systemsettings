@@ -87,7 +87,6 @@ public:
      */
     Qt::ItemFlags flags( const QModelIndex &index ) const;
 
-    virtual QHash<int, QByteArray> roleNames() const;
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
      * Reimplemented for internal reasons.
