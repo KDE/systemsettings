@@ -28,6 +28,28 @@ Item {
     Rectangle { color: "yellow"; anchors.fill: parent; anchors.margins: 50; opacity: .4; }
 
     PlasmaExtras.Title {
-        text: "Breeze of Modules"
+        id: titleLabel
+        text: i18n("System Settings")
+    }
+
+    ListView {
+        id: categoriesList
+
+        anchors {
+            top: titleLabel.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            margins: units.gridUnit
+
+        }
+
+        model: menuModel
+
+        delegate: Text {
+            height: 32
+            width: 200
+            text: displayRole
+        }
     }
 }

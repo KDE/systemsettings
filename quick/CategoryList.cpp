@@ -25,6 +25,7 @@
 #include <QFile>
 #include <QModelIndex>
 #include <QTextStream>
+#include <QQmlContext>
 
 #include <KCModuleInfo>
 #include <KIconLoader>
@@ -49,13 +50,15 @@ public:
 CategoryList::CategoryList(const QString &path, QWidget *parent, QAbstractItemModel *model )
     : QQuickWidget(parent), d( new Private() )
 {
+    d->itemModel = model;
+
     setAttribute(Qt::WA_TranslucentBackground, true);
     setStyleSheet(QString("background:transparent;"));
 
     setMinimumSize( 400, 400 );
     setResizeMode(QQuickWidget::SizeRootObjectToView);
+    rootContext()->setContextProperty("menuModel", d->itemModel);
 
-    d->itemModel = model;
     setSource(path);
 
 //     connect( d->categoryView->browserExtension(),
