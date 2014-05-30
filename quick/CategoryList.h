@@ -25,15 +25,15 @@
 
 class QModelIndex;
 class QAbstractItemModel;
-
-class KUrl;
+class MenuProxyModel;
+class Host;
 
 class CategoryList : public QQuickWidget
 {
     Q_OBJECT
 
 public:
-    explicit CategoryList(const QString &path, QWidget *parent, QAbstractItemModel *model );
+    explicit CategoryList(const QString &path, QWidget *parent, Host *host);
     virtual ~CategoryList();
 
     void changeModule( QModelIndex newItem);

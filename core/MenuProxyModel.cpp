@@ -23,6 +23,8 @@
 #include "MenuItem.h"
 #include "MenuModel.h"
 
+#include <QDebug>
+
 MenuProxyModel::MenuProxyModel( QObject * parent )
     : KCategorizedSortFilterProxyModel( parent )
 {
@@ -106,6 +108,12 @@ void MenuProxyModel::setFilterRegExp ( const QRegExp & regExp )
     KCategorizedSortFilterProxyModel::setFilterRegExp( regExp );
     emit layoutChanged ();
 }
+
+void MenuProxyModel::clicked(int ix)
+{
+    qDebug() << "Clocked" << ix;
+}
+
 
 
 #include "MenuProxyModel.moc"

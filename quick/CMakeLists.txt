@@ -1,4 +1,5 @@
 set(quick_mode_srcs
+    host.cpp
     QuickMode.cpp
     CategoryList.cpp
 )

@@ -51,14 +51,15 @@ Item {
 
         }
 
-        model: menuModel
+        model: host.categoriesModel
 
-        delegate: Text {
-            height: 32
-            width: 200
-            text: displayRole
+        delegate: ModuleDelegate {
+            onClicked: {
+                host.categoryClicked(index);
+            }
         }
     }
+
     PlasmaComponents.Label {
         id: secondLabel
         anchors {
@@ -68,6 +69,6 @@ Item {
             margins: units.gridUnit
 
         }
-        text: "No of Categories: " + (menuModel != undefined ? "Yes" + menuModel.length : "No")
+        text: "Model valid: " + (host.categoriesModel != undefined ? "Yes" : "No")
     }
 }

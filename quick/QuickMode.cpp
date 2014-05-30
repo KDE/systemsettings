@@ -20,6 +20,7 @@
 ***************************************************************************/
 
 #include "QuickMode.h"
+#include "host.h"
 #include "ui_configClassic.h"
 
 #include <QDebug>
@@ -31,6 +32,7 @@
 #include <QAbstractItemModel>
 #include <QQuickWidget>
 #include <QQmlContext>
+#include <QtQml>
 
 #include <Plasma/Package>
 #include <Plasma/PackageStructure>
@@ -65,6 +67,7 @@ public:
     ModuleView * moduleView;
     QModelIndex currentItem;
 
+    Host *host;
     MenuProxyModel * proxyModel;
     MenuModel * model;
     KAboutData * aboutClassic;
@@ -84,7 +87,6 @@ QuickMode::QuickMode( QObject * parent, const QVariantList& )
     d->aboutClassic->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
     d->aboutClassic->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
     d->aboutClassic->setProgramIconName("applications-science");
-
 
     const QString packageRoot = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "plasma/packages/org.kde.systemsettings.breeze", QStandardPaths::LocateDirectory);
     qDebug() << "QSP" << packageRoot;
@@ -127,6 +129,11 @@ void QuickMode::initEvent()
     d->classicWidget->setChildrenCollapsible( false );
     d->moduleView = new ModuleView( d->classicWidget );
     d->categoriesWidget = 0;
+
+    // Register Host* in the QML runtime
+    //qmlRegisterUncreatableType<Host>("org.kde.systemsettings", 5, 0, "Host", "You cannot create Host objects.");
+
+    d->host = new Host(d->proxyModel, this);
 }
 
 QWidget * QuickMode::mainWidget()
@@ -211,7 +218,7 @@ void QuickMode::initWidget()
     // Create the widget
     d->categoriesWidget = new QQuickWidget( d->classicWidget );
     d->categoriesWidget->setAutoFillBackground(false);
-    d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->proxyModel );
+    d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->host);
 
 
     d->stackedWidget = new QStackedWidget( d->classicWidget );
@@ -224,9 +231,9 @@ void QuickMode::initWidget()
 
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-    d->categoriesWidget->rootContext()->setContextProperty("menuModel", d->proxyModel);
-    d->categoriesWidget->rootContext()->setContextProperty("testString", "Found it!");
+    d->categoriesWidget->rootContext()->setContextProperty("host", d->host);
 
+/*
     QSurfaceFormat format;
     //QSurfaceFormat format = view.format();
     format.setAlphaBufferSize(8);
@@ -234,7 +241,6 @@ void QuickMode::initWidget()
     qDebug() << format.hasAlpha();
 
 
-/*
     d->categoriesWidget->setAttribute(Qt::WA_TranslucentBackground, true);
     d->categoriesWidget->setAttribute(Qt::WA_NoSystemBackground);
     d->categoriesWidget->setFormat(format);

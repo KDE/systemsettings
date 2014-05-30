@@ -44,12 +44,12 @@ Item {
 
         }
 
-        model: menuModel
+        model: host.categoriesModel
 
-        delegate: Text {
-            height: 32
-            width: 200
-            text: displayRole
+        delegate: ModuleDelegate {
+            onClicked: {
+                host.moduleClicked(index);
+            }
         }
     }
 }

@@ -21,6 +21,8 @@
 #include "CategoryList.h"
 
 #include "MenuItem.h"
+#include "MenuProxyModel.h"
+#include "host.h"
 
 #include <QFile>
 #include <QModelIndex>
@@ -45,19 +47,32 @@ public:
     QModelIndex categoryMenu;
     QAbstractItemModel * itemModel;
     QMap<QString, QModelIndex> itemMap;
+    Host *host;
 };
 
-CategoryList::CategoryList(const QString &path, QWidget *parent, QAbstractItemModel *model )
+CategoryList::CategoryList(const QString &path, QWidget *parent, Host *host )
     : QQuickWidget(parent), d( new Private() )
 {
-    d->itemModel = model;
+    d->itemModel = host->categoriesModel();
+    d->host = host;
 
+    setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setStyleSheet(QString("background:transparent;"));
+    setAttribute(Qt::WA_NoSystemBackground, true);
+    //setStyleSheet(QString("background:transparent;"));
+    //setAutoFillBackground(false);
 
+    ///*
+    QPalette p = palette();
+    p.setColor(QPalette::Window, Qt::transparent);
+    p.setColor(QPalette::Base, Qt::transparent);
+    p.setColor(QPalette::Text, Qt::transparent);
+    setPalette(p);
+    //*/
     setMinimumSize( 400, 400 );
     setResizeMode(QQuickWidget::SizeRootObjectToView);
     rootContext()->setContextProperty("menuModel", d->itemModel);
+    rootContext()->setContextProperty("host", d->host);
 
     setSource(path);
 
