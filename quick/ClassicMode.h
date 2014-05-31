@@ -30,32 +30,32 @@ class ClassicMode : public BaseMode
     Q_OBJECT
 
 public:
-    ClassicMode(QObject * parent, const QVariantList& );
+    ClassicMode(QObject *parent, const QVariantList &);
     ~ClassicMode();
     void initEvent();
     void leaveModuleView();
-    QWidget * mainWidget();
-    KAboutData * aboutData();
-    ModuleView * moduleView() const;
+    QWidget *mainWidget();
+    KAboutData *aboutData();
+    ModuleView *moduleView() const;
 
 protected:
-    QList<QAbstractItemView*> views() const;
+    QList<QAbstractItemView *> views() const;
 
 public Q_SLOTS:
     void expandColumns();
-    void searchChanged( const QString& text );
-    void selectModule( const QModelIndex& selectedModule );
-    void changeModule( const QModelIndex& activeModule );
+    void searchChanged(const QString &text);
+    void selectModule(const QModelIndex &selectedModule);
+    void changeModule(const QModelIndex &activeModule);
     void saveState();
     void giveFocus();
-    void addConfiguration( KConfigDialog * config );
+    void addConfiguration(KConfigDialog *config);
     void loadConfiguration();
     void saveConfiguration();
 
 private Q_SLOTS:
     void moduleLoaded();
     void initWidget();
-    void moveUp( MenuItem * item );
+    void moveUp(MenuItem *item);
 
 private:
     class Private;

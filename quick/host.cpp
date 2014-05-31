@@ -18,18 +18,17 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "host.h"
 #include "MenuProxyModel.h"
 
 #include <QDebug>
 
-class HostPrivate {
+class HostPrivate
+{
 public:
     HostPrivate(Host *host)
         : q(host),
-          categoriesModel(0)
-    {
+          categoriesModel(0) {
     }
 
     Host *q;
@@ -37,7 +36,7 @@ public:
     MenuProxyModel *categoriesModel;
 };
 
-Host::Host(MenuProxyModel *model, QObject* parent) :
+Host::Host(MenuProxyModel *model, QObject *parent) :
     QObject(parent),
     d(new HostPrivate(this))
 {
@@ -49,21 +48,19 @@ Host::~Host()
     delete d;
 }
 
-
-QAbstractItemModel* Host::categoriesModel()
+QAbstractItemModel *Host::categoriesModel()
 {
     return d->categoriesModel;
 }
 
 void Host::categoryClicked(int ix)
 {
-    qDebug () << "Category: " << ix;
+    qDebug() << "Category: " << ix;
 }
 
 void Host::moduleClicked(int ix)
 {
-    qDebug () << "Module: " << ix;
+    qDebug() << "Module: " << ix;
 }
-
 
 #include "host.moc"

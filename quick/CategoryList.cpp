@@ -35,23 +35,24 @@
 
 #include <QDebug>
 
-static const char kcc_infotext[]= I18N_NOOP("System Settings");
-static const char title_infotext[]= I18N_NOOP("Configure your system");
-static const char intro_infotext[]= I18N_NOOP("Welcome to \"System Settings\", "
-    "a central place to configure your computer system.");
+static const char kcc_infotext[] = I18N_NOOP("System Settings");
+static const char title_infotext[] = I18N_NOOP("Configure your system");
+static const char intro_infotext[] = I18N_NOOP("Welcome to \"System Settings\", "
+                                     "a central place to configure your computer system.");
 
-class CategoryList::Private {
+class CategoryList::Private
+{
 public:
     Private() {}
 
     QModelIndex categoryMenu;
-    QAbstractItemModel * itemModel;
+    QAbstractItemModel *itemModel;
     QMap<QString, QModelIndex> itemMap;
     Host *host;
 };
 
-CategoryList::CategoryList(const QString &path, QWidget *parent, Host *host )
-    : QQuickWidget(parent), d( new Private() )
+CategoryList::CategoryList(const QString &path, QWidget *parent, Host *host)
+    : QQuickWidget(parent), d(new Private())
 {
     d->itemModel = host->categoriesModel();
     d->host = host;
@@ -69,7 +70,7 @@ CategoryList::CategoryList(const QString &path, QWidget *parent, Host *host )
     p.setColor(QPalette::Text, Qt::transparent);
     setPalette(p);
     //*/
-    setMinimumSize( 400, 400 );
+    setMinimumSize(400, 400);
     setResizeMode(QQuickWidget::SizeRootObjectToView);
     rootContext()->setContextProperty("menuModel", d->itemModel);
     rootContext()->setContextProperty("host", d->host);
@@ -88,16 +89,16 @@ CategoryList::~CategoryList()
     delete d;
 }
 
-void CategoryList::changeModule( QModelIndex newItem )
+void CategoryList::changeModule(QModelIndex newItem)
 {
     d->categoryMenu = newItem;
 }
 
-void CategoryList::slotModuleLinkClicked( const QUrl& moduleName )
+void CategoryList::slotModuleLinkClicked(const QUrl &moduleName)
 {
-    QModelIndex module = d->itemMap.value( moduleName.url() );
+    QModelIndex module = d->itemMap.value(moduleName.url());
     qDebug() << "Link name: " + moduleName.url();
-    emit moduleSelected( module );
+    emit moduleSelected(module);
 }
 
 #include "moc_CategoryList.cpp"

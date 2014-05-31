@@ -18,7 +18,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #ifndef HOST_H
 #define HOST_H
 
@@ -32,14 +31,14 @@ class Host : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QAbstractItemModel* categoriesModel READ categoriesModel CONSTANT)
+    Q_PROPERTY(QAbstractItemModel *categoriesModel READ categoriesModel CONSTANT)
 
 public:
-    Host(MenuProxyModel *model, QObject* parent = 0);
+    Host(MenuProxyModel *model, QObject *parent = 0);
     virtual ~Host();
 
 public Q_SLOTS:
-    QAbstractItemModel* categoriesModel();
+    QAbstractItemModel *categoriesModel();
     Q_INVOKABLE void categoryClicked(int ix);
     Q_INVOKABLE void moduleClicked(int ix);
 
@@ -47,7 +46,7 @@ Q_SIGNALS:
     void categoryChanged();
 
 private:
-    HostPrivate* d;
+    HostPrivate *d;
 };
 
 #endif // HOST_H

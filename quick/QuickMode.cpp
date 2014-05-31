@@ -52,30 +52,31 @@
 
 K_PLUGIN_FACTORY(QuickModeFactory, registerPlugin<QuickMode>();)
 
-class QuickMode::Private {
+class QuickMode::Private
+{
 public:
-    Private() : moduleView( 0 ) {}
+    Private() : moduleView(0) {}
     virtual ~Private() {
         delete aboutClassic;
     }
 
-    QSplitter * classicWidget;
-    QQuickWidget * categoriesWidget;
+    QSplitter *classicWidget;
+    QQuickWidget *categoriesWidget;
     Ui::ConfigClassic classicConfig;
-    CategoryList * classicCategory;
-    QStackedWidget * stackedWidget;
-    ModuleView * moduleView;
+    CategoryList *classicCategory;
+    QStackedWidget *stackedWidget;
+    ModuleView *moduleView;
     QModelIndex currentItem;
 
     Host *host;
-    MenuProxyModel * proxyModel;
-    MenuModel * model;
-    KAboutData * aboutClassic;
+    MenuProxyModel *proxyModel;
+    MenuModel *model;
+    KAboutData *aboutClassic;
     Plasma::Package package;
 };
 
-QuickMode::QuickMode( QObject * parent, const QVariantList& )
-    : BaseMode( parent ), d( new Private() )
+QuickMode::QuickMode(QObject *parent, const QVariantList &)
+    : BaseMode(parent), d(new Private())
 {
     d->aboutClassic = new KAboutData(QStringLiteral("BreezeView"),
                                      i18n("Breeze View"),
@@ -107,7 +108,7 @@ QuickMode::QuickMode( QObject * parent, const QVariantList& )
 
 QuickMode::~QuickMode()
 {
-    if( !d->categoriesWidget ) {
+    if (!d->categoriesWidget) {
         delete d->classicWidget;
     }
     delete d;
@@ -116,18 +117,18 @@ QuickMode::~QuickMode()
 void QuickMode::initEvent()
 {
     // Create the model
-    d->model = new MenuModel( rootItem(), this );
+    d->model = new MenuModel(rootItem(), this);
 
     // Move items that are the sole child of a category up....
-    moveUp( rootItem() );
+    moveUp(rootItem());
 
     // Create the proxy model
-    d->proxyModel = new MenuProxyModel( this );
-    d->proxyModel->setSourceModel( d->model );
-    d->proxyModel->sort( 0 );
-    d->classicWidget = new QSplitter( Qt::Horizontal, 0 );
-    d->classicWidget->setChildrenCollapsible( false );
-    d->moduleView = new ModuleView( d->classicWidget );
+    d->proxyModel = new MenuProxyModel(this);
+    d->proxyModel->setSourceModel(d->model);
+    d->proxyModel->sort(0);
+    d->classicWidget = new QSplitter(Qt::Horizontal, 0);
+    d->classicWidget->setChildrenCollapsible(false);
+    d->moduleView = new ModuleView(d->classicWidget);
     d->categoriesWidget = 0;
 
     // Register MenuItem* in the QML runtime
@@ -136,34 +137,34 @@ void QuickMode::initEvent()
     d->host = new Host(d->proxyModel, this);
 }
 
-QWidget * QuickMode::mainWidget()
+QWidget *QuickMode::mainWidget()
 {
-    if( !d->categoriesWidget ) {
+    if (!d->categoriesWidget) {
         initWidget();
     }
     return d->classicWidget;
 }
 
-KAboutData * QuickMode::aboutData()
+KAboutData *QuickMode::aboutData()
 {
     return d->aboutClassic;
 }
 
-ModuleView * QuickMode::moduleView() const
+ModuleView *QuickMode::moduleView() const
 {
     return d->moduleView;
 }
 
-QList<QAbstractItemView*> QuickMode::views() const
+QList<QAbstractItemView *> QuickMode::views() const
 {
-    QList<QAbstractItemView*> theViews;
+    QList<QAbstractItemView *> theViews;
     //theViews << d->categoriesWidget;
     return theViews;
 }
 
 void QuickMode::saveState()
 {
-    config().writeEntry( "viewLayout", d->classicWidget->sizes() );
+    config().writeEntry("viewLayout", d->classicWidget->sizes());
     config().sync();
 }
 
@@ -172,91 +173,89 @@ void QuickMode::expandColumns()
     //d->categoriesWidget->resizeColumnToContents(0);
 }
 
-void QuickMode::searchChanged( const QString& text )
+void QuickMode::searchChanged(const QString &text)
 {
     d->proxyModel->setFilterRegExp(text);
-    if( d->categoriesWidget ) {
+    if (d->categoriesWidget) {
         //d->classicCategory->changeModule( d->categoriesWidget->currentIndex() );
     }
 }
 
-void QuickMode::selectModule( const QModelIndex& selectedModule )
+void QuickMode::selectModule(const QModelIndex &selectedModule)
 {
     //d->categoriesWidget->setCurrentIndex( selectedModule );
-    if( d->proxyModel->rowCount(selectedModule) > 0 ) {
+    if (d->proxyModel->rowCount(selectedModule) > 0) {
         //d->categoriesWidget->setExpanded(selectedModule, true);
     }
-    changeModule( selectedModule );
+    changeModule(selectedModule);
 }
 
-void QuickMode::changeModule( const QModelIndex& activeModule )
+void QuickMode::changeModule(const QModelIndex &activeModule)
 {
-    if( activeModule == d->currentItem ) {
+    if (activeModule == d->currentItem) {
         return;
     }
-    if( !d->moduleView->resolveChanges() ) {
+    if (!d->moduleView->resolveChanges()) {
         return;
     }
     d->moduleView->closeModules();
     d->currentItem = activeModule;
-    if( d->proxyModel->rowCount(activeModule) > 0 ) {
-        d->stackedWidget->setCurrentWidget( d->classicCategory );
+    if (d->proxyModel->rowCount(activeModule) > 0) {
+        d->stackedWidget->setCurrentWidget(d->classicCategory);
         d->classicCategory->changeModule(activeModule);
-        emit viewChanged( false );
+        emit viewChanged(false);
     } else {
-        d->moduleView->loadModule( activeModule );
+        d->moduleView->loadModule(activeModule);
     }
 }
 
 void QuickMode::moduleLoaded()
 {
-    d->stackedWidget->setCurrentWidget( d->moduleView );
+    d->stackedWidget->setCurrentWidget(d->moduleView);
 }
 
 void QuickMode::initWidget()
 {
     // Create the widget
-    d->categoriesWidget = new QQuickWidget( d->classicWidget );
+    d->categoriesWidget = new QQuickWidget(d->classicWidget);
     d->categoriesWidget->setAutoFillBackground(false);
     d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->host);
 
-
-    d->stackedWidget = new QStackedWidget( d->classicWidget );
+    d->stackedWidget = new QStackedWidget(d->classicWidget);
     d->stackedWidget->layout()->setMargin(0);
-    d->stackedWidget->addWidget( d->classicCategory );
-    d->stackedWidget->addWidget( d->moduleView );
+    d->stackedWidget->addWidget(d->classicCategory);
+    d->stackedWidget->addWidget(d->moduleView);
 
-    d->classicWidget->addWidget( d->categoriesWidget );
-    d->classicWidget->addWidget( d->stackedWidget );
+    d->classicWidget->addWidget(d->categoriesWidget);
+    d->classicWidget->addWidget(d->stackedWidget);
 
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
     d->categoriesWidget->rootContext()->setContextProperty("host", d->host);
 
-/*
-    QSurfaceFormat format;
-    //QSurfaceFormat format = view.format();
-    format.setAlphaBufferSize(8);
-    format.setRenderableType(QSurfaceFormat::OpenGL);
-    qDebug() << format.hasAlpha();
+    /*
+        QSurfaceFormat format;
+        //QSurfaceFormat format = view.format();
+        format.setAlphaBufferSize(8);
+        format.setRenderableType(QSurfaceFormat::OpenGL);
+        qDebug() << format.hasAlpha();
 
+        d->categoriesWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+        d->categoriesWidget->setAttribute(Qt::WA_NoSystemBackground);
+        d->categoriesWidget->setFormat(format);
+        d->categoriesWidget->setAutoFillBackground(false);
+        d->categoriesWidget->setStyleSheet(QString("background:transparent;"));
 
-    d->categoriesWidget->setAttribute(Qt::WA_TranslucentBackground, true);
-    d->categoriesWidget->setAttribute(Qt::WA_NoSystemBackground);
-    d->categoriesWidget->setFormat(format);
-    d->categoriesWidget->setAutoFillBackground(false);
-    d->categoriesWidget->setStyleSheet(QString("background:transparent;"));
+        d->classicWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+        d->classicWidget->setAttribute(Qt::WA_NoSystemBackground);
+        d->classicWidget->setAutoFillBackground(false);
+        d->classicWidget->setStyleSheet(QString("background:transparent;"));
 
-    d->classicWidget->setAttribute(Qt::WA_TranslucentBackground, true);
-    d->classicWidget->setAttribute(Qt::WA_NoSystemBackground);
-    d->classicWidget->setAutoFillBackground(false);
-    d->classicWidget->setStyleSheet(QString("background:transparent;"));
-
-    d->stackedWidget->setAttribute(Qt::WA_TranslucentBackground, true);
-    d->stackedWidget->setAttribute(Qt::WA_NoSystemBackground);
-    d->stackedWidget->setAutoFillBackground(false);
-    d->stackedWidget->setStyleSheet(QString("background:transparent;"));
-*/
+        d->stackedWidget->setAttribute(Qt::WA_TranslucentBackground, true);
+        d->stackedWidget->setAttribute(Qt::WA_NoSystemBackground);
+        d->stackedWidget->setAutoFillBackground(false);
+        d->stackedWidget->setStyleSheet(QString("background:transparent;"));
+    */
 
 //     d->categoriesWidget->setModel( d->proxyModel );
 //     d->categoriesWidget->setHeaderHidden( true );
@@ -271,19 +270,19 @@ void QuickMode::initWidget()
 
     d->categoriesWidget->setSource(d->package.filePath("Categories"));
 
-    connect( d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)) );
+    connect(d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)));
 //     connect( d->categoriesWidget, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
 //     connect( d->categoriesWidget, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
 //     connect( d->categoriesWidget, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
-    connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
+    connect(d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()));
 
 //     if( !KGlobalSettings::singleClick() ) {
-        // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
-        connect( d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
+    // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
+    connect(d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)));
 //     }
 
-    if( config().readEntry( "autoExpandOneLevel", false ) ) {
-        for( int processed = 0; d->proxyModel->rowCount() > processed; processed++ ) {
+    if (config().readEntry("autoExpandOneLevel", false)) {
+        for (int processed = 0; d->proxyModel->rowCount() > processed; processed++) {
             //d->categoriesWidget->setExpanded( d->proxyModel->index( processed, 0 ), true );
         }
     }
@@ -291,13 +290,13 @@ void QuickMode::initWidget()
     expandColumns();
     QList<int> defaultSizes;
     defaultSizes << 250 << 500;
-    d->classicWidget->setSizes( config().readEntry( "viewLayout", defaultSizes ) );
+    d->classicWidget->setSizes(config().readEntry("viewLayout", defaultSizes));
 }
 
 void QuickMode::leaveModuleView()
 {
     d->moduleView->closeModules();
-    d->stackedWidget->setCurrentWidget( d->classicCategory );
+    d->stackedWidget->setCurrentWidget(d->classicCategory);
 }
 
 void QuickMode::giveFocus()
@@ -305,16 +304,16 @@ void QuickMode::giveFocus()
     d->categoriesWidget->setFocus();
 }
 
-void QuickMode::addConfiguration( KConfigDialog * config )
+void QuickMode::addConfiguration(KConfigDialog *config)
 {
-    QWidget * configWidget = new QWidget( config );
-    d->classicConfig.setupUi( configWidget );
-    config->addPage( configWidget, i18n("Breeze View"), aboutData()->programIconName() );
+    QWidget *configWidget = new QWidget(config);
+    d->classicConfig.setupUi(configWidget);
+    config->addPage(configWidget, i18n("Breeze View"), aboutData()->programIconName());
 }
 
 void QuickMode::loadConfiguration()
 {
-    d->classicConfig.CbExpand->setChecked( config().readEntry( "autoExpandOneLevel", false ) );
+    d->classicConfig.CbExpand->setChecked(config().readEntry("autoExpandOneLevel", false));
 }
 
 void QuickMode::saveConfiguration()
@@ -322,13 +321,13 @@ void QuickMode::saveConfiguration()
     config().writeEntry("autoExpandOneLevel", d->classicConfig.CbExpand->isChecked());
 }
 
-void QuickMode::moveUp( MenuItem * item )
+void QuickMode::moveUp(MenuItem *item)
 {
-    foreach( MenuItem * child, item->children() ) {
-        if( child->children().count() == 1 ) {
-            d->model->addException( child );
+    foreach(MenuItem * child, item->children()) {
+        if (child->children().count() == 1) {
+            d->model->addException(child);
         }
-        moveUp( child );
+        moveUp(child);
     }
 }
 

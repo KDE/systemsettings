@@ -36,13 +36,13 @@ public:
     explicit CategoryList(const QString &path, QWidget *parent, Host *host);
     virtual ~CategoryList();
 
-    void changeModule( QModelIndex newItem);
+    void changeModule(QModelIndex newItem);
 
 Q_SIGNALS:
-    void moduleSelected( QModelIndex itemSelected );
+    void moduleSelected(QModelIndex itemSelected);
 
 private Q_SLOTS:
-    void slotModuleLinkClicked( const QUrl& moduleName );
+    void slotModuleLinkClicked(const QUrl &moduleName);
 
 private:
     class Private;
