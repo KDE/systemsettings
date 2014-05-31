@@ -117,7 +117,7 @@ void QuickMode::initEvent()
 {
     // Create the model
     d->model = new MenuModel( rootItem(), this );
-    
+
     // Move items that are the sole child of a category up....
     moveUp( rootItem() );
 
@@ -130,8 +130,8 @@ void QuickMode::initEvent()
     d->moduleView = new ModuleView( d->classicWidget );
     d->categoriesWidget = 0;
 
-    // Register Host* in the QML runtime
-    //qmlRegisterUncreatableType<Host>("org.kde.systemsettings", 5, 0, "Host", "You cannot create Host objects.");
+    // Register MenuItem* in the QML runtime
+    qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.")
 
     d->host = new Host(d->proxyModel, this);
 }
