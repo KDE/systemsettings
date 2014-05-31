@@ -131,7 +131,7 @@ void QuickMode::initEvent()
     d->categoriesWidget = 0;
 
     // Register MenuItem* in the QML runtime
-    qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.")
+    qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.");
 
     d->host = new Host(d->proxyModel, this);
 }
