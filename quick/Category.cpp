@@ -27,38 +27,35 @@ class CategoryPrivate
 {
 public:
     CategoryPrivate(Category *host)
-        : q(host),
-          categoriesModel(0) {
+        : q(host)
+    {
     }
 
     Category *q;
 
     QModelIndex modelIndex;
-    MenuProxyModel *categoriesModel;
+    //QAbstractItemModel *categoriesModel;
     QList<Category*> categories;
 };
 
-Category::Category(QModelIndex index, MenuProxyModel *model, QObject *parent) :
+Category::Category(QModelIndex index, QObject *parent) :
     QObject(parent),
     d(new CategoryPrivate(this))
 {
-    d->categoriesModel = model;
     d->modelIndex = index;
-
-    // Data from model...
 }
 
 QQmlListProperty<Category> Category::categories()
 {
     if (!d->categories.count()) {
-        const int n = d->categoriesModel->rowCount(d->modelIndex);
+        const int n = d->modelIndex.model()->rowCount(d->modelIndex);
         qDebug() << "ROWS:" << name() << n;
         for (int i = 0; i < n; i++) {
             QModelIndex index = d->modelIndex.child(i, 0);
-            Category *category = new Category(index, d->categoriesModel, this);
+            Category *category = new Category(index, this);
             d->categories.append(category);
-            //QString c = d->categoriesModel->data(index, Qt::DisplayRole).toString();
-            QString c = d->categoriesModel->data(index, Qt::DecorationRole).toString();
+            //QString c = d->modelIndex.model()->data(index, Qt::DisplayRole).toString();
+            QString c = d->modelIndex.model()->data(index, Qt::DecorationRole).toString();
             qDebug() << " Cat from model: " << c << category->name();
         }
 
@@ -69,12 +66,12 @@ QQmlListProperty<Category> Category::categories()
 
 QVariant Category::decoration() const
 {
-    return d->categoriesModel->data(d->modelIndex, Qt::DecorationRole);
+    return d->modelIndex.model()->data(d->modelIndex, Qt::DecorationRole);
 }
 
 QString Category::name() const
 {
-    return d->categoriesModel->data(d->modelIndex, Qt::DisplayRole).toString();
+    return d->modelIndex.model()->data(d->modelIndex, Qt::DisplayRole).toString();
 }
 
 

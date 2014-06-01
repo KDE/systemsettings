@@ -25,7 +25,7 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 Item {
     id: main
 
-    Rectangle { color: "green"; anchors.fill: parent; anchors.margins: 50; opacity: .4; }
+    Rectangle { color: theme.backgroundColor; anchors.fill: parent; }
 
     PlasmaExtras.Title {
         id: titleLabel
@@ -46,7 +46,7 @@ Item {
             top: titleLabel.bottom
             bottom: secondLabel.top
             left: parent.left
-            right: parent.horizontalCenter
+            right: collectionsList.model == null ? parent.right : parent.horizontalCenter
             margins: units.gridUnit
 
         }

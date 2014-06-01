@@ -38,7 +38,7 @@ class Category : public QObject
     Q_PROPERTY(QString name READ name CONSTANT);
 
 public:
-    Category(QModelIndex index, MenuProxyModel *model, QObject *parent = 0);
+    Category(QModelIndex index, QObject *parent = 0);
     virtual ~Category();
 
     QQmlListProperty<Category> categories();

@@ -29,13 +29,16 @@ class HostPrivate
 public:
     HostPrivate(Host *host)
         : q(host),
-          categoriesModel(0) {
+          categoriesModel(0),
+          rootCategory(0)
+    {
     }
 
     Host *q;
 
     QModelIndex currentCategory;
-    MenuProxyModel *categoriesModel;
+    MenuProxyModel *categoriesModel; // FIXME: replace by rootCategory().model()
+    Category *rootCategory;
     QList<Category*> categories;
 };
 
@@ -44,6 +47,7 @@ Host::Host(MenuProxyModel *model, QObject *parent) :
     d(new HostPrivate(this))
 {
     d->categoriesModel = model;
+    d->rootCategory = new Category(model->index(0, 0), this);
 
     categories();
 }
@@ -60,23 +64,12 @@ QAbstractItemModel *Host::categoriesModel()
 
 QQmlListProperty<Category> Host::categories()
 {
-//     return QQmlListProperty<ConfigCategory>(this, 0, ConfigModelPrivate::categories_append,
-//                                             ConfigModelPrivate::categories_count,
-//                                             ConfigModelPrivate::categories_at,
-//                                             ConfigModelPrivate::categories_clear);
-//
     if (!d->categories.count()) {
-        const int n = d->categoriesModel->rowCount(d->currentCategory);
-        qDebug() << "ROWS:" << n;
+        const int n = d->categoriesModel->rowCount(QModelIndex());
         for (int i = 0; i < n; i++) {
             QModelIndex index = d->categoriesModel->index(i, 0);
-            Category *category = new Category(index, d->categoriesModel, this);
-            d->categories.append(category);
-            //QString c = d->categoriesModel->data(index, Qt::DisplayRole).toString();
-            QString c = d->categoriesModel->data(index, Qt::DecorationRole).toString();
-            qDebug() << " Cat from model: " << c << category->name();
+            d->categories.append(new Category(index, this));
         }
-
     }
     return QQmlListProperty<Category>(this, d->categories);
 }
