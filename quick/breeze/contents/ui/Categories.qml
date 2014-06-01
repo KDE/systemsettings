@@ -36,7 +36,7 @@ Item {
             margins: units.gridUnit
 
         }
-        text: "Breeze: " + testString
+        text: "Breeze: "
     }
 
     ListView {
@@ -46,12 +46,38 @@ Item {
             top: titleLabel.bottom
             bottom: secondLabel.top
             left: parent.left
-            right: parent.right
+            right: parent.horizontalCenter
             margins: units.gridUnit
 
         }
 
         model: host.categories
+
+        delegate: ModuleDelegate {
+            title: name
+            icon: decoration
+            onClicked: {
+                host.categoryClicked(index);
+                host.categoryNameClicked(name);
+                print("Setting model in collectionsList");
+                collectionsList.model = categories;
+            }
+        }
+    }
+
+    ListView {
+        id: collectionsList
+
+        anchors {
+            top: titleLabel.bottom
+            bottom: secondLabel.top
+            right: parent.right
+            left: parent.horizontalCenter
+            margins: units.gridUnit
+
+        }
+
+        //model: host.collections
 
         delegate: ModuleDelegate {
             title: name

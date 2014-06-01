@@ -47,14 +47,15 @@ MouseArea {
     Text {
         id: lbel
         height: 32
-        width: 200
 
         anchors {
             left: moduleIcon.right
             verticalCenter: parent.verticalCenter
             right: parent.right
         }
+
         text: moduleDelegate.title
+        elide: Text.ElideRight
 
 
     }
