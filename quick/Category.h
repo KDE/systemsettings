@@ -23,6 +23,8 @@
 
 #include <QAbstractItemModel>
 #include <QObject>
+#include <QQmlListProperty>
+
 
 class CategoryPrivate;
 class MenuProxyModel;
@@ -31,16 +33,17 @@ class Category : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString name READ name CONSTANT);
+    Q_PROPERTY(QQmlListProperty<Category> categories READ categories CONSTANT)
     Q_PROPERTY(QVariant decoration READ decoration CONSTANT);
-    //Q_PROPERTY(QAbstractItemModel *categoriesModel READ categoriesModel CONSTANT)
+    Q_PROPERTY(QString name READ name CONSTANT);
 
 public:
     Category(QModelIndex index, MenuProxyModel *model, QObject *parent = 0);
     virtual ~Category();
 
-    QString name() const;
+    QQmlListProperty<Category> categories();
     QVariant decoration() const;
+    QString name() const;
 
 public Q_SLOTS:
 

@@ -35,6 +35,7 @@ public:
 
     QModelIndex modelIndex;
     MenuProxyModel *categoriesModel;
+    QList<Category*> categories;
 };
 
 Category::Category(QModelIndex index, MenuProxyModel *model, QObject *parent) :
@@ -47,14 +48,33 @@ Category::Category(QModelIndex index, MenuProxyModel *model, QObject *parent) :
     // Data from model...
 }
 
-QString Category::name() const
+QQmlListProperty<Category> Category::categories()
 {
-    return d->categoriesModel->data(d->modelIndex, Qt::DisplayRole).toString();
+    if (!d->categories.count()) {
+        const int n = d->categoriesModel->rowCount(d->modelIndex);
+        qDebug() << "ROWS:" << name() << n;
+        for (int i = 0; i < n; i++) {
+            QModelIndex index = d->modelIndex.child(i, 0);
+            Category *category = new Category(index, d->categoriesModel, this);
+            d->categories.append(category);
+            //QString c = d->categoriesModel->data(index, Qt::DisplayRole).toString();
+            QString c = d->categoriesModel->data(index, Qt::DecorationRole).toString();
+            qDebug() << " Cat from model: " << c << category->name();
+        }
+
+    }
+    return QQmlListProperty<Category>(this, d->categories);
 }
+
 
 QVariant Category::decoration() const
 {
     return d->categoriesModel->data(d->modelIndex, Qt::DecorationRole);
+}
+
+QString Category::name() const
+{
+    return d->categoriesModel->data(d->modelIndex, Qt::DisplayRole).toString();
 }
 
 
