@@ -18,42 +18,37 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef HOST_H
-#define HOST_H
-
-#include "Category.h"
+#ifndef CATEGORY_H
+#define CATEGORY_H
 
 #include <QAbstractItemModel>
 #include <QObject>
-#include <QQmlListProperty>
 
-class HostPrivate;
+class CategoryPrivate;
 class MenuProxyModel;
 
-class Host : public QObject
+class Category : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QAbstractItemModel *categoriesModel READ categoriesModel CONSTANT)
-    Q_PROPERTY(QQmlListProperty<Category> categories READ categories CONSTANT)
+    Q_PROPERTY(QString name READ name CONSTANT);
+    Q_PROPERTY(QVariant decoration READ decoration CONSTANT);
+    //Q_PROPERTY(QAbstractItemModel *categoriesModel READ categoriesModel CONSTANT)
 
 public:
-    Host(MenuProxyModel *model, QObject *parent = 0);
-    virtual ~Host();
+    Category(QModelIndex index, MenuProxyModel *model, QObject *parent = 0);
+    virtual ~Category();
 
-    QQmlListProperty<Category> categories();
+    QString name() const;
+    QVariant decoration() const;
 
 public Q_SLOTS:
-    QAbstractItemModel *categoriesModel();
-    Q_INVOKABLE void categoryClicked(int ix);
-    Q_INVOKABLE void categoryNameClicked(const QString &cat);
-    Q_INVOKABLE void moduleClicked(int ix);
 
 Q_SIGNALS:
-    void categoryChanged();
+
 
 private:
-    HostPrivate *d;
+    CategoryPrivate *d;
 };
 
-#endif // HOST_H
+#endif // CATEGORY_H

@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "host.h"
+#include "Category.h"
 #include "MenuProxyModel.h"
 
 #include <QDebug>
@@ -33,7 +34,9 @@ public:
 
     Host *q;
 
+    QModelIndex currentCategory;
     MenuProxyModel *categoriesModel;
+    QList<Category*> categories;
 };
 
 Host::Host(MenuProxyModel *model, QObject *parent) :
@@ -41,6 +44,8 @@ Host::Host(MenuProxyModel *model, QObject *parent) :
     d(new HostPrivate(this))
 {
     d->categoriesModel = model;
+
+    categories();
 }
 
 Host::~Host()
@@ -53,9 +58,40 @@ QAbstractItemModel *Host::categoriesModel()
     return d->categoriesModel;
 }
 
+QQmlListProperty<Category> Host::categories()
+{
+//     return QQmlListProperty<ConfigCategory>(this, 0, ConfigModelPrivate::categories_append,
+//                                             ConfigModelPrivate::categories_count,
+//                                             ConfigModelPrivate::categories_at,
+//                                             ConfigModelPrivate::categories_clear);
+//
+    if (!d->categories.count()) {
+        const int n = d->categoriesModel->rowCount(d->currentCategory);
+        qDebug() << "ROWS:" << n;
+        for (int i = 0; i < n; i++) {
+            QModelIndex index = d->categoriesModel->index(i, 0);
+            Category *category = new Category(index, d->categoriesModel, this);
+            d->categories.append(category);
+            //QString c = d->categoriesModel->data(index, Qt::DisplayRole).toString();
+            QString c = d->categoriesModel->data(index, Qt::DecorationRole).toString();
+            qDebug() << " Cat from model: " << c << category->name();
+        }
+
+    }
+    return QQmlListProperty<Category>(this, d->categories);
+}
+
 void Host::categoryClicked(int ix)
 {
     qDebug() << "Category: " << ix;
+    QModelIndex index = d->categoriesModel->index(ix, 0);
+    QString c = d->categoriesModel->data(index, Qt::DisplayRole).toString();
+    qDebug() << " Cat from model: " << c;
+}
+
+void Host::categoryNameClicked(const QString& cat)
+{
+    qDebug() << "Category: " << cat;
 }
 
 void Host::moduleClicked(int ix)

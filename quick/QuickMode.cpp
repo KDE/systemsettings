@@ -19,7 +19,9 @@
  * 02110-1301, USA.                                                       *
 ***************************************************************************/
 
+
 #include "QuickMode.h"
+#include "Category.h"
 #include "host.h"
 #include "ui_configClassic.h"
 
@@ -133,6 +135,7 @@ void QuickMode::initEvent()
 
     // Register MenuItem* in the QML runtime
     qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.");
+    qmlRegisterUncreatableType<Category>("org.kde.systemsettings", 5, 0, "Category", "You cannot create Category objects.");
 
     d->host = new Host(d->proxyModel, this);
 }
