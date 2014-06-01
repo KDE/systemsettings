@@ -51,11 +51,14 @@ Item {
 
         }
 
-        model: host.categoriesModel
+        model: host.categories
 
         delegate: ModuleDelegate {
+            title: name
+            icon: decoration
             onClicked: {
                 host.categoryClicked(index);
+                host.categoryNameClicked(name);
             }
         }
     }

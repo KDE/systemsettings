@@ -18,42 +18,44 @@
  */
 
 import QtQuick 2.0
-// import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.core 2.0 as PlasmaCore
 // import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-Item {
-    id: main
+MouseArea {
 
-    Rectangle { color: "yellow"; anchors.fill: parent; anchors.margins: 50; opacity: .4; }
+    id: moduleDelegate
 
-    PlasmaExtras.Title {
-        id: titleLabel
-        text: i18n("System Settings")
-    }
+    property string title: ""
+    property alias icon: moduleIcon.source
 
-    ListView {
-        id: categoriesList
+    height: units.gridUnit * 2
+    width: parent.width
+
+    PlasmaCore.IconItem {
+        id: moduleIcon
+
+        width: height
 
         anchors {
-            top: titleLabel.bottom
-            bottom: parent.bottom
             left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+        }
+    }
+
+    Text {
+        id: lbel
+        height: 32
+        width: 200
+
+        anchors {
+            left: moduleIcon.right
+            verticalCenter: parent.verticalCenter
             right: parent.right
-            margins: units.gridUnit
-
         }
+        text: moduleDelegate.title
 
-        model: host.categoriesModel
 
-        delegate: ModuleDelegate {
-
-            title: displayRole
-            icon: decorationRole
-
-            onClicked: {
-                host.moduleClicked(index);
-            }
-        }
     }
 }
