@@ -56,16 +56,11 @@ QQmlListProperty<Category> Category::categories()
 {
     if (!d->categories.count()) {
         const int n = d->modelIndex.model()->rowCount(d->modelIndex);
-        qDebug() << "ROWS:" << name() << n;
         for (int i = 0; i < n; i++) {
             QModelIndex index = d->modelIndex.child(i, 0);
             Category *category = new Category(index, this);
             d->categories.append(category);
-            //QString c = d->modelIndex.model()->data(index, Qt::DisplayRole).toString();
-            QString c = d->modelIndex.model()->data(index, Qt::DecorationRole).toString();
-            qDebug() << " Cat from model: " << c << category->name();
         }
-
     }
     return QQmlListProperty<Category>(this, d->categories);
 }
