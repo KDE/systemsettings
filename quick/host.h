@@ -53,7 +53,7 @@ public:
 public Q_SLOTS:
     QAbstractItemModel *categoriesModel();
     Q_INVOKABLE void categoryClicked(int ix);
-    Q_INVOKABLE void categoryNameClicked(const QString &cat);
+    Q_INVOKABLE void resetModules();
     Q_INVOKABLE void moduleClicked(int ix);
 
 Q_SIGNALS:

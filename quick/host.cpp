@@ -105,9 +105,10 @@ void Host::categoryClicked(int ix)
     qDebug() << " Cat from model: " << c;
 }
 
-void Host::categoryNameClicked(const QString& cat)
+void Host::resetModules()
 {
-    qDebug() << "Category: " << cat;
+    d->currentCategory = 0;
+    emit modulesChanged();
 }
 
 void Host::moduleClicked(int ix)
