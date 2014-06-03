@@ -19,21 +19,43 @@
 
 import QtQuick 2.0
 // import org.kde.plasma.core 2.0 as PlasmaCore
-// import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
     id: main
 
-    Rectangle { color: "yellow"; anchors.fill: parent; anchors.margins: 50; opacity: .4; }
+    Rectangle { color: theme.backgroundColor; anchors.fill: parent; }
 
     PlasmaExtras.Title {
         id: titleLabel
         text: i18n("System Settings")
     }
 
+    PlasmaExtras.Heading {
+        id: moduleLabel
+        level: 3
+
+        visible: host.modules.length == 0
+
+        anchors {
+            top: titleLabel.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            margins: units.gridUnit
+
+        }
+
+        text: "You can configure your stuff here."
+
+    }
+
     ListView {
         id: categoriesList
+
+        visible: host.modules.length > 0
+        currentIndex: -1
 
         anchors {
             top: titleLabel.bottom
@@ -45,6 +67,7 @@ Item {
         }
 
         model: host.modules
+
 
         delegate: ModuleDelegate {
 

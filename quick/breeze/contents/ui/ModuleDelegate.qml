@@ -26,14 +26,24 @@ MouseArea {
 
     id: moduleDelegate
 
-    property string title: ""
+    property string title: name
     property alias icon: moduleIcon.source
+
+    signal activated
 
     height: units.gridUnit * 2
     width: parent.width
 
+    onClicked: {
+//         print("Updating index");
+//         ListView.currentIndex = index;
+        activated();
+    }
+
     PlasmaCore.IconItem {
         id: moduleIcon
+
+        source: decoration
 
         width: height
 
@@ -56,7 +66,5 @@ MouseArea {
 
         text: moduleDelegate.title
         elide: Text.ElideRight
-
-
     }
 }

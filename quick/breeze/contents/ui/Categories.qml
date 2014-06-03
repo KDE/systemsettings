@@ -22,28 +22,32 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-Item {
+MouseArea {
     id: main
 
     Rectangle { color: theme.backgroundColor; anchors.fill: parent; }
 
-    PlasmaExtras.Title {
-        id: titleLabel
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-            margins: units.gridUnit
+//     PlasmaExtras.Title {
+//         id: titleLabel
+//         anchors {
+//             top: parent.top
+//             left: parent.left
+//             right: parent.right
+//             margins: units.gridUnit
+//
+//         }
+//         text: "Breeze: "
+//     }
 
-        }
-        text: "Breeze: "
+    onClicked: {
+        collectionsList.model = null;
     }
 
     ListView {
         id: categoriesList
 
         anchors {
-            top: titleLabel.bottom
+            top: parent.top
             bottom: secondLabel.top
             left: parent.left
             right: collectionsList.model == null ? parent.right : parent.horizontalCenter
@@ -52,42 +56,53 @@ Item {
         }
 
         model: host.categories
+        currentIndex: -1
 
         delegate: ModuleDelegate {
             title: name
             icon: decoration
-            onClicked: {
-                host.categoryClicked(index);
-                host.categoryNameClicked(name);
+            onActivated: {
+//                 host.categoryClicked(index);
+//                 host.categoryNameClicked(name);
+                categoriesList.currentIndex = index;
                 print("Setting model in collectionsList");
                 collectionsList.model = categories;
+                //collectionsList.currentIndex = 2;
+                select();
+                host.resetModules();
             }
         }
+        highlight: PlasmaComponents.Highlight {}
+        highlightMoveDuration: 0
     }
 
     ListView {
         id: collectionsList
 
         anchors {
-            top: titleLabel.bottom
+            top: categoriesList.top
             bottom: secondLabel.top
             right: parent.right
             left: parent.horizontalCenter
-            margins: units.gridUnit
+            //margins: units.gridUnit
 
         }
 
         //model: host.collections
+        currentIndex: -1
+
+        onModelChanged: currentIndex = -1
 
         delegate: ModuleDelegate {
             title: name
             icon: decoration
-            onClicked: {
-//                 host.categoryClicked(index);
-//                 host.categoryNameClicked(name);
+            onActivated: {
+                collectionsList.currentIndex = index;
                 select();
             }
         }
+        highlight: PlasmaComponents.Highlight {}
+        highlightMoveDuration: 0
     }
 
     PlasmaComponents.Label {
@@ -99,6 +114,6 @@ Item {
             margins: units.gridUnit
 
         }
-        text: "Model valid: " + (host.categoriesModel != undefined ? "Yes" : "No")
+        text: "Model valid: " + (host.categoriesModel != undefined ? "Yes" : "No") + host.categories.length
     }
 }
