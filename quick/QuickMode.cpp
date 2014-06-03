@@ -55,6 +55,7 @@
 
 K_PLUGIN_FACTORY(QuickModeFactory, registerPlugin<QuickMode>();)
 
+const static QString defaultPackageName = QStringLiteral("org.kde.systemsettings.breeze");
 
 class QuickMode::Private
 {
@@ -91,22 +92,6 @@ QuickMode::QuickMode(QObject *parent, const QVariantList &)
     d->aboutClassic->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
     d->aboutClassic->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
     d->aboutClassic->setProgramIconName("applications-science");
-
-    const QString packageRoot = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "plasma/packages/org.kde.systemsettings.breeze", QStandardPaths::LocateDirectory);
-    qDebug() << "QSP" << packageRoot;
-
-    Plasma::PackageStructure *ps = new Plasma::PackageStructure(this);
-    d->package = Plasma::Package(ps);
-    d->package.addFileDefinition("Categories", "ui/Categories.qml", i18n("Sidebar Script File"));
-    d->package.setRequired("Categories", true);
-    d->package.addFileDefinition("Modules", "ui/Modules.qml", i18n("Modules List Script File"));
-    d->package.setRequired("Modules", true);
-
-    d->package.setPath(packageRoot);
-
-    qDebug() << "valid / defroot?: " << d->package.isValid() << d->package.defaultPackageRoot();
-    qDebug() << "categories: " << d->package.filePath("Categories");
-    qDebug() << "modules: " << d->package.filePath("Modules");
 }
 
 QuickMode::~QuickMode()
@@ -117,8 +102,33 @@ QuickMode::~QuickMode()
     delete d;
 }
 
+void QuickMode::loadPackage()
+{
+    Plasma::PackageStructure *ps = new Plasma::PackageStructure(this);
+    d->package = Plasma::Package(ps);
+    d->package.addFileDefinition("Categories", "ui/Categories.qml", i18n("Sidebar Script File"));
+    d->package.setRequired("Categories", true);
+    d->package.addFileDefinition("Modules", "ui/Modules.qml", i18n("Modules List Script File"));
+    d->package.setRequired("Modules", true);
+
+    const QString packageName = config().readEntry("package", defaultPackageName);
+    const QString pr = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                              QStringLiteral("plasma/packages/") + packageName,
+                                              QStandardPaths::LocateDirectory);
+    d->package.setPath(pr);
+
+    if (d->package.filePath("Categories").isEmpty() || d->package.filePath("Modules").isEmpty()) {
+        qWarning() << "Package " << packageName << " is not installed.";
+    }
+//     qDebug() << "valid / defroot?: " << d->package.isValid() << d->package.defaultPackageRoot();
+//     qDebug() << "categories: " << d->package.filePath("Categories");
+//     qDebug() << "modules: " << d->package.filePath("Modules");
+
+}
+
 void QuickMode::initEvent()
 {
+    loadPackage();
     // Create the model
     d->model = new MenuModel(rootItem(), this);
 
@@ -172,11 +182,6 @@ void QuickMode::saveState()
 {
     config().writeEntry("viewLayout", d->classicWidget->sizes());
     config().sync();
-}
-
-void QuickMode::expandColumns()
-{
-    //d->categoriesWidget->resizeColumnToContents(0);
 }
 
 void QuickMode::searchChanged(const QString &text)
@@ -237,63 +242,13 @@ void QuickMode::initWidget()
 
     d->categoriesWidget->rootContext()->setContextProperty("host", Host::self());
 
-    /*
-        QSurfaceFormat format;
-        //QSurfaceFormat format = view.format();
-        format.setAlphaBufferSize(8);
-        format.setRenderableType(QSurfaceFormat::OpenGL);
-        qDebug() << format.hasAlpha();
-
-        d->categoriesWidget->setAttribute(Qt::WA_TranslucentBackground, true);
-        d->categoriesWidget->setAttribute(Qt::WA_NoSystemBackground);
-        d->categoriesWidget->setFormat(format);
-        d->categoriesWidget->setAutoFillBackground(false);
-        d->categoriesWidget->setStyleSheet(QString("background:transparent;"));
-
-        d->classicWidget->setAttribute(Qt::WA_TranslucentBackground, true);
-        d->classicWidget->setAttribute(Qt::WA_NoSystemBackground);
-        d->classicWidget->setAutoFillBackground(false);
-        d->classicWidget->setStyleSheet(QString("background:transparent;"));
-
-        d->stackedWidget->setAttribute(Qt::WA_TranslucentBackground, true);
-        d->stackedWidget->setAttribute(Qt::WA_NoSystemBackground);
-        d->stackedWidget->setAutoFillBackground(false);
-        d->stackedWidget->setStyleSheet(QString("background:transparent;"));
-    */
-
-//     d->categoriesWidget->setModel( d->proxyModel );
-//     d->categoriesWidget->setHeaderHidden( true );
-//     d->categoriesWidget->setIconSize( QSize( 24, 24 ) );
-//     d->categoriesWidget->setSortingEnabled( true );
-//     d->categoriesWidget->setMouseTracking( true );
-//     d->categoriesWidget->setMinimumWidth( 200 );
-//     d->categoriesWidget->setSelectionMode( QAbstractItemView::SingleSelection );
-//     d->categoriesWidget->sortByColumn( 0, Qt::AscendingOrder );
-
-//     d->classicCategory->changeModule( d->categoriesWidget->rootIndex() );
-
     d->categoriesWidget->setSource(d->package.filePath("Categories"));
 
-    //connect(Host::self(), SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)));
-
     connect(Host::self(), &Host::moduleSelected, this, &QuickMode::selectModule);
-//     connect( d->categoriesWidget, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
-//     connect( d->categoriesWidget, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
-//     connect( d->categoriesWidget, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
     connect(d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()));
 
-//     if( !KGlobalSettings::singleClick() ) {
-    // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
     connect(d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)));
-//     }
 
-    if (config().readEntry("autoExpandOneLevel", false)) {
-        for (int processed = 0; d->proxyModel->rowCount() > processed; processed++) {
-            //d->categoriesWidget->setExpanded( d->proxyModel->index( processed, 0 ), true );
-        }
-    }
-
-    expandColumns();
     QList<int> defaultSizes;
     defaultSizes << 250 << 500;
     d->classicWidget->setSizes(config().readEntry("viewLayout", defaultSizes));

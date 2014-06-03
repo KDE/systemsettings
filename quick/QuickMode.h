@@ -43,7 +43,6 @@ protected:
     QList<QAbstractItemView *> views() const;
 
 public Q_SLOTS:
-    void expandColumns();
     void searchChanged(const QString &text);
     void selectModule(const QModelIndex &selectedModule);
     void changeModule(const QModelIndex &activeModule);
@@ -56,6 +55,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void moduleLoaded();
     void initWidget();
+    void loadPackage();
     void moveUp(MenuItem *item);
 
 private:
