@@ -32,6 +32,8 @@ int main( int argc, char *argv[] )
 {
     SystemSettingsApp application(argc, argv);
 
+    KLocalizedString::setApplicationDomain("systemsettings");
+
     // About data
     KAboutData aboutData("systemsettings", i18n("System Settings"), SYSTEMSETTINGS_STRING_VERSION, i18n("Central configuration center for KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
     aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), "bcooksley@kde.org");
