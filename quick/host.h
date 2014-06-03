@@ -36,6 +36,7 @@ class Host : public QObject
 
     Q_PROPERTY(QAbstractItemModel *categoriesModel READ categoriesModel CONSTANT)
     Q_PROPERTY(QQmlListProperty<Category> categories READ categories CONSTANT)
+    Q_PROPERTY(QQmlListProperty<Category> modules READ modules NOTIFY modulesChanged)
 
 public:
     Host();
@@ -44,8 +45,10 @@ public:
     static Host* self();
 
     void setModel(MenuProxyModel *model);
+    void selectModule(Category *cat);
 
     QQmlListProperty<Category> categories();
+    QQmlListProperty<Category> modules();
 
 public Q_SLOTS:
     QAbstractItemModel *categoriesModel();
@@ -54,7 +57,8 @@ public Q_SLOTS:
     Q_INVOKABLE void moduleClicked(int ix);
 
 Q_SIGNALS:
-    void categorySelected(QModelIndex);
+    void moduleSelected(QModelIndex);
+    void modulesChanged();
 
 private:
     HostPrivate *d;

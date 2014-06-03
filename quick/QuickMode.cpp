@@ -189,10 +189,6 @@ void QuickMode::searchChanged(const QString &text)
 
 void QuickMode::selectModule(const QModelIndex &selectedModule)
 {
-    //d->categoriesWidget->setCurrentIndex( selectedModule );
-    if (d->proxyModel->rowCount(selectedModule) > 0) {
-        //d->categoriesWidget->setExpanded(selectedModule, true);
-    }
     changeModule(selectedModule);
 }
 
@@ -209,8 +205,10 @@ void QuickMode::changeModule(const QModelIndex &activeModule)
     if (d->proxyModel->rowCount(activeModule) > 0) {
         d->stackedWidget->setCurrentWidget(d->classicCategory);
         d->classicCategory->changeModule(activeModule);
+        qDebug() << "Group, I think.";
         emit viewChanged(false);
     } else {
+        qDebug() << "Load Module";
         d->moduleView->loadModule(activeModule);
     }
 }
@@ -276,7 +274,9 @@ void QuickMode::initWidget()
 
     d->categoriesWidget->setSource(d->package.filePath("Categories"));
 
-    connect(d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)));
+    //connect(Host::self(), SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)));
+
+    connect(Host::self(), &Host::moduleSelected, this, &QuickMode::selectModule);
 //     connect( d->categoriesWidget, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
 //     connect( d->categoriesWidget, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
 //     connect( d->categoriesWidget, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );

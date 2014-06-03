@@ -45,7 +45,10 @@ public:
     QVariant decoration() const;
     QString name() const;
 
+    QModelIndex modelIndex();
+
 public Q_SLOTS:
+    void select();
 
 Q_SIGNALS:
     void selected(QModelIndex);

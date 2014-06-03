@@ -83,8 +83,9 @@ Item {
             title: name
             icon: decoration
             onClicked: {
-                host.categoryClicked(index);
-                host.categoryNameClicked(name);
+//                 host.categoryClicked(index);
+//                 host.categoryNameClicked(name);
+                select();
             }
         }
     }

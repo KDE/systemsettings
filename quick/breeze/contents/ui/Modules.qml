@@ -44,15 +44,16 @@ Item {
 
         }
 
-        model: host.categoriesModel
+        model: host.modules
 
         delegate: ModuleDelegate {
 
-            title: displayRole
-            icon: decorationRole
+            title: name
+            icon: decoration
 
             onClicked: {
                 host.moduleClicked(index);
+                select();
             }
         }
     }

@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "Category.h"
+#include "host.h"
 #include "MenuProxyModel.h"
 
 #include <QDebug>
@@ -43,6 +44,12 @@ Category::Category(QModelIndex index, QObject *parent) :
     d(new CategoryPrivate(this))
 {
     d->modelIndex = index;
+
+}
+
+Category::~Category()
+{
+    delete d;
 }
 
 QQmlListProperty<Category> Category::categories()
@@ -74,10 +81,15 @@ QString Category::name() const
     return d->modelIndex.model()->data(d->modelIndex, Qt::DisplayRole).toString();
 }
 
-
-Category::~Category()
+QModelIndex Category::modelIndex()
 {
-    delete d;
+    return d->modelIndex;
+}
+
+
+void Category::select()
+{
+    Host::self()->selectModule(this);
 }
 
 

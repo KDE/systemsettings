@@ -39,7 +39,7 @@ public:
 
     Host *q;
 
-    QModelIndex currentCategory;
+    Category *currentCategory;
     MenuProxyModel *categoriesModel; // FIXME: replace by rootCategory().model()
     Category *rootCategory;
     QList<Category*> categories;
@@ -58,6 +58,7 @@ Host* Host::self()
 void Host::setModel(MenuProxyModel *model)
 {
     d = new HostPrivate(this);
+    d->currentCategory = 0;
     d->categoriesModel = model;
     d->rootCategory = new Category(model->index(0, 0), this);
 
@@ -86,6 +87,16 @@ QQmlListProperty<Category> Host::categories()
     return QQmlListProperty<Category>(this, d->categories);
 }
 
+QQmlListProperty<Category> Host::modules()
+{
+    if (d->currentCategory) {
+        //return QQmlListProperty<Category>(this, d->currentCategory->categories());
+        return d->currentCategory->categories();
+    }
+    return QQmlListProperty<Category>();
+}
+
+
 void Host::categoryClicked(int ix)
 {
     qDebug() << "Category: " << ix;
@@ -103,5 +114,22 @@ void Host::moduleClicked(int ix)
 {
     qDebug() << "Module: " << ix;
 }
+
+void Host::selectModule(Category *cat)
+{
+    if (d->categoriesModel->rowCount(cat->modelIndex()) > 0) {
+//         d->stackedWidget->setCurrentWidget(d->classicCategory);
+//         d->classicCategory->changeModule(activeModule);
+        if (d->currentCategory != cat) {
+            d->currentCategory = cat;
+            qDebug() << "Updating Modules.";
+            emit modulesChanged();
+        }
+
+        //emit viewChanged(false);
+    }
+    emit moduleSelected(cat->modelIndex());
+}
+
 
 #include "host.moc"
