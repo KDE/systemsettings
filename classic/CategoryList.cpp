@@ -128,7 +128,7 @@ void CategoryList::changeModule( QModelIndex newItem )
 void CategoryList::slotModuleLinkClicked( const QUrl& moduleName )
 {
     QModelIndex module = d->itemMap.value( moduleName.url() );
-    qDebug() << "Link name: " + moduleName.url();
+    qDebug() << "Link name: " << module << moduleName.url();
     emit moduleSelected( module );
 }
 

@@ -22,7 +22,10 @@
 #include "Category.h"
 #include "MenuProxyModel.h"
 
+#include <QGlobalStatic>
 #include <QDebug>
+
+Q_GLOBAL_STATIC(Host, staticHost)
 
 class HostPrivate
 {
@@ -42,10 +45,19 @@ public:
     QList<Category*> categories;
 };
 
-Host::Host(MenuProxyModel *model, QObject *parent) :
-    QObject(parent),
-    d(new HostPrivate(this))
+Host::Host(): QObject()
 {
+}
+
+Host* Host::self()
+{
+    return staticHost;
+}
+
+
+void Host::setModel(MenuProxyModel *model)
+{
+    d = new HostPrivate(this);
     d->categoriesModel = model;
     d->rootCategory = new Category(model->index(0, 0), this);
 

@@ -46,6 +46,7 @@
 #include <KConfigDialog>
 //#include <KGlobalSettings>
 
+#include "host.h"
 #include "MenuItem.h"
 #include "MenuModel.h"
 #include "ModuleView.h"
@@ -53,6 +54,7 @@
 #include "MenuProxyModel.h"
 
 K_PLUGIN_FACTORY(QuickModeFactory, registerPlugin<QuickMode>();)
+
 
 class QuickMode::Private
 {
@@ -70,7 +72,6 @@ public:
     ModuleView *moduleView;
     QModelIndex currentItem;
 
-    Host *host;
     MenuProxyModel *proxyModel;
     MenuModel *model;
     KAboutData *aboutClassic;
@@ -128,6 +129,9 @@ void QuickMode::initEvent()
     d->proxyModel = new MenuProxyModel(this);
     d->proxyModel->setSourceModel(d->model);
     d->proxyModel->sort(0);
+
+    Host::self()->setModel(d->proxyModel);
+
     d->classicWidget = new QSplitter(Qt::Horizontal, 0);
     d->classicWidget->setChildrenCollapsible(false);
     d->moduleView = new ModuleView(d->classicWidget);
@@ -137,7 +141,6 @@ void QuickMode::initEvent()
     qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.");
     qmlRegisterUncreatableType<Category>("org.kde.systemsettings", 5, 0, "Category", "You cannot create Category objects.");
 
-    d->host = new Host(d->proxyModel, this);
 }
 
 QWidget *QuickMode::mainWidget()
@@ -222,7 +225,7 @@ void QuickMode::initWidget()
     // Create the widget
     d->categoriesWidget = new QQuickWidget(d->classicWidget);
     d->categoriesWidget->setAutoFillBackground(false);
-    d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget, d->host);
+    d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget);
 
     d->stackedWidget = new QStackedWidget(d->classicWidget);
     d->stackedWidget->layout()->setMargin(0);
@@ -234,7 +237,7 @@ void QuickMode::initWidget()
 
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-    d->categoriesWidget->rootContext()->setContextProperty("host", d->host);
+    d->categoriesWidget->rootContext()->setContextProperty("host", Host::self());
 
     /*
         QSurfaceFormat format;

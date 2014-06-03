@@ -48,6 +48,7 @@ public:
 public Q_SLOTS:
 
 Q_SIGNALS:
+    void selected(QModelIndex);
 
 
 private:

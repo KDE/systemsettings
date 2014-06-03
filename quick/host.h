@@ -38,8 +38,12 @@ class Host : public QObject
     Q_PROPERTY(QQmlListProperty<Category> categories READ categories CONSTANT)
 
 public:
-    Host(MenuProxyModel *model, QObject *parent = 0);
+    Host();
     virtual ~Host();
+
+    static Host* self();
+
+    void setModel(MenuProxyModel *model);
 
     QQmlListProperty<Category> categories();
 
@@ -50,7 +54,7 @@ public Q_SLOTS:
     Q_INVOKABLE void moduleClicked(int ix);
 
 Q_SIGNALS:
-    void categoryChanged();
+    void categorySelected(QModelIndex);
 
 private:
     HostPrivate *d;

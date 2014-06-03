@@ -33,7 +33,7 @@ class CategoryList : public QQuickWidget
     Q_OBJECT
 
 public:
-    explicit CategoryList(const QString &path, QWidget *parent, Host *host);
+    explicit CategoryList(const QString &path, QWidget *parent);
     virtual ~CategoryList();
 
     void changeModule(QModelIndex newItem);

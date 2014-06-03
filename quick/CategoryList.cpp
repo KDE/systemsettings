@@ -48,14 +48,12 @@ public:
     QModelIndex categoryMenu;
     QAbstractItemModel *itemModel;
     QMap<QString, QModelIndex> itemMap;
-    Host *host;
 };
 
-CategoryList::CategoryList(const QString &path, QWidget *parent, Host *host)
+CategoryList::CategoryList(const QString &path, QWidget *parent)
     : QQuickWidget(parent), d(new Private())
 {
-    d->itemModel = host->categoriesModel();
-    d->host = host;
+    d->itemModel = Host::self()->categoriesModel();
 
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
@@ -73,7 +71,7 @@ CategoryList::CategoryList(const QString &path, QWidget *parent, Host *host)
     setMinimumSize(400, 400);
     setResizeMode(QQuickWidget::SizeRootObjectToView);
     rootContext()->setContextProperty("menuModel", d->itemModel);
-    rootContext()->setContextProperty("host", d->host);
+    rootContext()->setContextProperty("host", Host::self());
 
     setSource(path);
 
