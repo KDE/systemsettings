@@ -29,6 +29,7 @@
 
 class HostPrivate;
 class MenuProxyModel;
+class QuickMode;
 
 class Host : public QObject
 {
@@ -45,6 +46,7 @@ public:
     static Host* self();
 
     void setModel(MenuProxyModel *model);
+    void setQuickMode(QuickMode *quickmode);
     void selectModule(Category *cat);
 
     QQmlListProperty<Category> categories();
@@ -55,6 +57,9 @@ public Q_SLOTS:
     Q_INVOKABLE void categoryClicked(int ix);
     Q_INVOKABLE void resetModules();
     Q_INVOKABLE void moduleClicked(int ix);
+
+    Q_INVOKABLE void setColumnWidth(int col, int colWidth);
+    Q_INVOKABLE void setRowHeight(int row, int rowHeight);
 
 Q_SIGNALS:
     void moduleSelected(QModelIndex);

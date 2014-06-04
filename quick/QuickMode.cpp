@@ -60,11 +60,19 @@ const static QString defaultPackageName = QStringLiteral("org.kde.systemsettings
 class QuickMode::Private
 {
 public:
-    Private() : moduleView(0) {}
+    Private() :
+    mainWidget(0),
+    gridLayout(0),
+    categoriesWidget(0),
+    moduleView(0)
+    //stackedWidget(0)
+    {}
     virtual ~Private() {
         delete aboutClassic;
     }
 
+    QWidget *mainWidget;
+    QGridLayout *gridLayout;
     QSplitter *classicWidget;
     QQuickWidget *categoriesWidget;
     Ui::ConfigClassic classicConfig;
@@ -97,7 +105,7 @@ QuickMode::QuickMode(QObject *parent, const QVariantList &)
 QuickMode::~QuickMode()
 {
     if (!d->categoriesWidget) {
-        delete d->classicWidget;
+        delete d->mainWidget;
     }
     delete d;
 }
@@ -141,11 +149,7 @@ void QuickMode::initEvent()
     d->proxyModel->sort(0);
 
     Host::self()->setModel(d->proxyModel);
-
-    d->classicWidget = new QSplitter(Qt::Horizontal, 0);
-    d->classicWidget->setChildrenCollapsible(false);
-    d->moduleView = new ModuleView(d->classicWidget);
-    d->categoriesWidget = 0;
+    Host::self()->setQuickMode(this);
 
     // Register MenuItem* in the QML runtime
     qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.");
@@ -158,7 +162,7 @@ QWidget *QuickMode::mainWidget()
     if (!d->categoriesWidget) {
         initWidget();
     }
-    return d->classicWidget;
+    return d->mainWidget;
 }
 
 KAboutData *QuickMode::aboutData()
@@ -208,35 +212,62 @@ void QuickMode::changeModule(const QModelIndex &activeModule)
     d->moduleView->closeModules();
     d->currentItem = activeModule;
     if (d->proxyModel->rowCount(activeModule) > 0) {
-        d->stackedWidget->setCurrentWidget(d->classicCategory);
-        d->classicCategory->changeModule(activeModule);
+        //d->stackedWidget->setCurrentWidget(d->classicCategory);e
+//         d->moduleView->show();
+        d->moduleView->hide();
+        //d->classicCategory->changeModule(activeModule);
         qDebug() << "Group, I think.";
         emit viewChanged(false);
     } else {
-        qDebug() << "Load Module";
+        qDebug() << "Load Module RAISE";
+        d->moduleView->show();
+        d->moduleView->raise();
         d->moduleView->loadModule(activeModule);
     }
 }
 
 void QuickMode::moduleLoaded()
 {
-    d->stackedWidget->setCurrentWidget(d->moduleView);
+    //d->stackedWidget->setCurrentWidget(d->moduleView);
+    d->moduleView->show();
 }
 
 void QuickMode::initWidget()
 {
+
+    d->mainWidget = new QWidget();
+    d->gridLayout = new QGridLayout(d->mainWidget);
+    d->gridLayout->setColumnMinimumWidth(0, 200);
+    d->gridLayout->setRowMinimumHeight(0, 150);
+
+    QWidget *spacer = new QWidget(d->mainWidget);
+    spacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    spacer->setGeometry(0,0, 200, 150);
+
+    d->gridLayout->addWidget(spacer, 0, 0);
+
+//     d->classicWidget = new QSplitter(Qt::Horizontal, 0);
+//     d->classicWidget->setHandleWidth(0);
+//     d->classicWidget->setChildrenCollapsible(false);
+    d->moduleView = new ModuleView(d->mainWidget);
+//     d->gridLayout->addWidget(d->moduleView, 1, 1);
+    d->categoriesWidget = 0;
+
+
     // Create the widget
-    d->categoriesWidget = new QQuickWidget(d->classicWidget);
+    d->categoriesWidget = new QQuickWidget(d->mainWidget);
     d->categoriesWidget->setAutoFillBackground(false);
-    d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget);
+    d->gridLayout->addWidget(d->categoriesWidget, 0, 0, 2, 2);
 
-    d->stackedWidget = new QStackedWidget(d->classicWidget);
-    d->stackedWidget->layout()->setMargin(0);
-    d->stackedWidget->addWidget(d->classicCategory);
-    d->stackedWidget->addWidget(d->moduleView);
-
-    d->classicWidget->addWidget(d->categoriesWidget);
-    d->classicWidget->addWidget(d->stackedWidget);
+//     d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget);
+//
+//     d->stackedWidget = new QStackedWidget(d->classicWidget);
+//     d->stackedWidget->layout()->setMargin(0);
+//     d->stackedWidget->addWidget(d->classicCategory);
+//     d->stackedWidget->addWidget(d->moduleView);
+//
+//     d->classicWidget->addWidget(d->categoriesWidget);
+//     d->classicWidget->addWidget(d->stackedWidget);
 
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
@@ -248,16 +279,29 @@ void QuickMode::initWidget()
     connect(d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()));
 
     connect(d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)));
+    d->gridLayout->addWidget(d->moduleView, 1, 1);
 
-    QList<int> defaultSizes;
-    defaultSizes << 250 << 500;
-    d->classicWidget->setSizes(config().readEntry("viewLayout", defaultSizes));
+//     QList<int> defaultSizes;
+//     defaultSizes << 250 << 500;
+//     d->classicWidget->setSizes(config().readEntry("viewLayout", defaultSizes));
 }
+
+void QuickMode::setColumnWidth(int col, int colWidth)
+{
+    d->gridLayout->setColumnMinimumWidth(col, colWidth);
+}
+
+void QuickMode::setRowHeight(int row, int rowHeight)
+{
+    d->gridLayout->setRowMinimumHeight(row, rowHeight);
+}
+
 
 void QuickMode::leaveModuleView()
 {
     d->moduleView->closeModules();
-    d->stackedWidget->setCurrentWidget(d->classicCategory);
+    //d->stackedWidget->setCurrentWidget(d->classicCategory);
+    d->moduleView->hide();
 }
 
 void QuickMode::giveFocus()

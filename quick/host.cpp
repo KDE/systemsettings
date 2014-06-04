@@ -21,6 +21,7 @@
 #include "host.h"
 #include "Category.h"
 #include "MenuProxyModel.h"
+#include "QuickMode.h"
 
 #include <QGlobalStatic>
 #include <QDebug>
@@ -38,7 +39,7 @@ public:
     }
 
     Host *q;
-
+    QuickMode *quickMode;
     Category *currentCategory;
     MenuProxyModel *categoriesModel; // FIXME: replace by rootCategory().model()
     Category *rootCategory;
@@ -63,6 +64,11 @@ void Host::setModel(MenuProxyModel *model)
     d->rootCategory = new Category(model->index(0, 0), this);
 
     categories();
+}
+
+void Host::setQuickMode(QuickMode* quickmode)
+{
+    d->quickMode = quickmode;
 }
 
 Host::~Host()
@@ -130,6 +136,16 @@ void Host::selectModule(Category *cat)
         //emit viewChanged(false);
     }
     emit moduleSelected(cat->modelIndex());
+}
+
+void Host::setColumnWidth(int col, int colWidth)
+{
+    d->quickMode->setColumnWidth(col, colWidth);
+}
+
+void Host::setRowHeight(int row, int rowHeight)
+{
+    d->quickMode->setRowHeight(row, rowHeight);
 }
 
 
