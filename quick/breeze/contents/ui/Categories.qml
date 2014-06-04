@@ -92,7 +92,7 @@ MouseArea {
 
     Rectangle {
         anchors.fill: collectionsList
-        color: Qt.transparant
+        anchors.topMargin: -1
         border.width: 1
         border.color: theme.textColor
         opacity: wide ? 0.1 : 0

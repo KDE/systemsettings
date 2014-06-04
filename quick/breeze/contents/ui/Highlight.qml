@@ -30,7 +30,7 @@ Item {
 
     Rectangle {
         color: theme.highlightColor
-        width: units.gridUnit / 2
+        width: Math.round(units.gridUnit / 4)
 
         anchors {
             left: parent.left

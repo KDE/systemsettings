@@ -21,6 +21,7 @@ import QtQuick 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.systemsettings 5.0 as SystemSettings
 
 Item {
     id: main
@@ -31,12 +32,46 @@ Item {
         id: topLeftR
 
         width: units.gridUnit * 10
-        height: units.gridUnit * 4
+        height: units.gridUnit * 5
 
         onWidthChanged: host.setColumnWidth(0, width * 2)
         onHeightChanged: host.setRowHeight(0, height)
 
         color: theme.highlightColor
+
+
+        SystemSettings.KUser {
+            id: kuser
+        }
+
+        Image {
+            id: faceIcon
+            source: kuser.faceIconPath
+            visible: source != ""
+
+            width: units.gridUnit * 3
+            height: width
+
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+                topMargin: units.gridUnit / 2
+                //bottomMargin: units.gridUnit / 2
+            }
+        }
+
+        PlasmaComponents.Label {
+
+            anchors {
+                top: faceIcon.bottom
+                horizontalCenter: parent.horizontalCenter
+                //topMargin: units.gridUnit / 2
+                //bottomMargin: units.gridUnit / 2
+            }
+
+            font: theme.smallestFont
+            text: kuser.fullName
+        }
     }
 
     Rectangle {
@@ -50,7 +85,22 @@ Item {
         anchors {
             left: parent.left
             right: parent.right
-            bottom: topLeftR.bottom
+            top: topLeftR.bottom
+        }
+    }
+
+    Rectangle {
+
+        id: verticalseparator
+
+        width: 1
+        color: theme.textColor
+        opacity: 0.2
+
+        anchors {
+            left: topLeftR.right
+            top: parent.top
+            bottom: parent.bottom
         }
     }
 
