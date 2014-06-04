@@ -104,7 +104,7 @@ QuickMode::QuickMode(QObject *parent, const QVariantList &)
 
 QuickMode::~QuickMode()
 {
-    if (!d->categoriesWidget) {
+    if (!d->mainWidget) {
         delete d->mainWidget;
     }
     delete d;
@@ -159,7 +159,7 @@ void QuickMode::initEvent()
 
 QWidget *QuickMode::mainWidget()
 {
-    if (!d->categoriesWidget) {
+    if (!d->mainWidget) {
         initWidget();
     }
     return d->mainWidget;
@@ -192,7 +192,7 @@ void QuickMode::searchChanged(const QString &text)
 {
     d->proxyModel->setFilterRegExp(text);
     if (d->categoriesWidget) {
-        //d->classicCategory->changeModule( d->categoriesWidget->currentIndex() );
+        // FIXME
     }
 }
 
@@ -212,8 +212,6 @@ void QuickMode::changeModule(const QModelIndex &activeModule)
     d->moduleView->closeModules();
     d->currentItem = activeModule;
     if (d->proxyModel->rowCount(activeModule) > 0) {
-        //d->stackedWidget->setCurrentWidget(d->classicCategory);e
-//         d->moduleView->show();
         d->moduleView->hide();
         //d->classicCategory->changeModule(activeModule);
         qDebug() << "Group, I think.";
@@ -228,7 +226,6 @@ void QuickMode::changeModule(const QModelIndex &activeModule)
 
 void QuickMode::moduleLoaded()
 {
-    //d->stackedWidget->setCurrentWidget(d->moduleView);
     d->moduleView->show();
 }
 
@@ -240,50 +237,26 @@ void QuickMode::initWidget()
     d->gridLayout->setColumnMinimumWidth(0, 200);
     d->gridLayout->setRowMinimumHeight(0, 150);
 
-    QWidget *spacer = new QWidget(d->mainWidget);
-    spacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    spacer->setGeometry(0,0, 200, 150);
+//     QWidget *spacer = new QWidget(d->mainWidget);
+//     spacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+//     spacer->setGeometry(0,0, 200, 150);
+//
+//     d->gridLayout->addWidget(spacer, 0, 0);
 
-    d->gridLayout->addWidget(spacer, 0, 0);
-
-//     d->classicWidget = new QSplitter(Qt::Horizontal, 0);
-//     d->classicWidget->setHandleWidth(0);
-//     d->classicWidget->setChildrenCollapsible(false);
     d->moduleView = new ModuleView(d->mainWidget);
-//     d->gridLayout->addWidget(d->moduleView, 1, 1);
-    d->categoriesWidget = 0;
-
+    d->gridLayout->addWidget(d->moduleView, 1, 1);
 
     // Create the widget
     d->categoriesWidget = new QQuickWidget(d->mainWidget);
     d->categoriesWidget->setAutoFillBackground(false);
-    d->gridLayout->addWidget(d->categoriesWidget, 0, 0, 2, 2);
-
-//     d->classicCategory = new CategoryList(d->package.filePath("Modules"), d->classicWidget);
-//
-//     d->stackedWidget = new QStackedWidget(d->classicWidget);
-//     d->stackedWidget->layout()->setMargin(0);
-//     d->stackedWidget->addWidget(d->classicCategory);
-//     d->stackedWidget->addWidget(d->moduleView);
-//
-//     d->classicWidget->addWidget(d->categoriesWidget);
-//     d->classicWidget->addWidget(d->stackedWidget);
-
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-
     d->categoriesWidget->rootContext()->setContextProperty("host", Host::self());
-
     d->categoriesWidget->setSource(d->package.filePath("Categories"));
+    d->gridLayout->addWidget(d->categoriesWidget, 0, 0, 2, 2);
 
     connect(Host::self(), &Host::moduleSelected, this, &QuickMode::selectModule);
     connect(d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()));
-
     connect(d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)));
-    d->gridLayout->addWidget(d->moduleView, 1, 1);
-
-//     QList<int> defaultSizes;
-//     defaultSizes << 250 << 500;
-//     d->classicWidget->setSizes(config().readEntry("viewLayout", defaultSizes));
 }
 
 void QuickMode::setColumnWidth(int col, int colWidth)
