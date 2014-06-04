@@ -28,10 +28,7 @@
 
 #include <QDebug>
 #include <QLayout>
-#include <QSplitter>
-//#include <QTreeView>
 #include <QModelIndex>
-#include <QStackedWidget>
 #include <QAbstractItemModel>
 #include <QQuickWidget>
 #include <QQmlContext>
@@ -66,7 +63,6 @@ public:
     gridLayout(0),
     categoriesWidget(0),
     moduleView(0)
-    //stackedWidget(0)
     {}
     virtual ~Private() {
         delete aboutClassic;
@@ -74,11 +70,8 @@ public:
 
     QWidget *mainWidget;
     QGridLayout *gridLayout;
-    QSplitter *classicWidget;
     QQuickWidget *categoriesWidget;
     Ui::ConfigClassic classicConfig;
-    CategoryList *classicCategory;
-    QStackedWidget *stackedWidget;
     ModuleView *moduleView;
     QModelIndex currentItem;
 
@@ -187,8 +180,6 @@ QList<QAbstractItemView *> QuickMode::views() const
 
 void QuickMode::saveState()
 {
-    config().writeEntry("viewLayout", d->classicWidget->sizes());
-    config().sync();
 }
 
 void QuickMode::searchChanged(const QString &text)
@@ -215,9 +206,7 @@ void QuickMode::changeModule(const QModelIndex &activeModule)
     d->moduleView->closeModules();
     d->currentItem = activeModule;
     if (d->proxyModel->rowCount(activeModule) > 0) {
-        //d->moduleView->hide();
         setModuleWidgetVisible(false);
-        //d->classicCategory->changeModule(activeModule);
         qDebug() << "Group, I think.";
         emit viewChanged(false);
     } else {
@@ -267,9 +256,7 @@ void QuickMode::setRowHeight(int row, int rowHeight)
 
 void QuickMode::leaveModuleView()
 {
-//     d->moduleView->closeModules();
-//     //d->stackedWidget->setCurrentWidget(d->classicCategory);
-//     d->moduleView->hide();
+    d->moduleView->closeModules();
     setModuleWidgetVisible(false);
 }
 
@@ -280,7 +267,6 @@ void QuickMode::setModuleWidgetVisible(bool vis, bool noCallback)
         d->moduleView->raise();
     } else {
         d->moduleView->closeModules();
-        //d->stackedWidget->setCurrentWidget(d->classicCategory);
         d->moduleView->hide();
     }
     if (!noCallback) {

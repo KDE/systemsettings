@@ -3,7 +3,6 @@ set(quick_mode_srcs
     host.cpp
     kuserproxy.cpp
     QuickMode.cpp
-    CategoryList.cpp
 )
 
 kde4_add_ui_files( quick_mode_srcs configClassic.ui )
