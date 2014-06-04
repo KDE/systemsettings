@@ -48,7 +48,6 @@
 #include "MenuItem.h"
 #include "MenuModel.h"
 #include "ModuleView.h"
-#include "CategoryList.h"
 #include "MenuProxyModel.h"
 
 K_PLUGIN_FACTORY(QuickModeFactory, registerPlugin<QuickMode>();)
