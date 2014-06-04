@@ -25,11 +25,17 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 Item {
     id: main
 
-    Rectangle { color: theme.backgroundColor; anchors.fill: parent; }
-
     PlasmaExtras.Title {
         id: titleLabel
         text: i18n("System Settings")
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            margins: units.gridUnit * 2
+            //topMargin: units.gridUnit * 4
+
+        }
     }
 
     PlasmaExtras.Heading {
@@ -41,9 +47,9 @@ Item {
         anchors {
             top: titleLabel.bottom
             bottom: parent.bottom
-            left: parent.left
+            left: titleLabel.left
             right: parent.right
-            margins: units.gridUnit
+            //margins: units.gridUnit * 2
 
         }
 
@@ -56,13 +62,14 @@ Item {
 
         visible: host.modules.length > 0
         currentIndex: -1
+        orientation: Qt.Horizontal
 
         anchors {
             top: titleLabel.bottom
             bottom: parent.bottom
-            left: parent.left
+            left: titleLabel.left
             right: parent.right
-            margins: units.gridUnit
+            topMargin: units.gridUnit
 
         }
 
@@ -73,6 +80,8 @@ Item {
 
             title: name
             icon: decoration
+
+            width: units.gridUnit * 6
 
             onClicked: {
                 host.moduleClicked(index);

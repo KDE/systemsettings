@@ -23,7 +23,13 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 MouseArea {
-    id: main
+    id: categoriesItem
+
+    property bool wide: false
+
+    property int normalWidth
+
+    width: wide ? normalWidth * 2 : normalWidth
 
     Rectangle { color: theme.backgroundColor; anchors.fill: parent; }
 
@@ -39,26 +45,32 @@ MouseArea {
 //         text: "Breeze: "
 //     }
 
+    Behavior on width { PropertyAnimation { duration: categoriesItem.wide ? 200 : 0; } }
+
     onClicked: {
         collectionsList.model = null;
+        categoriesItem.wide = false;
+        host.moduleWidgetVisible = false;
     }
 
     ListView {
         id: categoriesList
 
+        width: normalWidth
         anchors {
             top: parent.top
-            bottom: secondLabel.top
+            bottom: parent.bottom
             left: parent.left
-            right: collectionsList.model == null ? parent.right : parent.horizontalCenter
-            margins: units.gridUnit
+            //right: collectionsList.model == null ? parent.right : parent.horizontalCenter
+            //margins: units.gridUnit
 
         }
 
+        interactive: height < contentHeight
         model: host.categories
         currentIndex: -1
 
-        delegate: ModuleDelegate {
+        delegate: SidebarDelegate {
             title: name
             icon: decoration
             onActivated: {
@@ -67,13 +79,29 @@ MouseArea {
                 categoriesList.currentIndex = index;
                 print("Setting model in collectionsList");
                 collectionsList.model = categories;
+                categoriesItem.wide = true;
+
                 //collectionsList.currentIndex = 2;
                 select();
                 host.resetModules();
             }
         }
-        highlight: PlasmaComponents.Highlight {}
+        highlight: Highlight {}
         highlightMoveDuration: 0
+    }
+
+    Rectangle {
+        anchors.fill: collectionsList
+        color: Qt.transparant
+        border.width: 1
+        border.color: theme.textColor
+        opacity: wide ? 0.1 : 0
+    }
+
+    Rectangle {
+        anchors.fill: collectionsList
+        color: theme.textColor
+        opacity: wide ? 0.05 : 0
     }
 
     ListView {
@@ -81,19 +109,21 @@ MouseArea {
 
         anchors {
             top: categoriesList.top
-            bottom: secondLabel.top
+            bottom: parent.bottom
             right: parent.right
-            left: parent.horizontalCenter
+            left: categoriesList.right
             //margins: units.gridUnit
 
         }
+
+        interactive: height < contentHeight
 
         //model: host.collections
         currentIndex: -1
 
         onModelChanged: currentIndex = -1
 
-        delegate: ModuleDelegate {
+        delegate: SidebarDelegate {
             title: name
             icon: decoration
             onActivated: {
@@ -101,19 +131,19 @@ MouseArea {
                 select();
             }
         }
-        highlight: PlasmaComponents.Highlight {}
+        highlight: Highlight {}
         highlightMoveDuration: 0
     }
 
-    PlasmaComponents.Label {
-        id: secondLabel
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
-            margins: units.gridUnit
-
-        }
-        text: "Model valid: " + (host.categoriesModel != undefined ? "Yes" : "No") + host.categories.length
-    }
+//     PlasmaComponents.Label {
+//         id: secondLabel
+//         anchors {
+//             bottom: parent.bottom
+//             left: parent.left
+//             right: parent.right
+//             margins: units.gridUnit
+//
+//         }
+//         text: "Model valid: " + (host.categoriesModel != undefined ? "Yes" : "No") + host.categories.length
+//     }
 }

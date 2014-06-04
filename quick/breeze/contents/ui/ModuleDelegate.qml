@@ -31,7 +31,7 @@ MouseArea {
 
     signal activated
 
-    height: units.gridUnit * 2
+    height: units.gridUnit * 4
     width: parent.width
 
     onClicked: {
@@ -45,12 +45,12 @@ MouseArea {
 
         source: decoration
 
+        height: parent.height / 1.5
         width: height
 
         anchors {
-            left: parent.left
             top: parent.top
-            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
         }
     }
 
@@ -59,12 +59,13 @@ MouseArea {
         height: 32
 
         anchors {
-            left: moduleIcon.right
-            verticalCenter: parent.verticalCenter
-            right: parent.right
+            top: moduleIcon.bottom
+            horizontalCenter: parent.horizontalCenter
         }
 
+        //textColor: isCurrent ? theme.highlightColor : theme.textColor
         text: moduleDelegate.title
         elide: Text.ElideRight
+        wrapMode: Text.WordWrap
     }
 }

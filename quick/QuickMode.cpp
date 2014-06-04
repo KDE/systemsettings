@@ -115,9 +115,11 @@ void QuickMode::loadPackage()
     Plasma::PackageStructure *ps = new Plasma::PackageStructure(this);
     d->package = Plasma::Package(ps);
     d->package.addFileDefinition("Categories", "ui/Categories.qml", i18n("Sidebar Script File"));
-    d->package.setRequired("Categories", true);
+    //d->package.setRequired("Categories", false);
+    d->package.addFileDefinition("MainView", "ui/MainView.qml", i18n("Main Overview"));
+    d->package.setRequired("MainView", true);
     d->package.addFileDefinition("Modules", "ui/Modules.qml", i18n("Modules List Script File"));
-    d->package.setRequired("Modules", true);
+    //d->package.setRequired("Modules", false);
 
     const QString packageName = config().readEntry("package", defaultPackageName);
     const QString pr = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
@@ -125,7 +127,7 @@ void QuickMode::loadPackage()
                                               QStandardPaths::LocateDirectory);
     d->package.setPath(pr);
 
-    if (d->package.filePath("Categories").isEmpty() || d->package.filePath("Modules").isEmpty()) {
+    if (d->package.filePath("MainView").isEmpty()) {
         qWarning() << "Package " << packageName << " is not installed.";
     }
 //     qDebug() << "valid / defroot?: " << d->package.isValid() << d->package.defaultPackageRoot();
@@ -212,15 +214,15 @@ void QuickMode::changeModule(const QModelIndex &activeModule)
     d->moduleView->closeModules();
     d->currentItem = activeModule;
     if (d->proxyModel->rowCount(activeModule) > 0) {
-        d->moduleView->hide();
+        //d->moduleView->hide();
+        setModuleWidgetVisible(false);
         //d->classicCategory->changeModule(activeModule);
         qDebug() << "Group, I think.";
         emit viewChanged(false);
     } else {
         qDebug() << "Load Module RAISE";
-        d->moduleView->show();
-        d->moduleView->raise();
         d->moduleView->loadModule(activeModule);
+        setModuleWidgetVisible(true); // FIXME move to loaded
     }
 }
 
@@ -234,14 +236,6 @@ void QuickMode::initWidget()
 
     d->mainWidget = new QWidget();
     d->gridLayout = new QGridLayout(d->mainWidget);
-    d->gridLayout->setColumnMinimumWidth(0, 200);
-    d->gridLayout->setRowMinimumHeight(0, 150);
-
-//     QWidget *spacer = new QWidget(d->mainWidget);
-//     spacer->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-//     spacer->setGeometry(0,0, 200, 150);
-//
-//     d->gridLayout->addWidget(spacer, 0, 0);
 
     d->moduleView = new ModuleView(d->mainWidget);
     d->gridLayout->addWidget(d->moduleView, 1, 1);
@@ -251,7 +245,7 @@ void QuickMode::initWidget()
     d->categoriesWidget->setAutoFillBackground(false);
     d->categoriesWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->categoriesWidget->rootContext()->setContextProperty("host", Host::self());
-    d->categoriesWidget->setSource(d->package.filePath("Categories"));
+    d->categoriesWidget->setSource(d->package.filePath("MainView"));
     d->gridLayout->addWidget(d->categoriesWidget, 0, 0, 2, 2);
 
     connect(Host::self(), &Host::moduleSelected, this, &QuickMode::selectModule);
@@ -272,9 +266,25 @@ void QuickMode::setRowHeight(int row, int rowHeight)
 
 void QuickMode::leaveModuleView()
 {
-    d->moduleView->closeModules();
-    //d->stackedWidget->setCurrentWidget(d->classicCategory);
-    d->moduleView->hide();
+//     d->moduleView->closeModules();
+//     //d->stackedWidget->setCurrentWidget(d->classicCategory);
+//     d->moduleView->hide();
+    setModuleWidgetVisible(false);
+}
+
+void QuickMode::setModuleWidgetVisible(bool vis, bool noCallback)
+{
+    if (vis) {
+        d->moduleView->show();
+        d->moduleView->raise();
+    } else {
+        d->moduleView->closeModules();
+        //d->stackedWidget->setCurrentWidget(d->classicCategory);
+        d->moduleView->hide();
+    }
+    if (!noCallback) {
+        Host::self()->setModuleWidgetVisible(vis);
+    }
 }
 
 void QuickMode::giveFocus()

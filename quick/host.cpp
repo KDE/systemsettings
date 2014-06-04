@@ -40,6 +40,7 @@ public:
 
     Host *q;
     QuickMode *quickMode;
+    bool moduleWidgetVisible;
     Category *currentCategory;
     MenuProxyModel *categoriesModel; // FIXME: replace by rootCategory().model()
     Category *rootCategory;
@@ -59,6 +60,7 @@ Host* Host::self()
 void Host::setModel(MenuProxyModel *model)
 {
     d = new HostPrivate(this);
+    d->moduleWidgetVisible = false;
     d->currentCategory = 0;
     d->categoriesModel = model;
     d->rootCategory = new Category(model->index(0, 0), this);
@@ -146,6 +148,20 @@ void Host::setColumnWidth(int col, int colWidth)
 void Host::setRowHeight(int row, int rowHeight)
 {
     d->quickMode->setRowHeight(row, rowHeight);
+}
+
+bool Host::moduleWidgetVisible()
+{
+    return d->moduleWidgetVisible;
+}
+
+void Host::setModuleWidgetVisible(bool vis)
+{
+    if (d->moduleWidgetVisible != vis) {
+        d->moduleWidgetVisible = vis;
+        d->quickMode->setModuleWidgetVisible(vis, true);
+        emit moduleWidgetVisibleChanged();
+    }
 }
 
 

@@ -38,6 +38,7 @@ class Host : public QObject
     Q_PROPERTY(QAbstractItemModel *categoriesModel READ categoriesModel CONSTANT)
     Q_PROPERTY(QQmlListProperty<Category> categories READ categories CONSTANT)
     Q_PROPERTY(QQmlListProperty<Category> modules READ modules NOTIFY modulesChanged)
+    Q_PROPERTY(bool moduleWidgetVisible READ moduleWidgetVisible WRITE setModuleWidgetVisible NOTIFY moduleWidgetVisibleChanged)
 
 public:
     Host();
@@ -61,9 +62,13 @@ public Q_SLOTS:
     Q_INVOKABLE void setColumnWidth(int col, int colWidth);
     Q_INVOKABLE void setRowHeight(int row, int rowHeight);
 
+    bool moduleWidgetVisible();
+    void setModuleWidgetVisible(bool vis);
+
 Q_SIGNALS:
     void moduleSelected(QModelIndex);
     void modulesChanged();
+    void moduleWidgetVisibleChanged();
 
 private:
     HostPrivate *d;

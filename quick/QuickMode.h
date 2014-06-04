@@ -55,6 +55,8 @@ public Q_SLOTS:
     void setColumnWidth(int col, int colWidth);
     void setRowHeight(int row, int rowHeight);
 
+    void setModuleWidgetVisible(bool vis, bool noCallback = false);
+
 private Q_SLOTS:
     void moduleLoaded();
     void initWidget();
