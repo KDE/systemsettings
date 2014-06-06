@@ -368,6 +368,15 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     if( sender() != activeView ) {
         return;
     }
+
+    if (toolbar == BaseMode::Hide) {
+        toolBar()->hide();
+        qDebug() << "hiding toolbar";
+    } else {
+        toolBar()->show();
+        qDebug() << "showing toolbar";
+    }
+
     guiFactory()->unplugActionList( this, "configure" );
     guiFactory()->unplugActionList( this, "search" );
     guiFactory()->unplugActionList( this, "quit" );
