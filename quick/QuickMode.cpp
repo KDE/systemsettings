@@ -240,6 +240,10 @@ void QuickMode::initWidget()
     connect(Host::self(), &Host::moduleSelected, this, &QuickMode::selectModule);
     connect(d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()));
     connect(d->categoriesWidget, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)));
+
+    bool showToolBar = config().readEntry("showToolBar", false);
+    qDebug() << "hiding toolbar";
+    changeToolBarItems(showToolBar ? BaseMode::NoItems : BaseMode::Hide);
 }
 
 void QuickMode::setColumnWidth(int col, int colWidth)
@@ -287,12 +291,15 @@ void QuickMode::addConfiguration(KConfigDialog *config)
 
 void QuickMode::loadConfiguration()
 {
-    d->classicConfig.CbExpand->setChecked(config().readEntry("autoExpandOneLevel", false));
+    bool showToolBar = config().readEntry("showToolBar", false);
+    d->classicConfig.CbExpand->setChecked(showToolBar);
 }
 
 void QuickMode::saveConfiguration()
 {
-    config().writeEntry("autoExpandOneLevel", d->classicConfig.CbExpand->isChecked());
+    bool showToolBar = d->classicConfig.CbExpand->isChecked();
+    changeToolBarItems(showToolBar ? BaseMode::NoItems : BaseMode::Hide);
+    config().writeEntry("showToolBar", showToolBar);
 }
 
 void QuickMode::moveUp(MenuItem *item)
