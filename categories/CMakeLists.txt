@@ -2,6 +2,12 @@
 install( FILES systemsettingscategory.desktop DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
 
 install( FILES 
+    settings-appearance.desktop
+    settings-appearance-themes.desktop
+    settings-appearance-style.desktop
+    settings-appearance-color.desktop
+    settings-appearance-font.desktop
+    settings-appearance-icons.desktop
 #                settings-accessibility.desktop
 #                settings-account-details.desktop
 #                settings-application-and-system-notifications.desktop
