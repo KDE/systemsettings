@@ -8,6 +8,12 @@ install( FILES
     settings-appearance-color.desktop
     settings-appearance-font.desktop
     settings-appearance-icons.desktop
+
+    settings-workspace.desktop
+    settings-workspace-windowbehavior.desktop
+    settings-workspace-desktopbehavior.desktop
+    settings-workspace-shortcuts.desktop
+    settings-workspace-session.desktop
 #                settings-accessibility.desktop
 #                settings-account-details.desktop
 #                settings-application-and-system-notifications.desktop
