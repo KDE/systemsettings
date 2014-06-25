@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=desktopbehavior
+X-KDE-System-Settings-Parent-Category=workspace
+X-KDE-Weight=50
+Icon=preferences-desktop-theme
+
+Name=Desktop Behavior

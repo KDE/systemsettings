@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=session
+X-KDE-System-Settings-Parent-Category=workspace
+X-KDE-Weight=70
+Icon=preferences-system-login
+
+Name=Startup and Shutdown
