@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
-X-KDE-System-Settings-Category=style
+X-KDE-System-Settings-Category=workspacetheme
 X-KDE-System-Settings-Parent-Category=appearance
-X-KDE-Weight=50
+X-KDE-Weight=40
 Icon=preferences-desktop-theme
 
-Name=Style
+Name=Workspace Theme
