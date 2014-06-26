@@ -3,8 +3,8 @@ install( FILES systemsettingscategory.desktop DESTINATION  ${SERVICETYPES_INSTAL
 
 install( FILES 
     settings-appearance.desktop
-    settings-appearance-themes.desktop
-    settings-appearance-style.desktop
+    settings-appearance-workspacetheme.desktop
+    settings-appearance-applicationstyle.desktop
     settings-appearance-color.desktop
     settings-appearance-font.desktop
     settings-appearance-icons.desktop
