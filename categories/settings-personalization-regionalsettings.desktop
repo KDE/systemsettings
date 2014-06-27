@@ -4,6 +4,6 @@ X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=regionalsettings
 X-KDE-System-Settings-Parent-Category=personalization
 X-KDE-Weight=50
-Icon=preferences-desktop-theme
+Icon=preferences-desktop-locale
 
 Name=Regional Settings
