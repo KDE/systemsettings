@@ -14,7 +14,24 @@ install( FILES
     settings-workspace-desktopbehavior.desktop
     settings-workspace-shortcuts.desktop
     settings-workspace-session.desktop
-#                settings-accessibility.desktop
+
+    settings-personalization.desktop
+    settings-personalization-accountdetails.desktop
+    settings-personalization-regionalsettings.desktop
+    settings-personalization-notification.desktop
+    settings-personalization-applications.desktop
+
+    settings-network.desktop
+    settings-network-networksettings.desktop
+    settings-network-connectivity.desktop
+    settings-network-bluetooth.desktop
+
+    settings-hardware.desktop
+    settings-hardware-display.desktop
+    settings-hardware-input.desktop
+    settings-hardware-multimedia.desktop
+    settings-hardware-peripherals.desktop
+    settings-hardware-powermanagement.desktop#                settings-accessibility.desktop
 #                settings-account-details.desktop
 #                settings-application-and-system-notifications.desktop
 #                settings-application-appearance-and-behavior.desktop

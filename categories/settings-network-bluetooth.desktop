@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=bluetooth
+X-KDE-System-Settings-Parent-Category=network
+X-KDE-Weight=60
+Icon=preferences-system-bluetooth
+
+Name=Bluetooth
