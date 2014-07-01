@@ -10,7 +10,7 @@ install( FILES
     settings-appearance-icons.desktop
 
     settings-workspace.desktop
-    settings-workspace-windowbehavior.desktop
+    settings-workspace-windowmanagement.desktop
     settings-workspace-desktopbehavior.desktop
     settings-workspace-shortcuts.desktop
     settings-workspace-session.desktop
