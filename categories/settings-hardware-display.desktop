@@ -3,6 +3,7 @@ Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=display
 X-KDE-System-Settings-Parent-Category=hardware
+X-KDE-Weight=50
 Icon=preferences-desktop-display
 
 Name=Display and Monitor
