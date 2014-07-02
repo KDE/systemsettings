@@ -7,3 +7,10 @@ X-KDE-Weight=50
 Icon=preferences-system-network-connection
 
 Name=Connectivity
+Name[ca]=Connectivitat
+Name[nl]=Connectiviteit
+Name[pl]=Łączność
+Name[pt]=Conectividade
+Name[sv]=Anslutningar
+Name[uk]=З'єднання
+Name[x-test]=xxConnectivityxx

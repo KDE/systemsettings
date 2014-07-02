@@ -7,3 +7,10 @@ X-KDE-Weight=40
 Icon=preferences-desktop-theme
 
 Name=Appearance
+Name[ca]=Aparença
+Name[nl]=Uiterlijk
+Name[pl]=Wygląd
+Name[pt]=Aparência
+Name[sv]=Utseende
+Name[uk]=Вигляд
+Name[x-test]=xxAppearancexx

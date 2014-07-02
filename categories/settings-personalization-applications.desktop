@@ -7,3 +7,10 @@ X-KDE-Weight=70
 Icon=preferences-desktop-default-applications
 
 Name=Applications
+Name[ca]=Aplicacions
+Name[nl]=Toepassingen
+Name[pl]=Programy
+Name[pt]=Aplicações
+Name[sv]=Program
+Name[uk]=Програми
+Name[x-test]=xxApplicationsxx

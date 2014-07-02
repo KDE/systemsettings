@@ -7,3 +7,10 @@ X-KDE-Weight=80
 Icon=preferences-desktop-theme
 
 Name=Application Style
+Name[ca]=Estil de l'aplicació
+Name[nl]=Stijl van toepassing
+Name[pl]=Styl programów
+Name[pt]=Estilo das Aplicações
+Name[sv]=Programstil
+Name[uk]=Стиль вікон програм
+Name[x-test]=xxApplication Stylexx

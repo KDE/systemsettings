@@ -7,3 +7,10 @@ X-KDE-Weight=60
 Icon=preferences-color
 
 Name=Color
+Name[ca]=Color
+Name[nl]=Kleur
+Name[pl]=Kolor
+Name[pt]=Cor
+Name[sv]=Färg
+Name[uk]=Колір
+Name[x-test]=xxColorxx

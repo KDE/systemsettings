@@ -7,3 +7,10 @@ X-KDE-Weight=50
 Icon=preferences-desktop-theme
 
 Name=Workspace
+Name[ca]=Espai de treball
+Name[nl]=Werkruimte
+Name[pl]=Przestrzeń robocza
+Name[pt]=Área de Trabalho
+Name[sv]=Arbetsyta
+Name[uk]=Робочий простір
+Name[x-test]=xxWorkspacexx
