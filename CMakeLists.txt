@@ -32,8 +32,8 @@ find_package(KF5 REQUIRED COMPONENTS
     DBusAddons
     Config
     KHtml
-    KDE4Support
     Plasma
+    KDELibs4Support
 )
 
 add_subdirectory(core)

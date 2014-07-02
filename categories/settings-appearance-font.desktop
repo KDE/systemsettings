@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=font
+X-KDE-System-Settings-Parent-Category=appearance
+X-KDE-Weight=70
+Icon=preferences-desktop-font
+
+Name=Font
+Name[ca]=Tipus de lletra
+Name[nl]=Lettertype
+Name[pl]=Czcionka
+Name[pt]=Tipo de Letra
+Name[sv]=Teckensnitt
+Name[uk]=Шрифт
+Name[x-test]=xxFontxx

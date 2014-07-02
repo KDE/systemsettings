@@ -2,37 +2,41 @@
 install( FILES systemsettingscategory.desktop DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
 
 install( FILES 
-               settings-accessibility.desktop
-               settings-account-details.desktop
-               settings-application-and-system-notifications.desktop
-               settings-application-appearance-and-behavior.desktop
-               settings-application-appearance.desktop
-               settings-audio-and-video.desktop
-               settings-desktop-appearance.desktop
-               settings-display.desktop
-               settings-hardware.desktop
-               settings-input-devices.desktop
-               settings-locale.desktop
-               settings-lost-and-found.desktop
-               settings-network-and-connectivity.desktop
-               settings-network-settings.desktop
-               settings-permissions.desktop
-               settings-personal-information.desktop
-               settings-power-management.desktop
-               settings-removable-devices.desktop
-               settings-shortcuts-and-gestures.desktop
-               settings-startup-and-shutdown.desktop
-               settings-system-administration.desktop
-               settings-window-behaviour.desktop
-               settings-workspace-appearance-and-behavior.desktop
-               settings-workspace-behavior.desktop
-         DESTINATION  ${SERVICES_INSTALL_DIR} )
+    settings-appearance.desktop
+    settings-appearance-workspacetheme.desktop
+    settings-appearance-applicationstyle.desktop
+    settings-appearance-color.desktop
+    settings-appearance-font.desktop
+    settings-appearance-icons.desktop
+
+    settings-workspace.desktop
+    settings-workspace-windowmanagement.desktop
+    settings-workspace-desktopbehavior.desktop
+    settings-workspace-shortcuts.desktop
+    settings-workspace-session.desktop
+
+    settings-personalization.desktop
+    settings-personalization-accountdetails.desktop
+    settings-personalization-regionalsettings.desktop
+    settings-personalization-notification.desktop
+    settings-personalization-applications.desktop
+
+    settings-network.desktop
+    settings-network-networksettings.desktop
+    settings-network-connectivity.desktop
+
+    settings-hardware.desktop
+    settings-hardware-display.desktop
+    settings-hardware-input.desktop
+    settings-hardware-multimedia.desktop
+    settings-hardware-peripherals.desktop
+    settings-hardware-powermanagement.desktop
+
+    DESTINATION  ${SERVICES_INSTALL_DIR} )
 
 if (NOT WIN32)
-    install( FILES 
-         settings-bluetooth.desktop
-         #settings-desktop.desktop
-         settings-sharing.desktop
+    install( FILES
+         settings-network-bluetooth.desktop
          DESTINATION  ${SERVICES_INSTALL_DIR} )
 endif ()
-        
+

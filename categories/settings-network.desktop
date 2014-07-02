@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=network
+X-KDE-System-Settings-Parent-Category=
+Icon=preferences-system-network-connection
+
+Name=Network
+Name[ca]=Xarxa
+Name[nl]=Netwerk
+Name[pl]=Sieć
+Name[pt]=Rede
+Name[sv]=Nätverk
+Name[uk]=Мережа
+Name[x-test]=xxNetworkxx

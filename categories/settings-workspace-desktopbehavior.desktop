@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=desktopbehavior
+X-KDE-System-Settings-Parent-Category=workspace
+X-KDE-Weight=40
+Icon=preferences-desktop-theme
+
+Name=Desktop Behavior
+Name[ca]=Comportament de l'escriptori
+Name[nl]=Gedrag van bureaublad
+Name[pl]=Zachowanie pulpitu
+Name[pt]=Comportamento da Área de Trabalho
+Name[sv]=Skrivbordsbeteende
+Name[uk]=Поведінка стільниці
+Name[x-test]=xxDesktop Behaviorxx

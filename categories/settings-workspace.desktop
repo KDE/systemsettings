@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=workspace
+X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=50
+Icon=preferences-desktop-theme
+
+Name=Workspace
+Name[ca]=Espai de treball
+Name[nl]=Werkruimte
+Name[pl]=Przestrzeń robocza
+Name[pt]=Área de Trabalho
+Name[sv]=Arbetsyta
+Name[uk]=Робочий простір
+Name[x-test]=xxWorkspacexx

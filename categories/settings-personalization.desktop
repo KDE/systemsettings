@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=personalization
+X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=60
+Icon=preferences-desktop-user
+
+Name=Personalization
+Name[ca]=Personalització
+Name[nl]=Personalisatie
+Name[pl]=Personalizacja
+Name[pt]=Personalização
+Name[sv]=Personlig information
+Name[uk]=Персоналізація
+Name[x-test]=xxPersonalizationxx

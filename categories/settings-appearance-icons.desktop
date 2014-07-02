@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=icons
+X-KDE-System-Settings-Parent-Category=appearance
+X-KDE-Weight=70
+Icon=preferences-desktop-icons
+
+Name=Icons
+Name[ca]=Icones
+Name[nl]=Pictogrammen
+Name[pl]=Ikony
+Name[pt]=Ícones
+Name[sv]=Ikoner
+Name[uk]=Піктограми
+Name[x-test]=xxIconsxx

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=connectivity
+X-KDE-System-Settings-Parent-Category=network
+X-KDE-Weight=50
+Icon=preferences-system-network-connection
+
+Name=Connectivity
+Name[ca]=Connectivitat
+Name[nl]=Connectiviteit
+Name[pl]=Łączność
+Name[pt]=Conectividade
+Name[sv]=Anslutningar
+Name[uk]=З'єднання
+Name[x-test]=xxConnectivityxx

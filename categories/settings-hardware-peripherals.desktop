@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=peripherals
+X-KDE-System-Settings-Parent-Category=hardware
+X-KDE-Weight=70
+Icon=preferences-desktop-peripherals
+
+Name=Peripherals
+Name[ca]=Perifèrics
+Name[nl]=Randapparaten
+Name[pl]=Urządzenia peryferyjne
+Name[pt]=Periféricos
+Name[sv]=Periferienheter
+Name[uk]=Периферійні пристрої
+Name[x-test]=xxPeripheralsxx

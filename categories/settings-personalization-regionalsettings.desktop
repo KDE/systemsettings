@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=regionalsettings
+X-KDE-System-Settings-Parent-Category=personalization
+X-KDE-Weight=50
+Icon=preferences-desktop-locale
+
+Name=Regional Settings
+Name[ca]=Arranjament regional
+Name[nl]=Regionale instellingen
+Name[pl]=Ustawienia regionalne
+Name[pt]=Configuração Regional
+Name[sv]=Landsinställningar
+Name[uk]=Локалізація
+Name[x-test]=xxRegional Settingsxx
