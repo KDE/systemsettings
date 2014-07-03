@@ -14,6 +14,7 @@ install( FILES
     settings-workspace-desktopbehavior.desktop
     settings-workspace-shortcuts.desktop
     settings-workspace-session.desktop
+    settings-workspace-search.desktop
 
     settings-personalization.desktop
     settings-personalization-accountdetails.desktop
