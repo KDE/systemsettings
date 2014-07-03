@@ -8,9 +8,14 @@ Icon=preferences-color
 
 Name=Color
 Name[ca]=Color
+Name[fi]=Väri
+Name[id]=Warna
+Name[nds]=Klöör
 Name[nl]=Kleur
 Name[pl]=Kolor
 Name[pt]=Cor
+Name[pt_BR]=Cor
+Name[sk]=Farba
 Name[sv]=Färg
 Name[uk]=Колір
 Name[x-test]=xxColorxx

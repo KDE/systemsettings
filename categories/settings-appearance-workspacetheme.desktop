@@ -8,9 +8,14 @@ Icon=preferences-desktop-theme
 
 Name=Workspace Theme
 Name[ca]=Tema de l'espai de treball
+Name[fi]=Työtilan teema
+Name[id]=Tema Ruang Kerja
+Name[nds]=Arbeitrebeet-Muster
 Name[nl]=Thema van werkruimte
 Name[pl]=Wystrój przestrzeni roboczej
 Name[pt]=Tema da Área de Trabalho
+Name[pt_BR]=Tema do espaço de trabalho
+Name[sk]=Téma pracovnej plochy
 Name[sv]=Arbetsytans tema
 Name[uk]=Тема робочого простору
 Name[x-test]=xxWorkspace Themexx

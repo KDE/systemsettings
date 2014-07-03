@@ -8,9 +8,14 @@ Icon=preferences-desktop-theme
 
 Name=Appearance
 Name[ca]=Aparença
+Name[fi]=Ulkoasu
+Name[id]=Tampilan
+Name[nds]=Utsehn
 Name[nl]=Uiterlijk
 Name[pl]=Wygląd
 Name[pt]=Aparência
+Name[pt_BR]=Aparência
+Name[sk]=Vzhľad
 Name[sv]=Utseende
 Name[uk]=Вигляд
 Name[x-test]=xxAppearancexx

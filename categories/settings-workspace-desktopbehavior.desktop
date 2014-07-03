@@ -8,9 +8,14 @@ Icon=preferences-desktop-theme
 
 Name=Desktop Behavior
 Name[ca]=Comportament de l'escriptori
+Name[fi]=Työpöydän toiminta
+Name[id]=Perilaku Desktop
+Name[nds]=Schriefdischbedregen
 Name[nl]=Gedrag van bureaublad
 Name[pl]=Zachowanie pulpitu
 Name[pt]=Comportamento da Área de Trabalho
+Name[pt_BR]=Comportamento da área de trabalho
+Name[sk]=Správanie pracovnej plochy
 Name[sv]=Skrivbordsbeteende
 Name[uk]=Поведінка стільниці
 Name[x-test]=xxDesktop Behaviorxx

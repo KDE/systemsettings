@@ -8,9 +8,14 @@ Icon=preferences-desktop-locale
 
 Name=Regional Settings
 Name[ca]=Arranjament regional
+Name[fi]=Alueasetukset
+Name[id]=Pengaturan Regional
+Name[nds]=Regiooninstellen
 Name[nl]=Regionale instellingen
 Name[pl]=Ustawienia regionalne
 Name[pt]=Configuração Regional
+Name[pt_BR]=Configurações Regionais
+Name[sk]=Miestne nastavenia
 Name[sv]=Landsinställningar
 Name[uk]=Локалізація
 Name[x-test]=xxRegional Settingsxx

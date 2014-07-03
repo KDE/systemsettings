@@ -8,9 +8,14 @@ Icon=preferences-desktop-theme
 
 Name=Workspace
 Name[ca]=Espai de treball
+Name[fi]=Työtila
+Name[id]=Ruang Kerja
+Name[nds]=Arbeitrebeet
 Name[nl]=Werkruimte
 Name[pl]=Przestrzeń robocza
 Name[pt]=Área de Trabalho
+Name[pt_BR]=Espaço de trabalho
+Name[sk]=Pracovná plocha
 Name[sv]=Arbetsyta
 Name[uk]=Робочий простір
 Name[x-test]=xxWorkspacexx

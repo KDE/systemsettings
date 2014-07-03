@@ -7,9 +7,14 @@ Icon=preferences-system-network-connection
 
 Name=Network
 Name[ca]=Xarxa
+Name[fi]=Verkko
+Name[id]=Jaringan
+Name[nds]=Nettwark
 Name[nl]=Netwerk
 Name[pl]=Sieć
 Name[pt]=Rede
+Name[pt_BR]=Rede
+Name[sk]=Sieť
 Name[sv]=Nätverk
 Name[uk]=Мережа
 Name[x-test]=xxNetworkxx

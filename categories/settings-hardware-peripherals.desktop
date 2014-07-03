@@ -8,9 +8,14 @@ Icon=preferences-desktop-peripherals
 
 Name=Peripherals
 Name[ca]=Perifèrics
+Name[fi]=Oheislaitteet
+Name[id]=Periferal
+Name[nds]=Reedschappen
 Name[nl]=Randapparaten
 Name[pl]=Urządzenia peryferyjne
 Name[pt]=Periféricos
+Name[pt_BR]=Periféricos
+Name[sk]=Periférie
 Name[sv]=Periferienheter
 Name[uk]=Периферійні пристрої
 Name[x-test]=xxPeripheralsxx

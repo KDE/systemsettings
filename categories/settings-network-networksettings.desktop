@@ -8,9 +8,14 @@ Icon=preferences-system-network
 
 Name=Settings
 Name[ca]=Preferències
+Name[fi]=Asetukset
+Name[id]=Pengaturan
+Name[nds]=Instellen
 Name[nl]=Instellingen
 Name[pl]=Ustawienia
 Name[pt]=Configuração
+Name[pt_BR]=Configurações
+Name[sk]=Nastavenia
 Name[sv]=Inställningar
 Name[uk]=Параметри
 Name[x-test]=xxSettingsxx

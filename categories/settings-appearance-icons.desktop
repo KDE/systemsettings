@@ -8,9 +8,14 @@ Icon=preferences-desktop-icons
 
 Name=Icons
 Name[ca]=Icones
+Name[fi]=Kuvakkeet
+Name[id]=Ikon
+Name[nds]=Lüttbiller
 Name[nl]=Pictogrammen
 Name[pl]=Ikony
 Name[pt]=Ícones
+Name[pt_BR]=Ícones
+Name[sk]=Ikony
 Name[sv]=Ikoner
 Name[uk]=Піктограми
 Name[x-test]=xxIconsxx

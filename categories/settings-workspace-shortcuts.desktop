@@ -8,9 +8,14 @@ Icon=preferences-desktop-keyboard-shortcut
 
 Name=Shortcuts
 Name[ca]=Dreceres
+Name[fi]=Pikanäppäimet
+Name[id]=Jalan Pintas
+Name[nds]=Tastkombinatschonen
 Name[nl]=Sneltoetsen
 Name[pl]=Skróty
 Name[pt]=Atalhos
+Name[pt_BR]=Atalhos
+Name[sk]=Skratky
 Name[sv]=Genvägar
 Name[uk]=Скорочення
 Name[x-test]=xxShortcutsxx

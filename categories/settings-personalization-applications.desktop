@@ -8,9 +8,14 @@ Icon=preferences-desktop-default-applications
 
 Name=Applications
 Name[ca]=Aplicacions
+Name[fi]=Sovellukset
+Name[id]=Aplikasi
+Name[nds]=Programmen
 Name[nl]=Toepassingen
 Name[pl]=Programy
 Name[pt]=Aplicações
+Name[pt_BR]=Aplicativos
+Name[sk]=Aplikácie
 Name[sv]=Program
 Name[uk]=Програми
 Name[x-test]=xxApplicationsxx

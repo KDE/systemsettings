@@ -8,9 +8,14 @@ Icon=preferences-desktop-notification
 
 Name=Notification
 Name[ca]=Notificació
+Name[fi]=Ilmoittaminen
+Name[id]=Notifikasi
+Name[nds]=Bescheed
 Name[nl]=Melding
 Name[pl]=Powiadomienie
 Name[pt]=Notificação
+Name[pt_BR]=Notificação
+Name[sk]=Pripomienka
 Name[sv]=Underrättelser
 Name[uk]=Сповіщення
 Name[x-test]=xxNotificationxx

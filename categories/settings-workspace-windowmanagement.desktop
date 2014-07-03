@@ -7,3 +7,11 @@ X-KDE-Weight=50
 Icon=preferences-system-windows
 
 Name=Window Management
+Name[id]=Manajemen Jendela
+Name[nl]=Vensterbeheer
+Name[pt]=Gestão de Janelas
+Name[pt_BR]=Gerenciamento de janelas
+Name[sk]=Správa okien
+Name[sv]=Fönsterhantering
+Name[uk]=Керування вікнами
+Name[x-test]=xxWindow Managementxx

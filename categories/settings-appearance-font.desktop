@@ -8,9 +8,14 @@ Icon=preferences-desktop-font
 
 Name=Font
 Name[ca]=Tipus de lletra
+Name[fi]=Fontti
+Name[id]=Fonta
+Name[nds]=Schriftoort
 Name[nl]=Lettertype
 Name[pl]=Czcionka
 Name[pt]=Tipo de Letra
+Name[pt_BR]=Fonte
+Name[sk]=Písmo
 Name[sv]=Teckensnitt
 Name[uk]=Шрифт
 Name[x-test]=xxFontxx
