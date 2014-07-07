@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=color
 X-KDE-System-Settings-Parent-Category=appearance
 X-KDE-Weight=60
-Icon=preferences-color
+Icon=preferences-desktop-color
 
 Name=Color
 Name[ca]=Color
