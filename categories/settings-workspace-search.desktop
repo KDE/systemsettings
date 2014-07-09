@@ -7,3 +7,9 @@ X-KDE-Weight=80
 Icon=baloo
 
 Name=Search
+Name[ca]=Cerca
+Name[nl]=Zoeken
+Name[pt_BR]=Procurar
+Name[sk]=Hľadať
+Name[uk]=Пошук
+Name[x-test]=xxSearchxx
