@@ -31,5 +31,6 @@ target_link_libraries( systemsettings systemsettingsview
 )
 
 install( TARGETS systemsettings ${INSTALL_TARGETS_DEFAULT_ARGS} )
-install( FILES systemsettingsui.rc systemsettings.kcfg DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
+install( FILES systemsettings.kcfg DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
+install( FILES systemsettingsui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/systemsettings )
 install( PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
