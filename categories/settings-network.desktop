@@ -7,6 +7,7 @@ Icon=preferences-system-network-connection
 
 Name=Network
 Name[ca]=Xarxa
+Name[en_GB]=Network
 Name[es]=Red
 Name[fi]=Verkko
 Name[id]=Jaringan
