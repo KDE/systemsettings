@@ -47,10 +47,8 @@ template<typename T> class QList;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
-class SYSTEMSETTINGSVIEW_EXPORT MenuItem : public QObject
+class SYSTEMSETTINGSVIEW_EXPORT MenuItem
 {
-    Q_OBJECT
-
 public:
     /**
      * Creates a MenuItem.
@@ -59,7 +57,7 @@ public:
      * @param isMenu Specifies if it is a category or not.
      * @param parent The item it is parented to. Provide 0 for a top level item.
      */
-    MenuItem( bool isMenu, MenuItem * itsParent = 0 );
+    MenuItem( bool isMenu, MenuItem * parent );
 
     /**
      * Destroys a MenuItem, including all children, the service object and the module information.

@@ -201,19 +201,4 @@ void MenuModel::removeException( MenuItem * exception )
     d->exceptions.removeAll(exception);
 }
 
-QHash< int, QByteArray > MenuModel::roleNames() const
-{
-    QHash<int, QByteArray> rn;
-    rn[Qt::DisplayRole] = "displayRole";
-    rn[Qt::ToolTipRole] = "toolTipRole";
-    rn[Qt::DecorationRole] = "decorationRole";
-    rn[KCategorizedSortFilterProxyModel::CategorySortRole] = "categorySortRole";
-    rn[KCategorizedSortFilterProxyModel::CategoryDisplayRole] = "categoryDisplayRole";
-    rn[Qt::UserRole] = "userRole";
-    rn[MenuModel::UserFilterRole] = "userFilterRole";
-    rn[MenuModel::UserSortRole] = "userSortRole";
-    return rn;
-}
-
-
 #include "MenuModel.moc"

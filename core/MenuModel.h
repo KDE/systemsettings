@@ -140,8 +140,6 @@ public:
      */
     static const int UserSortRole;
 
-    virtual QHash<int, QByteArray> roleNames() const;
-
 protected:
     /**
      * Provides the MenuItem which is used internally to provide information.

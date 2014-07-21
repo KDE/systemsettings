@@ -23,8 +23,6 @@
 #include "MenuItem.h"
 #include "MenuModel.h"
 
-#include <QDebug>
-
 MenuProxyModel::MenuProxyModel( QObject * parent )
     : KCategorizedSortFilterProxyModel( parent )
 {
@@ -38,7 +36,7 @@ bool MenuProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right
     if( isCategorizedModel() ) {
         return KCategorizedSortFilterProxyModel::lessThan( left, right );
     }
-
+    
     QVariant leftWeight = left.data( MenuModel::UserSortRole );
     QVariant rightWeight = right.data( MenuModel::UserSortRole );
 
@@ -108,12 +106,6 @@ void MenuProxyModel::setFilterRegExp ( const QRegExp & regExp )
     KCategorizedSortFilterProxyModel::setFilterRegExp( regExp );
     emit layoutChanged ();
 }
-
-void MenuProxyModel::clicked(int ix)
-{
-    qDebug() << "Clocked" << ix;
-}
-
 
 
 #include "MenuProxyModel.moc"

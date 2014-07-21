@@ -99,7 +99,6 @@ public:
      */
     void setFilterRegExp ( const QString & pattern );
 
-    Q_INVOKABLE void clicked(int ix);
 };
 
 #endif

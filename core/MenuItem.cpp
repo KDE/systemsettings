@@ -45,9 +45,8 @@ public:
     KCModuleInfo item;
 };
 
-MenuItem::MenuItem( bool isMenu, MenuItem * itsParent ) :
-    QObject(itsParent),
-    d( new Private() )
+MenuItem::MenuItem( bool isMenu, MenuItem * itsParent )
+    : d( new Private() )
 {
     d->parent = itsParent;
     d->menu = isMenu;

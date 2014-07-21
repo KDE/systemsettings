@@ -146,8 +146,7 @@ void QuickMode::initEvent()
     Host::self()->setModel(d->proxyModel);
     Host::self()->setQuickMode(this);
 
-    // Register MenuItem* in the QML runtime
-    qmlRegisterUncreatableType<MenuItem>("org.kde.systemsettings", 5, 0, "MenuItem", "You cannot create MenuItem objects.");
+    // Register Category* in the QML runtime
     qmlRegisterUncreatableType<Category>("org.kde.systemsettings", 5, 0, "Category", "You cannot create Category objects.");
     qmlRegisterType<KUserProxy>("org.kde.systemsettings", 5, 0, "KUser");
 }
