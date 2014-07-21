@@ -32,6 +32,10 @@ int main( int argc, char *argv[] )
 {
     SystemSettingsApp application(argc, argv);
 
+    // This is needed to prevent windows from going black with nested
+    // QQuickView inside QWidget inside QQuickView
+    application.setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
+
     KLocalizedString::setApplicationDomain("systemsettings");
 
     // About data
