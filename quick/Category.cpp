@@ -33,9 +33,7 @@ public:
     }
 
     Category *q;
-
     QModelIndex modelIndex;
-    //QAbstractItemModel *categoriesModel;
     QList<Category*> categories;
 };
 
@@ -44,7 +42,6 @@ Category::Category(QModelIndex index, QObject *parent) :
     d(new CategoryPrivate(this))
 {
     d->modelIndex = index;
-
 }
 
 Category::~Category()
@@ -86,5 +83,4 @@ void Category::select()
 {
     Host::self()->selectModule(this);
 }
-
 

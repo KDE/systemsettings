@@ -25,7 +25,7 @@
 #include <QTextStream>
 #include <QUrl>
 
-#include <KLocalizedString>
+//#include <KLocalizedString>
 
 #include <QDebug>
 
@@ -62,7 +62,7 @@ QString KUserProxy::faceIconPath() const
 QString KUserProxy::os()
 {
     if (m_os.isEmpty()) {
-        m_os = i18n("Plasma by KDE");
+        //m_os = i18n("Plasma by KDE");
         QFile osfile("/etc/os-release");
         if (osfile.exists()) {
             if (!osfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
