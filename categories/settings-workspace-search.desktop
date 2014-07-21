@@ -1,0 +1,27 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=search
+X-KDE-System-Settings-Parent-Category=workspace
+X-KDE-Weight=80
+Icon=baloo
+
+Name=Search
+Name[ca]=Cerca
+Name[en_GB]=Search
+Name[es]=Buscar
+Name[fi]=Haku
+Name[nds]=Söken
+Name[nl]=Zoeken
+Name[pl]=Wyszukiwanie
+Name[pt]=Pesquisa
+Name[pt_BR]=Procurar
+Name[sk]=Hľadať
+Name[sl]=Poišči
+Name[sr]=Претрага
+Name[sr@ijekavian]=Претрага
+Name[sr@ijekavianlatin]=Pretraga
+Name[sr@latin]=Pretraga
+Name[sv]=Sök
+Name[uk]=Пошук
+Name[x-test]=xxSearchxx

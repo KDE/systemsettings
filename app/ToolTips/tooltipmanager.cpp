@@ -182,17 +182,20 @@ QWidget * ToolTipManager::createTipContent( QModelIndex item )
 
     QWidget * tipContent = new QWidget();
     QGridLayout* tipLayout = new QGridLayout();
+    tipLayout->setAlignment( Qt::AlignLeft );
 
     QLayout * primaryLine = generateToolTipLine( &item, tipContent, dialogIconSize, true );
-    tipLayout->addLayout( primaryLine, 0, 0 );
+    primaryLine->setAlignment( Qt::AlignLeft );
+    tipLayout->addLayout( primaryLine, 0, 0, Qt::AlignLeft );
 
     for ( int done = 0; d->view->model()->rowCount( item ) > done; done = 1 + done ) {
         QModelIndex childItem = d->view->model()->index( done, 0, item );
         QLayout * subLine = generateToolTipLine( &childItem, tipContent, toolbarIconSize, false );
-        tipLayout->addLayout( subLine, done + 2, 0 );
+        subLine->setAlignment( Qt::AlignLeft );
+        tipLayout->addLayout( subLine, done + 2, 0, Qt::AlignLeft );
     }
 
-    tipLayout->setVerticalSpacing( 0 );
+    tipLayout->setVerticalSpacing( tipContent->fontMetrics().height() / 3 );
     tipContent->setLayout( tipLayout );
 
     if( d->view->model()->rowCount( item ) > 0 ) {
@@ -225,19 +228,21 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
         }
     }
     QLabel * textLabel = new QLabel( toolTip );
+    textLabel->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed );
     textLabel->setForegroundRole(QPalette::ToolTipText);
     textLabel->setText( text );
 
     // Get icon
-    QIcon icon( menuItem->service()->icon() );
     QLabel * iconLabel = new QLabel( toolTip );
-    iconLabel->setPixmap( icon.pixmap(iconSize) );
+    iconLabel->setPixmap( QIcon::fromTheme(menuItem->service()->icon()).pixmap(iconSize) );
     iconLabel->setMaximumSize( iconSize );
 
     // Generate layout
     QHBoxLayout * layout = new QHBoxLayout();
-    layout->addWidget( iconLabel );
-    layout->addWidget( textLabel );
+    layout->setSpacing( textLabel->fontMetrics().height() / 3 );
+    layout->setAlignment( Qt::AlignLeft );
+    layout->addWidget( iconLabel, Qt::AlignLeft );
+    layout->addWidget( textLabel, Qt::AlignLeft );
 
     return layout;
 }

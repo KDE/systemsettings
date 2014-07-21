@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=systemsettings
+Exec=systemsettings5
 Icon=preferences-system
 Type=Application
 X-DocPath=systemsettings/index.html
