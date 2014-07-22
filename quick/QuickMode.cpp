@@ -23,7 +23,6 @@
 #include "QuickMode.h"
 #include "Category.h"
 #include "host.h"
-#include "kuserproxy.h"
 #include "ui_configClassic.h"
 
 #include <QDebug>
@@ -148,7 +147,6 @@ void QuickMode::initEvent()
 
     // Register Category* in the QML runtime
     qmlRegisterUncreatableType<Category>("org.kde.systemsettings", 5, 0, "Category", "You cannot create Category objects.");
-    qmlRegisterType<KUserProxy>("org.kde.systemsettings", 5, 0, "KUser");
 }
 
 QWidget *QuickMode::mainWidget()

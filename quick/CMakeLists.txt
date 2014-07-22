@@ -2,7 +2,6 @@
 set(quick_mode_srcs
     Category.cpp
     host.cpp
-    kuserproxy.cpp
     QuickMode.cpp
 )
 
