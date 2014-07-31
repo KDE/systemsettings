@@ -47,7 +47,7 @@ Item {
 
         Image {
             id: faceIcon
-            source: kuser.faceIconPath
+            source: kuser.faceIconUrl
             visible: source != ""
 
             width: units.gridUnit * 3
