@@ -8,8 +8,12 @@ Icon=preferences-system-windows
 
 Name=Window Management
 Name[ca]=Gestió de les finestres
+Name[cs]=Správa oken
+Name[de]=Fensterverwaltung
+Name[en_GB]=Window Management
 Name[es]=Gestión de ventanas
 Name[fi]=Ikkunointi
+Name[ia]=Gestion de Fenestra
 Name[id]=Manajemen Jendela
 Name[nds]=Finsterpleeg
 Name[nl]=Vensterbeheer

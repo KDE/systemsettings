@@ -8,8 +8,12 @@ Icon=preferences-desktop-keyboard-shortcut
 
 Name=Shortcuts
 Name[ca]=Dreceres
+Name[cs]=Zkratky
+Name[de]=Kurzbefehle
+Name[en_GB]=Shortcuts
 Name[es]=Accesos rápidos
 Name[fi]=Pikanäppäimet
+Name[ia]=Vias breve
 Name[id]=Jalan Pintas
 Name[nds]=Tastkombinatschonen
 Name[nl]=Sneltoetsen

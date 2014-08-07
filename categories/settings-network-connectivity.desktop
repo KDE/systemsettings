@@ -8,6 +8,9 @@ Icon=preferences-system-network-connection
 
 Name=Connectivity
 Name[ca]=Connectivitat
+Name[cs]=Připojení
+Name[de]=Verbindungen
+Name[en_GB]=Connectivity
 Name[es]=Conectividad
 Name[fi]=Verkkoyhteydet
 Name[id]=Konektivitas

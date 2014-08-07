@@ -8,8 +8,12 @@ Icon=preferences-desktop-font
 
 Name=Font
 Name[ca]=Tipus de lletra
+Name[cs]=Písmo
+Name[de]=Schriftart
+Name[en_GB]=Font
 Name[es]=Tipo de letra
 Name[fi]=Fontti
+Name[ia]=Font
 Name[id]=Fonta
 Name[nds]=Schriftoort
 Name[nl]=Lettertype

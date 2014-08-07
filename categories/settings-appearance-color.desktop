@@ -8,11 +8,16 @@ Icon=preferences-desktop-color
 
 Name=Color
 Name[ca]=Color
+Name[cs]=Barva
+Name[de]=Farbe
+Name[en_GB]=Colour
 Name[es]=Color
 Name[fi]=Väri
+Name[ia]=Color
 Name[id]=Warna
 Name[nds]=Klöör
 Name[nl]=Kleur
+Name[nn]=Farge
 Name[pl]=Kolor
 Name[pt]=Cor
 Name[pt_BR]=Cor
