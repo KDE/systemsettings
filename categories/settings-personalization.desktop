@@ -8,7 +8,6 @@ Icon=preferences-desktop-user
 
 Name=Personalization
 Name[ca]=Personalització
-Name[cs]=Přizpůsobení
 Name[da]=Personliggørelse
 Name[de]=Persönliche Informationen
 Name[en_GB]=Personalisation
@@ -33,4 +32,3 @@ Name[sr@latin]=Prilagođavanje
 Name[sv]=Personlig information
 Name[uk]=Персоналізація
 Name[x-test]=xxPersonalizationxx
-Name[zh_TW]=個人化
