@@ -24,6 +24,8 @@
 #include <QFile>
 #include <QModelIndex>
 #include <QTextStream>
+#include <QIcon>
+#include <QBuffer>
 
 #include <KCursor>
 #include <KHTMLPart>
@@ -109,7 +111,20 @@ void CategoryList::updatePixmap()
         const QString szName = childItem->name();
         const QString szComment = childItem->service()->comment();
         content += szLink + szName + "</a></td><td class=\"kc_rightcol\">" + szLink + szComment + "</a>";
-        content = content.arg( iconL->iconPath(childItem->service()->icon(), - KIconLoader::SizeSmallMedium ) );
+
+        //passing just the path is insufficient as some icon sets (breeze) only provide SVGs
+        //instead pass data inline
+
+        QIcon icon = QIcon::fromTheme(childItem->service()->icon());
+        QImage image(icon.pixmap(24).toImage()); //icons are hardcoded to size 24 above
+        QByteArray byteArray;
+        QBuffer buffer(&byteArray);
+        image.save(&buffer, "PNG"); // writes the image in PNG format inside the buffer
+        QString iconBase64 = QString::fromLatin1(byteArray.toBase64().data());
+
+        content = content.arg("data:image/png;base64," + iconBase64);
+
+
         d->itemMap.insert( link.url(), childIndex );
         content += "</td></tr>\n";
     }
