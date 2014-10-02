@@ -8,6 +8,7 @@ Icon=baloo
 
 Name=Search
 Name[ca]=Cerca
+Name[cs]=Hledání
 Name[da]=Søgning
 Name[de]=Suchen
 Name[en_GB]=Search
@@ -33,3 +34,4 @@ Name[sr@latin]=Pretraga
 Name[sv]=Sök
 Name[uk]=Пошук
 Name[x-test]=xxSearchxx
+Name[zh_TW]=搜尋
