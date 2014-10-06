@@ -279,7 +279,7 @@ bool SettingsBase::queryClose()
         activeView->saveState();
         changes = activeView->moduleView()->resolveChanges();
     }
-    BaseConfig::self()->writeConfig();
+    BaseConfig::self()->save();
     return changes;
 }
 

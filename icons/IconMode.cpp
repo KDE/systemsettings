@@ -28,9 +28,8 @@
 
 #include <QStackedWidget>
 
-#include <KAction>
+#include <QAction>
 #include <KDialog>
-#include <KTabWidget>
 #include <KAboutData>
 #include <KStandardAction>
 #include <KFileItemDelegate>
