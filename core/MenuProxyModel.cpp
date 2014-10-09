@@ -108,4 +108,4 @@ void MenuProxyModel::setFilterRegExp ( const QRegExp & regExp )
 }
 
 
-#include "MenuProxyModel.moc"
+

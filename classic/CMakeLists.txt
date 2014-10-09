@@ -3,7 +3,7 @@ set(classic_mode_srcs
     CategoryList.cpp
 )
 
-kde4_add_ui_files( classic_mode_srcs configClassic.ui )
+ki18n_wrap_ui( classic_mode_srcs configClassic.ui )
 add_library(classic_mode MODULE ${classic_mode_srcs})
 
 target_link_libraries(classic_mode systemsettingsview

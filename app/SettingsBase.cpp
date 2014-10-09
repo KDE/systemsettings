@@ -405,4 +405,3 @@ void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menu
     }
 }
 
-#include "SettingsBase.moc"

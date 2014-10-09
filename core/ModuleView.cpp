@@ -402,4 +402,4 @@ void ModuleView::updateButtons()
     d->mDefault->setEnabled(buttons & KCModule::Default );
 }
 
-#include "ModuleView.moc"
+

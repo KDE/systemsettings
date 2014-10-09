@@ -201,4 +201,4 @@ void MenuModel::removeException( MenuItem * exception )
     d->exceptions.removeAll(exception);
 }
 
-#include "MenuModel.moc"
+

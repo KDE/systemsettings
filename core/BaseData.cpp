@@ -68,4 +68,4 @@ KConfigGroup BaseData::configGroup( const QString& pluginName )
     return KSharedConfig::openConfig()->group( pluginName );
 }
 
-#include "BaseData.moc"
+

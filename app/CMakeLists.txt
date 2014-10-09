@@ -10,7 +10,7 @@ set( systemsettings_SRCS
      main.cpp )
 
 kde4_add_app_icon( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
-kde4_add_ui_files( systemsettings_SRCS configDialog.ui )
+ki18n_wrap_ui( systemsettings_SRCS configDialog.ui )
 kconfig_add_kcfg_files( systemsettings_SRCS BaseConfig.kcfgc )
 qt5_add_dbus_adaptor( systemsettings_SRCS org.kde.systemsettings.xml SystemSettingsApp.h SystemSettingsApp  )
 

@@ -8,7 +8,7 @@ set(systemsettingsview_LIB_SRCS
     ExternalAppModule.cpp
 )
 
-kde4_add_ui_files( systemsettingsview_LIB_SRCS externalModule.ui )
+ki18n_wrap_ui( systemsettingsview_LIB_SRCS externalModule.ui )
 
 set(systemsettingsview_LIB_HDRS
     ${CMAKE_CURRENT_BINARY_DIR}/systemsettingsview_export.h

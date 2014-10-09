@@ -135,4 +135,4 @@ QList<QAbstractItemView*> BaseMode::views() const
     return QList<QAbstractItemView*>();
 }
 
-#include "BaseMode.moc"
+
