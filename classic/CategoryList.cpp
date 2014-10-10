@@ -35,7 +35,7 @@
 #include <KStandardDirs>
 #include <KGlobalSettings>
 #include <KIconLoader>
-#include <KUrl>
+#include <QUrl>
 
 static const char kcc_infotext[]= I18N_NOOP("System Settings");
 static const char title_infotext[]= I18N_NOOP("Configure your system");
@@ -104,8 +104,8 @@ void CategoryList::updatePixmap()
     for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; ++done ) {
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
-        KUrl link( "kcm://" );
-        link.setFileName( childItem->item().fileName() );
+        const QString url = QLatin1String("kcm:///") + childItem->item().fileName();
+        QUrl link(url);
         const QString szLink = "<a href=\"" + link.url() + "\" >";
         content += "<tr><td class=\"kc_leftcol\">" + szLink + "<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">";
         const QString szName = childItem->name();
@@ -129,12 +129,12 @@ void CategoryList::updatePixmap()
         content += "</td></tr>\n";
     }
     content += "</table>";
-    d->categoryView->begin( KUrl( templatePath ) );
+    d->categoryView->begin( QUrl::fromLocalFile( templatePath ) );
     d->categoryView->write( templateString.arg( content ) );
     d->categoryView->end();
 }
 
-void CategoryList::changeModule( QModelIndex newItem )
+void CategoryList::changeModule( const QModelIndex &newItem )
 {
     d->categoryMenu = newItem;
     updatePixmap();

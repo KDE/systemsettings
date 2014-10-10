@@ -34,10 +34,10 @@ public:
     explicit CategoryList( QWidget *parent, QAbstractItemModel *model );
     virtual ~CategoryList();
 
-    void changeModule( QModelIndex newItem);
+    void changeModule( const QModelIndex &newItem);
 
 Q_SIGNALS:
-    void moduleSelected( QModelIndex itemSelected );
+    void moduleSelected( const QModelIndex &itemSelected );
 
 private Q_SLOTS:
     void slotModuleLinkClicked( const QUrl& moduleName );
