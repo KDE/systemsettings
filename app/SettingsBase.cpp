@@ -133,7 +133,7 @@ void SettingsBase::initToolBar()
     quitAction = actionCollection()->addAction( KStandardAction::Quit, "quit_action", this, SLOT(close()) );
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT(configShow()) );
-    configureAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_M));
+    actionCollection()->setDefaultShortcut(configureAction, QKeySequence(Qt::CTRL + Qt::Key_M));
     configureAction->setText( i18n("Configure") );
     // Help after it
     initHelpMenu();
@@ -144,7 +144,7 @@ void SettingsBase::initToolBar()
     // Finally the search line-edit
     searchAction = new QWidgetAction( this );
     searchAction->setDefaultWidget(searchText);
-    searchAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_F));
+    actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL + Qt::Key_F));
     connect( searchAction, SIGNAL(triggered(bool)), searchText, SLOT(setFocus()));
     actionCollection()->addAction( "searchText", searchAction );
     // Initialise the Window
