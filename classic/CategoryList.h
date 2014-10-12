@@ -24,7 +24,6 @@
 class QModelIndex;
 class QAbstractItemModel;
 
-class KUrl;
 
 class CategoryList : public KHBox
 {

@@ -25,7 +25,6 @@
 #include <QtCore/QModelIndex>
 #include "systemsettingsview_export.h"
 
-class MenuItem;
 class KAboutData;
 class KCModuleInfo;
 class KCModuleProxy;

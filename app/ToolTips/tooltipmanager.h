@@ -25,8 +25,6 @@
 #include <QtCore/QModelIndex>
 
 class QLayout;
-class MenuItem;
-class KToolTipItem;
 class QAbstractItemView;
 
 /**
