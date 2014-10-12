@@ -29,12 +29,13 @@
 
 #include <KHTMLPart>
 #include <KApplication>
-#include <KStandardDirs>
+
 #include <KIconLoader>
 #include <QUrl>
 #include <QHBoxLayout>
 #include <KHTMLView>
 #include <KCModuleInfo>
+#include <QStandardPaths>
 
 static const char kcc_infotext[]= I18N_NOOP("System Settings");
 static const char title_infotext[]= I18N_NOOP("Configure your system");
@@ -84,14 +85,14 @@ void CategoryList::updatePixmap()
     KIconLoader * iconL = KIconLoader::global();
     d->itemMap.clear();
 
-    const QString templatePath = KStandardDirs::locate( "data", "systemsettings/classic/main.html" );
+    const QString templatePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "systemsettings/classic/main.html" );
     QFile templateFile( templatePath );
     templateFile.open( QIODevice::ReadOnly );
     QTextStream templateText( &templateFile );
     QString templateString = templateText.readAll();
-    templateString = templateString.arg( KStandardDirs::locate( "data", "kdeui/about/kde_infopage.css" ) );
+    templateString = templateString.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kdeui/about/kde_infopage.css" ) );
     if ( kapp->layoutDirection() == Qt::RightToLeft ) {
-        templateString = templateString.arg( "@import \"%1\";" ).arg( KStandardDirs::locate( "data", "kdeui/about/kde_infopage_rtl.css" ) );
+        templateString = templateString.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kdeui/about/kde_infopage_rtl.css" ) );
     } else {
         templateString = templateString.arg( QString() );
     }
