@@ -19,13 +19,13 @@
 #ifndef CATEGORYLIST_H
 #define CATEGORYLIST_H
 
-#include <KHBox>
+#include <QWidget>
 
 class QModelIndex;
 class QAbstractItemModel;
 
 
-class CategoryList : public KHBox
+class CategoryList : public QWidget
 {
     Q_OBJECT
 

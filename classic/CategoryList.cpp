@@ -32,6 +32,7 @@
 #include <KStandardDirs>
 #include <KIconLoader>
 #include <QUrl>
+#include <QHBoxLayout>
 #include <KHTMLView>
 #include <KCModuleInfo>
 
@@ -51,14 +52,17 @@ public:
 };
 
 CategoryList::CategoryList( QWidget *parent, QAbstractItemModel *model )
-    : KHBox(parent), d( new Private() )
+    : QWidget(parent), d( new Private() )
 {
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    setLayout(mainLayout);
     setMinimumSize( 400, 400 );
     d->itemModel = model;
 
     // set what's this help
     this->setWhatsThis( i18n( intro_infotext ) );
     d->categoryView = new KHTMLPart( this );
+    mainLayout->addWidget(d->categoryView->view());
     d->categoryView->view()->setFrameStyle( QFrame::StyledPanel | QFrame::Sunken );
     d->categoryView->widget()->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     connect( d->categoryView->browserExtension(),
