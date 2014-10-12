@@ -26,10 +26,10 @@
 #include <QTreeView>
 #include <QModelIndex>
 #include <QStackedWidget>
+#include <QStyle>
 
 #include <KAboutData>
 #include <KConfigDialog>
-#include <KGlobalSettings>
 #include <KConfigGroup>
 
 #include "MenuItem.h"
@@ -208,7 +208,7 @@ void ClassicMode::initWidget()
     connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
     connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
 
-    if( !KGlobalSettings::singleClick() ) {
+    if( !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick) ) {
         // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
         connect( d->classicTree, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
     }

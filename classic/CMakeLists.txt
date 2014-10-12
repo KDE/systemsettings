@@ -15,7 +15,6 @@ target_link_libraries(classic_mode systemsettingsview
     KF5::KIOWidgets
     KF5::Service
     KF5::KHtml
-    KF5::KDELibs4Support
 )
 
 install( TARGETS classic_mode DESTINATION ${PLUGIN_INSTALL_DIR} )

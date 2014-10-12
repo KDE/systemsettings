@@ -12,6 +12,8 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
+include(GenerateExportHeader)
+
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
@@ -29,7 +31,7 @@ find_package(KF5 REQUIRED COMPONENTS
     DBusAddons
     Config
     KHtml
-    KDELibs4Support
+    DocTools
 )
 
 add_subdirectory(core)

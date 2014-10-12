@@ -29,7 +29,6 @@
 #include <QStackedWidget>
 
 #include <QAction>
-#include <KDialog>
 #include <KAboutData>
 #include <KStandardAction>
 #include <KFileItemDelegate>
@@ -168,7 +167,7 @@ void IconMode::initWidget()
     d->categoryDrawer = new CategoryDrawer(d->categoryView);
 
     d->categoryView->setSelectionMode( QAbstractItemView::SingleSelection );
-    d->categoryView->setSpacing( KDialog::spacingHint() );
+    //PORT QT5 d->categoryView->setSpacing( KDialog::spacingHint() );
     d->categoryView->setCategoryDrawer( d->categoryDrawer );
     d->categoryView->setViewMode( QListView::IconMode );
     d->categoryView->setMouseTracking( true );

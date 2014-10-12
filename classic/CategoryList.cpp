@@ -28,7 +28,6 @@
 #include <QBuffer>
 
 #include <KHTMLPart>
-#include <KApplication>
 
 #include <KIconLoader>
 #include <QUrl>
@@ -36,6 +35,7 @@
 #include <KHTMLView>
 #include <KCModuleInfo>
 #include <QStandardPaths>
+#include <QApplication>
 
 static const char kcc_infotext[]= I18N_NOOP("System Settings");
 static const char title_infotext[]= I18N_NOOP("Configure your system");
@@ -91,7 +91,7 @@ void CategoryList::updatePixmap()
     QTextStream templateText( &templateFile );
     QString templateString = templateText.readAll();
     templateString = templateString.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kdeui/about/kde_infopage.css" ) );
-    if ( kapp->layoutDirection() == Qt::RightToLeft ) {
+    if ( qApp->layoutDirection() == Qt::RightToLeft ) {
         templateString = templateString.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kdeui/about/kde_infopage_rtl.css" ) );
     } else {
         templateString = templateString.arg( QString() );
