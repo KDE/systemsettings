@@ -26,8 +26,6 @@
 #include <QRect>
 #include <QLabel>
 #include <QTimer>
-#include <QPainter>
-#include <QHelpEvent>
 #include <QScrollBar>
 #include <QGridLayout>
 #include <QApplication>

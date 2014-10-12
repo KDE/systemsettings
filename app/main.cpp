@@ -26,7 +26,6 @@
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
-#include <QDebug>
 
 int main( int argc, char *argv[] )
 {

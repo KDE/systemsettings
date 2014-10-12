@@ -28,7 +28,6 @@
 #include <QWhatsThis>
 #include <QScrollArea>
 #include <QVBoxLayout>
-#include <QAbstractItemModel>
 #include <QPushButton>
 #include <QLoggingCategory>
 #include <QDialogButtonBox>
@@ -40,9 +39,9 @@
 #include <KCModuleProxy>
 #include <KStandardGuiItem>
 #include <kauthaction.h>
-#include <KIconLoader>
 #include <KAboutData>
 #include <kauthobjectdecorator.h>
+#include <KIconLoader>
 
 #include "MenuItem.h"
 

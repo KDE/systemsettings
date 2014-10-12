@@ -25,7 +25,6 @@
 
 #include <KConfigGroup>
 #include <KConfigDialog>
-#include <KServiceTypeTrader>
 
 #include "MenuItem.h"
 #include "BaseData.h"

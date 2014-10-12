@@ -22,7 +22,6 @@
 
 #include "ktooltipwindow_p.h"
 
-#include <QPainter>
 #include <QVBoxLayout>
 #include <QStylePainter>
 #include <QStyleOptionFrame>

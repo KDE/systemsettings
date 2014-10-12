@@ -26,13 +26,11 @@
 #include <QTreeView>
 #include <QModelIndex>
 #include <QStackedWidget>
-#include <QAbstractItemModel>
 
 #include <KAboutData>
-#include <KCModuleInfo>
-#include <KConfigGroup>
 #include <KConfigDialog>
 #include <KGlobalSettings>
+#include <KConfigGroup>
 
 #include "MenuItem.h"
 #include "MenuModel.h"

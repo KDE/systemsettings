@@ -27,15 +27,13 @@
 #include <QIcon>
 #include <QBuffer>
 
-#include <KCursor>
 #include <KHTMLPart>
-#include <KHTMLView>
 #include <KApplication>
-#include <KCModuleInfo>
 #include <KStandardDirs>
-#include <KGlobalSettings>
 #include <KIconLoader>
 #include <QUrl>
+#include <KHTMLView>
+#include <KCModuleInfo>
 
 static const char kcc_infotext[]= I18N_NOOP("System Settings");
 static const char title_infotext[]= I18N_NOOP("Configure your system");
