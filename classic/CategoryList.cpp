@@ -90,9 +90,9 @@ void CategoryList::updatePixmap()
     templateFile.open( QIODevice::ReadOnly );
     QTextStream templateText( &templateFile );
     QString templateString = templateText.readAll();
-    templateString = templateString.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kdeui/about/kde_infopage.css" ) );
+    templateString = templateString.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css" ) );
     if ( qApp->layoutDirection() == Qt::RightToLeft ) {
-        templateString = templateString.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kdeui/about/kde_infopage_rtl.css" ) );
+        templateString = templateString.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css" ) );
     } else {
         templateString = templateString.arg( QString() );
     }
