@@ -87,9 +87,9 @@ void CategoryList::updatePixmap()
     templateFile.open( QIODevice::ReadOnly );
     QTextStream templateText( &templateFile );
     QString templateString = templateText.readAll();
-    templateString = templateString.arg( KStandardDirs::locate( "data", "kdeui/about/kde_infopage.css" ) );
+    templateString = templateString.arg( KStandardDirs::locate( "data", "kf5/infopage/kde_infopage.css" ) );
     if ( kapp->layoutDirection() == Qt::RightToLeft ) {
-        templateString = templateString.arg( "@import \"%1\";" ).arg( KStandardDirs::locate( "data", "kdeui/about/kde_infopage_rtl.css" ) );
+        templateString = templateString.arg( "@import \"%1\";" ).arg( KStandardDirs::locate( "data", "kf5/infopage/kde_infopage_rtl.css" ) );
     } else {
         templateString = templateString.arg( QString() );
     }
