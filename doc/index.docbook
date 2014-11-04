@@ -165,7 +165,7 @@ Font (Fonts, Font Management)
 Icons (Icons, Emoticons)
 </para></listitem>
 <listitem><para>
-Application Style (Window Decorations, Widget Style, GNOME Applikation Style (GTK))
+Application Style (Window Decorations, Widget Style, GNOME Application Style (GTK))
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -185,7 +185,7 @@ Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
 Shortcuts (Application Keyboard Shortcuts, Global Keyboard Shortcuts, Web Shortcuts, Custom Shortcuts)
 </para></listitem>
 <listitem><para>
-Startup and Shutdown (Autostart, Background Services, Desktop Session, Login Screen (SSDM))
+Startup and Shutdown (Autostart, Background Services, Desktop Session, Login Screen (SDDM))
 </para></listitem>
 <listitem><para>
 Search (Plasma Search, File Search)
