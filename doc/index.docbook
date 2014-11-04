@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&systemsettings;">
-  <!ENTITY package "kdebase-workspace">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -24,12 +23,12 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-12-05</date>
-<releaseinfo>4.12 (&kde; 4.12)</releaseinfo>
+<date>2014-10-25</date>
+<releaseinfo>Plasma 5.2</releaseinfo>
 
 <abstract>
 <para>
-This documentation describes &kde;&apos;s system configuration and administration center.
+This documentation describes system configuration and administration center for your desktop.
 </para>
 </abstract>
 
@@ -49,11 +48,11 @@ This documentation describes &kde;&apos;s system configuration and administratio
 <title>Introduction</title>
 
 <para>
-The &kde; &systemsettings; provides the user with a centralized and convenient way to configure all of the &kde; settings.
+The &systemsettings; provides the user with a centralized and convenient way to configure all of the settings for your desktop.
 </para>
 
 <para>
-&systemsettings; is made up of multiple modules. Each module is a separate application, however the &kde; &systemsettings; organizes all of these applications into a single location.
+&systemsettings; is made up of multiple modules. Each module is a separate application, however the &systemsettings; organizes all of these applications into a single location.
 </para>
 
 <tip>
@@ -69,11 +68,11 @@ individual &systemsettings; modules</link> for more information.
 <para>
 &systemsettings; groups all of the configuration modules into several categories:
 <itemizedlist>
-<listitem><para><link linkend="application-appearance">Common Appearance and Behavior</link></para></listitem>
-<listitem><para><link linkend="workspace-appearance">Workspace Appearance and Behavior</link></para></listitem>
-<listitem><para><link linkend="network">Network and Connectivity</link></para></listitem>
+<listitem><para><link linkend="appearance">Appearance</link></para></listitem>
+<listitem><para><link linkend="workspace">Workspace</link></para></listitem>
+<listitem><para><link linkend="personalization">Personalization</link></para></listitem>
+<listitem><para><link linkend="network">Network</link></para></listitem>
 <listitem><para><link linkend="hardware">Hardware</link></para></listitem>
-<listitem><para><link linkend="system-administration">System Administration</link></para></listitem>
 </itemizedlist>
 </para>
 
@@ -94,13 +93,13 @@ This section details the use of &systemsettings; itself. For information on each
 <title>Starting &systemsettings;</title>
 
 <para>
-The &kde; &systemsettings; can be started in one of three ways:
+The &systemsettings; can be started in one of three ways:
 </para>
 
 <orderedlist>
 <listitem>
 <para>
-By selecting <menuchoice><guimenu>K Button</guimenu><guisubmenu>Applications</guisubmenu><guimenuitem>System Settings</guimenuitem></menuchoice>.
+By selecting <menuchoice><guimenu>Settings</guimenu><guimenuitem>System Settings</guimenuitem></menuchoice> from the <guilabel>Application Menu</guilabel>.
 </para>
 </listitem>
 <listitem>
@@ -110,7 +109,7 @@ By selecting <menuchoice><guimenu>K Button</guimenu><guisubmenu>Applications</gu
 </listitem>
 <listitem>
 <para>
-Type <command>systemsettings &amp;</command> at any command prompt.
+Type <command>systemsettings5 &amp;</command> at any command prompt.
 </para>
 </listitem>
 </orderedlist>
@@ -121,7 +120,7 @@ All three of these methods are equivalent, and produce the same result.
 </sect1>
 
 <sect1 id="screen">
-<title>The &kde; &systemsettings; Screen</title>
+<title>The &systemsettings; Screen</title>
 
 <para>
 When you start &systemsettings;, you are presented with a window, which is divided into three functional parts.
@@ -149,81 +148,80 @@ appears, explaining the purpose of the module or the modules in this group.
 <para>A brief overview of all categories and their modules:</para>
 
 <variablelist>
-<varlistentry id="application-appearance" >
-<term>Common Appearance and Behavior</term>
+<varlistentry id="appearance" >
+<term>Appearance</term>
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Account Details (Password &amp; User Account, Paths, KDE Wallet, Social Desktop, Web Shortcuts)
+Workspace Theme (Look and Feel, Desktop Theme, Cursor Theme, Splash Screen)
 </para></listitem>
 <listitem><para>
-Application Appearance (Style, Colors, Icons, Fonts, Emoticons)
+Color
 </para></listitem>
 <listitem><para>
-Application and System Notifications (Manage Notifications, System Bell, Launch Feedback)
+Font (Fonts, Font Management)
 </para></listitem>
 <listitem><para>
-File Associations
+Icons (Icons, Emoticons)
 </para></listitem>
 <listitem><para>
-Locale (Country/Region &amp; Language, Spell Checker)
+Application Style (Window Decorations, Widget Style, GNOME Applikation Style (GTK))
 </para></listitem>
-<listitem><para>
-Personal Information (Akonadi Resources Configuration)
-</para></listitem>
-<listitem><para>
-Shortcuts and Gestures (Custom Shortcuts, Standard Keyboard Shortcuts, Global Keyboard Shortcuts)
-</para></listitem>
-</itemizedlist>
-</para>
+</itemizedlist></para>
 </listitem>
 </varlistentry>
 
-<varlistentry id="workspace-appearance" >
-<term>Workspace Appearance and Behavior</term>
+<varlistentry id="workspace" >
+<term>Workspace</term>
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Desktop Effects
+Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Virtual Desktops, Accessibility, Activities)
 </para></listitem>
 <listitem><para>
-Workspace Appearance (Window Decorations, Cursor Theme, Desktop Theme, Splash Screen)
+Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
 </para></listitem>
 <listitem><para>
-Accessibility (Accessibility, Text-to-Speech)
+Shortcuts (Application Keyboard Shortcuts, Global Keyboard Shortcuts, Web Shortcuts, Custom Shortcuts)
 </para></listitem>
 <listitem><para>
-Default Applications
+Startup and Shutdown (Autostart, Background Services, Desktop Session, Login Screen (SSDM))
 </para></listitem>
 <listitem><para>
-Desktop Search
+Search (Plasma Search, File Search)
+</para></listitem>
+</itemizedlist></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="personalization" >
+<term>Personalization</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+Account Details (Password &amp; User Account, KDE Wallet)
 </para></listitem>
 <listitem><para>
-Window Behavior (Task Switcher, Window Behavior, KWin Scripts, Window Rules)
+Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
 </para></listitem>
 <listitem><para>
-Workspace Behavior (Activities, Virtual Desktops, Screen Edges, Workspace)
+Notifications
 </para></listitem>
-</itemizedlist>
-</para>
+<listitem><para>
+Applications (Default Applications, File Associations, Paths, Launch Feedback)
+</para></listitem>
+</itemizedlist></para>
 </listitem>
 </varlistentry>
 
 <varlistentry id="network" >
-<term>Network and Connectivity</term>
+<term>Network</term>
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Network Settings (Proxy, Connection Preferences, Service Discovery)
+Settings (Proxy, Connection Preferences, SSL Preferences)
 </para></listitem>
-<listitem><para>
-Sharing (Windows Shares)
-</para></listitem>
-<listitem><para>
-SSL Preferences
-</para></listitem>
-</itemizedlist>
-</para>
+</itemizedlist></para>
 </listitem>
 </varlistentry>
 
@@ -232,64 +230,31 @@ SSL Preferences
 <listitem>
 <para><itemizedlist>
 <listitem><para>
+Human Input Devices (Keyboard, Mouse, Joystick)
+</para></listitem>
+<listitem><para>
+Display and Monitor (Compositor, Screen Locking)
+</para></listitem>
+<listitem><para>
+Multimedia (Audio and Video)
+</para></listitem>
+<listitem><para>
+Power Management (Energy Saving, Advanced Settings)
+</para></listitem>
+<listitem><para>
 Device Actions
 </para></listitem>
-<listitem><para>
-Digital Camera
-</para></listitem>
-<listitem><para>
-Display and Monitor (Size &amp; Orientation, Screen Locker, Gamma)
-</para></listitem>
-<listitem><para>
-Input Devices (Keyboard, Mouse, Joystick, Remote Controls)
-</para></listitem>
-<listitem><para>
-Power Management (Energy Savings Settings, Activity Settings, Advanced Settings)
-</para></listitem>
-<listitem><para>
-Printers
-</para></listitem>
-<listitem><para>
-Removable Devices
-</para></listitem>
-<listitem><para>
-Multimedia (Audio CDs, Audio and Video Settings, CDDB Retrieval)
-</para></listitem>
-</itemizedlist>
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry id="system-administration" >
-<term>System Administration</term>
-<listitem>
-<para><itemizedlist>
-<listitem><para>
-Date &amp; Time
-</para></listitem>
-<listitem><para>
-Font Management
-</para></listitem>
-<listitem><para>
-Login Screen
-</para></listitem>
-<listitem><para>
-Startup and Shutdown (Autostart, Service Manager, Session Management)
-</para></listitem>
-<listitem><para>
-Task Scheduler
-</para></listitem>
-</itemizedlist>
-</para>
+</itemizedlist></para>
 </listitem>
 </varlistentry>
 
 </variablelist>
 
-<tip><para>Use the search field in <guibutton>Overview</guibutton> to find all matching modules for a given keyword.</para></tip>
+<tip><para>Use the search field at the top right in <guibutton>Overview</guibutton> to find all matching modules for a given keyword.
+Start typing a keyword opens a list of keywords and only the matching modules are enabled.</para></tip>
 </sect1>
 <sect1 id="exiting">
-<title>Exiting the &kde; &systemsettings;</title>
+<title>Exiting the &systemsettings;</title>
 
 <para>
 &systemsettings; can be exited in one of two ways:
@@ -327,17 +292,16 @@ You will then get only normal tooltips and not the content of a module group.
 <title>Running Individual &systemsettings; Modules</title>
 
 <para>
-Individual modules can be run without running &systemsettings; using the command <command>kcmshell5</command> from the command line. Type <command>kcmshell5 --list</command> to see a list of the available &kde; &systemsettings; modules.
+Individual modules can be run without running &systemsettings; using the command <command>kcmshell5</command> from the command line. Type <command>kcmshell5 --list</command> to see a list of the available &systemsettings; modules.
 </para>
-<!--FIXME kcmshell4 - -list has ~30 more kcms than in systemsettings-->
 </sect1>
 </chapter>
 
 <chapter id="modules">
-<title>The &kde; &systemsettings; Modules</title>
+<title>The &systemsettings; Modules</title>
 
 <para>
-In order to make it as easy as possible, the &kde; &systemsettings; has organized options into five categories. Under each category, there are icons grouped together under subcategories. Each icon is called a module. When you double click on a module icon, you will be presented with the options of the module in the main window.
+In order to make it as easy as possible, the &systemsettings; has organized options into five categories. Under each category, there are icons grouped together under subcategories. Each icon is called a module. When you double click on a module icon, you will be presented with the options of the module in the main window.
 </para>
 
 <para>
@@ -355,7 +319,7 @@ This button will provide help specific to the current module. Clicking the butto
 </varlistentry>
 
 <varlistentry>
-<term>Defaults</term>
+<term>Restore Defaults</term>
 <listitem>
 <para>
 Clicking this button will restore this module to its default values. You must click <guibutton>Apply</guibutton> to save the options.
@@ -367,7 +331,7 @@ Clicking this button will restore this module to its default values. You must cl
 <term>Reset</term>
 <listitem>
 <para>
-This button will &quot;Reset&quot; the module to the previous settings.
+This button will <quote>Reset</quote> the module to the previous settings.
 </para>
 </listitem>
 </varlistentry>
@@ -376,7 +340,7 @@ This button will &quot;Reset&quot; the module to the previous settings.
 <term>Apply</term>
 <listitem>
 <para>
-Clicking this button will save all changes to &kde;. If you have changed anything, clicking <guibutton>Apply</guibutton> will cause the changes to take effect.
+Clicking this button will save all changes. If you have changed anything, clicking <guibutton>Apply</guibutton> will cause the changes to take effect.
 </para>
 </listitem>
 </varlistentry>
@@ -384,7 +348,7 @@ Clicking this button will save all changes to &kde;. If you have changed anythin
 
 <note>
 <para>
-You must either &quot;Reset&quot; or &quot;Apply&quot; the changes before changing to another module.
+You must either <quote>Reset</quote> or <quote>Apply</quote> the changes before changing to another module.
 </para>
 <para>
 If you try to change without saving or resetting your options, you will be asked if you want to save your changes, or discard them.
