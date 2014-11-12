@@ -78,9 +78,13 @@ ModuleView::ModuleView( QWidget * parent )
 
     // Create the buttons in it
     d->mApply = d->mButtons->addButton( QDialogButtonBox::Apply );
+    KGuiItem::assign(d->mApply, KStandardGuiItem::apply());
     d->mDefault = d->mButtons->addButton( QDialogButtonBox::RestoreDefaults );
+    KGuiItem::assign(d->mDefault, KStandardGuiItem::defaults());
     d->mReset = d->mButtons->addButton( QDialogButtonBox::Reset );
+    KGuiItem::assign(d->mReset, KStandardGuiItem::reset());
     d->mHelp = d->mButtons->addButton( QDialogButtonBox::Help );
+    KGuiItem::assign(d->mHelp, KStandardGuiItem::help());
     // Set some more sensible tooltips
     d->mReset->setToolTip( i18n("Reset all current changes to previous values") );
     // Set Auto-Default mode ( KDE Bug #211187 )
@@ -236,14 +240,12 @@ bool ModuleView::resolveChanges(KCModuleProxy * currentProxy)
     }
 
     // Let the user decide
-    KGuiItem applyItem = KStandardGuiItem::apply();
-    applyItem.setIcon( d->mApply->icon() );
     const int queryUser = KMessageBox::warningYesNoCancel(
         this,
         i18n("The settings of the current module have changed.\n"
              "Do you want to apply the changes or discard them?"),
         i18n("Apply Settings"),
-        applyItem,
+        KStandardGuiItem::apply(),
         KStandardGuiItem::discard(),
         KStandardGuiItem::cancel() );
 
