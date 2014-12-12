@@ -6,7 +6,7 @@ X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-Weight=40
 Icon=preferences-desktop-peripherals
 
-Name=Human Input Devices
+Name=Input Devices
 Name[ca]=Dispositius d'entrada humana
 Name[cs]=Vstupní zařízení
 Name[da]=Enheder til menneskeligt input
@@ -35,6 +35,6 @@ Name[sr@latin]=Upravljački uređaji
 Name[sv]=Inmatningsenheter
 Name[tr]=İnsan Girdi Aygıtları
 Name[uk]=Пристрої введення
-Name[x-test]=xxHuman Input Devicesxx
+Name[x-test]=xxInput Devicesxx
 Name[zh_CN]=输入设备
 Name[zh_TW]=輸入裝置
