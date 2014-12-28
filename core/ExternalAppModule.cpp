@@ -33,7 +33,7 @@ ExternalAppModule::ExternalAppModule(QWidget * parent, KCModuleInfo * module)
     externalModule.setupUi( this );
     externalModule.LblText->setText( i18n("%1 is an external application and has been automatically launched", module->moduleName() ) );
     externalModule.PbRelaunch->setText( i18n("Relaunch %1", module->moduleName()) );
-    connect( externalModule.PbRelaunch, SIGNAL(clicked()), this, SLOT(runExternal()) );
+    connect(externalModule.PbRelaunch, &QPushButton::clicked, this, &ExternalAppModule::runExternal);
 }
 
 ExternalAppModule::~ExternalAppModule()
