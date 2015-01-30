@@ -112,10 +112,10 @@ void SettingsBase::initApplication()
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
-            connect(controller, SIGNAL(changeToolBarItems(BaseMode::ToolBarItems)), this, SLOT(changeToolBar(BaseMode::ToolBarItems)));
-            connect(controller, SIGNAL(actionsChanged()), this, SLOT(updateViewActions()));
-            connect(searchText, SIGNAL(textChanged(QString)), controller, SLOT(searchChanged(QString)));
-            connect(controller, SIGNAL(viewChanged(bool)), this, SLOT(viewChange(bool)));
+            connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
+            connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
+            connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
+            connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
         } else {
             qWarning() << "View load error: " + error;
         }
@@ -191,7 +191,7 @@ void SettingsBase::initConfig()
     }
     configWidget.GbViewStyle->setLayout( configLayout );
     KWindowConfig::restoreWindowSize(configDialog->windowHandle(), KSharedConfig::openConfig()->group("ConfigDialog"));
-    connect(configDialog, SIGNAL(accepted()), this, SLOT(configUpdated()));
+    connect(configDialog, &KConfigDialog::accepted, this, &SettingsBase::configUpdated);
 }
 
 
