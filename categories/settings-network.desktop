@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=
 Icon=preferences-system-network-connection
 
 Name=Network
+Name[bs]=Mreža
 Name[ca]=Xarxa
 Name[cs]=Síť
 Name[da]=Netværk
