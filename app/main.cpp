@@ -40,6 +40,7 @@ int main( int argc, char *argv[] )
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), "wstephenson@kde.org");
     KAboutData::setApplicationData(aboutData);
 
+    application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     application.setWindowIcon(QIcon::fromTheme("preferences-system"));
     QCommandLineParser parser;
     parser.addHelpOption();
