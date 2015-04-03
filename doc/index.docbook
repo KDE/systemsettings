@@ -23,8 +23,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2014-10-25</date>
-<releaseinfo>Plasma 5.2</releaseinfo>
+<date>2015-04-01</date>
+<releaseinfo>Plasma 5.3</releaseinfo>
 
 <abstract>
 <para>
@@ -104,7 +104,7 @@ By selecting <menuchoice><guimenu>Settings</guimenu><guimenuitem>System Settings
 </listitem>
 <listitem>
 <para>
-  By pressing <keycombo>&Alt;<keycap>F2</keycap></keycombo>. This will bring up the &krunner; dialog. Type <command>systemsettings</command>, and press &Enter;.
+  By pressing <keycombo>&Alt;<keycap>F2</keycap></keycombo> or <keycombo>&Alt;<keycap>Space</keycap></keycombo>. This will bring up the &krunner; dialog. Type <command>systemsettings</command>, and press &Enter;.
 </para>
 </listitem>
 <listitem>
@@ -123,7 +123,7 @@ All three of these methods are equivalent, and produce the same result.
 <title>The &systemsettings; Screen</title>
 
 <para>
-When you start &systemsettings;, you are presented with a window, which is divided into three functional parts.
+When you start &systemsettings;, you are presented with a window, which is divided into two functional parts.
 </para>
 
 <para>
@@ -138,8 +138,8 @@ selection moves to the next match.
 <para>
 Underneath the toolbar is an icon view of the individual modules or module groups that 
 make up &systemsettings; grouped by different categories. By default, 
-if your mouse stays a few seconds over an icon, a detailed tooltip 
-appears, explaining the purpose of the module or the modules in this group.
+if your mouse stays a few seconds over an icon, a tooltip 
+appears, either explaining the purpose of the module or showing the modules in this groups.
 </para>
 </sect1>
 
@@ -176,7 +176,7 @@ Application Style (Window Decorations, Widget Style, GNOME Application Style (GT
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Virtual Desktops, Accessibility, Activities)
+Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Screen Locking, Virtual Desktops, Accessibility, Activities)
 </para></listitem>
 <listitem><para>
 Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
@@ -199,7 +199,7 @@ Search (Plasma Search, File Search)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Account Details (Password &amp; User Account, KDE Wallet)
+Account Details (Password and User Account, KDE Wallet, User Manager)
 </para></listitem>
 <listitem><para>
 Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
@@ -208,7 +208,7 @@ Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
 Notifications
 </para></listitem>
 <listitem><para>
-Applications (Default Applications, File Associations, Paths, Launch Feedback)
+Applications (Default Applications, File Associations, Locations, Launch Feedback)
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -219,7 +219,17 @@ Applications (Default Applications, File Associations, Paths, Launch Feedback)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Settings (Proxy, Connection Preferences, SSL Preferences)
+Settings (Proxy, Connection Preferences, SSL Preferences, Cache, Cookies, Browser Identification)
+</para></listitem>
+</itemizedlist></para>
+<para><itemizedlist>
+<listitem><para>
+Connectivity (Windows Shares)
+</para></listitem>
+</itemizedlist></para>
+<para><itemizedlist>
+<listitem><para>
+Bluetooth (Devices, File Transfers, Adapters)
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -230,16 +240,16 @@ Settings (Proxy, Connection Preferences, SSL Preferences)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Human Input Devices (Keyboard, Mouse, Joystick)
+Input Devices (Keyboard, Mouse, Joystick)
 </para></listitem>
 <listitem><para>
-Display and Monitor (Compositor, Screen Locking)
+Display and Monitor (Display Configuration, Compositor)
 </para></listitem>
 <listitem><para>
 Multimedia (Audio and Video)
 </para></listitem>
 <listitem><para>
-Power Management (Energy Saving, Advanced Settings)
+Power Management (Energy Saving, Advanced Settings, Activity Settings)
 </para></listitem>
 <listitem><para>
 Device Actions
@@ -294,6 +304,9 @@ You will then get only normal tooltips and not the content of a module group.
 <para>
 Individual modules can be run without running &systemsettings; using the command <command>kcmshell5</command> from the command line. Type <command>kcmshell5 --list</command> to see a list of the available &systemsettings; modules.
 </para>
+<para>
+Additionally you can start KRunner and start type keywords. When you start typing, a list of matching modules prefixed with &systemsettings; will popup.
+</para>
 </sect1>
 </chapter>
 
@@ -319,7 +332,7 @@ This button will provide help specific to the current module. Clicking the butto
 </varlistentry>
 
 <varlistentry>
-<term>Restore Defaults</term>
+<term>Defaults</term>
 <listitem>
 <para>
 Clicking this button will restore this module to its default values. You must click <guibutton>Apply</guibutton> to save the options.
