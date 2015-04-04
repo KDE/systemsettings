@@ -139,7 +139,7 @@ selection moves to the next match.
 Underneath the toolbar is an icon view of the individual modules or module groups that 
 make up &systemsettings; grouped by different categories. By default, 
 if your mouse stays a few seconds over an icon, a tooltip 
-appears, either explaining the purpose of the module or showing the modules in this groups.
+appears, either explaining the purpose of the module or showing the modules in this group.
 </para>
 </sect1>
 
