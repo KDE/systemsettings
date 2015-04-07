@@ -104,7 +104,7 @@ By selecting <menuchoice><guimenu>Settings</guimenu><guimenuitem>System Settings
 </listitem>
 <listitem>
 <para>
-  By pressing <keycombo>&Alt;<keycap>F2</keycap></keycombo> or <keycombo>&Alt;<keycap>Space</keycap></keycombo>. This will bring up the &krunner; dialog. Type <command>systemsettings</command>, and press &Enter;.
+  By pressing <keycombo>&Alt;<keycap>F2</keycap></keycombo> or <keycombo>&Alt;<keycap>Space</keycap></keycombo>. This will bring up the &krunner; dialog. Type <command>systemsettings5</command>, and press &Enter;.
 </para>
 </listitem>
 <listitem>
