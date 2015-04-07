@@ -60,7 +60,6 @@ X-KDE-Keywords[zh_TW]=System Settings
 
 Name=Icon View
 Name[ar]=مشهد الأيقونات
-Name[ast]=Vista d'iconos
 Name[be]=Значкі
 Name[bg]=Икони
 Name[bn]=আইকন ভিউ
@@ -138,7 +137,6 @@ Name[zh_CN]=图标视图
 Name[zh_TW]=圖示檢視
 Comment=The KDE 4 icon view style
 Comment[ar]=أسلوب عرض الأيقونات الموجود في كدي 4
-Comment[ast]=Vista d'iconos d'estilu KDE4
 Comment[bg]=Стилът на иконите в KDE 4
 Comment[bn]=KDE 4 আইকন ভিউ স্টাইল
 Comment[bs]=Prikaz ikona u stilu KDE‑a 4.
