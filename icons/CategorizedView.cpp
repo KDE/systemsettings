@@ -51,3 +51,13 @@ void CategorizedView::wheelEvent(QWheelEvent* event)
     verticalScrollBar()->setSingleStep(10);
     KCategorizedView::wheelEvent(event);
 }
+
+QModelIndex CategorizedView::moveCursor(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
+{
+    //KCategorizedView decides because we don't have uniform sizes it can't do key up/down
+    //our widths are even, which is all that matters for this method so we pretend that we do, for the purposes of this method
+    setUniformItemSizes(true);
+    auto index = KCategorizedView::moveCursor(cursorAction, modifiers);
+    setUniformItemSizes(false);
+    return index;
+}

@@ -28,6 +28,7 @@ public:
     CategorizedView( QWidget *parent = 0 );
 
     virtual void setModel( QAbstractItemModel *model );
+    virtual QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers);
 protected:
     virtual void wheelEvent(QWheelEvent *);
 };
