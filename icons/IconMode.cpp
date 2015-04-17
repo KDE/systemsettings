@@ -47,7 +47,7 @@ public:
     virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
 };
 
-DaveDelegate::DaveDelegate(QObject* parent): 
+DaveDelegate::DaveDelegate(QObject* parent):
     QAbstractItemDelegate(parent)
 {
 
@@ -58,8 +58,8 @@ QSize DaveDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelInd
     QRect maxSize(0, 0, 200, 300);
 
     QFontMetrics metrics = qApp->fontMetrics();
-    QRect titleRect = metrics.boundingRect(maxSize, Qt::AlignTop, index.data(Qt::DisplayRole).toString());
-    
+    QRect titleRect = metrics.boundingRect(maxSize, Qt::AlignTop | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString());
+
     QString subItemsText;
     for(int i=0; i< index.model()->rowCount(index); i++) {
         if (! subItemsText.isEmpty()) {
@@ -67,12 +67,12 @@ QSize DaveDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelInd
         }
         subItemsText += index.child(i,0).data().toString();
     }
-      
+     
     QRect subTextRect = metrics.boundingRect(maxSize, Qt::AlignTop | Qt::TextWordWrap, subItemsText);
-    
-    QSize size(maxSize.width(), titleRect.height() + 4 + subTextRect.height());
-    
-    return size + QSize(8,8);
+
+    QSize size(maxSize.width(), titleRect.height() + subTextRect.height());
+
+    return size + QSize(36 + 8, 8);
 }
 
 void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
@@ -80,19 +80,22 @@ void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, 
 //     IconSize(KIconLoader::Dialog)
     auto style = qApp->style();
     painter->save();
-    
+
     style->drawControl(QStyle::CE_ItemViewItem, &option, painter);
-    
+
     QRect innerRect = option.rect.adjusted(4,4,-4,-4);
-    
+
     painter->drawPixmap(innerRect.topLeft(), index.data(Qt::DecorationRole).value<QIcon>().pixmap(32,32));
-    
+
     const QRect textArea = innerRect.adjusted(36, 0, 0, 0);
+
     QFont titleFont = option.font;
     titleFont.setBold(true);
     painter->setFont(titleFont);
-    painter->drawText(textArea, index.data(Qt::DisplayRole).toString());
-    
+
+    QRect titleRectBounds;
+    painter->drawText(textArea, Qt::AlignTop | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString(), &titleRectBounds);
+
     QString subItemsText;
     for(int i=0; i< index.model()->rowCount(index); i++) {
         if (! subItemsText.isEmpty()) {
@@ -100,12 +103,12 @@ void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, 
         }
         subItemsText += index.child(i,0).data().toString();
     }
-        
-    const QRect toolTipTextArea = textArea.adjusted(0,20,0,0);
+
+    const QRect toolTipTextArea = textArea.adjusted(0, titleRectBounds.height(), 0,0);
     painter->setFont(option.font);
     painter->setPen(option.palette.color(QPalette::Disabled, QPalette::Text));
     painter->drawText(toolTipTextArea, subItemsText);
-    
+
     painter->restore();
 }
 
