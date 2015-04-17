@@ -40,8 +40,8 @@ void CategorizedView::setModel( QAbstractItemModel *model )
         maxWidth = qMax( maxWidth, size.width() );
         maxHeight = qMax( maxHeight, size.height() );
     }
-    setGridSize( QSize( maxWidth, maxHeight ) );
-    static_cast<KFileItemDelegate*>( itemDelegate() )->setMaximumSize( QSize( maxWidth, maxHeight ) );
+//     setGridSize( QSize( maxWidth, 0 ) );
+//     static_cast<KFileItemDelegate*>( itemDelegate() )->setMaximumSize( QSize( maxWidth, maxHeight ) );
 }
 
 void CategorizedView::wheelEvent(QWheelEvent* event)

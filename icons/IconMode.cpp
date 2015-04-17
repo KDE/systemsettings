@@ -27,14 +27,87 @@
 #include "MenuProxyModel.h"
 
 #include <QStackedWidget>
-
 #include <QAction>
+#include <QPainter>
+#include <QApplication>
+#include <QFontMetrics>
+
 #include <KAboutData>
 #include <KStandardAction>
 #include <KFileItemDelegate>
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY( IconModeFactory, registerPlugin<IconMode>(); )
+
+class DaveDelegate : public QAbstractItemDelegate
+{
+public:
+    explicit DaveDelegate(QObject* parent = 0);
+    virtual void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const;
+    virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
+};
+
+DaveDelegate::DaveDelegate(QObject* parent): 
+    QAbstractItemDelegate(parent)
+{
+
+}
+
+QSize DaveDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const
+{
+    QRect maxSize(0, 0, 200, 300);
+
+    QFontMetrics metrics = qApp->fontMetrics();
+    QRect titleRect = metrics.boundingRect(maxSize, Qt::AlignTop, index.data(Qt::DisplayRole).toString());
+    
+    QString subItemsText;
+    for(int i=0; i< index.model()->rowCount(index); i++) {
+        if (! subItemsText.isEmpty()) {
+            subItemsText += ", "; // TODO i18n/locale
+        }
+        subItemsText += index.child(i,0).data().toString();
+    }
+      
+    QRect subTextRect = metrics.boundingRect(maxSize, Qt::AlignTop | Qt::TextWordWrap, subItemsText);
+    
+    QSize size(maxSize.width(), titleRect.height() + 4 + subTextRect.height());
+    
+    return size + QSize(8,8);
+}
+
+void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
+{
+//     IconSize(KIconLoader::Dialog)
+    auto style = qApp->style();
+    painter->save();
+    
+    style->drawControl(QStyle::CE_ItemViewItem, &option, painter);
+    
+    QRect innerRect = option.rect.adjusted(4,4,-4,-4);
+    
+    painter->drawPixmap(innerRect.topLeft(), index.data(Qt::DecorationRole).value<QIcon>().pixmap(32,32));
+    
+    const QRect textArea = innerRect.adjusted(36, 0, 0, 0);
+    QFont titleFont = option.font;
+    titleFont.setBold(true);
+    painter->setFont(titleFont);
+    painter->drawText(textArea, index.data(Qt::DisplayRole).toString());
+    
+    QString subItemsText;
+    for(int i=0; i< index.model()->rowCount(index); i++) {
+        if (! subItemsText.isEmpty()) {
+            subItemsText += ", "; // TODO i18n/locale
+        }
+        subItemsText += index.child(i,0).data().toString();
+    }
+        
+    const QRect toolTipTextArea = textArea.adjusted(0,20,0,0);
+    painter->setFont(option.font);
+    painter->setPen(option.palette.color(QPalette::Disabled, QPalette::Text));
+    painter->drawText(toolTipTextArea, subItemsText);
+    
+    painter->restore();
+}
 
 class IconMode::Private {
 public:
@@ -173,8 +246,7 @@ void IconMode::initWidget()
     d->categoryView->setMouseTracking( true );
     d->categoryView->viewport()->setAttribute( Qt::WA_Hover );
 
-    KFileItemDelegate *delegate = new KFileItemDelegate( d->categoryView );
-    delegate->setWrapMode( QTextOption::WordWrap );
+    auto delegate = new DaveDelegate( d->categoryView );
     d->categoryView->setItemDelegate( delegate );
 
     d->categoryView->setFrameShape( QFrame::NoFrame );
