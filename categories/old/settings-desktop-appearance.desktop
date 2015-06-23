@@ -8,6 +8,7 @@ Icon=preferences-desktop-theme
 
 Name=Workspace Appearance
 Name[ar]=مظهر مساحة العمل
+Name[ast]=Aspeutu de la estaya de trabayu
 Name[bg]=Изглед на работния плот
 Name[bn]=ওয়ার্কস্পেস-এর চেহারা
 Name[bs]=Izgled radnog prostora
@@ -71,6 +72,7 @@ Name[zh_CN]=工作空间外观
 Name[zh_TW]=工作空間外觀與行為
 Comment=Customize the appearance of your desktop
 Comment[ar]=خصص مظهر سطح المكتب الخاص بك
+Comment[ast]=Personaliza l'aspeutu del to escritoriu
 Comment[bg]=Настройки на изгледа на работния плот
 Comment[bs]=Prilagodite izgled svoje površi
 Comment[ca]=Personalitza l'aparença de l'escriptori

@@ -3,6 +3,7 @@ Type=ServiceType
 X-KDE-ServiceType=SystemSettingsCategory
 Name=System Settings Category
 Name[ar]=فئة إعدادات النظام
+Name[ast]=Estaya d'axustes del sistema
 Name[be]=Катэгорыя сістэмных настаўленняў
 Name[be@latin]=Katehoryja systemnych naładaŭ
 Name[bg]=Категория системни настройки
