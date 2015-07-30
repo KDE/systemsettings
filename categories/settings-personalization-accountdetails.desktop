@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=accountdetails
 X-KDE-System-Settings-Parent-Category=personalization
 X-KDE-Weight=40
-Icon=preferences-desktop-theme
+Icon=preferences-desktop-user
 
 Name=Account Details
 Name[ar]=تفاصيل الحساب
