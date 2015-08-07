@@ -64,7 +64,7 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
     d->aboutIcon->setProgramIconName( "view-list-icons" );
 
     d->backAction = KStandardAction::back( this, SLOT(backToOverview()), this );
-    d->backAction->setText( i18n( "Overview" ) );
+    d->backAction->setText( i18n( "All Settings" ) );
     d->backAction->setToolTip( i18n("Keyboard Shortcut: %1", d->backAction->shortcut().toString( QKeySequence::NativeText )) );
     d->backAction->setEnabled( false );
     actionsList() << d->backAction;
