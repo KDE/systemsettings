@@ -160,7 +160,7 @@ void SettingsBase::initToolBar()
 
 void SettingsBase::initHelpMenu()
 {
-    helpActionMenu = new KActionMenu( QIcon::fromTheme("system-help"), i18n("Help"), this );
+    helpActionMenu = new KActionMenu( QIcon::fromTheme("help-contents"), i18n("Help"), this );
     helpActionMenu->setDelayed( false );
     actionCollection()->addAction( "help_toolbar_menu", helpActionMenu );
     // Add the custom actions
