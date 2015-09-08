@@ -15,10 +15,9 @@
   <ToolBar name="mainToolBar" noEdit="true" >
     <text>About System Settings</text>
     <ActionList name="viewActions" />
-    <Separator />
-    <ActionList name="configure" />
     <Action name="help_toolbar_menu" />
-    <ActionList name="quit" />
+    <ActionList name="configure" />
+    <Separator />
     <ActionList name="search" />
   </ToolBar>
 </gui>

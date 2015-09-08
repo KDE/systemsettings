@@ -137,6 +137,8 @@ void SettingsBase::initToolBar()
     configureAction->setText( i18n("Configure") );
     // Help after it
     initHelpMenu();
+    configureAction->setIcon(QIcon::fromTheme("application-menu"));
+
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new QWidgetAction( this );
     spacerAction->setDefaultWidget(spacerWidget);
@@ -155,7 +157,7 @@ void SettingsBase::initToolBar()
     helpActionMenu->setMenu( dynamic_cast<QMenu*>( factory()->container("help", this) ) );
     setMinimumSize(620,430);
     toolBar()->setMovable(false); // We don't allow any changes
-    changeToolBar( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
+    changeToolBar( BaseMode::Search | BaseMode::Configure );
 }
 
 void SettingsBase::initHelpMenu()
