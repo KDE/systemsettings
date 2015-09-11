@@ -30,16 +30,21 @@ find_package(KF5 REQUIRED COMPONENTS
     XmlGui
     DBusAddons
     Config
-    KHtml
     DocTools
+    OPTIONAL_COMPONENTS
+    KHtml
+    QUIET
 )
 
 add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)
-add_subdirectory(classic)
 add_subdirectory(icons)
 add_subdirectory(doc)
+
+if(KF5KHtml_FOUND)
+    add_subdirectory(classic)
+endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
