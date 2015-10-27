@@ -67,7 +67,7 @@ SettingsBase::SettingsBase( QWidget * parent )
     // Initalise the window so we don't flicker
     initToolBar();
     // We can now launch the delayed loading safely
-    QTimer::singleShot(0, this, SLOT(initApplication()));
+    QTimer::singleShot(0, this, &SettingsBase::initApplication);
 }
 
 SettingsBase::~SettingsBase()

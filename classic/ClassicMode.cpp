@@ -202,15 +202,15 @@ void ClassicMode::initWidget()
 
     d->classicCategory->changeModule( d->classicTree->rootIndex() );
 
-    connect( d->classicCategory, SIGNAL(moduleSelected(QModelIndex)), this, SLOT(selectModule(QModelIndex)) );
-    connect( d->classicTree, SIGNAL(activated(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
-    connect( d->classicTree, SIGNAL(collapsed(QModelIndex)), this, SLOT(expandColumns()) );
-    connect( d->classicTree, SIGNAL(expanded(QModelIndex)), this, SLOT(expandColumns()) );
-    connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
+    connect( d->classicCategory, &CategoryList::moduleSelected, this, &ClassicMode::selectModule );
+    connect( d->classicTree, &QAbstractItemView::activated, this, &ClassicMode::changeModule );
+    connect( d->classicTree, &QTreeView::collapsed, this, &ClassicMode::expandColumns );
+    connect( d->classicTree, &QTreeView::expanded, this, &ClassicMode::expandColumns );
+    connect( d->moduleView, &ModuleView::moduleChanged, this, &ClassicMode::moduleLoaded );
 
     if( !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick) ) {
         // Needed because otherwise activated() is not fired with single click, which is apparently expected for tree views
-        connect( d->classicTree, SIGNAL(clicked(QModelIndex)), this, SLOT(changeModule(QModelIndex)) );
+        connect( d->classicTree, &QAbstractItemView::clicked, this, &ClassicMode::changeModule );
     }
 
     if( config().readEntry( "autoExpandOneLevel", false ) ) {

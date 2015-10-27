@@ -114,8 +114,8 @@ void IconMode::initEvent()
 
     d->mainWidget = new QStackedWidget();
     d->moduleView = new ModuleView( d->mainWidget );
-    connect( d->moduleView, SIGNAL(moduleChanged(bool)), this, SLOT(moduleLoaded()) );
-    connect( d->moduleView, SIGNAL(closeRequest()), this, SLOT(backToOverview()) );
+    connect( d->moduleView, &ModuleView::moduleChanged, this, &IconMode::moduleLoaded );
+    connect( d->moduleView, &ModuleView::closeRequest, this, &IconMode::backToOverview );
     d->categoryView = 0;
 }
 
@@ -179,8 +179,8 @@ void IconMode::initWidget()
 
     d->categoryView->setFrameShape( QFrame::NoFrame );
     d->categoryView->setModel( d->proxyModel );
-    connect( d->categoryView, SIGNAL(activated(QModelIndex)),
-             this, SLOT(changeModule(QModelIndex)) );
+    connect( d->categoryView, &QAbstractItemView::activated,
+             this, &IconMode::changeModule );
 
     d->mainWidget->addWidget( d->categoryView );
     d->mainWidget->addWidget( d->moduleView );

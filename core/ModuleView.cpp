@@ -98,12 +98,12 @@ ModuleView::ModuleView( QWidget * parent )
     d->mHelp->setEnabled(false);
     // Connect up the buttons
     connect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
-    connect( d->mReset, SIGNAL(clicked()), this, SLOT(moduleLoad()) );
-    connect( d->mHelp, SIGNAL(clicked()), this, SLOT(moduleHelp()) );
-    connect( d->mDefault, SIGNAL(clicked()), this, SLOT(moduleDefaults()) );
+    connect( d->mReset, &QAbstractButton::clicked, this, &ModuleView::moduleLoad );
+    connect( d->mHelp, &QAbstractButton::clicked, this, &ModuleView::moduleHelp );
+    connect( d->mDefault, &QAbstractButton::clicked, this, &ModuleView::moduleDefaults );
     connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
              this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
-    connect( this, SIGNAL(moduleChanged(bool)), this, SLOT(updateButtons()) );
+    connect( this, &ModuleView::moduleChanged, this, &ModuleView::updateButtons );
 
     d->mApplyAuthorize = new KAuth::ObjectDecorator(d->mApply);
     d->mApplyAuthorize->setAuthAction( KAuth::Action() );

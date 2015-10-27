@@ -56,18 +56,18 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
 {
     d->view = parent;
 
-    connect(parent, SIGNAL(viewportEntered()), this, SLOT(hideToolTip()));
-    connect(parent, SIGNAL(entered(QModelIndex)), this, SLOT(requestToolTip(QModelIndex)));
+    connect(parent, &QAbstractItemView::viewportEntered, this, &ToolTipManager::hideToolTip);
+    connect(parent, &QAbstractItemView::entered, this, &ToolTipManager::requestToolTip);
 
     d->timer = new QTimer(this);
     d->timer->setSingleShot(true);
-    connect(d->timer, SIGNAL(timeout()), this, SLOT(prepareToolTip()));
+    connect(d->timer, &QTimer::timeout, this, &ToolTipManager::prepareToolTip);
 
     // When the mousewheel is used, the items don't get a hovered indication
     // (Qt-issue #200665). To assure that the tooltip still gets hidden,
     // the scrollbars are observed.
-    connect(parent->horizontalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(hideToolTip()));
-    connect(parent->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(hideToolTip()));
+    connect(parent->horizontalScrollBar(), &QAbstractSlider::valueChanged, this, &ToolTipManager::hideToolTip);
+    connect(parent->verticalScrollBar(), &QAbstractSlider::valueChanged, this, &ToolTipManager::hideToolTip);
 
     d->view->viewport()->installEventFilter(this);
 }
