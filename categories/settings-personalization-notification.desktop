@@ -7,9 +7,15 @@ X-KDE-Weight=60
 Icon=preferences-desktop-notification
 
 Name=Notifications
+Name[ca]=Notificacions
+Name[ca@valencia]=Notificacions
+Name[el]=Ειδοποιήσεις
 Name[gl]=Notificacións
+Name[nb]=Varslinger
 Name[nl]=Meldingen
+Name[nn]=Varslingar
 Name[pt]=Notificações
+Name[pt_BR]=Notificações
 Name[sv]=Underrättelser
 Name[uk]=Сповіщення
 Name[x-test]=xxNotificationsxx
