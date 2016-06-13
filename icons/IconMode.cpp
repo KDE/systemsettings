@@ -91,9 +91,25 @@ QList<QWidget *> DaveDelegate::createItemWidgets(const QModelIndex & index) cons
 
     setBlockedEventTypes(label, QList<QEvent::Type>() << QEvent::MouseButtonPress << QEvent::MouseButtonRelease);
 
+    QString subItemsText;
+    for(int i=0; i< index.model()->rowCount(index); i++) {
+        if (! subItemsText.isEmpty()) {
+            subItemsText += ", "; // TODO i18n/locale
+        }
+        subItemsText += "<a href=\""+QString::number(i) + "\" style=\"text-decoration:none\">";
+        subItemsText += index.child(i,0).data().toString();
+        subItemsText += "</a>";
+    }
+    label->setText(subItemsText);
+
     QPersistentModelIndex persistentIndex(index);
     connect(label, &QLabel::linkActivated, [=](const QString &link) {
-        itemView()->activated(persistentIndex);
+        bool ok;
+        int childRow = link.toInt(&ok);
+        if (!ok) {
+            return;
+        }
+        itemView()->activated(persistentIndex.child(childRow, 0));
     });
 
     return QList<QWidget* >() << label;
@@ -105,17 +121,6 @@ void DaveDelegate::updateItemWidgets(const QList<QWidget *> widgets, const QStyl
     QLabel* label = qobject_cast<QLabel*>(widgets.first());
 
     label->setGeometry(QRect(44,20,option.rect.width()-48, option.rect.height()-24));
-
-    QString subItemsText;
-    for(int i=0; i< index.model()->rowCount(index); i++) {
-        if (! subItemsText.isEmpty()) {
-            subItemsText += ", "; // TODO i18n/locale
-        }
-        subItemsText += "<a href=\"FOO\" style=\"text-decoration:none\">";
-        subItemsText += index.child(i,0).data().toString();
-        subItemsText += "</a>";
-    }
-    label->setText(subItemsText);
 }
 
 
