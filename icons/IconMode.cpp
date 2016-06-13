@@ -31,27 +31,32 @@
 #include <QPainter>
 #include <QApplication>
 #include <QFontMetrics>
+#include <QLabel>
+#include <QDebug>
 #include <qfontdatabase.h>
 
 #include <KAboutData>
 #include <KStandardAction>
 #include <KFileItemDelegate>
 #include <KLocalizedString>
+#include <KWidgetItemDelegate>
 
 K_PLUGIN_FACTORY( IconModeFactory, registerPlugin<IconMode>(); )
 
-class DaveDelegate : public QAbstractItemDelegate
+class DaveDelegate : public KWidgetItemDelegate
 {
 public:
-    explicit DaveDelegate(QObject* parent = 0);
-    virtual void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const;
-    virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const;
+    explicit DaveDelegate(QAbstractItemView* parent = 0);
+    virtual void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override;
+    virtual QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const override;
+    QList<QWidget *> createItemWidgets(const QModelIndex & index) const override;
+    void updateItemWidgets(const QList<QWidget *> widgets, const QStyleOptionViewItem & option, const QPersistentModelIndex & index) const override;
+
 };
 
-DaveDelegate::DaveDelegate(QObject* parent):
-    QAbstractItemDelegate(parent)
+DaveDelegate::DaveDelegate(QAbstractItemView* parent):
+    KWidgetItemDelegate(parent)
 {
-
 }
 
 QSize DaveDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index) const
@@ -74,8 +79,45 @@ QSize DaveDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelInd
 
     QSize size(maxSize.width(), titleRect.height() + subTextRect.height());
 
-    return size + QSize(32 + 8 + 8, 8);
+    return size + QSize(32 + 8 + 8, 10);
 }
+
+QList<QWidget *> DaveDelegate::createItemWidgets(const QModelIndex & index) const
+{
+    auto label = new QLabel();
+    label->setWordWrap(true);
+    label->setAlignment(Qt::AlignTop);
+    label->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
+
+    setBlockedEventTypes(label, QList<QEvent::Type>() << QEvent::MouseButtonPress << QEvent::MouseButtonRelease);
+
+    QPersistentModelIndex persistentIndex(index);
+    connect(label, &QLabel::linkActivated, [=](const QString &link) {
+        itemView()->activated(persistentIndex);
+    });
+
+    return QList<QWidget* >() << label;
+}
+
+void DaveDelegate::updateItemWidgets(const QList<QWidget *> widgets, const QStyleOptionViewItem& option, const QPersistentModelIndex& index) const
+{
+    Q_ASSERT(widgets.size() == 1);
+    QLabel* label = qobject_cast<QLabel*>(widgets.first());
+
+    label->setGeometry(QRect(44,20,option.rect.width()-48, option.rect.height()-24));
+
+    QString subItemsText;
+    for(int i=0; i< index.model()->rowCount(index); i++) {
+        if (! subItemsText.isEmpty()) {
+            subItemsText += ", "; // TODO i18n/locale
+        }
+        subItemsText += "<a href=\"FOO\" style=\"text-decoration:none\">";
+        subItemsText += index.child(i,0).data().toString();
+        subItemsText += "</a>";
+    }
+    label->setText(subItemsText);
+}
+
 
 void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
@@ -98,19 +140,19 @@ void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, 
     QRect titleRectBounds;
     painter->drawText(textArea, Qt::AlignTop | Qt::TextWordWrap, index.data(Qt::DisplayRole).toString(), &titleRectBounds);
 
-    QString subItemsText;
-    for(int i=0; i< index.model()->rowCount(index); i++) {
-        if (! subItemsText.isEmpty()) {
-            subItemsText += ", "; // TODO i18n/locale
-        }
-        subItemsText += index.child(i,0).data().toString();
-    }
+//     QString subItemsText;
+//     for(int i=0; i< index.model()->rowCount(index); i++) {
+//         if (! subItemsText.isEmpty()) {
+//             subItemsText += ", "; // TODO i18n/locale
+//         }
+//         subItemsText += index.child(i,0).data().toString();
+//     }
 
-    const QRect toolTipTextArea = textArea.adjusted(0, titleRectBounds.height(), 0,0);
-    auto tooltipFont = QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont);
-    painter->setFont(tooltipFont);
-    painter->setPen(option.palette.color(QPalette::Disabled, QPalette::Text));
-    painter->drawText(toolTipTextArea, subItemsText);
+//     const QRect toolTipTextArea = textArea.adjusted(0, titleRectBounds.height(), 0,0);
+//     auto tooltipFont = QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont);
+//     painter->setFont(tooltipFont);
+//     painter->setPen(option.palette.color(QPalette::Disabled, QPalette::Text));
+//     painter->drawText(toolTipTextArea, subItemsText);
 
     painter->restore();
 }
@@ -250,7 +292,7 @@ void IconMode::initWidget()
     d->categoryView->setCategoryDrawer( d->categoryDrawer );
     d->categoryView->setViewMode( QListView::IconMode );
     d->categoryView->setMouseTracking( true );
-    d->categoryView->viewport()->setAttribute( Qt::WA_Hover );
+//     d->categoryView->viewport()->setAttribute( Qt::WA_Hover );
 
     auto delegate = new DaveDelegate( d->categoryView );
     d->categoryView->setItemDelegate( delegate );
