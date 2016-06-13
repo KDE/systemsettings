@@ -334,7 +334,7 @@ void SettingsBase::changePlugin()
     if ( BaseConfig::showToolTips() ) {
         QList<QAbstractItemView*> theViews = activeView->views();
         foreach ( QAbstractItemView* view, theViews ) {
-            tooltipManagers << new ToolTipManager( view );
+//             tooltipManagers << new ToolTipManager( view );
         }
     }
 
