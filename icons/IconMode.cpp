@@ -129,9 +129,14 @@ void DaveDelegate::updateItemWidgets(const QList<QWidget *> widgets, const QStyl
 
 void DaveDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const
 {
-//     IconSize(KIconLoader::Dialog)
     auto style = qApp->style();
     painter->save();
+
+    if (option.state & QStyle::State_Selected) {
+        painter->setPen(option.palette.color(option.palette.currentColorGroup(), QPalette::HighlightedText));
+    } else {
+        painter->setPen(option.palette.color(option.palette.currentColorGroup(), QPalette::Text));
+    }
 
     style->drawControl(QStyle::CE_ItemViewItem, &option, painter);
 
