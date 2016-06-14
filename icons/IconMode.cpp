@@ -92,13 +92,16 @@ QList<QWidget *> DaveDelegate::createItemWidgets(const QModelIndex & index) cons
     setBlockedEventTypes(label, QList<QEvent::Type>() << QEvent::MouseButtonPress << QEvent::MouseButtonRelease);
 
     QString subItemsText;
-    for(int i=0; i< index.model()->rowCount(index); i++) {
-        if (! subItemsText.isEmpty()) {
-            subItemsText += ", "; // TODO i18n/locale
+    const int subItemsCount = index.model()->rowCount(index);
+    if (subItemsCount > 1) {
+        for (int i = 0; i < subItemsCount; ++i) {
+            if (!subItemsText.isEmpty()) {
+                subItemsText += ", "; // TODO i18n/locale
+            }
+            subItemsText += "<a href=\""+QString::number(i) + "\" style=\"text-decoration:none\">";
+            subItemsText += index.child(i,0).data().toString();
+            subItemsText += "</a>";
         }
-        subItemsText += "<a href=\""+QString::number(i) + "\" style=\"text-decoration:none\">";
-        subItemsText += index.child(i,0).data().toString();
-        subItemsText += "</a>";
     }
     label->setText(subItemsText);
 
