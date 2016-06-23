@@ -38,6 +38,7 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
     Q_UNUSED( option )
     Q_UNUSED( sortRole )
 
+    painter->save();
     painter->setRenderHint(QPainter::Antialiasing);
 
     const QRect optRect = option.rect;
@@ -48,31 +49,16 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
     const int height = categoryHeight(index, option);
     const QRect headerRect(optRect.left()+4, optRect.top(), optRect.width()-8, height-6);
 
-    //BEGIN: draw text
-    {
-        const QString category = index.model()->data(index, KCategorizedSortFilterProxyModel::CategoryDisplayRole).toString();
-        QRect textRect = headerRect.adjusted(0,0,0,-4);
-        textRect.setLeft(textRect.left() + 4 /* a bit of margin */);
-        painter->save();
-        painter->setFont(font);
-        QColor penColor(option.palette.text().color());
-        painter->setPen(penColor);
-        painter->drawText(textRect, Qt::AlignLeft | Qt::AlignTop, category);
-//DEBUG         painter->drawRect(textRect); 
-        painter->restore();
-    }
-    //END: draw text
-    
-    //BEGIN: draw separator
-    {
-        painter->save();
-        
-        QColor penColor(option.palette.highlight().color());
-        painter->setPen(penColor);
-        painter->drawLine(headerRect.bottomLeft(), headerRect.bottomRight());
-        painter->restore();
-    }
+    const QString category = index.model()->data(index, KCategorizedSortFilterProxyModel::CategoryDisplayRole).toString();
+    const QRect textRect = QApplication::style()->itemTextRect(fontMetrics, headerRect, Qt::AlignLeft | Qt::AlignTop, true, category);
+
+    painter->drawText(textRect, category);
+
     //END: draw separator
+    painter->setPen(option.palette.color(QPalette::Disabled, QPalette::WindowText));
+    int middle = textRect.center().y() + 2;
+    painter->drawLine(QPoint(textRect.right() + 4, middle), QPoint(headerRect.right(), middle));
+    painter->restore();
 }
 
 int CategoryDrawer::categoryHeight(const QModelIndex &index, const QStyleOption &option) const
@@ -85,7 +71,7 @@ int CategoryDrawer::categoryHeight(const QModelIndex &index, const QStyleOption 
     const QFontMetrics fontMetrics = QFontMetrics(font);
 
 
-    return fontMetrics.height() + 12 /* vertical spacing */;
+    return fontMetrics.height() ;
 }
 
 int CategoryDrawer::leftMargin() const
