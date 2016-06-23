@@ -27,6 +27,11 @@ CategorizedView::CategorizedView( QWidget *parent )
     : KCategorizedView( parent )
 {
     setWordWrap( true );
+    setViewportMargins(20,0,20,0);
+    QPalette pal(palette());
+    pal.setColor(QPalette::Background, Qt::white);
+    setAutoFillBackground(true);
+    setPalette(pal);
 }
 
 void CategorizedView::setModel( QAbstractItemModel *model )
