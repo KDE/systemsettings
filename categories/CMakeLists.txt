@@ -32,6 +32,7 @@ install( FILES
     settings-hardware-multimedia.desktop
     settings-hardware-peripherals.desktop
     settings-hardware-powermanagement.desktop
+    settings-hardware-removable-storage.desktop
 
     DESTINATION  ${SERVICES_INSTALL_DIR} )
 

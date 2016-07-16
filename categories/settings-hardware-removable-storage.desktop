@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
-X-KDE-System-Settings-Category=removable-devices
+X-KDE-System-Settings-Category=removable-storage
 X-KDE-System-Settings-Parent-Category=hardware
 Icon=drive-removable-media
 
-Name=Removable Devices
+Name=Removable Storage
 Name[ar]=الأجهزة القابلة للإزالة
 Name[ast]=Preseos estrayibles
 Name[bg]=Преносими устройства
