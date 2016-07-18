@@ -6,3 +6,9 @@ X-KDE-System-Settings-Parent-Category=hardware
 Icon=drive-removable-media
 
 Name=Removable Storage
+Name[ca]=Emmagatzematge extraïble
+Name[es]=Almacenamiento extraíble
+Name[nl]=Verwijderbare opslag
+Name[sv]=Flyttbar lagringsenhet
+Name[uk]=Портативний носій
+Name[x-test]=xxRemovable Storagexx
