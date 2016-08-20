@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=connectivity
 X-KDE-System-Settings-Parent-Category=network
 X-KDE-Weight=50
-Icon=preferences-system-network-connection
+Icon=preferences-system-network-sharing
 
 Name=Connectivity
 Name[ar]=الاتّصال
