@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&systemsettings;">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -23,8 +22,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2015-04-01</date>
-<releaseinfo>Plasma 5.3</releaseinfo>
+<date>2016-09-13</date>
+<releaseinfo>Plasma 5.7</releaseinfo>
 
 <abstract>
 <para>
@@ -127,10 +126,10 @@ When you start &systemsettings;, you are presented with a window, which is divid
 </para>
 
 <para>
-Across the top is a toolbar. The toolbar provides the user with the ability to go back into the main view from within a module using the <guibutton>Overview</guibutton>.
+Across the top is a toolbar. The toolbar provides the user with the ability to go back into the main view from within a module using <guibutton>All Settings</guibutton>.
 You can also find a <guimenu>Help</guimenu> menu as well as a <guibutton>Configure</guibutton> button which provides you a dialog with alternate view settings.
 </para>
-<para>To search for something within all of the modules, start to type keywords into the search field at the right of the toolbar in the <guibutton>Overview</guibutton>. When you start typing, a list of matching topics will popup. Select one and only the groups with settings for this  keyword are enabled, the other are greyed out.</para>
+<para>To search for something within all of the modules, start to type keywords into the search field at the right of the toolbar in the <guibutton>All Settings</guibutton> view. When you start typing, a list of matching topics will popup. Select one and only the groups with settings for this  keyword are enabled, the other are greyed out.</para>
 <para>When the icon window has the focus, you can type the first letter of 
 any module or module group name to select it. Typing this letter again the 
 selection moves to the next match.
@@ -182,7 +181,7 @@ Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Screen Locking, Virt
 Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
 </para></listitem>
 <listitem><para>
-Shortcuts (Application Keyboard Shortcuts, Global Keyboard Shortcuts, Web Shortcuts, Custom Shortcuts)
+Shortcuts (Standard Shortcuts, Global Shortcuts, Web Shortcuts, Custom Shortcuts)
 </para></listitem>
 <listitem><para>
 Startup and Shutdown (Autostart, Background Services, Desktop Session, Login Screen (SDDM))
@@ -199,7 +198,7 @@ Search (Plasma Search, File Search)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Account Details (Password and User Account, KDE Wallet, User Manager)
+Account Details (KDE Wallet, User Manager)
 </para></listitem>
 <listitem><para>
 Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
@@ -229,7 +228,7 @@ Connectivity (Windows Shares)
 </itemizedlist></para>
 <para><itemizedlist>
 <listitem><para>
-Bluetooth (Devices, File Transfers, Adapters)
+Bluetooth (Devices, Adapters, Advanced Settings)
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -240,19 +239,19 @@ Bluetooth (Devices, File Transfers, Adapters)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Input Devices (Keyboard, Mouse, Joystick)
+Input Devices (Keyboard, Mouse, Joystick, Touchpad)
 </para></listitem>
 <listitem><para>
-Display and Monitor (Display Configuration, Compositor)
+Display and Monitor (Display Configuration, Compositor, Gamma)
 </para></listitem>
 <listitem><para>
-Multimedia (Audio and Video)
+Multimedia (Audio Volume, Audio and Video)
 </para></listitem>
 <listitem><para>
 Power Management (Energy Saving, Advanced Settings, Activity Settings)
 </para></listitem>
 <listitem><para>
-Device Actions
+Removable Storage (Device Actions, Removable Devices)
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -260,7 +259,7 @@ Device Actions
 
 </variablelist>
 
-<tip><para>Use the search field at the top right in <guibutton>Overview</guibutton> to find all matching modules for a given keyword.
+<tip><para>Use the search field at the top right in <guibutton>All Settings</guibutton> view to find all matching modules for a given keyword.
 Start typing a keyword opens a list of keywords and only the matching modules are enabled.</para></tip>
 </sect1>
 <sect1 id="exiting">
