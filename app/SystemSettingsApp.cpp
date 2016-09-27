@@ -19,6 +19,7 @@
 
 #include "SystemSettingsApp.h"
 #include <kdbusservice.h>
+#include <KWindowSystem>
 
 SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])
     : QApplication(argc, argv)
@@ -27,7 +28,7 @@ SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])
     setOrganizationDomain("kde.org");
     KDBusService* service = new KDBusService(KDBusService::Unique, this);
     QObject::connect(service, &KDBusService::activateRequested, this, [=]() {
-        window->activateWindow();
+        KWindowSystem::forceActiveWindow(window->winId());
     } );
 }
 
