@@ -7,3 +7,9 @@ X-KDE-Weight=70
 Icon=preferences-desktop-font
 
 Name=Fonts
+Name[ca]=Tipus de lletres
+Name[nl]=Lettertypen
+Name[pt]=Tipos de Letra
+Name[sv]=Teckensnitt
+Name[uk]=Шрифти
+Name[x-test]=xxFontsxx

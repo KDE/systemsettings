@@ -7,3 +7,9 @@ X-KDE-Weight=60
 Icon=preferences-desktop-color
 
 Name=Colors
+Name[ca]=Colors
+Name[nl]=Kleuren
+Name[pt]=Cores
+Name[sv]=Färger
+Name[uk]=Кольори
+Name[x-test]=xxColorsxx
