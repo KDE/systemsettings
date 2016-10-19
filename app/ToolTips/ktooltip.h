@@ -23,13 +23,14 @@
 class QPoint;
 class QString;
 class QWidget;
+class QWindow;
 
 /**
  * Allows to show tooltips having a widget as content.
  */
 namespace KToolTip
 {
-    void showText(const QPoint& pos, const QString& text);
+    void showText(const QPoint& pos, const QString& text, QWindow *transientParent);
     
     /**
      * Shows the tip @p content at the global position indicated by @p pos.
@@ -39,7 +40,7 @@ namespace KToolTip
      *
      * The tip is shown immediately when this function is called.
      */
-    void showTip(const QPoint& pos, QWidget* content);
+    void showTip(const QPoint& pos, QWidget* content, QWindow *transientParent);
     void hideTip();
 }
 

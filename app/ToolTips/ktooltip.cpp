@@ -21,6 +21,7 @@
 #include "ktooltipwindow_p.h"
 #include <QLabel>
 #include <QPoint>
+#include <QWindow>
 #include <QWidget>
 
 class KToolTipManager
@@ -30,7 +31,7 @@ public:
 
     static KToolTipManager* instance();
 
-    void showTip(const QPoint& pos, QWidget* content);
+    void showTip(const QPoint& pos, QWidget* content, QWindow *transientParent);
     void hideTip();
 
 private:
@@ -62,12 +63,14 @@ KToolTipManager* KToolTipManager::instance()
     return s_instance;
 }
 
-void KToolTipManager::showTip(const QPoint& pos, QWidget* content)
+void KToolTipManager::showTip(const QPoint& pos, QWidget* content, QWindow *transientParent)
 {
     hideTip();
     Q_ASSERT(m_window == 0);
     m_window = new KToolTipWindow(content);
     m_window->move(pos);
+    m_window->createWinId();
+    m_window->windowHandle()->setTransientParent(transientParent);
     m_window->show();
 }
 
@@ -82,16 +85,16 @@ void KToolTipManager::hideTip()
 
 namespace KToolTip
 {
-    void showText(const QPoint& pos, const QString& text)
+    void showText(const QPoint& pos, const QString& text, QWindow *transientParent)
     {
         QLabel* label = new QLabel(text);
         label->setForegroundRole(QPalette::ToolTipText);
-        showTip(pos, label);
+        showTip(pos, label, transientParent);
     }
 
-    void showTip(const QPoint& pos, QWidget* content)
+    void showTip(const QPoint& pos, QWidget* content, QWindow *transientParent)
     {
-        KToolTipManager::instance()->showTip(pos, content);
+        KToolTipManager::instance()->showTip(pos, content, transientParent);
     }
 
     void hideTip()
