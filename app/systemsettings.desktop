@@ -8,7 +8,6 @@ OnlyShowIn=KDE;
 
 GenericName=System Settings
 GenericName[ar]=إعدادات النّظام
-GenericName[ast]=Axustes del sistema
 GenericName[be@latin]=Systemnyja nałady
 GenericName[bg]=Системни настройки
 GenericName[bn]=সিস্টেম সেটিংস
@@ -90,7 +89,6 @@ GenericName[zh_TW]=系統設定
 
 Name=System Settings
 Name[ar]=إعدادات النّظام
-Name[ast]=Axustes del sistema
 Name[be]=Сістэмныя настаўленні
 Name[be@latin]=Systemnyja nałady
 Name[bg]=Системни настройки
