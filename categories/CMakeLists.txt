@@ -18,6 +18,7 @@ install( FILES
 
     settings-personalization.desktop
     settings-personalization-accountdetails.desktop
+    settings-personalization-accessibility.desktop
     settings-personalization-regionalsettings.desktop
     settings-personalization-notification.desktop
     settings-personalization-applications.desktop
