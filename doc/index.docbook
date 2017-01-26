@@ -22,8 +22,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2016-09-13</date>
-<releaseinfo>Plasma 5.7</releaseinfo>
+<date>2017-01-24</date>
+<releaseinfo>Plasma 5.9</releaseinfo>
 
 <abstract>
 <para>
@@ -155,7 +155,7 @@ appears, either explaining the purpose of the module or showing the modules in t
 Workspace Theme (Look and Feel, Desktop Theme, Cursor Theme, Splash Screen)
 </para></listitem>
 <listitem><para>
-Color
+Colors
 </para></listitem>
 <listitem><para>
 Font (Fonts, Font Management)
@@ -175,7 +175,7 @@ Application Style (Window Decorations, Widget Style, GNOME Application Style (GT
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Screen Locking, Virtual Desktops, Accessibility, Activities)
+Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Screen Locking, Virtual Desktops, Activities)
 </para></listitem>
 <listitem><para>
 Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
@@ -184,7 +184,7 @@ Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
 Shortcuts (Standard Shortcuts, Global Shortcuts, Web Shortcuts, Custom Shortcuts)
 </para></listitem>
 <listitem><para>
-Startup and Shutdown (Autostart, Background Services, Desktop Session, Login Screen (SDDM))
+Startup and Shutdown (Login Screen (SDDM), Autostart, Background Services, Desktop Session, System Splash)
 </para></listitem>
 <listitem><para>
 Search (Plasma Search, File Search)
@@ -204,10 +204,13 @@ Account Details (KDE Wallet, User Manager)
 Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
 </para></listitem>
 <listitem><para>
-Notifications
+Notifications (Notifications, Other Notifications)
 </para></listitem>
 <listitem><para>
 Applications (Default Applications, File Associations, Locations, Launch Feedback)
+</para></listitem>
+<listitem><para>
+Accessibility
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -218,15 +221,16 @@ Applications (Default Applications, File Associations, Locations, Launch Feedbac
 <listitem>
 <para><itemizedlist>
 <listitem><para>
+Connections
+</para></listitem>
+<listitem><para>
 Settings (Proxy, Connection Preferences, SSL Preferences, Cache, Cookies, Browser Identification)
 </para></listitem>
-</itemizedlist></para>
-<para><itemizedlist>
+
 <listitem><para>
 Connectivity (Windows Shares)
 </para></listitem>
-</itemizedlist></para>
-<para><itemizedlist>
+
 <listitem><para>
 Bluetooth (Devices, Adapters, Advanced Settings)
 </para></listitem>
@@ -242,7 +246,7 @@ Bluetooth (Devices, Adapters, Advanced Settings)
 Input Devices (Keyboard, Mouse, Joystick, Touchpad)
 </para></listitem>
 <listitem><para>
-Display and Monitor (Display Configuration, Compositor, Gamma)
+Display and Monitor (Displays, Compositor, Gamma)
 </para></listitem>
 <listitem><para>
 Multimedia (Audio Volume, Audio and Video)
