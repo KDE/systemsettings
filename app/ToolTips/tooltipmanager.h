@@ -56,6 +56,9 @@ public Q_SLOTS:
      */
     void hideToolTip();
 
+protected:
+    virtual bool eventFilter(QObject* watched, QEvent* event);
+
 private Q_SLOTS:
     void prepareToolTip();
     void requestToolTip(const QModelIndex& index);

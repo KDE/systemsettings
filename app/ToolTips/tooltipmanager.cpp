@@ -72,11 +72,29 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
     // the scrollbars are observed.
     connect(parent->horizontalScrollBar(), &QAbstractSlider::valueChanged, this, &ToolTipManager::hideToolTip);
     connect(parent->verticalScrollBar(), &QAbstractSlider::valueChanged, this, &ToolTipManager::hideToolTip);
+
+    d->view->viewport()->installEventFilter(this);
 }
 
 ToolTipManager::~ToolTipManager()
 {
     delete d;
+}
+
+bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched == d->view->viewport()) {
+        switch (event->type()) {
+            case QEvent::Leave:
+            case QEvent::MouseButtonPress:
+                hideToolTip();
+                break;
+            default:
+                break;
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }
 
 void ToolTipManager::requestToolTip(const QModelIndex& index)
