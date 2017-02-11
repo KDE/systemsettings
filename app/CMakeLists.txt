@@ -4,8 +4,6 @@ include_directories( ToolTips )
 set( systemsettings_SRCS
      SystemSettingsApp.cpp
      SettingsBase.cpp
-     ToolTips/ktooltip.cpp
-     ToolTips/ktooltipwindow.cpp
      ToolTips/tooltipmanager.cpp
      main.cpp )
 

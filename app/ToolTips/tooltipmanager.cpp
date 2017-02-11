@@ -21,33 +21,35 @@
 
 #include "MenuItem.h"
 
-#include "ktooltip.h"
-
 #include <QRect>
 #include <QLabel>
 #include <QTimer>
 #include <QScrollBar>
 #include <QGridLayout>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QAbstractItemView>
 
 #include <KIconLoader>
 #include <KColorScheme>
 #include <KLocalizedString>
+#include <KToolTipWidget>
 
 class ToolTipManager::Private
 {
 public:
     Private() :
+        tooltip(0),
         view(0),
-        timer(0)
+        timer(0),
+        delay(300)
         { }
 
+    KToolTipWidget *tooltip;
     QAbstractItemView* view;
     QTimer* timer;
     QModelIndex item;
     QRect itemRect;
+    int delay;
 };
 
 ToolTipManager::ToolTipManager(QAbstractItemView* parent)
@@ -55,6 +57,8 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
     , d(new ToolTipManager::Private)
 {
     d->view = parent;
+    d->tooltip = new KToolTipWidget(d->view);
+    d->tooltip->setHideDelay(0);
 
     connect(parent, &QAbstractItemView::viewportEntered, this, &ToolTipManager::hideToolTip);
     connect(parent, &QAbstractItemView::entered, this, &ToolTipManager::requestToolTip);
@@ -68,8 +72,6 @@ ToolTipManager::ToolTipManager(QAbstractItemView* parent)
     // the scrollbars are observed.
     connect(parent->horizontalScrollBar(), &QAbstractSlider::valueChanged, this, &ToolTipManager::hideToolTip);
     connect(parent->verticalScrollBar(), &QAbstractSlider::valueChanged, this, &ToolTipManager::hideToolTip);
-
-    d->view->viewport()->installEventFilter(this);
 }
 
 ToolTipManager::~ToolTipManager()
@@ -77,36 +79,18 @@ ToolTipManager::~ToolTipManager()
     delete d;
 }
 
-bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)
-{
-    if ( watched == d->view->viewport() ) {
-        switch ( event->type() ) {
-            case QEvent::Leave:
-            case QEvent::MouseButtonPress:
-                hideToolTip();
-                break;
-            case QEvent::ToolTip:
-                return true;
-            default:
-                break;
-        }
-    }
-
-    return QObject::eventFilter(watched, event);
-}
-
 void ToolTipManager::requestToolTip(const QModelIndex& index)
 {
     // only request a tooltip for the name column and when no selection or
     // drag & drop operation is done (indicated by the left mouse button)
     if ( !(QApplication::mouseButtons() & Qt::LeftButton) ) {
-        KToolTip::hideTip();
+        d->tooltip->hide();
 
         d->itemRect = d->view->visualRect(index);
         const QPoint pos = d->view->viewport()->mapToGlobal(d->itemRect.topLeft());
         d->itemRect.moveTo(pos);
         d->item = index;
-        d->timer->start(300);
+        d->timer->start(d->delay);
     } else {
         hideToolTip();
     }
@@ -115,7 +99,7 @@ void ToolTipManager::requestToolTip(const QModelIndex& index)
 void ToolTipManager::hideToolTip()
 {
     d->timer->stop();
-    KToolTip::hideTip();
+    d->tooltip->hideLater();
 }
 
 void ToolTipManager::prepareToolTip()
@@ -131,46 +115,10 @@ void ToolTipManager::showToolTip( QModelIndex menuItem )
 
     QWidget * tip = createTipContent( menuItem );
 
-    // calculate the x- and y-position of the tooltip
-    const QSize size = tip->sizeHint();
-    const QRect desktop = QApplication::desktop()->screenGeometry( d->itemRect.bottomRight() );
+    d->tooltip->showBelow(d->itemRect, tip, d->view->nativeParentWidget()->windowHandle());
 
-    // d->itemRect defines the area of the item, where the tooltip should be
-    // shown. Per default the tooltip is shown in the bottom right corner.
-    // If the tooltip content exceeds the desktop borders, it must be assured that:
-    // - the content is fully visible
-    // - the content is not drawn inside d->itemRect
-    const int margin = 3;
-    const bool hasRoomToLeft  = (d->itemRect.left()   - size.width() - margin >= desktop.left());
-    const bool hasRoomToRight = (d->itemRect.right()  + size.width() + margin <= desktop.right());
-    const bool hasRoomAbove   = (d->itemRect.top()    - size.height() - margin >= desktop.top());
-    const bool hasRoomBelow   = (d->itemRect.bottom() + size.height() + margin <= desktop.bottom());
-    if (!hasRoomAbove && !hasRoomBelow && !hasRoomToLeft && !hasRoomToRight) {
-        delete tip;
-        tip = 0;
-        return;
-    }
+    connect(d->tooltip, &KToolTipWidget::hidden, tip, &QObject::deleteLater);
 
-    int x = 0;
-    int y = 0;
-    if (hasRoomBelow || hasRoomAbove) {
-        x = qMax(desktop.left(), d->itemRect.center().x() - size.width() / 2);
-        if (x + size.width() / 2 >= desktop.right()) {
-            x = desktop.right() - size.width();
-        }
-
-        y = hasRoomBelow ? d->itemRect.bottom() + margin : d->itemRect.top() - size.height() - margin;
-    } else {
-        Q_ASSERT(hasRoomToLeft || hasRoomToRight);
-        x = hasRoomToRight ? d->itemRect.right() + margin : d->itemRect.left() - size.width() - margin;
-
-        // Put the tooltip at the bottom of the screen. The x-coordinate has already
-        // been adjusted, so that no overlapping with d->itemRect occurs.
-        y = desktop.bottom() - size.height();
-    }
-
-    // the ownership of tip is transferred to KToolTip
-    KToolTip::showTip(QPoint(x, y), tip, d->view->nativeParentWidget()->windowHandle());
 }
 
 QWidget * ToolTipManager::createTipContent( QModelIndex item )

@@ -56,16 +56,6 @@ public Q_SLOTS:
      */
     void hideToolTip();
 
-protected:
-    /**
-    * Please see the Qt documentation for more details.
-    *
-    * @param watched The object that was being watched.
-    * @param event The event object.
-    * @returns true if the event was handled in this filter, or false if it was not.
-    */
-    virtual bool eventFilter( QObject* watched, QEvent* event );
-
 private Q_SLOTS:
     void prepareToolTip();
     void requestToolTip(const QModelIndex& index);
