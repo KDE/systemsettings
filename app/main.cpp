@@ -34,7 +34,7 @@ int main( int argc, char *argv[] )
     KLocalizedString::setApplicationDomain("systemsettings");
 
     // About data
-    KAboutData aboutData("systemsettings", i18n("System Settings"), PROJECT_VERSION, i18n("Central configuration center for KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
+    KAboutData aboutData("systemsettings", i18n("System Settings"), PROJECT_VERSION, i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
     aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), "bcooksley@kde.org");
     aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), "msoeken@informatik.uni-bremen.de");
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), "wstephenson@kde.org");
