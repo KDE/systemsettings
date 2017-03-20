@@ -38,7 +38,13 @@ int main( int argc, char *argv[] )
     aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), "bcooksley@kde.org");
     aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), "msoeken@informatik.uni-bremen.de");
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), "wstephenson@kde.org");
-    aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
+
+    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
+        aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
+    } else {
+        aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
+    }
+
     KAboutData::setApplicationData(aboutData);
 
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
