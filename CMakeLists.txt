@@ -42,6 +42,7 @@ add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)
 add_subdirectory(icons)
+add_subdirectory(sidebar)
 add_subdirectory(doc)
 
 if(KF5KHtml_FOUND)

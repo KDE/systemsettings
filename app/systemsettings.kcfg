@@ -11,7 +11,7 @@
     </entry>
     <entry name="ActiveView" type="String">
       <label>Internal name for the view used</label>
-      <default>icon_mode</default>
+      <default>systemsettings_sidebar_mode</default>
     </entry>
   </group>
 </kcfg>

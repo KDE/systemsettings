@@ -108,6 +108,7 @@ void SettingsBase::initApplication()
     for( int pluginsDone = 0; pluginsDone < nbPlugins ; ++pluginsDone ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
+qWarning()<<"AAA"<<error<<activeService->library();
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
@@ -388,6 +389,8 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
         quitBarActions << quitAction;
         guiFactory()->plugActionList( this, "quit", quitBarActions );
     }
+
+    toolBar()->setVisible(toolbar != BaseMode::NoItems);
 }
 
 void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, QString fallback )
