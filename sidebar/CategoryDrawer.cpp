@@ -50,7 +50,7 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
 
 
     const QString category = index.model()->data(index, KCategorizedSortFilterProxyModel::CategoryDisplayRole).toString();
-    QRect textRect = QRect(option.rect.topLeft(), QSize(option.rect.width() - 2 - 3 - 3, height));
+    QRect textRect = QRect(option.rect.topLeft()+QPoint(8,0), QSize(option.rect.width() - 2 - 3 - 3, height));
 
     textRect.setLeft(textRect.left());
     painter->save();
@@ -62,11 +62,11 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
         textRect.setTop(textRect.top() + 10);
         painter->save();
         penColor.setAlphaF(0.3);
-        painter->fillRect(QRect(textRect.topLeft() + QPoint(0, -5), QSize(option.rect.width(),1)), penColor);
+        painter->fillRect(QRect(textRect.topLeft() + QPoint(-8, -5), QSize(option.rect.width(),1)), penColor);
         painter->restore();
     }
 
-    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignTop, category);
+    painter->drawText(textRect, Qt::AlignLeft | Qt::AlignBottom, category);
     painter->restore();
 
 }
@@ -79,7 +79,7 @@ int CategoryDrawer::categoryHeight(const QModelIndex &index, const QStyleOption 
     QFont font(QApplication::font());
     font.setBold(true);
     const QFontMetrics fontMetrics = QFontMetrics(font);
-if (index.row() == 0) return fontMetrics.height();
+    //if (index.row() == 0) return fontMetrics.height();
 
     return fontMetrics.height() * 1.6  /* vertical spacing */;
 }

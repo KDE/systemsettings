@@ -2,6 +2,7 @@ set( sidebar_mode_srcs
      SidebarMode.cpp
      CategoryDrawer.cpp
      CategorizedView.cpp
+     SidebarDelegate.cpp
 ) 
 
 add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_srcs})

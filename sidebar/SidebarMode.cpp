@@ -26,13 +26,13 @@
 #include "ModuleView.h"
 #include "MenuProxyModel.h"
 #include "BaseData.h"
+#include "SidebarDelegate.h"
 
 #include <QHBoxLayout>
 
 #include <QAction>
 #include <KAboutData>
 #include <KStandardAction>
-#include <KFileItemDelegate>
 #include <KLocalizedString>
 #include <KIconLoader>
 #include <KLineEdit>
@@ -189,9 +189,8 @@ void SidebarMode::initWidget()
     d->categoryView->setMouseTracking( true );
     d->categoryView->viewport()->setAttribute( Qt::WA_Hover );
 
-    //KFileItemDelegate *delegate = new KFileItemDelegate( d->categoryView );
-    //delegate->setWrapMode( QTextOption::WordWrap );
-    //d->categoryView->setItemDelegate( delegate );
+    SidebarDelegate *delegate = new SidebarDelegate( d->categoryView );
+    d->categoryView->setItemDelegate( delegate );
 
     d->categoryView->setFrameShape( QFrame::NoFrame );
     d->categoryView->setModel( d->proxyModel );
