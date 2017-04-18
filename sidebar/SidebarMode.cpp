@@ -37,6 +37,9 @@
 #include <KIconLoader>
 #include <KLineEdit>
 #include <KServiceTypeTrader>
+#include <KXmlGuiWindow>
+#include <KActionCollection>
+#include <QMenu>
 #include <QDebug>
 
 K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
@@ -52,6 +55,7 @@ public:
     KCategoryDrawer * categoryDrawer;
     KCategorizedView * categoryView;
     QWidget * mainWidget;
+    QToolButton * menuButton;
     QHBoxLayout * mainLayout;
     MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
@@ -166,7 +170,27 @@ void SidebarMode::initWidget()
     d->searchText->setClearButtonShown( true );
     d->searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
     d->searchText->setCompletionMode( KCompletion::CompletionPopup );
-    sidebarLayout->addWidget( d->searchText );
+    QHBoxLayout *topLayout = new QHBoxLayout(sidebar);
+    topLayout->setContentsMargins(0, 4, 4, 4);
+    d->menuButton = new QToolButton(sidebar);
+    d->menuButton->setAutoRaise(true);
+    d->menuButton->setIcon( QIcon::fromTheme("application-menu") );
+    if (!KMainWindow::memberList().isEmpty()) {
+        KXmlGuiWindow *mainWindow = qobject_cast<KXmlGuiWindow *>(KMainWindow::memberList().first());
+        if (mainWindow) {
+            KActionCollection *collection = mainWindow->actionCollection();
+            QMenu *menu = new QMenu(d->menuButton);
+            d->menuButton->setPopupMode(QToolButton::InstantPopup);
+            d->menuButton->setMenu(menu);
+            menu->addAction( collection->action("configure") );
+            menu->addAction( collection->action("help_contents") );
+            menu->addAction( collection->action("help_about_app") );
+            menu->addAction( collection->action("help_about_kde") );
+        }
+    }
+    topLayout->addWidget( d->menuButton );
+    topLayout->addWidget( d->searchText );
+    sidebarLayout->addItem( topLayout );
 
     // Prepare the Base Data
     MenuItem *rootModule = new MenuItem( true, 0 );

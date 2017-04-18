@@ -13,6 +13,7 @@ target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     KF5::I18n
     KF5::KIOWidgets
     KF5::Service
+    KF5::XmlGui
 )
 
 install( TARGETS systemsettings_sidebar_mode DESTINATION ${PLUGIN_INSTALL_DIR} )

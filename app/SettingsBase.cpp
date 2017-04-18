@@ -108,7 +108,6 @@ void SettingsBase::initApplication()
     for( int pluginsDone = 0; pluginsDone < nbPlugins ; ++pluginsDone ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
-qWarning()<<"AAA"<<error<<activeService->library();
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
@@ -133,7 +132,7 @@ void SettingsBase::initToolBar()
     // Exit is the very last action
     quitAction = actionCollection()->addAction( KStandardAction::Quit, "quit_action", this, SLOT(close()) );
     // Configure goes at the end
-    configureAction = actionCollection()->addAction( KStandardAction::Preferences, this, SLOT(configShow()) );
+    configureAction = actionCollection()->addAction( KStandardAction::Preferences, "configure", this, SLOT(configShow()) );
     actionCollection()->setDefaultShortcut(configureAction, QKeySequence(Qt::CTRL + Qt::Key_M));
     configureAction->setText( i18n("Configure") );
     // Help after it
