@@ -99,6 +99,18 @@ public:
      */
     void setFilterRegExp ( const QString & pattern );
 
+    /**
+     * makes the filter highlight matching entries instead of hiding them
+     */
+    void setFilterHighlightsEntries (bool highlight );
+
+    /**
+     * @returns the filter highlight matching entries instead of hiding them, default true
+     */
+    bool filterHighlightsEntries() const;
+
+private:
+    bool m_filterHighlightsEntries : 1;
 };
 
 #endif

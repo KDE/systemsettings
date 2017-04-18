@@ -24,7 +24,8 @@
 #include "MenuModel.h"
 
 MenuProxyModel::MenuProxyModel( QObject * parent )
-    : KCategorizedSortFilterProxyModel( parent )
+    : KCategorizedSortFilterProxyModel( parent ),
+      m_filterHighlightsEntries( true )
 {
     setSortRole( MenuModel::UserSortRole );
     setFilterRole( MenuModel::UserFilterRole );
@@ -69,6 +70,10 @@ bool MenuProxyModel::subSortLessThan( const QModelIndex &left, const QModelIndex
 
 bool MenuProxyModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
+    if (!m_filterHighlightsEntries) {
+        return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    }
+
     QModelIndex index = sourceModel()->index( source_row, 0, source_parent );
     MenuItem * mItem = index.data( Qt::UserRole ).value<MenuItem*>();
     // accept only systemsettings categories that have children
@@ -77,6 +82,16 @@ bool MenuProxyModel::filterAcceptsRow( int source_row, const QModelIndex &source
     } else {
         return true; // Items matching the regexp are disabled, not hidden
     }
+}
+
+void MenuProxyModel::setFilterHighlightsEntries (bool highlight )
+{
+    m_filterHighlightsEntries = highlight;
+}
+
+bool MenuProxyModel::filterHighlightsEntries() const
+{
+    return m_filterHighlightsEntries;
 }
 
 Qt::ItemFlags MenuProxyModel::flags( const QModelIndex &index ) const

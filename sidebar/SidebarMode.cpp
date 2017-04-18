@@ -116,6 +116,7 @@ void SidebarMode::initEvent()
     d->proxyModel->setCategorizedModel( true );
     d->proxyModel->setSourceModel( model );
     d->proxyModel->sort( 0 );
+    d->proxyModel->setFilterHighlightsEntries( false );
 
     d->mainWidget = new QWidget();
     d->mainLayout = new QHBoxLayout(d->mainWidget);
