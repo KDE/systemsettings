@@ -185,6 +185,7 @@ void IconMode::initWidget()
     d->mainWidget->addWidget( d->categoryView );
     d->mainWidget->addWidget( d->moduleView );
     d->mainWidget->setCurrentWidget( d->categoryView );
+    emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
 }
 
 void IconMode::leaveModuleView()

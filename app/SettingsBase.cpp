@@ -389,7 +389,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
         guiFactory()->plugActionList( this, "quit", quitBarActions );
     }
 
-    toolBar()->setVisible(toolbar != BaseMode::NoItems);
+    toolBar()->setVisible(toolbar != BaseMode::NoItems || (activeView && activeView->actionsList().count() > 0));
 }
 
 void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, QString fallback )

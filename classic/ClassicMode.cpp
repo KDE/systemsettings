@@ -223,6 +223,7 @@ void ClassicMode::initWidget()
     QList<int> defaultSizes;
     defaultSizes << 250 << 500;
     d->classicWidget->setSizes( config().readEntry( "viewLayout", defaultSizes ) );
+    emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
 }
 
 void ClassicMode::leaveModuleView()
