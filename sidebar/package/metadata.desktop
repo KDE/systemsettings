@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Sidebar View
+Comment=Categorized sidebar style
+Icon=view-sidetree
+Encoding=UTF-8
+Keywords=
+Type=Service
+X-KDE-ParentApp=
+X-KDE-PluginInfo-Author=Marco Martin
+X-KDE-PluginInfo-Email=mart@kde.org
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Name=org.kde.systemsettings.sidebar
+X-KDE-PluginInfo-Version=
+X-KDE-PluginInfo-Website=
+X-KDE-ServiceTypes=KPackage/GenericQML
+X-Plasma-MainScript=ui/main.qml

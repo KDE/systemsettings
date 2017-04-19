@@ -32,6 +32,13 @@ MenuProxyModel::MenuProxyModel( QObject * parent )
     setFilterCaseSensitivity( Qt::CaseInsensitive );
 }
 
+QHash<int, QByteArray> MenuProxyModel::roleNames() const
+{
+    QHash<int, QByteArray> names = KCategorizedSortFilterProxyModel::roleNames();
+    names[KCategorizedSortFilterProxyModel::CategoryDisplayRole] = "categoryDisplayRole";
+    return names;
+}
+
 bool MenuProxyModel::lessThan( const QModelIndex &left, const QModelIndex &right ) const
 {
     if( isCategorizedModel() ) {
@@ -110,9 +117,18 @@ Qt::ItemFlags MenuProxyModel::flags( const QModelIndex &index ) const
 
 void MenuProxyModel::setFilterRegExp ( const QString & pattern )
 {
+    if (pattern == filterRegExp()) {
+        return;
+    }
     emit layoutAboutToBeChanged ();
     KCategorizedSortFilterProxyModel::setFilterRegExp( pattern );
     emit layoutChanged ();
+    emit filterRegExpChanged ();
+}
+
+QString MenuProxyModel::filterRegExp() const
+{
+    return KCategorizedSortFilterProxyModel::filterRegExp().pattern();
 }
 
 void MenuProxyModel::setFilterRegExp ( const QRegExp & regExp )

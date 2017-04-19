@@ -14,8 +14,13 @@ target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     KF5::KIOWidgets
     KF5::Service
     KF5::XmlGui
+    KF5::Package
+    Qt5::Qml
+    Qt5::Quick
+    Qt5::QuickWidgets
 )
 
 install( TARGETS systemsettings_sidebar_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
 install( FILES settings-sidebar-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+install(DIRECTORY package/ DESTINATION ${KDE_INSTALL_DATAROOTDIR}/kpackage/genericqml/org.kde.systemsettings.sidebar)
 

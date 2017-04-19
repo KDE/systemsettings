@@ -17,7 +17,7 @@ include(GenerateExportHeader)
 
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-    Widgets
+    Widgets Quick Qml QuickWidgets
 )
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
@@ -33,6 +33,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     Config
     DocTools
+    Package
     OPTIONAL_COMPONENTS
     KHtml
     QUIET

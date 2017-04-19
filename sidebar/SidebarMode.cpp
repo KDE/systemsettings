@@ -39,7 +39,12 @@
 #include <KServiceTypeTrader>
 #include <KXmlGuiWindow>
 #include <KActionCollection>
+#include <KPackage/Package>
+#include <KPackage/PackageLoader>
 #include <QStandardItemModel>
+#include <QQuickWidget>
+#include <QQmlEngine>
+#include <QQmlContext>
 #include <QMenu>
 #include <QDebug>
 
@@ -47,28 +52,29 @@ K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
 
 class SidebarMode::Private {
 public:
-    Private() : categoryDrawer( 0 ),  categoryView( 0 ), moduleView( 0 ) {}
+    Private() : quickWidget( 0 ), moduleView( 0 ), activeCategory( -1 ), activeSubCategory( -1 ) {}
     virtual ~Private() {
         delete aboutIcon;
     }
 
-    KLineEdit * searchText;
-    KCategoryDrawer * categoryDrawer;
-    KCategorizedView * categoryView;
-    QListView * subCategoryView;
+    QQuickWidget * quickWidget;
+    KPackage::Package package;
     QStandardItemModel * subCategoryModel;
     QWidget * mainWidget;
-    QToolButton * menuButton;
     QHBoxLayout * mainLayout;
     MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
+    QList<QObject *> globalActions;
+    int activeCategory;
+    int activeSubCategory;
 };
 
 SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
     : BaseMode( parent )
     , d( new Private() )
 {
+    qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
     d->aboutIcon = new KAboutData( "SidebarView", i18n( "Sidebar View" ),
                                  "1.0", i18n( "Provides a categorized sidebar for control modules." ),
                                  KAboutLicense::GPL, i18n( "(c) 2017, Marco Martin" ) );
@@ -95,16 +101,31 @@ ModuleView * SidebarMode::moduleView() const
 
 QWidget * SidebarMode::mainWidget()
 {
-    if( !d->categoryView ) {
+    if( !d->quickWidget ) {
         initWidget();
     }
     return d->mainWidget;
 }
 
+QAbstractItemModel * SidebarMode::categoryModel() const
+{
+    return d->proxyModel;
+}
+
+QAbstractItemModel * SidebarMode::subCategoryModel() const
+{
+    return d->subCategoryModel;
+}
+
+QList<QObject *> SidebarMode::globalActions() const
+{
+    return d->globalActions;
+}
+
 QList<QAbstractItemView*> SidebarMode::views() const
 {
     QList<QAbstractItemView*> list;
-    list.append( d->categoryView );
+    //list.append( d->categoryView );
     return list;
 }
 
@@ -121,31 +142,15 @@ void SidebarMode::initEvent()
     d->proxyModel->sort( 0 );
     d->proxyModel->setFilterHighlightsEntries( false );
 
+    d->subCategoryModel = new QStandardItemModel( this );
     d->mainWidget = new QWidget();
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
     connect( d->moduleView, &ModuleView::closeRequest, this, &SidebarMode::leaveModuleView );
-    d->categoryView = 0;
+    d->quickWidget = 0;
     moduleView()->setFaceType(KPageView::Plain);
-}
-
-void SidebarMode::searchChanged( const QString& text )
-{
-    d->proxyModel->setFilterRegExp( text );
-    if ( d->categoryView ) {
-        QAbstractItemModel *model = d->categoryView->model();
-        const int column = d->categoryView->modelColumn();
-        const QModelIndex root = d->categoryView->rootIndex();
-        for ( int i = 0; i < model->rowCount(); ++i ) {
-            const QModelIndex index = model->index( i, column, root );
-            if ( model->flags( index ) & Qt::ItemIsEnabled ) {
-                d->categoryView->scrollTo( index );
-                break;
-            }
-        }
-    }
 }
 
 void SidebarMode::changeModule( const QModelIndex& activeModule )
@@ -153,20 +158,17 @@ void SidebarMode::changeModule( const QModelIndex& activeModule )
     d->moduleView->closeModules();
 
     d->subCategoryModel->clear();
-    const int subRows = d->categoryView->model()->rowCount(activeModule);
+    const int subRows = d->proxyModel->rowCount(activeModule);
     if ( subRows < 2) {
         d->moduleView->loadModule( activeModule );
-        d->subCategoryView->hide();
     } else {
-        d->subCategoryView->show();
         for (int i = 0; i < subRows; ++i) {
-            const QModelIndex& index = d->categoryView->model()->index(i, 0, activeModule);
-            QStandardItem *item = new QStandardItem(d->categoryView->model()->data(index, Qt::DecorationRole).value<QIcon>(), d->categoryView->model()->data(index, Qt::DisplayRole).toString());
+            const QModelIndex& index = d->proxyModel->index(i, 0, activeModule);
+            QStandardItem *item = new QStandardItem(d->proxyModel->data(index, Qt::DecorationRole).value<QIcon>(), d->proxyModel->data(index, Qt::DisplayRole).toString());
             item->setData(index.data(Qt::UserRole), Qt::UserRole);
             d->subCategoryModel->appendRow(item);
         }
-        d->moduleView->loadModule( d->categoryView->model()->index(0, 0, activeModule) );
-        d->subCategoryView->setCurrentIndex( d->subCategoryModel->index(0, 0) );
+        d->moduleView->loadModule( d->proxyModel->index(0, 0, activeModule) );
     }
 }
 
@@ -175,94 +177,73 @@ void SidebarMode::moduleLoaded()
     emit changeToolBarItems(BaseMode::NoItems);
 }
 
+int SidebarMode::activeCategory() const
+{
+    return d->activeCategory;
+}
+
+void SidebarMode::setActiveCategory(int cat)
+{
+    if (d->activeCategory == cat) {
+        return;
+    }
+
+    d->activeCategory = cat;
+    changeModule(d->proxyModel->index(cat, 0));
+    d->activeSubCategory = 0;
+    emit activeCategoryChanged();
+    emit activeSubCategoryChanged();
+}
+
+int SidebarMode::activeSubCategory() const
+{
+    return d->activeSubCategory;
+}
+
+void SidebarMode::setActiveSubCategory(int cat)
+{
+    if (d->activeSubCategory == cat) {
+        return;
+    }
+
+    d->activeSubCategory = cat;
+    d->moduleView->closeModules();
+    d->moduleView->loadModule( d->subCategoryModel->index(cat, 0) );
+    emit activeSubCategoryChanged();
+}
+
 void SidebarMode::initWidget()
 {
     // Create the widgets
-    QWidget *sidebar = new QWidget(d->mainWidget);
-    sidebar->setBackgroundRole(QPalette::Base);
-    sidebar->setFixedWidth(350);
-    sidebar->setAutoFillBackground(true);
-    QGridLayout *sidebarLayout = new QGridLayout(sidebar);
-    sidebarLayout->setSpacing(0);
-    sidebarLayout->setContentsMargins(0, 0, 0, 0);
 
-    // Initialise search
-    d->searchText = new KLineEdit( sidebar );
-    d->searchText->setClearButtonShown( true );
-    d->searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
-    d->searchText->setCompletionMode( KCompletion::CompletionPopup );
-    QHBoxLayout *topLayout = new QHBoxLayout(sidebar);
-    topLayout->setContentsMargins(0, 4, 4, 4);
-    d->menuButton = new QToolButton(sidebar);
-    d->menuButton->setAutoRaise(true);
-    d->menuButton->setIcon( QIcon::fromTheme("application-menu") );
     if (!KMainWindow::memberList().isEmpty()) {
         KXmlGuiWindow *mainWindow = qobject_cast<KXmlGuiWindow *>(KMainWindow::memberList().first());
         if (mainWindow) {
             KActionCollection *collection = mainWindow->actionCollection();
-            QMenu *menu = new QMenu(d->menuButton);
-            d->menuButton->setPopupMode(QToolButton::InstantPopup);
-            d->menuButton->setMenu(menu);
-            menu->addAction( collection->action("configure") );
-            menu->addAction( collection->action("help_contents") );
-            menu->addAction( collection->action("help_about_app") );
-            menu->addAction( collection->action("help_about_kde") );
+            d->globalActions << collection->action("configure")
+                             << collection->action("help_contents")
+                             << collection->action("help_about_app")
+                             << collection->action("help_about_kde");
         }
     }
-    topLayout->addWidget( d->menuButton );
-    topLayout->addWidget( d->searchText );
-    sidebarLayout->addItem( topLayout, 0, 0 );
+
+    d->quickWidget = new QQuickWidget(d->mainWidget);
+    d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    d->quickWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
+    d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
+    d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
+    d->quickWidget->setSource(d->package.filePath("mainscript"));
+    //FIXME
+    d->quickWidget->setFixedWidth(240);
 
     // Prepare the Base Data
     MenuItem *rootModule = new MenuItem( true, 0 );
     initMenuList(rootModule);
     BaseData::instance()->setMenuItem( rootModule );
-    connect(d->searchText, &KLineEdit::textChanged, this, &SidebarMode::searchChanged);
-    d->searchText->completionObject()->setIgnoreCase( true );
-    d->searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
 
-    d->categoryView = new CategorizedView( sidebar );
-    sidebarLayout->addWidget( d->categoryView, 1, 0 );
-    d->categoryDrawer = new CategoryDrawer(d->categoryView);
-
-    d->categoryView->setSelectionMode( QAbstractItemView::SingleSelection );
-    d->categoryView->setCategoryDrawer( d->categoryDrawer );
-    d->categoryView->setCategorySpacing(0);
-    d->categoryView->setIconSize(QSize(KIconLoader::SizeSmallMedium, KIconLoader::SizeSmallMedium));
-    d->categoryView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-    d->categoryView->setViewMode( QListView::ListMode );
-    d->categoryView->setMouseTracking( true );
-    d->categoryView->viewport()->setAttribute( Qt::WA_Hover );
-
-    SidebarDelegate *delegate = new SidebarDelegate( d->categoryView );
-    d->categoryView->setItemDelegate( delegate );
-
-    d->categoryView->setFrameShape( QFrame::NoFrame );
-    d->categoryView->setModel( d->proxyModel );
-    connect( d->categoryView, &QAbstractItemView::activated,
-             this, &SidebarMode::changeModule );
- 
-
-    d->subCategoryView = new QListView(d->mainWidget);
-    d->subCategoryView->hide();
-    d->subCategoryModel = new QStandardItemModel(d->subCategoryView);
-    d->subCategoryView->setModel(d->subCategoryModel);
-    d->subCategoryView->setItemDelegate( delegate );
-    d->subCategoryView->setIconSize(QSize(KIconLoader::SizeSmallMedium, KIconLoader::SizeSmallMedium));
-    d->subCategoryView->setFrameShape( QFrame::NoFrame );
-    sidebarLayout->addWidget( d->subCategoryView, 1, 1 );
-
-    connect( d->subCategoryView, &QAbstractItemView::activated,
-             this, [this]( const QModelIndex& activeModule ){
-                d->moduleView->closeModules();
-                d->moduleView->loadModule( activeModule );
-            } );
-
-
-    d->mainLayout->addWidget( sidebar );
+    d->mainLayout->addWidget( d->quickWidget );
     d->mainLayout->addWidget( d->moduleView );
     emit changeToolBarItems(BaseMode::NoItems);
-    d->searchText->setFocus(Qt::OtherFocusReason);
 }
 
 void SidebarMode::initMenuList(MenuItem * parent)
@@ -317,7 +298,7 @@ void SidebarMode::leaveModuleView()
 
 void SidebarMode::giveFocus()
 {
-    d->categoryView->setFocus();
+    d->quickWidget->setFocus();
 }
 
 #include "SidebarMode.moc"

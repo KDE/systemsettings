@@ -26,10 +26,17 @@ class ModuleView;
 class KAboutData;
 class QModelIndex;
 class QAbstractItemView;
+class QAbstractItemModel;
 
 class SidebarMode : public BaseMode
 {
     Q_OBJECT
+
+    Q_PROPERTY(QAbstractItemModel *categoryModel READ categoryModel CONSTANT)
+    Q_PROPERTY(QAbstractItemModel *subCategoryModel READ subCategoryModel CONSTANT)
+    Q_PROPERTY(QList<QObject *> globalActions READ globalActions CONSTANT)
+    Q_PROPERTY(int activeCategory READ activeCategory WRITE setActiveCategory NOTIFY activeCategoryChanged)
+    Q_PROPERTY(int activeSubCategory READ activeSubCategory WRITE setActiveSubCategory NOTIFY activeSubCategoryChanged)
 
 public:
     SidebarMode(QObject * parent, const QVariantList& );
@@ -40,17 +47,27 @@ public:
     void leaveModuleView();
     KAboutData * aboutData();
     ModuleView * moduleView() const;
+    QAbstractItemModel *categoryModel() const;
+    QAbstractItemModel *subCategoryModel() const;
+    QList<QObject *> globalActions() const;
+
+    int activeCategory() const;
+    void setActiveCategory(int cat);
+    
+    int activeSubCategory() const;
+    void setActiveSubCategory(int cat);
 
 protected:
     QList<QAbstractItemView*> views() const;
-
-public Q_SLOTS:
-    void searchChanged( const QString& text );
 
 private Q_SLOTS:
     void changeModule( const QModelIndex& activeModule );
     void moduleLoaded();
     void initWidget();
+
+Q_SIGNALS:
+    void activeCategoryChanged();
+    void activeSubCategoryChanged();
 
 private:
     void initMenuList(MenuItem * parent);

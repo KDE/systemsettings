@@ -40,6 +40,8 @@ class SYSTEMSETTINGSVIEW_EXPORT MenuProxyModel : public KCategorizedSortFilterPr
 {
     Q_OBJECT
 
+    Q_PROPERTY(QString filterRegExp READ filterRegExp WRITE setFilterRegExp NOTIFY filterRegExpChanged)
+
 public:
     /**
      * Constructs a MenuProxyModel with the specified parent.
@@ -47,6 +49,8 @@ public:
      * @param parent The QObject to use as a parent.
      */
     MenuProxyModel( QObject *parent = 0 );
+
+    QHash<int, QByteArray> roleNames() const;
 
     /**
      * Please see the Qt QSortFilterProxyModel documentation for further information.\n
@@ -99,6 +103,8 @@ public:
      */
     void setFilterRegExp ( const QString & pattern );
 
+    QString filterRegExp() const;
+
     /**
      * makes the filter highlight matching entries instead of hiding them
      */
@@ -108,6 +114,9 @@ public:
      * @returns the filter highlight matching entries instead of hiding them, default true
      */
     bool filterHighlightsEntries() const;
+
+Q_SIGNALS:
+    void filterRegExpChanged();
 
 private:
     bool m_filterHighlightsEntries : 1;
