@@ -28,27 +28,44 @@ Kirigami.PageRow {
 
     Kirigami.ScrollablePage {
         id: mainColumn
-        header: RowLayout {
-            QtControls.ToolButton {
-                iconName: "application-menu"
-                menu: QtControls.Menu {
-                    id: globalMenu
-                    Instantiator {
-                        model: systemsettings.globalActions
-                        QtControls.MenuItem {
-                            text: modelData.text
-                            property QtObject action: modelData
-                            onTriggered: action.trigger();
+        header: Item {
+            width: mainColumn.width
+            height:searchLayout.implicitHeight + Kirigami.Units.smallSpacing*2
+            RowLayout {
+                id: searchLayout
+                anchors {
+                    fill: parent
+                    margins: Kirigami.Units.smallSpacing
+                }
+                QtControls.ToolButton {
+                    iconName: "application-menu"
+                    menu: QtControls.Menu {
+                        id: globalMenu
+                        Instantiator {
+                            model: systemsettings.globalActions
+                            QtControls.MenuItem {
+                                text: modelData.text
+                                property QtObject action: modelData
+                                onTriggered: action.trigger();
+                            }
+                            onObjectAdded: globalMenu.insertItem(index, object)
+                            onObjectRemoved: globalMenu.removeItem(object)
                         }
-                        onObjectAdded: globalMenu.insertItem(index, object)
-                        onObjectRemoved: globalMenu.removeItem(object)
                     }
                 }
+                QtControls.TextField {
+                    focus: true
+                    Layout.fillWidth: true
+                    placeholderText: i18n("Search...")
+                    onTextChanged: systemsettings.categoryModel.filterRegExp = text
+                }
             }
-            QtControls.TextField {
-                Layout.fillWidth: true
-                placeholderText: i18n("Search...")
-                onTextChanged: systemsettings.categoryModel.filterRegExp = text
+            Kirigami.Separator {
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    bottom: parent.bottom
+                }
             }
         }
         background: Rectangle {
@@ -70,6 +87,7 @@ Kirigami.PageRow {
                             right: parent.right
                             bottom: sectionLabel.top
                         }
+                        visible: parent.y > 0
                     }
                     Kirigami.Label {
                         anchors {
@@ -90,7 +108,13 @@ Kirigami.PageRow {
                 icon: model.decoration
                 label: model.display
                 separatorVisible: false
-                onClicked: systemsettings.activeCategory = index
+                onClicked: {
+                    if (systemsettings.activeCategory == index) {
+                        root.currentIndex = 1;
+                    } else {
+                        systemsettings.activeCategory = index;
+                    }
+                }
                 checked: systemsettings.activeCategory == index
             }
         }
