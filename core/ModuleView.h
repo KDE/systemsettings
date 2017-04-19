@@ -21,6 +21,7 @@
 #ifndef MODULE_VIEW_H
 #define MODULE_VIEW_H
 
+#include <KPageView>
 #include <QWidget>
 #include <QtCore/QModelIndex>
 #include "systemsettingsview_export.h"
@@ -89,6 +90,10 @@ public:
      * If possible, always check with resolveChanges() first.
      */
     void closeModules();
+
+    void setFaceType(KPageView::FaceType type);
+
+    KPageView::FaceType faceType() const;
 
 public Q_SLOTS:
     /**

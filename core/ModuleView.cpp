@@ -403,4 +403,13 @@ void ModuleView::updateButtons()
     d->mDefault->setEnabled(buttons & KCModule::Default );
 }
 
+void ModuleView::setFaceType(KPageView::FaceType type)
+{
+    d->mPageWidget->setFaceType(type);
+}
+
+KPageView::FaceType ModuleView::faceType() const
+{
+    return d->mPageWidget->faceType();
+}
 

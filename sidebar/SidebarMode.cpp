@@ -39,6 +39,7 @@
 #include <KServiceTypeTrader>
 #include <KXmlGuiWindow>
 #include <KActionCollection>
+#include <QStandardItemModel>
 #include <QMenu>
 #include <QDebug>
 
@@ -54,6 +55,8 @@ public:
     KLineEdit * searchText;
     KCategoryDrawer * categoryDrawer;
     KCategorizedView * categoryView;
+    QListView * subCategoryView;
+    QStandardItemModel * subCategoryModel;
     QWidget * mainWidget;
     QToolButton * menuButton;
     QHBoxLayout * mainLayout;
@@ -125,6 +128,7 @@ void SidebarMode::initEvent()
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
     connect( d->moduleView, &ModuleView::closeRequest, this, &SidebarMode::leaveModuleView );
     d->categoryView = 0;
+    moduleView()->setFaceType(KPageView::Plain);
 }
 
 void SidebarMode::searchChanged( const QString& text )
@@ -147,7 +151,23 @@ void SidebarMode::searchChanged( const QString& text )
 void SidebarMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
-    d->moduleView->loadModule( activeModule );
+
+    d->subCategoryModel->clear();
+    const int subRows = d->categoryView->model()->rowCount(activeModule);
+    if ( subRows < 2) {
+        d->moduleView->loadModule( activeModule );
+        d->subCategoryView->hide();
+    } else {
+        d->subCategoryView->show();
+        for (int i = 0; i < subRows; ++i) {
+            const QModelIndex& index = d->categoryView->model()->index(i, 0, activeModule);
+            QStandardItem *item = new QStandardItem(d->categoryView->model()->data(index, Qt::DecorationRole).value<QIcon>(), d->categoryView->model()->data(index, Qt::DisplayRole).toString());
+            item->setData(index.data(Qt::UserRole), Qt::UserRole);
+            d->subCategoryModel->appendRow(item);
+        }
+        d->moduleView->loadModule( d->categoryView->model()->index(0, 0, activeModule) );
+        d->subCategoryView->setCurrentIndex( d->subCategoryModel->index(0, 0) );
+    }
 }
 
 void SidebarMode::moduleLoaded()
@@ -160,9 +180,9 @@ void SidebarMode::initWidget()
     // Create the widgets
     QWidget *sidebar = new QWidget(d->mainWidget);
     sidebar->setBackgroundRole(QPalette::Base);
-    sidebar->setFixedWidth(250);
+    sidebar->setFixedWidth(350);
     sidebar->setAutoFillBackground(true);
-    QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
+    QGridLayout *sidebarLayout = new QGridLayout(sidebar);
     sidebarLayout->setSpacing(0);
     sidebarLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -191,7 +211,7 @@ void SidebarMode::initWidget()
     }
     topLayout->addWidget( d->menuButton );
     topLayout->addWidget( d->searchText );
-    sidebarLayout->addItem( topLayout );
+    sidebarLayout->addItem( topLayout, 0, 0 );
 
     // Prepare the Base Data
     MenuItem *rootModule = new MenuItem( true, 0 );
@@ -202,7 +222,7 @@ void SidebarMode::initWidget()
     d->searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
 
     d->categoryView = new CategorizedView( sidebar );
-    sidebarLayout->addWidget( d->categoryView );
+    sidebarLayout->addWidget( d->categoryView, 1, 0 );
     d->categoryDrawer = new CategoryDrawer(d->categoryView);
 
     d->categoryView->setSelectionMode( QAbstractItemView::SingleSelection );
@@ -221,6 +241,22 @@ void SidebarMode::initWidget()
     d->categoryView->setModel( d->proxyModel );
     connect( d->categoryView, &QAbstractItemView::activated,
              this, &SidebarMode::changeModule );
+ 
+
+    d->subCategoryView = new QListView(d->mainWidget);
+    d->subCategoryView->hide();
+    d->subCategoryModel = new QStandardItemModel(d->subCategoryView);
+    d->subCategoryView->setModel(d->subCategoryModel);
+    d->subCategoryView->setItemDelegate( delegate );
+    d->subCategoryView->setIconSize(QSize(KIconLoader::SizeSmallMedium, KIconLoader::SizeSmallMedium));
+    d->subCategoryView->setFrameShape( QFrame::NoFrame );
+    sidebarLayout->addWidget( d->subCategoryView, 1, 1 );
+
+    connect( d->subCategoryView, &QAbstractItemView::activated,
+             this, [this]( const QModelIndex& activeModule ){
+                d->moduleView->closeModules();
+                d->moduleView->loadModule( activeModule );
+            } );
 
 
     d->mainLayout->addWidget( sidebar );
