@@ -20,11 +20,11 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0 as QtControls
 import QtQuick.Controls 2.0 as QtControls2
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.1 as Kirigami
 
-Kirigami.PageRow {
+Kirigami.ApplicationItem {
     id: root
-    initialPage: mainColumn
+    pageStack.initialPage: mainColumn
 
     Component.onCompleted: searchField.forceActiveFocus()
     Kirigami.ScrollablePage {
@@ -111,11 +111,11 @@ Kirigami.PageRow {
                 icon: model.decoration
                 label: model.display
                 separatorVisible: false
-                activeFocusOnTab: root.currentIndex == 0
+                activeFocusOnTab: root.pageStack.currentIndex == 0
                 highlighted: focus
                 onClicked: {
                     if (systemsettings.activeCategory == index) {
-                        root.currentIndex = 1;
+                        root.pageStack.currentIndex = 1;
                     } else {
                         systemsettings.activeCategory = index;
                     }
@@ -142,7 +142,7 @@ Kirigami.PageRow {
         header: RowLayout {
             QtControls.ToolButton {
                 iconName: "go-previous"
-                onClicked: root.currentIndex = 0;
+                onClicked: root.pageStack.currentIndex = 0;
             }
             Kirigami.Heading {
                 text: "Subcategory"
@@ -158,11 +158,11 @@ Kirigami.PageRow {
             currentIndex: systemsettings.activeSubCategory
             onCountChanged: {
                 if (count > 1) {
-                    root.push(subCategoryColumn);
-                    root.currentIndex = 1;
+                    root.pageStack.push(subCategoryColumn);
+                    root.pageStack.currentIndex = 1;
                     subCategoryView.forceActiveFocus();
                 } else {
-                    root.pop(mainColumn)
+                    root.pageStack.pop(mainColumn)
                 }
             }
 
@@ -171,7 +171,7 @@ Kirigami.PageRow {
                 icon: model.decoration
                 label: model.display
                 separatorVisible: false
-                activeFocusOnTab: root.currentIndex == 1
+                activeFocusOnTab: root.pageStack.currentIndex == 1
                 highlighted: focus
                 onClicked: systemsettings.activeSubCategory = index
                 checked: systemsettings.activeSubCategory == index
@@ -185,7 +185,7 @@ Kirigami.PageRow {
                         break;
                     case Qt.Key_left:
                     case Qt.Key_Backspace:
-                        root.currentIndex = 0;
+                        root.pageStack.currentIndex = 0;
                         mainColumn.forceActiveFocus();
                         break;
                     default:
