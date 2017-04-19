@@ -59,6 +59,7 @@ public:
 
 protected:
     QList<QAbstractItemView*> views() const;
+    bool eventFilter(QObject* watched, QEvent* event);
 
 private Q_SLOTS:
     void changeModule( const QModelIndex& activeModule );

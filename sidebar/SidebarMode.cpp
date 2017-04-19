@@ -241,6 +241,7 @@ void SidebarMode::initWidget()
     d->quickWidget->setSource(d->package.filePath("mainscript"));
     //FIXME
     d->quickWidget->setFixedWidth(240);
+    d->quickWidget->installEventFilter(this);
 
     // Prepare the Base Data
     MenuItem *rootModule = new MenuItem( true, 0 );
@@ -250,6 +251,15 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget( d->quickWidget );
     d->mainLayout->addWidget( d->moduleView );
     emit changeToolBarItems(BaseMode::NoItems);
+}
+
+bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
+{
+    //TODO: patch Qt
+    if (watched == d->quickWidget && event->type() == QEvent::Leave) {
+        QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
+    }
+    return BaseMode::eventFilter(watched, event);
 }
 
 void SidebarMode::initMenuList(MenuItem * parent)

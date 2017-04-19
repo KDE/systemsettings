@@ -107,9 +107,12 @@ Kirigami.PageRow {
             }
 
             delegate: Kirigami.BasicListItem {
+                id: delegate
                 icon: model.decoration
                 label: model.display
                 separatorVisible: false
+                activeFocusOnTab: root.currentIndex == 0
+                highlighted: focus
                 onClicked: {
                     if (systemsettings.activeCategory == index) {
                         root.currentIndex = 1;
@@ -118,6 +121,18 @@ Kirigami.PageRow {
                     }
                 }
                 checked: systemsettings.activeCategory == index
+                Keys.onPressed: {
+                    switch (event.key) {
+                    case Qt.Key_Up:
+                        delegate.nextItemInFocusChain(false).forceActiveFocus();
+                        break;
+                    case Qt.Key_Down:
+                        delegate.nextItemInFocusChain(true).forceActiveFocus();
+                        break;
+                    default:
+                        break;
+                    }
+                }
             }
         }
     }
@@ -145,17 +160,38 @@ Kirigami.PageRow {
                 if (count > 1) {
                     root.push(subCategoryColumn);
                     root.currentIndex = 1;
+                    subCategoryView.forceActiveFocus();
                 } else {
                     root.pop(mainColumn)
                 }
             }
 
             delegate: Kirigami.BasicListItem {
+                id: delegate
                 icon: model.decoration
                 label: model.display
                 separatorVisible: false
+                activeFocusOnTab: root.currentIndex == 1
+                highlighted: focus
                 onClicked: systemsettings.activeSubCategory = index
                 checked: systemsettings.activeSubCategory == index
+                Keys.onPressed: {
+                    switch (event.key) {
+                    case Qt.Key_Up:
+                        delegate.nextItemInFocusChain(false).forceActiveFocus();
+                        break;
+                    case Qt.Key_Down:
+                        delegate.nextItemInFocusChain(true).forceActiveFocus();
+                        break;
+                    case Qt.Key_left:
+                    case Qt.Key_Backspace:
+                        root.currentIndex = 0;
+                        mainColumn.forceActiveFocus();
+                        break;
+                    default:
+                        break;
+                    }
+                }
             }
         }
     }
