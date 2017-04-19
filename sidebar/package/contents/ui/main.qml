@@ -118,6 +118,7 @@ Kirigami.ApplicationItem {
                         root.pageStack.currentIndex = 1;
                     } else {
                         systemsettings.activeCategory = index;
+                        subCategoryColumn.title = model.display;
                     }
                 }
                 checked: systemsettings.activeCategory == index
@@ -144,8 +145,12 @@ Kirigami.ApplicationItem {
                 iconName: "go-previous"
                 onClicked: root.pageStack.currentIndex = 0;
             }
-            Kirigami.Heading {
-                text: "Subcategory"
+            Kirigami.Label {
+                Layout.fillWidth: true
+                text: subCategoryColumn.title
+                opacity: 0.3
+                //FIXME: kirigami bug, why?
+                Component.onCompleted: font.bold = true
             }
         }
         background: Rectangle {
