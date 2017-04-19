@@ -15,6 +15,7 @@ target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     KF5::Service
     KF5::XmlGui
     KF5::Package
+    KF5::Declarative
     Qt5::Qml
     Qt5::Quick
     Qt5::QuickWidgets

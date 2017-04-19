@@ -41,6 +41,7 @@
 #include <KActionCollection>
 #include <KPackage/Package>
 #include <KPackage/PackageLoader>
+#include <KDeclarative/KDeclarative>
 #include <QStandardItemModel>
 #include <QQuickWidget>
 #include <QQmlEngine>
@@ -62,6 +63,7 @@ public:
     QStandardItemModel * subCategoryModel;
     QWidget * mainWidget;
     QHBoxLayout * mainLayout;
+    KDeclarative::KDeclarative kdeclarative;
     MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
@@ -232,6 +234,10 @@ void SidebarMode::initWidget()
     d->quickWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
     d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
     d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
+
+    d->kdeclarative.setDeclarativeEngine(d->quickWidget->engine());
+    d->kdeclarative.setupBindings();
+
     d->quickWidget->setSource(d->package.filePath("mainscript"));
     //FIXME
     d->quickWidget->setFixedWidth(240);

@@ -26,6 +26,7 @@ Kirigami.PageRow {
     id: root
     initialPage: mainColumn
 
+    Component.onCompleted: searchField.forceActiveFocus()
     Kirigami.ScrollablePage {
         id: mainColumn
         header: Item {
@@ -54,6 +55,7 @@ Kirigami.PageRow {
                     }
                 }
                 QtControls.TextField {
+                    id: searchField
                     focus: true
                     Layout.fillWidth: true
                     placeholderText: i18n("Search...")

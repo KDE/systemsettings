@@ -34,6 +34,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Config
     DocTools
     Package
+    Declarative
     OPTIONAL_COMPONENTS
     KHtml
     QUIET
