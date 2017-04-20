@@ -80,6 +80,7 @@ Kirigami.ApplicationItem {
             anchors.fill: parent
             model: systemsettings.categoryModel
             currentIndex: systemsettings.activeCategory
+            onContentYChanged: systemsettings.hideToolTip();
             section {
                 property: "categoryDisplayRole"
                 delegate: Item {
@@ -121,6 +122,11 @@ Kirigami.ApplicationItem {
                     } else {
                         systemsettings.activeCategory = index;
                         subCategoryColumn.title = model.display;
+                    }
+                }
+                onHoveredChanged: {
+                    if (hovered) {
+                        systemsettings.requestToolTip(index, delegate.mapToItem(root, 0, 0, width, height));
                     }
                 }
                 checked: systemsettings.activeCategory == index

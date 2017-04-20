@@ -27,6 +27,7 @@
 #include "MenuProxyModel.h"
 #include "BaseData.h"
 #include "SidebarDelegate.h"
+#include "ToolTips/tooltipmanager.h"
 
 #include <QHBoxLayout>
 
@@ -35,7 +36,6 @@
 #include <KStandardAction>
 #include <KLocalizedString>
 #include <KIconLoader>
-#include <KLineEdit>
 #include <KServiceTypeTrader>
 #include <KXmlGuiWindow>
 #include <KActionCollection>
@@ -46,7 +46,6 @@
 #include <QQuickWidget>
 #include <QQmlEngine>
 #include <QQmlContext>
-#include <QMenu>
 #include <QDebug>
 
 K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
@@ -58,6 +57,7 @@ public:
         delete aboutIcon;
     }
 
+    ToolTipManager *toolTipManager;
     QQuickWidget * quickWidget;
     KPackage::Package package;
     QStandardItemModel * subCategoryModel;
@@ -155,6 +155,16 @@ void SidebarMode::initEvent()
     moduleView()->setFaceType(KPageView::Plain);
 }
 
+void SidebarMode::requestToolTip(int index, const QRectF &rect)
+{
+    d->toolTipManager->requestToolTip(d->proxyModel->index(index, 0), rect.toRect());
+}
+
+void SidebarMode::hideToolTip()
+{
+    d->toolTipManager->hideToolTip();
+}
+
 void SidebarMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
@@ -242,6 +252,8 @@ void SidebarMode::initWidget()
     //FIXME
     d->quickWidget->setFixedWidth(240);
     d->quickWidget->installEventFilter(this);
+
+    d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);
 
     d->mainLayout->addWidget( d->quickWidget );
     d->mainLayout->addWidget( d->moduleView );

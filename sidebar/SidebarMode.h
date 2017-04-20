@@ -57,6 +57,9 @@ public:
     int activeSubCategory() const;
     void setActiveSubCategory(int cat);
 
+    Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
+    Q_INVOKABLE void hideToolTip();
+
 protected:
     QList<QAbstractItemView*> views() const;
     bool eventFilter(QObject* watched, QEvent* event);

@@ -3,6 +3,7 @@ set( sidebar_mode_srcs
      CategoryDrawer.cpp
      CategorizedView.cpp
      SidebarDelegate.cpp
+     ToolTips/tooltipmanager.cpp
 ) 
 
 add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_srcs})
