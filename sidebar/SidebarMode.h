@@ -71,7 +71,6 @@ Q_SIGNALS:
     void activeSubCategoryChanged();
 
 private:
-    void initMenuList(MenuItem * parent);
     class Private;
     Private *const d;
 };

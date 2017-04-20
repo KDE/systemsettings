@@ -243,11 +243,6 @@ void SidebarMode::initWidget()
     d->quickWidget->setFixedWidth(240);
     d->quickWidget->installEventFilter(this);
 
-    // Prepare the Base Data
-    MenuItem *rootModule = new MenuItem( true, 0 );
-    initMenuList(rootModule);
-    BaseData::instance()->setMenuItem( rootModule );
-
     d->mainLayout->addWidget( d->quickWidget );
     d->mainLayout->addWidget( d->moduleView );
     emit changeToolBarItems(BaseMode::NoItems);
@@ -260,51 +255,6 @@ bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
         QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
     }
     return BaseMode::eventFilter(watched, event);
-}
-
-void SidebarMode::initMenuList(MenuItem * parent)
-{
-    KService::List categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
-    KService::List modules = KServiceTypeTrader::self()->query("KCModule", "[X-KDE-System-Settings-Parent-Category] != ''");
-
-    // look for any categories inside this level, and recurse into them
-    for (int i = 0; i < categories.size(); ++i) {
-        const KService::Ptr entry = categories.at(i);
-        const QString parentCategory = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        const QString parentCategory2 = entry->property("X-KDE-System-Settings-Parent-Category-V2").toString();
-        if ( parentCategory == parent->category() ||
-             // V2 entries must not be empty if they want to become a proper category.
-             ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) {
-            MenuItem * menuItem = new MenuItem(true, parent);
-            menuItem->setService( entry );
-            if( menuItem->category() == "lost-and-found" ) {
-                //lostFound = menuItem;
-                continue;
-            }
-            initMenuList( menuItem );
-        }
-    }
-
-    KService::List removeList;
-
-    // scan for any modules at this level and add them
-    for (int i = 0; i < modules.size(); ++i) {
-        const KService::Ptr entry = modules.at(i);
-        const QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
-        const QString category2 = entry->property("X-KDE-System-Settings-Parent-Category-V2").toString();
-        if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
-            // Add the module info to the menu
-            MenuItem * infoItem = new MenuItem(false, parent);
-            infoItem->setService( entry );
-            removeList.append( modules.at(i) );
-        }
-    }
-
-    for (int i = 0; i < removeList.size(); ++i) {
-        modules.removeOne( removeList.at(i) );
-    }
-    
-    parent->sortChildrenByWeight();
 }
 
 void SidebarMode::leaveModuleView()

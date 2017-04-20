@@ -59,7 +59,9 @@ Kirigami.ApplicationItem {
                     focus: true
                     Layout.fillWidth: true
                     placeholderText: i18n("Search...")
-                    onTextChanged: systemsettings.categoryModel.filterRegExp = text
+                    onTextChanged: {
+                        systemsettings.categoryModel.filterRegExp = text;
+                    }
                 }
             }
             Kirigami.Separator {
