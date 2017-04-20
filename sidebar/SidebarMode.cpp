@@ -141,8 +141,8 @@ void SidebarMode::initEvent()
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setCategorizedModel( true );
     d->proxyModel->setSourceModel( model );
-    d->proxyModel->sort( 0 );
     d->proxyModel->setFilterHighlightsEntries( false );
+    connect( d->proxyModel, &MenuProxyModel::filterRegExpChanged, this, &SidebarMode::activeCategoryChanged );
 
     d->subCategoryModel = new QStandardItemModel( this );
     d->mainWidget = new QWidget();
@@ -191,7 +191,7 @@ void SidebarMode::moduleLoaded()
 
 int SidebarMode::activeCategory() const
 {
-    return d->activeCategory;
+    return d->proxyModel->mapFromSource(d->proxyModel->sourceModel()->index(d->activeCategory, 0)).row();
 }
 
 void SidebarMode::setActiveCategory(int cat)
@@ -200,8 +200,9 @@ void SidebarMode::setActiveCategory(int cat)
         return;
     }
 
-    d->activeCategory = cat;
-    changeModule(d->proxyModel->index(cat, 0));
+    const QModelIndex idx = d->proxyModel->index(cat, 0);
+    d->activeCategory = d->proxyModel->mapToSource(idx).row();
+    changeModule(idx);
     d->activeSubCategory = 0;
     emit activeCategoryChanged();
     emit activeSubCategoryChanged();
