@@ -33,4 +33,12 @@ Kirigami.ApplicationItem {
     SubCategoryPage {
         id: subCategoryColumn
     }
+    Kirigami.Separator {
+        z: 999
+        anchors {
+            top: parent.top
+            right: parent.right
+            bottom: parent.bottom
+        }
+    }
 }

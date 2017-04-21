@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
             property: "categoryDisplayRole"
             delegate: Item {
                 width: categoryView.width
-                height: sectionLabel.height * 1.6
+                height: sectionLabel.height * 1.4
                 Kirigami.Separator {
                     anchors {
                         left: parent.left

@@ -39,6 +39,13 @@ Kirigami.ScrollablePage {
             //FIXME: kirigami bug, why?
             Component.onCompleted: font.bold = true
         }
+        Kirigami.Separator {
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
+        }
     }
     background: Rectangle {
         color: Kirigami.Theme.viewBackgroundColor
