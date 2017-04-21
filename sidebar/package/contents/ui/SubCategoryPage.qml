@@ -67,6 +67,7 @@ Kirigami.ScrollablePage {
             highlighted: focus
             onClicked: systemsettings.activeSubCategory = index
             checked: systemsettings.activeSubCategory == index
+            checkable: false
             Keys.onPressed: {
                 switch (event.key) {
                 case Qt.Key_Up:

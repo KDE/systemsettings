@@ -46,6 +46,8 @@
 #include <QQuickWidget>
 #include <QQmlEngine>
 #include <QQmlContext>
+#include <QGraphicsOpacityEffect>
+#include <QLabel>
 #include <QDebug>
 
 K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
@@ -69,6 +71,7 @@ public:
     KPackage::Package package;
     QStandardItemModel * subCategoryModel;
     QWidget * mainWidget;
+    QWidget * placeHolderWidget;
     QHBoxLayout * mainLayout;
     KDeclarative::KDeclarative kdeclarative;
     MenuProxyModel * proxyModel;
@@ -200,6 +203,8 @@ void SidebarMode::changeModule( const QModelIndex& activeModule )
 
 void SidebarMode::moduleLoaded()
 {
+    d->placeHolderWidget->hide();
+    d->moduleView->show();
     emit changeToolBarItems(BaseMode::NoItems);
 }
 
@@ -266,8 +271,25 @@ void SidebarMode::initWidget()
 
     d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);
 
+    d->placeHolderWidget = new QWidget(d->mainWidget);
+    QGraphicsOpacityEffect *opacity = new QGraphicsOpacityEffect(d->placeHolderWidget);
+    opacity->setOpacity(0.5);
+    d->placeHolderWidget->setGraphicsEffect(opacity);
+    QGridLayout *placeHolderLayout = new QGridLayout(d->placeHolderWidget);
+    QLabel *pictureLabel = new QLabel(d->placeHolderWidget);
+    pictureLabel->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
+    pictureLabel->setPixmap(QIcon::fromTheme(QStringLiteral("systemsettings")).pixmap(KIconLoader::SizeEnormous, KIconLoader::SizeEnormous));
+    QLabel *introLabel = new QLabel(d->placeHolderWidget);
+    introLabel->setText(i18n("Select an item from the list to see the available options"));
+    placeHolderLayout->addItem(new QSpacerItem(-1,-1, QSizePolicy::Minimum, QSizePolicy::Expanding), 0, 0);
+    placeHolderLayout->addWidget(pictureLabel, 1, 0, Qt::AlignCenter);
+    placeHolderLayout->addWidget(introLabel, 2, 0, Qt::AlignCenter);
+    placeHolderLayout->addItem(new QSpacerItem(-1,-1, QSizePolicy::Minimum, QSizePolicy::Expanding), 3, 0);
+
     d->mainLayout->addWidget( d->quickWidget );
+    d->moduleView->hide();
     d->mainLayout->addWidget( d->moduleView );
+    d->mainLayout->addWidget( d->placeHolderWidget );
     emit changeToolBarItems(BaseMode::NoItems);
 }
 
