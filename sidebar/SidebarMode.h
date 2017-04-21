@@ -34,7 +34,6 @@ class SidebarMode : public BaseMode
 
     Q_PROPERTY(QAbstractItemModel *categoryModel READ categoryModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *subCategoryModel READ subCategoryModel CONSTANT)
-    Q_PROPERTY(QList<QObject *> globalActions READ globalActions CONSTANT)
     Q_PROPERTY(int activeCategory READ activeCategory WRITE setActiveCategory NOTIFY activeCategoryChanged)
     Q_PROPERTY(int activeSubCategory READ activeSubCategory WRITE setActiveSubCategory NOTIFY activeSubCategoryChanged)
 
@@ -49,7 +48,6 @@ public:
     ModuleView * moduleView() const;
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *subCategoryModel() const;
-    QList<QObject *> globalActions() const;
 
     int activeCategory() const;
     void setActiveCategory(int cat);
@@ -57,6 +55,7 @@ public:
     int activeSubCategory() const;
     void setActiveSubCategory(int cat);
 
+    Q_INVOKABLE void triggerGlobalAction(const QString &name);
     Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
 

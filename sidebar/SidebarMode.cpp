@@ -52,7 +52,14 @@ K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
 
 class SidebarMode::Private {
 public:
-    Private() : quickWidget( 0 ), moduleView( 0 ), activeCategory( -1 ), activeSubCategory( -1 ) {}
+    Private()
+      : quickWidget( nullptr ),
+        moduleView( nullptr ),
+        collection( nullptr ),
+        activeCategory( -1 ),
+        activeSubCategory( -1 )
+    {}
+
     virtual ~Private() {
         delete aboutIcon;
     }
@@ -67,7 +74,7 @@ public:
     MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
-    QList<QObject *> globalActions;
+    KActionCollection *collection;
     int activeCategory;
     int activeSubCategory;
 };
@@ -119,11 +126,6 @@ QAbstractItemModel * SidebarMode::subCategoryModel() const
     return d->subCategoryModel;
 }
 
-QList<QObject *> SidebarMode::globalActions() const
-{
-    return d->globalActions;
-}
-
 QList<QAbstractItemView*> SidebarMode::views() const
 {
     QList<QAbstractItemView*> list;
@@ -153,6 +155,18 @@ void SidebarMode::initEvent()
     connect( d->moduleView, &ModuleView::closeRequest, this, &SidebarMode::leaveModuleView );
     d->quickWidget = 0;
     moduleView()->setFaceType(KPageView::Plain);
+}
+
+void SidebarMode::triggerGlobalAction(const QString &name)
+{
+    if (!d->collection) {
+        return;
+    }
+
+    QAction *action = d->collection->action(name);
+    if (action) {
+        action->trigger();
+    }
 }
 
 void SidebarMode::requestToolTip(int index, const QRectF &rect)
@@ -232,11 +246,7 @@ void SidebarMode::initWidget()
     if (!KMainWindow::memberList().isEmpty()) {
         KXmlGuiWindow *mainWindow = qobject_cast<KXmlGuiWindow *>(KMainWindow::memberList().first());
         if (mainWindow) {
-            KActionCollection *collection = mainWindow->actionCollection();
-            d->globalActions << collection->action("configure")
-                             << collection->action("help_contents")
-                             << collection->action("help_about_app")
-                             << collection->action("help_about_kde");
+            d->collection = mainWindow->actionCollection();
         }
     }
 

@@ -39,15 +39,25 @@ Kirigami.ScrollablePage {
                 iconName: "application-menu"
                 menu: QtControls.Menu {
                     id: globalMenu
-                    Instantiator {
-                        model: systemsettings.globalActions
-                        QtControls.MenuItem {
-                            text: modelData.text
-                            property QtObject action: modelData
-                            onTriggered: action.trigger();
-                        }
-                        onObjectAdded: globalMenu.insertItem(index, object)
-                        onObjectRemoved: globalMenu.removeItem(object)
+                    QtControls.MenuItem {
+                        text: i18n("Configure")
+                        iconName: "settings-configure"
+                        onTriggered: systemsettings.triggerGlobalAction("configure");
+                    }
+                    QtControls.MenuItem {
+                        text: i18n("System Settings Handbook")
+                        iconName: "help-contents"
+                        onTriggered: systemsettings.triggerGlobalAction("help_contents");
+                    }
+                    QtControls.MenuItem {
+                        text: i18n("About System Settings")
+                        iconName: "help-about"
+                        onTriggered: systemsettings.triggerGlobalAction("help_about_app");
+                    }
+                    QtControls.MenuItem {
+                        text: i18n("About KDE")
+                        iconName: "kde"
+                        onTriggered: systemsettings.triggerGlobalAction("help_about_kde");
                     }
                 }
             }
