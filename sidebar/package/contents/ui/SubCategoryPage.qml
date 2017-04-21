@@ -73,6 +73,11 @@ Kirigami.ScrollablePage {
             activeFocusOnTab: root.pageStack.currentIndex == 1
             highlighted: focus
             onClicked: systemsettings.activeSubCategory = index
+            onFocusChanged: {
+                if (focus) {
+                    onCurrentIndexChanged: subCategoryView.positionViewAtIndex(index, ListView.Contain);
+                }
+            }
             checked: systemsettings.activeSubCategory == index
             checkable: false
             Keys.onPressed: {

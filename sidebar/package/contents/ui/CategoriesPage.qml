@@ -172,6 +172,11 @@ Kirigami.ScrollablePage {
                     systemsettings.requestToolTip(index, delegate.mapToItem(root, 0, 0, width, height));
                 }
             }
+            onFocusChanged: {
+                if (focus) {
+                    onCurrentIndexChanged: categoryView.positionViewAtIndex(index, ListView.Contain);
+                }
+            }
             checked: systemsettings.activeCategory == index
             Keys.onPressed: {
                 switch (event.key) {
