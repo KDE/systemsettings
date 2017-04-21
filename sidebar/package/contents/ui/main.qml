@@ -24,7 +24,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 Kirigami.ApplicationItem {
     id: root
-    pageStack.initialPage:
+    pageStack.initialPage: mainColumn
 
     CategoriesPage {
         id: mainColumn

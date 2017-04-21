@@ -26,6 +26,8 @@ import org.kde.kirigami 2.1 as Kirigami
 Kirigami.ScrollablePage {
     id: subCategoryColumn
     header: RowLayout {
+        width: subCategoryColumn.width
+        height: implicitHeight + Kirigami.Units.smallSpacing*2
         QtControls.ToolButton {
             iconName: "go-previous"
             onClicked: root.pageStack.currentIndex = 0;

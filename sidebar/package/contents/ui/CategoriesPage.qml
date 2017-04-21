@@ -16,7 +16,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0 as QtControls
 import QtQuick.Controls 2.0 as QtControls2
@@ -26,6 +26,7 @@ import org.kde.kirigami 2.1 as Kirigami
 Kirigami.ScrollablePage {
     id: mainColumn
     Component.onCompleted: searchField.forceActiveFocus()
+
     header: Item {
         width: mainColumn.width
         height:searchLayout.implicitHeight + Kirigami.Units.smallSpacing*2
@@ -69,6 +70,27 @@ Kirigami.ScrollablePage {
                 onTextChanged: {
                     systemsettings.categoryModel.filterRegExp = text;
                 }
+                MouseArea {
+                    anchors {
+                        right: parent.right
+                        verticalCenter: parent.verticalCenter
+                        rightMargin: y
+                    }
+                    opacity: searchField.text.length > 0 ? 1 : 0
+                    width: Kirigami.Units.iconSizes.small
+                    height: width
+                    onClicked: searchField.text = ""
+                    Kirigami.Icon {
+                        anchors.fill: parent
+                        source: LayoutMirroring.enabled ? "edit-clear-rtl" : "edit-clear"
+                    }
+                    Behavior on opacity {
+                        OpacityAnimator {
+                            duration: Kirigami.Units.longDuration
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+                }
             }
         }
         Kirigami.Separator {
@@ -81,6 +103,20 @@ Kirigami.ScrollablePage {
     }
     background: Rectangle {
         color: Kirigami.Theme.viewBackgroundColor
+    }
+    Kirigami.Heading {
+        anchors.centerIn: parent
+        width: parent.width * 0.7
+        wrapMode: Text.WordWrap
+        horizontalAlignment: Text.AlignHCenter
+        text: i18nc("A search yelded no results", "No items matching your search")
+        opacity: categoryView.count == 0 ? 0.3 : 0
+        Behavior on opacity {
+            OpacityAnimator {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuad
+            }
+        }
     }
     ListView {
         id: categoryView
