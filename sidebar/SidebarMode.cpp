@@ -151,6 +151,7 @@ void SidebarMode::initEvent()
 
     d->subCategoryModel = new QStandardItemModel( this );
     d->mainWidget = new QWidget();
+    d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->moduleView = new ModuleView( d->mainWidget );
@@ -244,6 +245,11 @@ void SidebarMode::setActiveSubCategory(int cat)
     emit activeSubCategoryChanged();
 }
 
+int SidebarMode::width() const
+{
+    return d->mainWidget->width();
+}
+
 void SidebarMode::initWidget()
 {
     // Create the widgets
@@ -313,6 +319,8 @@ bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
     //TODO: patch Qt
     if (watched == d->quickWidget && event->type() == QEvent::Leave) {
         QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
+    } else if (watched == d->mainWidget && event->type() == QEvent::Resize) {
+        emit widthChanged();
     }
     return BaseMode::eventFilter(watched, event);
 }

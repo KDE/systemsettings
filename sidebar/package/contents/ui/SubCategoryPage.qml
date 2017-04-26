@@ -25,19 +25,29 @@ import org.kde.kirigami 2.1 as Kirigami
 
 Kirigami.ScrollablePage {
     id: subCategoryColumn
-    header: RowLayout {
+    header: Item {
         width: subCategoryColumn.width
-        height: implicitHeight + Kirigami.Units.smallSpacing*2
-        QtControls.ToolButton {
-            iconName: "go-previous"
-            onClicked: root.pageStack.currentIndex = 0;
-        }
-        Kirigami.Label {
-            Layout.fillWidth: true
-            text: subCategoryColumn.title
-            opacity: 0.3
-            //FIXME: kirigami bug, why?
-            Component.onCompleted: font.bold = true
+        height: topLayout.height + Kirigami.Units.smallSpacing*2
+        RowLayout {
+            id: topLayout
+            height: backButton.implicitHeight
+            anchors {
+                fill: parent
+                margins: Kirigami.Units.smallSpacing
+            }
+            QtControls.ToolButton {
+                id: backButton
+                visible: !applicationWindow().wideScreen
+                iconName: "go-previous"
+                onClicked: root.pageStack.currentIndex = 0;
+            }
+            Kirigami.Label {
+                Layout.fillWidth: true
+                text: subCategoryColumn.title
+                opacity: 0.3
+                //FIXME: kirigami bug, why?
+                Component.onCompleted: font.bold = true
+            }
         }
         Kirigami.Separator {
             anchors {
