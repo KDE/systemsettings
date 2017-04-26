@@ -265,8 +265,23 @@ void SidebarMode::initWidget()
     d->kdeclarative.setupBindings();
 
     d->quickWidget->setSource(d->package.filePath("mainscript"));
-    //FIXME
-    d->quickWidget->setFixedWidth(240);
+
+    const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
+    if (rootImplicitWidth != 0) {
+        d->quickWidget->setFixedWidth(rootImplicitWidth);
+    } else {
+        d->quickWidget->setFixedWidth(240);
+    }
+    connect(d->quickWidget->rootObject(), &QQuickItem::implicitWidthChanged,
+            this, [this]() {
+                const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
+                if (rootImplicitWidth != 0) {
+                    d->quickWidget->setFixedWidth(rootImplicitWidth);
+                } else {
+                    d->quickWidget->setFixedWidth(240);
+                }
+            });
+
     d->quickWidget->installEventFilter(this);
 
     d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);

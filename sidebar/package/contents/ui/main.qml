@@ -19,11 +19,11 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0 as QtControls
-import QtQuick.Controls 2.0 as QtControls2
 import org.kde.kirigami 2.1 as Kirigami
 
 Kirigami.ApplicationItem {
     id: root
+    implicitWidth: Kirigami.Units.gridUnit * 15
     pageStack.initialPage: mainColumn
 
     CategoriesPage {
