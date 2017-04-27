@@ -32,12 +32,13 @@
 
 class BaseMode::Private {
 public:
-    Private() {}
+    Private() : showToolTips(true) {}
 
     QList<QAction*> actionsList;
     KService::Ptr service;
     MenuItem *rootItem;
     KConfigGroup config;
+    bool showToolTips;
 };
 
 BaseMode::BaseMode( QObject* parent )
@@ -87,6 +88,16 @@ QList<QAction*>& BaseMode::actionsList() const
 const KService::Ptr& BaseMode::service() const
 {
     return d->service;
+}
+
+void BaseMode::setShowToolTips( bool show)
+{
+    d->showToolTips = show;
+}
+
+bool BaseMode::showToolTips() const
+{
+    return d->showToolTips;
 }
 
 void BaseMode::searchChanged( const QString& text )

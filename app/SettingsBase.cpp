@@ -245,6 +245,7 @@ void SettingsBase::configUpdated()
     KWindowConfig::saveWindowSize(configDialog->windowHandle(), dialogConfig);
     BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
+    activeView->setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->saveConfiguration();
     changePlugin();
 }
@@ -337,6 +338,7 @@ void SettingsBase::changePlugin()
             tooltipManagers << new ToolTipManager( view );
         }
     }
+    activeView->setShowToolTips( BaseConfig::showToolTips() );
 
     changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
     viewChange(false);

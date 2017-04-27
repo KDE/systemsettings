@@ -175,7 +175,9 @@ void SidebarMode::triggerGlobalAction(const QString &name)
 
 void SidebarMode::requestToolTip(int index, const QRectF &rect)
 {
-    d->toolTipManager->requestToolTip(d->proxyModel->index(index, 0), rect.toRect());
+    if (showToolTips()) {
+        d->toolTipManager->requestToolTip(d->proxyModel->index(index, 0), rect.toRect());
+    }
 }
 
 void SidebarMode::hideToolTip()

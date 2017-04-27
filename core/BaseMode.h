@@ -159,6 +159,16 @@ public:
      */
     const KService::Ptr& service() const;
 
+    /**
+     * tells the config view wether to make use of tooltips or not
+     */
+    void setShowToolTips( bool show);
+
+    /**
+     * @returns true if the view should use tooltips
+     */
+    bool showToolTips() const;
+
 public Q_SLOTS:
     /**
      * Called when the text in the search box changes allowing the display to be filtered.
