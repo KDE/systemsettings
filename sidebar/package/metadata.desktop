@@ -1,15 +1,19 @@
 [Desktop Entry]
 Name=Sidebar View
 Name[ca]=Vista de barra lateral
+Name[es]=Vista de barra lateral
 Name[lt]=Šoninė juosta
 Name[nl]=Zijbalkweergave
+Name[pt]=Vista da Barra Lateral
 Name[sv]=Sidorad
 Name[uk]=Бічна панель
 Name[x-test]=xxSidebar Viewxx
 Comment=Categorized sidebar style
 Comment[ca]=Estil de barra lateral categoritzat
+Comment[es]=Estilo de barra lateral con categorías
 Comment[lt]=Šoninė juosta su kategorijomis
 Comment[nl]=Gecategoriseerde zijbalkstijl
+Comment[pt]=Estilo de barra lateral por categorias
 Comment[sv]=Kategoriserad sidoradstil
 Comment[uk]=Категоризований стиль бічної панелі
 Comment[x-test]=xxCategorized sidebar stylexx
