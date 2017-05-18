@@ -2,7 +2,7 @@ project(systemsettings)
 set(PROJECT_VERSION "5.10.90")
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-set(QT_MIN_VERSION "5.4.0")
+set(QT_MIN_VERSION "5.7.0")
 set(KF5_MIN_VERSION "5.30")
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
