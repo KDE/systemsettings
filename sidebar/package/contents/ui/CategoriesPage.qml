@@ -141,11 +141,13 @@ Kirigami.ScrollablePage {
                     anchors {
                         bottom: parent.bottom
                         left: parent.left
+                        right: parent.right
                         leftMargin: Kirigami.Units.smallSpacing
                     }
                     id: sectionLabel
                     text: section
                     opacity: 0.3
+                    elide: Text.ElideRight
                     //FIXME: kirigami bug, why?
                     Component.onCompleted: font.bold = true
                 }

@@ -44,6 +44,7 @@ Kirigami.ScrollablePage {
             Kirigami.Label {
                 Layout.fillWidth: true
                 text: subCategoryColumn.title
+                elide: Text.ElideRight
                 opacity: 0.3
                 //FIXME: kirigami bug, why?
                 Component.onCompleted: font.bold = true
