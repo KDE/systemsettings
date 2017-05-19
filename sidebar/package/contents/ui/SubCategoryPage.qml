@@ -90,7 +90,9 @@ Kirigami.ScrollablePage {
                 }
             }
             checked: systemsettings.activeSubCategory == index
-            checkable: false
+            //checkable: false
+            //FIXME: Qt 5.7 doesn't have checkable, this way fails at runtime but still works correctly on 5.7
+            Component.onCompleted: delegate.checkable = true;
             Keys.onPressed: {
                 switch (event.key) {
                 case Qt.Key_Up:
