@@ -27,10 +27,10 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     header: Item {
         width: subCategoryColumn.width
-        height: topLayout.height + Kirigami.Units.smallSpacing*2
+        height: topLayout.height + Kirigami.Units.smallSpacing * 2
         RowLayout {
             id: topLayout
-            height: backButton.implicitHeight
+            height: Math.max(backButton.height, Kirigami.Units.gridUnit * 2)
             anchors {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing

@@ -29,14 +29,16 @@ Kirigami.ScrollablePage {
 
     header: Item {
         width: mainColumn.width
-        height:searchLayout.implicitHeight + Kirigami.Units.smallSpacing*2
+        height:searchLayout.height + Kirigami.Units.smallSpacing * 2
         RowLayout {
             id: searchLayout
+            height: Math.max(menuButton.height, Kirigami.Units.gridUnit * 2)
             anchors {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing
             }
             QtControls.ToolButton {
+                id: menuButton
                 iconName: "application-menu"
                 menu: QtControls.Menu {
                     id: globalMenu
