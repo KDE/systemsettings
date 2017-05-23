@@ -40,7 +40,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     QUIET
 )
 
-find_package(KF5Kirigami 2.1 REQUIRED)
+find_package(KF5Kirigami2 2.1 REQUIRED)
 
 add_subdirectory(core)
 add_subdirectory(app)
