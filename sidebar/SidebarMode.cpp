@@ -52,6 +52,39 @@
 
 K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
 
+class SubcategoryModel : public QStandardItemModel
+{
+public:
+    SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent = 0)
+        : QStandardItemModel(parent),
+          m_parentModel(parentModel)
+    {}
+
+    void setParentIndex(const QModelIndex &activeModule)
+    {
+        blockSignals(true);
+        //make the view receive a single signal when the new subcategory is loaded,
+        //never make the view believe there are zero items if this is not the final count
+        //this avoids the brief flash it had
+        clear();
+        const int subRows = m_parentModel->rowCount(activeModule);
+        if ( subRows > 1) {
+            for (int i = 0; i < subRows; ++i) {
+                const QModelIndex& index = m_parentModel->index(i, 0, activeModule);
+                QStandardItem *item = new QStandardItem(m_parentModel->data(index, Qt::DecorationRole).value<QIcon>(), m_parentModel->data(index, Qt::DisplayRole).toString());
+                item->setData(index.data(Qt::UserRole), Qt::UserRole);
+                appendRow(item);
+            }
+        }
+        blockSignals(false);
+        beginResetModel();
+        endResetModel();
+    }
+
+private:
+    QAbstractItemModel *m_parentModel;
+};
+
 class SidebarMode::Private {
 public:
     Private()
@@ -69,7 +102,7 @@ public:
     ToolTipManager *toolTipManager;
     QQuickWidget * quickWidget;
     KPackage::Package package;
-    QStandardItemModel * subCategoryModel;
+    SubcategoryModel * subCategoryModel;
     QWidget * mainWidget;
     QWidget * placeHolderWidget;
     QHBoxLayout * mainLayout;
@@ -149,7 +182,7 @@ void SidebarMode::initEvent()
     d->proxyModel->setFilterHighlightsEntries( false );
     connect( d->proxyModel, &MenuProxyModel::filterRegExpChanged, this, &SidebarMode::activeCategoryChanged );
 
-    d->subCategoryModel = new QStandardItemModel( this );
+    d->subCategoryModel = new SubcategoryModel( d->proxyModel, this );
     d->mainWidget = new QWidget();
     d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
@@ -189,19 +222,14 @@ void SidebarMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
 
-    d->subCategoryModel->clear();
     const int subRows = d->proxyModel->rowCount(activeModule);
     if ( subRows < 2) {
         d->moduleView->loadModule( activeModule );
     } else {
-        for (int i = 0; i < subRows; ++i) {
-            const QModelIndex& index = d->proxyModel->index(i, 0, activeModule);
-            QStandardItem *item = new QStandardItem(d->proxyModel->data(index, Qt::DecorationRole).value<QIcon>(), d->proxyModel->data(index, Qt::DisplayRole).toString());
-            item->setData(index.data(Qt::UserRole), Qt::UserRole);
-            d->subCategoryModel->appendRow(item);
-        }
         d->moduleView->loadModule( d->proxyModel->index(0, 0, activeModule) );
     }
+
+    d->subCategoryModel->setParentIndex( activeModule );
 }
 
 void SidebarMode::moduleLoaded()

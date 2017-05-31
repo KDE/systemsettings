@@ -68,7 +68,9 @@ Kirigami.ScrollablePage {
         currentIndex: systemsettings.activeSubCategory
         onCountChanged: {
             if (count > 1) {
-                root.pageStack.push(subCategoryColumn);
+                if (root.pageStack.depth < 2) {
+                    root.pageStack.push(subCategoryColumn);
+                }
                 root.pageStack.currentIndex = 1;
                 subCategoryView.forceActiveFocus();
             } else {
