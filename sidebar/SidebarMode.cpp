@@ -36,6 +36,7 @@
 #include <KStandardAction>
 #include <KLocalizedString>
 #include <KIconLoader>
+#include <KLocalizedContext>
 #include <KServiceTypeTrader>
 #include <KXmlGuiWindow>
 #include <KActionCollection>
@@ -104,7 +105,7 @@ public:
     KPackage::Package package;
     SubcategoryModel * subCategoryModel;
     QWidget * mainWidget;
-    QWidget * placeHolderWidget;
+    QQuickWidget * placeHolderWidget;
     QHBoxLayout * mainLayout;
     KDeclarative::KDeclarative kdeclarative;
     MenuProxyModel * proxyModel;
@@ -322,20 +323,11 @@ void SidebarMode::initWidget()
 
     d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);
 
-    d->placeHolderWidget = new QWidget(d->mainWidget);
-    QGraphicsOpacityEffect *opacity = new QGraphicsOpacityEffect(d->placeHolderWidget);
-    opacity->setOpacity(0.5);
-    d->placeHolderWidget->setGraphicsEffect(opacity);
-    QGridLayout *placeHolderLayout = new QGridLayout(d->placeHolderWidget);
-    QLabel *pictureLabel = new QLabel(d->placeHolderWidget);
-    pictureLabel->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
-    pictureLabel->setPixmap(QIcon::fromTheme(QStringLiteral("systemsettings")).pixmap(KIconLoader::SizeEnormous, KIconLoader::SizeEnormous));
-    QLabel *introLabel = new QLabel(d->placeHolderWidget);
-    introLabel->setText(i18n("Select an item from the list to see the available options"));
-    placeHolderLayout->addItem(new QSpacerItem(-1,-1, QSizePolicy::Minimum, QSizePolicy::Expanding), 0, 0);
-    placeHolderLayout->addWidget(pictureLabel, 1, 0, Qt::AlignCenter);
-    placeHolderLayout->addWidget(introLabel, 2, 0, Qt::AlignCenter);
-    placeHolderLayout->addItem(new QSpacerItem(-1,-1, QSizePolicy::Minimum, QSizePolicy::Expanding), 3, 0);
+    d->placeHolderWidget = new QQuickWidget(d->mainWidget);
+    d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
+    d->placeHolderWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
+    d->placeHolderWidget->setSource(d->package.filePath("ui", "introPage.qml"));
 
     d->mainLayout->addWidget( d->quickWidget );
     d->moduleView->hide();
