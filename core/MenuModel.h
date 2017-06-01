@@ -63,7 +63,7 @@ public:
      * @param role The information role you want information about.
      * @returns The data requested for the role provided from the QModelIndex provided.
      */
-    QVariant data( const QModelIndex &index, int role ) const;
+    QVariant data( const QModelIndex &index, int role ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -72,7 +72,7 @@ public:
      *
      * @returns The flags for the QModelIndex provided.
      */
-    Qt::ItemFlags flags( const QModelIndex &index ) const;
+    Qt::ItemFlags flags( const QModelIndex &index ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -83,7 +83,7 @@ public:
      * @param parent The parent of the requested child.
      * @returns The QModelIndex for the item requested.
      */
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const;
+    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -92,7 +92,7 @@ public:
      * @param index The child of the parent.
      * @returns A QModelIndex for the parent.
      */
-    QModelIndex parent( const QModelIndex &index ) const;
+    QModelIndex parent( const QModelIndex &index ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -101,7 +101,7 @@ public:
      * @param parent The QModelIndex the count is performed on.
      * @returns The number of rows ( children ) in the parent.
      */
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const;
+    int rowCount( const QModelIndex &parent = QModelIndex() ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -110,7 +110,7 @@ public:
      * @param parent This is ignored, as the count is always 1.
      * @returns The number of columns ( 1 ) in the parent.
      */
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const;
+    int columnCount( const QModelIndex &parent = QModelIndex() ) const Q_DECL_OVERRIDE;
 
     /**
      * Makes the MenuItem specified be hidden from the list, while still showing its children.\n

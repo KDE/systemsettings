@@ -50,7 +50,7 @@ public:
      */
     MenuProxyModel( QObject *parent = 0 );
 
-    QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const Q_DECL_OVERRIDE;
 
     /**
      * Please see the Qt QSortFilterProxyModel documentation for further information.\n
@@ -60,7 +60,7 @@ public:
      * @param right the QModelIndex to compare aganist.
      * @returns true if the left is below the right.
      */
-    virtual bool lessThan( const QModelIndex &left, const QModelIndex &right ) const;
+    bool lessThan( const QModelIndex &left, const QModelIndex &right ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see the KDE KCategorizedSortFilterProxyModel documentation for futher information.\n
@@ -70,7 +70,7 @@ public:
      * @param right the QModelIndex to compare aganist.
      * @returns true if the left is below the right.
      */
-    virtual bool subSortLessThan( const QModelIndex &left, const QModelIndex &right ) const;
+    bool subSortLessThan( const QModelIndex &left, const QModelIndex &right ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see the Qt QSortFilterProxyModel documentation for futher information.\n
@@ -80,7 +80,7 @@ public:
      * @param source_parent Please see QSortFilterProxyModel documentation.
      * @returns true if the row should be displayed, false if it should not.
      */
-    virtual bool filterAcceptsRow( int source_column, const QModelIndex &source_parent ) const;
+    bool filterAcceptsRow( int source_column, const QModelIndex &source_parent ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -89,7 +89,7 @@ public:
      *
      * @returns The flags for the QModelIndex provided.
      */
-    Qt::ItemFlags flags( const QModelIndex &index ) const;
+    Qt::ItemFlags flags( const QModelIndex &index ) const Q_DECL_OVERRIDE;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n

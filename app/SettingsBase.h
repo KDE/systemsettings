@@ -42,10 +42,10 @@ class SettingsBase : public KXmlGuiWindow
 public:
     explicit SettingsBase(QWidget * parent = 0);
     ~SettingsBase();
-    bool queryClose();
+    bool queryClose() Q_DECL_OVERRIDE;
 
 protected:
-    virtual QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void initApplication();

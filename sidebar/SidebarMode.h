@@ -41,12 +41,12 @@ class SidebarMode : public BaseMode
 public:
     SidebarMode(QObject * parent, const QVariantList& );
     ~SidebarMode();
-    QWidget * mainWidget();
-    void initEvent();
-    void giveFocus();
-    void leaveModuleView();
-    KAboutData * aboutData();
-    ModuleView * moduleView() const;
+    QWidget * mainWidget() Q_DECL_OVERRIDE;
+    void initEvent() Q_DECL_OVERRIDE;
+    void giveFocus() Q_DECL_OVERRIDE;
+    void leaveModuleView() Q_DECL_OVERRIDE;
+    KAboutData * aboutData() Q_DECL_OVERRIDE;
+    ModuleView * moduleView() const Q_DECL_OVERRIDE;
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *subCategoryModel() const;
 
@@ -63,8 +63,8 @@ public:
     Q_INVOKABLE void hideToolTip();
 
 protected:
-    QList<QAbstractItemView*> views() const;
-    bool eventFilter(QObject* watched, QEvent* event);
+    QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;
+    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void changeModule( const QModelIndex& activeModule );

@@ -127,7 +127,7 @@ public Q_SLOTS:
     /**
      * Reimplemented for internal reasons.\n
      */
-    void keyPressEvent( QKeyEvent * event );
+    void keyPressEvent( QKeyEvent * event ) Q_DECL_OVERRIDE;
 
 private:
     bool resolveChanges( KCModuleProxy *currentProxy );

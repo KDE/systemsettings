@@ -36,7 +36,7 @@ public:
     ~ExternalAppModule();
 
 protected:
-    void showEvent(QShowEvent * event);
+    void showEvent(QShowEvent * event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void runExternal();

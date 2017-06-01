@@ -59,7 +59,7 @@ public Q_SLOTS:
     void requestToolTip(const QModelIndex& index, const QRect &rect);
 
 protected:
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void prepareToolTip();

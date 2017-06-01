@@ -34,18 +34,18 @@ class IconMode : public BaseMode
 public:
     IconMode(QObject * parent, const QVariantList& );
     ~IconMode();
-    QWidget * mainWidget();
-    void initEvent();
-    void giveFocus();
-    void leaveModuleView();
-    KAboutData * aboutData();
-    ModuleView * moduleView() const;
+    QWidget * mainWidget() Q_DECL_OVERRIDE;
+    void initEvent() Q_DECL_OVERRIDE;
+    void giveFocus() Q_DECL_OVERRIDE;
+    void leaveModuleView() Q_DECL_OVERRIDE;
+    KAboutData * aboutData() Q_DECL_OVERRIDE;
+    ModuleView * moduleView() const Q_DECL_OVERRIDE;
 
 protected:
-    QList<QAbstractItemView*> views() const;
+    QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
-    void searchChanged( const QString& text );
+    void searchChanged( const QString& text ) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void changeModule( const QModelIndex& activeModule );

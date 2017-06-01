@@ -32,25 +32,25 @@ class ClassicMode : public BaseMode
 public:
     ClassicMode(QObject * parent, const QVariantList& );
     ~ClassicMode();
-    void initEvent();
-    void leaveModuleView();
-    QWidget * mainWidget();
-    KAboutData * aboutData();
-    ModuleView * moduleView() const;
+    void initEvent() Q_DECL_OVERRIDE;
+    void leaveModuleView() Q_DECL_OVERRIDE;
+    QWidget * mainWidget() Q_DECL_OVERRIDE;
+    KAboutData * aboutData() Q_DECL_OVERRIDE;
+    ModuleView * moduleView() const Q_DECL_OVERRIDE;
 
 protected:
-    QList<QAbstractItemView*> views() const;
+    QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void expandColumns();
-    void searchChanged( const QString& text );
+    void searchChanged( const QString& text ) Q_DECL_OVERRIDE;
     void selectModule( const QModelIndex& selectedModule );
     void changeModule( const QModelIndex& activeModule );
-    void saveState();
-    void giveFocus();
-    void addConfiguration( KConfigDialog * config );
-    void loadConfiguration();
-    void saveConfiguration();
+    void saveState() Q_DECL_OVERRIDE;
+    void giveFocus() Q_DECL_OVERRIDE;
+    void addConfiguration( KConfigDialog * config ) Q_DECL_OVERRIDE;
+    void loadConfiguration() Q_DECL_OVERRIDE;
+    void saveConfiguration() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void moduleLoaded();

@@ -57,7 +57,7 @@ public Q_SLOTS:
     void hideToolTip();
 
 protected:
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void prepareToolTip();
