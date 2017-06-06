@@ -348,7 +348,6 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
     if (activeModule) {
         KActivities::ResourceInstance::notifyAccessed(QUrl("kcm:" + activeModule->moduleInfo().service()->storageId()),
                 "org.kde.systemsettings");
-        qWarning()<<QUrl("kcm:" + activeModule->moduleInfo().service()->storageId());
     }
 }
 
