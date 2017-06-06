@@ -27,22 +27,28 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     header: Item {
         width: subCategoryColumn.width
-        height: topLayout.height + Kirigami.Units.smallSpacing * 2
+        height: topLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
         RowLayout {
             id: topLayout
-            height: Math.max(backButton.height, Kirigami.Units.gridUnit * 2)
+            height: backButton.height
+            spacing: Kirigami.Units.smallSpacing
             anchors {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing
+                leftMargin: backButton.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.smallSpacing * 2
             }
             QtControls.ToolButton {
                 id: backButton
+                Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                Layout.maximumHeight: width
                 visible: !applicationWindow().wideScreen
                 iconName: "go-previous"
                 onClicked: root.pageStack.currentIndex = 0;
             }
             Kirigami.Label {
                 Layout.fillWidth: true
+                Layout.minimumHeight: Layout.maximumHeight
+                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 text: subCategoryColumn.title
                 elide: Text.ElideRight
                 opacity: 0.3
@@ -54,7 +60,7 @@ Kirigami.ScrollablePage {
             anchors {
                 left: parent.left
                 right: parent.right
-                bottom: parent.bottom
+                top: parent.bottom
             }
         }
     }

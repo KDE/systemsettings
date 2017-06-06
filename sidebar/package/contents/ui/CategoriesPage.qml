@@ -29,10 +29,11 @@ Kirigami.ScrollablePage {
 
     header: Item {
         width: mainColumn.width
-        height:searchLayout.height + Kirigami.Units.smallSpacing * 2
+        height: searchLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
         RowLayout {
             id: searchLayout
-            height: Math.max(menuButton.height, Kirigami.Units.gridUnit * 2)
+            height: menuButton.height
+            spacing: Kirigami.Units.smallSpacing
             anchors {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing
@@ -40,6 +41,8 @@ Kirigami.ScrollablePage {
             QtControls.ToolButton {
                 id: menuButton
                 iconName: "application-menu"
+                Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                Layout.maximumHeight: width
                 menu: QtControls.Menu {
                     id: globalMenu
                     QtControls.MenuItem {
@@ -67,6 +70,8 @@ Kirigami.ScrollablePage {
             QtControls.TextField {
                 id: searchField
                 focus: true
+                Layout.minimumHeight: Layout.maximumHeight
+                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.fillWidth: true
                 placeholderText: i18n("Search...")
                 onTextChanged: {
@@ -99,7 +104,7 @@ Kirigami.ScrollablePage {
             anchors {
                 left: parent.left
                 right: parent.right
-                bottom: parent.bottom
+                top: parent.bottom
             }
         }
     }
@@ -128,30 +133,23 @@ Kirigami.ScrollablePage {
         onContentYChanged: systemsettings.hideToolTip();
         section {
             property: "categoryDisplayRole"
-            delegate: Item {
-                width: categoryView.width
-                height: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 4
-                Kirigami.Separator {
+            delegate: Kirigami.AbstractListItem {
+                enabled: false
+                separatorVisible: false
+                RowLayout {
                     anchors {
-                        left: parent.left
-                        right: parent.right
-                        bottom: sectionLabel.top
-                    }
-                    visible: parent.y > 0
-                }
-                Kirigami.Label {
-                    anchors {
-                        bottom: parent.bottom
                         left: parent.left
                         right: parent.right
                         leftMargin: Kirigami.Units.smallSpacing
                     }
-                    id: sectionLabel
-                    text: section
-                    opacity: 0.3
-                    elide: Text.ElideRight
-                    //FIXME: kirigami bug, why?
-                    Component.onCompleted: font.bold = true
+                    Kirigami.Label {
+                        id: sectionLabel
+                        text: section
+                        Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
+                        elide: Text.ElideRight
+                        //FIXME: kirigami bug, why?
+                        Component.onCompleted: font.bold = true
+                    }
                 }
             }
         }
