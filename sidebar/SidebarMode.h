@@ -34,6 +34,7 @@ class SidebarMode : public BaseMode
 
     Q_PROPERTY(QAbstractItemModel *categoryModel READ categoryModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *subCategoryModel READ subCategoryModel CONSTANT)
+    Q_PROPERTY(QAbstractItemModel *mostUsedModel READ mostUsedModel CONSTANT)
     Q_PROPERTY(int activeCategory READ activeCategory WRITE setActiveCategory NOTIFY activeCategoryChanged)
     Q_PROPERTY(int activeSubCategory READ activeSubCategory WRITE setActiveSubCategory NOTIFY activeSubCategoryChanged)
     Q_PROPERTY(int width READ width NOTIFY widthChanged)
@@ -49,6 +50,7 @@ public:
     ModuleView * moduleView() const Q_DECL_OVERRIDE;
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *subCategoryModel() const;
+    QAbstractItemModel *mostUsedModel() const;
 
     int activeCategory() const;
     void setActiveCategory(int cat);
@@ -61,6 +63,7 @@ public:
     Q_INVOKABLE void triggerGlobalAction(const QString &name);
     Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
+    Q_INVOKABLE void loadMostUsed(int index);
 
 protected:
     QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;

@@ -43,6 +43,8 @@
 #include <kauthobjectdecorator.h>
 #include <KIconLoader>
 
+#include <KActivities/ResourceInstance>
+
 #include "MenuItem.h"
 
 class ModuleView::Private {
@@ -341,6 +343,13 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
     }
     // We need to get the state of the now active module
     stateChanged();
+
+    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    if (activeModule) {
+        KActivities::ResourceInstance::notifyAccessed(QUrl("kcm:" + activeModule->moduleInfo().service()->storageId()),
+                "org.kde.systemsettings");
+        qWarning()<<QUrl("kcm:" + activeModule->moduleInfo().service()->storageId());
+    }
 }
 
 void ModuleView::stateChanged()

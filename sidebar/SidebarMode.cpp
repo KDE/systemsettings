@@ -33,6 +33,7 @@
 
 #include <QAction>
 #include <KAboutData>
+#include <KCModuleInfo>
 #include <KStandardAction>
 #include <KLocalizedString>
 #include <KIconLoader>
@@ -50,6 +51,15 @@
 #include <QGraphicsOpacityEffect>
 #include <QLabel>
 #include <QDebug>
+
+#include <KActivities/Stats/ResultModel>
+#include <KActivities/Stats/ResultSet>
+#include <KActivities/Stats/Terms>
+
+namespace KAStats = KActivities::Stats;
+
+using namespace KAStats;
+using namespace KAStats::Terms;
 
 K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
 
@@ -86,6 +96,105 @@ private:
     QAbstractItemModel *m_parentModel;
 };
 
+class MostUsedModel : public QSortFilterProxyModel
+{
+public:
+    MostUsedModel(QObject *parent = 0)
+        : QSortFilterProxyModel (parent)
+    {
+        sort(0, Qt::DescendingOrder);
+        setSortRole(ResultModel::ScoreRole);
+        setDynamicSortFilter(true);
+        //prepare default items
+        m_defaultModel = new QStandardItemModel(this);
+        QStandardItem *item = new QStandardItem();
+        item->setData(QUrl(QStringLiteral("kcm:kcm_lookandfeel.desktop")), ResultModel::ResourceRole);
+        m_defaultModel->appendRow(item);
+        item = new QStandardItem();
+        item->setData(QUrl(QStringLiteral("kcm:user_manager.desktop")), ResultModel::ResourceRole);
+        m_defaultModel->appendRow(item);
+        item = new QStandardItem();
+        item->setData(QUrl(QStringLiteral("kcm:screenlocker.desktop")), ResultModel::ResourceRole);
+        m_defaultModel->appendRow(item);
+        item = new QStandardItem();
+        item->setData(QUrl(QStringLiteral("kcm:powerdevilprofilesconfig.desktop")), ResultModel::ResourceRole);
+        m_defaultModel->appendRow(item);
+        item = new QStandardItem();
+        item->setData(QUrl(QStringLiteral("kcm:kcm_kscreen.desktop")), ResultModel::ResourceRole);
+        m_defaultModel->appendRow(item);
+    }
+
+    void setResultModel(ResultModel *model)
+    {
+        if (m_resultModel == model) {
+            return;
+        }
+
+        auto updateModel = [this]() {
+            if (m_resultModel->rowCount() >= 5) {
+                setSourceModel(m_resultModel);
+            } else {
+                setSourceModel(m_defaultModel);
+            }
+        };
+
+        m_resultModel = model;
+
+        connect(m_resultModel, &QAbstractItemModel::rowsInserted, this, updateModel);
+        connect(m_resultModel, &QAbstractItemModel::rowsRemoved, this, updateModel);
+
+        updateModel();
+    }
+
+    QHash<int, QByteArray> roleNames() const
+    {
+        QHash<int, QByteArray> roleNames;
+        roleNames.insert(Qt::DisplayRole, "display");
+        roleNames.insert(Qt::DecorationRole, "decoration");
+        roleNames.insert(ResultModel::ScoreRole, "score");
+        return roleNames;
+    }
+
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
+    {
+        MenuItem *mi;
+        const QModelIndex &mappedIndex = mapToSource(index);
+        const QString desktopName = sourceModel()->data(mappedIndex, ResultModel::ResourceRole).toUrl().path();
+
+        if (m_menuItems.contains(desktopName)) {
+            mi = m_menuItems.value(desktopName);
+        } else {
+            mi = new MenuItem(false, nullptr);
+            const_cast<MostUsedModel *>(this)->m_menuItems.insert(desktopName, mi);
+
+            KService::Ptr service = KService::serviceByStorageId(desktopName);
+
+            if (!service || !service->isValid()) {
+                return QVariant();
+            }
+            mi->setService(service);
+        }
+
+        switch (role) {
+            case Qt::UserRole:
+                return QVariant::fromValue(mi);
+            case Qt::DisplayRole:
+                return mi->service()->name();
+            case Qt::DecorationRole:
+                return mi->service()->icon();
+            case ResultModel::ScoreRole:
+                return sourceModel()->data(mappedIndex, ResultModel::ScoreRole).toInt();
+            default:
+                return QVariant();
+        }
+    }
+
+private:
+    QHash<QString, MenuItem *> m_menuItems;
+    QStandardItemModel *m_defaultModel;
+    ResultModel *m_resultModel;
+};
+
 class SidebarMode::Private {
 public:
     Private()
@@ -104,6 +213,7 @@ public:
     QQuickWidget * quickWidget;
     KPackage::Package package;
     SubcategoryModel * subCategoryModel;
+    MostUsedModel * mostUsedModel;
     QWidget * mainWidget;
     QQuickWidget * placeHolderWidget;
     QHBoxLayout * mainLayout;
@@ -163,6 +273,11 @@ QAbstractItemModel * SidebarMode::subCategoryModel() const
     return d->subCategoryModel;
 }
 
+QAbstractItemModel * SidebarMode::mostUsedModel() const
+{
+    return d->mostUsedModel;
+}
+
 QList<QAbstractItemView*> SidebarMode::views() const
 {
     QList<QAbstractItemView*> list;
@@ -182,6 +297,8 @@ void SidebarMode::initEvent()
     d->proxyModel->setSourceModel( model );
     d->proxyModel->setFilterHighlightsEntries( false );
     connect( d->proxyModel, &MenuProxyModel::filterRegExpChanged, this, &SidebarMode::activeCategoryChanged );
+
+    d->mostUsedModel = new MostUsedModel( this );
 
     d->subCategoryModel = new SubcategoryModel( d->proxyModel, this );
     d->mainWidget = new QWidget();
@@ -217,6 +334,13 @@ void SidebarMode::requestToolTip(int index, const QRectF &rect)
 void SidebarMode::hideToolTip()
 {
     d->toolTipManager->hideToolTip();
+}
+
+Q_INVOKABLE void SidebarMode::loadMostUsed(int index)
+{
+    const QModelIndex idx = d->mostUsedModel->index(index, 0);
+    d->moduleView->closeModules();
+    d->moduleView->loadModule( idx );
 }
 
 void SidebarMode::changeModule( const QModelIndex& activeModule )
@@ -334,6 +458,8 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget( d->moduleView );
     d->mainLayout->addWidget( d->placeHolderWidget );
     emit changeToolBarItems(BaseMode::NoItems);
+
+    d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent("org.kde.systemsettings") | HighScoredFirst | Limit(5), this));
 }
 
 bool SidebarMode::eventFilter(QObject* watched, QEvent* event)

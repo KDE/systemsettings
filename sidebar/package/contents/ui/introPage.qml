@@ -21,15 +21,13 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.1 as Kirigami
 
 Rectangle {
+    id: root
     color: Kirigami.Theme.backgroundColor
     ColumnLayout {
         anchors {
-            top: parent.top
-            bottom: parent.bottom
+            bottom: separator.top
+            bottomMargin: Kirigami.Units.largeSpacing
             horizontalCenter: parent.horizontalCenter
-        }
-        Item {
-            Layout.fillHeight: true
         }
         Kirigami.Icon {
             Layout.alignment: Qt.AlignHCenter
@@ -40,10 +38,38 @@ Rectangle {
         }
         Kirigami.Label {
             Layout.alignment: Qt.AlignHCenter
-            text: i18n("Select an item from the list to see the available options")
+            text: i18n("System settings")
         }
-        Item {
-            Layout.fillHeight: true
+    }
+    Kirigami.Separator {
+        id: separator
+        anchors.centerIn: parent
+        width: parent.width * 0.8
+    }
+    ColumnLayout {
+        anchors {
+            top: separator.bottom
+            topMargin: Kirigami.Units.largeSpacing
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width * 0.8
+        Kirigami.Heading {
+            Layout.alignment: Qt.AlignHCenter
+            level: 3
+            text: i18n("Frequently used:")
+        }
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter
+            spacing: Kirigami.Units.largeSpacing
+
+            Repeater {
+                model: systemsettings.mostUsedModel
+                delegate: IntroIcon {
+                    icon: model.decoration
+                    text: model.display
+                }
+            }
         }
     }
 }

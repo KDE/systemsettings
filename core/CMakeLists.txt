@@ -30,6 +30,7 @@ target_link_libraries( systemsettingsview
     KF5::KIOWidgets
     KF5::Service
     KF5::IconThemes
+    KF5::Activities
  )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
