@@ -158,8 +158,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
     {
         MenuItem *mi;
-        const QModelIndex &mappedIndex = mapToSource(index);
-        const QString desktopName = sourceModel()->data(mappedIndex, ResultModel::ResourceRole).toUrl().path();
+        const QString desktopName = QSortFilterProxyModel::data(index, ResultModel::ResourceRole).toUrl().path();
 
         if (m_menuItems.contains(desktopName)) {
             mi = m_menuItems.value(desktopName);
@@ -183,7 +182,7 @@ public:
             case Qt::DecorationRole:
                 return mi->service()->icon();
             case ResultModel::ScoreRole:
-                return sourceModel()->data(mappedIndex, ResultModel::ScoreRole).toInt();
+                return QSortFilterProxyModel::data(index, ResultModel::ScoreRole).toInt();
             default:
                 return QVariant();
         }
