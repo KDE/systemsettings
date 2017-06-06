@@ -45,5 +45,8 @@ MouseArea {
             id: label
         }
     }
+    Accessible.role: Accessible.Button
+    Accessible.name: label.text
+    Accessible.onPressAction: systemsettings.loadMostUsed(index);
 }
 

@@ -44,7 +44,7 @@ Rectangle {
     Kirigami.Separator {
         id: separator
         anchors.centerIn: parent
-        width: parent.width * 0.8
+        width: Math.round(parent.width * 0.8)
     }
     ColumnLayout {
         anchors {
@@ -52,7 +52,7 @@ Rectangle {
             topMargin: Kirigami.Units.largeSpacing
             horizontalCenter: parent.horizontalCenter
         }
-        width: parent.width * 0.8
+        width: Math.round(parent.width * 0.8)
         Kirigami.Heading {
             Layout.alignment: Qt.AlignHCenter
             level: 3
