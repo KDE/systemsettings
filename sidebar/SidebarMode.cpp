@@ -221,6 +221,7 @@ public:
     KAboutData * aboutIcon;
     ModuleView * moduleView;
     KActionCollection *collection;
+    QPersistentModelIndex activeCategoryIndex;
     int activeCategory;
     int activeSubCategory;
 };
@@ -295,7 +296,13 @@ void SidebarMode::initEvent()
     d->proxyModel->setCategorizedModel( true );
     d->proxyModel->setSourceModel( model );
     d->proxyModel->setFilterHighlightsEntries( false );
-    connect( d->proxyModel, &MenuProxyModel::filterRegExpChanged, this, &SidebarMode::activeCategoryChanged );
+
+    connect( d->proxyModel, &MenuProxyModel::filterRegExpChanged, this, [this] () {
+        if (d->activeCategoryIndex.isValid() && d->activeCategoryIndex.row() >= 0) {
+            d->subCategoryModel->setParentIndex( d->activeCategoryIndex );
+            emit activeCategoryChanged();
+        }
+    });
 
     d->mostUsedModel = new MostUsedModel( this );
 
@@ -375,6 +382,7 @@ void SidebarMode::setActiveCategory(int cat)
     }
 
     const QModelIndex idx = d->proxyModel->index(cat, 0);
+    d->activeCategoryIndex = idx;
     d->activeCategory = d->proxyModel->mapToSource(idx).row();
     changeModule(idx);
     d->activeSubCategory = 0;
@@ -443,6 +451,11 @@ void SidebarMode::initWidget()
             });
 
     d->quickWidget->installEventFilter(this);
+
+    connect(d->quickWidget->quickWindow(), &QQuickWindow::activeFocusItemChanged,
+            this, [this]() {
+                qWarning()<<"AAA"<<d->quickWidget->quickWindow()->activeFocusItem();
+            });
 
     d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);
 

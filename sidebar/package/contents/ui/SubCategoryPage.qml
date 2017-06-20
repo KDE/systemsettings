@@ -77,10 +77,15 @@ Kirigami.ScrollablePage {
                 if (root.pageStack.depth < 2) {
                     root.pageStack.push(subCategoryColumn);
                 }
-                root.pageStack.currentIndex = 1;
-                subCategoryView.forceActiveFocus();
             } else {
                 root.pageStack.pop(mainColumn)
+            }
+        }
+        Connections {
+            target: systemsettings
+            onActiveSubCategoryChanged: {
+                root.pageStack.currentIndex = 1;
+                subCategoryView.forceActiveFocus();
             }
         }
 
