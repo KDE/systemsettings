@@ -25,9 +25,14 @@ import org.kde.kirigami 2.1 as Kirigami
 
 Kirigami.ScrollablePage {
     id: subCategoryColumn
-    header: Item {
+    header: MouseArea {
         width: subCategoryColumn.width
         height: topLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
+        enabled: !applicationWindow().wideScreen
+        cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+        onClicked: root.pageStack.currentIndex = 0;
+        Accessible.role: Accessible.Button
+        Accessible.name: i18n("Back")
         RowLayout {
             id: topLayout
             height: backButton.height
