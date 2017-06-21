@@ -452,11 +452,6 @@ void SidebarMode::initWidget()
 
     d->quickWidget->installEventFilter(this);
 
-    connect(d->quickWidget->quickWindow(), &QQuickWindow::activeFocusItemChanged,
-            this, [this]() {
-                qWarning()<<"AAA"<<d->quickWidget->quickWindow()->activeFocusItem();
-            });
-
     d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);
 
     d->placeHolderWidget = new QQuickWidget(d->mainWidget);
