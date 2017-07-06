@@ -28,7 +28,7 @@ MouseArea {
     property alias text: label.text
     property string module
     property int iconSize: Kirigami.Units.iconSizes.huge
-    Layout.minimumWidth: Kirigami.Units.iconSizes.large
+    Layout.minimumWidth: Kirigami.Units.iconSizes.medium
     Layout.minimumHeight: column.implicitHeight
     cursorShape: Qt.PointingHandCursor
     Layout.fillWidth: true
@@ -42,7 +42,7 @@ MouseArea {
             id: iconItem
             Layout.alignment: Qt.AlignHCenter
             Layout.minimumWidth: root.iconSize
-            Layout.minimumHeight: height
+            Layout.minimumHeight: Layout.minimumWidth
             height: width
         }
         QQC2.Label {

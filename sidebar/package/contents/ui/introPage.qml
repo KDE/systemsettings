@@ -56,6 +56,7 @@ Rectangle {
         Kirigami.Heading {
             Layout.alignment: Qt.AlignHCenter
             level: 3
+            wrapMode: Text.NoWrap
             text: i18n("Frequently used:")
         }
         RowLayout {
@@ -63,14 +64,20 @@ Rectangle {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignHCenter
             spacing: Kirigami.Units.largeSpacing
+            property int spaceForIcon: Math.max((iconsRow.parent.width - iconsRow.spacing * 4) / 5, Kirigami.Units.iconSizes.medium)
+            property int iconSize: iconsRow.spaceForIcon >= Kirigami.Units.iconSizes.huge
+                        ? Kirigami.Units.iconSizes.huge
+                        : (iconsRow.spaceForIcon >= Kirigami.Units.iconSizes.large ? Kirigami.Units.iconSizes.large : Kirigami.Units.iconSizes.medium)
 
             Repeater {
                 model: systemsettings.mostUsedModel
                 delegate: IntroIcon {
                     icon: model.decoration
                     text: model.display
-                    iconSize: (iconsRow.width - iconsRow.spacing * 4) / 5 >= Kirigami.Units.iconSizes.huge ? Kirigami.Units.iconSizes.huge : Kirigami.Units.iconSizes.large
-
+                    iconSize: iconsRow.iconSize
+                    Layout.minimumWidth: iconsRow.spaceForIcon
+                    Layout.maximumWidth: Layout.minimumWidth
+                    visible: (index + 1) * iconSize + index * iconsRow.spacing  < iconsRow.parent.width
                 }
             }
         }
