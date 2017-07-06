@@ -224,6 +224,15 @@ void ClassicMode::initWidget()
     defaultSizes << 250 << 500;
     d->classicWidget->setSizes( config().readEntry( "viewLayout", defaultSizes ) );
     emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
+    d->classicWidget->installEventFilter(this);
+}
+
+bool ClassicMode::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched == d->classicWidget && event->type() == QEvent::Show) {
+        emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
+    }
+    return BaseMode::eventFilter(watched, event);
 }
 
 void ClassicMode::leaveModuleView()

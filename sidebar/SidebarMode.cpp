@@ -375,7 +375,6 @@ void SidebarMode::moduleLoaded()
 {
     d->placeHolderWidget->hide();
     d->moduleView->show();
-    emit changeToolBarItems(BaseMode::NoItems);
 }
 
 int SidebarMode::activeCategory() const
@@ -484,6 +483,8 @@ bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
         QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
     } else if (watched == d->mainWidget && event->type() == QEvent::Resize) {
         emit widthChanged();
+    } else if (watched == d->mainWidget && event->type() == QEvent::Show) {
+        emit changeToolBarItems(BaseMode::NoItems);
     }
     return BaseMode::eventFilter(watched, event);
 }

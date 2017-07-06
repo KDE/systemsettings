@@ -186,6 +186,15 @@ void IconMode::initWidget()
     d->mainWidget->addWidget( d->moduleView );
     d->mainWidget->setCurrentWidget( d->categoryView );
     emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
+    d->mainWidget->installEventFilter(this);
+}
+
+bool IconMode::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched == d->mainWidget && event->type() == QEvent::Show) {
+        emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
+    }
+    return BaseMode::eventFilter(watched, event);
 }
 
 void IconMode::leaveModuleView()

@@ -40,6 +40,7 @@ public:
 
 protected:
     QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;
+    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void expandColumns();
