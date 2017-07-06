@@ -38,7 +38,7 @@ Rectangle {
         }
         Kirigami.Label {
             Layout.alignment: Qt.AlignHCenter
-            text: i18n("System settings")
+            text: i18n("System Settings")
         }
     }
     Kirigami.Separator {
