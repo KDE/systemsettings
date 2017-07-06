@@ -59,6 +59,7 @@ Rectangle {
             text: i18n("Frequently used:")
         }
         RowLayout {
+            id: iconsRow
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignHCenter
             spacing: Kirigami.Units.largeSpacing
@@ -68,6 +69,8 @@ Rectangle {
                 delegate: IntroIcon {
                     icon: model.decoration
                     text: model.display
+                    iconSize: (iconsRow.width - iconsRow.spacing * 4) / 5 >= Kirigami.Units.iconSizes.huge ? Kirigami.Units.iconSizes.huge : Kirigami.Units.iconSizes.large
+
                 }
             }
         }

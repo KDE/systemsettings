@@ -18,31 +18,39 @@
 
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.0 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
 
 
 MouseArea {
+    id: root
     property alias icon: iconItem.source
     property alias text: label.text
     property string module
-    implicitWidth: column.implicitWidth
-    implicitHeight: column.implicitHeight
+    property int iconSize: Kirigami.Units.iconSizes.huge
+    Layout.minimumWidth: Kirigami.Units.iconSizes.large
+    Layout.minimumHeight: column.implicitHeight
     cursorShape: Qt.PointingHandCursor
     Layout.fillWidth: true
+    Layout.alignment: Qt.AlignTop
 
     onClicked: systemsettings.loadMostUsed(index);
     ColumnLayout {
         id: column
-        anchors.centerIn: parent
+        width: parent.width
         Kirigami.Icon {
             id: iconItem
             Layout.alignment: Qt.AlignHCenter
-            width: Kirigami.Units.iconSizes.huge
+            Layout.minimumWidth: root.iconSize
+            Layout.minimumHeight: height
             height: width
         }
-        Kirigami.Label {
-            Layout.alignment: Qt.AlignHCenter
+        QQC2.Label {
             id: label
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
         }
     }
     Accessible.role: Accessible.Button
