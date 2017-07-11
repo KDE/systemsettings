@@ -225,9 +225,12 @@ void SettingsBase::initMenuList(MenuItem * parent)
         const QString category = entry->property("X-KDE-System-Settings-Parent-Category").toString();
         const QString category2 = entry->property("X-KDE-System-Settings-Parent-Category-V2").toString();
         if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
-            // Add the module info to the menu
-            MenuItem * infoItem = new MenuItem(false, parent);
-            infoItem->setService( entry );
+            if (!entry->noDisplay() ) {
+                // Add the module info to the menu
+                MenuItem * infoItem = new MenuItem(false, parent);
+                infoItem->setService( entry );
+            }
+
             removeList.append( modules.at(i) );
         }
     }
