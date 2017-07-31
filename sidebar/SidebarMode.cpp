@@ -321,7 +321,6 @@ void SidebarMode::initEvent()
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
-    connect( d->moduleView, &ModuleView::closeRequest, this, &SidebarMode::leaveModuleView );
     d->quickWidget = 0;
     moduleView()->setFaceType(KPageView::Plain);
 }
@@ -487,11 +486,6 @@ bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
         emit changeToolBarItems(BaseMode::NoItems);
     }
     return BaseMode::eventFilter(watched, event);
-}
-
-void SidebarMode::leaveModuleView()
-{
-    d->moduleView->closeModules(); // We have to force it here
 }
 
 void SidebarMode::giveFocus()
