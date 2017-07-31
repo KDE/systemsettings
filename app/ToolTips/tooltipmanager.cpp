@@ -188,7 +188,7 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
             text += menuItem->service()->comment();
         } else {
             int childCount = d->view->model()->rowCount( *item );
-            text += i18np( "<i>Contains 1 item</i>", "<i>Contains %1 items</i>", childCount );
+            text += i18np( "Contains 1 item", "Contains %1 items", childCount );
         }
     }
     QLabel * textLabel = new QLabel( toolTip );
