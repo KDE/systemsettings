@@ -62,6 +62,14 @@ X-KDE-Keywords[zh_CN]=System Settings,系统设置
 X-KDE-Keywords[zh_TW]=System Settings
 
 Name=Tree View
+Name[ca]=Vista en arbre
+Name[es]=Vista de árbol
+Name[nl]=Boomstructuurweergave
+Name[pt]=Vista em Árvore
+Name[sk]=Stromové zobrazenie
+Name[sv]=Trädvy
+Name[uk]=Ієрархічний перегляд
+Name[x-test]=xxTree Viewxx
 Comment=A Classic KDE 3 KControl style system settings view.
 Comment[ar]=عرض إعدادات النّظام لنمط KControl في كدي 3 التّقليديّ.
 Comment[bg]=Класически изглед (като KDE 3).
