@@ -225,7 +225,8 @@ public:
     QQuickWidget * placeHolderWidget;
     QHBoxLayout * mainLayout;
     KDeclarative::KDeclarative kdeclarative;
-    MenuProxyModel * proxyModel;
+    MenuProxyModel * categorizedModel;
+    MenuProxyModel * searchModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
     KActionCollection *collection;
@@ -273,7 +274,7 @@ QWidget * SidebarMode::mainWidget()
 
 QAbstractItemModel * SidebarMode::categoryModel() const
 {
-    return d->proxyModel;
+    return d->searchModel;
 }
 
 QAbstractItemModel * SidebarMode::subCategoryModel() const
@@ -300,12 +301,16 @@ void SidebarMode::initEvent()
         model->addException( child );
     }
 
-    d->proxyModel = new MenuProxyModel( this );
-    d->proxyModel->setCategorizedModel( true );
-    d->proxyModel->setSourceModel( model );
-    d->proxyModel->setFilterHighlightsEntries( false );
+    d->categorizedModel = new MenuProxyModel( this );
+    d->categorizedModel->setCategorizedModel( true );
+    d->categorizedModel->setSourceModel( model );
+    d->categorizedModel->sort( 0 );
+    d->categorizedModel->setFilterHighlightsEntries( false );
 
-    connect( d->proxyModel, &MenuProxyModel::filterRegExpChanged, this, [this] () {
+    d->searchModel = new MenuProxyModel( this );
+    d->searchModel->setFilterHighlightsEntries( false );
+    d->searchModel->setSourceModel( d->categorizedModel );
+    connect( d->searchModel, &MenuProxyModel::filterRegExpChanged, this, [this] () {
         if (d->activeCategoryIndex.isValid() && d->activeCategoryIndex.row() >= 0) {
             d->subCategoryModel->setParentIndex( d->activeCategoryIndex );
             emit activeCategoryChanged();
@@ -314,7 +319,7 @@ void SidebarMode::initEvent()
 
     d->mostUsedModel = new MostUsedModel( this );
 
-    d->subCategoryModel = new SubcategoryModel( d->proxyModel, this );
+    d->subCategoryModel = new SubcategoryModel( d->searchModel, this );
     d->mainWidget = new QWidget();
     d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
@@ -340,7 +345,7 @@ void SidebarMode::triggerGlobalAction(const QString &name)
 void SidebarMode::requestToolTip(int index, const QRectF &rect)
 {
     if (showToolTips()) {
-        d->toolTipManager->requestToolTip(d->proxyModel->index(index, 0), rect.toRect());
+        d->toolTipManager->requestToolTip(d->searchModel->index(index, 0), rect.toRect());
     }
 }
 
@@ -360,11 +365,11 @@ void SidebarMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
 
-    const int subRows = d->proxyModel->rowCount(activeModule);
+    const int subRows = d->searchModel->rowCount(activeModule);
     if ( subRows < 2) {
         d->moduleView->loadModule( activeModule );
     } else {
-        d->moduleView->loadModule( d->proxyModel->index(0, 0, activeModule) );
+        d->moduleView->loadModule( d->searchModel->index(0, 0, activeModule) );
     }
 
     d->subCategoryModel->setParentIndex( activeModule );
@@ -378,7 +383,7 @@ void SidebarMode::moduleLoaded()
 
 int SidebarMode::activeCategory() const
 {
-    return d->proxyModel->mapFromSource(d->proxyModel->sourceModel()->index(d->activeCategory, 0)).row();
+    return d->searchModel->mapFromSource(d->searchModel->sourceModel()->index(d->activeCategory, 0)).row();
 }
 
 void SidebarMode::setActiveCategory(int cat)
@@ -387,9 +392,9 @@ void SidebarMode::setActiveCategory(int cat)
         return;
     }
 
-    const QModelIndex idx = d->proxyModel->index(cat, 0);
+    const QModelIndex idx = d->searchModel->index(cat, 0);
     d->activeCategoryIndex = idx;
-    d->activeCategory = d->proxyModel->mapToSource(idx).row();
+    d->activeCategory = d->searchModel->mapToSource(idx).row();
     changeModule(idx);
     d->activeSubCategory = 0;
     emit activeCategoryChanged();
@@ -458,7 +463,7 @@ void SidebarMode::initWidget()
 
     d->quickWidget->installEventFilter(this);
 
-    d->toolTipManager = new ToolTipManager(d->proxyModel, d->quickWidget);
+    d->toolTipManager = new ToolTipManager(d->searchModel, d->quickWidget);
 
     d->placeHolderWidget = new QQuickWidget(d->mainWidget);
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
