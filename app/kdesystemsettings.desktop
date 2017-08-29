@@ -115,5 +115,6 @@ Name[x-test]=xxKDE System Settingsxx
 Name[zh_CN]=KDE 系统设置
 Name[zh_TW]=KDE 系統設定
 
+Comment=Configuration tools for your computer
 X-DBUS-StartupType=Unique
 Categories=Qt;KDE;Settings;
