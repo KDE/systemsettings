@@ -173,5 +173,11 @@ Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
+Comment[ca]=Eines de configuració per a l'ordinador
+Comment[ca@valencia]=Eines de configuració per a l'ordinador
+Comment[nl]=Hulpmiddelen voor configuratie voor uw computer
+Comment[pt]=Ferramentas de configuração para o seu computador
+Comment[uk]=Інструменти для налаштовування вашого комп'ютера
+Comment[x-test]=xxConfiguration tools for your computerxx
 X-DBUS-StartupType=Unique
 Categories=Qt;KDE;Settings;
