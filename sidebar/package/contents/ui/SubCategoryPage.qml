@@ -27,35 +27,62 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     header: MouseArea {
         width: subCategoryColumn.width
-        height: topLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
+        height: toolButtonIcon.height + Kirigami.Units.smallSpacing * 4
         enabled: !applicationWindow().wideScreen
-        cursorShape: enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
         onClicked: root.pageStack.currentIndex = 0;
         Accessible.role: Accessible.Button
         Accessible.name: i18n("Back")
-        RowLayout {
-            id: topLayout
-            height: backButton.height
-            spacing: Kirigami.Units.smallSpacing
-            anchors {
-                fill: parent
-                margins: Kirigami.Units.smallSpacing
-                leftMargin: backButton.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.smallSpacing * 2
-            }
+
+        Item {
+            id: headerControls
+
+            anchors.fill: parent
+            anchors.margins: Kirigami.Units.smallSpacing
+
             QtControls.ToolButton {
                 id: backButton
-                Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
-                Layout.maximumHeight: width
+                anchors.fill: parent
                 visible: !applicationWindow().wideScreen
-                iconName: "go-previous"
                 onClicked: root.pageStack.currentIndex = 0;
+
+                Item {
+                    anchors.fill: parent
+                    opacity: 0.3
+
+                    Kirigami.Icon {
+                        id: toolButtonIcon
+                        anchors {
+                            left: parent.left
+                            verticalCenter: parent.verticalCenter
+                        }
+                        height: Kirigami.Units.iconSizes.small
+                        width: height
+                        source: "go-previous"
+                    }
+
+                    Kirigami.Label {
+                        anchors {
+                            left: toolButtonIcon.right
+                            right: parent.right
+                            leftMargin: Kirigami.Units.smallSpacing
+                            verticalCenter: parent.verticalCenter
+                        }
+                        height: toolButtonIcon.height
+                        text: subCategoryColumn.title
+                        elide: Text.ElideRight
+                        //FIXME: kirigami bug, why?
+                        Component.onCompleted: font.bold = true
+                    }
+                }
             }
             Kirigami.Label {
-                Layout.fillWidth: true
-                Layout.minimumHeight: Layout.maximumHeight
-                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                anchors {
+                    fill: parent
+                    leftMargin: Kirigami.Units.smallSpacing
+                }
                 text: subCategoryColumn.title
                 elide: Text.ElideRight
+                visible: !backButton.visible
                 opacity: 0.3
                 //FIXME: kirigami bug, why?
                 Component.onCompleted: font.bold = true
