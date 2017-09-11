@@ -132,5 +132,6 @@ Comment[sr@latin]=Alatke za podešavanje računara
 Comment[sv]=Inställningsverktyg för datorn
 Comment[uk]=Інструменти для налаштовування вашого комп'ютера
 Comment[x-test]=xxConfiguration tools for your computerxx
+Comment[zh_CN]=计算机配置工具
 X-DBUS-StartupType=Unique
 Categories=Qt;KDE;Settings;
