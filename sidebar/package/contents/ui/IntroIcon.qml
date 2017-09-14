@@ -48,9 +48,10 @@ MouseArea {
         QQC2.Label {
             id: label
             Layout.fillWidth: true
+            Layout.maximumWidth: root.width
             Layout.alignment: Qt.AlignHCenter
             horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
+            wrapMode: Text.Wrap
         }
     }
     Accessible.role: Accessible.Button
