@@ -25,8 +25,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 Kirigami.ScrollablePage {
     id: mainColumn
-    Component.onCompleted: //searchField.forceActiveFocus()
-    searchField.focus=true;
+    Component.onCompleted: searchField.forceActiveFocus()
 
     header: Item {
         width: mainColumn.width
