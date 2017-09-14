@@ -21,12 +21,25 @@
 #define SIDEBARMODE_H
 
 #include "BaseMode.h"
+#include <QWidget>
 
 class ModuleView;
 class KAboutData;
 class QModelIndex;
 class QAbstractItemView;
 class QAbstractItemModel;
+
+class FocusHackWidget : public QWidget {
+    Q_OBJECT
+public:
+    FocusHackWidget(QWidget *parent = nullptr);
+    ~FocusHackWidget();
+
+public Q_SLOTS:
+    void focusNext();
+    void focusPrevious();
+};
+    
 
 class SidebarMode : public BaseMode
 {

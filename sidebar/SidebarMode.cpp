@@ -63,6 +63,22 @@ using namespace KAStats::Terms;
 
 K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
 
+FocusHackWidget::FocusHackWidget(QWidget *parent)
+    : QWidget(parent)
+{}
+FocusHackWidget::~FocusHackWidget()
+{}
+
+void FocusHackWidget::focusNext()
+{
+    focusNextChild();
+}
+
+void FocusHackWidget::focusPrevious()
+{
+    focusNextPrevChild(false);
+}
+
 class SubcategoryModel : public QStandardItemModel
 {
 public:
@@ -221,7 +237,7 @@ public:
     KPackage::Package package;
     SubcategoryModel * subCategoryModel;
     MostUsedModel * mostUsedModel;
-    QWidget * mainWidget;
+    FocusHackWidget * mainWidget;
     QQuickWidget * placeHolderWidget;
     QHBoxLayout * mainLayout;
     KDeclarative::KDeclarative kdeclarative;
@@ -320,7 +336,7 @@ void SidebarMode::initEvent()
     d->mostUsedModel = new MostUsedModel( this );
 
     d->subCategoryModel = new SubcategoryModel( d->searchModel, this );
-    d->mainWidget = new QWidget();
+    d->mainWidget = new FocusHackWidget();
     d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -435,7 +451,9 @@ void SidebarMode::initWidget()
     }
 
     d->quickWidget = new QQuickWidget(d->mainWidget);
+    d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
     d->quickWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
     d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
     d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
@@ -460,12 +478,15 @@ void SidebarMode::initWidget()
                     d->quickWidget->setFixedWidth(240);
                 }
             });
+    connect(d->quickWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
+    connect(d->quickWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
 
     d->quickWidget->installEventFilter(this);
 
     d->toolTipManager = new ToolTipManager(d->searchModel, d->quickWidget);
 
     d->placeHolderWidget = new QQuickWidget(d->mainWidget);
+    d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
@@ -482,8 +503,15 @@ void SidebarMode::initWidget()
 
 bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
 {
-    //TODO: patch Qt
-    if (watched == d->quickWidget && event->type() == QEvent::Leave) {
+    //FIXME: those are all workarounds around the QQuickWidget brokeness
+    if (watched == d->quickWidget && event->type() == QEvent::KeyPress) {
+        //allow tab navigation inside the qquickwidget
+        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+        if (ke->key() == Qt::Key_Tab) {
+            QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
+            return true;
+        }
+    } else if (watched == d->quickWidget && event->type() == QEvent::Leave) {
         QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
     } else if (watched == d->mainWidget && event->type() == QEvent::Resize) {
         emit widthChanged();

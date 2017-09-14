@@ -27,6 +27,8 @@ Kirigami.ApplicationItem {
     pageStack.initialPage: mainColumn
     pageStack.defaultColumnWidth: wideScreen ? root.width / 2 : root.width
 
+    signal focusNextRequest()
+    signal focusPreviousRequest()
     wideScreen: pageStack.depth > 1 && systemsettings.width > Kirigami.Units.gridUnit * 70
     CategoriesPage {
         id: mainColumn
