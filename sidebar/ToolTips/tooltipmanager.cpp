@@ -128,7 +128,11 @@ void ToolTipManager::showToolTip( QModelIndex menuItem )
 
     QWidget * tip = createTipContent( menuItem );
 
-    d->tooltip->showBelow(d->itemRect, tip, d->view->nativeParentWidget()->windowHandle());
+    if (qApp->isRightToLeft()) {
+        d->tooltip->showAt(d->itemRect.topLeft() - QPoint(d->tooltip->width(), 0), tip, d->view->nativeParentWidget()->windowHandle());
+    } else {
+        d->tooltip->showAt(d->itemRect.topRight(), tip, d->view->nativeParentWidget()->windowHandle());
+    }
 
     connect(d->tooltip, &KToolTipWidget::hidden, tip, &QObject::deleteLater);
 
