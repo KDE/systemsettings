@@ -173,6 +173,8 @@ Kirigami.ScrollablePage {
             onHoveredChanged: {
                 if (hovered) {
                     systemsettings.requestToolTip(index, delegate.mapToItem(root, 0, 0, width, height));
+                } else {
+                    systemsettings.hideToolTip();
                 }
             }
             onFocusChanged: {
