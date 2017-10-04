@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
 
     header: Item {
         width: mainColumn.width
-        height: searchLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
+        height: Kirigami.Units.gridUnit * 2.5
         RowLayout {
             id: searchLayout
             height: menuButton.height
