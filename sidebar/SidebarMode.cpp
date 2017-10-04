@@ -443,7 +443,7 @@ void SidebarMode::initWidget()
     d->kdeclarative.setDeclarativeEngine(d->quickWidget->engine());
     d->kdeclarative.setupBindings();
 
-    d->quickWidget->setSource(d->package.filePath("mainscript"));
+    d->quickWidget->setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 
     const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
     if (rootImplicitWidth != 0) {
@@ -469,7 +469,7 @@ void SidebarMode::initWidget()
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
-    d->placeHolderWidget->setSource(d->package.filePath("ui", "introPage.qml"));
+    d->placeHolderWidget->setSource(QUrl::fromLocalFile(d->package.filePath("ui", "introPage.qml")));
 
     d->mainLayout->addWidget( d->quickWidget );
     d->moduleView->hide();
