@@ -32,7 +32,6 @@ Kirigami.ScrollablePage {
         height: searchLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
         RowLayout {
             id: searchLayout
-            height: menuButton.height
             spacing: Kirigami.Units.smallSpacing
             anchors {
                 fill: parent
