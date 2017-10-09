@@ -491,6 +491,9 @@ void SidebarMode::initWidget()
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
     d->placeHolderWidget->setSource(QUrl::fromLocalFile(d->package.filePath("ui", "introPage.qml")));
+    connect(d->placeHolderWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
+    connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
+    d->placeHolderWidget->installEventFilter(this);
 
     d->mainLayout->addWidget( d->quickWidget );
     d->moduleView->hide();
@@ -504,12 +507,25 @@ void SidebarMode::initWidget()
 bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
 {
     //FIXME: those are all workarounds around the QQuickWidget brokeness
-    if (watched == d->quickWidget && event->type() == QEvent::KeyPress) {
+    if ((watched == d->quickWidget || watched == d->placeHolderWidget)
+         && event->type() == QEvent::KeyPress) {
         //allow tab navigation inside the qquickwidget
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);
-        if (ke->key() == Qt::Key_Tab) {
-            QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
+        QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
+        if (ke->key() == Qt::Key_Tab || ke->key() == Qt::Key_Backtab) {
+            QCoreApplication::sendEvent(qqw->quickWindow(), event);
             return true;
+        }
+    } else if ((watched == d->quickWidget || watched == d->placeHolderWidget)
+                && event->type() == QEvent::FocusIn) {
+        QFocusEvent *fe = static_cast<QFocusEvent *>(event);
+        QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
+        if (qqw && qqw->rootObject()) {
+            if (fe->reason() == Qt::TabFocusReason) {
+                qqw->rootObject()->metaObject()->invokeMethod(qqw->rootObject(), "focusFirstChild");
+            } else if (fe->reason() == Qt::BacktabFocusReason) {
+                qqw->rootObject()->metaObject()->invokeMethod(qqw->rootObject(), "focusLastChild");
+            }
         }
     } else if (watched == d->quickWidget && event->type() == QEvent::Leave) {
         QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);

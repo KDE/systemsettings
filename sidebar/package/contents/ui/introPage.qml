@@ -23,6 +23,18 @@ import org.kde.kirigami 2.1 as Kirigami
 Rectangle {
     id: root
     color: Kirigami.Theme.backgroundColor
+
+    signal focusNextRequest()
+    signal focusPreviousRequest()
+
+    function focusFirstChild() {
+        iconsRow.children[0].focus = true;
+    }
+
+    function focusLastChild() {
+        iconsRow.children[iconsRow.children.length-1].focus = true;
+    }
+
     ColumnLayout {
         anchors {
             bottom: separator.top

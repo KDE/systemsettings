@@ -101,6 +101,10 @@ Kirigami.ScrollablePage {
         activeFocusOnTab: true
         keyNavigationWraps: true
         Accessible.role: Accessible.List
+        Keys.onTabPressed: root.focusNextRequest();
+        Keys.onBacktabPressed: {
+            mainColumn.focus = true;
+        }
         onCountChanged: {
             if (count > 1) {
                 if (root.pageStack.depth < 2) {

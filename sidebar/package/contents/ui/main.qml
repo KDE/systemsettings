@@ -29,6 +29,15 @@ Kirigami.ApplicationItem {
 
     signal focusNextRequest()
     signal focusPreviousRequest()
+
+    function focusFirstChild() {
+        mainColumn.focus = true;
+    }
+
+    function focusLastChild() {
+        subCategoryColumn.focus = true;
+    }
+
     wideScreen: pageStack.depth > 1 && systemsettings.width > Kirigami.Units.gridUnit * 70
     CategoriesPage {
         id: mainColumn
