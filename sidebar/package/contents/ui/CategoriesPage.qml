@@ -43,7 +43,6 @@ Kirigami.ScrollablePage {
                 Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.maximumHeight: width
                 Keys.onBacktabPressed: {
-                    print("GGGG")
                     root.focusPreviousRequest()
                 }
                 menu: QtControls.Menu {
@@ -140,12 +139,10 @@ Kirigami.ScrollablePage {
         Accessible.role: Accessible.List
         Keys.onTabPressed: {
             if (applicationWindow().wideScreen) {
-                root.subCategoryColumn.focus = true;
+                subCategoryColumn.focus = true;
             } else {
                 root.focusNextRequest();
             }
-            
-            print("tab")
         }
         section {
             property: "categoryDisplayRole"
@@ -175,7 +172,6 @@ Kirigami.ScrollablePage {
             icon: model.decoration
             label: model.display
             separatorVisible: false
-            //activeFocusOnTab: true//root.pageStack.currentIndex == 0
             highlighted: focus
             Accessible.role: Accessible.ListItem
             Accessible.name: model.display

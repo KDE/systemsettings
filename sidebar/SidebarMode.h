@@ -39,7 +39,6 @@ public Q_SLOTS:
     void focusNext();
     void focusPrevious();
 };
-    
 
 class SidebarMode : public BaseMode
 {
