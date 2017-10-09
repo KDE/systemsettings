@@ -29,10 +29,9 @@ Kirigami.ScrollablePage {
 
     header: Item {
         width: mainColumn.width
-        height: searchLayout.implicitHeight + Kirigami.Units.smallSpacing * 2
+        height: Kirigami.Units.gridUnit * 2.5
         RowLayout {
             id: searchLayout
-            height: menuButton.height
             spacing: Kirigami.Units.smallSpacing
             anchors {
                 fill: parent
@@ -105,6 +104,7 @@ Kirigami.ScrollablePage {
             }
         }
         Kirigami.Separator {
+            visible: !categoryView.atYBeginning
             anchors {
                 left: parent.left
                 right: parent.right
@@ -190,6 +190,8 @@ Kirigami.ScrollablePage {
             onHoveredChanged: {
                 if (hovered) {
                     systemsettings.requestToolTip(index, delegate.mapToItem(root, 0, 0, width, height));
+                } else {
+                    systemsettings.hideToolTip();
                 }
             }
             onFocusChanged: {

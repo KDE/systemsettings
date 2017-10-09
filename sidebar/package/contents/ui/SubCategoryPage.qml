@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     header: MouseArea {
         width: subCategoryColumn.width
-        height: toolButtonIcon.height + Kirigami.Units.smallSpacing * 4
+        height: Kirigami.Units.gridUnit * 2.5
         enabled: !applicationWindow().wideScreen
         onClicked: root.pageStack.currentIndex = 0;
         Accessible.role: Accessible.Button
@@ -37,7 +37,6 @@ Kirigami.ScrollablePage {
             id: headerControls
 
             anchors.fill: parent
-            anchors.margins: Kirigami.Units.smallSpacing
 
             QtControls.ToolButton {
                 id: backButton
@@ -45,50 +44,45 @@ Kirigami.ScrollablePage {
                 visible: !applicationWindow().wideScreen
                 onClicked: root.pageStack.currentIndex = 0;
 
-                Item {
+                RowLayout {
                     anchors.fill: parent
                     opacity: 0.3
 
                     Kirigami.Icon {
                         id: toolButtonIcon
-                        anchors {
-                            left: parent.left
-                            verticalCenter: parent.verticalCenter
-                        }
-                        height: Kirigami.Units.iconSizes.small
-                        width: height
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.preferredHeight: Kirigami.Units.iconSizes.small
+                        Layout.preferredWidth: Layout.preferredHeight
+
                         source: "go-previous"
                     }
 
-                    Kirigami.Label {
-                        anchors {
-                            left: toolButtonIcon.right
-                            right: parent.right
-                            leftMargin: Kirigami.Units.smallSpacing
-                            verticalCenter: parent.verticalCenter
-                        }
+                    QtControls2.Label {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+
                         height: toolButtonIcon.height
                         text: subCategoryColumn.title
+                        verticalAlignment: Text.AlignVCenter
                         elide: Text.ElideRight
-                        //FIXME: kirigami bug, why?
+                        //FIXME: QtControls bug, why?
                         Component.onCompleted: font.bold = true
                     }
                 }
             }
-            Kirigami.Label {
-                anchors {
-                    fill: parent
-                    leftMargin: Kirigami.Units.smallSpacing
-                }
+            QtControls2.Label {
+                anchors.verticalCenter: parent.verticalCenter
+                x: y
                 text: subCategoryColumn.title
                 elide: Text.ElideRight
                 visible: !backButton.visible
                 opacity: 0.3
-                //FIXME: kirigami bug, why?
+                //FIXME: QtControls bug, why?
                 Component.onCompleted: font.bold = true
             }
         }
         Kirigami.Separator {
+            visible: !subCategoryView.atYBeginning
             anchors {
                 left: parent.left
                 right: parent.right

@@ -1,11 +1,9 @@
 project(systemsettings)
-set(PROJECT_VERSION "5.10.90")
+set(PROJECT_VERSION "5.11.90")
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.7.0")
 set(KF5_MIN_VERSION "5.30")
-
-remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
 find_package(ECM 1.2.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -14,6 +12,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(GenerateExportHeader)
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS

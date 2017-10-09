@@ -23,7 +23,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 Kirigami.ApplicationItem {
     id: root
-    implicitWidth: wideScreen ? Kirigami.Units.gridUnit * 24 :  Kirigami.Units.gridUnit * 12
+    implicitWidth: wideScreen ? Kirigami.Units.gridUnit * 30 :  Kirigami.Units.gridUnit * 15
     pageStack.initialPage: mainColumn
     pageStack.defaultColumnWidth: wideScreen ? root.width / 2 : root.width
 
