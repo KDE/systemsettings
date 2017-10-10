@@ -141,7 +141,7 @@ Kirigami.ScrollablePage {
                         right: parent.right
                         leftMargin: Kirigami.Units.smallSpacing
                     }
-                    Kirigami.Label {
+                    QtControls2.Label {
                         id: sectionLabel
                         text: section
                         Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)

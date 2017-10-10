@@ -60,7 +60,7 @@ Kirigami.ScrollablePage {
                         source: "go-previous"
                     }
 
-                    Kirigami.Label {
+                    QtControls2.Label {
                         anchors {
                             left: toolButtonIcon.right
                             right: parent.right
@@ -75,7 +75,7 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
-            Kirigami.Label {
+            QtControls2.Label {
                 anchors {
                     fill: parent
                     leftMargin: Kirigami.Units.smallSpacing
