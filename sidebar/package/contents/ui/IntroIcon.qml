@@ -23,7 +23,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 
 MouseArea {
-    id: root
+    id: item
     property alias icon: iconItem.source
     property alias text: label.text
     property string module
@@ -33,29 +33,56 @@ MouseArea {
     cursorShape: Qt.PointingHandCursor
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignTop
+    activeFocusOnTab: true
 
     onClicked: systemsettings.loadMostUsed(index);
+
+    Keys.onTabPressed: {
+        if (index < (mostUsedRepeater.count-1)) {
+            event.accepted = false;
+        } else {
+            root.focusNextRequest();
+        }
+    }
+    Keys.onBacktabPressed: {
+        if (index > 0) {
+            event.accepted = false;
+        } else {
+            root.focusPreviousRequest();
+        }
+    }
+    Kirigami.Separator {
+        anchors{
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+        visible: item.activeFocus
+        color: Kirigami.Theme.highlightColor
+    }
     ColumnLayout {
         id: column
         width: parent.width
         Kirigami.Icon {
             id: iconItem
             Layout.alignment: Qt.AlignHCenter
-            Layout.minimumWidth: root.iconSize
+            Layout.minimumWidth: item.iconSize
             Layout.minimumHeight: Layout.minimumWidth
             height: width
         }
         QQC2.Label {
             id: label
             Layout.fillWidth: true
-            Layout.maximumWidth: root.width
+            Layout.maximumWidth: item.width
             Layout.alignment: Qt.AlignHCenter
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
         }
     }
+
     Accessible.role: Accessible.Button
     Accessible.name: label.text
+    Accessible.description: i18n("Most used modeule number %1", index+1)
     Accessible.onPressAction: systemsettings.loadMostUsed(index);
 }
 

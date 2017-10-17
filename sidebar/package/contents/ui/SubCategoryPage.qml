@@ -98,6 +98,13 @@ Kirigami.ScrollablePage {
         anchors.fill: parent
         model: systemsettings.subCategoryModel
         currentIndex: systemsettings.activeSubCategory
+        activeFocusOnTab: true
+        keyNavigationWraps: true
+        Accessible.role: Accessible.List
+        Keys.onTabPressed: root.focusNextRequest();
+        Keys.onBacktabPressed: {
+            mainColumn.focus = true;
+        }
         onCountChanged: {
             if (count > 1) {
                 if (root.pageStack.depth < 2) {
@@ -120,7 +127,6 @@ Kirigami.ScrollablePage {
             icon: model.decoration
             label: model.display
             separatorVisible: false
-            activeFocusOnTab: root.pageStack.currentIndex == 1
             highlighted: focus
             onClicked: systemsettings.activeSubCategory = index
             onFocusChanged: {
@@ -132,23 +138,6 @@ Kirigami.ScrollablePage {
             //checkable: false
             //FIXME: Qt 5.7 doesn't have checkable, this way fails at runtime but still works correctly on 5.7
             Component.onCompleted: delegate.checkable = true;
-            Keys.onPressed: {
-                switch (event.key) {
-                case Qt.Key_Up:
-                    delegate.nextItemInFocusChain(false).forceActiveFocus();
-                    break;
-                case Qt.Key_Down:
-                    delegate.nextItemInFocusChain(true).forceActiveFocus();
-                    break;
-                case Qt.Key_left:
-                case Qt.Key_Backspace:
-                    root.pageStack.currentIndex = 0;
-                    mainColumn.forceActiveFocus();
-                    break;
-                default:
-                    break;
-                }
-            }
         }
     }
 }

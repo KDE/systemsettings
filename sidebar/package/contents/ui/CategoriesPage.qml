@@ -42,6 +42,9 @@ Kirigami.ScrollablePage {
                 iconName: "application-menu"
                 Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.maximumHeight: width
+                Keys.onBacktabPressed: {
+                    root.focusPreviousRequest()
+                }
                 menu: QtControls.Menu {
                     id: globalMenu
                     QtControls.MenuItem {
@@ -131,6 +134,16 @@ Kirigami.ScrollablePage {
         model: systemsettings.categoryModel
         currentIndex: systemsettings.activeCategory
         onContentYChanged: systemsettings.hideToolTip();
+        activeFocusOnTab: true
+        keyNavigationWraps: true
+        Accessible.role: Accessible.List
+        Keys.onTabPressed: {
+            if (applicationWindow().wideScreen) {
+                subCategoryColumn.focus = true;
+            } else {
+                root.focusNextRequest();
+            }
+        }
         section {
             property: "categoryDisplayRole"
             delegate: Kirigami.AbstractListItem {
@@ -159,8 +172,9 @@ Kirigami.ScrollablePage {
             icon: model.decoration
             label: model.display
             separatorVisible: false
-            activeFocusOnTab: root.pageStack.currentIndex == 0
             highlighted: focus
+            Accessible.role: Accessible.ListItem
+            Accessible.name: model.display
             onClicked: {
                 if (systemsettings.activeCategory == index) {
                     root.pageStack.currentIndex = 1;
@@ -182,18 +196,6 @@ Kirigami.ScrollablePage {
                 }
             }
             checked: systemsettings.activeCategory == index
-            Keys.onPressed: {
-                switch (event.key) {
-                case Qt.Key_Up:
-                    delegate.nextItemInFocusChain(false).forceActiveFocus();
-                    break;
-                case Qt.Key_Down:
-                    delegate.nextItemInFocusChain(true).forceActiveFocus();
-                    break;
-                default:
-                    break;
-                }
-            }
         }
     }
 }
