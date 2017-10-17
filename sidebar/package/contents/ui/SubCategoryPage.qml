@@ -54,7 +54,7 @@ Kirigami.ScrollablePage {
                         Layout.preferredHeight: Kirigami.Units.iconSizes.small
                         Layout.preferredWidth: Layout.preferredHeight
 
-                        source: "go-previous"
+                        source: LayoutMirroring.enabled ? "go-next" : "go-previous"
                     }
 
                     QtControls2.Label {

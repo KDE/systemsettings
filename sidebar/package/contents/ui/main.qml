@@ -26,6 +26,9 @@ Kirigami.ApplicationItem {
     implicitWidth: wideScreen ? Kirigami.Units.gridUnit * 30 :  Kirigami.Units.gridUnit * 15
     pageStack.initialPage: mainColumn
     pageStack.defaultColumnWidth: wideScreen ? root.width / 2 : root.width
+    
+    LayoutMirroring.enabled: true
+    LayoutMirroring.childrenInherit: true
 
     signal focusNextRequest()
     signal focusPreviousRequest()
