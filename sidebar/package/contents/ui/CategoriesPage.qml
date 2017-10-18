@@ -27,7 +27,8 @@ Kirigami.ScrollablePage {
     id: mainColumn
     Component.onCompleted: searchField.forceActiveFocus()
 
-    header: Item {
+    header: Rectangle {
+        color: Kirigami.Theme.backgroundColor
         width: mainColumn.width
         height: Kirigami.Units.gridUnit * 2.5
         RowLayout {
