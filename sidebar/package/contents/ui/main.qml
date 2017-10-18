@@ -27,7 +27,7 @@ Kirigami.ApplicationItem {
     pageStack.initialPage: mainColumn
     pageStack.defaultColumnWidth: wideScreen ? root.width / 2 : root.width
     
-    LayoutMirroring.enabled: true
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     signal focusNextRequest()
