@@ -82,7 +82,7 @@ MouseArea {
 
     Accessible.role: Accessible.Button
     Accessible.name: label.text
-    Accessible.description: i18n("Most used modeule number %1", index+1)
+    Accessible.description: i18n("Most used module number %1", index+1)
     Accessible.onPressAction: systemsettings.loadMostUsed(index);
 }
 
