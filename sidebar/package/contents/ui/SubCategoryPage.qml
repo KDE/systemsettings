@@ -73,6 +73,7 @@ Kirigami.ScrollablePage {
             QtControls2.Label {
                 anchors.verticalCenter: parent.verticalCenter
                 x: y
+
                 text: subCategoryColumn.title
                 elide: Text.ElideRight
                 visible: !backButton.visible

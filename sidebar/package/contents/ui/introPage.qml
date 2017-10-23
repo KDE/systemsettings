@@ -18,6 +18,7 @@
 
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.0 as Controls
 import org.kde.kirigami 2.1 as Kirigami
 
 Rectangle {
@@ -48,7 +49,7 @@ Rectangle {
             height: width
             opacity: 0.3
         }
-        Kirigami.Label {
+        Controls.Label {
             Layout.alignment: Qt.AlignHCenter
             text: i18n("System Settings")
         }
