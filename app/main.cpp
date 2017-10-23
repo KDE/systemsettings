@@ -29,6 +29,9 @@
 
 int main( int argc, char *argv[] )
 {
+    //exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
+    //which is before KAboutData::setApplicationData
+    QCoreApplication::setApplicationName("systemsettings");
     SystemSettingsApp application(argc, argv);
 
     KLocalizedString::setApplicationDomain("systemsettings");
