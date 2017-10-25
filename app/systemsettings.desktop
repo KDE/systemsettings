@@ -196,4 +196,5 @@ Comment[uk]=Інструменти для налаштовування вашо�
 Comment[x-test]=xxConfiguration tools for your computerxx
 Comment[zh_CN]=计算机配置工具
 X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.systemsettings
 Categories=Qt;KDE;Settings;
