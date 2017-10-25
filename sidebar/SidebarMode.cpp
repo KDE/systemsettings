@@ -263,6 +263,8 @@ SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
     d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), "bcooksley@kde.org" );
     d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), "msoeken@informatik.uni-bremen.de" );
     d->aboutIcon->setProgramIconName( "view-sidetree" );
+
+    qmlRegisterType<QAction>();
 }
 
 SidebarMode::~SidebarMode()
@@ -346,16 +348,22 @@ void SidebarMode::initEvent()
     moduleView()->setFaceType(KPageView::Plain);
 }
 
-void SidebarMode::triggerGlobalAction(const QString &name)
+QAction *SidebarMode::action(const QString &name) const
 {
     if (!d->collection) {
-        return;
+        return nullptr;
     }
 
-    QAction *action = d->collection->action(name);
-    if (action) {
-        action->trigger();
+    return d->collection->action(name);
+}
+
+QString SidebarMode::actionIconName(const QString &name) const
+{
+    if (QAction *a = action(name)) {
+        return a->icon().name();
     }
+
+    return QString();
 }
 
 void SidebarMode::requestToolTip(int index, const QRectF &rect)

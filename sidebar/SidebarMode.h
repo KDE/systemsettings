@@ -28,6 +28,7 @@ class KAboutData;
 class QModelIndex;
 class QAbstractItemView;
 class QAbstractItemModel;
+class QAction;
 
 class FocusHackWidget : public QWidget {
     Q_OBJECT
@@ -71,7 +72,9 @@ public:
 
     int width() const;
 
-    Q_INVOKABLE void triggerGlobalAction(const QString &name);
+    Q_INVOKABLE QAction *action(const QString &name) const;
+    // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
+    Q_INVOKABLE QString actionIconName(const QString &name) const;
     Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
     Q_INVOKABLE void loadMostUsed(int index);
