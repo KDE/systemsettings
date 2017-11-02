@@ -388,13 +388,17 @@ int SidebarMode::activeCategory() const
 
 void SidebarMode::setActiveCategory(int cat)
 {
-    if (d->activeCategory == cat) {
+    const QModelIndex idx = d->searchModel->index(cat, 0);
+    d->activeCategoryIndex = idx;
+    const int newCategoryRow = d->searchModel->mapToSource(idx).row();
+
+    if (d->activeCategory ==newCategoryRow) {
         return;
     }
 
-    const QModelIndex idx = d->searchModel->index(cat, 0);
     d->activeCategoryIndex = idx;
-    d->activeCategory = d->searchModel->mapToSource(idx).row();
+    d->activeCategory = newCategoryRow;
+
     changeModule(idx);
     d->activeSubCategory = 0;
     emit activeCategoryChanged();
