@@ -13,6 +13,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(GenerateExportHeader)
+include(ECMQMLModules)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
@@ -41,6 +42,8 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     KHtml
     QUIET
 )
+
+ecm_find_qmlmodule(org.kde.kcm 1.0)
 
 find_package(KF5Kirigami2 2.1 REQUIRED)
 
