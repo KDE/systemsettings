@@ -223,7 +223,7 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
     }
 
     if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
-        page->setHeader( "<b>" + moduleInfo->comment() + "</b><br><i>" + moduleProxy->realModule()->rootOnlyMessage() + "</i>" );
+        page->setHeader( moduleInfo->comment() + "<br><small>" + moduleProxy->realModule()->rootOnlyMessage() + "</small>" );
         page->setIcon( KDE::icon( moduleInfo->icon(), QStringList() << "dialog-warning" ) );
     }
 }
