@@ -1,6 +1,6 @@
 project(systemsettings)
 
-set(PROJECT_VERSION "5.11.95")
+set(PROJECT_VERSION "5.12.80")
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.7.0")
