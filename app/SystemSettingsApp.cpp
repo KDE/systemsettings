@@ -23,7 +23,7 @@
 
 SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])
     : QApplication(argc, argv)
-    , window(0)
+    , window(nullptr)
 {
     setOrganizationDomain("kde.org");
     KDBusService* service = new KDBusService(KDBusService::Unique, this);

@@ -46,9 +46,9 @@ class CategoryList::Private {
 public:
     Private() {}
 
-    KHTMLPart * categoryView;
+    KHTMLPart * categoryView = nullptr;
     QModelIndex categoryMenu;
-    QAbstractItemModel * itemModel;
+    QAbstractItemModel * itemModel = nullptr;
     QMap<QString, QModelIndex> itemMap;
 };
 

@@ -27,11 +27,11 @@
 class DataHelper {
 
 public:
-    DataHelper() : object(0) {}
+    DataHelper() {}
     ~DataHelper() {
         delete object;
     }
-    BaseData * object;
+    BaseData * object = nullptr;
 };
 
 Q_GLOBAL_STATIC(DataHelper, internalInstance)

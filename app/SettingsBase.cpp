@@ -46,10 +46,10 @@ SettingsBase::SettingsBase( QWidget * parent )
     : KXmlGuiWindow(parent)
 {
     // Ensure delayed loading doesn't cause a crash
-    activeView = 0;
-    aboutDialog = 0;
-    configDialog = 0;
-    lostFound = 0;
+    activeView = nullptr;
+    aboutDialog = nullptr;
+    configDialog = nullptr;
+    lostFound = nullptr;
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
     setWindowTitle(i18n("System Settings"));
@@ -88,7 +88,7 @@ void SettingsBase::initApplication()
     categories = KServiceTypeTrader::self()->query("SystemSettingsCategory");
     modules = KServiceTypeTrader::self()->query("KCModule", "[X-KDE-System-Settings-Parent-Category] != ''");
     modules += KServiceTypeTrader::self()->query("SystemSettingsExternalApp");
-    rootModule = new MenuItem( true, 0 );
+    rootModule = new MenuItem( true, nullptr );
     initMenuList(rootModule);
     // Handle lost+found modules...
     if (lostFound) {
