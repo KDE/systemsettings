@@ -27,7 +27,7 @@ class SidebarDelegate : public QAbstractItemDelegate
     Q_OBJECT
 
 public:
-    SidebarDelegate(QObject *parent = nullptr);
+    explicit SidebarDelegate(QObject *parent = nullptr);
     ~SidebarDelegate();
 
 

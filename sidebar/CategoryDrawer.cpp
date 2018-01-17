@@ -24,7 +24,6 @@
 #include <QPainter>
 #include <QApplication>
 #include <QStyleOption>
-#include <QDebug>
 
 CategoryDrawer::CategoryDrawer(KCategorizedView *view)
 : KCategoryDrawer(view)

@@ -42,22 +42,22 @@ K_PLUGIN_FACTORY(ClassicModeFactory, registerPlugin<ClassicMode>();)
 
 class ClassicMode::Private {
 public:
-    Private() : moduleView( 0 ) {}
+    Private() {}
     virtual ~Private() {
         delete aboutClassic;
     }
 
-    QSplitter * classicWidget;
-    QTreeView * classicTree;
+    QSplitter * classicWidget = nullptr;
+    QTreeView * classicTree = nullptr;
     Ui::ConfigClassic classicConfig;
-    CategoryList * classicCategory;
-    QStackedWidget * stackedWidget;
-    ModuleView * moduleView;
+    CategoryList * classicCategory = nullptr;
+    QStackedWidget * stackedWidget = nullptr;
+    ModuleView * moduleView = nullptr;
     QModelIndex currentItem;
 
-    MenuProxyModel * proxyModel;
-    MenuModel * model;
-    KAboutData * aboutClassic;
+    MenuProxyModel * proxyModel = nullptr;
+    MenuModel * model = nullptr;
+    KAboutData * aboutClassic = nullptr;
 };
 
 ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
@@ -97,7 +97,7 @@ void ClassicMode::initEvent()
     d->classicWidget = new QSplitter( Qt::Horizontal, 0 );
     d->classicWidget->setChildrenCollapsible( false );
     d->moduleView = new ModuleView( d->classicWidget );
-    d->classicTree = 0;
+    d->classicTree = nullptr;
 }
 
 QWidget * ClassicMode::mainWidget()

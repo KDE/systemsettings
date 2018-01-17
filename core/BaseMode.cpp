@@ -32,13 +32,13 @@
 
 class BaseMode::Private {
 public:
-    Private() : showToolTips(true) {}
+    Private() {}
 
     QList<QAction*> actionsList;
     KService::Ptr service;
-    MenuItem *rootItem;
+    MenuItem *rootItem = nullptr;
     KConfigGroup config;
-    bool showToolTips;
+    bool showToolTips = true;
 };
 
 BaseMode::BaseMode( QObject* parent )
@@ -67,17 +67,17 @@ void BaseMode::initEvent()
 
 QWidget * BaseMode::mainWidget()
 {
-    return 0;
+    return nullptr;
 }
 
 KAboutData * BaseMode::aboutData()
 {
-    return 0;
+    return nullptr;
 }
 
 ModuleView * BaseMode::moduleView() const
 {
-    return 0;
+    return nullptr;
 }
 
 QList<QAction*>& BaseMode::actionsList() const

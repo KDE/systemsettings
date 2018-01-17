@@ -176,5 +176,5 @@ void SidebarDelegate::initStyleOption(QStyleOptionViewItem *option,
     option->backgroundBrush = qvariant_cast<QBrush>(index.data(Qt::BackgroundRole));
 
     // disable style animations for checkboxes etc. within itemviews (QTBUG-30146)
-    option->styleObject = 0;
+    option->styleObject = nullptr;
 }

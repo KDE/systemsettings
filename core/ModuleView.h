@@ -102,7 +102,7 @@ public Q_SLOTS:
      *
      * @param menuItem the QModelIndex that you want to load. Must be sourced from either MenuModel or MenuProxyModel
      */
-    void loadModule( QModelIndex menuItem );
+    void loadModule(const QModelIndex &menuItem );
 
     /**
      * Will open KHelpCenter, and load the help for the active module.

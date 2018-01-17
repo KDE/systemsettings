@@ -32,7 +32,7 @@ class MenuModel::Private {
 public:
     Private() {}
 
-    MenuItem *rootItem;
+    MenuItem *rootItem = nullptr;
     QList<MenuItem*> exceptions;
 };
 
@@ -69,7 +69,7 @@ int MenuModel::rowCount( const QModelIndex &parent ) const
 
 QVariant MenuModel::data( const QModelIndex &index, int role ) const
 {
-    MenuItem * mi = 0;
+    MenuItem * mi = nullptr;
     QVariant theData;
     if ( !index.isValid() ) {
         return QVariant();

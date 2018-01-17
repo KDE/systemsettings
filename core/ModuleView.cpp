@@ -52,14 +52,14 @@ public:
     Private() {}
     QMap<KPageWidgetItem*, KCModuleProxy*> mPages;
     QMap<KPageWidgetItem*, KCModuleInfo*> mModules;
-    KPageWidget* mPageWidget;
-    QVBoxLayout* mLayout;
-    QDialogButtonBox* mButtons;
-    KAuth::ObjectDecorator* mApplyAuthorize;
-    QPushButton* mApply;
-    QPushButton* mReset;
-    QPushButton* mDefault;
-    QPushButton* mHelp;
+    KPageWidget* mPageWidget = nullptr;
+    QVBoxLayout* mLayout = nullptr;
+    QDialogButtonBox* mButtons = nullptr;
+    KAuth::ObjectDecorator* mApplyAuthorize = nullptr;
+    QPushButton* mApply = nullptr;
+    QPushButton* mReset = nullptr;
+    QPushButton* mDefault = nullptr;
+    QPushButton* mHelp = nullptr;
     bool pageChangeSupressed;
 };
 
@@ -124,7 +124,7 @@ KCModuleInfo * ModuleView::activeModule() const
 const KAboutData * ModuleView::aboutData() const
 {
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    KAboutData * aboutData = 0;
+    KAboutData * aboutData = nullptr;
     if( activeModule ) {
         aboutData = const_cast<KAboutData*>( activeModule->aboutData() );
     }
@@ -132,10 +132,10 @@ const KAboutData * ModuleView::aboutData() const
         aboutData->setProgramIconName( activeModule->moduleInfo().service()->icon() );
         return aboutData;
     }
-    return 0;
+    return nullptr;
 }
 
-void ModuleView::loadModule( QModelIndex menuItem )
+void ModuleView::loadModule( const QModelIndex &menuItem )
 {
     if ( !menuItem.isValid() ) {
         return;
@@ -149,9 +149,9 @@ void ModuleView::loadModule( QModelIndex menuItem )
         indexes << menuItem;
     }
 
-    foreach ( QModelIndex module, indexes ) {
-        MenuItem *menuItem = module.data( Qt::UserRole ).value<MenuItem*>();
-        addModule( &menuItem->item() );
+    foreach ( const QModelIndex &module, indexes ) {
+        MenuItem *newMenuItem = module.data( Qt::UserRole ).value<MenuItem*>();
+        addModule( &newMenuItem->item() );
     }
     // changing state is not needed here as the adding / changing of pages does it
 }

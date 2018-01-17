@@ -40,7 +40,7 @@ class SettingsBase : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit SettingsBase(QWidget * parent = 0);
+    explicit SettingsBase(QWidget * parent = nullptr);
     ~SettingsBase();
     bool queryClose() Q_DECL_OVERRIDE;
 
@@ -66,31 +66,31 @@ private:
     // The plugins
     QMap<QString, BaseMode *> possibleViews;
     QList<ToolTipManager*> tooltipManagers;
-    BaseMode * activeView;
+    BaseMode * activeView = nullptr;
     // The search bar
-    KLineEdit * searchText;
-    QWidget * spacerWidget;
+    KLineEdit * searchText = nullptr;
+    QWidget * spacerWidget = nullptr;
     // The toolbar
-    QWidgetAction * searchAction;
-    QWidgetAction * spacerAction;
-    QAction * configureAction;
-    QAction * quitAction;
+    QWidgetAction * searchAction = nullptr;
+    QWidgetAction * spacerAction = nullptr;
+    QAction * configureAction = nullptr;
+    QAction * quitAction = nullptr;
     // The help menu
-    QAction * aboutViewAction;
-    QAction * aboutModuleAction;
-    KActionMenu * helpActionMenu;
+    QAction * aboutViewAction = nullptr;
+    QAction * aboutModuleAction = nullptr;
+    KActionMenu * helpActionMenu = nullptr;
     // The configuration
-    KConfigDialog * configDialog;
+    KConfigDialog * configDialog = nullptr;
     Ui::ConfigDialog configWidget;
     QButtonGroup viewSelection;
     // The control module
-    QStackedWidget * stackedWidget;
+    QStackedWidget * stackedWidget = nullptr;
     // The module list
-    MenuItem * rootModule;
-    MenuItem * lostFound;
+    MenuItem * rootModule = nullptr;
+    MenuItem * lostFound = nullptr;
     KService::List categories;
     KService::List modules;
     // The about dialog
-    KAboutApplicationDialog * aboutDialog;
+    KAboutApplicationDialog * aboutDialog = nullptr;
 };
 #endif

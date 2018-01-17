@@ -82,7 +82,7 @@ void FocusHackWidget::focusPrevious()
 class SubcategoryModel : public QStandardItemModel
 {
 public:
-    SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent = 0)
+    explicit SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent = nullptr)
         : QStandardItemModel(parent),
           m_parentModel(parentModel)
     {}
@@ -115,7 +115,7 @@ private:
 class MostUsedModel : public QSortFilterProxyModel
 {
 public:
-    MostUsedModel(QObject *parent = 0)
+    explicit MostUsedModel(QObject *parent = nullptr)
         : QSortFilterProxyModel (parent)
     {
         sort(0, Qt::DescendingOrder);
@@ -232,20 +232,20 @@ public:
         delete aboutIcon;
     }
 
-    ToolTipManager *toolTipManager;
-    QQuickWidget * quickWidget;
+    ToolTipManager *toolTipManager = nullptr;
+    QQuickWidget * quickWidget = nullptr;
     KPackage::Package package;
-    SubcategoryModel * subCategoryModel;
-    MostUsedModel * mostUsedModel;
-    FocusHackWidget * mainWidget;
-    QQuickWidget * placeHolderWidget;
-    QHBoxLayout * mainLayout;
+    SubcategoryModel * subCategoryModel = nullptr;
+    MostUsedModel * mostUsedModel = nullptr;
+    FocusHackWidget * mainWidget = nullptr;
+    QQuickWidget * placeHolderWidget = nullptr;
+    QHBoxLayout * mainLayout = nullptr;
     KDeclarative::KDeclarative kdeclarative;
-    MenuProxyModel * categorizedModel;
-    MenuProxyModel * searchModel;
-    KAboutData * aboutIcon;
-    ModuleView * moduleView;
-    KActionCollection *collection;
+    MenuProxyModel * categorizedModel = nullptr;
+    MenuProxyModel * searchModel = nullptr;
+    KAboutData * aboutIcon = nullptr;
+    ModuleView * moduleView = nullptr;
+    KActionCollection *collection = nullptr;
     QPersistentModelIndex activeCategoryIndex;
     int activeCategory;
     int activeSubCategory;
@@ -378,7 +378,7 @@ void SidebarMode::hideToolTip()
     d->toolTipManager->hideToolTip();
 }
 
-Q_INVOKABLE void SidebarMode::loadMostUsed(int index)
+void SidebarMode::loadMostUsed(int index)
 {
     const QModelIndex idx = d->mostUsedModel->index(index, 0);
     d->moduleView->closeModules();
