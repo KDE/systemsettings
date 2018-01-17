@@ -256,13 +256,13 @@ SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
     , d( new Private() )
 {
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
-    d->aboutIcon = new KAboutData( "SidebarView", i18n( "Sidebar View" ),
-                                 "1.0", i18n( "Provides a categorized sidebar for control modules." ),
+    d->aboutIcon = new KAboutData( QStringLiteral("SidebarView"), i18n( "Sidebar View" ),
+                                 QStringLiteral("1.0"), i18n( "Provides a categorized sidebar for control modules." ),
                                  KAboutLicense::GPL, i18n( "(c) 2017, Marco Martin" ) );
-    d->aboutIcon->addAuthor( i18n( "Marco Martin" ), i18n( "Author" ), "mart@kde.org" );
-    d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), "bcooksley@kde.org" );
-    d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), "msoeken@informatik.uni-bremen.de" );
-    d->aboutIcon->setProgramIconName( "view-sidetree" );
+    d->aboutIcon->addAuthor( i18n( "Marco Martin" ), i18n( "Author" ), QStringLiteral("mart@kde.org") );
+    d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), QStringLiteral("bcooksley@kde.org") );
+    d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), QStringLiteral("msoeken@informatik.uni-bremen.de") );
+    d->aboutIcon->setProgramIconName( QStringLiteral("view-sidetree") );
 
     qmlRegisterType<QAction>();
 }
@@ -466,8 +466,8 @@ void SidebarMode::initWidget()
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-    d->quickWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
-    d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
+    d->quickWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
+    d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
     d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
 
     d->kdeclarative.setDeclarativeEngine(d->quickWidget->engine());
@@ -501,8 +501,8 @@ void SidebarMode::initWidget()
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
-    d->placeHolderWidget->engine()->rootContext()->setContextProperty("systemsettings", this);
-    d->placeHolderWidget->setSource(QUrl::fromLocalFile(d->package.filePath("ui", "introPage.qml")));
+    d->placeHolderWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
+    d->placeHolderWidget->setSource(QUrl::fromLocalFile(d->package.filePath("ui", QStringLiteral("introPage.qml"))));
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
     d->placeHolderWidget->installEventFilter(this);
@@ -513,7 +513,7 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget( d->placeHolderWidget );
     emit changeToolBarItems(BaseMode::NoItems);
 
-    d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent("org.kde.systemsettings") | HighScoredFirst | Limit(5), this));
+    d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
 }
 
 bool SidebarMode::eventFilter(QObject* watched, QEvent* event)

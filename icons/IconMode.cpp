@@ -56,12 +56,12 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
     : BaseMode( parent )
     , d( new Private() )
 {
-    d->aboutIcon = new KAboutData( "IconView", i18n( "Icon View" ),
-                                 "1.0", i18n( "Provides a categorized icons view of control modules." ),
+    d->aboutIcon = new KAboutData( QStringLiteral("IconView"), i18n( "Icon View" ),
+                                 QStringLiteral("1.0"), i18n( "Provides a categorized icons view of control modules." ),
                                  KAboutLicense::GPL, i18n( "(c) 2009, Ben Cooksley" ) );
-    d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), "bcooksley@kde.org" );
-    d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), "msoeken@informatik.uni-bremen.de" );
-    d->aboutIcon->setProgramIconName( "view-list-icons" );
+    d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), QStringLiteral("bcooksley@kde.org") );
+    d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), QStringLiteral("msoeken@informatik.uni-bremen.de") );
+    d->aboutIcon->setProgramIconName( QStringLiteral("view-list-icons") );
 
     d->backAction = KStandardAction::back( this, SLOT(backToOverview()), this );
     d->backAction->setText( i18n( "All Settings" ) );

@@ -85,14 +85,14 @@ void CategoryList::updatePixmap()
     KIconLoader * iconL = KIconLoader::global();
     d->itemMap.clear();
 
-    const QString templatePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "systemsettings/classic/main.html" );
+    const QString templatePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("systemsettings/classic/main.html") );
     QFile templateFile( templatePath );
     templateFile.open( QIODevice::ReadOnly );
     QTextStream templateText( &templateFile );
     QString templateString = templateText.readAll();
-    templateString = templateString.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage.css" ) );
+    templateString = templateString.arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kf5/infopage/kde_infopage.css") ) );
     if ( qApp->layoutDirection() == Qt::RightToLeft ) {
-        templateString = templateString.arg( "@import \"%1\";" ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, "kf5/infopage/kde_infopage_rtl.css" ) );
+        templateString = templateString.arg( QStringLiteral("@import \"%1\";") ).arg( QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kf5/infopage/kde_infopage_rtl.css") ) );
     } else {
         templateString = templateString.arg( QString() );
     }
@@ -102,18 +102,18 @@ void CategoryList::updatePixmap()
     if ( d->categoryMenu.isValid() ) {
         moduleName = d->itemModel->data( d->categoryMenu, Qt::DisplayRole ).toString();
     }
-    content += "<div id=\"tableTitle\">" + moduleName + "</div>";
-    content += "<table class=\"kc_table\">\n";
+    content += QStringLiteral("<div id=\"tableTitle\">") + moduleName + QStringLiteral("</div>");
+    content += QStringLiteral("<table class=\"kc_table\">\n");
     for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; ++done ) {
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
         const QString url = QLatin1String("kcm:///") + childItem->item().fileName();
         QUrl link(url);
-        const QString szLink = "<a href=\"" + link.url() + "\" >";
-        content += "<tr><td class=\"kc_leftcol\">" + szLink + "<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">";
+        const QString szLink = QStringLiteral("<a href=\"") + link.url() + QStringLiteral("\" >");
+        content += QStringLiteral("<tr><td class=\"kc_leftcol\">") + szLink + QStringLiteral("<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">");
         const QString szName = childItem->name();
         const QString szComment = childItem->service()->comment();
-        content += szLink + szName + "</a></td><td class=\"kc_rightcol\">" + szLink + szComment + "</a>";
+        content += szLink + szName + QStringLiteral("</a></td><td class=\"kc_rightcol\">") + szLink + szComment + QStringLiteral("</a>");
 
         //passing just the path is insufficient as some icon sets (breeze) only provide SVGs
         //instead pass data inline
@@ -125,13 +125,13 @@ void CategoryList::updatePixmap()
         image.save(&buffer, "PNG"); // writes the image in PNG format inside the buffer
         QString iconBase64 = QString::fromLatin1(byteArray.toBase64().data());
 
-        content = content.arg("data:image/png;base64," + iconBase64);
+        content = content.arg(QStringLiteral("data:image/png;base64,") + iconBase64);
 
 
         d->itemMap.insert( link.url(), childIndex );
-        content += "</td></tr>\n";
+        content += QStringLiteral("</td></tr>\n");
     }
-    content += "</table>";
+    content += QStringLiteral("</table>");
     d->categoryView->begin( QUrl::fromLocalFile( templatePath ) );
     d->categoryView->write( templateString.arg( content ) );
     d->categoryView->end();
@@ -146,7 +146,7 @@ void CategoryList::changeModule( const QModelIndex &newItem )
 void CategoryList::slotModuleLinkClicked( const QUrl& moduleName )
 {
     QModelIndex module = d->itemMap.value( moduleName.url() );
-    qDebug() << "Link name: " + moduleName.url();
+    qDebug() << "Link name: " << moduleName.url();
     emit moduleSelected( module );
 }
 

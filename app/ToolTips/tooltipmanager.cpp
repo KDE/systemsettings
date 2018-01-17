@@ -178,12 +178,12 @@ QLayout * ToolTipManager::generateToolTipLine( QModelIndex * item, QWidget * too
 
     QString text = menuItem->name();
     if ( comment ) {
-        text = QString( "<b>%1</b>" ).arg( menuItem->name() );
+        text = QStringLiteral( "<b>%1</b>" ).arg( menuItem->name() );
     }
 
     // Generate text
     if ( comment ) {
-        text += "<br />";
+        text += QStringLiteral("<br />");
         if ( !menuItem->service()->comment().isEmpty() ) {
             text += menuItem->service()->comment();
         } else {

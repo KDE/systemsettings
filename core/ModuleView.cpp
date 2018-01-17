@@ -183,7 +183,7 @@ void ModuleView::addModule( KCModuleInfo *module )
     KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
     // Provide information to the users
 
-    if( module->service()->hasServiceType("SystemSettingsExternalApp") ||  // Is it an external app?
+    if( module->service()->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) ||  // Is it an external app?
             module->service()->substituteUid() ) { // ...or does it require UID substituion?
         QWidget * externalWidget = new ExternalAppModule( this, module );
         moduleScroll->setWidget( externalWidget );
@@ -223,8 +223,8 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
     }
 
     if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
-        page->setHeader( moduleInfo->comment() + "<br><small>" + moduleProxy->realModule()->rootOnlyMessage() + "</small>" );
-        page->setIcon( KDE::icon( moduleInfo->icon(), QStringList() << "dialog-warning" ) );
+        page->setHeader( moduleInfo->comment() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>") );
+        page->setIcon( KDE::icon( moduleInfo->icon(), QStringList() << QStringLiteral("dialog-warning") ) );
     }
 }
 
@@ -325,8 +325,8 @@ void ModuleView::moduleHelp()
     if( docPath.isEmpty() ) {
         return;
     }
-    QUrl url( "help:/"+docPath );
-    QProcess::startDetached("khelpcenter", QStringList() << url.url());
+    QUrl url( QStringLiteral("help:/")+docPath );
+    QProcess::startDetached(QStringLiteral("khelpcenter"), QStringList() << url.url());
 }
 
 void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem * previous)
@@ -346,8 +346,8 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
 
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
     if (activeModule) {
-        KActivities::ResourceInstance::notifyAccessed(QUrl("kcm:" + activeModule->moduleInfo().service()->storageId()),
-                "org.kde.systemsettings");
+        KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
+                QStringLiteral("org.kde.systemsettings"));
     }
 }
 

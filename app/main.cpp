@@ -31,16 +31,16 @@ int main( int argc, char *argv[] )
 {
     //exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
     //which is before KAboutData::setApplicationData
-    QCoreApplication::setApplicationName("systemsettings");
+    QCoreApplication::setApplicationName(QStringLiteral("systemsettings"));
     SystemSettingsApp application(argc, argv);
 
     KLocalizedString::setApplicationDomain("systemsettings");
 
     // About data
-    KAboutData aboutData("systemsettings", i18n("System Settings"), PROJECT_VERSION, i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
-    aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), "bcooksley@kde.org");
-    aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), "msoeken@informatik.uni-bremen.de");
-    aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), "wstephenson@kde.org");
+    KAboutData aboutData(QStringLiteral("systemsettings"), i18n("System Settings"), QString::fromLatin1(PROJECT_VERSION), i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
+    aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
+    aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
+    aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
 
     if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
         aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
@@ -51,7 +51,7 @@ int main( int argc, char *argv[] )
     KAboutData::setApplicationData(aboutData);
 
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    application.setWindowIcon(QIcon::fromTheme("preferences-system"));
+    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     QCommandLineParser parser;
     parser.addHelpOption();
     parser.addVersionOption();
