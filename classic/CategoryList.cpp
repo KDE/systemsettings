@@ -18,7 +18,7 @@
  */
 
 #include "CategoryList.h"
-
+#include "systemsettings_classic_debug.h"
 #include "MenuItem.h"
 
 #include <QFile>
@@ -146,7 +146,7 @@ void CategoryList::changeModule( const QModelIndex &newItem )
 void CategoryList::slotModuleLinkClicked( const QUrl& moduleName )
 {
     QModelIndex module = d->itemMap.value( moduleName.url() );
-    qDebug() << "Link name: " << moduleName.url();
+    qCDebug(SYSTEMSETTINGS_CLASSIC_LOG) << "Link name: " << moduleName.url();
     emit moduleSelected( module );
 }
 

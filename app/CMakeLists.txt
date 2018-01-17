@@ -7,6 +7,8 @@ set( systemsettings_SRCS
      ToolTips/tooltipmanager.cpp
      main.cpp )
 
+ecm_qt_declare_logging_category(systemsettings_SRCS HEADER systemsettings_app_debug.h IDENTIFIER SYSTEMSETTINGS_APP_LOG CATEGORY_NAME org.kde.systemsettings.app)
+
 # port it it's in kdelibs4support
 # kde4_add_app_icon( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
 ki18n_wrap_ui( systemsettings_SRCS configDialog.ui )

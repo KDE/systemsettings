@@ -19,6 +19,7 @@
 
 #include "SettingsBase.h"
 #include "BaseConfig.h"
+#include "systemsettings_app_debug.h"
 
 #include <QTimer>
 #include <QRadioButton>
@@ -96,7 +97,7 @@ void SettingsBase::initApplication()
             const KService::Ptr entry = modules.at(i);
             MenuItem * infoItem = new MenuItem(false, lostFound);
             infoItem->setService( entry );
-            qDebug() << "Added " << entry->name();
+            qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << entry->name();
         }
     }
 
@@ -117,7 +118,7 @@ void SettingsBase::initApplication()
             connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
             connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
         } else {
-            qWarning() << QStringLiteral("View load error: ") + error;
+            qCWarning(SYSTEMSETTINGS_APP_LOG) << QStringLiteral("View load error: ") + error;
         }
     }
     searchText->completionObject()->setIgnoreCase( true );

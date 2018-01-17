@@ -14,6 +14,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(GenerateExportHeader)
 include(ECMQMLModules)
+include(ECMQtDeclareLoggingCategory)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_USE_QSTRINGBUILDER)
 add_definitions(-DQT_NO_CAST_FROM_ASCII)
@@ -60,6 +61,8 @@ add_subdirectory(doc)
 if(KF5KHtml_FOUND)
     add_subdirectory(classic)
 endif()
+
+install(FILES systemsettings.categories DESTINATION ${KDE_INSTALL_CONFDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

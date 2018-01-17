@@ -3,6 +3,8 @@ set(classic_mode_srcs
     CategoryList.cpp
 )
 
+ecm_qt_declare_logging_category(classic_mode_srcs HEADER systemsettings_classic_debug.h IDENTIFIER SYSTEMSETTINGS_CLASSIC_LOG CATEGORY_NAME org.kde.systemsettings.classic)
+
 ki18n_wrap_ui( classic_mode_srcs configClassic.ui )
 add_library(classic_mode MODULE ${classic_mode_srcs})
 
