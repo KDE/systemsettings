@@ -17,6 +17,7 @@ add_executable( systemsettings5 ${systemsettings_SRCS})
 target_compile_definitions(systemsettings5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
 target_link_libraries( systemsettings5 systemsettingsview
+    KF5::Crash
     KF5::ItemViews
     KF5::KCMUtils
     KF5::I18n
