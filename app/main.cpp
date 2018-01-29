@@ -23,6 +23,7 @@
 
 #include <QCommandLineParser>
 #include <KAboutData>
+#include <KCrash>
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
@@ -33,6 +34,7 @@ int main( int argc, char *argv[] )
     //which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(QStringLiteral("systemsettings"));
     SystemSettingsApp application(argc, argv);
+    KCrash::initialize();
 
     KLocalizedString::setApplicationDomain("systemsettings");
 

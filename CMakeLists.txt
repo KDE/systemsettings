@@ -26,6 +26,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 )
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    Crash
     ItemViews
     KCMUtils
     I18n
