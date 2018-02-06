@@ -117,7 +117,11 @@ void ToolTipManager::hideToolTip()
 
 void ToolTipManager::prepareToolTip()
 {
-    showToolTip( d->item );
+    // item may have gone away since we're triggered by a timer
+    MenuItem * menuItem = d->model->data( d->item, Qt::UserRole ).value<MenuItem*>();
+    if (menuItem) {
+        showToolTip( d->item );
+    }
 }
 
 void ToolTipManager::showToolTip( QModelIndex menuItem )
