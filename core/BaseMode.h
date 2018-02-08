@@ -20,7 +20,7 @@
 #ifndef BASEMODE_H
 #define BASEMODE_H
 
-#include <QtCore/QObject>
+#include <QObject>
 #include "systemsettingsview_export.h"
 
 #include <KService>

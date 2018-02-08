@@ -21,7 +21,7 @@
 #ifndef MENUMODEL_H
 #define MENUMODEL_H
 
-#include <QtCore/QAbstractItemModel>
+#include <QAbstractItemModel>
 #include "systemsettingsview_export.h"
 
 class MenuItem;

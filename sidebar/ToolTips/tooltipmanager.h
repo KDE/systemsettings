@@ -20,9 +20,8 @@
 #ifndef TOOLTIPMANAGER_H
 #define TOOLTIPMANAGER_H
 
-#include <QtCore/QObject>
-
-#include <QtCore/QModelIndex>
+#include <QObject>
+#include <QModelIndex>
 #include <QQuickItem>
 
 class QLayout;

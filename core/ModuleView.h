@@ -23,7 +23,7 @@
 
 #include <KPageView>
 #include <QWidget>
-#include <QtCore/QModelIndex>
+#include <QModelIndex>
 #include "systemsettingsview_export.h"
 
 class KAboutData;
