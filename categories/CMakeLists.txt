@@ -1,5 +1,5 @@
 
-install( FILES systemsettingscategory.desktop DESTINATION  ${SERVICETYPES_INSTALL_DIR} )
+install( FILES systemsettingscategory.desktop DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
 
 install( FILES 
     settings-appearance.desktop
@@ -35,11 +35,11 @@ install( FILES
     settings-hardware-powermanagement.desktop
     settings-hardware-removable-storage.desktop
 
-    DESTINATION  ${SERVICES_INSTALL_DIR} )
+    DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 if (NOT WIN32)
     install( FILES
          settings-network-bluetooth.desktop
-         DESTINATION  ${SERVICES_INSTALL_DIR} )
+         DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 endif ()
 

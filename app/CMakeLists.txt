@@ -32,7 +32,7 @@ target_link_libraries( systemsettings5 systemsettingsview
     KF5::ConfigGui
 )
 
-install( TARGETS systemsettings5 ${INSTALL_TARGETS_DEFAULT_ARGS} )
-install( FILES systemsettings.kcfg DESTINATION ${DATA_INSTALL_DIR}/systemsettings )
-install( FILES systemsettingsui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/systemsettings )
-install( PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( TARGETS systemsettings5 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
+install( FILES systemsettings.kcfg DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings )
+install( FILES systemsettingsui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/systemsettings )
+install( PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${KDE_INSTALL_APPDIR} )

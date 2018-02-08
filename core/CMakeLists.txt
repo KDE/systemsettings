@@ -35,6 +35,6 @@ target_link_libraries( systemsettingsview
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
 
-install( TARGETS systemsettingsview  ${INSTALL_TARGETS_DEFAULT_ARGS} )
-install( FILES ${systemsettingsview_LIB_HDRS} DESTINATION ${INCLUDE_INSTALL_DIR}/systemsettingsview COMPONENT Devel )
-install( FILES systemsettingsview.desktop systemsettingsexternalapp.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR} )
+install( TARGETS systemsettingsview  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
+install( FILES ${systemsettingsview_LIB_HDRS} DESTINATION ${KDE_INSTALL_INCLUDEDIR}/systemsettingsview COMPONENT Devel )
+install( FILES systemsettingsview.desktop systemsettingsexternalapp.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR} )

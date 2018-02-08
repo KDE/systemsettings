@@ -14,6 +14,6 @@ target_link_libraries(icon_mode systemsettingsview
     KF5::Service
 )
 
-install( TARGETS icon_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
-install( FILES settings-icon-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+install( TARGETS icon_mode DESTINATION ${KDE_INSTALL_PLUGINDIR} )
+install( FILES settings-icon-view.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )
 

@@ -19,7 +19,7 @@ target_link_libraries(classic_mode systemsettingsview
     KF5::KHtml
 )
 
-install( TARGETS classic_mode DESTINATION ${PLUGIN_INSTALL_DIR} )
-install( FILES settings-classic-view.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-install( FILES main.html systemsettings-classic.css DESTINATION ${DATA_INSTALL_DIR}/systemsettings/classic/ )
+install( TARGETS classic_mode DESTINATION ${KDE_INSTALL_PLUGINDIR} )
+install( FILES settings-classic-view.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES main.html systemsettings-classic.css DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings/classic/ )
 
