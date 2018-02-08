@@ -168,7 +168,7 @@ void SettingsBase::initHelpMenu()
     actionCollection()->addAction( QStringLiteral("help_toolbar_menu"), helpActionMenu );
     // Add the custom actions
     aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, QStringLiteral("help_about_module"), this, SLOT(about()) );
-    changeAboutMenu( 0, aboutModuleAction, i18n("About Active Module") );
+    changeAboutMenu( nullptr, aboutModuleAction, i18n("About Active Module") );
     aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, SLOT(about()) );
 }
 
@@ -293,9 +293,9 @@ bool SettingsBase::queryClose()
 void SettingsBase::about()
 {
     delete aboutDialog;
-    aboutDialog = 0;
+    aboutDialog = nullptr;
 
-    const KAboutData * about = 0;
+    const KAboutData * about = nullptr;
     if( sender() == aboutViewAction ) {
         about = activeView->aboutData();
     } else if( sender() == aboutModuleAction && activeView->moduleView() ) {
@@ -303,7 +303,7 @@ void SettingsBase::about()
     }
 
     if( about ) {
-        aboutDialog = new KAboutApplicationDialog(*about, 0);
+        aboutDialog = new KAboutApplicationDialog(*about, nullptr);
         aboutDialog->show();
     }
 }

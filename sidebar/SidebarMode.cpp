@@ -344,7 +344,7 @@ void SidebarMode::initEvent()
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
-    d->quickWidget = 0;
+    d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
 }
 

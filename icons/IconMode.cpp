@@ -38,7 +38,7 @@ K_PLUGIN_FACTORY( IconModeFactory, registerPlugin<IconMode>(); )
 
 class IconMode::Private {
 public:
-    Private() : categoryDrawer( 0 ),  categoryView( 0 ), moduleView( 0 ) {}
+    Private() : categoryDrawer( nullptr ),  categoryView( nullptr ), moduleView( nullptr ) {}
     virtual ~Private() {
         delete aboutIcon;
     }
@@ -116,7 +116,7 @@ void IconMode::initEvent()
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, &ModuleView::moduleChanged, this, &IconMode::moduleLoaded );
     connect( d->moduleView, &ModuleView::closeRequest, this, &IconMode::backToOverview );
-    d->categoryView = 0;
+    d->categoryView = nullptr;
 }
 
 void IconMode::searchChanged( const QString& text )

@@ -48,7 +48,7 @@ public:
      * @param menuRoot The MenuItem to use as the basis for providing information.
      * @param parent The QObject to use as a parent of the MenuModel.
      */
-    explicit MenuModel( MenuItem * menuRoot, QObject *parent = 0 );
+    explicit MenuModel( MenuItem * menuRoot, QObject *parent = nullptr );
 
     /**
      * Destroys the MenuModel. The menuRoot will not be destroyed.

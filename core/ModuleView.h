@@ -55,7 +55,7 @@ public:
     /**
      * Constructs a ModuleView, with the parent specified.
      */
-    explicit ModuleView(QWidget * parent = 0);
+    explicit ModuleView(QWidget * parent = nullptr);
 
     /**
      * Destroys the module view, along with all modules loaded, and any changes present in them.

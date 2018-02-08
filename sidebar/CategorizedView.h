@@ -25,7 +25,7 @@
 class CategorizedView : public KCategorizedView
 {
 public:
-    CategorizedView( QWidget *parent = 0 );
+    CategorizedView( QWidget *parent = nullptr );
 
     void setModel( QAbstractItemModel *model ) override;
 protected:

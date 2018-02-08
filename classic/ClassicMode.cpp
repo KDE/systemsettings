@@ -94,7 +94,7 @@ void ClassicMode::initEvent()
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setSourceModel( d->model );
     d->proxyModel->sort( 0 );
-    d->classicWidget = new QSplitter( Qt::Horizontal, 0 );
+    d->classicWidget = new QSplitter( Qt::Horizontal, nullptr );
     d->classicWidget->setChildrenCollapsible( false );
     d->moduleView = new ModuleView( d->classicWidget );
     d->classicTree = nullptr;

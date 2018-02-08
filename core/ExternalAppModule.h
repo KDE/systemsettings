@@ -32,7 +32,7 @@ class ExternalAppModule : public QWidget
     Q_OBJECT
 
 public:
-    explicit ExternalAppModule(QWidget * parent = 0, KCModuleInfo * module = 0);
+    explicit ExternalAppModule(QWidget * parent = nullptr, KCModuleInfo * module = nullptr);
     ~ExternalAppModule() override;
 
 protected:

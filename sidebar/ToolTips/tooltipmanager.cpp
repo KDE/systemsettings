@@ -39,9 +39,9 @@ class ToolTipManager::Private
 {
 public:
     Private() :
-        tooltip(0),
-        view(0),
-        timer(0),
+        tooltip(nullptr),
+        view(nullptr),
+        timer(nullptr),
         delay(300)
         { }
 
