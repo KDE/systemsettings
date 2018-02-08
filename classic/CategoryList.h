@@ -31,7 +31,7 @@ class CategoryList : public QWidget
 
 public:
     explicit CategoryList( QWidget *parent, QAbstractItemModel *model );
-    virtual ~CategoryList();
+    ~CategoryList() override;
 
     void changeModule( const QModelIndex &newItem);
 

@@ -162,7 +162,7 @@ public:
         updateModel();
     }
 
-    QHash<int, QByteArray> roleNames() const
+    QHash<int, QByteArray> roleNames() const override
     {
         QHash<int, QByteArray> roleNames;
         roleNames.insert(Qt::DisplayRole, "display");

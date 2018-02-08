@@ -35,7 +35,7 @@ class SystemSettingsApp : public QApplication
 
 public:
    SystemSettingsApp(int& argc, char* argv[]);
-   ~SystemSettingsApp();
+   ~SystemSettingsApp() override;
 
    void setMainWindow(SettingsBase * main);
 

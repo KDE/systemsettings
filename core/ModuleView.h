@@ -62,7 +62,7 @@ public:
      *
      * @warning The user will not be prompted to save changes if any exist.\n
      */
-    ~ModuleView();
+    ~ModuleView() override;
 
     /**
      * Provides the module information, which is used to set the caption of the window when either the
@@ -127,7 +127,7 @@ public Q_SLOTS:
     /**
      * Reimplemented for internal reasons.\n
      */
-    void keyPressEvent( QKeyEvent * event ) Q_DECL_OVERRIDE;
+    void keyPressEvent( QKeyEvent * event ) override;
 
 private:
     bool resolveChanges( KCModuleProxy *currentProxy );

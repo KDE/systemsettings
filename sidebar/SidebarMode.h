@@ -34,7 +34,7 @@ class FocusHackWidget : public QWidget {
     Q_OBJECT
 public:
     FocusHackWidget(QWidget *parent = nullptr);
-    ~FocusHackWidget();
+    ~FocusHackWidget() override;
 
 public Q_SLOTS:
     void focusNext();
@@ -54,12 +54,12 @@ class SidebarMode : public BaseMode
 
 public:
     SidebarMode(QObject * parent, const QVariantList& );
-    ~SidebarMode();
-    QWidget * mainWidget() Q_DECL_OVERRIDE;
-    void initEvent() Q_DECL_OVERRIDE;
-    void giveFocus() Q_DECL_OVERRIDE;
-    KAboutData * aboutData() Q_DECL_OVERRIDE;
-    ModuleView * moduleView() const Q_DECL_OVERRIDE;
+    ~SidebarMode() override;
+    QWidget * mainWidget() override;
+    void initEvent() override;
+    void giveFocus() override;
+    KAboutData * aboutData() override;
+    ModuleView * moduleView() const override;
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *subCategoryModel() const;
     QAbstractItemModel *mostUsedModel() const;
@@ -80,8 +80,8 @@ public:
     Q_INVOKABLE void loadMostUsed(int index);
 
 protected:
-    QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;
-    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
+    QList<QAbstractItemView*> views() const override;
+    bool eventFilter(QObject* watched, QEvent* event) override;
 
 private Q_SLOTS:
     void changeModule( const QModelIndex& activeModule );

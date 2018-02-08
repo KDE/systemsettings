@@ -67,7 +67,7 @@ public:
      * Normal destructor. Plugin developers only need destroy what they created
      * not what is provided by BaseMode itself.
      */
-    virtual ~BaseMode();
+    ~BaseMode() override;
 
     /**
      * These flags are used to control the presence of the Search and Configure actions on the toolbar

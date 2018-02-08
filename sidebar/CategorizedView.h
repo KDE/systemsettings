@@ -27,9 +27,9 @@ class CategorizedView : public KCategorizedView
 public:
     CategorizedView( QWidget *parent = 0 );
 
-    void setModel( QAbstractItemModel *model ) Q_DECL_OVERRIDE;
+    void setModel( QAbstractItemModel *model ) override;
 protected:
-    void wheelEvent(QWheelEvent *) Q_DECL_OVERRIDE;
+    void wheelEvent(QWheelEvent *) override;
 };
 
 #endif

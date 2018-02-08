@@ -28,12 +28,12 @@ class SidebarDelegate : public QAbstractItemDelegate
 
 public:
     explicit SidebarDelegate(QObject *parent = nullptr);
-    ~SidebarDelegate();
+    ~SidebarDelegate() override;
 
 
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 protected:
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const;

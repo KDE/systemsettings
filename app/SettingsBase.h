@@ -41,11 +41,11 @@ class SettingsBase : public KXmlGuiWindow
 
 public:
     explicit SettingsBase(QWidget * parent = nullptr);
-    ~SettingsBase();
-    bool queryClose() Q_DECL_OVERRIDE;
+    ~SettingsBase() override;
+    bool queryClose() override;
 
 protected:
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 private Q_SLOTS:
     void initApplication();

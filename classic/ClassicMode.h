@@ -31,27 +31,27 @@ class ClassicMode : public BaseMode
 
 public:
     ClassicMode(QObject * parent, const QVariantList& );
-    ~ClassicMode();
-    void initEvent() Q_DECL_OVERRIDE;
-    void leaveModuleView() Q_DECL_OVERRIDE;
-    QWidget * mainWidget() Q_DECL_OVERRIDE;
-    KAboutData * aboutData() Q_DECL_OVERRIDE;
-    ModuleView * moduleView() const Q_DECL_OVERRIDE;
+    ~ClassicMode() override;
+    void initEvent() override;
+    void leaveModuleView() override;
+    QWidget * mainWidget() override;
+    KAboutData * aboutData() override;
+    ModuleView * moduleView() const override;
 
 protected:
-    QList<QAbstractItemView*> views() const Q_DECL_OVERRIDE;
-    bool eventFilter(QObject* watched, QEvent* event) Q_DECL_OVERRIDE;
+    QList<QAbstractItemView*> views() const override;
+    bool eventFilter(QObject* watched, QEvent* event) override;
 
 public Q_SLOTS:
     void expandColumns();
-    void searchChanged( const QString& text ) Q_DECL_OVERRIDE;
+    void searchChanged( const QString& text ) override;
     void selectModule( const QModelIndex& selectedModule );
     void changeModule( const QModelIndex& activeModule );
-    void saveState() Q_DECL_OVERRIDE;
-    void giveFocus() Q_DECL_OVERRIDE;
-    void addConfiguration( KConfigDialog * config ) Q_DECL_OVERRIDE;
-    void loadConfiguration() Q_DECL_OVERRIDE;
-    void saveConfiguration() Q_DECL_OVERRIDE;
+    void saveState() override;
+    void giveFocus() override;
+    void addConfiguration( KConfigDialog * config ) override;
+    void loadConfiguration() override;
+    void saveConfiguration() override;
 
 private Q_SLOTS:
     void moduleLoaded();

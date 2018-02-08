@@ -55,7 +55,7 @@ public:
     * Normal destructor that handles cleanup. Any objects created through BaseData must be assumed
     * to be invalid afterwards.
     */
-    ~BaseData();
+    ~BaseData() override;
 
     /**
     * Provides the shared MenuItem which lists all categories and modules, for use with MenuModel.
