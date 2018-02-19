@@ -128,8 +128,8 @@ Kirigami.ScrollablePage {
         section {
             property: "categoryDisplayRole"
             delegate: Kirigami.AbstractListItem {
-                enabled: false
                 separatorVisible: false
+                supportsMouseEvents: false
                 RowLayout {
                     anchors {
                         left: parent.left

@@ -46,7 +46,6 @@ Kirigami.ScrollablePage {
 
                 RowLayout {
                     anchors.fill: parent
-                    opacity: 0.3
 
                     Kirigami.Icon {
                         id: toolButtonIcon
