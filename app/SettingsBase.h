@@ -27,6 +27,7 @@
 
 #include <QMap>
 #include <QStackedWidget>
+#include <QButtonGroup>
 
 #include <KService>
 #include <KLineEdit>
