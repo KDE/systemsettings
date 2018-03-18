@@ -52,6 +52,8 @@ ecm_find_qmlmodule(org.kde.kcm 1.0)
 
 find_package(KF5Kirigami2 2.1 REQUIRED)
 
+find_package(LibKWorkspace ${PROJECT_VERSION} REQUIRED)
+
 add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)

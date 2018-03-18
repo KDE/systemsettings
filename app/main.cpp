@@ -25,6 +25,8 @@
 #include <KAboutData>
 #include <KCrash>
 
+#include <kworkspace.h>
+
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
 
@@ -33,6 +35,8 @@ int main( int argc, char *argv[] )
     //exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
     //which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(QStringLiteral("systemsettings"));
+
+    KWorkSpace::detectPlatform(argc, argv);
     SystemSettingsApp application(argc, argv);
     KCrash::initialize();
 

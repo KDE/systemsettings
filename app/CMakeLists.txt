@@ -30,6 +30,7 @@ target_link_libraries( systemsettings5 systemsettingsview
     KF5::XmlGui
     KF5::DBusAddons
     KF5::ConfigGui
+    PW::KWorkspace
 )
 
 install( TARGETS systemsettings5 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
