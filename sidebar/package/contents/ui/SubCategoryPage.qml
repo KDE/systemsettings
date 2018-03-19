@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     header: MouseArea {
         width: subCategoryColumn.width
-        height: Kirigami.Units.gridUnit * 2.5
+        height: Math.round(Kirigami.Units.gridUnit * 2.5)
         enabled: !applicationWindow().wideScreen
         onClicked: root.pageStack.currentIndex = 0;
         Accessible.role: Accessible.Button

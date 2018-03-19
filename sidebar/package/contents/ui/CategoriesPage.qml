@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
     header: Rectangle {
         color: Kirigami.Theme.backgroundColor
         width: mainColumn.width
-        height: Kirigami.Units.gridUnit * 2.5
+        height: Math.round(Kirigami.Units.gridUnit * 2.5)
         RowLayout {
             id: searchLayout
             spacing: Kirigami.Units.smallSpacing
