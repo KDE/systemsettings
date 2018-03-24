@@ -22,8 +22,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2017-01-24</date>
-<releaseinfo>Plasma 5.9</releaseinfo>
+<date>2018-03-23</date>
+<releaseinfo>Plasma 5.12</releaseinfo>
 
 <abstract>
 <para>
@@ -184,7 +184,7 @@ Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
 Shortcuts (Standard Shortcuts, Global Shortcuts, Web Shortcuts, Custom Shortcuts)
 </para></listitem>
 <listitem><para>
-Startup and Shutdown (Login Screen (SDDM), Autostart, Background Services, Desktop Session, System Splash)
+Startup and Shutdown (Login Screen (SDDM), Autostart, Background Services, Desktop Session, Boot Splash)
 </para></listitem>
 <listitem><para>
 Search (Plasma Search, File Search)
@@ -204,7 +204,7 @@ Account Details (KDE Wallet, User Manager)
 Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
 </para></listitem>
 <listitem><para>
-Notifications (Notifications, Other Notifications)
+Notifications
 </para></listitem>
 <listitem><para>
 Applications (Default Applications, File Associations, Locations, Launch Feedback)
@@ -292,13 +292,22 @@ Click on the <guibutton>Close</guibutton> button located in the toolbar.
 
 <para>
 The <guiicon>Configure</guiicon> icon in the toolbar allows you to change some &systemsettings; parameters.
-You can change from <guilabel>Icon View</guilabel> (default view) to <guilabel>Classic Tree View</guilabel>.
+You can change from <guilabel>Icon View</guilabel> (default view) to <guilabel>Classic Tree View</guilabel>
+or <guilabel>Sidebar View</guilabel>.
+In <guilabel>Sidebar View</guilabel> mode the welcome page shows the frequently used modules
+for quick access.
 </para>
 
 <para>
 You can also turn off the detailed tooltips by unchecking <guilabel>Show detailed tooltips</guilabel>. 
 You will then get only normal tooltips and not the content of a module group.
 </para>
+
+<para>
+The <guilabel>Tree View</guilabel> has an option to expand the first level automatically
+on startup of the &systemsettings;.
+</para>
+
 </sect1>
 
 <sect1 id="run-modules-individually">
