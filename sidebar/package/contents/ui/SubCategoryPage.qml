@@ -20,69 +20,60 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0 as QtControls
 import QtQuick.Controls 2.0 as QtControls2
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.3 as Kirigami
 
 
 Kirigami.ScrollablePage {
     id: subCategoryColumn
-    header: MouseArea {
+    header: Rectangle {
+        id: headerRect
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+        color: Kirigami.Theme.backgroundColor
         width: subCategoryColumn.width
         height: Kirigami.Units.gridUnit * 2.5
-        enabled: !applicationWindow().wideScreen
-        onClicked: root.pageStack.currentIndex = 0;
-        Accessible.role: Accessible.Button
-        Accessible.name: i18n("Back")
 
-        Item {
+        MouseArea {
             id: headerControls
-
+            Kirigami.Theme.colorSet: Kirigami.Theme.Button
+            Kirigami.Theme.inherit: false
             anchors.fill: parent
+            enabled: !applicationWindow().wideScreen
+            hoverEnabled: true
+            onEntered: headerRect.color = Kirigami.Theme.hoverColor
+            onPressed: headerRect.color = Kirigami.Theme.visitedLinkColor
+            onClicked: root.pageStack.currentIndex = 0
+            onExited: headerRect.color = Kirigami.Theme.backgroundColor
+            Accessible.role: Accessible.Button
+            Accessible.name: i18n("Back")
 
-            QtControls.ToolButton {
-                id: backButton
+            RowLayout {
                 anchors.fill: parent
-                visible: !applicationWindow().wideScreen
-                onClicked: root.pageStack.currentIndex = 0;
+                anchors.leftMargin: Kirigami.Units.largeSpacing
 
-                RowLayout {
-                    anchors.fill: parent
+                Kirigami.Icon {
+                    id: toolButtonIcon
+                    visible: !applicationWindow().wideScreen
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.small
+                    Layout.preferredWidth: Layout.preferredHeight
 
-                    Kirigami.Icon {
-                        id: toolButtonIcon
-                        Layout.alignment: Qt.AlignVCenter
-                        Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                        Layout.preferredWidth: Layout.preferredHeight
-
-                        source: LayoutMirroring.enabled ? "go-next" : "go-previous"
-                    }
-
-                    QtControls2.Label {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        height: toolButtonIcon.height
-                        text: subCategoryColumn.title
-                        verticalAlignment: Text.AlignVCenter
-                        elide: Text.ElideRight
-                        //FIXME: QtControls bug, why?
-                        Component.onCompleted: font.bold = true
-                    }
+                    source: LayoutMirroring.enabled ? "go-next" : "go-previous"
                 }
-            }
-            QtControls2.Label {
-                anchors.verticalCenter: parent.verticalCenter
-                x: y
 
-                text: subCategoryColumn.title
-                elide: Text.ElideRight
-                visible: !backButton.visible
-                opacity: 0.3
-                //FIXME: QtControls bug, why?
-                Component.onCompleted: font.bold = true
+                QtControls2.Label {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    height: toolButtonIcon.height
+                    text: subCategoryColumn.title
+                    verticalAlignment: Text.AlignVCenter
+                    elide: Text.ElideRight
+                    font.weight: Font.Bold
+                }
             }
         }
         Kirigami.Separator {
-            visible: !subCategoryView.atYBeginning
             anchors {
                 left: parent.left
                 right: parent.right
