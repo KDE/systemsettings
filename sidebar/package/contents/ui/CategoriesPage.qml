@@ -141,8 +141,7 @@ Kirigami.ScrollablePage {
                         text: section
                         Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
                         elide: Text.ElideRight
-                        //FIXME: kirigami bug, why?
-                        Component.onCompleted: font.bold = true
+                        font.weight: Font.Bold
                     }
                 }
             }
