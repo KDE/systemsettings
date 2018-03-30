@@ -84,7 +84,6 @@ Kirigami.ScrollablePage {
             }
         }
         Kirigami.Separator {
-            visible: !categoryView.atYBeginning
             anchors {
                 left: parent.left
                 right: parent.right
