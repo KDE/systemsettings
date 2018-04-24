@@ -26,6 +26,7 @@
 #include <KCrash>
 
 #include <kworkspace.h>
+#include <KQuickAddons/QtQuickSettings>
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
@@ -37,6 +38,7 @@ int main( int argc, char *argv[] )
     QCoreApplication::setApplicationName(QStringLiteral("systemsettings"));
 
     KWorkSpace::detectPlatform(argc, argv);
+    KQuickAddons::QtQuickSettings::init();
     SystemSettingsApp application(argc, argv);
     KCrash::initialize();
 
