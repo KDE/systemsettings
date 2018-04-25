@@ -5,3 +5,8 @@ X-KDE-Weight=100
 Enabled=false
 
 Name=Hidden
+Name[ca]=Ocult
+Name[pt]=Escondido
+Name[uk]=Приховане
+Name[x-test]=xxHiddenxx
+Name[zh_TW]=隱藏的
