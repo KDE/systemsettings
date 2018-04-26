@@ -27,6 +27,7 @@
 #include <QKeyEvent>
 #include <QWhatsThis>
 #include <QScrollArea>
+#include <QStyle>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLoggingCategory>
