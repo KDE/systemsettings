@@ -6,11 +6,13 @@ Enabled=false
 
 Name=Hidden
 Name[ca]=Ocult
+Name[ca@valencia]=Ocult
 Name[en_GB]=Hidden
 Name[gl]=Agochado
 Name[nl]=Verborgen
 Name[pl]=Ukryte
 Name[pt]=Escondido
+Name[sv]=Dold
 Name[uk]=Приховане
 Name[x-test]=xxHiddenxx
 Name[zh_CN]=隐藏
