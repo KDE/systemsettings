@@ -78,9 +78,12 @@ SettingsBase::~SettingsBase()
 
 QSize SettingsBase::sizeHint() const
 {
-    qreal factor = qBound(1., QGuiApplication::primaryScreen()->physicalDotsPerInch()/96., 3.);
 
-    return QSize(720*factor, 600*factor);
+    // on smaller or portrait-rotated screens, do not max out height and/or width
+    const QSize screenSize = (QGuiApplication::primaryScreen()->availableSize()*0.9);
+    const QSize targetSize = QSize(1024, 700);
+    return targetSize.boundedTo(screenSize);
+
 }
 
 void SettingsBase::initApplication()
@@ -124,6 +127,9 @@ void SettingsBase::initApplication()
     searchText->completionObject()->setIgnoreCase( true );
     searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
     changePlugin();
+
+    // enforce minimum window size
+    setMinimumSize(SettingsBase::sizeHint());
     activateWindow();
 }
 
@@ -156,7 +162,6 @@ void SettingsBase::initToolBar()
 
     // Toolbar & Configuration
     helpActionMenu->setMenu( dynamic_cast<QMenu*>( factory()->container(QStringLiteral("help"), this) ) );
-    setMinimumSize(620,430);
     toolBar()->setMovable(false); // We don't allow any changes
     changeToolBar( BaseMode::Search | BaseMode::Configure );
 }
