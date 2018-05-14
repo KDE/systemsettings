@@ -151,7 +151,6 @@ Kirigami.ScrollablePage {
             icon: model.decoration
             label: model.display
             separatorVisible: false
-            highlighted: focus
             Accessible.role: Accessible.ListItem
             Accessible.name: model.display
             onClicked: {
@@ -174,7 +173,7 @@ Kirigami.ScrollablePage {
                     onCurrentIndexChanged: categoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
-            checked: systemsettings.activeCategory == index
+            highlighted: systemsettings.activeCategory == index
         }
     }
 }

@@ -413,10 +413,12 @@ int SidebarMode::activeCategory() const
 void SidebarMode::setActiveCategory(int cat)
 {
     const QModelIndex idx = d->searchModel->index(cat, 0);
-    d->activeCategoryIndex = idx;
     const int newCategoryRow = d->searchModel->mapToSource(idx).row();
 
-    if (d->activeCategory ==newCategoryRow) {
+    if (d->activeCategory == newCategoryRow) {
+        return;
+    }
+    if( !d->moduleView->resolveChanges() ) {
         return;
     }
 
@@ -437,6 +439,10 @@ int SidebarMode::activeSubCategory() const
 void SidebarMode::setActiveSubCategory(int cat)
 {
     if (d->activeSubCategory == cat) {
+        return;
+    }
+
+    if( !d->moduleView->resolveChanges() ) {
         return;
     }
 

@@ -118,17 +118,13 @@ Kirigami.ScrollablePage {
             icon: model.decoration
             label: model.display
             separatorVisible: false
-            highlighted: focus
             onClicked: systemsettings.activeSubCategory = index
             onFocusChanged: {
                 if (focus) {
                     onCurrentIndexChanged: subCategoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
-            checked: systemsettings.activeSubCategory == index
-            //checkable: false
-            //FIXME: Qt 5.7 doesn't have checkable, this way fails at runtime but still works correctly on 5.7
-            Component.onCompleted: delegate.checkable = true;
+            highlighted: systemsettings.activeSubCategory == index
         }
     }
 }
