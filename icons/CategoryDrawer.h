@@ -30,7 +30,7 @@ class CategoryDrawer : public KCategoryDrawer
 {
     Q_OBJECT
 public:
-    CategoryDrawer(KCategorizedView *view);
+    explicit CategoryDrawer(KCategorizedView *view);
 
     void drawCategory(const QModelIndex &index,
                               int sortRole,

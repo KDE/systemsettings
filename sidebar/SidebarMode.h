@@ -33,7 +33,7 @@ class QAction;
 class FocusHackWidget : public QWidget {
     Q_OBJECT
 public:
-    FocusHackWidget(QWidget *parent = nullptr);
+    explicit FocusHackWidget(QWidget *parent = nullptr);
     ~FocusHackWidget() override;
 
 public Q_SLOTS:

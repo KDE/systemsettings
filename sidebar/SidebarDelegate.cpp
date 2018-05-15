@@ -85,6 +85,7 @@ void SidebarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
 QBrush SidebarDelegate::foregroundBrush(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     QPalette::ColorGroup cg = QPalette::Active;
     if (!(option.state & QStyle::State_Enabled)) {
         cg = QPalette::Disabled;

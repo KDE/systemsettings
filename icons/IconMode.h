@@ -32,7 +32,7 @@ class IconMode : public BaseMode
     Q_OBJECT
 
 public:
-    IconMode(QObject * parent, const QVariantList& );
+    explicit IconMode(QObject * parent, const QVariantList& );
     ~IconMode() override;
     QWidget * mainWidget() override;
     void initEvent() override;

@@ -41,7 +41,6 @@ void CategoryDrawer::drawCategory(const QModelIndex &index,
 
     painter->setRenderHint(QPainter::Antialiasing);
 
-    const QRect optRect = option.rect;
     QFont font(QApplication::font());
     font.setBold(true);
     const QFontMetrics fontMetrics = QFontMetrics(font);

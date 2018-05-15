@@ -60,7 +60,7 @@ public:
     /**
      * Destroys the module view, along with all modules loaded, and any changes present in them.
      *
-     * @warning The user will not be prompted to save changes if any exist.\n
+     * @warning The user will not be prompted to save changes if any exist.
      */
     ~ModuleView() override;
 
