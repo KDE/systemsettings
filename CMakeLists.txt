@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(PROJECT_VERSION "5.12.90")
+set(PROJECT_VERSION "5.13.0")
 
 project(systemsettings VERSION ${PROJECT_VERSION})
 set(QT_MIN_VERSION "5.9.0")
