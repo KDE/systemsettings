@@ -61,8 +61,6 @@ int main( int argc, char *argv[] )
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     QCommandLineParser parser;
-    parser.addHelpOption();
-    parser.addVersionOption();
     aboutData.setupCommandLine(&parser);
     parser.process(application);
     aboutData.processCommandLine(&parser);
