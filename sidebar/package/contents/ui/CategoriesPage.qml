@@ -50,7 +50,7 @@ Kirigami.ScrollablePage {
                     actions: ["configure", "help_contents", "help_about_app", "help_about_kde"]
                 }
             }
-            QtControls.TextField {
+            QtControls2.TextField {
                 id: searchField
                 focus: true
                 Layout.minimumHeight: Layout.maximumHeight
