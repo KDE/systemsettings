@@ -192,6 +192,7 @@ void SettingsBase::initConfig()
         viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }
     configWidget.GbViewStyle->setLayout( configLayout );
+    configWidget.GbViewStyle->setVisible( possibleViews.count() > 1 );
     KWindowConfig::restoreWindowSize(configDialog->windowHandle(), KSharedConfig::openConfig()->group("ConfigDialog"));
     connect(configDialog, &KConfigDialog::accepted, this, &SettingsBase::configUpdated);
 }
