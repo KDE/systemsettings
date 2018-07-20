@@ -174,6 +174,8 @@ Kirigami.ScrollablePage {
                 }
             }
             highlighted: systemsettings.activeCategory == index
+            Keys.onEnterPressed: clicked();
+            Keys.onReturnPressed: clicked();
         }
     }
 }
