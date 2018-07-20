@@ -185,6 +185,8 @@ public:
             KService::Ptr service = KService::serviceByStorageId(desktopName);
 
             if (!service || !service->isValid()) {
+                qWarning()<<desktopName;
+                m_resultModel->forgetResource(QStringLiteral("kcm:") % desktopName);
                 return QVariant();
             }
             mi->setService(service);
