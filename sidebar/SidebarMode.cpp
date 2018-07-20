@@ -481,6 +481,12 @@ void SidebarMode::initWidget()
 
     d->quickWidget->setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 
+    if (!d->quickWidget->rootObject()) {
+        for (const auto &err : d->quickWidget->errors()) {
+            qWarning() << err.toString();
+        }
+        qFatal("Fatal error while loading the sidebar view qml component");
+    }
     const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
     if (rootImplicitWidth != 0) {
         d->quickWidget->setFixedWidth(rootImplicitWidth);
