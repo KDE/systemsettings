@@ -29,7 +29,15 @@ Kirigami.ScrollablePage {
         id: headerRect
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         Kirigami.Theme.inherit: false
-        color: Kirigami.Theme.backgroundColor
+        color: {
+            if (headerControls.pressed) {
+                return Kirigami.Theme.visitedLinkColor;
+            } else if (headerControls.containsMouse) {
+                return Kirigami.Theme.hoverColor;
+            } else {
+                return Kirigami.Theme.backgroundColor;
+            }
+        }
         width: subCategoryColumn.width
         height: Math.round(Kirigami.Units.gridUnit * 2.5)
 
@@ -40,10 +48,7 @@ Kirigami.ScrollablePage {
             anchors.fill: parent
             enabled: !applicationWindow().wideScreen
             hoverEnabled: true
-            onEntered: headerRect.color = Kirigami.Theme.hoverColor
-            onPressed: headerRect.color = Kirigami.Theme.visitedLinkColor
             onClicked: root.pageStack.currentIndex = 0
-            onExited: headerRect.color = Kirigami.Theme.backgroundColor
             Accessible.role: Accessible.Button
             Accessible.name: i18n("Back")
 
