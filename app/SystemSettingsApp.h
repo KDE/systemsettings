@@ -43,7 +43,7 @@ public Q_SLOTS:
    Q_SCRIPTABLE void quit();
 
 private:
-   SettingsBase * window = nullptr;
+   QPointer<SettingsBase> window;
 };
 
 #endif
