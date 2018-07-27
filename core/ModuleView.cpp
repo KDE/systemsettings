@@ -30,6 +30,7 @@
 #include <QStyle>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QToolButton>
 #include <QLoggingCategory>
 #include <QDialogButtonBox>
 
@@ -175,13 +176,19 @@ void ModuleView::addModule( KCModuleInfo *module )
     }
 
     // Create the scroller
+    QWidget *mainWidget = new QWidget( this );
+    QVBoxLayout *layout = new QVBoxLayout( mainWidget );
+    QHBoxLayout *titleLayout = new QHBoxLayout;
+    titleLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    layout->addLayout(titleLayout);
     QScrollArea * moduleScroll = new QScrollArea( this );
+    layout->addWidget(moduleScroll);
     // Prepare the scroll area
     moduleScroll->setWidgetResizable( true );
     moduleScroll->setFrameStyle( QFrame::NoFrame );
     moduleScroll->viewport()->setAutoFillBackground( false );
     // Create the page
-    KPageWidgetItem *page = new KPageWidgetItem( moduleScroll, module->moduleName() );
+    KPageWidgetItem *page = new KPageWidgetItem( mainWidget, module->moduleName() );
     // Provide information to the users
 
     if( module->service()->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) ||  // Is it an external app?
@@ -194,6 +201,40 @@ void ModuleView::addModule( KCModuleInfo *module )
         moduleProxy->setAutoFillBackground( false );
         connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
         d->mPages.insert( page, moduleProxy );
+
+        for (const auto &title : moduleProxy->realModule()->levelTitles()) {
+            QToolButton *crumbPart = new QToolButton(mainWidget);
+            crumbPart->setText(title);
+            crumbPart->setArrowType(Qt::RightArrow);
+            crumbPart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+            crumbPart->setAutoRaise(true);
+            QFont font = crumbPart->font();
+            font.setPointSize(14);
+            crumbPart->setFont(font);
+            titleLayout->insertWidget(titleLayout->count() - 1, crumbPart);
+            connect(crumbPart, &QToolButton::clicked, this, [this, moduleProxy]() {
+                moduleProxy->realModule()->setCurrentLevel(0);
+            });
+        }
+        connect(moduleProxy->realModule(), &KCModule::levelPushed, this,
+            [this, mainWidget, titleLayout](const QString &title) {
+                QToolButton *crumbPart = new QToolButton(mainWidget);
+                crumbPart->setText(title);
+                crumbPart->setArrowType(Qt::RightArrow);
+                crumbPart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+                crumbPart->setAutoRaise(true);
+                QFont font = crumbPart->font();
+                font.setPointSize(14);
+                crumbPart->setFont(font);
+                //crumbPart->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
+                titleLayout->insertWidget(titleLayout->count() - 1, crumbPart);
+            }
+        );
+        connect(moduleProxy->realModule(), &KCModule::levelRemoved, this,
+            [this, titleLayout]() {
+                titleLayout->itemAt(titleLayout->count() - 1)->widget()->deleteLater();
+            }
+        );
     }
 
     d->mModules.insert( page, module );
@@ -203,7 +244,9 @@ void ModuleView::addModule( KCModuleInfo *module )
 }
 
 void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
-{
+{page->setHeader(QString());
+    page->setName(QString());
+    return;
     if( !page ) {
         // Page is invalid. Probably means we have a race condition during closure of everyone so do nothing
         return;
