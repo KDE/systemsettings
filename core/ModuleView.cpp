@@ -33,6 +33,7 @@
 #include <QToolButton>
 #include <QLoggingCategory>
 #include <QDialogButtonBox>
+#include <QGraphicsOpacityEffect>
 
 #include <KPageWidget>
 #include <KAuthorized>
@@ -202,37 +203,40 @@ void ModuleView::addModule( KCModuleInfo *module )
         connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
         d->mPages.insert( page, moduleProxy );
 
-        for (const auto &title : moduleProxy->realModule()->levelTitles()) {
+        const auto createBreadCrumb = [this, mainWidget, moduleProxy, titleLayout](const QString &title) {
             QToolButton *crumbPart = new QToolButton(mainWidget);
             crumbPart->setText(title);
             crumbPart->setArrowType(Qt::RightArrow);
             crumbPart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
             crumbPart->setAutoRaise(true);
+            crumbPart->setGraphicsEffect(new QGraphicsOpacityEffect(crumbPart));
             QFont font = crumbPart->font();
             font.setPointSize(14);
             crumbPart->setFont(font);
-            titleLayout->insertWidget(titleLayout->count() - 1, crumbPart);
-            connect(crumbPart, &QToolButton::clicked, this, [this, moduleProxy]() {
-                moduleProxy->realModule()->setCurrentLevel(0);
+            const int level = titleLayout->count() - 1;
+            titleLayout->insertWidget(level, crumbPart);
+            connect(crumbPart, &QToolButton::clicked, this, [this, moduleProxy, level]() {
+                moduleProxy->realModule()->setCurrentLevel(level);
             });
+            connect(moduleProxy->realModule(), &KCModule::currentLevelChanged, this, [this, crumbPart, level](int newLevel) {
+                if (level == newLevel) {
+                    //1.0 doesn't work on old Qt releases, see https://bugreports.qt.io/browse/QTBUG-66803
+                    static_cast<QGraphicsOpacityEffect *>(crumbPart->graphicsEffect())->setOpacity(0.99);
+                } else {
+                    static_cast<QGraphicsOpacityEffect *>(crumbPart->graphicsEffect())->setOpacity(0.6);
+                }
+            });
+            static_cast<QGraphicsOpacityEffect *>(crumbPart->graphicsEffect())->setOpacity(0.99);
+        };
+
+        for (const auto &title : moduleProxy->realModule()->levelTitles()) {
+            createBreadCrumb(title);
         }
-        connect(moduleProxy->realModule(), &KCModule::levelPushed, this,
-            [this, mainWidget, titleLayout](const QString &title) {
-                QToolButton *crumbPart = new QToolButton(mainWidget);
-                crumbPart->setText(title);
-                crumbPart->setArrowType(Qt::RightArrow);
-                crumbPart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-                crumbPart->setAutoRaise(true);
-                QFont font = crumbPart->font();
-                font.setPointSize(14);
-                crumbPart->setFont(font);
-                //crumbPart->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
-                titleLayout->insertWidget(titleLayout->count() - 1, crumbPart);
-            }
-        );
+        connect(moduleProxy->realModule(), &KCModule::levelPushed,
+                this, createBreadCrumb);
         connect(moduleProxy->realModule(), &KCModule::levelRemoved, this,
             [this, titleLayout]() {
-                titleLayout->itemAt(titleLayout->count() - 1)->widget()->deleteLater();
+                titleLayout->itemAt(titleLayout->count() - 2)->widget()->deleteLater();
             }
         );
     }
