@@ -34,6 +34,7 @@
 #include <QLoggingCategory>
 #include <QDialogButtonBox>
 #include <QGraphicsOpacityEffect>
+#include <QStylePainter>
 
 #include <KPageWidget>
 #include <KAuthorized>
@@ -49,6 +50,60 @@
 #include <KActivities/ResourceInstance>
 
 #include "MenuItem.h"
+
+class BreadcrumbButton : public QToolButton {
+    Q_OBJECT
+public:
+    BreadcrumbButton(QWidget *parent = 0)
+        : QToolButton(parent)
+    {
+        QFont font = QToolButton::font();
+        font.setPointSize(14);
+        setFont(font);
+        setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        setAutoRaise(true);
+        setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        setGraphicsEffect(new QGraphicsOpacityEffect(this));
+    }
+
+    void setLevel(uint level)
+    {
+        m_level = level;
+        if (level > 0) {
+            setArrowType(Qt::RightArrow);
+        } else {
+            setArrowType(Qt::NoArrow);
+        }
+    }
+
+    void setCurrent(bool current)
+    {
+        if (current) {
+            //1.0 doesn't work on old Qt releases, see https://bugreports.qt.io/browse/QTBUG-66803
+            static_cast<QGraphicsOpacityEffect *>(graphicsEffect())->setOpacity(0.99);
+        } else {
+            static_cast<QGraphicsOpacityEffect *>(graphicsEffect())->setOpacity(0.6);
+        }
+    }
+
+    void paintEvent(QPaintEvent *)
+    {
+        QStylePainter p(this);
+        QStyleOptionToolButton opt;
+        initStyleOption(&opt);
+        opt.palette.setColor(QPalette::WindowText, opt.palette.color(QPalette::Normal, QPalette::WindowText));
+        p.drawComplexControl(QStyle::CC_ToolButton, opt);
+    }
+
+    QSize sizeHint() const
+    {
+        QFontMetrics fm(font());
+        return QSize(fm.tightBoundingRect(text()).width() + (m_level > 0 ? KIconLoader::SizeSmall : 0), QToolButton::sizeHint().height());
+    }
+
+private:
+    uint m_level = 0;
+};
 
 class ModuleView::Private {
 public:
@@ -181,7 +236,9 @@ void ModuleView::addModule( KCModuleInfo *module )
     QVBoxLayout *layout = new QVBoxLayout( mainWidget );
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum));
+    titleLayout->setSpacing(0);
     layout->addLayout(titleLayout);
+
     QScrollArea * moduleScroll = new QScrollArea( this );
     layout->addWidget(moduleScroll);
     // Prepare the scroll area
@@ -204,27 +261,23 @@ void ModuleView::addModule( KCModuleInfo *module )
         d->mPages.insert( page, moduleProxy );
 
         const auto createBreadCrumb = [this, mainWidget, moduleProxy, titleLayout](const QString &title) {
-            QToolButton *crumbPart = new QToolButton(mainWidget);
+            BreadcrumbButton *crumbPart = new BreadcrumbButton(mainWidget);
             crumbPart->setText(title);
-            crumbPart->setArrowType(Qt::RightArrow);
-            crumbPart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-            crumbPart->setAutoRaise(true);
-            crumbPart->setGraphicsEffect(new QGraphicsOpacityEffect(crumbPart));
-            QFont font = crumbPart->font();
-            font.setPointSize(14);
-            crumbPart->setFont(font);
+
             const int level = titleLayout->count() - 1;
+            crumbPart->setLevel(level);
             titleLayout->insertWidget(level, crumbPart);
+            if (titleLayout->count() == 2) {
+                crumbPart->setEnabled(false);
+            } else {
+                titleLayout->itemAt(0)->widget()->setEnabled(true);
+            }
             connect(crumbPart, &QToolButton::clicked, this, [this, moduleProxy, level]() {
                 moduleProxy->realModule()->setCurrentLevel(level);
             });
-            connect(moduleProxy->realModule(), &KCModule::currentLevelChanged, this, [this, crumbPart, level](int newLevel) {
-                if (level == newLevel) {
-                    //1.0 doesn't work on old Qt releases, see https://bugreports.qt.io/browse/QTBUG-66803
-                    static_cast<QGraphicsOpacityEffect *>(crumbPart->graphicsEffect())->setOpacity(0.99);
-                } else {
-                    static_cast<QGraphicsOpacityEffect *>(crumbPart->graphicsEffect())->setOpacity(0.6);
-                }
+            //connected to crumbPart so the connection goes away at its deletion
+            connect(moduleProxy->realModule(), &KCModule::currentLevelChanged, crumbPart, [this, crumbPart, level](int newLevel) {
+                crumbPart->setCurrent(level == newLevel);
             });
             static_cast<QGraphicsOpacityEffect *>(crumbPart->graphicsEffect())->setOpacity(0.99);
         };
@@ -232,10 +285,14 @@ void ModuleView::addModule( KCModuleInfo *module )
         for (const auto &title : moduleProxy->realModule()->levelTitles()) {
             createBreadCrumb(title);
         }
+
         connect(moduleProxy->realModule(), &KCModule::levelPushed,
                 this, createBreadCrumb);
         connect(moduleProxy->realModule(), &KCModule::levelRemoved, this,
             [this, titleLayout]() {
+                if (titleLayout->count() == 3) {
+                    titleLayout->itemAt(0)->widget()->setEnabled(false);
+                }
                 titleLayout->itemAt(titleLayout->count() - 2)->widget()->deleteLater();
             }
         );
@@ -484,3 +541,4 @@ KPageView::FaceType ModuleView::faceType() const
     return d->mPageWidget->faceType();
 }
 
+#include "ModuleView.moc"
