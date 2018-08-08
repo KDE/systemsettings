@@ -35,6 +35,7 @@
 #include <QDialogButtonBox>
 #include <QGraphicsOpacityEffect>
 #include <QStylePainter>
+#include <QStyleOptionToolButton>
 
 #include <KPageWidget>
 #include <KAuthorized>
