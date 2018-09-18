@@ -144,7 +144,7 @@ void SettingsBase::initToolBar()
     configureAction->setText( i18n("Configure") );
     // Help after it
     initHelpMenu();
-    configureAction->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
+    configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
 
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new QWidgetAction( this );
