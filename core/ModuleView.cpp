@@ -219,6 +219,10 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
 
     page->setHeader( moduleInfo->comment() );
     page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
+    //HACK: not much other ways to detect is a qml kcm
+    if (moduleProxy->realModule()->inherits("KCModuleQml")) {
+        page->setHeaderVisible(false);
+    }
     if( light ) {
         return;
     }
