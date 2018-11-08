@@ -185,7 +185,7 @@ void ModuleView::addModule( KCModuleInfo *module )
     // Provide information to the users
 
     if( module->service()->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) ||  // Is it an external app?
-            module->service()->substituteUid() ) { // ...or does it require UID substituion?
+            module->service()->substituteUid() ) { // ...or does it require UID substitution?
         QWidget * externalWidget = new ExternalAppModule( this, module );
         moduleScroll->setWidget( externalWidget );
     } else { // It must be a normal module then

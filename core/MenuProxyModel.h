@@ -57,17 +57,17 @@ public:
      * Provides information on whether or not the QModelIndex specified by left is below right.
      *
      * @param left the QModelIndex that is being used for comparing.
-     * @param right the QModelIndex to compare aganist.
+     * @param right the QModelIndex to compare against.
      * @returns true if the left is below the right.
      */
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
 
     /**
-     * Please see the KDE KCategorizedSortFilterProxyModel documentation for futher information.\n
+     * Please see the KDE KCategorizedSortFilterProxyModel documentation for further information.\n
      * Provides information on whether or not the QModelIndex specified by left is below right.
      *
      * @param left the QModelIndex that is being used for comparing.
-     * @param right the QModelIndex to compare aganist.
+     * @param right the QModelIndex to compare against.
      * @returns true if the left is below the right.
      */
     bool subSortLessThan( const QModelIndex &left, const QModelIndex &right ) const override;

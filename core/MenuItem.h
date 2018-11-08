@@ -33,7 +33,7 @@ template<typename T> class QList;
 /**
  * @brief Provides a specific item in the list of modules or categories
  *
- * This provides convienent access to the list of modules, providing information about them
+ * This provides convenient access to the list of modules, providing information about them
  * such as name, module information and its service object.\n
  * This is created automatically by System Settings, and is shared among all plugins and so should not
  * be modified under any circumstances.\n
@@ -118,14 +118,14 @@ public:
     KCModuleInfo& item() const;
 
     /**
-     * Convienence function which provides the name of the current item.
+     * Convenience function which provides the name of the current item.
      *
      * @returns The name of the item, if the service object has been set.
      */
     QString& name() const;
 
     /**
-     * Convienence function which provides the System Settings category of the current item.
+     * Convenience function which provides the System Settings category of the current item.
      *
      * @returns The category of the item, if the service object has been set.
      */

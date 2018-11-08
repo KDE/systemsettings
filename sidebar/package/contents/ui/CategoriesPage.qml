@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
         width: parent.width * 0.7
         wrapMode: Text.WordWrap
         horizontalAlignment: Text.AlignHCenter
-        text: i18nc("A search yelded no results", "No items matching your search")
+        text: i18nc("A search yielded no results", "No items matching your search")
         opacity: categoryView.count == 0 ? 0.3 : 0
         Behavior on opacity {
             OpacityAnimator {

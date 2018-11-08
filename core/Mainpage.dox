@@ -1,6 +1,6 @@
 /** @mainpage System Settings view interface
 
-This provides a standardised interface for views to System Settings, allowing you to provide your own view on the list of modules and categories. In order to simplify this task, a number of convienence classes are available.
+This provides a standardised interface for views to System Settings, allowing you to provide your own view on the list of modules and categories. In order to simplify this task, a number of convenience classes are available.
 
 These classes include:
 - <a href="classBaseMode.html">BaseMode</a> the base view plugin interface.

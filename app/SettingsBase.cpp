@@ -65,7 +65,7 @@ SettingsBase::SettingsBase( QWidget * parent )
 
     spacerWidget = new QWidget( this );
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
-    // Initalise the window so we don't flicker
+    // Initialise the window so we don't flicker
     initToolBar();
     // We can now launch the delayed loading safely
     QTimer::singleShot(0, this, &SettingsBase::initApplication);

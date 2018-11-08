@@ -32,7 +32,7 @@ class KCModuleProxy;
 class KPageWidgetItem;
 
 /**
- * @brief Provides a convienent way to display modules
+ * @brief Provides a convenient way to display modules
  *
  * Provides a standardised interface for displaying multiple modules simultaneously
  * and provides facilities to access the current module, and to load its help, restore

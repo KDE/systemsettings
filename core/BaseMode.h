@@ -51,7 +51,7 @@ class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
     Q_OBJECT
 
     /**
-     * System Settings main application is allowed privilaged access to handle tooltips
+     * System Settings main application is allowed priviledged access to handle tooltips
      */
     friend class SettingsBase;
 
@@ -130,7 +130,7 @@ public:
     /**
      * Used to give focus to the plugin. Plugin should call setFocus() on the appropriate widget
      *
-     * @note Failure to reimplement will cause keyboard accessibiltity and widget focusing problems
+     * @note Failure to reimplement will cause keyboard accessibility and widget focusing problems
      */
     virtual void giveFocus();
 
@@ -160,7 +160,7 @@ public:
     const KService::Ptr& service() const;
 
     /**
-     * tells the config view wether to make use of tooltips or not
+     * tells the config view whether to make use of tooltips or not
      */
     void setShowToolTips( bool show);
 
@@ -191,7 +191,7 @@ public Q_SLOTS:
     virtual void loadConfiguration();
 
     /**
-     * Should be implmented to ensure that views settings are saved when the user confirms their changes
+     * Should be implemented to ensure that views settings are saved when the user confirms their changes
      * Views should also apply the configuration at the same time
      */
     virtual void saveConfiguration();
