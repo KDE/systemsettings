@@ -479,7 +479,8 @@ void SidebarMode::initWidget()
     d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
 
     d->kdeclarative.setDeclarativeEngine(d->quickWidget->engine());
-    d->kdeclarative.setupBindings();
+    d->kdeclarative.setupEngine(d->quickWidget->engine());
+    d->kdeclarative.setupContext();
 
     d->quickWidget->setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 

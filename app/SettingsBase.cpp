@@ -59,7 +59,7 @@ SettingsBase::SettingsBase( QWidget * parent )
     setWindowFlags( windowFlags() | Qt::WindowContextHelpButtonHint );
     // Initialise search
     searchText = new KLineEdit( this );
-    searchText->setClearButtonShown( true );
+    searchText->setClearButtonEnabled( true );
     searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
     searchText->setCompletionMode( KCompletion::CompletionPopup );
 
