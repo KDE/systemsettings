@@ -76,7 +76,9 @@ public:
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
     Q_INVOKABLE QString actionIconName(const QString &name) const;
     Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
+    Q_INVOKABLE void requestSubCategoryToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
+    Q_INVOKABLE void hideSubCategoryToolTip();
     Q_INVOKABLE void loadMostUsed(int index);
 
 protected:

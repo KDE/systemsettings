@@ -235,6 +235,7 @@ public:
     }
 
     ToolTipManager *toolTipManager = nullptr;
+    ToolTipManager *subCategoryToolTipManager = nullptr;
     QQuickWidget * quickWidget = nullptr;
     KPackage::Package package;
     SubcategoryModel * subCategoryModel = nullptr;
@@ -375,9 +376,21 @@ void SidebarMode::requestToolTip(int index, const QRectF &rect)
     }
 }
 
+void SidebarMode::requestSubCategoryToolTip(int index, const QRectF &rect)
+{
+    if (showToolTips()) {
+        d->subCategoryToolTipManager->requestToolTip(d->subCategoryModel->index(index, 0), rect.toRect());
+    }
+}
+
 void SidebarMode::hideToolTip()
 {
     d->toolTipManager->hideToolTip();
+}
+
+void SidebarMode::hideSubCategoryToolTip()
+{
+    d->subCategoryToolTipManager->hideToolTip();
 }
 
 void SidebarMode::loadMostUsed(int index)
@@ -511,6 +524,7 @@ void SidebarMode::initWidget()
     d->quickWidget->installEventFilter(this);
 
     d->toolTipManager = new ToolTipManager(d->searchModel, d->quickWidget);
+    d->subCategoryToolTipManager = new ToolTipManager(d->subCategoryModel, d->quickWidget);
 
     d->placeHolderWidget = new QQuickWidget(d->mainWidget);
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
