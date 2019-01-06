@@ -84,7 +84,7 @@ GenericName[uz]=Tizim moslamalari
 GenericName[uz@cyrillic]=Тизим мосламалари
 GenericName[wa]=Apontiaedjes do sistinme
 GenericName[x-test]=xxSystem Settingsxx
-GenericName[zh_CN]=系统设置
+GenericName[zh_CN]=System Settings,系统设置
 GenericName[zh_TW]=系統設定
 
 Name=System Settings
@@ -169,7 +169,7 @@ Name[uz]=Tizim moslamalari
 Name[uz@cyrillic]=Тизим мосламалари
 Name[wa]=Apontiaedjes do sistinme
 Name[x-test]=xxSystem Settingsxx
-Name[zh_CN]=系统设置
+Name[zh_CN]=System Settings,系统设置
 Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
@@ -206,7 +206,7 @@ Comment[sv]=Inställningsverktyg för datorn
 Comment[tr]=Bilgisayarınız için yapılandırma araçları
 Comment[uk]=Інструменти для налаштовування вашого комп'ютера
 Comment[x-test]=xxConfiguration tools for your computerxx
-Comment[zh_CN]=计算机配置工具
+Comment[zh_CN]=您的计算机的配置工具
 Comment[zh_TW]=提供給您電腦的配置工具
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.systemsettings
