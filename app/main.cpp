@@ -38,8 +38,8 @@ int main( int argc, char *argv[] )
     QCoreApplication::setApplicationName(QStringLiteral("systemsettings"));
 
     KWorkSpace::detectPlatform(argc, argv);
-    KQuickAddons::QtQuickSettings::init();
     SystemSettingsApp application(argc, argv);
+    KQuickAddons::QtQuickSettings::init();
     KCrash::initialize();
 
     KLocalizedString::setApplicationDomain("systemsettings");
