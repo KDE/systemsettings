@@ -61,7 +61,7 @@ private Q_SLOTS:
     void viewChange(bool state);
     void updateViewActions();
     void changeToolBar( BaseMode::ToolBarItems toolbar );
-    void changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, QString fallback );
+    void changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, const QString &fallback );
 
 private:
     // The plugins

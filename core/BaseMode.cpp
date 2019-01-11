@@ -52,7 +52,7 @@ BaseMode::~BaseMode()
     delete d;
 }
 
-void BaseMode::init( const KService::Ptr modeService )
+void BaseMode::init( const KService::Ptr &modeService )
 {
     d->rootItem = BaseData::instance()->menuItem();
     d->service = modeService;

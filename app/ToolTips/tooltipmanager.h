@@ -63,7 +63,7 @@ private Q_SLOTS:
     void requestToolTip(const QModelIndex& index);
 
 private:
-    void showToolTip( QModelIndex menuItem );
+    void showToolTip( const QModelIndex &menuItem );
     QWidget * createTipContent( QModelIndex item );
     QLayout * generateToolTipLine( QModelIndex * item, QWidget * toolTip, QSize iconSize, bool comment );
 

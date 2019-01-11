@@ -404,7 +404,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     toolBar()->setVisible(toolbar != BaseMode::NoItems || (activeView && activeView->actionsList().count() > 0));
 }
 
-void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, QString fallback )
+void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, const QString &fallback )
 {
     if( !menuItem ) {
         return;

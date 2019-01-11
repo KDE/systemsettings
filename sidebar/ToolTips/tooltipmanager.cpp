@@ -124,7 +124,7 @@ void ToolTipManager::prepareToolTip()
     }
 }
 
-void ToolTipManager::showToolTip( QModelIndex menuItem )
+void ToolTipManager::showToolTip( const QModelIndex &menuItem )
 {
     if (QApplication::mouseButtons() & Qt::LeftButton) {
         return;

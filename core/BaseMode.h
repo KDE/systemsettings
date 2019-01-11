@@ -86,7 +86,7 @@ public:
      *
      * @param modeService Plugins service object, used for providing extra information to System Settings.
      */
-    void init( const KService::Ptr modeService );
+    void init( const KService::Ptr &modeService );
 
     /**
      * Prepares the BaseMode for use.\n
