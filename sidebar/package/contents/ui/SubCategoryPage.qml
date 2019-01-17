@@ -122,6 +122,7 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.BasicListItem {
             id: delegate
             icon: model.decoration
+            iconSize: Kirigami.Units.iconSizes.medium
             label: model.display
             separatorVisible: false
             onClicked: systemsettings.activeSubCategory = index
