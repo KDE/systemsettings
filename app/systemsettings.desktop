@@ -84,7 +84,7 @@ GenericName[uz]=Tizim moslamalari
 GenericName[uz@cyrillic]=Тизим мосламалари
 GenericName[wa]=Apontiaedjes do sistinme
 GenericName[x-test]=xxSystem Settingsxx
-GenericName[zh_CN]=System Settings,系统设置
+GenericName[zh_CN]=系统设置
 GenericName[zh_TW]=系統設定
 
 Name=System Settings
@@ -169,7 +169,7 @@ Name[uz]=Tizim moslamalari
 Name[uz@cyrillic]=Тизим мосламалари
 Name[wa]=Apontiaedjes do sistinme
 Name[x-test]=xxSystem Settingsxx
-Name[zh_CN]=System Settings,系统设置
+Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
