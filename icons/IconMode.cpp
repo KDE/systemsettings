@@ -61,7 +61,6 @@ IconMode::IconMode( QObject *parent, const QVariantList& )
                                  KAboutLicense::GPL, i18n( "(c) 2009, Ben Cooksley" ) );
     d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), QStringLiteral("bcooksley@kde.org") );
     d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), QStringLiteral("msoeken@informatik.uni-bremen.de") );
-    d->aboutIcon->setProgramIconName( QStringLiteral("view-list-icons") );
 
     d->backAction = KStandardAction::back( this, SLOT(backToOverview()), this );
     d->backAction->setText( i18n( "All Settings" ) );

@@ -71,7 +71,6 @@ ClassicMode::ClassicMode( QObject * parent, const QVariantList& )
                                      i18n("(c) 2009, Ben Cooksley"));
     d->aboutClassic->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
     d->aboutClassic->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
-    d->aboutClassic->setProgramIconName(QStringLiteral("view-list-tree"));
 }
 
 ClassicMode::~ClassicMode()
@@ -250,7 +249,7 @@ void ClassicMode::addConfiguration( KConfigDialog * config )
 {
     QWidget * configWidget = new QWidget( config );
     d->classicConfig.setupUi( configWidget );
-    config->addPage( configWidget, i18n("Tree View"), aboutData()->programIconName() );
+    config->addPage( configWidget, i18n("Tree View"), QStringLiteral("view-list-tree") );
 }
 
 void ClassicMode::loadConfiguration()

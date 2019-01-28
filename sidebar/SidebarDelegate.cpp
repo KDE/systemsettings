@@ -36,6 +36,7 @@ SidebarDelegate::~SidebarDelegate()
 
 QSize SidebarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     return QSize(option.decorationSize.width() + s_margin * 2, option.decorationSize.height() + s_margin * 2);
 }
 

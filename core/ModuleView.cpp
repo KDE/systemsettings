@@ -129,11 +129,7 @@ const KAboutData * ModuleView::aboutData() const
     if( activeModule ) {
         aboutData = const_cast<KAboutData*>( activeModule->aboutData() );
     }
-    if ( aboutData ) {
-        aboutData->setProgramIconName( activeModule->moduleInfo().service()->icon() );
-        return aboutData;
-    }
-    return nullptr;
+    return aboutData;
 }
 
 void ModuleView::loadModule( const QModelIndex &menuItem )

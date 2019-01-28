@@ -82,7 +82,6 @@ void CategoryList::updatePixmap()
 {
     QString content;
     QString moduleName;
-    KIconLoader * iconL = KIconLoader::global();
     d->itemMap.clear();
 
     const QString templatePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("systemsettings/classic/main.html") );

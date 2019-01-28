@@ -265,7 +265,6 @@ SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
     d->aboutIcon->addAuthor( i18n( "Marco Martin" ), i18n( "Author" ), QStringLiteral("mart@kde.org") );
     d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), QStringLiteral("bcooksley@kde.org") );
     d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), QStringLiteral("msoeken@informatik.uni-bremen.de") );
-    d->aboutIcon->setProgramIconName( QStringLiteral("view-sidetree") );
 
     qmlRegisterType<QAction>();
 }
