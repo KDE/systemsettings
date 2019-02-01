@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
         Kirigami.Theme.inherit: false
         color: {
             if (headerControls.pressed) {
-                return Kirigami.Theme.visitedLinkColor;
+                return Kirigami.Theme.highlightColor;
             } else if (headerControls.containsMouse) {
                 return Kirigami.Theme.hoverColor;
             } else {
@@ -64,6 +64,13 @@ Kirigami.ScrollablePage {
                     Layout.preferredWidth: Layout.preferredHeight
 
                     source: LayoutMirroring.enabled ? "go-next" : "go-previous"
+                    color: {
+                        if (headerControls.pressed) {
+                            return Kirigami.Theme.highlightedTextColor;
+                        } else {
+                            return Kirigami.Theme.textColor;
+                        }
+                    }
                 }
 
                 QtControls2.Label {
@@ -75,6 +82,13 @@ Kirigami.ScrollablePage {
                     verticalAlignment: Text.AlignVCenter
                     elide: Text.ElideRight
                     font.weight: Font.Bold
+                    color: {
+                        if (headerControls.pressed) {
+                            return Kirigami.Theme.highlightedTextColor;
+                        } else {
+                            return Kirigami.Theme.textColor;
+                        }
+                    }
                 }
             }
         }
