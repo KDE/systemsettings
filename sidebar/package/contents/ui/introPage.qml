@@ -44,7 +44,7 @@ Rectangle {
         }
         Kirigami.Icon {
             Layout.alignment: Qt.AlignHCenter
-            source: "systemsettings"
+            source: "preferences-system"
             width: Kirigami.Units.iconSizes.enormous
             height: width
             opacity: 0.3
