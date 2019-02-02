@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=workspacetheme
 X-KDE-System-Settings-Parent-Category=appearance
 X-KDE-Weight=40
-Icon=preferences-desktop-plasma
+Icon=preferences-desktop-plasma-theme
 
 Name=Workspace Theme
 Name[ar]=سمة مساحة العمل
