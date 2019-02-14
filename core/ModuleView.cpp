@@ -213,7 +213,7 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
         return; 
     }
 
-    page->setHeader( moduleInfo->comment() );
+    page->setHeader( moduleInfo->moduleName() );
     page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
     //HACK: not much other ways to detect is a qml kcm
     if ( moduleProxy && moduleProxy->realModule()->inherits("KCModuleQml") ) {
@@ -224,7 +224,7 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
     }
 
     if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
-        page->setHeader( moduleInfo->comment() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>") );
+        page->setHeader( moduleInfo->moduleName() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>") );
         page->setIcon( KDE::icon( moduleInfo->icon(), QStringList() << QStringLiteral("dialog-warning") ) );
     }
 }
