@@ -20,7 +20,7 @@ import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0 as QtControls
 import QtQuick.Controls 2.0 as QtControls2
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.7 as Kirigami
 
 
 Kirigami.ScrollablePage {
@@ -50,7 +50,7 @@ Kirigami.ScrollablePage {
                     actions: ["configure", "help_contents", "help_about_app", "help_about_kde"]
                 }
             }
-            QtControls2.TextField {
+            Kirigami.ActionTextField {
                 id: searchField
                 focus: true
                 Layout.minimumHeight: Layout.maximumHeight
@@ -60,27 +60,13 @@ Kirigami.ScrollablePage {
                 onTextChanged: {
                     systemsettings.categoryModel.filterRegExp = text;
                 }
-                MouseArea {
-                    anchors {
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                        rightMargin: y
+                rightActions: [
+                    Kirigami.Action {
+                        iconName: LayoutMirroring.enabled ? "edit-clear-rtl" : "edit-clear"
+                        visible: searchField.text.length !== 0
+                        onTriggered: searchField.text = ""
                     }
-                    opacity: searchField.text.length > 0 ? 1 : 0
-                    width: Kirigami.Units.iconSizes.small
-                    height: width
-                    onClicked: searchField.text = ""
-                    Kirigami.Icon {
-                        anchors.fill: parent
-                        source: LayoutMirroring.enabled ? "edit-clear-rtl" : "edit-clear"
-                    }
-                    Behavior on opacity {
-                        OpacityAnimator {
-                            duration: Kirigami.Units.longDuration
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
-                }
+                ]
             }
         }
         Kirigami.Separator {
