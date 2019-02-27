@@ -183,7 +183,7 @@ void ClassicMode::initWidget()
     d->classicCategory = new CategoryList( d->classicWidget, d->proxyModel );
 
     d->stackedWidget = new QStackedWidget( d->classicWidget );
-    d->stackedWidget->layout()->setMargin(0);
+    d->stackedWidget->layout()->setContentsMargins(0, 0, 0, 0);
     d->stackedWidget->addWidget( d->classicCategory );
     d->stackedWidget->addWidget( d->moduleView );
 
