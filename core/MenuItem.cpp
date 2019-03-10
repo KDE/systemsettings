@@ -64,7 +64,7 @@ MenuItem::~MenuItem()
 
 void MenuItem::sortChildrenByWeight()
 {
-    qSort( d->children.begin(), d->children.end(), childIsLessThan );
+    std::sort( d->children.begin(), d->children.end(), childIsLessThan );
 }
 
 MenuItem * MenuItem::child( int index )
