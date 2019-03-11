@@ -20,7 +20,7 @@ import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0 as QtControls
 import QtQuick.Controls 2.0 as QtControls2
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.3 as Kirigami
 
 
 Kirigami.ScrollablePage {
@@ -28,6 +28,8 @@ Kirigami.ScrollablePage {
     Component.onCompleted: searchField.forceActiveFocus()
 
     header: Rectangle {
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
         color: Kirigami.Theme.backgroundColor
         width: mainColumn.width
         height: Kirigami.Units.gridUnit * 2.5
