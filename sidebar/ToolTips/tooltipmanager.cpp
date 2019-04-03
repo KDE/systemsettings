@@ -23,7 +23,6 @@
 
 #include <QRect>
 #include <QIcon>
-#include <KIconLoader>
 #include <QLabel>
 #include <QTimer>
 #include <QScrollBar>
