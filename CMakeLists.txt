@@ -50,9 +50,9 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 ecm_find_qmlmodule(org.kde.kcm 1.0)
 
-find_package(KF5Kirigami2 2.1 REQUIRED)
+find_package(KF5Kirigami2 2.1 CONFIG REQUIRED)
 
-find_package(LibKWorkspace ${PROJECT_VERSION} REQUIRED)
+find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
 
 add_subdirectory(core)
 add_subdirectory(app)
