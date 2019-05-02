@@ -18,15 +18,12 @@
 ***************************************************************************/
 
 #include "SidebarMode.h"
-#include "CategoryDrawer.h"
-#include "CategorizedView.h"
 
 #include "MenuItem.h"
 #include "MenuModel.h"
 #include "ModuleView.h"
 #include "MenuProxyModel.h"
 #include "BaseData.h"
-#include "SidebarDelegate.h"
 #include "ToolTips/tooltipmanager.h"
 
 #include <QHBoxLayout>

@@ -1,8 +1,5 @@
 set( sidebar_mode_srcs
      SidebarMode.cpp
-     CategoryDrawer.cpp
-     CategorizedView.cpp
-     SidebarDelegate.cpp
      ToolTips/tooltipmanager.cpp
 ) 
 
