@@ -1,2 +1,2 @@
-org.kde.systemsettings.app systemsettings app
-org.kde.systemsettings.classic systemsettings classic
+org.kde.systemsettings.app systemsettings app IDENTIFIER [SYSTEMSETTINGS_APP_LOG]
+org.kde.systemsettings.classic systemsettings classic IDENTIFIER [SYSTEMSETTINGS_CLASSIC_LOG]
