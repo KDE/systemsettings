@@ -25,7 +25,6 @@
 #include <QQuickItem>
 
 class QLayout;
-class QAbstractItemView;
 
 /**
  * @brief Manages the tooltips for an item view.
