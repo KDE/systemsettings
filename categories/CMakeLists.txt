@@ -3,7 +3,6 @@ install( FILES systemsettingscategory.desktop DESTINATION  ${KDE_INSTALL_KSERVIC
 
 install( FILES 
     settings-appearance.desktop
-    settings-appearance-workspacetheme.desktop
     settings-appearance-applicationstyle.desktop
     settings-appearance-color.desktop
     settings-appearance-font.desktop

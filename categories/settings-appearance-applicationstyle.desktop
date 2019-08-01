@@ -3,8 +3,8 @@ Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=applicationstyle
 X-KDE-System-Settings-Parent-Category=appearance
-X-KDE-Weight=80
 Icon=preferences-desktop-theme-applications
+X-KDE-Weight=30
 
 Name=Application Style
 Name[ar]=نمط التّطبيقات

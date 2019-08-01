@@ -3,7 +3,7 @@ Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=font
 X-KDE-System-Settings-Parent-Category=appearance
-X-KDE-Weight=70
+X-KDE-Weight=40
 Icon=preferences-desktop-font
 
 Name=Fonts
