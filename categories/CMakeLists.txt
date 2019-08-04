@@ -34,6 +34,8 @@ install( FILES
     settings-hardware-powermanagement.desktop
     settings-hardware-removable-storage.desktop
 
+    settings-system-administration.desktop
+
     DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
 
 if (NOT WIN32)
