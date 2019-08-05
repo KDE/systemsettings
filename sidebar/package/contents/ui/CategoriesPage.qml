@@ -116,21 +116,18 @@ Kirigami.ScrollablePage {
         section {
             property: "categoryDisplayRole"
             delegate: Kirigami.AbstractListItem {
-                separatorVisible: false
+                width: categoryView.width
+
+                backgroundColor: Kirigami.Theme.backgroundColor
+                Kirigami.Theme.inherit: false
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+
+                hoverEnabled: false
                 supportsMouseEvents: false
-                RowLayout {
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                        leftMargin: Kirigami.Units.smallSpacing
-                    }
-                    QtControls2.Label {
-                        id: sectionLabel
-                        text: section
-                        Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
-                        elide: Text.ElideRight
-                        font.weight: Font.Bold
-                    }
+
+                Kirigami.Heading {
+                    level: 2
+                    text: section
                 }
             }
         }

@@ -73,15 +73,15 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                QtControls2.Label {
+                Kirigami.Heading {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
+                    level: 2
                     height: toolButtonIcon.height
                     text: subCategoryColumn.title
                     verticalAlignment: Text.AlignVCenter
                     elide: Text.ElideRight
-                    font.weight: Font.Bold
                     color: {
                         if (headerControls.pressed) {
                             return Kirigami.Theme.highlightedTextColor;
