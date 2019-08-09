@@ -19,8 +19,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-
-import org.kde.kirigami 2.8 as Kirigami
+import org.kde.kirigami 2.10 as Kirigami
 
 Kirigami.ScrollablePage {
     id: mainColumn
@@ -112,20 +111,9 @@ Kirigami.ScrollablePage {
         }
         section {
             property: "categoryDisplayRole"
-            delegate: Kirigami.AbstractListItem {
+            delegate: Kirigami.ListSectionHeader {
                 width: categoryView.width
-
-                backgroundColor: Kirigami.Theme.backgroundColor
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-
-                hoverEnabled: false
-                supportsMouseEvents: false
-
-                Kirigami.Heading {
-                    level: 2
-                    text: section
-                }
+                label: section
             }
         }
 

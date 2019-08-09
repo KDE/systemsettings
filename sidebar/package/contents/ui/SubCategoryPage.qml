@@ -76,7 +76,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
-                    level: 2
+                    level: 3
                     height: toolButtonIcon.height
                     text: subCategoryColumn.title
                     verticalAlignment: Text.AlignVCenter
