@@ -173,6 +173,7 @@ Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
+Comment[bg]=Конфигурационни инструменти за вашия компютър
 Comment[ca]=Eines de configuració per a l'ordinador
 Comment[ca@valencia]=Eines de configuració per a l'ordinador
 Comment[cs]=Konfigurační nástroje pro váš počítač

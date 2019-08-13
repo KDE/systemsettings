@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Sidebar View
+Name[bg]=Изглед на странична лента
 Name[ca]=Vista de barra lateral
 Name[ca@valencia]=Vista de barra lateral
 Name[cs]=Pohled na postranní panel
@@ -39,6 +40,7 @@ Name[x-test]=xxSidebar Viewxx
 Name[zh_CN]=侧边栏视图
 Name[zh_TW]=側邊欄檢視
 Comment=Categorized sidebar style
+Comment[bg]=Категоризиран стил на страничната лента
 Comment[ca]=Estil de barra lateral categoritzat
 Comment[ca@valencia]=Estil de barra lateral categoritzat
 Comment[cs]=Styl kategorizovaného postranního panelu

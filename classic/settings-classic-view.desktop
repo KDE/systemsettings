@@ -6,6 +6,7 @@ X-KDE-ServiceTypes=SystemSettingsView
 X-KDE-Library=classic_mode
 X-KDE-Keywords=System Settings
 X-KDE-Keywords[ar]=إعدادات النّظام
+X-KDE-Keywords[bg]=Системни настройки
 X-KDE-Keywords[bs]=Sistemske postavke
 X-KDE-Keywords[ca]=Arranjament del sistema
 X-KDE-Keywords[ca@valencia]=Arranjament del sistema
@@ -62,6 +63,7 @@ X-KDE-Keywords[zh_CN]=System Settings,系统设置
 X-KDE-Keywords[zh_TW]=System Settings
 
 Name=Tree View
+Name[bg]=Дървовиден изглед
 Name[ca]=Vista en arbre
 Name[ca@valencia]=Vista en arbre
 Name[cs]=Stromové zobrazení

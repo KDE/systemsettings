@@ -5,6 +5,7 @@ X-KDE-Weight=100
 Enabled=false
 
 Name=Hidden
+Name[bg]=Скрито
 Name[ca]=Ocult
 Name[ca@valencia]=Ocult
 Name[cs]=Skryté
