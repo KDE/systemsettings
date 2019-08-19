@@ -16,10 +16,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.5
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0 as Controls
-import org.kde.kirigami 2.1 as Kirigami
+
+import org.kde.kirigami 2.5 as Kirigami
 
 Rectangle {
     id: root
@@ -49,7 +50,7 @@ Rectangle {
             height: width
             opacity: 0.3
         }
-        Controls.Label {
+        QQC2.Label {
             Layout.alignment: Qt.AlignHCenter
             text: i18n("System Settings")
         }

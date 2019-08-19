@@ -140,8 +140,7 @@ void SettingsBase::initToolBar()
     quitAction = actionCollection()->addAction( KStandardAction::Quit, QStringLiteral("quit_action"), this, SLOT(close()) );
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, QStringLiteral("configure"), this, SLOT(configShow()) );
-    actionCollection()->setDefaultShortcut(configureAction, QKeySequence(Qt::CTRL + Qt::Key_M));
-    configureAction->setText( i18n("Configure") );
+    configureAction->setText( i18n("Configure...") );
     // Help after it
     initHelpMenu();
     configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));

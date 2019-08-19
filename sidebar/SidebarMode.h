@@ -51,6 +51,7 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(int activeCategory READ activeCategory WRITE setActiveCategory NOTIFY activeCategoryChanged)
     Q_PROPERTY(int activeSubCategory READ activeSubCategory WRITE setActiveSubCategory NOTIFY activeSubCategoryChanged)
     Q_PROPERTY(int width READ width NOTIFY widthChanged)
+    Q_PROPERTY(bool actionMenuVisible READ actionMenuVisible NOTIFY actionMenuVisibleChanged)
 
 public:
     SidebarMode(QObject * parent, const QVariantList& );
@@ -72,6 +73,8 @@ public:
 
     int width() const;
 
+    bool actionMenuVisible() const;
+
     Q_INVOKABLE QAction *action(const QString &name) const;
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
     Q_INVOKABLE QString actionIconName(const QString &name) const;
@@ -80,6 +83,7 @@ public:
     Q_INVOKABLE void hideToolTip();
     Q_INVOKABLE void hideSubCategoryToolTip();
     Q_INVOKABLE void loadMostUsed(int index);
+    Q_INVOKABLE void showActionMenu(const QPoint &position);
 
 protected:
     QList<QAbstractItemView*> views() const override;
@@ -94,6 +98,7 @@ Q_SIGNALS:
     void activeCategoryChanged();
     void activeSubCategoryChanged();
     void widthChanged();
+    void actionMenuVisibleChanged();
 
 private:
     class Private;

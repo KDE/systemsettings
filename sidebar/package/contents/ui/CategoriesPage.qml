@@ -16,12 +16,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.3
+import QtQuick 2.5
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.0 as QtControls
-import QtQuick.Controls 2.0 as QtControls2
-import org.kde.kirigami 2.7 as Kirigami
 
+import org.kde.kirigami 2.8 as Kirigami
 
 Kirigami.ScrollablePage {
     id: mainColumn
@@ -40,35 +39,33 @@ Kirigami.ScrollablePage {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing
             }
-            QtControls.ToolButton {
+
+            QQC2.ToolButton {
                 id: menuButton
-                iconName: "application-menu"
+                icon.name: "application-menu"
+                checkable: true
+                checked: systemsettings.actionMenuVisible
                 Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.maximumHeight: width
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
-                menu: ActionMenu {
-                    actions: ["configure", "help_contents", "help_about_app", "help_about_kde"]
+                onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
+
+                QQC2.ToolTip {
+                    text: i18n("Show menu")
                 }
             }
-            Kirigami.ActionTextField {
+
+            Kirigami.SearchField {
                 id: searchField
                 focus: true
                 Layout.minimumHeight: Layout.maximumHeight
                 Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.fillWidth: true
-                placeholderText: i18n("Search...")
                 onTextChanged: {
                     systemsettings.categoryModel.filterRegExp = text;
                 }
-                rightActions: [
-                    Kirigami.Action {
-                        iconName: LayoutMirroring.enabled ? "edit-clear-rtl" : "edit-clear"
-                        visible: searchField.text.length !== 0
-                        onTriggered: searchField.text = ""
-                    }
-                ]
             }
         }
         Kirigami.Separator {

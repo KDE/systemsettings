@@ -16,12 +16,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.5
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.0 as QtControls
-import QtQuick.Controls 2.0 as QtControls2
-import org.kde.kirigami 2.3 as Kirigami
 
+import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.ScrollablePage {
     id: subCategoryColumn

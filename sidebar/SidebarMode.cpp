@@ -47,6 +47,7 @@
 #include <QQmlContext>
 #include <QGraphicsOpacityEffect>
 #include <QLabel>
+#include <QMenu>
 #include <QDebug>
 
 #include <KActivities/Stats/ResultModel>
@@ -249,6 +250,15 @@ public:
     QPersistentModelIndex activeCategoryIndex;
     int activeCategory;
     int activeSubCategory;
+    bool m_actionMenuVisible = false;
+    void setActionMenuVisible(SidebarMode* sidebarMode, const bool &actionMenuVisible)
+    {
+        if (m_actionMenuVisible == actionMenuVisible) {
+            return;
+        }
+        m_actionMenuVisible = actionMenuVisible;
+        emit sidebarMode->actionMenuVisibleChanged();
+    }
 };
 
 SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
@@ -396,6 +406,21 @@ void SidebarMode::loadMostUsed(int index)
     d->moduleView->loadModule( idx );
 }
 
+void SidebarMode::showActionMenu(const QPoint &position)
+{
+    QMenu *menu = new QMenu();
+    connect(menu, &QMenu::aboutToHide, this, [this] () { d->setActionMenuVisible(this, false); } );
+    menu->setAttribute(Qt::WA_DeleteOnClose);
+
+    const QStringList actionList { QStringLiteral("configure"), QStringLiteral("help_contents"), QStringLiteral("help_about_app"), QStringLiteral("help_about_kde") };
+    for (const QString &actionName : actionList) {
+        menu->addAction(d->collection->action(actionName));
+    }
+
+    menu->popup(position);
+    d->setActionMenuVisible(this, true);
+}
+
 void SidebarMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
@@ -442,11 +467,6 @@ void SidebarMode::setActiveCategory(int cat)
     emit activeSubCategoryChanged();
 }
 
-int SidebarMode::activeSubCategory() const
-{
-    return d->activeSubCategory;
-}
-
 void SidebarMode::setActiveSubCategory(int cat)
 {
     if (d->activeSubCategory == cat) {
@@ -466,6 +486,16 @@ void SidebarMode::setActiveSubCategory(int cat)
 int SidebarMode::width() const
 {
     return d->mainWidget->width();
+}
+
+bool SidebarMode::actionMenuVisible() const
+{
+    return d->m_actionMenuVisible;
+}
+
+int SidebarMode::activeSubCategory() const
+{
+    return d->activeSubCategory;
 }
 
 void SidebarMode::initWidget()

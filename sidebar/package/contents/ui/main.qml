@@ -16,10 +16,9 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.0 as QtControls
-import org.kde.kirigami 2.1 as Kirigami
+import QtQuick 2.5
+
+import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.ApplicationItem {
     id: root
