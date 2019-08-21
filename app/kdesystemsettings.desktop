@@ -160,4 +160,7 @@ Comment[zh_CN]=您的计算机的配置工具
 Comment[zh_TW]=提供給您電腦的配置工具
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.systemsettings
+# Otherwise AppStream generators create two entries because System Settings
+# ships two .desktop files
+X-AppStream-Ignore=true
 Categories=Qt;KDE;Settings;
