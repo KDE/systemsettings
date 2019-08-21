@@ -9,7 +9,7 @@
     <id>systemsettings.desktop</id>
     <id>kdesystemsettings.desktop</id>
   </provides>
-  <project_group/>KDE<project_group>
+  <project_group>KDE</project_group>
   <compulsory_for_desktop>KDE</compulsory_for_desktop>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
