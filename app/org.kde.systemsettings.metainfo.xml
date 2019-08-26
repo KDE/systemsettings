@@ -2,19 +2,23 @@
 <component type="desktop-application">
   <name>System Settings</name>
   <name xml:lang="ca">Arranjament del sistema</name>
+  <name xml:lang="es">Preferencias del sistema</name>
   <name xml:lang="eu">Sistemaren Ezarpenak</name>
   <name xml:lang="nl">Systeeminstellingen</name>
   <name xml:lang="pt">Configuração do Sistema</name>
   <name xml:lang="pt-BR">Configurações do sistema</name>
+  <name xml:lang="sk">Systémové nastavenia</name>
   <name xml:lang="sv">Systeminställningar</name>
   <name xml:lang="uk">Системні параметри</name>
   <name xml:lang="x-test">xxSystem Settingsxx</name>
   <summary>Configuration tools for your computer</summary>
   <summary xml:lang="ca">Eines de configuració per a l'ordinador</summary>
+  <summary xml:lang="es">Herramientas de configuración para su equipo</summary>
   <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
   <summary xml:lang="nl">Hulpmiddelen voor configuratie van uw computer</summary>
   <summary xml:lang="pt">Ferramentas de configuração do seu computador</summary>
   <summary xml:lang="pt-BR">Ferramentas de configuração para seu computador</summary>
+  <summary xml:lang="sk">Koniguračné nástroje pre váš počítač</summary>
   <summary xml:lang="sv">Inställningsverktyg för datorn</summary>
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
   <summary xml:lang="x-test">xxConfiguration tools for your computerxx</summary>
@@ -32,10 +36,12 @@
   <description>
     <p>System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
     <p xml:lang="ca">L'Arranjament del sistema permet configurar i ajustar el vostre escriptori Plasma del KDE perquè satisfaci millor les vostres necessitats.</p>
+    <p xml:lang="es">Las preferencias del sistema le permiten configurar y afinar el escritorio Plasma para que se ajuste a sus necesidades.</p>
     <p xml:lang="eu">Sistemaren Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
     <p xml:lang="nl">Systeeminstellingen biedt u het configureren en aanpassen van uw KDE Plasma bureaublad om het aan uw behoeften aan te passen.</p>
     <p xml:lang="pt">A Configuração do Sistema permite-lhe configurar e ajustar a sua área de trabalho Plasma do KDE para satisfazer melhor as suas necessidades.</p>
     <p xml:lang="pt-BR">As configurações do sistema permitem a você configurar e alterar seu ambiente de trabalho Plasma para torná-lo mais adequado às suas necessidades.</p>
+    <p xml:lang="sk">Systémové nastavenia vám umožnia nastaviť a prispôsobiť vašu pracovnú plochu Plasma, aby lepšie vyhovovala vašim potrebám.</p>
     <p xml:lang="sv">Systeminställningarna låter dig anpassa och justera KDE Plasma-skrivbordet för att det bättre ska passa dina behov.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
     <p xml:lang="x-test">xxSystem Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.xx</p>
