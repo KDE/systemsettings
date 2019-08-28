@@ -5,6 +5,7 @@
   <name xml:lang="de">Systemeinstellungen</name>
   <name xml:lang="es">Preferencias del sistema</name>
   <name xml:lang="eu">Sistemako Ezarpenak</name>
+  <name xml:lang="it">Impostazioni di sistema</name>
   <name xml:lang="nl">Systeeminstellingen</name>
   <name xml:lang="pt">Configuração do Sistema</name>
   <name xml:lang="pt-BR">Configurações do sistema</name>
@@ -17,6 +18,7 @@
   <summary xml:lang="de">Einstellungen für Ihren Rechner</summary>
   <summary xml:lang="es">Herramientas de configuración para su equipo</summary>
   <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
+  <summary xml:lang="it">Strumenti di configurazione per il tuo computer</summary>
   <summary xml:lang="nl">Hulpmiddelen voor configuratie van uw computer</summary>
   <summary xml:lang="pt">Ferramentas de configuração do seu computador</summary>
   <summary xml:lang="pt-BR">Ferramentas de configuração para seu computador</summary>
@@ -41,6 +43,7 @@
     <p xml:lang="de">Mit den Systemeinstellungen können Sie Ihre KDE-Plasma-Arbeitsfläche einrichten und optimieren, um sie besser an Ihre Bedürfnisse anzupassen.</p>
     <p xml:lang="es">Las preferencias del sistema le permiten configurar y afinar el escritorio Plasma para que se ajuste a sus necesidades.</p>
     <p xml:lang="eu">Sistemako Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
+    <p xml:lang="it">Impostazioni di sistema ti permette di configurare e di regolare il tuo desktop KDE Plasma, in modo che possa soddisfare meglio le tue esigenze.</p>
     <p xml:lang="nl">Systeeminstellingen biedt u het configureren en aanpassen van uw KDE Plasma bureaublad om het aan uw behoeften aan te passen.</p>
     <p xml:lang="pt">A Configuração do Sistema permite-lhe configurar e ajustar a sua área de trabalho Plasma do KDE para satisfazer melhor as suas necessidades.</p>
     <p xml:lang="pt-BR">As configurações do sistema permitem a você configurar e alterar seu ambiente de trabalho Plasma para torná-lo mais adequado às suas necessidades.</p>
