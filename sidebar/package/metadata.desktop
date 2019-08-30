@@ -2,7 +2,7 @@
 Name=Sidebar View
 Name[bg]=Изглед на странична лента
 Name[ca]=Vista de barra lateral
-Name[ca@valencia]=Vista de barra lateral
+Name[ca@valencia]=Vista de la barra lateral
 Name[cs]=Pohled na postranní panel
 Name[da]=Sidepanelvisning
 Name[de]=Seitenleistenansicht
@@ -42,7 +42,7 @@ Name[zh_TW]=側邊欄檢視
 Comment=Categorized sidebar style
 Comment[bg]=Категоризиран стил на страничната лента
 Comment[ca]=Estil de barra lateral categoritzat
-Comment[ca@valencia]=Estil de barra lateral categoritzat
+Comment[ca@valencia]=Estil de la barra lateral categoritzat
 Comment[cs]=Styl kategorizovaného postranního panelu
 Comment[da]=Kategoriseret sidepanelstil
 Comment[de]=Seitenleistenstil mit Kategorien
