@@ -12,6 +12,7 @@
   <name xml:lang="nn">Systeminnstillingar</name>
   <name xml:lang="pt">Configuração do Sistema</name>
   <name xml:lang="pt-BR">Configurações do sistema</name>
+  <name xml:lang="ru">Параметры системы</name>
   <name xml:lang="sk">Systémové nastavenia</name>
   <name xml:lang="sv">Systeminställningar</name>
   <name xml:lang="uk">Системні параметри</name>
@@ -28,6 +29,7 @@
   <summary xml:lang="nn">Oppsettverktøy for datamaskina</summary>
   <summary xml:lang="pt">Ferramentas de configuração do seu computador</summary>
   <summary xml:lang="pt-BR">Ferramentas de configuração para seu computador</summary>
+  <summary xml:lang="ru">Инструменты для настройки компьютера</summary>
   <summary xml:lang="sk">Koniguračné nástroje pre váš počítač</summary>
   <summary xml:lang="sv">Inställningsverktyg för datorn</summary>
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
@@ -55,6 +57,7 @@
     <p xml:lang="nn">Med systeminnstillingane kan du setja opp og skreddarsy KDE Plasma-skrivebordet etter eigne ønskjer og behov.</p>
     <p xml:lang="pt">A Configuração do Sistema permite-lhe configurar e ajustar a sua área de trabalho Plasma do KDE para satisfazer melhor as suas necessidades.</p>
     <p xml:lang="pt-BR">As configurações do sistema permitem a você configurar e alterar seu ambiente de trabalho Plasma para torná-lo mais adequado às suas necessidades.</p>
+    <p xml:lang="ru">Приложение «Параметры системы» позволяет настроить рабочую среду Plasma для удобного использования.</p>
     <p xml:lang="sk">Systémové nastavenia vám umožnia nastaviť a prispôsobiť vašu pracovnú plochu Plasma, aby lepšie vyhovovala vašim potrebám.</p>
     <p xml:lang="sv">Systeminställningarna låter dig anpassa och justera KDE Plasma-skrivbordet för att det bättre ska passa dina behov.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
