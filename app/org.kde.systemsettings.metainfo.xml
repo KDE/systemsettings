@@ -67,4 +67,7 @@
   <url type="help">https://userbase.kde.org/System_Settings</url>
   <url type="homepage">https://www.kde.org/applications/system/systemsettings</url>
   <url type="donation">https://www.kde.org/donate.php?app=org.kde.systemsettings</url>
+  <releases>
+    <release version="5.16.5" date="2019-09-03"/>
+  </releases>
 </component>
