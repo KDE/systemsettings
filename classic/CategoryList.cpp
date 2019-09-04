@@ -101,18 +101,18 @@ void CategoryList::updatePixmap()
     if ( d->categoryMenu.isValid() ) {
         moduleName = d->itemModel->data( d->categoryMenu, Qt::DisplayRole ).toString();
     }
-    content += QStringLiteral("<div id=\"tableTitle\">") + moduleName + QStringLiteral("</div>");
+    content += QLatin1String("<div id=\"tableTitle\">") + moduleName + QLatin1String("</div>");
     content += QStringLiteral("<table class=\"kc_table\">\n");
     for( int done = 0;  d->itemModel->rowCount( d->categoryMenu ) > done; ++done ) {
         QModelIndex childIndex = d->itemModel->index( done, 0, d->categoryMenu );
         MenuItem *childItem = d->itemModel->data( childIndex, Qt::UserRole ).value<MenuItem*>();
         const QString url = QLatin1String("kcm:///") + childItem->item().fileName();
         QUrl link(url);
-        const QString szLink = QStringLiteral("<a href=\"") + link.url() + QStringLiteral("\" >");
-        content += QStringLiteral("<tr><td class=\"kc_leftcol\">") + szLink + QStringLiteral("<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">");
+        const QString szLink = QLatin1String("<a href=\"") + link.url() + QLatin1String("\" >");
+        content += QLatin1String("<tr><td class=\"kc_leftcol\">") + szLink + QLatin1String("<img src=\"%1\" width=\"24\" height=\"24\"></a></td><td class=\"kc_middlecol\">");
         const QString szName = childItem->name();
         const QString szComment = childItem->service()->comment();
-        content += szLink + szName + QStringLiteral("</a></td><td class=\"kc_rightcol\">") + szLink + szComment + QStringLiteral("</a>");
+        content += szLink + szName + QLatin1String("</a></td><td class=\"kc_rightcol\">") + szLink + szComment + QLatin1String("</a>");
 
         //passing just the path is insufficient as some icon sets (breeze) only provide SVGs
         //instead pass data inline
@@ -124,7 +124,7 @@ void CategoryList::updatePixmap()
         image.save(&buffer, "PNG"); // writes the image in PNG format inside the buffer
         QString iconBase64 = QString::fromLatin1(byteArray.toBase64().data());
 
-        content = content.arg(QStringLiteral("data:image/png;base64,") + iconBase64);
+        content = content.arg(QLatin1String("data:image/png;base64,") + iconBase64);
 
 
         d->itemMap.insert( link.url(), childIndex );

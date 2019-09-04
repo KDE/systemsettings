@@ -42,7 +42,7 @@ public:
     KIconLoader self;
 };
 
-Q_GLOBAL_STATIC(IconLoaderSingleton, privateIconLoaderSelf);
+Q_GLOBAL_STATIC(IconLoaderSingleton, privateIconLoaderSelf)
 
 class ToolTipManager::Private
 {

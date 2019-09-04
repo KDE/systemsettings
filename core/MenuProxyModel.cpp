@@ -84,7 +84,7 @@ bool MenuProxyModel::filterAcceptsRow( int source_row, const QModelIndex &source
     QModelIndex index = sourceModel()->index( source_row, 0, source_parent );
     MenuItem * mItem = index.data( Qt::UserRole ).value<MenuItem*>();
     // accept only systemsettings categories that have children
-    if ( mItem->children().isEmpty() && mItem->service()->serviceTypes().contains( QStringLiteral("SystemSettingsCategory") ) ) {
+    if ( mItem->children().isEmpty() && mItem->service()->serviceTypes().contains(QLatin1String("SystemSettingsCategory") ) ) {
         return false;
     } else {
         return true; // Items matching the regexp are disabled, not hidden
