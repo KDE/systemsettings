@@ -43,8 +43,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Declarative
     Activities
     ActivitiesStats
-    OPTIONAL_COMPONENTS
-    KHtml
     QUIET
 )
 
@@ -60,10 +58,6 @@ add_subdirectory(categories)
 add_subdirectory(icons)
 add_subdirectory(sidebar)
 add_subdirectory(doc)
-
-if(KF5KHtml_FOUND)
-    add_subdirectory(classic)
-endif()
 
 if (${ECM_VERSION} STRGREATER "5.58.0")
     install(FILES systemsettings.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
