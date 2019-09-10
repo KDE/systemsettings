@@ -315,7 +315,7 @@ void SettingsBase::about()
 
 void SettingsBase::changePlugin()
 {
-    if( possibleViews.count() == 0 ) { // We should ensure we have a plugin available to choose
+    if( possibleViews.isEmpty() ) { // We should ensure we have a plugin available to choose
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         close();
         return; // Halt now!
