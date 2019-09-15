@@ -20,6 +20,7 @@
   <name xml:lang="uk">Системні параметри</name>
   <name xml:lang="x-test">xxSystem Settingsxx</name>
   <name xml:lang="zh-CN">系统设置</name>
+  <name xml:lang="zh-TW">系統設定</name>
   <summary>Configuration tools for your computer</summary>
   <summary xml:lang="ca">Eines de configuració per a l'ordinador</summary>
   <summary xml:lang="cs">Konfigurační nástroje pro váš počítač</summary>
@@ -40,6 +41,7 @@
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
   <summary xml:lang="x-test">xxConfiguration tools for your computerxx</summary>
   <summary xml:lang="zh-CN">您的计算机的配置工具</summary>
+  <summary xml:lang="zh-TW">您電腦的設定工具</summary>
   <icon type="stock">systemsettings</icon>
   <id>org.kde.systemsettings</id>
   <launchable type="desktop-id">systemsettings.desktop</launchable>
@@ -71,6 +73,7 @@
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
     <p xml:lang="x-test">xxSystem Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.xx</p>
     <p xml:lang="zh-CN">系统设置允许您配置和调整 KDE Plasma 桌面，使其更好地满足您的需要。</p>
+    <p xml:lang="zh-TW">《系統設定》讓您能設定及調校 KDE Plasma 桌面，以讓其更符合您的所需。</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=systemsettings</url>
   <url type="help">https://userbase.kde.org/System_Settings</url>
