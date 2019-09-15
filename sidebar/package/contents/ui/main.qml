@@ -43,10 +43,12 @@ Kirigami.ApplicationItem {
     wideScreen: pageStack.depth > 1 && systemsettings.width > Kirigami.Units.gridUnit * 70
     CategoriesPage {
         id: mainColumn
+        focus: true
     }
 
     SubCategoryPage {
         id: subCategoryColumn
+        KeyNavigation.left: mainColumn
     }
     Kirigami.Separator {
         z: 999

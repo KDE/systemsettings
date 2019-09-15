@@ -65,6 +65,7 @@ Kirigami.ScrollablePage {
                 onTextChanged: {
                     systemsettings.categoryModel.filterRegExp = text;
                 }
+                KeyNavigation.tab: categoryView
             }
         }
         Kirigami.Separator {
