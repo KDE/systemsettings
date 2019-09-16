@@ -25,6 +25,7 @@ import org.kde.kirigami 2.5 as Kirigami
 Rectangle {
     id: root
     color: Kirigami.Theme.backgroundColor
+    property int verticalMargin: Kirigami.Units.gridUnit * 3
 
     signal focusNextRequest()
     signal focusPreviousRequest()
@@ -37,41 +38,58 @@ Rectangle {
         iconsRow.children[iconsRow.children.length-1].focus = true;
     }
 
-    ColumnLayout {
+    RowLayout {
         anchors {
-            bottom: separator.top
-            bottomMargin: Kirigami.Units.largeSpacing
+            bottom: parent.verticalCenter
+            bottomMargin: verticalMargin
             horizontalCenter: parent.horizontalCenter
         }
+        Layout.alignment: Qt.AlignHCenter
         Kirigami.Icon {
             Layout.alignment: Qt.AlignHCenter
             source: "preferences-system"
             width: Kirigami.Units.iconSizes.enormous
             height: width
-            opacity: 0.3
         }
-        QQC2.Label {
-            Layout.alignment: Qt.AlignHCenter
-            text: i18n("System Settings")
+        Item {
+            width: Kirigami.Units.largeSpacing
+        }
+        ColumnLayout {
+            RowLayout {
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignHCenter
+                    source: "start-here-kde"
+                    width: Kirigami.Units.iconSizes.medium
+                    height: width
+                }
+                Kirigami.Heading {
+                    text: i18n("Plasma")
+                    level: 1
+                    font.weight: Font.Bold
+                }
+            }
+            
+            Kirigami.Heading {
+                text: i18n("System Settings")
+                level: 1
+            }
         }
     }
-    Kirigami.Separator {
-        id: separator
-        anchors.centerIn: parent
-        width: Math.round(parent.width * 0.8)
-    }
+
     ColumnLayout {
         anchors {
-            top: separator.bottom
-            topMargin: Kirigami.Units.largeSpacing
+            top: parent.verticalCenter
+            topMargin: verticalMargin
             horizontalCenter: parent.horizontalCenter
         }
         width: Math.round(parent.width * 0.8)
+
         Kirigami.Heading {
             Layout.alignment: Qt.AlignHCenter
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
             level: 3
             wrapMode: Text.NoWrap
-            text: i18n("Frequently used:")
+            text: i18n("Frequently Used")
         }
         RowLayout {
             id: iconsRow
@@ -97,4 +115,5 @@ Rectangle {
             }
         }
     }
+    
 }
