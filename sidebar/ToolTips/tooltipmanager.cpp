@@ -62,14 +62,16 @@ public:
     QModelIndex item;
     QRect itemRect;
     int delay;
+    ToolTipPosition toolTipPosition;
 };
 
-ToolTipManager::ToolTipManager(QAbstractItemModel *model, QWidget* parent)
+ToolTipManager::ToolTipManager(QAbstractItemModel *model, QWidget* parent, ToolTipPosition toolTipPosition)
     : QObject(parent)
     , d(new ToolTipManager::Private)
 {
     d->view = parent;
     d->model = model;
+    d->toolTipPosition = toolTipPosition;
     d->tooltip = new KToolTipWidget(d->view);
     d->tooltip->setHideDelay(0);
 
@@ -141,15 +143,16 @@ void ToolTipManager::showToolTip( const QModelIndex &menuItem )
     }
 
     QWidget * tip = createTipContent( menuItem );
-
-    if (qApp->isRightToLeft()) {
-        d->tooltip->showAt(d->itemRect.topLeft() - QPoint(d->tooltip->width(), 0), tip, d->view->nativeParentWidget()->windowHandle());
+    if(d->toolTipPosition == ToolTipPosition::BottomCenter) {
+        d->tooltip->showBelow(d->itemRect, tip, d->view->nativeParentWidget()->windowHandle());
     } else {
-        d->tooltip->showAt(d->itemRect.topRight(), tip, d->view->nativeParentWidget()->windowHandle());
+        if (qApp->isRightToLeft()) {
+            d->tooltip->showAt(d->itemRect.topLeft() - QPoint(d->tooltip->width(), 0), tip, d->view->nativeParentWidget()->windowHandle());
+        } else {
+            d->tooltip->showAt(d->itemRect.topRight(), tip, d->view->nativeParentWidget()->windowHandle());
+        }
     }
-
     connect(d->tooltip, &KToolTipWidget::hidden, tip, &QObject::deleteLater);
-
 }
 
 QWidget * ToolTipManager::createTipContent( QModelIndex item )

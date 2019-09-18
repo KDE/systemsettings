@@ -234,6 +234,7 @@ public:
 
     ToolTipManager *toolTipManager = nullptr;
     ToolTipManager *subCategoryToolTipManager = nullptr;
+    ToolTipManager *mostUsedToolTipManager = nullptr;
     QQuickWidget * quickWidget = nullptr;
     KPackage::Package package;
     SubcategoryModel * subCategoryModel = nullptr;
@@ -389,6 +390,13 @@ void SidebarMode::requestSubCategoryToolTip(int index, const QRectF &rect)
     }
 }
 
+void SidebarMode::requestMostUsedToolTip(int index, const QRectF &rect)
+{
+    if (showToolTips()) {
+        d->mostUsedToolTipManager->requestToolTip(d->mostUsedModel->index(index, 0), rect.toRect());
+    }
+}
+
 void SidebarMode::hideToolTip()
 {
     d->toolTipManager->hideToolTip();
@@ -397,6 +405,11 @@ void SidebarMode::hideToolTip()
 void SidebarMode::hideSubCategoryToolTip()
 {
     d->subCategoryToolTipManager->hideToolTip();
+}
+
+void SidebarMode::hideMostUsedToolTip()
+{
+    d->mostUsedToolTipManager->hideToolTip();
 }
 
 void SidebarMode::loadMostUsed(int index)
@@ -549,9 +562,6 @@ void SidebarMode::initWidget()
 
     d->quickWidget->installEventFilter(this);
 
-    d->toolTipManager = new ToolTipManager(d->searchModel, d->quickWidget);
-    d->subCategoryToolTipManager = new ToolTipManager(d->subCategoryModel, d->quickWidget);
-
     d->placeHolderWidget = new QQuickWidget(d->mainWidget);
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
@@ -567,6 +577,10 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget( d->moduleView );
     d->mainLayout->addWidget( d->placeHolderWidget );
     emit changeToolBarItems(BaseMode::NoItems);
+
+    d->toolTipManager = new ToolTipManager(d->searchModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
+    d->subCategoryToolTipManager = new ToolTipManager(d->subCategoryModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
+    d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
 
     d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
 }

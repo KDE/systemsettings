@@ -34,9 +34,12 @@ MouseArea {
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignTop
     activeFocusOnTab: true
+    hoverEnabled: true
 
     onClicked: systemsettings.loadMostUsed(index);
-
+    onEntered: systemsettings.requestMostUsedToolTip(index, item.mapToItem(root, 0, Kirigami.Units.largeSpacing, width, height));
+    onExited: systemsettings.hideMostUsedToolTip();
+    
     Keys.onTabPressed: {
         if (index < (mostUsedRepeater.count-1)) {
             event.accepted = false;

@@ -80,8 +80,10 @@ public:
     Q_INVOKABLE QString actionIconName(const QString &name) const;
     Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void requestSubCategoryToolTip(int index, const QRectF &rect);
+    Q_INVOKABLE void requestMostUsedToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
     Q_INVOKABLE void hideSubCategoryToolTip();
+    Q_INVOKABLE void hideMostUsedToolTip();
     Q_INVOKABLE void loadMostUsed(int index);
     Q_INVOKABLE void showActionMenu(const QPoint &position);
 

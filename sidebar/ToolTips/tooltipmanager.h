@@ -38,13 +38,17 @@ class ToolTipManager : public QObject
     Q_OBJECT
 
 public:
+    
+    enum ToolTipPosition { BottomCenter, Right };
+    
     /**
     * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided
     * view immediately.
     *
     * @param parent The view which will have the tooltips displayed for.
+    * @param toolTipPosition The position of the tooltip.
     */
-    explicit ToolTipManager(QAbstractItemModel *model, QWidget* parent);
+    explicit ToolTipManager(QAbstractItemModel *model, QWidget* parent, ToolTipManager::ToolTipPosition toolTipPosition);
     ~ToolTipManager() override;
 
 public Q_SLOTS:
