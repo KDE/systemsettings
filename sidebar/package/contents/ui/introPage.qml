@@ -58,7 +58,7 @@ Rectangle {
             RowLayout {
                 Kirigami.Icon {
                     Layout.alignment: Qt.AlignHCenter
-                    source: "start-here-kde"
+                    source: "start-here-symbolic"
                     width: Kirigami.Units.iconSizes.medium
                     height: width
                 }
