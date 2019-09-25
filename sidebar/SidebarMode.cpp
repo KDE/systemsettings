@@ -260,6 +260,7 @@ public:
         m_actionMenuVisible = actionMenuVisible;
         emit sidebarMode->actionMenuVisibleChanged();
     }
+    bool m_introPageVisible = true;
 };
 
 SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
@@ -417,6 +418,7 @@ void SidebarMode::loadMostUsed(int index)
     const QModelIndex idx = d->mostUsedModel->index(index, 0);
     d->moduleView->closeModules();
     d->moduleView->loadModule( idx );
+    setIntroPageVisible(false);
 }
 
 void SidebarMode::showActionMenu(const QPoint &position)
@@ -437,6 +439,10 @@ void SidebarMode::showActionMenu(const QPoint &position)
 void SidebarMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
+
+    if (!activeModule.isValid()) {
+        return;
+    }
 
     const int subRows = d->searchModel->rowCount(activeModule);
     if ( subRows < 2) {
@@ -462,7 +468,13 @@ int SidebarMode::activeCategory() const
 void SidebarMode::setActiveCategory(int cat)
 {
     const QModelIndex idx = d->searchModel->index(cat, 0);
-    const int newCategoryRow = d->searchModel->mapToSource(idx).row();
+    int newCategoryRow;
+    if (cat != -1) {
+        setIntroPageVisible(false);
+        newCategoryRow = d->searchModel->mapToSource(idx).row();
+    } else {
+        newCategoryRow = cat;
+    }
 
     if (d->activeCategory == newCategoryRow) {
         return;
@@ -493,7 +505,28 @@ void SidebarMode::setActiveSubCategory(int cat)
     d->activeSubCategory = cat;
     d->moduleView->closeModules();
     d->moduleView->loadModule( d->subCategoryModel->index(cat, 0) );
+    setIntroPageVisible(cat < 0);
     emit activeSubCategoryChanged();
+}
+
+void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
+{
+    if (d->m_introPageVisible == introPageVisible) {
+        return;
+    }
+
+    if (introPageVisible) {
+        setActiveCategory(-1);
+        setActiveSubCategory(-1);
+        d->placeHolderWidget->show();
+        d->moduleView->hide();
+    } else {
+        d->placeHolderWidget->hide();
+        d->moduleView->show();
+    }
+
+    d->m_introPageVisible = introPageVisible;
+    emit introPageVisibleChanged();
 }
 
 int SidebarMode::width() const
@@ -509,6 +542,11 @@ bool SidebarMode::actionMenuVisible() const
 int SidebarMode::activeSubCategory() const
 {
     return d->activeSubCategory;
+}
+
+bool SidebarMode::introPageVisible() const
+{
+    return (d->m_introPageVisible);
 }
 
 void SidebarMode::initWidget()

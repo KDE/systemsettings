@@ -125,11 +125,17 @@ Kirigami.ScrollablePage {
                 root.pageStack.pop(mainColumn)
             }
         }
+
         Connections {
             target: systemsettings
             onActiveSubCategoryChanged: {
-                root.pageStack.currentIndex = 1;
-                subCategoryView.forceActiveFocus();
+                subCategoryView.currentIndex = systemsettings.activeSubCategory;
+                if (systemsettings.activeSubCategory < 0) {
+                    root.pageStack.pop(mainColumn)
+                } else {
+                    root.pageStack.currentIndex = 1;
+                    subCategoryView.forceActiveFocus();
+                }
             }
         }
 

@@ -40,6 +40,34 @@ Kirigami.ScrollablePage {
             }
 
             QQC2.ToolButton {
+                id: showIntroPageButton
+                enabled: !systemsettings.introPageVisible
+                icon.name: "go-home"
+                Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                Layout.maximumHeight: width
+                Keys.onBacktabPressed: {
+                    root.focusPreviousRequest()
+                }
+                onClicked: systemsettings.introPageVisible = true
+
+                QQC2.ToolTip {
+                    text: i18n("Show intro page")
+                }
+            }
+
+            Kirigami.SearchField {
+                id: searchField
+                focus: true
+                Layout.minimumHeight: Layout.maximumHeight
+                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                Layout.fillWidth: true
+                onTextChanged: {
+                    systemsettings.categoryModel.filterRegExp = text;
+                }
+                KeyNavigation.tab: categoryView
+            }
+
+            QQC2.ToolButton {
                 id: menuButton
                 icon.name: "application-menu"
                 checkable: true
@@ -54,18 +82,6 @@ Kirigami.ScrollablePage {
                 QQC2.ToolTip {
                     text: i18n("Show menu")
                 }
-            }
-
-            Kirigami.SearchField {
-                id: searchField
-                focus: true
-                Layout.minimumHeight: Layout.maximumHeight
-                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
-                Layout.fillWidth: true
-                onTextChanged: {
-                    systemsettings.categoryModel.filterRegExp = text;
-                }
-                KeyNavigation.tab: categoryView
             }
         }
         Kirigami.Separator {
