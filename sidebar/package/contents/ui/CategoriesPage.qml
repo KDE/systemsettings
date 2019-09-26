@@ -40,18 +40,19 @@ Kirigami.ScrollablePage {
             }
 
             QQC2.ToolButton {
-                id: showIntroPageButton
-                enabled: !systemsettings.introPageVisible
-                icon.name: "go-home"
+                id: menuButton
+                icon.name: "application-menu"
+                checkable: true
+                checked: systemsettings.actionMenuVisible
                 Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.maximumHeight: width
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
-                onClicked: systemsettings.introPageVisible = true
+                onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
 
                 QQC2.ToolTip {
-                    text: i18n("Show intro page")
+                    text: i18n("Show menu")
                 }
             }
 
@@ -68,19 +69,18 @@ Kirigami.ScrollablePage {
             }
 
             QQC2.ToolButton {
-                id: menuButton
-                icon.name: "application-menu"
-                checkable: true
-                checked: systemsettings.actionMenuVisible
+                id: showIntroPageButton
+                enabled: !systemsettings.introPageVisible
+                icon.name: "go-home"
                 Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.maximumHeight: width
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
-                onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
+                onClicked: systemsettings.introPageVisible = true
 
                 QQC2.ToolTip {
-                    text: i18n("Show menu")
+                    text: i18n("Show intro page")
                 }
             }
         }
