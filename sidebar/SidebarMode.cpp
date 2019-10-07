@@ -275,6 +275,7 @@ SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
     d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), QStringLiteral("msoeken@informatik.uni-bremen.de") );
 
     qmlRegisterType<QAction>();
+    qmlRegisterType<QAbstractItemModel>();
 }
 
 SidebarMode::~SidebarMode()
