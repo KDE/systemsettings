@@ -36,10 +36,6 @@ public:
                               int sortRole,
                               const QStyleOption &option,
                               QPainter *painter) const override;
-
-    int categoryHeight(const QModelIndex &index, const QStyleOption &option) const override;
-    int leftMargin() const override;
-    int rightMargin() const override;
 };
 
 #endif
