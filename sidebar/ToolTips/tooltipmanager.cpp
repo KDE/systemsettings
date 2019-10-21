@@ -59,7 +59,7 @@ public:
     QWidget* view;
     QAbstractItemModel *model;
     QTimer* timer;
-    QModelIndex item;
+    QPersistentModelIndex item;
     QRect itemRect;
     int delay;
     ToolTipPosition toolTipPosition;
