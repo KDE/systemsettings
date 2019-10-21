@@ -169,6 +169,13 @@ public:
         return roleNames;
     }
 
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override
+    {
+        const QString desktopName = sourceModel()->index(source_row, 0, source_parent).data(ResultModel::ResourceRole).toUrl().path();
+        KService::Ptr service = KService::serviceByStorageId(desktopName);
+        return service;
+    }
+
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
     {
         MenuItem *mi;
