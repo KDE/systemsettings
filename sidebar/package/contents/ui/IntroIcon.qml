@@ -39,7 +39,7 @@ MouseArea {
     onClicked: systemsettings.loadMostUsed(index);
     onEntered: systemsettings.requestMostUsedToolTip(index, item.mapToItem(root, 0, Kirigami.Units.largeSpacing, width, height));
     onExited: systemsettings.hideMostUsedToolTip();
-    
+
     Keys.onTabPressed: {
         if (index < (mostUsedRepeater.count-1)) {
             event.accepted = false;
@@ -68,6 +68,7 @@ MouseArea {
         width: parent.width
         Kirigami.Icon {
             id: iconItem
+            active: item.containsMouse || item.activeFocus
             Layout.alignment: Qt.AlignHCenter
             Layout.minimumWidth: item.iconSize
             Layout.minimumHeight: Layout.minimumWidth
