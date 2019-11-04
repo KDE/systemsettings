@@ -106,7 +106,6 @@ ModuleView::ModuleView( QWidget * parent )
     connect( d->mDefault, &QAbstractButton::clicked, this, &ModuleView::moduleDefaults );
     connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
              this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
-    connect( this, &ModuleView::moduleChanged, this, &ModuleView::updateButtons );
 
     d->mApplyAuthorize = new KAuth::ObjectDecorator(d->mApply);
     d->mApplyAuthorize->setAuthAction( KAuth::Action() );
@@ -372,8 +371,12 @@ void ModuleView::stateChanged()
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
     KAuth::Action moduleAction;
     bool change = false;
+    bool defaulted = false;
+    KCModule::Buttons buttons = KCModule::NoAdditionalButton;
     if( activeModule ) {
+        buttons = activeModule->buttons();
         change = activeModule->changed();
+        defaulted = activeModule->defaulted();
 
         disconnect( d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()) );
         disconnect( d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()) );
@@ -387,8 +390,10 @@ void ModuleView::stateChanged()
 
     updatePageIconHeader( d->mPageWidget->currentPage() );
     d->mApplyAuthorize->setAuthAction( moduleAction );
-    d->mApply->setEnabled( change );
-    d->mReset->setEnabled( change );
+    d->mDefault->setEnabled( (buttons & KCModule::Default) && !defaulted );
+    d->mApply->setEnabled( (buttons & KCModule::Apply) && change );
+    d->mReset->setEnabled( (buttons & KCModule::Apply) && change );
+    d->mHelp->setEnabled(buttons & KCModule::Help );
     emit moduleChanged( change );
 }
 
@@ -409,22 +414,6 @@ void ModuleView::keyPressEvent ( QKeyEvent * event )
     }
 
     QWidget::keyPressEvent( event );
-}
-
-void ModuleView::updateButtons()
-{
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( !activeModule ) {
-        return;
-    }
-
-    const int buttons = activeModule->buttons();
-
-    d->mApply->setVisible(buttons & KCModule::Apply );
-    d->mReset->setVisible(buttons & KCModule::Apply );
-
-    d->mHelp->setEnabled(buttons & KCModule::Help );
-    d->mDefault->setEnabled(buttons & KCModule::Default );
 }
 
 void ModuleView::setFaceType(KPageView::FaceType type)
