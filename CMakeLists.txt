@@ -52,9 +52,6 @@ ecm_find_qmlmodule(org.kde.kcm 1.0)
 find_package(KF5Kirigami2 2.1 CONFIG REQUIRED)
 
 find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
-if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-endif()
 
 add_subdirectory(core)
 add_subdirectory(app)
