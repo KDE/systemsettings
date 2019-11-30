@@ -52,7 +52,7 @@ find_package(KF5Kirigami2 2.1 CONFIG REQUIRED)
 
 find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
 if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 endif()
 
 add_subdirectory(core)
