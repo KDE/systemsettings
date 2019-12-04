@@ -139,6 +139,14 @@ void IconMode::changeModule( const QModelIndex& activeModule )
 {
     d->moduleView->closeModules();
     d->mainWidget->setCurrentWidget( d->moduleView );
+
+    // avoid double titles by setting the right face type before loading the module
+    if ( d->categoryView->model()->rowCount(activeModule) > 1 ) {
+        d->moduleView->setFaceType(KPageView::List);
+    } else {
+        d->moduleView->setFaceType(KPageView::Plain);
+    }
+
     d->moduleView->loadModule( activeModule );
 }
 
