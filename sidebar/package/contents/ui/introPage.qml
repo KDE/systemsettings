@@ -58,7 +58,9 @@ Rectangle {
             RowLayout {
                 Kirigami.Icon {
                     Layout.alignment: Qt.AlignHCenter
-                    source: "start-here-symbolic"
+                    source: Qt.resolvedUrl("../images/plasma-logo.svg")
+                    color: Kirigami.Theme.textColor
+                    isMask: true
                     width: Kirigami.Units.iconSizes.medium
                     height: width
                 }
