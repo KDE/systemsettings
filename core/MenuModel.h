@@ -41,6 +41,24 @@ class SYSTEMSETTINGSVIEW_EXPORT MenuModel : public QAbstractItemModel
     Q_OBJECT
 
 public:
+    enum Roles {
+        MenuItemRole = Qt::UserRole,
+
+        /**
+        * Role used to request the keywords to filter the items when searching.
+        */
+        UserFilterRole,
+
+        /**
+        * Role used to request the weight of a module, used to sort the items.
+        */
+        UserSortRole,
+
+        DepthRole,
+
+        IsCategoryRole
+    };
+
     /**
      * Creates a MenuModel using the MenuItem specified. The MenuItem must always be valid
      * throughout the life of the MenuModel, otherwise it will cause crashes.
@@ -54,6 +72,8 @@ public:
      * Destroys the MenuModel. The menuRoot will not be destroyed.
      */
     ~MenuModel() override;
+
+    QHash<int, QByteArray> roleNames() const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -129,16 +149,6 @@ public:
      * @param exception The MenuItem to revoke an exception from.
      */
     void removeException( MenuItem * exception );
-
-    /**
-     * Role used to request the keywords to filter the items when searching.
-     */
-    static const int UserFilterRole;
-
-    /**
-     * Role used to request the weight of a module, used to sort the items.
-     */
-    static const int UserSortRole;
 
 protected:
     /**

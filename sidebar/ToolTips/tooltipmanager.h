@@ -48,8 +48,11 @@ public:
     * @param parent The view which will have the tooltips displayed for.
     * @param toolTipPosition The position of the tooltip.
     */
-    explicit ToolTipManager(QAbstractItemModel *model, QWidget* parent, ToolTipManager::ToolTipPosition toolTipPosition);
+    explicit ToolTipManager(const QAbstractItemModel *model, QWidget* parent, ToolTipManager::ToolTipPosition toolTipPosition);
     ~ToolTipManager() override;
+
+    void setModel(const QAbstractItemModel *model);
+    const QAbstractItemModel *model() const;
 
 public Q_SLOTS:
     /**

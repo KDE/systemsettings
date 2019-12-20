@@ -78,6 +78,12 @@ bool MenuProxyModel::subSortLessThan( const QModelIndex &left, const QModelIndex
 bool MenuProxyModel::filterAcceptsRow( int source_row, const QModelIndex &source_parent ) const
 {
     if (!m_filterHighlightsEntries) {
+        // Don't show empty categories
+        QModelIndex index = sourceModel()->index( source_row, 0, source_parent );
+        MenuItem * mItem = index.data( Qt::UserRole ).value<MenuItem*>();
+        if ( mItem->menu() && mItem->children().isEmpty() ) {
+            return false;
+        }
         return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
 

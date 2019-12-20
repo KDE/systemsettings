@@ -57,7 +57,7 @@ public:
 
     KToolTipWidget *tooltip;
     QWidget* view;
-    QAbstractItemModel *model;
+    const QAbstractItemModel *model;
     QTimer* timer;
     QPersistentModelIndex item;
     QRect itemRect;
@@ -65,7 +65,7 @@ public:
     ToolTipPosition toolTipPosition;
 };
 
-ToolTipManager::ToolTipManager(QAbstractItemModel *model, QWidget* parent, ToolTipPosition toolTipPosition)
+ToolTipManager::ToolTipManager(const QAbstractItemModel *model, QWidget* parent, ToolTipPosition toolTipPosition)
     : QObject(parent)
     , d(new ToolTipManager::Private)
 {
@@ -86,6 +86,16 @@ ToolTipManager::ToolTipManager(QAbstractItemModel *model, QWidget* parent, ToolT
 ToolTipManager::~ToolTipManager()
 {
     delete d;
+}
+
+void ToolTipManager::setModel(const QAbstractItemModel *model)
+{
+    d->model = model;
+}
+
+const QAbstractItemModel *ToolTipManager::model() const
+{
+    return d->model;
 }
 
 bool ToolTipManager::eventFilter(QObject* watched, QEvent* event)

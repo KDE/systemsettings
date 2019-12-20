@@ -36,7 +36,7 @@ MouseArea {
     activeFocusOnTab: true
     hoverEnabled: true
 
-    onClicked: systemsettings.loadMostUsed(index);
+    onClicked: systemsettings.loadModule(systemsettings.mostUsedModel.index(index, 0));
     onEntered: systemsettings.requestMostUsedToolTip(index, item.mapToItem(root, 0, Kirigami.Units.largeSpacing, width, height));
     onExited: systemsettings.hideMostUsedToolTip();
 

@@ -31,6 +31,7 @@
 #include <QAction>
 #include <KAboutData>
 #include <KCModuleInfo>
+#include <KDescendantsProxyModel>
 #include <KStandardAction>
 #include <KLocalizedString>
 #include <KIconLoader>
@@ -77,38 +78,39 @@ void FocusHackWidget::focusPrevious()
     focusNextPrevChild(false);
 }
 
-class SubcategoryModel : public QStandardItemModel
+SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent)
+    : QStandardItemModel(parent),
+        m_parentModel(parentModel)
+{}
+
+QString SubcategoryModel::title() const
 {
-public:
-    explicit SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent = nullptr)
-        : QStandardItemModel(parent),
-          m_parentModel(parentModel)
-    {}
+    return m_title;
+}
 
-    void setParentIndex(const QModelIndex &activeModule)
-    {
-        blockSignals(true);
-        //make the view receive a single signal when the new subcategory is loaded,
-        //never make the view believe there are zero items if this is not the final count
-        //this avoids the brief flash it had
-        clear();
-        const int subRows = m_parentModel->rowCount(activeModule);
-        if ( subRows > 1) {
-            for (int i = 0; i < subRows; ++i) {
-                const QModelIndex& index = m_parentModel->index(i, 0, activeModule);
-                QStandardItem *item = new QStandardItem(m_parentModel->data(index, Qt::DecorationRole).value<QIcon>(), m_parentModel->data(index, Qt::DisplayRole).toString());
-                item->setData(index.data(Qt::UserRole), Qt::UserRole);
-                appendRow(item);
-            }
+void SubcategoryModel::setParentIndex(const QModelIndex &activeModule)
+{
+    blockSignals(true);
+    //make the view receive a single signal when the new subcategory is loaded,
+    //never make the view believe there are zero items if this is not the final count
+    //this avoids the brief flash it had
+    clear();
+    const int subRows = activeModule.isValid() ? m_parentModel->rowCount(activeModule) : 0;
+    if ( subRows > 1) {
+        for (int i = 0; i < subRows; ++i) {
+            const QModelIndex& index = m_parentModel->index(i, 0, activeModule);
+            QStandardItem *item = new QStandardItem(m_parentModel->data(index, Qt::DecorationRole).value<QIcon>(), m_parentModel->data(index, Qt::DisplayRole).toString());
+            item->setData(index.data(Qt::UserRole), Qt::UserRole);
+            appendRow(item);
         }
-        blockSignals(false);
-        beginResetModel();
-        endResetModel();
     }
+    blockSignals(false);
+    beginResetModel();
+    endResetModel();
+    m_title = activeModule.data(Qt::DisplayRole).toString();
+    emit titleChanged();
+}
 
-private:
-    QAbstractItemModel *m_parentModel;
-};
 
 class MostUsedModel : public QSortFilterProxyModel
 {
@@ -221,7 +223,9 @@ public:
 
 private:
     QHash<QString, MenuItem *> m_menuItems;
+    // Model when there is nothing from kactivities-stat
     QStandardItemModel *m_defaultModel;
+    // Model fed by kactivities-stats
     ResultModel *m_resultModel;
 };
 
@@ -231,8 +235,8 @@ public:
       : quickWidget( nullptr ),
         moduleView( nullptr ),
         collection( nullptr ),
-        activeCategory( -1 ),
-        activeSubCategory( -1 )
+        activeCategoryRow( -1 ),
+        activeSubCategoryRow( -1 )
     {}
 
     virtual ~Private() {
@@ -240,7 +244,6 @@ public:
     }
 
     ToolTipManager *toolTipManager = nullptr;
-    ToolTipManager *subCategoryToolTipManager = nullptr;
     ToolTipManager *mostUsedToolTipManager = nullptr;
     QQuickWidget * quickWidget = nullptr;
     KPackage::Package package;
@@ -250,14 +253,17 @@ public:
     QQuickWidget * placeHolderWidget = nullptr;
     QHBoxLayout * mainLayout = nullptr;
     KDeclarative::KDeclarative kdeclarative;
+    MenuModel * model = nullptr;
     MenuProxyModel * categorizedModel = nullptr;
     MenuProxyModel * searchModel = nullptr;
+    KDescendantsProxyModel * flatModel = nullptr;
     KAboutData * aboutIcon = nullptr;
     ModuleView * moduleView = nullptr;
     KActionCollection *collection = nullptr;
     QPersistentModelIndex activeCategoryIndex;
-    int activeCategory;
-    int activeSubCategory;
+    int activeCategoryRow = -1;
+    int activeSubCategoryRow = -1;
+    int activeSearchRow = -1;
     bool m_actionMenuVisible = false;
     void setActionMenuVisible(SidebarMode* sidebarMode, const bool &actionMenuVisible)
     {
@@ -311,6 +317,11 @@ QWidget * SidebarMode::mainWidget()
 
 QAbstractItemModel * SidebarMode::categoryModel() const
 {
+    return d->categorizedModel;
+}
+
+QAbstractItemModel * SidebarMode::searchModel() const
+{
     return d->searchModel;
 }
 
@@ -333,30 +344,28 @@ QList<QAbstractItemView*> SidebarMode::views() const
 
 void SidebarMode::initEvent()
 {
-    MenuModel * model = new MenuModel( rootItem(), this );
+    d->model = new MenuModel( rootItem(), this );
     foreach( MenuItem * child, rootItem()->children() ) {
-        model->addException( child );
+        d->model->addException( child );
     }
 
     d->categorizedModel = new MenuProxyModel( this );
     d->categorizedModel->setCategorizedModel( true );
-    d->categorizedModel->setSourceModel( model );
+    d->categorizedModel->setSourceModel( d->model );
     d->categorizedModel->sort( 0 );
     d->categorizedModel->setFilterHighlightsEntries( false );
 
+    d->flatModel = new KDescendantsProxyModel( this );
+    d->flatModel->setSourceModel( d->model );
+
     d->searchModel = new MenuProxyModel( this );
+    d->searchModel->setCategorizedModel( true );
     d->searchModel->setFilterHighlightsEntries( false );
-    d->searchModel->setSourceModel( d->categorizedModel );
-    connect( d->searchModel, &MenuProxyModel::filterRegExpChanged, this, [this] () {
-        if (d->activeCategoryIndex.isValid() && d->activeCategoryIndex.row() >= 0) {
-            d->subCategoryModel->setParentIndex( d->activeCategoryIndex );
-            emit activeCategoryChanged();
-        }
-    });
+    d->searchModel->setSourceModel( d->flatModel );
 
     d->mostUsedModel = new MostUsedModel( this );
 
-    d->subCategoryModel = new SubcategoryModel( d->searchModel, this );
+    d->subCategoryModel = new SubcategoryModel( d->categorizedModel, this );
     d->mainWidget = new FocusHackWidget();
     d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
@@ -385,17 +394,11 @@ QString SidebarMode::actionIconName(const QString &name) const
     return QString();
 }
 
-void SidebarMode::requestToolTip(int index, const QRectF &rect)
+void SidebarMode::requestToolTip(const QModelIndex &index, const QRectF &rect)
 {
-    if (showToolTips()) {
-        d->toolTipManager->requestToolTip(d->searchModel->index(index, 0), rect.toRect());
-    }
-}
-
-void SidebarMode::requestSubCategoryToolTip(int index, const QRectF &rect)
-{
-    if (showToolTips()) {
-        d->subCategoryToolTipManager->requestToolTip(d->subCategoryModel->index(index, 0), rect.toRect());
+    if (showToolTips() && index.model()) {
+        d->toolTipManager->setModel(index.model());
+        d->toolTipManager->requestToolTip(index, rect.toRect());
     }
 }
 
@@ -411,22 +414,9 @@ void SidebarMode::hideToolTip()
     d->toolTipManager->hideToolTip();
 }
 
-void SidebarMode::hideSubCategoryToolTip()
-{
-    d->subCategoryToolTipManager->hideToolTip();
-}
-
 void SidebarMode::hideMostUsedToolTip()
 {
     d->mostUsedToolTipManager->hideToolTip();
-}
-
-void SidebarMode::loadMostUsed(int index)
-{
-    const QModelIndex idx = d->mostUsedModel->index(index, 0);
-    d->moduleView->closeModules();
-    d->moduleView->loadModule( idx );
-    setIntroPageVisible(false);
 }
 
 void SidebarMode::showActionMenu(const QPoint &position)
@@ -444,22 +434,122 @@ void SidebarMode::showActionMenu(const QPoint &position)
     d->setActionMenuVisible(this, true);
 }
 
-void SidebarMode::changeModule( const QModelIndex& activeModule )
+void SidebarMode::loadModule( const QModelIndex& activeModule )
 {
-    d->moduleView->closeModules();
-
     if (!activeModule.isValid()) {
         return;
     }
 
-    const int subRows = d->searchModel->rowCount(activeModule);
-    if ( subRows < 2) {
-        d->moduleView->loadModule( activeModule );
-    } else {
-        d->moduleView->loadModule( d->searchModel->index(0, 0, activeModule) );
+    d->moduleView->closeModules();
+
+    MenuItem *mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
+
+    if (!mi) {
+        return;
     }
 
-    d->subCategoryModel->setParentIndex( activeModule );
+    setIntroPageVisible(false);
+    if ( mi->children().length() < 1) {
+        d->moduleView->loadModule( activeModule );
+    } else {
+        d->moduleView->loadModule( activeModule.model()->index(0, 0, activeModule) );
+    }
+
+    if (activeModule.model() == d->categorizedModel) {
+        const int newCategoryRow = activeModule.row();
+
+        if (d->activeCategoryRow == newCategoryRow) {
+            return;
+        }
+        if( !d->moduleView->resolveChanges() ) {
+            return;
+        }
+
+        d->activeCategoryIndex = activeModule;
+        d->activeCategoryRow = newCategoryRow;
+
+        d->activeSubCategoryRow = 0;
+
+        d->subCategoryModel->setParentIndex( activeModule );
+
+        if (d->activeSearchRow > -1) {
+            d->activeSearchRow = -1;
+            emit activeSearchRowChanged();
+        }
+
+        emit activeCategoryRowChanged();
+        emit activeSubCategoryRowChanged();
+
+    } else if (activeModule.model() == d->subCategoryModel) {
+        if (d->activeSearchRow > -1) {
+            d->activeSearchRow = -1;
+            emit activeSearchRowChanged();
+        }
+        d->activeSubCategoryRow = activeModule.row();
+        emit activeSubCategoryRowChanged();
+
+    } else if (activeModule.model() == d->searchModel) {
+        QModelIndex originalIndex = d->categorizedModel->mapFromSource(
+            d->flatModel->mapToSource(
+                d->searchModel->mapToSource(activeModule)));
+
+        if (originalIndex.isValid()) {
+            //are we in a  subcategory of the top categories?
+            if (originalIndex.parent().isValid() && mi->parent()->menu()) {
+                d->activeCategoryRow = originalIndex.parent().row();
+                d->activeSubCategoryRow = originalIndex.row();
+
+            // Is this kcm directly at the top level without a top category?
+            } else {
+                d->activeCategoryRow = originalIndex.row();
+                d->activeSubCategoryRow = -1;
+            }
+
+            d->subCategoryModel->setParentIndex( originalIndex.parent() );
+            emit activeCategoryRowChanged();
+            emit activeSubCategoryRowChanged();
+        }
+
+        d->activeSearchRow = activeModule.row();
+        emit activeSearchRowChanged();
+
+    } else if (activeModule.model() == d->mostUsedModel) {
+        if (d->activeSearchRow > -1) {
+            d->activeSearchRow = -1;
+            emit activeSearchRowChanged();
+        }
+
+        QModelIndex flatIndex;
+
+        // search the corresponding item on the main model
+        for (int i = 0; i < d->flatModel->rowCount(); ++i) {
+            QModelIndex idx = d->flatModel->index(i, 0);
+            MenuItem *otherMi = idx.data(MenuModel::MenuItemRole).value<MenuItem *>();
+
+            if (otherMi->item() == mi->item()) {
+                flatIndex = idx;
+                break;
+            }
+        }
+
+        if (flatIndex.isValid()) {
+            QModelIndex idx = d->categorizedModel->mapFromSource(d->flatModel->mapToSource(flatIndex));
+
+            MenuItem *parentMi = idx.parent().data(MenuModel::MenuItemRole).value<MenuItem *>();
+            if (idx.isValid()) {
+                if (parentMi->menu()) {
+                    d->subCategoryModel->setParentIndex( idx.parent() );
+                    d->activeCategoryRow = idx.parent().row();
+                    d->activeSubCategoryRow = idx.row();
+                } else {
+                    d->activeCategoryRow = idx.row();
+                    d->activeSubCategoryRow = -1;
+                }
+                emit activeCategoryRowChanged();
+                emit activeSubCategoryRowChanged();
+            }
+        }
+    }
 }
 
 void SidebarMode::moduleLoaded()
@@ -468,53 +558,14 @@ void SidebarMode::moduleLoaded()
     d->moduleView->show();
 }
 
-int SidebarMode::activeCategory() const
+int SidebarMode::activeSearchRow() const
 {
-    return d->searchModel->mapFromSource(d->searchModel->sourceModel()->index(d->activeCategory, 0)).row();
+    return d->activeSearchRow;
 }
 
-void SidebarMode::setActiveCategory(int cat)
+int SidebarMode::activeCategoryRow() const
 {
-    const QModelIndex idx = d->searchModel->index(cat, 0);
-    int newCategoryRow;
-    if (cat != -1) {
-        setIntroPageVisible(false);
-        newCategoryRow = d->searchModel->mapToSource(idx).row();
-    } else {
-        newCategoryRow = cat;
-    }
-
-    if (d->activeCategory == newCategoryRow) {
-        return;
-    }
-    if( !d->moduleView->resolveChanges() ) {
-        return;
-    }
-
-    d->activeCategoryIndex = idx;
-    d->activeCategory = newCategoryRow;
-
-    changeModule(idx);
-    d->activeSubCategory = 0;
-    emit activeCategoryChanged();
-    emit activeSubCategoryChanged();
-}
-
-void SidebarMode::setActiveSubCategory(int cat)
-{
-    if (d->activeSubCategory == cat) {
-        return;
-    }
-
-    if( !d->moduleView->resolveChanges() ) {
-        return;
-    }
-
-    d->activeSubCategory = cat;
-    d->moduleView->closeModules();
-    d->moduleView->loadModule( d->subCategoryModel->index(cat, 0) );
-    setIntroPageVisible(cat < 0);
-    emit activeSubCategoryChanged();
+    return d->activeCategoryRow;
 }
 
 void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
@@ -524,8 +575,10 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
     }
 
     if (introPageVisible) {
-        setActiveCategory(-1);
-        setActiveSubCategory(-1);
+        d->activeCategoryRow = -1;
+        emit activeCategoryRowChanged();
+        d->activeSubCategoryRow = -1;
+        emit activeSubCategoryRowChanged();
         d->placeHolderWidget->show();
         d->moduleView->hide();
     } else {
@@ -547,9 +600,9 @@ bool SidebarMode::actionMenuVisible() const
     return d->m_actionMenuVisible;
 }
 
-int SidebarMode::activeSubCategory() const
+int SidebarMode::activeSubCategoryRow() const
 {
-    return d->activeSubCategory;
+    return d->activeSubCategoryRow;
 }
 
 bool SidebarMode::introPageVisible() const
@@ -624,8 +677,7 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget( d->placeHolderWidget );
     emit changeToolBarItems(BaseMode::NoItems);
 
-    d->toolTipManager = new ToolTipManager(d->searchModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
-    d->subCategoryToolTipManager = new ToolTipManager(d->subCategoryModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
+    d->toolTipManager = new ToolTipManager(d->categorizedModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
     d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
 
     d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));

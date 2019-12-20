@@ -29,6 +29,8 @@ Kirigami.ApplicationItem {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
+    property alias searchMode: mainColumn.searchMode
+
     signal focusNextRequest()
     signal focusPreviousRequest()
 

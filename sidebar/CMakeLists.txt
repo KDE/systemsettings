@@ -7,6 +7,7 @@ add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_srcs})
 
 target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     KF5::ItemViews
+    KF5::ItemModels
     KF5::KCMUtils
     KF5::I18n
     KF5::KIOWidgets

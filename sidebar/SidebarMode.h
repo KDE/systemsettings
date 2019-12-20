@@ -22,6 +22,7 @@
 
 #include "BaseMode.h"
 #include <QWidget>
+#include <QStandardItemModel>
 
 class ModuleView;
 class KAboutData;
@@ -41,15 +42,37 @@ public Q_SLOTS:
     void focusPrevious();
 };
 
+class SubcategoryModel : public QStandardItemModel
+{
+    Q_OBJECT
+    Q_PROPERTY(QString title READ title NOTIFY titleChanged)
+
+public:
+    explicit SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent = nullptr);
+
+    QString title() const;
+
+    void setParentIndex(const QModelIndex &activeModule);
+
+Q_SIGNALS:
+    void titleChanged();
+
+private:
+    QAbstractItemModel *m_parentModel;
+    QString m_title;
+};
+
 class SidebarMode : public BaseMode
 {
     Q_OBJECT
 
     Q_PROPERTY(QAbstractItemModel *categoryModel READ categoryModel CONSTANT)
+    Q_PROPERTY(QAbstractItemModel *searchModel READ searchModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *subCategoryModel READ subCategoryModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *mostUsedModel READ mostUsedModel CONSTANT)
-    Q_PROPERTY(int activeCategory READ activeCategory WRITE setActiveCategory NOTIFY activeCategoryChanged)
-    Q_PROPERTY(int activeSubCategory READ activeSubCategory WRITE setActiveSubCategory NOTIFY activeSubCategoryChanged)
+    Q_PROPERTY(int activeCategoryRow READ activeCategoryRow NOTIFY activeCategoryRowChanged)
+    Q_PROPERTY(int activeSearchRow READ activeSearchRow NOTIFY activeSearchRowChanged)
+    Q_PROPERTY(int activeSubCategoryRow READ activeSubCategoryRow NOTIFY activeSubCategoryRowChanged)
     Q_PROPERTY(int width READ width NOTIFY widthChanged)
     Q_PROPERTY(bool actionMenuVisible READ actionMenuVisible NOTIFY actionMenuVisibleChanged)
     Q_PROPERTY(bool introPageVisible READ introPageVisible WRITE setIntroPageVisible NOTIFY introPageVisibleChanged)
@@ -63,14 +86,13 @@ public:
     KAboutData * aboutData() override;
     ModuleView * moduleView() const override;
     QAbstractItemModel *categoryModel() const;
+    QAbstractItemModel *searchModel() const;
     QAbstractItemModel *subCategoryModel() const;
     QAbstractItemModel *mostUsedModel() const;
 
-    int activeCategory() const;
-    void setActiveCategory(int cat);
-    
-    int activeSubCategory() const;
-    void setActiveSubCategory(int cat);
+    int activeCategoryRow() const;
+    int activeSubCategoryRow() const;
+    int activeSearchRow() const;
 
     int width() const;
 
@@ -82,27 +104,26 @@ public:
     Q_INVOKABLE QAction *action(const QString &name) const;
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
     Q_INVOKABLE QString actionIconName(const QString &name) const;
-    Q_INVOKABLE void requestToolTip(int index, const QRectF &rect);
-    Q_INVOKABLE void requestSubCategoryToolTip(int index, const QRectF &rect);
+    Q_INVOKABLE void requestToolTip(const QModelIndex &index, const QRectF &rect);
     Q_INVOKABLE void requestMostUsedToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
-    Q_INVOKABLE void hideSubCategoryToolTip();
     Q_INVOKABLE void hideMostUsedToolTip();
-    Q_INVOKABLE void loadMostUsed(int index);
     Q_INVOKABLE void showActionMenu(const QPoint &position);
+
+    Q_INVOKABLE void loadModule(const QModelIndex& activeModule);
 
 protected:
     QList<QAbstractItemView*> views() const override;
     bool eventFilter(QObject* watched, QEvent* event) override;
 
 private Q_SLOTS:
-    void changeModule( const QModelIndex& activeModule );
     void moduleLoaded();
     void initWidget();
 
 Q_SIGNALS:
-    void activeCategoryChanged();
-    void activeSubCategoryChanged();
+    void activeCategoryRowChanged();
+    void activeSubCategoryRowChanged();
+    void activeSearchRowChanged();
     void widthChanged();
     void actionMenuVisibleChanged();
     void introPageVisibleChanged();

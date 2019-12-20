@@ -24,6 +24,7 @@ import org.kde.kirigami 2.10 as Kirigami
 Kirigami.ScrollablePage {
     id: mainColumn
     Component.onCompleted: searchField.forceActiveFocus()
+    readonly property bool searchMode: searchField.text.length > 0
 
     header: Rectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -63,7 +64,7 @@ Kirigami.ScrollablePage {
                 Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.fillWidth: true
                 onTextChanged: {
-                    systemsettings.categoryModel.filterRegExp = text;
+                    systemsettings.searchModel.filterRegExp = text;
                 }
                 KeyNavigation.tab: categoryView
             }
@@ -110,11 +111,19 @@ Kirigami.ScrollablePage {
             }
         }
     }
+
+    Binding {
+        target: categoryView
+        property: "currentIndex"
+        value: mainColumn.searchMode
+            ? systemsettings.activeSearchRow
+            : systemsettings.activeCategoryRow
+    }
     ListView {
         id: categoryView
         anchors.fill: parent
-        model: systemsettings.categoryModel
-        currentIndex: systemsettings.activeCategory
+        model: mainColumn.searchMode ? systemsettings.searchModel : systemsettings.categoryModel
+
         onContentYChanged: systemsettings.hideToolTip();
         activeFocusOnTab: true
         keyNavigationWraps: true
@@ -134,36 +143,64 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Kirigami.AbstractListItem {
             id: delegate
-            icon: model.decoration
-            label: model.display
+
             separatorVisible: false
             Accessible.role: Accessible.ListItem
             Accessible.name: model.display
+            supportsMouseEvents: !model.IsCategoryRole || !mainColumn.searchMode
+            enabled: !model.IsCategoryRole || !mainColumn.searchMode
             onClicked: {
-                if (systemsettings.activeCategory == index) {
+                if (model.IsCategoryRole && mainColumn.searchMode) {
+                    return;
+                }
+
+                if (mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
+                    systemsettings.loadModule(categoryView.model.index(index, 0));
+                }
+                if (!mainColumn.searchMode && root.pageStack.depth > 1) {
                     root.pageStack.currentIndex = 1;
-                } else {
-                    systemsettings.activeCategory = index;
-                    subCategoryColumn.title = model.display;
                 }
             }
             onHoveredChanged: {
+                if (model.IsCategoryRole && mainColumn.searchMode) {
+                    return;
+                }
                 if (hovered) {
-                    systemsettings.requestToolTip(index, delegate.mapToItem(root, 0, 0, width, height));
+                    systemsettings.requestToolTip(categoryView.model.index(index, 0), delegate.mapToItem(root, 0, 0, width, height));
                 } else {
                     systemsettings.hideToolTip();
                 }
             }
             onFocusChanged: {
+                if (model.IsCategoryRole && mainColumn.searchMode) {
+                    return;
+                }
                 if (focus) {
-                    onCurrentIndexChanged: categoryView.positionViewAtIndex(index, ListView.Contain);
+                    categoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
-            highlighted: systemsettings.activeCategory == index
+            highlighted: categoryView.currentIndex == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
+            contentItem: RowLayout {
+                id: layout
+                spacing: Kirigami.Settings.tabletMode ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
+                Kirigami.Icon {
+                    id: icon
+                    source: model.decoration
+                    Layout.preferredHeight: Layout.preferredWidth
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                    Layout.leftMargin: (model.DepthRole-1) * (icon.width + layout.spacing) 
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    text: model.display
+                    color: (delegate.highlighted || delegate.checked || (delegate.pressed && delegate.supportsMouseEvents)) ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
+                    elide: Text.ElideRight
+                }
+            }
         }
     }
 }

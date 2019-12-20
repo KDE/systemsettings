@@ -24,6 +24,8 @@ import org.kde.kirigami 2.5 as Kirigami
 
 Kirigami.ScrollablePage {
     id: subCategoryColumn
+    title: systemsettings.subCategoryModel.title
+
     header: Rectangle {
         id: headerRect
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -107,8 +109,8 @@ Kirigami.ScrollablePage {
         id: subCategoryView
         anchors.fill: parent
         model: systemsettings.subCategoryModel
-        currentIndex: systemsettings.activeSubCategory
-        onContentYChanged: systemsettings.hideSubCategoryToolTip();
+        currentIndex: systemsettings.activeSubCategoryRow
+        onContentYChanged: systemsettings.hideToolTip();
         activeFocusOnTab: true
         keyNavigationWraps: true
         Accessible.role: Accessible.List
@@ -117,7 +119,7 @@ Kirigami.ScrollablePage {
             mainColumn.focus = true;
         }
         onCountChanged: {
-            if (count > 1) {
+            if (count > 1 && !root.searchMode) {
                 if (root.pageStack.depth < 2) {
                     root.pageStack.push(subCategoryColumn);
                 }
@@ -127,14 +129,29 @@ Kirigami.ScrollablePage {
         }
 
         Connections {
+            target: root
+            onSearchModeChanged: {
+                if (root.searchMode) {
+                    root.pageStack.pop(mainColumn);
+                } else if (subCategoryView.count > 1) {
+                    root.pageStack.push(subCategoryColumn);
+                }
+            }
+        }
+        Connections {
             target: systemsettings
             onActiveSubCategoryChanged: {
-                subCategoryView.currentIndex = systemsettings.activeSubCategory;
-                if (systemsettings.activeSubCategory < 0) {
+                subCategoryView.currentIndex = systemsettings.activeSubCategoryRow;
+                if (systemsettings.activeSubCategoryRow < 0) {
                     root.pageStack.pop(mainColumn)
                 } else {
                     root.pageStack.currentIndex = 1;
                     subCategoryView.forceActiveFocus();
+                }
+            }
+            onIntroPageVisibleChanged: {
+                if (systemsettings.introPageVisible) {
+                    root.pageStack.pop(mainColumn)
                 }
             }
         }
@@ -144,12 +161,14 @@ Kirigami.ScrollablePage {
             icon: model.decoration
             label: model.display
             separatorVisible: false
-            onClicked: systemsettings.activeSubCategory = index
+            onClicked: {
+                systemsettings.loadModule(subCategoryView.model.index(index, 0));
+            }
             onHoveredChanged: {
                 if (hovered) {
-                    systemsettings.requestSubCategoryToolTip(index, delegate.mapToItem(root, 0, 0, width, height));
+                    systemsettings.requestToolTip(subCategoryView.model.index(index, 0), delegate.mapToItem(root, 0, 0, width, height));
                 } else {
-                    systemsettings.hideSubCategoryToolTip();
+                    systemsettings.hideToolTip();
                 }
             }
             onFocusChanged: {
@@ -157,7 +176,7 @@ Kirigami.ScrollablePage {
                     onCurrentIndexChanged: subCategoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
-            highlighted: systemsettings.activeSubCategory == index
+            highlighted: systemsettings.activeSubCategoryRow == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
         }

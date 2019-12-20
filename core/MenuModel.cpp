@@ -22,11 +22,8 @@
 
 #include <KCategorizedSortFilterProxyModel>
 #include <QIcon>
-
 #include "MenuItem.h"
 
-const int MenuModel::UserFilterRole = 0x015D1AE6;
-const int MenuModel::UserSortRole = 0x03A8CC00;
 
 class MenuModel::Private {
 public:
@@ -47,6 +44,14 @@ MenuModel::~MenuModel()
 {
     d->exceptions.clear();
     delete d;
+}
+
+QHash<int, QByteArray> MenuModel::roleNames() const
+{
+    QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
+    names[DepthRole] = "DepthRole";
+    names[IsCategoryRole] = "IsCategoryRole";
+    return names;
 }
 
 int MenuModel::columnCount( const QModelIndex &parent ) const
@@ -91,12 +96,21 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
                 theData.setValue( QStringLiteral("%1%2").arg( QString::number(mi->parent()->weight()), 5, QLatin1Char('0') ).arg( mi->parent()->name() ) );
             }
             break;
-        case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
-            if ( mi->parent() ) {
-                theData.setValue( mi->parent()->name() );
+        case KCategorizedSortFilterProxyModel::CategoryDisplayRole: {
+            MenuItem *candidate = mi->parent();
+            // The model has an invisible single root item.
+            // So to get the "root category" we don't go up all the way
+            // To the actual root, but to the list of the first childs.
+            // That's why we check for candidate->parent()->parent()
+            while ( candidate && candidate->parent() && candidate->parent()->parent() ) {
+                candidate = candidate->parent();
+            }
+            if (candidate) {
+                theData.setValue( candidate->name() );
             }
             break;
-        case Qt::UserRole:
+        }
+        case MenuModel::MenuItemRole:
             theData.setValue( mi );
             break;
         case MenuModel::UserFilterRole:
@@ -104,6 +118,20 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
             break;
         case MenuModel::UserSortRole:
             theData.setValue( QStringLiteral("%1").arg( QString::number(mi->weight()), 5, QLatin1Char('0') ) );
+            break;
+        case MenuModel::DepthRole: {
+            MenuItem *candidate = mi;
+            // -1 excludes the invisible root, having main categories at depth 0
+            int depth = -1;
+            while ( candidate && candidate->parent() ) {
+                candidate = candidate->parent();
+                ++depth;
+            }
+            theData.setValue( depth );
+            break;
+        }
+        case MenuModel::IsCategoryRole:
+            theData.setValue( mi->menu() );
             break;
         default:
             break;
