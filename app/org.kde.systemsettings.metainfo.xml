@@ -12,6 +12,7 @@
   <name xml:lang="eu">Sistemako Ezarpenak</name>
   <name xml:lang="fi">Järjestelmäasetukset</name>
   <name xml:lang="fr">Configuration du système</name>
+  <name xml:lang="ia">Preferentias de systema</name>
   <name xml:lang="id">System Settings</name>
   <name xml:lang="it">Impostazioni di sistema</name>
   <name xml:lang="ko">시스템 설정</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
   <summary xml:lang="fi">Tietokoneen ylläpitotyökalut</summary>
   <summary xml:lang="fr">Outils de configuration pour votre ordinateur</summary>
+  <summary xml:lang="ia">Instrumentos de configuration per tu computator</summary>
   <summary xml:lang="id">Peralatan konfigurasi untuk komputermu</summary>
   <summary xml:lang="it">Strumenti di configurazione per il tuo computer</summary>
   <summary xml:lang="ko">컴퓨터 설정 도구</summary>
