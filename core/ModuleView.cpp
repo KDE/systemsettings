@@ -389,10 +389,14 @@ void ModuleView::stateChanged()
 
     updatePageIconHeader( d->mPageWidget->currentPage() );
     d->mApplyAuthorize->setAuthAction( moduleAction );
-    d->mDefault->setEnabled( (buttons & KCModule::Default) && !defaulted );
-    d->mApply->setEnabled( (buttons & KCModule::Apply) && change );
-    d->mReset->setEnabled( (buttons & KCModule::Apply) && change );
+    d->mDefault->setEnabled(!defaulted);
+    d->mDefault->setVisible(buttons & KCModule::Default);
+    d->mApply->setEnabled(change);
+    d->mApply->setVisible(buttons & KCModule::Apply);
+    d->mReset->setEnabled(change);
+    d->mReset->setVisible(buttons & KCModule::Apply);
     d->mHelp->setEnabled(buttons & KCModule::Help );
+    d->mHelp->setVisible(buttons & KCModule::Help );
     emit moduleChanged( change );
 }
 
