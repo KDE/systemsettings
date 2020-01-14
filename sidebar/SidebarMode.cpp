@@ -537,7 +537,7 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
 
             MenuItem *parentMi = idx.parent().data(MenuModel::MenuItemRole).value<MenuItem *>();
             if (idx.isValid()) {
-                if (parentMi->menu()) {
+                if (parentMi && parentMi->menu()) {
                     d->subCategoryModel->setParentIndex( idx.parent() );
                     d->activeCategoryRow = idx.parent().row();
                     d->activeSubCategoryRow = idx.row();
