@@ -23,7 +23,7 @@
 #include <KCategorizedSortFilterProxyModel>
 #include <QIcon>
 #include "MenuItem.h"
-
+#include <QDebug>
 
 class MenuModel::Private {
 public:
@@ -68,7 +68,6 @@ int MenuModel::rowCount( const QModelIndex &parent ) const
     } else {
         mi = d->rootItem;
     }
-
     return childrenList(mi).count();
 }
 

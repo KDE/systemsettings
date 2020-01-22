@@ -127,6 +127,9 @@ void MenuItem::setService( const KService::Ptr& service )
 {
     d->service = service;
     d->category = service->property(QStringLiteral("X-KDE-System-Settings-Category")).toString();
+    if (d->category.isEmpty()) {
+        d->category = service->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
+    }
     d->name = service->name();
     d->item = KCModuleInfo( service );
     const QVariant itemWeight = service->property(QStringLiteral("X-KDE-Weight"), QVariant::Int );

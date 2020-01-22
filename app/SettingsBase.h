@@ -93,5 +93,6 @@ private:
     KService::List modules;
     // The about dialog
     KAboutApplicationDialog * aboutDialog = nullptr;
+    bool m_infoCenterMode = true;
 };
 #endif

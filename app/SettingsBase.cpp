@@ -89,11 +89,23 @@ QSize SettingsBase::sizeHint() const
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
-    categories = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsCategory"));
-    modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
-    modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+    if (m_infoCenterMode) {
+        categories = KServiceTypeTrader::self()->query(QStringLiteral("KInfoCenterCategory"));
+        modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
+    } else {
+        categories = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsCategory"));
+        modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
+        modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+    }
+
     rootModule = new MenuItem( true, nullptr );
-    initMenuList(rootModule);
+    if (m_infoCenterMode) {
+        MenuItem *firstLevelItem = new MenuItem( true, rootModule );
+        initMenuList(firstLevelItem);
+    } else {
+        initMenuList(rootModule);
+    }
+
     // Handle lost+found modules...
     if (lostFound) {
         for (int i = 0; i < modules.size(); ++i) {
@@ -209,9 +221,11 @@ void SettingsBase::initMenuList(MenuItem * parent)
         const KService::Ptr entry = categories.at(i);
         const QString parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
         const QString parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
-        if ( parentCategory == parent->category() ||
+        
+        if ((m_infoCenterMode && !parent->service()) ||
+            (!m_infoCenterMode && (parentCategory == parent->category() ||
              // V2 entries must not be empty if they want to become a proper category.
-             ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) {
+             ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) ) ) {
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->setService( entry );
             if( menuItem->category() == QLatin1String("lost-and-found") ) {
@@ -227,16 +241,33 @@ void SettingsBase::initMenuList(MenuItem * parent)
     // scan for any modules at this level and add them
     for (int i = 0; i < modules.size(); ++i) {
         const KService::Ptr entry = modules.at(i);
-        const QString category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-        const QString category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
-        if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
-            if (!entry->noDisplay() ) {
-                // Add the module info to the menu
-                MenuItem * infoItem = new MenuItem(false, parent);
-                infoItem->setService( entry );
+
+        if (m_infoCenterMode) {
+            const QString kInfoCenterCategory = entry->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
+
+            if (kInfoCenterCategory == parent->category()) {
+                if (!entry->noDisplay() ) {
+                    // Add the module info to the menu
+                    MenuItem * infoItem = new MenuItem(false, parent);
+                    infoItem->setService( entry );
+                }
+
+                removeList.append( modules.at(i) );
             }
 
-            removeList.append( modules.at(i) );
+        } else {
+            const QString category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
+            const QString category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+
+            if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
+                if (!entry->noDisplay() ) {
+                    // Add the module info to the menu
+                    MenuItem * infoItem = new MenuItem(false, parent);
+                    infoItem->setService( entry );
+                }
+
+                removeList.append( modules.at(i) );
+            }
         }
     }
 
