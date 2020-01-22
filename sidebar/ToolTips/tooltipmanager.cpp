@@ -29,6 +29,7 @@
 #include <QGridLayout>
 #include <QApplication>
 #include <QAbstractItemModel>
+#include <QStyle>
 
 #include <KIconLoader>
 #include <KColorScheme>
@@ -52,7 +53,7 @@ public:
         tooltip(nullptr),
         view(nullptr),
         timer(nullptr),
-        delay(300)
+        delay(QApplication::style()->styleHint(QStyle::SH_ToolTip_WakeUpDelay))
         { }
 
     KToolTipWidget *tooltip;
