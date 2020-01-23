@@ -25,16 +25,20 @@ SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])
     : QApplication(argc, argv)
 {
     setOrganizationDomain(QStringLiteral("kde.org"));
+}
+
+SystemSettingsApp::~SystemSettingsApp()
+{
+}
+
+void SystemSettingsApp::initializeDBus()
+{
     KDBusService* service = new KDBusService(KDBusService::Unique, this);
     QObject::connect(service, &KDBusService::activateRequested, this, [=]() {
         if (window) {
             KWindowSystem::forceActiveWindow(window->winId());
         }
     } );
-}
-
-SystemSettingsApp::~SystemSettingsApp()
-{
 }
 
 void SystemSettingsApp::setMainWindow(SettingsBase * main)

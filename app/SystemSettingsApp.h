@@ -37,6 +37,8 @@ public:
    SystemSettingsApp(int& argc, char* argv[]);
    ~SystemSettingsApp() override;
 
+   void initializeDBus();
+
    void setMainWindow(SettingsBase * main);
 
 public Q_SLOTS:

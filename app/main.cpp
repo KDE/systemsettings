@@ -26,6 +26,7 @@
 #include <KCrash>
 
 #include <kworkspace.h>
+#include <kdbusservice.h>
 #include <KQuickAddons/QtQuickSettings>
 
 #include "SystemSettingsApp.h"
@@ -62,6 +63,8 @@ int main( int argc, char *argv[] )
 
     const bool infoCenterMode = parser.isSet(infoCenterOption);
     if (infoCenterMode) {
+        QCoreApplication::setApplicationName(QStringLiteral("kinfocenter"));
+        application.setApplicationName(QStringLiteral("kinfocenter"));
         aboutData.setComponentName(QStringLiteral("kinfocenter"));
         aboutData.setDisplayName(i18n("Info Center"));
         aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
@@ -78,6 +81,8 @@ int main( int argc, char *argv[] )
         }
     }
 
+    application.initializeDBus();
+    
     KAboutData::setApplicationData(aboutData);
 
    
