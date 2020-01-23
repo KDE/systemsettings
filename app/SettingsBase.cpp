@@ -114,13 +114,6 @@ void SettingsBase::initApplication()
     }
 
     rootModule = new MenuItem( true, nullptr );
-    if (m_infoCenterMode) {
-       // MenuItem *firstLevelItem = new MenuItem( true, rootModule );
-        //initMenuList(firstLevelItem);
-    } else {
-        
-    }
-   // orphanCategory = new MenuItem( true, rootModule );
     initMenuList(rootModule);
 
     // Handle lost+found modules...
@@ -269,8 +262,8 @@ void SettingsBase::initMenuList(MenuItem * parent)
         if (m_infoCenterMode) {
             category = entry->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
         } else {
-            category = entry->property(QStringLiteral("X-KDE-System-Settings-Category")).toString();
-            category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Category-V2")).toString();
+            category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
+            category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
         }
 
         if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
