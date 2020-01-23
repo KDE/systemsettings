@@ -574,16 +574,29 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
         return;
     }
 
-    if (introPageVisible) {
-        d->activeCategoryRow = -1;
-        emit activeCategoryRowChanged();
-        d->activeSubCategoryRow = -1;
-        emit activeSubCategoryRowChanged();
-        d->placeHolderWidget->show();
-        d->moduleView->hide();
-    } else {
+    if (isInfoCenterMode()) {
         d->placeHolderWidget->hide();
         d->moduleView->show();
+        if (introPageVisible) {
+            d->activeCategoryRow = 0;
+            emit activeCategoryRowChanged();
+            d->activeSubCategoryRow = -1;
+            emit activeSubCategoryRowChanged();
+            // FIXME: find a better way
+            loadModule(d->model->index(0, 0, d->model->index(0, 0, d->model->index(0,0))));
+        }
+    } else {
+        if (introPageVisible) {
+            d->activeCategoryRow = -1;
+            emit activeCategoryRowChanged();
+            d->activeSubCategoryRow = -1;
+            emit activeSubCategoryRowChanged();
+            d->placeHolderWidget->show();
+            d->moduleView->hide();
+        } else {
+            d->placeHolderWidget->hide();
+            d->moduleView->show();
+        }
     }
 
     d->m_introPageVisible = introPageVisible;
@@ -681,6 +694,15 @@ void SidebarMode::initWidget()
     d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
 
     d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
+
+    if (isInfoCenterMode()) {
+        d->activeCategoryRow = 0;
+        emit activeCategoryRowChanged();
+        d->activeSubCategoryRow = -1;
+        emit activeSubCategoryRowChanged();
+        // FIXME: find a better way
+        loadModule(d->model->index(0, 0, d->model->index(0, 0, d->model->index(0,0))));
+    }
 }
 
 bool SidebarMode::eventFilter(QObject* watched, QEvent* event)

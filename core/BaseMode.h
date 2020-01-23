@@ -113,6 +113,9 @@ public:
      */
     virtual KAboutData * aboutData();
 
+    void setInfoCenterMode(bool info);
+    bool isInfoCenterMode() const;
+
     /**
      * The state of the plugin ( position of the splitter for instance ) should be saved
      * to the configuration object when this is called.

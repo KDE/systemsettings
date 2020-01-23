@@ -39,6 +39,7 @@ public:
     MenuItem *rootItem = nullptr;
     KConfigGroup config;
     bool showToolTips = true;
+    bool infoCenterMode = false;
 };
 
 BaseMode::BaseMode( QObject* parent )
@@ -73,6 +74,16 @@ QWidget * BaseMode::mainWidget()
 KAboutData * BaseMode::aboutData()
 {
     return nullptr;
+}
+
+void BaseMode::setInfoCenterMode(bool info)
+{
+    d->infoCenterMode = info;
+}
+
+bool BaseMode::isInfoCenterMode() const
+{
+    return d->infoCenterMode;
 }
 
 ModuleView * BaseMode::moduleView() const

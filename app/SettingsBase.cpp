@@ -83,6 +83,8 @@ void SettingsBase::setInfoCenterMode(bool set)
 {
     m_infoCenterMode = set;
     if (m_infoCenterMode) {
+        actionCollection()->removeAction(configureAction);
+        configureAction = nullptr;
         setWindowTitle(i18n("Info Center"));
         setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
     } else {
@@ -136,6 +138,7 @@ void SettingsBase::initApplication()
         QString error;
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
+            controller->setInfoCenterMode(m_infoCenterMode);
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
             connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
@@ -160,12 +163,14 @@ void SettingsBase::initToolBar()
     // Fill the toolbar with default actions
     // Exit is the very last action
     quitAction = actionCollection()->addAction( KStandardAction::Quit, QStringLiteral("quit_action"), this, SLOT(close()) );
+
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, QStringLiteral("configure"), this, SLOT(configShow()) );
     configureAction->setText( i18n("Configure...") );
     // Help after it
     initHelpMenu();
     configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
+
 
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new QWidgetAction( this );
@@ -289,6 +294,7 @@ void SettingsBase::configUpdated()
     KConfigGroup dialogConfig = KSharedConfig::openConfig()->group("ConfigDialog");
     KWindowConfig::saveWindowSize(configDialog->windowHandle(), dialogConfig);
     BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
+
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->saveConfiguration();
@@ -362,7 +368,7 @@ void SettingsBase::changePlugin()
         activeView->leaveModuleView();
     }
 
-    const QString viewToUse = BaseConfig::activeView();
+    const QString viewToUse = m_infoCenterMode ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
     }
@@ -397,7 +403,9 @@ void SettingsBase::changePlugin()
 void SettingsBase::viewChange(bool state)
 {
     KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule();
-    configureAction->setDisabled(state);
+    if (configureAction) {
+        configureAction->setDisabled(state);
+    }
     if( moduleInfo ) {
         setCaption( moduleInfo->moduleName(), state );
     } else {
@@ -426,7 +434,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
         guiFactory()->plugActionList( this, QStringLiteral("search"), searchBarActions );
         actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL + Qt::Key_F));
     }
-    if ( BaseMode::Configure & toolbar ) {
+    if ( (BaseMode::Configure & toolbar) && configureAction) {
         QList<QAction*> configureBarActions;
         configureBarActions << configureAction;
         guiFactory()->plugActionList( this, QStringLiteral("configure"), configureBarActions );

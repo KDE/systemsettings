@@ -150,6 +150,8 @@ public:
      */
     void removeException( MenuItem * exception );
 
+    QModelIndex homeItem() const;
+
 protected:
     /**
      * Provides the MenuItem which is used internally to provide information.
