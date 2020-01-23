@@ -53,8 +53,6 @@ SettingsBase::SettingsBase( QWidget * parent )
     lostFound = nullptr;
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
-    setWindowTitle(i18n("System Settings"));
-    setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     setCentralWidget(stackedWidget);
     setWindowFlags( windowFlags() | Qt::WindowContextHelpButtonHint );
     // Initialise search
@@ -74,6 +72,23 @@ SettingsBase::SettingsBase( QWidget * parent )
 SettingsBase::~SettingsBase()
 {
     delete rootModule;
+}
+
+bool SettingsBase::isInfoCenterMode() const
+{
+    return m_infoCenterMode;
+}
+
+void SettingsBase::setInfoCenterMode(bool set)
+{
+    m_infoCenterMode = set;
+    if (m_infoCenterMode) {
+        setWindowTitle(i18n("Info Center"));
+        setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
+    } else {
+        setWindowTitle(i18n("System Settings"));
+        setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+    }
 }
 
 QSize SettingsBase::sizeHint() const

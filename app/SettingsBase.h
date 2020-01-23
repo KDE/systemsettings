@@ -43,6 +43,9 @@ class SettingsBase : public KXmlGuiWindow
 public:
     explicit SettingsBase(QWidget * parent = nullptr);
     ~SettingsBase() override;
+    bool isInfoCenterMode() const;
+    // This has effect only if set right after the ctor
+    void setInfoCenterMode(bool set);
     bool queryClose() override;
 
 protected:
@@ -94,6 +97,6 @@ private:
     KService::List modules;
     // The about dialog
     KAboutApplicationDialog * aboutDialog = nullptr;
-    bool m_infoCenterMode = true;
+    bool m_infoCenterMode = false;
 };
 #endif

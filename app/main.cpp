@@ -50,22 +50,39 @@ int main( int argc, char *argv[] )
     aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
 
-    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
-        aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
-    } else {
-        aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
-    }
-
-    KAboutData::setApplicationData(aboutData);
-
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+
     QCommandLineParser parser;
+    QCommandLineOption infoCenterOption(QStringList() << QStringLiteral("i") << QStringLiteral("showInformation"),
+                                        i18n("Show System information instead of System configuration."));
+    parser.addOption(infoCenterOption);
     aboutData.setupCommandLine(&parser);
     parser.process(application);
     aboutData.processCommandLine(&parser);
 
+    const bool infoCenterMode = parser.isSet(infoCenterOption);
+    if (infoCenterMode) {
+        aboutData.setComponentName(QStringLiteral("kinfocenter"));
+        aboutData.setDisplayName(i18n("Info Center"));
+        aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
+        aboutData.setShortDescription(QStringLiteral("Centralized and convenient overview of system information"));
+        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
+
+    } else {
+        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+
+        if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
+            aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
+        } else {
+            aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
+        }
+    }
+
+    KAboutData::setApplicationData(aboutData);
+
+   
     SettingsBase *mainWindow = new SettingsBase();
+    mainWindow->setInfoCenterMode(infoCenterMode);
     mainWindow->show();
     application.setMainWindow(mainWindow);
     return application.exec();
