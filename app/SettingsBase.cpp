@@ -100,11 +100,13 @@ void SettingsBase::initApplication()
 
     rootModule = new MenuItem( true, nullptr );
     if (m_infoCenterMode) {
-        MenuItem *firstLevelItem = new MenuItem( true, rootModule );
-        initMenuList(firstLevelItem);
+       // MenuItem *firstLevelItem = new MenuItem( true, rootModule );
+        //initMenuList(firstLevelItem);
     } else {
-        initMenuList(rootModule);
+        
     }
+   // orphanCategory = new MenuItem( true, rootModule );
+    initMenuList(rootModule);
 
     // Handle lost+found modules...
     if (lostFound) {
@@ -219,13 +221,18 @@ void SettingsBase::initMenuList(MenuItem * parent)
     // look for any categories inside this level, and recurse into them
     for (int i = 0; i < categories.size(); ++i) {
         const KService::Ptr entry = categories.at(i);
-        const QString parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-        const QString parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
-        
-        if ((m_infoCenterMode && !parent->service()) ||
-            (!m_infoCenterMode && (parentCategory == parent->category() ||
+        QString parentCategory;
+        QString parentCategory2;
+        if (m_infoCenterMode) {
+            parentCategory = entry->property(QStringLiteral("X-KDE-KInfoCenter-Parent-Category")).toString();
+        } else {
+            parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
+            parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+        }
+
+        if (parentCategory == parent->category() ||
              // V2 entries must not be empty if they want to become a proper category.
-             ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) ) ) {
+             ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) {
             MenuItem * menuItem = new MenuItem(true, parent);
             menuItem->setService( entry );
             if( menuItem->category() == QLatin1String("lost-and-found") ) {
@@ -242,32 +249,23 @@ void SettingsBase::initMenuList(MenuItem * parent)
     for (int i = 0; i < modules.size(); ++i) {
         const KService::Ptr entry = modules.at(i);
 
+        QString category;
+        QString category2;
         if (m_infoCenterMode) {
-            const QString kInfoCenterCategory = entry->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
-
-            if (kInfoCenterCategory == parent->category()) {
-                if (!entry->noDisplay() ) {
-                    // Add the module info to the menu
-                    MenuItem * infoItem = new MenuItem(false, parent);
-                    infoItem->setService( entry );
-                }
-
-                removeList.append( modules.at(i) );
-            }
-
+            category = entry->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
         } else {
-            const QString category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-            const QString category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+            category = entry->property(QStringLiteral("X-KDE-System-Settings-Category")).toString();
+            category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Category-V2")).toString();
+        }
 
-            if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
-                if (!entry->noDisplay() ) {
-                    // Add the module info to the menu
-                    MenuItem * infoItem = new MenuItem(false, parent);
-                    infoItem->setService( entry );
-                }
-
-                removeList.append( modules.at(i) );
+        if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
+            if (!entry->noDisplay() ) {
+                // Add the module info to the menu
+                MenuItem * infoItem = new MenuItem(false, parent);
+                infoItem->setService( entry );
             }
+
+            removeList.append( modules.at(i) );
         }
     }
 

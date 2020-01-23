@@ -89,6 +89,7 @@ private:
     // The module list
     MenuItem * rootModule = nullptr;
     MenuItem * lostFound = nullptr;
+    MenuItem * orphanCategory = nullptr;
     KService::List categories;
     KService::List modules;
     // The about dialog
