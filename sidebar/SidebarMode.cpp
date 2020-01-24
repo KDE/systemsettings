@@ -374,6 +374,11 @@ void SidebarMode::initEvent()
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
+    if (isInfoCenterMode()) {
+        d->moduleView->setApplyVisible(false);
+        d->moduleView->setDefaultsVisible(false);
+        d->moduleView->setResetVisible(false);
+    }
 }
 
 QAction *SidebarMode::action(const QString &name) const

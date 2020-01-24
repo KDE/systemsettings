@@ -425,3 +425,33 @@ KPageView::FaceType ModuleView::faceType() const
     return d->mPageWidget->faceType();
 }
 
+void ModuleView::setApplyVisible(bool visible)
+{
+    d->mApply->setVisible(visible);
+}
+
+bool ModuleView::isApplyVisible() const
+{
+    return d->mApply->isVisible();
+}
+
+void ModuleView::setDefaultsVisible(bool visible)
+{
+    d->mDefault->setVisible(visible);
+}
+
+bool ModuleView::isDefaultsVisible() const
+{
+    return d->mDefault->isVisible();
+}
+
+void ModuleView::setResetVisible(bool visible)
+{
+    d->mReset->setVisible(visible);
+}
+
+bool ModuleView::isResetVisible() const
+{
+    return d->mReset->isVisible();
+}
+

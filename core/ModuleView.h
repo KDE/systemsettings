@@ -95,6 +95,15 @@ public:
 
     KPageView::FaceType faceType() const;
 
+    void setApplyVisible(bool visible);
+    bool isApplyVisible() const;
+
+    void setDefaultsVisible(bool visible);
+    bool isDefaultsVisible() const;
+
+    void setResetVisible(bool visible);
+    bool isResetVisible() const;
+
 public Q_SLOTS:
     /**
      * Loads the module specified by menuItem.\n
