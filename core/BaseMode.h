@@ -235,6 +235,14 @@ protected:
     MenuItem * rootItem() const;
 
     /**
+     * Returns (if present) an item that corresponds to a KCM which should be used as startup page.
+     *
+     * @warning This is shared between all views, and should not be deleted manually.
+     * @returns The item to load as startup page. It may be nullptr
+     */
+    MenuItem * homeItem() const;
+
+    /**
      * Provides access to the configuration for the plugin.
      *
      * @returns The configuration group for the plugin.

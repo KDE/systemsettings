@@ -130,6 +130,7 @@ void SettingsBase::initApplication()
 
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
+    BaseData::instance()->setHomeItem( homeModule );
     // Load all possible views
     const KService::List pluginObjects = KServiceTypeTrader::self()->query( QStringLiteral("SystemSettingsView") );
     const int nbPlugins = pluginObjects.count();
@@ -139,6 +140,7 @@ void SettingsBase::initApplication()
         BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
         if( error.isEmpty() ) {
             controller->setInfoCenterMode(m_infoCenterMode);
+            
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
             connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
@@ -276,6 +278,9 @@ void SettingsBase::initMenuList(MenuItem * parent)
                 // Add the module info to the menu
                 MenuItem * infoItem = new MenuItem(false, parent);
                 infoItem->setService( entry );
+                if (m_infoCenterMode && entry->pluginKeyword() == QStringLiteral("kcm-about-distro")) {
+                    homeModule = infoItem;
+                }
             }
 
             removeList.append( modules.at(i) );

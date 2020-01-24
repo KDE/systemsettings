@@ -73,6 +73,21 @@ public:
     void setMenuItem( MenuItem * item );
 
     /**
+    * Provides the shared MenuItem that corresponds to a KCM which should be used as startup page.
+    * 
+    * @returns the shared MenuItem. It may be nullptr.
+    */
+    MenuItem * homeItem();
+
+    /**
+     * Sets the homescreen MenuItem which the Singleton will return.
+     * For internal use only.
+     *
+     * @param item A pointer to the MenuItem object
+     */
+    void setHomeItem( MenuItem * item );
+    
+    /**
     * Returns the configuration group by the name provided in the current applications configuration file.
     *
     * @param pluginName the name of the group that is required.
@@ -82,6 +97,7 @@ public:
 
 private:
     MenuItem * rootMenu;
+    MenuItem * m_homeItem;
 };
 
 #endif

@@ -375,6 +375,7 @@ void SidebarMode::initEvent()
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
     if (isInfoCenterMode()) {
+        d->moduleView->setSaveStatistics(false);
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
         d->moduleView->setResetVisible(false);
@@ -453,7 +454,13 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
         return;
     }
 
-    setIntroPageVisible(false);
+    if (homeItem()) {
+        d->m_introPageVisible = activeModule == d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
+        emit introPageVisibleChanged();
+    } else {
+        setIntroPageVisible(false);
+    }
+
     if ( mi->children().length() < 1) {
         d->moduleView->loadModule( activeModule );
     } else {
@@ -579,16 +586,12 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
         return;
     }
 
-    if (isInfoCenterMode()) {
+    // TODO: eventually make the intro page of SystemSettings a KCM as well?
+    if (homeItem()) {
         d->placeHolderWidget->hide();
         d->moduleView->show();
         if (introPageVisible) {
-            d->activeCategoryRow = 0;
-            emit activeCategoryRowChanged();
-            d->activeSubCategoryRow = -1;
-            emit activeSubCategoryRowChanged();
-            // FIXME: find a better way
-            loadModule(d->model->index(0, 0, d->model->index(0, 0, d->model->index(0,0))));
+            loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
         }
     } else {
         if (introPageVisible) {
@@ -700,13 +703,10 @@ void SidebarMode::initWidget()
 
     d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
 
-    if (isInfoCenterMode()) {
-        d->activeCategoryRow = 0;
-        emit activeCategoryRowChanged();
-        d->activeSubCategoryRow = -1;
-        emit activeSubCategoryRowChanged();
-        // FIXME: find a better way
-        loadModule(d->model->index(0, 0, d->model->index(0, 0, d->model->index(0,0))));
+    if (homeItem()) {
+        d->placeHolderWidget->hide();
+        d->moduleView->show();
+        loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
     }
 }
 

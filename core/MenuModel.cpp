@@ -210,6 +210,23 @@ MenuItem * MenuModel::parentItem( MenuItem * child ) const
     return parent;
 }
 
+QModelIndex MenuModel::indexForItem( MenuItem * item ) const
+{
+    MenuItem * parent = parentItem(item);
+
+    if (!parent) {
+        return QModelIndex();
+    }
+
+    const int row = childrenList(parent).indexOf(item);
+
+    if (row < 0) {
+        return QModelIndex();
+    }
+
+    return createIndex(row, 0, item);
+}
+
 MenuItem * MenuModel::rootItem() const
 {
     return d->rootItem;

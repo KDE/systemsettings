@@ -150,7 +150,7 @@ public:
      */
     void removeException( MenuItem * exception );
 
-    QModelIndex homeItem() const;
+    QModelIndex indexForItem( MenuItem * item ) const;
 
 protected:
     /**
