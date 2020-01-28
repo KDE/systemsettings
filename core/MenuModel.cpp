@@ -24,7 +24,6 @@
 #include <QIcon>
 #include "MenuItem.h"
 
-
 class MenuModel::Private {
 public:
     Private() {}
@@ -68,7 +67,6 @@ int MenuModel::rowCount( const QModelIndex &parent ) const
     } else {
         mi = d->rootItem;
     }
-
     return childrenList(mi).count();
 }
 
@@ -209,6 +207,23 @@ MenuItem * MenuModel::parentItem( MenuItem * child ) const
         parent = parentItem(parent);
     }
     return parent;
+}
+
+QModelIndex MenuModel::indexForItem( MenuItem * item ) const
+{
+    MenuItem * parent = parentItem(item);
+
+    if (!parent) {
+        return QModelIndex();
+    }
+
+    const int row = childrenList(parent).indexOf(item);
+
+    if (row < 0) {
+        return QModelIndex();
+    }
+
+    return createIndex(row, 0, item);
 }
 
 MenuItem * MenuModel::rootItem() const

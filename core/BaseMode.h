@@ -56,13 +56,22 @@ class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
     friend class SettingsBase;
 
 public:
+    // Main mode of the app.
+    // At the moment SystemSettings and InfoCenter are supported:
+    // Changes mainly the set of module listed on the left menu
+    enum ApplicationMode {
+        SystemSettings = 0,
+        InfoCenter
+    };
+    Q_ENUM(ApplicationMode);
+
     /**
      * Constructs a BaseMode for use in System Settings.\n
      * Plugin developers should perform all initialisation in initEvent() not here.
      *
      * @param parent The parent of this BaseMode.
      */
-    explicit BaseMode( QObject * parent );
+    explicit BaseMode( QObject * parent, const QVariantList &args );
     /**
      * Normal destructor. Plugin developers only need destroy what they created
      * not what is provided by BaseMode itself.
@@ -112,6 +121,11 @@ public:
      * @returns The about data of the plugin.
      */
     virtual KAboutData * aboutData();
+
+    /**
+     * @returns the application mode of this systemsettings process: SystemSettings or InfoCenter
+     */
+    ApplicationMode applicationMode() const;
 
     /**
      * The state of the plugin ( position of the splitter for instance ) should be saved
@@ -230,6 +244,14 @@ protected:
      * @returns The root menu item as provided by System Settings.
      */
     MenuItem * rootItem() const;
+
+    /**
+     * Returns (if present) an item that corresponds to a KCM which should be used as startup page.
+     *
+     * @warning This is shared between all views, and should not be deleted manually.
+     * @returns The item to load as startup page. It may be nullptr
+     */
+    MenuItem * homeItem() const;
 
     /**
      * Provides access to the configuration for the plugin.

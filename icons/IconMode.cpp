@@ -52,8 +52,8 @@ public:
     QAction * backAction;
 };
 
-IconMode::IconMode( QObject *parent, const QVariantList& )
-    : BaseMode( parent )
+IconMode::IconMode( QObject *parent, const QVariantList &args )
+    : BaseMode( parent, args )
     , d( new Private() )
 {
     d->aboutIcon = new KAboutData( QStringLiteral("IconView"), i18n( "Icon View" ),

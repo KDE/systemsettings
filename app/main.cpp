@@ -26,6 +26,7 @@
 #include <KCrash>
 
 #include <kworkspace.h>
+#include <kdbusservice.h>
 #include <KQuickAddons/QtQuickSettings>
 
 #include "SystemSettingsApp.h"
@@ -33,39 +34,68 @@
 
 int main( int argc, char *argv[] )
 {
+    // Make sure the binary name is either kinfocenter or systemsettings,
+    // Anything else will just be considered as "systemsettings"
+    QString binaryName = QString::fromUtf8(argv[0]);
+    BaseMode::ApplicationMode mode = BaseMode::InfoCenter;
+    if (binaryName != QStringLiteral("kinfocenter")) {
+        binaryName = QStringLiteral("systemsettings");
+        mode = BaseMode::SystemSettings;
+    }
+
     //exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
     //which is before KAboutData::setApplicationData
-    QCoreApplication::setApplicationName(QStringLiteral("systemsettings"));
+    QCoreApplication::setApplicationName(binaryName);
 
     KWorkSpace::detectPlatform(argc, argv);
     SystemSettingsApp application(argc, argv);
     KQuickAddons::QtQuickSettings::init();
     KCrash::initialize();
 
-    KLocalizedString::setApplicationDomain("systemsettings");
+    KLocalizedString::setApplicationDomain(binaryName.toUtf8().constData());
 
-    // About data
-    KAboutData aboutData(QStringLiteral("systemsettings"), i18n("System Settings"), QLatin1String(PROJECT_VERSION), i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
-    aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
-    aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
-    aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
+    KAboutData aboutData;
 
-    if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
-        aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
+    if (mode == BaseMode::InfoCenter) {
+        // About data
+        aboutData = KAboutData(QStringLiteral("kinfocenter"), i18n("Info Center"), QLatin1String(PROJECT_VERSION), i18n("Centralized and convenient overview of system information."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
+        aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
+        aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
+        aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
+
     } else {
-        aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
+        aboutData = KAboutData(QStringLiteral("systemsettings"), i18n("System Settings"), QLatin1String(PROJECT_VERSION), i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
+        aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
+        aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
+        aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
     }
 
-    KAboutData::setApplicationData(aboutData);
-
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+
     QCommandLineParser parser;
+
     aboutData.setupCommandLine(&parser);
     parser.process(application);
     aboutData.processCommandLine(&parser);
 
-    SettingsBase *mainWindow = new SettingsBase();
+    if (mode == BaseMode::InfoCenter) {
+        aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
+        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
+
+    } else {
+        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+
+        if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
+            aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
+        } else {
+            aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
+        }
+    }
+
+    KAboutData::setApplicationData(aboutData);
+
+   
+    SettingsBase *mainWindow = new SettingsBase(mode);
     mainWindow->show();
     application.setMainWindow(mainWindow);
     return application.exec();

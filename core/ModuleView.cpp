@@ -61,7 +61,8 @@ public:
     QPushButton* mReset = nullptr;
     QPushButton* mDefault = nullptr;
     QPushButton* mHelp = nullptr;
-    bool pageChangeSupressed;
+    bool pageChangeSupressed = false;
+    bool mSaveStatistics = true;
 };
 
 ModuleView::ModuleView( QWidget * parent )
@@ -345,8 +346,11 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
 
     KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
     if (activeModule) {
-        KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
-                QStringLiteral("org.kde.systemsettings"));
+        // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
+        if (d->mSaveStatistics) {
+            KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
+                    QStringLiteral("org.kde.systemsettings"));
+        }
         if (activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml")) {
             d->mButtons->setContentsMargins(
                 style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
@@ -427,5 +431,45 @@ void ModuleView::setFaceType(KPageView::FaceType type)
 KPageView::FaceType ModuleView::faceType() const
 {
     return d->mPageWidget->faceType();
+}
+
+void ModuleView::setSaveStatistics(bool save)
+{
+    d->mSaveStatistics = save;
+}
+
+bool ModuleView::saveStatistics() const
+{
+    return d->mSaveStatistics;
+}
+
+void ModuleView::setApplyVisible(bool visible)
+{
+    d->mApply->setVisible(visible);
+}
+
+bool ModuleView::isApplyVisible() const
+{
+    return d->mApply->isVisible();
+}
+
+void ModuleView::setDefaultsVisible(bool visible)
+{
+    d->mDefault->setVisible(visible);
+}
+
+bool ModuleView::isDefaultsVisible() const
+{
+    return d->mDefault->isVisible();
+}
+
+void ModuleView::setResetVisible(bool visible)
+{
+    d->mReset->setVisible(visible);
+}
+
+bool ModuleView::isResetVisible() const
+{
+    return d->mReset->isVisible();
 }
 

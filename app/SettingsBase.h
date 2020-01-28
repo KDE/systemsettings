@@ -41,8 +41,9 @@ class SettingsBase : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit SettingsBase(QWidget * parent = nullptr);
+    explicit SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent = nullptr);
     ~SettingsBase() override;
+    bool isInfoCenterMode() const;
     bool queryClose() override;
 
 protected:
@@ -88,10 +89,12 @@ private:
     QStackedWidget * stackedWidget = nullptr;
     // The module list
     MenuItem * rootModule = nullptr;
+    MenuItem * homeModule = nullptr;
     MenuItem * lostFound = nullptr;
     KService::List categories;
     KService::List modules;
     // The about dialog
     KAboutApplicationDialog * aboutDialog = nullptr;
+    BaseMode::ApplicationMode m_mode = BaseMode::SystemSettings;
 };
 #endif

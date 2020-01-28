@@ -276,8 +276,8 @@ public:
     bool m_introPageVisible = true;
 };
 
-SidebarMode::SidebarMode( QObject *parent, const QVariantList& )
-    : BaseMode( parent )
+SidebarMode::SidebarMode( QObject *parent, const QVariantList &args )
+    : BaseMode( parent, args )
     , d( new Private() )
 {
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
@@ -374,6 +374,12 @@ void SidebarMode::initEvent()
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
+    if (applicationMode() == BaseMode::InfoCenter) {
+        d->moduleView->setSaveStatistics(false);
+        d->moduleView->setApplyVisible(false);
+        d->moduleView->setDefaultsVisible(false);
+        d->moduleView->setResetVisible(false);
+    }
 }
 
 QAction *SidebarMode::action(const QString &name) const
@@ -448,7 +454,13 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
         return;
     }
 
-    setIntroPageVisible(false);
+    if (homeItem()) {
+        d->m_introPageVisible = activeModule == d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
+        emit introPageVisibleChanged();
+    } else {
+        setIntroPageVisible(false);
+    }
+
     if ( mi->children().length() < 1) {
         d->moduleView->loadModule( activeModule );
     } else {
@@ -574,16 +586,25 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
         return;
     }
 
-    if (introPageVisible) {
-        d->activeCategoryRow = -1;
-        emit activeCategoryRowChanged();
-        d->activeSubCategoryRow = -1;
-        emit activeSubCategoryRowChanged();
-        d->placeHolderWidget->show();
-        d->moduleView->hide();
-    } else {
+    // TODO: Make the intro page of SystemSettings a KCM as well
+    if (homeItem()) {
         d->placeHolderWidget->hide();
         d->moduleView->show();
+        if (introPageVisible) {
+            loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
+        }
+    } else {
+        if (introPageVisible) {
+            d->activeCategoryRow = -1;
+            emit activeCategoryRowChanged();
+            d->activeSubCategoryRow = -1;
+            emit activeSubCategoryRowChanged();
+            d->placeHolderWidget->show();
+            d->moduleView->hide();
+        } else {
+            d->placeHolderWidget->hide();
+            d->moduleView->show();
+        }
     }
 
     d->m_introPageVisible = introPageVisible;
@@ -681,6 +702,12 @@ void SidebarMode::initWidget()
     d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
 
     d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
+
+    if (homeItem()) {
+        d->placeHolderWidget->hide();
+        d->moduleView->show();
+        loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
+    }
 }
 
 bool SidebarMode::eventFilter(QObject* watched, QEvent* event)

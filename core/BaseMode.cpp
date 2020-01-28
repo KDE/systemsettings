@@ -37,14 +37,19 @@ public:
     QList<QAction*> actionsList;
     KService::Ptr service;
     MenuItem *rootItem = nullptr;
+    MenuItem *homeItem = nullptr;
     KConfigGroup config;
     bool showToolTips = true;
+    BaseMode::ApplicationMode applicationMode = BaseMode::SystemSettings;
 };
 
-BaseMode::BaseMode( QObject* parent )
+BaseMode::BaseMode( QObject* parent, const QVariantList &args )
     : QObject( parent )
     , d( new Private() )
 {
+    if (!args.isEmpty() && args.first().canConvert<ApplicationMode>()) {
+        d->applicationMode = args.first().value<ApplicationMode>();
+    }
 }
 
 BaseMode::~BaseMode()
@@ -55,6 +60,7 @@ BaseMode::~BaseMode()
 void BaseMode::init( const KService::Ptr &modeService )
 {
     d->rootItem = BaseData::instance()->menuItem();
+    d->homeItem = BaseData::instance()->homeItem();
     d->service = modeService;
     d->config = BaseData::instance()->configGroup( modeService->library() );
     initEvent();
@@ -73,6 +79,11 @@ QWidget * BaseMode::mainWidget()
 KAboutData * BaseMode::aboutData()
 {
     return nullptr;
+}
+
+BaseMode::ApplicationMode BaseMode::applicationMode() const
+{
+    return d->applicationMode;
 }
 
 ModuleView * BaseMode::moduleView() const
@@ -133,6 +144,11 @@ void BaseMode::saveConfiguration()
 MenuItem * BaseMode::rootItem() const
 {
     return d->rootItem;
+}
+
+MenuItem * BaseMode::homeItem() const
+{
+    return d->homeItem;
 }
 
 KConfigGroup& BaseMode::config() const

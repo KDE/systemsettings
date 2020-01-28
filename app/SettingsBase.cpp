@@ -43,8 +43,9 @@
 #include "BaseData.h"
 #include "ModuleView.h"
 
-SettingsBase::SettingsBase( QWidget * parent )
-    : KXmlGuiWindow(parent)
+SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent )
+    : KXmlGuiWindow(parent),
+      m_mode(mode)
 {
     // Ensure delayed loading doesn't cause a crash
     activeView = nullptr;
@@ -53,8 +54,6 @@ SettingsBase::SettingsBase( QWidget * parent )
     lostFound = nullptr;
     // Prepare the view area
     stackedWidget = new QStackedWidget( this );
-    setWindowTitle(i18n("System Settings"));
-    setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     setCentralWidget(stackedWidget);
     setWindowFlags( windowFlags() | Qt::WindowContextHelpButtonHint );
     // Initialise search
@@ -62,6 +61,16 @@ SettingsBase::SettingsBase( QWidget * parent )
     searchText->setClearButtonEnabled( true );
     searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
     searchText->setCompletionMode( KCompletion::CompletionPopup );
+
+    if (m_mode == BaseMode::InfoCenter) {
+        actionCollection()->removeAction(configureAction);
+        configureAction = nullptr;
+        setWindowTitle(i18n("Info Center"));
+        setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
+    } else {
+        setWindowTitle(i18n("System Settings"));
+        setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+    }
 
     spacerWidget = new QWidget( this );
     spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
@@ -89,11 +98,18 @@ QSize SettingsBase::sizeHint() const
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
-    categories = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsCategory"));
-    modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
-    modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+    if (m_mode == BaseMode::InfoCenter) {
+        categories = KServiceTypeTrader::self()->query(QStringLiteral("KInfoCenterCategory"));
+        modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
+    } else {
+        categories = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsCategory"));
+        modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
+        modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+    }
+
     rootModule = new MenuItem( true, nullptr );
     initMenuList(rootModule);
+
     // Handle lost+found modules...
     if (lostFound) {
         for (int i = 0; i < modules.size(); ++i) {
@@ -106,13 +122,14 @@ void SettingsBase::initApplication()
 
     // Prepare the Base Data
     BaseData::instance()->setMenuItem( rootModule );
+    BaseData::instance()->setHomeItem( homeModule );
     // Load all possible views
     const KService::List pluginObjects = KServiceTypeTrader::self()->query( QStringLiteral("SystemSettingsView") );
     const int nbPlugins = pluginObjects.count();
     for( int pluginsDone = 0; pluginsDone < nbPlugins ; ++pluginsDone ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
-        BaseMode * controller = activeService->createInstance<BaseMode>(this, QVariantList(), &error);
+        BaseMode * controller = activeService->createInstance<BaseMode>(this, {m_mode}, &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
@@ -138,12 +155,14 @@ void SettingsBase::initToolBar()
     // Fill the toolbar with default actions
     // Exit is the very last action
     quitAction = actionCollection()->addAction( KStandardAction::Quit, QStringLiteral("quit_action"), this, SLOT(close()) );
+
     // Configure goes at the end
     configureAction = actionCollection()->addAction( KStandardAction::Preferences, QStringLiteral("configure"), this, SLOT(configShow()) );
     configureAction->setText( i18n("Configure...") );
     // Help after it
     initHelpMenu();
     configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
+
 
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new QWidgetAction( this );
@@ -207,9 +226,16 @@ void SettingsBase::initMenuList(MenuItem * parent)
     // look for any categories inside this level, and recurse into them
     for (int i = 0; i < categories.size(); ++i) {
         const KService::Ptr entry = categories.at(i);
-        const QString parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-        const QString parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
-        if ( parentCategory == parent->category() ||
+        QString parentCategory;
+        QString parentCategory2;
+        if (m_mode == BaseMode::InfoCenter) {
+            parentCategory = entry->property(QStringLiteral("X-KDE-KInfoCenter-Parent-Category")).toString();
+        } else {
+            parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
+            parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+        }
+
+        if (parentCategory == parent->category() ||
              // V2 entries must not be empty if they want to become a proper category.
              ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) {
             MenuItem * menuItem = new MenuItem(true, parent);
@@ -227,13 +253,24 @@ void SettingsBase::initMenuList(MenuItem * parent)
     // scan for any modules at this level and add them
     for (int i = 0; i < modules.size(); ++i) {
         const KService::Ptr entry = modules.at(i);
-        const QString category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-        const QString category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+
+        QString category;
+        QString category2;
+        if (m_mode == BaseMode::InfoCenter) {
+            category = entry->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
+        } else {
+            category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
+            category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+        }
+
         if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
             if (!entry->noDisplay() ) {
                 // Add the module info to the menu
                 MenuItem * infoItem = new MenuItem(false, parent);
                 infoItem->setService( entry );
+                if (m_mode == BaseMode::InfoCenter && entry->pluginKeyword() == QStringLiteral("kcm-about-distro")) {
+                    homeModule = infoItem;
+                }
             }
 
             removeList.append( modules.at(i) );
@@ -252,6 +289,7 @@ void SettingsBase::configUpdated()
     KConfigGroup dialogConfig = KSharedConfig::openConfig()->group("ConfigDialog");
     KWindowConfig::saveWindowSize(configDialog->windowHandle(), dialogConfig);
     BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
+
     BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->setShowToolTips( configWidget.ChTooltips->isChecked() );
     activeView->saveConfiguration();
@@ -325,7 +363,7 @@ void SettingsBase::changePlugin()
         activeView->leaveModuleView();
     }
 
-    const QString viewToUse = BaseConfig::activeView();
+    const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
     if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
     }
@@ -360,7 +398,9 @@ void SettingsBase::changePlugin()
 void SettingsBase::viewChange(bool state)
 {
     KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule();
-    configureAction->setDisabled(state);
+    if (configureAction) {
+        configureAction->setDisabled(state);
+    }
     if( moduleInfo ) {
         setCaption( moduleInfo->moduleName(), state );
     } else {
@@ -389,7 +429,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
         guiFactory()->plugActionList( this, QStringLiteral("search"), searchBarActions );
         actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL + Qt::Key_F));
     }
-    if ( BaseMode::Configure & toolbar ) {
+    if ( (BaseMode::Configure & toolbar) && configureAction) {
         QList<QAction*> configureBarActions;
         configureBarActions << configureAction;
         guiFactory()->plugActionList( this, QStringLiteral("configure"), configureBarActions );

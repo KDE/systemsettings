@@ -78,7 +78,7 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(bool introPageVisible READ introPageVisible WRITE setIntroPageVisible NOTIFY introPageVisibleChanged)
 
 public:
-    SidebarMode(QObject * parent, const QVariantList& );
+    SidebarMode(QObject * parent, const QVariantList &args );
     ~SidebarMode() override;
     QWidget * mainWidget() override;
     void initEvent() override;

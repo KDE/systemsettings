@@ -95,6 +95,48 @@ public:
 
     KPageView::FaceType faceType() const;
 
+    /**
+     * Sets whether Systemsettings should save statisctics about
+     * most used modules using KActivities::Stats
+     */
+    void setSaveStatistics(bool save);
+
+    /**
+     * @returns whether Systemsettings should save statisctics about
+     * most used module
+     */
+    bool saveStatistics() const;
+
+    /**
+     * Shows or hides the Apply button.
+     */
+    void setApplyVisible(bool visible);
+
+    /**
+     * @returns True if the Apply button is visible.
+     */
+    bool isApplyVisible() const;
+
+    /**
+     * Shows or hides the Defaults button.
+     */
+    void setDefaultsVisible(bool visible);
+
+    /**
+     * @returns True if the Defaults button is visible.
+     */
+    bool isDefaultsVisible() const;
+
+    /**
+     * Shows or hides the Reset button.
+     */
+    void setResetVisible(bool visible);
+
+    /**
+     * @returns True if the Reset button is visible.
+     */
+    bool isResetVisible() const;
+
 public Q_SLOTS:
     /**
      * Loads the module specified by menuItem.\n

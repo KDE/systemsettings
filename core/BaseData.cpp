@@ -63,6 +63,16 @@ void BaseData::setMenuItem( MenuItem * item )
     rootMenu = item;
 }
 
+MenuItem * BaseData::homeItem()
+{
+    return m_homeItem;
+}
+
+void BaseData::setHomeItem( MenuItem * item )
+{
+    m_homeItem = item;
+}
+
 KConfigGroup BaseData::configGroup( const QString& pluginName )
 {
     return KSharedConfig::openConfig()->group( pluginName );
