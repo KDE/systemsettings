@@ -66,7 +66,6 @@ int main( int argc, char *argv[] )
     aboutData.processCommandLine(&parser);
 
     SettingsBase *mainWindow = new SettingsBase();
-    mainWindow->show();
     application.setMainWindow(mainWindow);
     return application.exec();
 }
