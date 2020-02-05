@@ -96,7 +96,6 @@ int main( int argc, char *argv[] )
 
    
     SettingsBase *mainWindow = new SettingsBase(mode);
-    mainWindow->show();
     application.setMainWindow(mainWindow);
     return application.exec();
 }

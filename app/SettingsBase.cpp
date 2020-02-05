@@ -375,6 +375,8 @@ void SettingsBase::changePlugin()
         stackedWidget->addWidget(activeView->mainWidget());
     }
 
+    show();
+
     // Handle the tooltips
     qDeleteAll( tooltipManagers );
     tooltipManagers.clear();
