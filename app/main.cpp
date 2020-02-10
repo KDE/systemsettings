@@ -36,11 +36,12 @@ int main( int argc, char *argv[] )
 {
     // Make sure the binary name is either kinfocenter or systemsettings,
     // Anything else will just be considered as "systemsettings"
-    QString binaryName = QString::fromUtf8(argv[0]);
-    BaseMode::ApplicationMode mode = BaseMode::InfoCenter;
-    if (binaryName != QStringLiteral("kinfocenter")) {
-        binaryName = QStringLiteral("systemsettings");
-        mode = BaseMode::SystemSettings;
+    const QString executableName = QString::fromUtf8(argv[0]);
+    QString binaryName = QStringLiteral("systemsettings");
+    BaseMode::ApplicationMode mode = BaseMode::SystemSettings;
+    if (executableName.endsWith(QLatin1String("kinfocenter"))) {
+        binaryName = QStringLiteral("kinfocenter");
+        mode = BaseMode::InfoCenter;
     }
 
     //exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
