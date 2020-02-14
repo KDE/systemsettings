@@ -440,6 +440,10 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
         return;
     }
 
+    if( !d->moduleView->resolveChanges() ) {
+        return;
+    }
+
     d->moduleView->closeModules();
 
     MenuItem *mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
@@ -459,9 +463,6 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
         const int newCategoryRow = activeModule.row();
 
         if (d->activeCategoryRow == newCategoryRow) {
-            return;
-        }
-        if( !d->moduleView->resolveChanges() ) {
             return;
         }
 
