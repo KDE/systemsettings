@@ -31,6 +31,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLoggingCategory>
+#include <QDesktopServices>
 #include <QDialogButtonBox>
 
 #include <KPageWidget>
@@ -325,8 +326,10 @@ void ModuleView::moduleHelp()
     if( docPath.isEmpty() ) {
         return;
     }
-    QUrl url( QStringLiteral("help:/")+docPath );
-    QProcess::startDetached(QStringLiteral("khelpcenter"), QStringList() << url.url());
+
+    // UrlHandler from KGUIAddons sets a handler for help:/ urls, which opens khelpcenter
+    // if it's available or falls back to opening the relevant page at docs.kde.org
+    QDesktopServices::openUrl(QUrl(QStringLiteral("help:/") + docPath));
 }
 
 void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem * previous)
