@@ -145,6 +145,11 @@ void SettingsBase::initToolBar()
     initHelpMenu();
     configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
 
+    // There's nothing to configure in info center mode
+    if (m_mode == BaseMode::InfoCenter) {
+        configureAction->setVisible(false);
+    }
+
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new QWidgetAction( this );
     spacerAction->setDefaultWidget(spacerWidget);
