@@ -140,8 +140,7 @@ Kirigami.ScrollablePage {
         }
         Connections {
             target: systemsettings
-            onActiveSubCategoryChanged: {
-                subCategoryView.currentIndex = systemsettings.activeSubCategoryRow;
+            onActiveSubCategoryRowChanged: {
                 if (systemsettings.activeSubCategoryRow < 0) {
                     root.pageStack.pop(mainColumn)
                 } else {
