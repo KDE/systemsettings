@@ -56,7 +56,9 @@ public:
 
         DepthRole,
 
-        IsCategoryRole
+        IsCategoryRole,
+
+        DefaultIndicatorRole
     };
 
     /**

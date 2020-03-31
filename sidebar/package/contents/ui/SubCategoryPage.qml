@@ -155,10 +155,8 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Kirigami.AbstractListItem {
             id: delegate
-            icon: model.decoration
-            label: model.display
             onClicked: {
                 systemsettings.loadModule(subCategoryView.model.index(index, 0));
             }
@@ -177,6 +175,7 @@ Kirigami.ScrollablePage {
             highlighted: systemsettings.activeSubCategoryRow == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
+            contentItem: CategoryItem {}
         }
     }
 
@@ -193,7 +192,7 @@ Kirigami.ScrollablePage {
                 margins: Kirigami.Units.smallSpacing
             }
             text: i18nc("Action to show indicators for settings with custom data", "Highlight Changed Settings")
-            icon.name: "tools"
+            icon.name: "draw-highlight"
             onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
             checkable: true
             checked: systemsettings.defaultsIndicatorsVisible

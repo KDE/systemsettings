@@ -124,6 +124,7 @@ protected:
 
 private Q_SLOTS:
     void moduleLoaded();
+    void updateDefaults();
     void initWidget();
 
 Q_SIGNALS:

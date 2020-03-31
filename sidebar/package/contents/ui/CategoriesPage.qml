@@ -178,23 +178,7 @@ Kirigami.ScrollablePage {
             highlighted: categoryView.currentIndex == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
-            contentItem: RowLayout {
-                id: layout
-                spacing: Kirigami.Settings.tabletMode ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
-                Kirigami.Icon {
-                    id: icon
-                    source: model.decoration
-                    Layout.preferredHeight: Layout.preferredWidth
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-                    Layout.leftMargin: (model.DepthRole-1) * (icon.width + layout.spacing) 
-                }
-                QQC2.Label {
-                    Layout.fillWidth: true
-                    text: model.display
-                    color: (delegate.highlighted || delegate.checked || (delegate.pressed && delegate.supportsMouseEvents)) ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-                    elide: Text.ElideRight
-                }
-            }
+            contentItem: CategoryItem {}
         }
     }
 
@@ -210,7 +194,7 @@ Kirigami.ScrollablePage {
                 margins: Kirigami.Units.smallSpacing
             }
             text: i18nc("Action to show indicators for settings with custom data", "Highlight Changed Settings")
-            icon.name: "tools"
+            icon.name: "draw-highlight"
             onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
             checkable: true
             checked: systemsettings.defaultsIndicatorsVisible

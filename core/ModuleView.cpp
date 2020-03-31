@@ -297,6 +297,7 @@ bool ModuleView::moduleSave(KCModuleProxy *module)
     }
 
     module->save();
+    emit moduleSaved();
     return true;
 }
 
@@ -481,8 +482,8 @@ bool ModuleView::isResetVisible() const
 void ModuleView::moduleShowDefaultsIndicators(bool show)
 {
     d->mDefaultsIndicatorsVisible = show;
-    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
-    if( activeModule ) {
+    KCModuleProxy * activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    if (activeModule) {
         activeModule->setDefaultsIndicatorsVisible(show);
     }
 }

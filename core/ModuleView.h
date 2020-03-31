@@ -194,6 +194,11 @@ Q_SIGNALS:
     void moduleChanged( bool state );
 
     /**
+     * Emitted after the currently active module was saved.
+     */
+    void moduleSaved();
+
+    /**
      * Emitted when the ModuleView is asked to close.\n
      */
     void closeRequest();

@@ -361,6 +361,7 @@ void SidebarMode::initEvent()
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
+    connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
     if (applicationMode() == BaseMode::InfoCenter) {
@@ -566,6 +567,24 @@ void SidebarMode::moduleLoaded()
     }
 }
 
+void SidebarMode::updateDefaults()
+{
+    QModelIndex categoryIdx = d->categorizedModel->index(d->activeCategoryRow, 0);
+    auto item = categoryIdx.data(Qt::UserRole).value<MenuItem*>();
+    Q_ASSERT(item);
+    // If subcategory exist update from subcategory
+    if (!item->children().isEmpty()) {
+        item = item->child(d->activeSubCategoryRow);
+    }
+    item->updateDefaultIndicator();
+
+    auto sourceIdx = d->categorizedModel->mapToSource(categoryIdx);
+    emit d->model->dataChanged(sourceIdx, sourceIdx);
+
+    auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
+    emit d->subCategoryModel->dataChanged(subCateogryIdx, subCateogryIdx);
+}
+
 int SidebarMode::activeSearchRow() const
 {
     return d->activeSearchRow;
@@ -611,6 +630,34 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
 {
     d->m_defaultsIndicatorsVisible = !d->m_defaultsIndicatorsVisible;
     d->moduleView->moduleShowDefaultsIndicators(d->m_defaultsIndicatorsVisible);
+
+    if (d->m_defaultsIndicatorsVisible) {
+        for (int i = 0; i < d->flatModel->rowCount(); ++i) {
+            QModelIndex idx = d->flatModel->index(i, 0);
+            auto item = idx.data(MenuModel::MenuItemRole).value<MenuItem *>();
+            if (item->menu()) {
+                continue;
+            }
+            const bool showIndicator = item->showDefaultIndicator();
+            item->updateDefaultIndicator();
+            if (showIndicator == item->showDefaultIndicator()) {
+                continue;
+            }
+            auto itemIdx = d->model->indexForItem(item);
+            emit d->model->dataChanged(itemIdx, itemIdx);
+            MenuItem *parent = item->parent();
+            while (parent) {
+                auto parentIdx = d->model->indexForItem(parent);
+                if (parentIdx.isValid()) {
+                    emit d->model->dataChanged(parentIdx, parentIdx);
+                    parent = parent->parent();
+                } else {
+                    parent = nullptr;
+                }
+            }
+        }
+    }
+
     emit defaultsIndicatorsVisibleChanged();
 }
 

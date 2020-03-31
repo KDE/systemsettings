@@ -25,6 +25,7 @@
 #include <QString>
 
 #include <KCModuleInfo>
+#include <KCMUtils/KCModuleLoader>
 
 static bool childIsLessThan( MenuItem *left, MenuItem *right )
 {
@@ -43,6 +44,7 @@ public:
     int weight;
     KService::Ptr service;
     KCModuleInfo item;
+    bool showDefaultIndicator;
 };
 
 MenuItem::MenuItem( bool isMenu, MenuItem * itsParent )
@@ -50,6 +52,7 @@ MenuItem::MenuItem( bool isMenu, MenuItem * itsParent )
 {
     d->parent = itsParent;
     d->menu = isMenu;
+    d->showDefaultIndicator = false;
 
     if ( d->parent ) {
         d->parent->children().append( this );
@@ -137,6 +140,24 @@ void MenuItem::setService( const KService::Ptr& service )
         d->weight = itemWeight.toInt();
     } else {
         d->weight = 100;
+    }
+}
+
+bool MenuItem::showDefaultIndicator() const
+{
+    return d->showDefaultIndicator;
+}
+
+void MenuItem::updateDefaultIndicator()
+{
+    d->showDefaultIndicator = !KCModuleLoader::isDefaults(d->item);
+    if (menu()) {
+        for (auto child : children()) {
+            d->showDefaultIndicator |= child->showDefaultIndicator();
+        }
+    }
+    if (d->parent) {
+        d->parent->updateDefaultIndicator();
     }
 }
 

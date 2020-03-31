@@ -157,6 +157,10 @@ public:
 
     MenuItem *descendantForModule(const QString &moduleName);
 
+    bool showDefaultIndicator() const;
+
+    void updateDefaultIndicator();
+
 private:
     class Private;
     Private *const d;
