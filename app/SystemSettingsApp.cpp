@@ -26,10 +26,21 @@ SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])
 {
     setOrganizationDomain(QStringLiteral("kde.org"));
     KDBusService* service = new KDBusService(KDBusService::Unique, this);
-    QObject::connect(service, &KDBusService::activateRequested, this, [=]() {
-        if (window) {
-            KWindowSystem::forceActiveWindow(window->winId());
+    QObject::connect(service, &KDBusService::activateRequested, this, [=](const QStringList &arguments, const QString &workingDirectory) {
+        if (!window) {
+            return;
         }
+
+        if (arguments.size() > 1) {
+            window->setStartupModule(arguments[1]);
+
+            if (arguments.size() > 2) {
+                window->setStartupModuleArgs(arguments.mid(2));
+            }
+            window->reloadStartupModule();
+        }
+
+        KWindowSystem::forceActiveWindow(window->winId());
     } );
 }
 

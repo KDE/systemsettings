@@ -144,7 +144,7 @@ public Q_SLOTS:
      *
      * @param menuItem the QModelIndex that you want to load. Must be sourced from either MenuModel or MenuProxyModel
      */
-    void loadModule(const QModelIndex &menuItem );
+    void loadModule(const QModelIndex &menuItem, const QStringList &args );
 
     /**
      * Will open KHelpCenter, and load the help for the active module.
@@ -173,7 +173,7 @@ public Q_SLOTS:
 
 private:
     bool resolveChanges( KCModuleProxy *currentProxy );
-    void addModule( KCModuleInfo *module );
+    void addModule( KCModuleInfo *module, const QStringList &args );
     bool moduleSave( KCModuleProxy *module );
     void updatePageIconHeader( KPageWidgetItem * page, bool light = false );
 

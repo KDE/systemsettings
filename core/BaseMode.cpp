@@ -38,6 +38,8 @@ public:
     KService::Ptr service;
     MenuItem *rootItem = nullptr;
     MenuItem *homeItem = nullptr;
+    QString startupModule;
+    QStringList startupModuleArgs;
     KConfigGroup config;
     bool showToolTips = true;
     BaseMode::ApplicationMode applicationMode = BaseMode::SystemSettings;
@@ -47,8 +49,14 @@ BaseMode::BaseMode( QObject* parent, const QVariantList &args )
     : QObject( parent )
     , d( new Private() )
 {
-    if (!args.isEmpty() && args.first().canConvert<ApplicationMode>()) {
+    if (args.count() >= 1 && args.first().canConvert<ApplicationMode>()) {
         d->applicationMode = args.first().value<ApplicationMode>();
+    }
+    if (args.count() >= 2 && args[1].canConvert<QString>()) {
+        d->startupModule = args[1].toString();
+    }
+    if (args.count() >= 3 && args[2].canConvert<QStringList>()) {
+        d->startupModuleArgs = args[2].toStringList();
     }
 }
 
@@ -109,6 +117,26 @@ void BaseMode::setShowToolTips( bool show)
 bool BaseMode::showToolTips() const
 {
     return d->showToolTips;
+}
+
+void BaseMode::setStartupModule(const QString &startupModule)
+{
+    d->startupModule = startupModule;
+}
+
+QString BaseMode::startupModule() const
+{
+    return d->startupModule;
+}
+
+void BaseMode::setStartupModuleArgs(const QStringList &startupModuleArgs)
+{
+    d->startupModuleArgs = startupModuleArgs;
+}
+
+QStringList BaseMode::startupModuleArgs() const
+{
+    return d->startupModuleArgs;
 }
 
 void BaseMode::searchChanged( const QString& text )

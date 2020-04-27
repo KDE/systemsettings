@@ -155,6 +155,8 @@ public:
      */
     void setService( const KService::Ptr& service );
 
+    MenuItem *descendantForModule(const QString &moduleName);
+
 private:
     class Private;
     Private *const d;

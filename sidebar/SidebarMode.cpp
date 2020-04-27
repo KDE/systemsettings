@@ -440,7 +440,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     d->setActionMenuVisible(this, true);
 }
 
-void SidebarMode::loadModule( const QModelIndex& activeModule )
+void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList &args )
 {
     if (!activeModule.isValid()) {
         return;
@@ -466,9 +466,9 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
     }
 
     if ( mi->children().length() < 1) {
-        d->moduleView->loadModule( activeModule );
+        d->moduleView->loadModule( activeModule, args );
     } else {
-        d->moduleView->loadModule( activeModule.model()->index(0, 0, activeModule) );
+        d->moduleView->loadModule( activeModule.model()->index(0, 0, activeModule), args );
     }
 
     if (activeModule.model() == d->categorizedModel) {
@@ -526,7 +526,7 @@ void SidebarMode::loadModule( const QModelIndex& activeModule )
         d->activeSearchRow = activeModule.row();
         emit activeSearchRowChanged();
 
-    } else if (activeModule.model() == d->mostUsedModel) {
+    } else {
         if (d->activeSearchRow > -1) {
             d->activeSearchRow = -1;
             emit activeSearchRowChanged();
@@ -708,6 +708,23 @@ void SidebarMode::initWidget()
         d->placeHolderWidget->hide();
         d->moduleView->show();
         loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
+    }
+
+    if (!startupModule().isEmpty()) {
+        MenuItem *item = rootItem()->descendantForModule(startupModule());
+        if (item) {
+            loadModule(d->model->indexForItem(item), startupModuleArgs());
+        }
+    }
+}
+
+void SidebarMode::reloadStartupModule()
+{
+    if (!startupModule().isEmpty()) {
+        MenuItem *item = rootItem()->descendantForModule(startupModule());
+        if (item) {
+            loadModule(d->model->indexForItem(item), startupModuleArgs());
+        }
     }
 }
 

@@ -46,6 +46,7 @@ public:
     KCategoryDrawer * categoryDrawer;
     KCategorizedView * categoryView;
     QStackedWidget * mainWidget;
+    MenuModel * model;
     MenuProxyModel * proxyModel;
     KAboutData * aboutIcon;
     ModuleView * moduleView;
@@ -101,14 +102,14 @@ QList<QAbstractItemView*> IconMode::views() const
 
 void IconMode::initEvent()
 {
-    MenuModel * model = new MenuModel( rootItem(), this );
+    d->model = new MenuModel( rootItem(), this );
     foreach( MenuItem * child, rootItem()->children() ) {
-        model->addException( child );
+        d->model->addException( child );
     }
 
     d->proxyModel = new MenuProxyModel( this );
     d->proxyModel->setCategorizedModel( true );
-    d->proxyModel->setSourceModel( model );
+    d->proxyModel->setSourceModel( d->model );
     d->proxyModel->sort( 0 );
 
     d->mainWidget = new QStackedWidget();
@@ -137,6 +138,11 @@ void IconMode::searchChanged( const QString& text )
 
 void IconMode::changeModule( const QModelIndex& activeModule )
 {
+    changeModuleWithArgs(activeModule, QStringList());
+}
+
+void IconMode::changeModuleWithArgs( const QModelIndex& activeModule, const QStringList &args )
+{
     d->moduleView->closeModules();
     d->mainWidget->setCurrentWidget( d->moduleView );
 
@@ -147,7 +153,7 @@ void IconMode::changeModule( const QModelIndex& activeModule )
         d->moduleView->setFaceType(KPageView::Plain);
     }
 
-    d->moduleView->loadModule( activeModule );
+    d->moduleView->loadModule( activeModule, args );
 }
 
 void IconMode::moduleLoaded()
@@ -194,6 +200,23 @@ void IconMode::initWidget()
     d->mainWidget->setCurrentWidget( d->categoryView );
     emit changeToolBarItems( BaseMode::Search | BaseMode::Configure | BaseMode::Quit );
     d->mainWidget->installEventFilter(this);
+
+    if (!startupModule().isEmpty()) {
+        MenuItem *item = rootItem()->descendantForModule(startupModule());
+        if (item) {
+            changeModuleWithArgs(d->proxyModel->mapFromSource(d->model->indexForItem(item)), startupModuleArgs());
+        }
+    }
+}
+
+void IconMode::reloadStartupModule()
+{
+    if (!startupModule().isEmpty()) {
+        MenuItem *item = rootItem()->descendantForModule(startupModule());
+        if (item) {
+            changeModuleWithArgs(d->proxyModel->mapFromSource(d->model->indexForItem(item)), startupModuleArgs());
+        }
+    }
 }
 
 bool IconMode::eventFilter(QObject* watched, QEvent* event)

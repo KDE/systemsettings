@@ -139,3 +139,20 @@ void MenuItem::setService( const KService::Ptr& service )
         d->weight = 100;
     }
 }
+
+MenuItem *MenuItem::descendantForModule(const QString &moduleName)
+{
+    if (d->service && d->service->desktopEntryName() == moduleName) {
+        return this;
+    }
+
+    for (auto *child : d->children) {
+        MenuItem *candidate = child->descendantForModule(moduleName);
+        if (candidate) {
+            return candidate;
+        }
+    }
+
+    return nullptr;
+}
+

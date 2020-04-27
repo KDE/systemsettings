@@ -46,6 +46,10 @@ public:
     bool isInfoCenterMode() const;
     bool queryClose() override;
 
+    void setStartupModule(const QString &startupModule);
+    void setStartupModuleArgs(const QStringList &startupModuleArgs);
+    void reloadStartupModule();
+
 protected:
     QSize sizeHint() const override;
 
@@ -96,5 +100,7 @@ private:
     // The about dialog
     KAboutApplicationDialog * aboutDialog = nullptr;
     BaseMode::ApplicationMode m_mode = BaseMode::SystemSettings;
+    QString m_startupModule;
+    QStringList m_startupModuleArgs;
 };
 #endif

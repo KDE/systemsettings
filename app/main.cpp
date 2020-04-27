@@ -25,12 +25,40 @@
 #include <KAboutData>
 #include <KCrash>
 
+#include <iostream>
 #include <kworkspace.h>
 #include <kdbusservice.h>
 #include <KQuickAddons/QtQuickSettings>
+#include <KServiceTypeTrader>
+#include <KAuthorized>
 
 #include "SystemSettingsApp.h"
 #include "SettingsBase.h"
+
+KService::List m_modules;
+
+static bool caseInsensitiveLessThan(const KService::Ptr s1, const KService::Ptr s2)
+{
+    const int compare = QString::compare(s1->desktopEntryName(),
+                                         s2->desktopEntryName(),
+                                         Qt::CaseInsensitive);
+    return (compare < 0);
+}
+
+static void listModules()
+{
+    // First condition is what systemsettings does, second what kinfocenter does, make sure this is kept in sync
+    // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
+    const KService::List services = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), QStringLiteral("(exist [X-KDE-System-Settings-Parent-Category] and [X-KDE-System-Settings-Parent-Category] != '') or (exist [X-KDE-ParentApp] and [X-KDE-ParentApp] == 'kinfocenter')") );
+    for( KService::List::const_iterator it = services.constBegin(); it != services.constEnd(); ++it) {
+        const KService::Ptr s = (*it);
+        if (!KAuthorized::authorizeControlModule(s->menuId()))
+            continue;
+        m_modules.append(s);
+    }
+
+    std::stable_sort(m_modules.begin(), m_modules.end(), caseInsensitiveLessThan);
+}
 
 int main( int argc, char *argv[] )
 {
@@ -75,9 +103,38 @@ int main( int argc, char *argv[] )
 
     QCommandLineParser parser;
 
+    parser.addOption(QCommandLineOption(QStringLiteral("list"), i18n("List all possible modules")));
+    parser.addPositionalArgument(QStringLiteral("module"), i18n("Configuration module to open"));
+    parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QLatin1String("arguments")));
+
     aboutData.setupCommandLine(&parser);
     parser.process(application);
     aboutData.processCommandLine(&parser);
+
+    if (parser.isSet(QStringLiteral("list"))) {
+        std::cout << i18n("The following modules are available:").toLocal8Bit().data() << std::endl;
+
+        listModules();
+
+        int maxLen=0;
+
+        for (KService::List::ConstIterator it = m_modules.constBegin(); it != m_modules.constEnd(); ++it) {
+            int len = (*it)->desktopEntryName().length();
+            if (len > maxLen)
+                maxLen = len;
+        }
+
+        for (KService::List::ConstIterator it = m_modules.constBegin(); it != m_modules.constEnd(); ++it) {
+            QString entry(QStringLiteral("%1 - %2"));
+
+            entry = entry.arg((*it)->desktopEntryName().leftJustified(maxLen, QLatin1Char(' ')))
+                    .arg(!(*it)->comment().isEmpty() ? (*it)->comment()
+                                                     : i18n("No description available"));
+
+            std::cout << entry.toLocal8Bit().data() << std::endl;
+        }
+        return 0;
+    }
 
     if (mode == BaseMode::InfoCenter) {
         aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
@@ -98,5 +155,15 @@ int main( int argc, char *argv[] )
    
     SettingsBase *mainWindow = new SettingsBase(mode);
     application.setMainWindow(mainWindow);
+
+    if (parser.positionalArguments().count() == 1) {
+        QStringList moduleArgs;
+        const QString x = parser.value(QStringLiteral("args"));
+        moduleArgs << x.split(QRegExp(QStringLiteral(" +")));
+
+        mainWindow->setStartupModule(parser.positionalArguments().first());
+        mainWindow->setStartupModuleArgs(moduleArgs);
+    }
+
     return application.exec();
 }

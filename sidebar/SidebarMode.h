@@ -85,6 +85,8 @@ public:
     void giveFocus() override;
     KAboutData * aboutData() override;
     ModuleView * moduleView() const override;
+    void reloadStartupModule() override;
+
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *searchModel() const;
     QAbstractItemModel *subCategoryModel() const;
@@ -110,7 +112,7 @@ public:
     Q_INVOKABLE void hideMostUsedToolTip();
     Q_INVOKABLE void showActionMenu(const QPoint &position);
 
-    Q_INVOKABLE void loadModule(const QModelIndex& activeModule);
+    Q_INVOKABLE void loadModule(const QModelIndex& activeModule, const QStringList &args = QStringList());
 
 protected:
     QList<QAbstractItemView*> views() const override;

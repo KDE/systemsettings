@@ -133,7 +133,7 @@ const KAboutData * ModuleView::aboutData() const
     return aboutData;
 }
 
-void ModuleView::loadModule( const QModelIndex &menuItem )
+void ModuleView::loadModule( const QModelIndex &menuItem, const QStringList &args )
 {
     if ( !menuItem.isValid() ) {
         return;
@@ -149,12 +149,12 @@ void ModuleView::loadModule( const QModelIndex &menuItem )
 
     foreach ( const QModelIndex &module, indexes ) {
         MenuItem *newMenuItem = module.data( Qt::UserRole ).value<MenuItem*>();
-        addModule( &newMenuItem->item() );
+        addModule( &newMenuItem->item(), args );
     }
     // changing state is not needed here as the adding / changing of pages does it
 }
 
-void ModuleView::addModule( KCModuleInfo *module )
+void ModuleView::addModule( KCModuleInfo *module, const QStringList &args )
 {
     if( !module ) {
         return;
@@ -186,7 +186,7 @@ void ModuleView::addModule( KCModuleInfo *module )
         QWidget * externalWidget = new ExternalAppModule( this, module );
         moduleScroll->setWidget( externalWidget );
     } else { // It must be a normal module then
-        KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll );
+        KCModuleProxy * moduleProxy = new KCModuleProxy( *module, moduleScroll, args );
         moduleScroll->setWidget( moduleProxy );
         moduleProxy->setAutoFillBackground( false );
         connect( moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));

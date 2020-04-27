@@ -129,7 +129,7 @@ void SettingsBase::initApplication()
     for( int pluginsDone = 0; pluginsDone < nbPlugins ; ++pluginsDone ) {
         KService::Ptr activeService = pluginObjects.at( pluginsDone );
         QString error;
-        BaseMode * controller = activeService->createInstance<BaseMode>(this, {m_mode}, &error);
+        BaseMode * controller = activeService->createInstance<BaseMode>(this, {m_mode, m_startupModule, m_startupModuleArgs}, &error);
         if( error.isEmpty() ) {
             possibleViews.insert( activeService->library(), controller );
             controller->init( activeService );
@@ -334,6 +334,31 @@ bool SettingsBase::queryClose()
     }
     BaseConfig::self()->save();
     return changes;
+}
+
+void SettingsBase::setStartupModule(const QString &startupModule)
+{
+    m_startupModule = startupModule;
+
+    if (activeView) {
+        activeView->setStartupModule(startupModule);
+    }
+}
+
+void SettingsBase::setStartupModuleArgs(const QStringList &startupModuleArgs)
+{
+    m_startupModuleArgs = startupModuleArgs;
+
+    if (activeView) {
+        activeView->setStartupModuleArgs(startupModuleArgs);
+    }
+}
+
+void SettingsBase::reloadStartupModule()
+{
+    if (activeView) {
+        activeView->reloadStartupModule();
+    }
 }
 
 void SettingsBase::about()

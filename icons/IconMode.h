@@ -40,6 +40,7 @@ public:
     void leaveModuleView() override;
     KAboutData * aboutData() override;
     ModuleView * moduleView() const override;
+    void reloadStartupModule() override;
 
 protected:
     QList<QAbstractItemView*> views() const override;
@@ -49,12 +50,14 @@ public Q_SLOTS:
     void searchChanged( const QString& text ) override;
 
 private Q_SLOTS:
-    void changeModule( const QModelIndex& activeModule );
     void moduleLoaded();
     void backToOverview();
     void initWidget();
 
 private:
+    void changeModule( const QModelIndex& activeModule);
+    void changeModuleWithArgs( const QModelIndex& activeModule, const QStringList &args );
+
     class Private;
     Private *const d;
 };

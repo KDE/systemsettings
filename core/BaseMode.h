@@ -183,6 +183,14 @@ public:
      */
     bool showToolTips() const;
 
+    void setStartupModule(const QString &startupModule);
+    QString startupModule() const;
+
+    void setStartupModuleArgs(const QStringList &startupModuleArgs);
+    QStringList startupModuleArgs() const;
+
+    virtual void reloadStartupModule() = 0;
+
 public Q_SLOTS:
     /**
      * Called when the text in the search box changes allowing the display to be filtered.
