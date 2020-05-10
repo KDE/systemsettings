@@ -19,10 +19,9 @@
 
 #include "ExternalAppModule.h"
 
-#include <QApplication>
-
 #include <KCModuleInfo>
-#include <KRun>
+#include <KIO/ApplicationLauncherJob>
+#include <KIO/JobUiDelegate>
 
 ExternalAppModule::ExternalAppModule(QWidget * parent, KCModuleInfo * module)
 {
@@ -51,7 +50,9 @@ void ExternalAppModule::showEvent(QShowEvent * event)
 
 void ExternalAppModule::runExternal()
 {
-    KRun::runService(*(moduleInfo->service()), QList<QUrl>(), qApp->activeWindow()); // Launch it!
+    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(moduleInfo->service());
+    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->start();
 }
 
 
