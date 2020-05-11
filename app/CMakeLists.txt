@@ -39,4 +39,8 @@ install( TARGETS systemsettings5 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 install( FILES systemsettings.kcfg DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings )
 install( FILES systemsettingsui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/systemsettings )
 install( PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${KDE_INSTALL_APPDIR} )
+install( DIRECTORY DESTINATION "${KDE_INSTALL_FULL_DATAROOTDIR}/kglobalaccel" )
+install(
+    CODE "execute_process(COMMAND \"${CMAKE_COMMAND}\" -E create_symlink \"${KDE_INSTALL_FULL_APPDIR}/systemsettings.desktop\" \"\$ENV{DESTDIR}${KDE_INSTALL_FULL_DATAROOTDIR}/kglobalaccel/systemsettings.desktop\")"
+)
 install(FILES org.kde.systemsettings.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
