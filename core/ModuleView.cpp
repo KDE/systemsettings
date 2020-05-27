@@ -156,7 +156,7 @@ void ModuleView::loadModule( const QModelIndex &menuItem, const QStringList &arg
 
 void ModuleView::addModule( KCModuleInfo *module, const QStringList &args )
 {
-    if( !module ) {
+    if( !module || !module->service()->isValid()) {
         return;
     }
     if( !module->service() ) {
