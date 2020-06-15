@@ -76,6 +76,7 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(int width READ width NOTIFY widthChanged)
     Q_PROPERTY(bool actionMenuVisible READ actionMenuVisible NOTIFY actionMenuVisibleChanged)
     Q_PROPERTY(bool introPageVisible READ introPageVisible WRITE setIntroPageVisible NOTIFY introPageVisibleChanged)
+    Q_PROPERTY(bool defaultsIndicatorsVisible READ defaultsIndicatorsVisible NOTIFY defaultsIndicatorsVisibleChanged)
 
 public:
     SidebarMode(QObject * parent, const QVariantList &args );
@@ -103,6 +104,9 @@ public:
     bool introPageVisible() const;
     void setIntroPageVisible(const bool &introPageVisible);
 
+    bool defaultsIndicatorsVisible() const;
+    Q_INVOKABLE void toggleDefaultsIndicatorsVisibility();
+
     Q_INVOKABLE QAction *action(const QString &name) const;
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
     Q_INVOKABLE QString actionIconName(const QString &name) const;
@@ -129,6 +133,7 @@ Q_SIGNALS:
     void widthChanged();
     void actionMenuVisibleChanged();
     void introPageVisibleChanged();
+    void defaultsIndicatorsVisibleChanged();
 
 private:
     class Private;

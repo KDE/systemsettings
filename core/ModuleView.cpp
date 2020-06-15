@@ -64,6 +64,7 @@ public:
     QPushButton* mHelp = nullptr;
     bool pageChangeSupressed = false;
     bool mSaveStatistics = true;
+    bool mDefaultsIndicatorsVisible = false;
 };
 
 ModuleView::ModuleView( QWidget * parent )
@@ -369,6 +370,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
                 style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                 style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
         }
+        moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
     }
 }
 
@@ -476,3 +478,11 @@ bool ModuleView::isResetVisible() const
     return d->mReset->isVisible();
 }
 
+void ModuleView::moduleShowDefaultsIndicators(bool show)
+{
+    d->mDefaultsIndicatorsVisible = show;
+    KCModuleProxy * activeModule = d->mPages.value( d->mPageWidget->currentPage() );
+    if( activeModule ) {
+        activeModule->setDefaultsIndicatorsVisible(show);
+    }
+}

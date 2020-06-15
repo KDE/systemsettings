@@ -137,6 +137,11 @@ public:
      */
     bool isResetVisible() const;
 
+    /**
+     * Show or hide defaults indicators (field level)
+     */
+    void moduleShowDefaultsIndicators(bool show);
+
 public Q_SLOTS:
     /**
      * Loads the module specified by menuItem.\n
@@ -192,6 +197,11 @@ Q_SIGNALS:
      * Emitted when the ModuleView is asked to close.\n
      */
     void closeRequest();
+
+    /**
+     * Emmitted when showDefaultsIndicators state changed
+     */
+     void showDefaultsIndicatorsChanged(bool show);
 
 private:
     class Private;

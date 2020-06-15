@@ -262,6 +262,7 @@ public:
         emit sidebarMode->actionMenuVisibleChanged();
     }
     bool m_introPageVisible = true;
+    bool m_defaultsIndicatorsVisible = false;
 };
 
 SidebarMode::SidebarMode( QObject *parent, const QVariantList &args )
@@ -606,6 +607,13 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
     emit introPageVisibleChanged();
 }
 
+void SidebarMode::toggleDefaultsIndicatorsVisibility()
+{
+    d->m_defaultsIndicatorsVisible = !d->m_defaultsIndicatorsVisible;
+    d->moduleView->moduleShowDefaultsIndicators(d->m_defaultsIndicatorsVisible);
+    emit defaultsIndicatorsVisibleChanged();
+}
+
 int SidebarMode::width() const
 {
     return d->mainWidget->width();
@@ -624,6 +632,11 @@ int SidebarMode::activeSubCategoryRow() const
 bool SidebarMode::introPageVisible() const
 {
     return (d->m_introPageVisible);
+}
+
+bool SidebarMode::defaultsIndicatorsVisible() const
+{
+    return d->m_defaultsIndicatorsVisible;
 }
 
 void SidebarMode::initWidget()

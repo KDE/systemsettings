@@ -113,6 +113,7 @@ Kirigami.ScrollablePage {
             ? systemsettings.activeSearchRow
             : systemsettings.activeCategoryRow
     }
+
     ListView {
         id: categoryView
         anchors.fill: parent
@@ -194,6 +195,25 @@ Kirigami.ScrollablePage {
                     elide: Text.ElideRight
                 }
             }
+        }
+    }
+
+    footer: Rectangle{
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+        color: Kirigami.Theme.backgroundColor
+        width: mainColumn.width
+        height: Math.round(Kirigami.Units.gridUnit * 2)
+        QQC2.ToolButton {
+            anchors {
+                fill: parent
+                margins: Kirigami.Units.smallSpacing
+            }
+            text: i18nc("Action to show indicators for settings with custom data", "Highlight changed settings")
+            icon.name: "tools"
+            onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
+            checkable: true
+            checked: systemsettings.defaultsIndicatorsVisible
         }
     }
 }
