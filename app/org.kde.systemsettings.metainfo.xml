@@ -30,7 +30,6 @@
   <name xml:lang="sv">Systeminställningar</name>
   <name xml:lang="tg">Танзимоти низом</name>
   <name xml:lang="uk">Системні параметри</name>
-  <name xml:lang="x-test">xxSystem Settingsxx</name>
   <name xml:lang="zh-CN">系统设置</name>
   <name xml:lang="zh-TW">系統設定</name>
   <summary>Configuration tools for your computer</summary>
@@ -63,7 +62,6 @@
   <summary xml:lang="sv">Inställningsverktyg för datorn</summary>
   <summary xml:lang="tg">Абзорҳои танзимотӣ барои компютери шумо</summary>
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
-  <summary xml:lang="x-test">xxConfiguration tools for your computerxx</summary>
   <summary xml:lang="zh-CN">您的计算机的配置工具</summary>
   <summary xml:lang="zh-TW">適用於您電腦的設定工具</summary>
   <icon type="stock">systemsettings</icon>
@@ -107,7 +105,6 @@
     <p xml:lang="sv">Systeminställningarna låter dig anpassa och justera KDE Plasma-skrivbordet för att det bättre ska passa dina behov.</p>
     <p xml:lang="tg">Танзимоти низом ба шумо имкон медиҳад, то тавонед мизи кории KDE Plasma-ро ба талаботи шахсии худ танзим ва тасҳеҳ карда, беҳтар намоед.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
-    <p xml:lang="x-test">xxSystem Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.xx</p>
     <p xml:lang="zh-CN">系统设置允许您配置和调整 KDE Plasma 桌面，使其更好地满足您的需要。</p>
     <p xml:lang="zh-TW">《系統設定》讓你能設定及調整您的 KDE Plasma 桌面，以讓其更符合您的需求。</p>
   </description>
