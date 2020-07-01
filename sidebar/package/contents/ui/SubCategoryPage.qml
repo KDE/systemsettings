@@ -179,12 +179,13 @@ Kirigami.ScrollablePage {
             Keys.onReturnPressed: clicked();
         }
     }
-    footer: Rectangle{
+
+    footer: Rectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         Kirigami.Theme.inherit: false
         color: Kirigami.Theme.backgroundColor
         width: mainColumn.width
-        height: Math.round(Kirigami.Units.gridUnit * 2)
+        height: Kirigami.Units.gridUnit * 2
         visible: !applicationWindow().wideScreen
         QQC2.ToolButton {
             anchors {
@@ -196,6 +197,14 @@ Kirigami.ScrollablePage {
             onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
             checkable: true
             checked: systemsettings.defaultsIndicatorsVisible
+        }
+
+        Kirigami.Separator {
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
         }
     }
 }
