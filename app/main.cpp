@@ -27,7 +27,7 @@
 
 #include <iostream>
 #include <kworkspace.h>
-#include <kdbusservice.h>
+#include <KDBusService>
 #include <KQuickAddons/QtQuickSettings>
 #include <KServiceTypeTrader>
 #include <KAuthorized>

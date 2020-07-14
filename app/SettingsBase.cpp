@@ -29,7 +29,7 @@
 #include <QMenuBar>
 #include <QScreen>
 
-#include <kaboutdata.h>
+#include <KAboutData>
 #include <KMessageBox>
 #include <KConfigGroup>
 #include <KCModuleInfo>
@@ -38,7 +38,7 @@
 #include <KActionCollection>
 #include <KServiceTypeTrader>
 #include <KToolBar>
-#include <kwindowconfig.h>
+#include <KWindowConfig>
 
 #include "BaseData.h"
 #include "ModuleView.h"

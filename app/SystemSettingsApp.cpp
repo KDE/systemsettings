@@ -18,7 +18,7 @@
  */
 
 #include "SystemSettingsApp.h"
-#include <kdbusservice.h>
+#include <KDBusService>
 #include <KWindowSystem>
 
 SystemSettingsApp::SystemSettingsApp(int& argc, char* argv[])

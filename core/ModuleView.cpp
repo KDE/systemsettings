@@ -40,9 +40,9 @@
 #include <KCModuleInfo>
 #include <KCModuleProxy>
 #include <KStandardGuiItem>
-#include <kauthaction.h>
+#include <KAuthAction>
 #include <KAboutData>
-#include <kauthobjectdecorator.h>
+#include <KAuthObjectDecorator>
 #include <KIconLoader>
 
 #include <KActivities/ResourceInstance>
