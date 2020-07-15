@@ -113,7 +113,7 @@
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=systemsettings</url>
   <url type="help">https://userbase.kde.org/System_Settings</url>
-  <url type="homepage">https://www.kde.org/applications/system/systemsettings</url>
+  <url type="homepage">https://kde.org/plasma-desktop</url>
   <url type="donation">https://www.kde.org/donate.php?app=org.kde.systemsettings</url>
   <releases>
     <release version="5.19.3" date="2020-07-07"/>
