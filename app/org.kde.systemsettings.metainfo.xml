@@ -2,6 +2,7 @@
 <component type="desktop-application">
   <name>System Settings</name>
   <name xml:lang="ast">Axustes del sistema</name>
+  <name xml:lang="az">Sistem Ayarları</name>
   <name xml:lang="ca">Arranjament del sistema</name>
   <name xml:lang="ca-valencia">Arranjament del sistema</name>
   <name xml:lang="cs">Nastavení systému</name>
@@ -35,6 +36,7 @@
   <name xml:lang="zh-TW">系統設定</name>
   <summary>Configuration tools for your computer</summary>
   <summary xml:lang="ast">Ferramientes de configuración pal ordenador</summary>
+  <summary xml:lang="az">Kompyuteriniz üçün tənzimləmə alətləri</summary>
   <summary xml:lang="ca">Eines de configuració per a l'ordinador</summary>
   <summary xml:lang="ca-valencia">Eines de configuració per a l'ordinador</summary>
   <summary xml:lang="cs">Konfigurační nástroje pro váš počítač</summary>
@@ -80,6 +82,7 @@
   <description>
     <p>System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
     <p xml:lang="ast">Axustes del sistema permítete configurar y afinar l'escritoriu Plasma de KDE p'adautalu a les tos necesidaes.</p>
+    <p xml:lang="az">Sistem Ayarları KDE Plasma İş Masanızın ehtiyaclatını daha yaxşı qarşılayacaq şəkildə ayarlamağa və qurmağa imkan verir.</p>
     <p xml:lang="ca">L'Arranjament del sistema permet configurar i ajustar el vostre escriptori Plasma del KDE perquè satisfaci millor les vostres necessitats.</p>
     <p xml:lang="ca-valencia">L'Arranjament del sistema permet configurar i ajustar el vostre escriptori Plasma del KDE perquè satisfaci millor les vostres necessitats.</p>
     <p xml:lang="cs">Nastavení systému vám umožňuje nastavit a ladit vaše pracovní prostředí KDE Plasma aby lépe vyhovovalo vašim potřebám.</p>
