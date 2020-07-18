@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Sidebar View
 Name[ast]=Vista de barra llateral
+Name[az]=Yan Panel Görünüşü
 Name[bg]=Изглед на странична лента
 Name[ca]=Vista de barra lateral
 Name[ca@valencia]=Vista de la barra lateral
@@ -45,6 +46,7 @@ Name[zh_CN]=侧边栏视图
 Name[zh_TW]=側邊欄檢視
 Comment=Categorized sidebar style
 Comment[ast]=Estilu de barra llateral per estayes
+Comment[az]=Yan Paneldə Kateqoriyalar Siyahısı
 Comment[bg]=Категоризиран стил на страничната лента
 Comment[ca]=Estil de barra lateral categoritzat
 Comment[ca@valencia]=Estil de la barra lateral categoritzat
