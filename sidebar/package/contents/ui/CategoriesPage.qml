@@ -45,8 +45,6 @@ Kirigami.ScrollablePage {
                 icon.name: "application-menu"
                 checkable: true
                 checked: systemsettings.actionMenuVisible
-                Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
-                Layout.maximumHeight: width
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
@@ -60,8 +58,6 @@ Kirigami.ScrollablePage {
             Kirigami.SearchField {
                 id: searchField
                 focus: true
-                Layout.minimumHeight: Layout.maximumHeight
-                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                 Layout.fillWidth: true
                 onTextChanged: {
                     systemsettings.searchModel.filterRegExp = text;
@@ -73,8 +69,6 @@ Kirigami.ScrollablePage {
                 id: showIntroPageButton
                 enabled: !systemsettings.introPageVisible
                 icon.name: "go-home"
-                Layout.maximumWidth: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
-                Layout.maximumHeight: width
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
