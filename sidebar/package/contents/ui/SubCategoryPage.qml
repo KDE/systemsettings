@@ -192,7 +192,7 @@ Kirigami.ScrollablePage {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing
             }
-            text: i18nc("Action to show indicators for settings with custom data", "Highlight changed settings")
+            text: i18nc("Action to show indicators for settings with custom data", "Highlight Changed Settings")
             icon.name: "tools"
             onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
             checkable: true
