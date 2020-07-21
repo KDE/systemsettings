@@ -569,6 +569,12 @@ void SidebarMode::moduleLoaded()
 {
     d->placeHolderWidget->hide();
     d->moduleView->show();
+    if (applicationMode() == BaseMode::InfoCenter) {
+        d->moduleView->setSaveStatistics(false);
+        d->moduleView->setApplyVisible(false);
+        d->moduleView->setDefaultsVisible(false);
+        d->moduleView->setResetVisible(false);
+    }
 }
 
 int SidebarMode::activeSearchRow() const
