@@ -140,7 +140,6 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.AbstractListItem {
             id: delegate
 
-            separatorVisible: false
             Accessible.role: Accessible.ListItem
             Accessible.name: model.display
             supportsMouseEvents: !model.IsCategoryRole || !mainColumn.searchMode

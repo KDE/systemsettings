@@ -159,7 +159,6 @@ Kirigami.ScrollablePage {
             id: delegate
             icon: model.decoration
             label: model.display
-            separatorVisible: false
             onClicked: {
                 systemsettings.loadModule(subCategoryView.model.index(index, 0));
             }
