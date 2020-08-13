@@ -79,9 +79,13 @@ void FocusHackWidget::focusPrevious()
 }
 
 SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent)
-    : QStandardItemModel(parent),
+    : KSelectionProxyModel(nullptr, parent),
         m_parentModel(parentModel)
-{}
+{
+    setSourceModel(parentModel);
+    setSelectionModel(new QItemSelectionModel(parentModel, this));
+    setFilterBehavior(SubTreesWithoutRoots);
+}
 
 QString SubcategoryModel::title() const
 {
@@ -90,23 +94,7 @@ QString SubcategoryModel::title() const
 
 void SubcategoryModel::setParentIndex(const QModelIndex &activeModule)
 {
-    blockSignals(true);
-    //make the view receive a single signal when the new subcategory is loaded,
-    //never make the view believe there are zero items if this is not the final count
-    //this avoids the brief flash it had
-    clear();
-    const int subRows = activeModule.isValid() ? m_parentModel->rowCount(activeModule) : 0;
-    if ( subRows > 1) {
-        for (int i = 0; i < subRows; ++i) {
-            const QModelIndex& index = m_parentModel->index(i, 0, activeModule);
-            QStandardItem *item = new QStandardItem(m_parentModel->data(index, Qt::DecorationRole).value<QIcon>(), m_parentModel->data(index, Qt::DisplayRole).toString());
-            item->setData(index.data(Qt::UserRole), Qt::UserRole);
-            appendRow(item);
-        }
-    }
-    blockSignals(false);
-    beginResetModel();
-    endResetModel();
+    selectionModel()->select(activeModule, QItemSelectionModel::ClearAndSelect);
     m_title = activeModule.data(Qt::DisplayRole).toString();
     emit titleChanged();
 }

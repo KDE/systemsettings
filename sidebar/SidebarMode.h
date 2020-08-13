@@ -22,7 +22,7 @@
 
 #include "BaseMode.h"
 #include <QWidget>
-#include <QStandardItemModel>
+#include <KSelectionProxyModel>
 
 class ModuleView;
 class KAboutData;
@@ -42,7 +42,7 @@ public Q_SLOTS:
     void focusPrevious();
 };
 
-class SubcategoryModel : public QStandardItemModel
+class SubcategoryModel : public KSelectionProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
