@@ -610,6 +610,7 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
         }
     } else {
         if (introPageVisible) {
+            d->subCategoryModel->setParentIndex(QModelIndex());
             d->activeCategoryRow = -1;
             emit activeCategoryRowChanged();
             d->activeSubCategoryRow = -1;
