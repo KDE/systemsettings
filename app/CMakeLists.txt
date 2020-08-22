@@ -2,7 +2,6 @@
 include_directories( ToolTips )
 
 set( systemsettings_SRCS
-     SystemSettingsApp.cpp
      SettingsBase.cpp
      ToolTips/tooltipmanager.cpp
      main.cpp )
@@ -13,7 +12,6 @@ ecm_qt_declare_logging_category(systemsettings_SRCS HEADER systemsettings_app_de
 # kde4_add_app_icon( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
 ki18n_wrap_ui( systemsettings_SRCS configDialog.ui )
 kconfig_add_kcfg_files( systemsettings_SRCS BaseConfig.kcfgc )
-qt5_add_dbus_adaptor( systemsettings_SRCS org.kde.systemsettings.xml SystemSettingsApp.h SystemSettingsApp  )
 
 add_executable( systemsettings5 ${systemsettings_SRCS})
 target_compile_definitions(systemsettings5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")

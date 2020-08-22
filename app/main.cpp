@@ -31,8 +31,8 @@
 #include <KQuickAddons/QtQuickSettings>
 #include <KServiceTypeTrader>
 #include <KAuthorized>
+#include <KWindowSystem>
 
-#include "SystemSettingsApp.h"
 #include "SettingsBase.h"
 
 KService::List m_modules;
@@ -76,30 +76,37 @@ int main( int argc, char *argv[] )
     //which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(binaryName);
 
-    KWorkSpace::detectPlatform(argc, argv);
-    SystemSettingsApp application(argc, argv);
-    KQuickAddons::QtQuickSettings::init();
-    KCrash::initialize();
-
-    KLocalizedString::setApplicationDomain(binaryName.toUtf8().constData());
+    QApplication application(argc, argv);
+    application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     KAboutData aboutData;
 
     if (mode == BaseMode::InfoCenter) {
         // About data
         aboutData = KAboutData(QStringLiteral("kinfocenter"), i18n("Info Center"), QLatin1String(PROJECT_VERSION), i18n("Centralized and convenient overview of system information."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
-        aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
-        aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
-        aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
+        aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
+
+        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
 
     } else {
         aboutData = KAboutData(QStringLiteral("systemsettings"), i18n("System Settings"), QLatin1String(PROJECT_VERSION), i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
-        aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
-        aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
-        aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
+
+        if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
+            aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
+        } else {
+            aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
+        }
+
+        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     }
 
-    application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+    aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
+    aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
+    aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
+
+    KAboutData::setApplicationData(aboutData);
+
+    QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
     QCommandLineParser parser;
 
@@ -108,6 +115,7 @@ int main( int argc, char *argv[] )
     parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QLatin1String("arguments")));
 
     aboutData.setupCommandLine(&parser);
+
     parser.process(application);
     aboutData.processCommandLine(&parser);
 
@@ -136,33 +144,62 @@ int main( int argc, char *argv[] )
         return 0;
     }
 
-    if (mode == BaseMode::InfoCenter) {
-        aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
-        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
-
-    } else {
-        application.setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
-
-        if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
-            aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
-        } else {
-            aboutData.setDesktopFileName(QStringLiteral("kdesystemsettings"));
-        }
+    if (parser.positionalArguments().count() > 1) {
+        std::cerr << "Only one module argument may be passed" << std::endl;
+        return -1;
     }
 
-    KAboutData::setApplicationData(aboutData);
-
-   
-    SettingsBase *mainWindow = new SettingsBase(mode);
-    application.setMainWindow(mainWindow);
+    const QStringList args = parser.value(QStringLiteral("args")).split(QRegExp(QStringLiteral(" +")), Qt::SkipEmptyParts);
+    QString startupModule;
 
     if (parser.positionalArguments().count() == 1) {
-        QStringList moduleArgs;
-        const QString x = parser.value(QStringLiteral("args"));
-        moduleArgs << x.split(QRegExp(QStringLiteral(" +")));
+        startupModule = parser.positionalArguments().first();
+    }
 
-        mainWindow->setStartupModule(parser.positionalArguments().first());
-        mainWindow->setStartupModuleArgs(moduleArgs);
+    if (!args.isEmpty() && startupModule.isEmpty()) {
+        std::cerr << "Arguments may only be passed when specifying a module" << std::endl;
+        return -1;
+    }
+
+    KDBusService service(KDBusService::Unique);
+
+    KWorkSpace::detectPlatform(argc, argv);
+    KQuickAddons::QtQuickSettings::init();
+    KCrash::initialize();
+    KLocalizedString::setApplicationDomain(binaryName.toUtf8().constData());
+
+    SettingsBase *mainWindow = new SettingsBase(mode);
+
+    QObject::connect(&service, &KDBusService::activateRequested, mainWindow, [mainWindow](const QStringList &arguments, const QString &workingDirectory) {
+        Q_UNUSED(workingDirectory);
+
+        // We can't use startupModule and args from above since they come from the existing instance, so we need to parse arguments.
+        // We don't need to do the error checking again though.
+        QCommandLineParser parser;
+        parser.addPositionalArgument(QStringLiteral("module"), i18n("Configuration module to open"));
+        parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QLatin1String("arguments")));
+
+        parser.parse(arguments);
+
+        const QStringList args = parser.value(QStringLiteral("args")).split(QRegExp(QStringLiteral(" +")), Qt::SkipEmptyParts);
+        QString startupModule;
+
+        if (parser.positionalArguments().count() == 1) {
+            startupModule = parser.positionalArguments().first();
+        }
+
+        if (!startupModule.isEmpty()) {
+            mainWindow->setStartupModule(startupModule);
+            mainWindow->setStartupModuleArgs(args);
+            mainWindow->reloadStartupModule();
+        }
+
+        KWindowSystem::forceActiveWindow(mainWindow->winId());
+    });
+
+    if (!startupModule.isEmpty()) {
+        mainWindow->setStartupModule(startupModule);
+        mainWindow->setStartupModuleArgs(args);
     }
 
     return application.exec();
