@@ -21,6 +21,7 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 
 import org.kde.kirigami 2.5 as Kirigami
+import org.kde.systemsettings 1.0
 
 Kirigami.ScrollablePage {
     id: subCategoryColumn
@@ -185,7 +186,8 @@ Kirigami.ScrollablePage {
         color: Kirigami.Theme.backgroundColor
         width: mainColumn.width
         height: Kirigami.Units.gridUnit * 2
-        visible: !applicationWindow().wideScreen
+        visible: systemsettings.applicationMode == SystemSettings.SystemSettings &&
+                     !applicationWindow().wideScreen
         QQC2.ToolButton {
             anchors {
                 fill: parent

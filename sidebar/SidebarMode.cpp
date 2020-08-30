@@ -701,6 +701,7 @@ void SidebarMode::initWidget()
     d->quickWidget = new QQuickWidget(d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    qmlRegisterUncreatableType<SidebarMode>("org.kde.systemsettings", 1, 0, "SystemSettings", QStringLiteral("Not creatable, use the systemsettings attached property"));
 
     d->quickWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
     d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));

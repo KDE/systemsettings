@@ -50,6 +50,8 @@ class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(ApplicationMode applicationMode READ applicationMode CONSTANT)
+
     /**
      * System Settings main application is allowed priviledged access to handle tooltips
      */
