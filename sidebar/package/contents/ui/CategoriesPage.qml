@@ -19,7 +19,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.10 as Kirigami
+import org.kde.kirigami 2.14 as Kirigami
 import org.kde.systemsettings 1.0
 
 Kirigami.ScrollablePage {
@@ -92,13 +92,11 @@ Kirigami.ScrollablePage {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         color: Kirigami.Theme.backgroundColor
     }
-    Kirigami.Heading {
+    Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
-        width: parent.width * 0.7
-        wrapMode: Text.WordWrap
-        horizontalAlignment: Text.AlignHCenter
+        width: parent.width - (Kirigami.Units.gridUnit * 4)
         text: i18nc("A search yielded no results", "No items matching your search")
-        opacity: categoryView.count == 0 ? 0.3 : 0
+        opacity: categoryView.count == 0 ? 1 : 0
         Behavior on opacity {
             OpacityAnimator {
                 duration: Kirigami.Units.longDuration
