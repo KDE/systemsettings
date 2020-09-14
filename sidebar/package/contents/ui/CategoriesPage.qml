@@ -181,7 +181,10 @@ Kirigami.ScrollablePage {
             highlighted: categoryView.currentIndex == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
-            contentItem: CategoryItem {}
+            contentItem: CategoryItem {
+                showArrow: model.IsCategoryRole
+                selected: delegate.highlighted || delegate.pressed
+            }
         }
     }
 
