@@ -51,8 +51,10 @@ Kirigami.ScrollablePage {
                 }
                 onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
 
+                Accessible.role: Accessible.Button
+                Accessible.name: i18n("Show menu")
                 QQC2.ToolTip {
-                    text: i18n("Show menu")
+                    text: parent.Accessible.name
                 }
             }
 
@@ -75,8 +77,10 @@ Kirigami.ScrollablePage {
                 }
                 onClicked: systemsettings.introPageVisible = true
 
+                Accessible.role: Accessible.Button
+                Accessible.name: i18n("Show intro page")
                 QQC2.ToolTip {
-                    text: i18n("Show intro page")
+                    text: parent.Accessible.name
                 }
             }
         }
