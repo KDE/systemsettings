@@ -309,8 +309,9 @@ void SettingsBase::configShow()
     if( activeView && activeView->moduleView() && !activeView->moduleView()->resolveChanges() ) {
         return; // It shouldn't be triggering anyway, since the action is disabled
     }
-
-    activeView->loadConfiguration();
+    if ( activeView ) {
+        activeView->loadConfiguration();
+    }
 
     const QStringList pluginList = possibleViews.keys();
     const int configIndex = pluginList.indexOf( BaseConfig::activeView() );
