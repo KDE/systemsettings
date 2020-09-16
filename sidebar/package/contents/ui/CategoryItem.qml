@@ -8,6 +8,7 @@ RowLayout {
 
     property bool showArrow: false
     property bool selected: false
+    property bool isSearching: false
 
     spacing: Kirigami.Settings.tabletMode ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
     Kirigami.Icon {
@@ -15,7 +16,7 @@ RowLayout {
         source: model.decoration
         Layout.preferredHeight: Layout.preferredWidth
         Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-        Layout.leftMargin: model.DepthRole > 1 ? (model.DepthRole - 1) * (Kirigami.Units.iconSizes.smallMedium + layout.spacing) : 0
+        Layout.leftMargin: model.DepthRole > 1 && layout.isSearching ? (model.DepthRole - 1) * (Kirigami.Units.iconSizes.smallMedium + layout.spacing) : 0
     }
     QQC2.Label {
         Layout.fillWidth: true

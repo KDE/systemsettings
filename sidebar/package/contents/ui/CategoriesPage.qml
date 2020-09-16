@@ -184,6 +184,8 @@ Kirigami.ScrollablePage {
             contentItem: CategoryItem {
                 showArrow: model.IsCategoryRole
                 selected: delegate.highlighted || delegate.pressed
+                // Only indent subcategory icons in the search view
+                isSearching: searchField.text.length > 0
             }
         }
     }
