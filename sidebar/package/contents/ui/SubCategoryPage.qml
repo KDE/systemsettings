@@ -33,6 +33,12 @@ Kirigami.ScrollablePage {
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.smallSpacing
 
+        background: MouseArea {
+            anchors.fill: parent
+            acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
+            onClicked: backButton.clicked()
+        }
+
         contentItem: RowLayout {
             anchors.fill: parent
             spacing: Kirigami.Units.smallSpacing
