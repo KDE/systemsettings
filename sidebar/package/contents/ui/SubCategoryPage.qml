@@ -27,78 +27,38 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     title: systemsettings.subCategoryModel.title
 
-    header: Rectangle {
-        id: headerRect
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        Kirigami.Theme.inherit: false
-        color: {
-            if (headerControls.pressed) {
-                return Kirigami.Theme.highlightColor;
-            } else if (headerControls.containsMouse) {
-                return Kirigami.Theme.hoverColor;
-            } else {
-                return Kirigami.Theme.backgroundColor;
-            }
-        }
-        width: subCategoryColumn.width
-        height: Math.round(Kirigami.Units.gridUnit * 2.5)
+    header: Kirigami.AbstractApplicationHeader {
+        topPadding: Kirigami.Units.smallSpacing
+        bottomPadding: Kirigami.Units.smallSpacing
+        leftPadding: Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.smallSpacing
 
-        MouseArea {
-            id: headerControls
-            Kirigami.Theme.colorSet: Kirigami.Theme.Button
-            Kirigami.Theme.inherit: false
+        contentItem: RowLayout {
             anchors.fill: parent
-            enabled: !applicationWindow().wideScreen
-            hoverEnabled: true
-            onClicked: root.pageStack.currentIndex = 0
-            Accessible.role: Accessible.Button
-            Accessible.name: i18n("Back")
+            spacing: Kirigami.Units.smallSpacing
 
-            RowLayout {
-                anchors.fill: parent
-                anchors.leftMargin: Kirigami.Units.largeSpacing
-
-                Kirigami.Icon {
-                    id: toolButtonIcon
-                    visible: !applicationWindow().wideScreen
-                    Layout.alignment: Qt.AlignVCenter
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                    Layout.preferredWidth: Layout.preferredHeight
-
-                    source: LayoutMirroring.enabled ? "go-next" : "go-previous"
-                    color: {
-                        if (headerControls.pressed) {
-                            return Kirigami.Theme.highlightedTextColor;
-                        } else {
-                            return Kirigami.Theme.textColor;
-                        }
-                    }
-                }
-
-                Kirigami.Heading {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    level: 3
-                    height: toolButtonIcon.height
-                    text: subCategoryColumn.title
-                    verticalAlignment: Text.AlignVCenter
-                    elide: Text.ElideRight
-                    color: {
-                        if (headerControls.pressed) {
-                            return Kirigami.Theme.highlightedTextColor;
-                        } else {
-                            return Kirigami.Theme.textColor;
-                        }
-                    }
+            QQC2.ToolButton {
+                id: backButton
+                visible: !applicationWindow().wideScreen
+                icon.name: LayoutMirroring.enabled ? "go-next-symbolic" : "go-next-symbolic-rtl"
+                onClicked: root.pageStack.currentIndex = 0
+                Accessible.role: Accessible.Button
+                Accessible.name: i18n("Go back")
+                QQC2.ToolTip {
+                    text: parent.Accessible.name
                 }
             }
-        }
-        Kirigami.Separator {
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.bottom
+
+            Kirigami.Heading {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                // Don't be too short when the back button isn't visible
+                Layout.minimumHeight: backButton.implicitHeight
+                Layout.leftMargin: backButton.visible ? undefined : Kirigami.Units.largeSpacing
+                level: 3
+                text: subCategoryColumn.title
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
             }
         }
     }

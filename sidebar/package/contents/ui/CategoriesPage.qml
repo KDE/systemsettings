@@ -27,19 +27,15 @@ Kirigami.ScrollablePage {
     Component.onCompleted: searchField.forceActiveFocus()
     readonly property bool searchMode: searchField.text.length > 0
 
-    header: Rectangle {
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        Kirigami.Theme.inherit: false
-        color: Kirigami.Theme.backgroundColor
-        width: mainColumn.width
-        height: Math.round(Kirigami.Units.gridUnit * 2.5)
-        RowLayout {
-            id: searchLayout
+    header: Kirigami.AbstractApplicationHeader {
+        topPadding: Kirigami.Units.smallSpacing
+        bottomPadding: Kirigami.Units.smallSpacing
+        leftPadding: Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.smallSpacing
+
+        contentItem: RowLayout {
+            anchors.fill: parent
             spacing: Kirigami.Units.smallSpacing
-            anchors {
-                fill: parent
-                margins: Kirigami.Units.smallSpacing
-            }
 
             QQC2.ToolButton {
                 id: menuButton
@@ -82,13 +78,6 @@ Kirigami.ScrollablePage {
                 QQC2.ToolTip {
                     text: parent.Accessible.name
                 }
-            }
-        }
-        Kirigami.Separator {
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.bottom
             }
         }
     }
