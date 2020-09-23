@@ -48,8 +48,8 @@ Rectangle {
         Kirigami.Icon {
             Layout.alignment: Qt.AlignHCenter
             source: "preferences-system"
-            width: Kirigami.Units.iconSizes.enormous
-            height: width
+            Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
+            Layout.preferredHeight: Kirigami.Units.iconSizes.enormous
         }
         Item {
             width: Kirigami.Units.largeSpacing
@@ -61,8 +61,8 @@ Rectangle {
                     source: Qt.resolvedUrl("../images/plasma-logo.svg")
                     color: Kirigami.Theme.textColor
                     isMask: true
-                    width: Kirigami.Units.iconSizes.medium
-                    height: width
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
                 }
                 Kirigami.Heading {
                     text: i18n("Plasma")
