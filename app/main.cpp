@@ -79,6 +79,9 @@ int main( int argc, char *argv[] )
     QApplication application(argc, argv);
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
+    // The ki18n application domain must be set before we make any i18n() calls.
+    KLocalizedString::setApplicationDomain(binaryName.toUtf8().constData());
+
     KAboutData aboutData;
 
     if (mode == BaseMode::InfoCenter) {
@@ -166,7 +169,6 @@ int main( int argc, char *argv[] )
     KWorkSpace::detectPlatform(argc, argv);
     KQuickAddons::QtQuickSettings::init();
     KCrash::initialize();
-    KLocalizedString::setApplicationDomain(binaryName.toUtf8().constData());
 
     SettingsBase *mainWindow = new SettingsBase(mode);
 
