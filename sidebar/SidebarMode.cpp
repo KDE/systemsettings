@@ -421,7 +421,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     connect(menu, &QMenu::aboutToHide, this, [this] () { d->setActionMenuVisible(this, false); } );
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
-    const QStringList actionList { QStringLiteral("configure"), QStringLiteral("help_contents"), QStringLiteral("help_about_app"), QStringLiteral("help_about_kde") };
+    const QStringList actionList { QStringLiteral("configure"), QStringLiteral("help_contents"), QStringLiteral("help_report_bug"), QStringLiteral("help_about_app"), QStringLiteral("help_about_kde") };
     for (const QString &actionName : actionList) {
         menu->addAction(d->collection->action(actionName));
     }
