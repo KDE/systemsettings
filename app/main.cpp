@@ -35,6 +35,11 @@
 
 #include "SettingsBase.h"
 
+#include <QQuickWindow>
+#include <QOpenGLContext>
+#include <QOffscreenSurface>
+#include <QProcess>
+
 KService::List m_modules;
 
 static bool caseInsensitiveLessThan(const KService::Ptr s1, const KService::Ptr s2)
@@ -59,6 +64,60 @@ static void listModules()
 
     std::stable_sort(m_modules.begin(), m_modules.end(), caseInsensitiveLessThan);
 }
+
+
+/**
+ * The ffsNvidia method provides 2 functions
+ * A recent regression means that on Nvidia, suspend, the first attempt to make a context current reports
+ * a graphic context loss event.
+ * This messes with QQuickWidget which doesn't expect the context to fail on startup.
+ *
+ * Querying it once (done by makeCurrent) will clear that flag and everything behaves afterwards
+ * See KDE bug 424592
+
+ * In addition we can detect the common bug of libGL being broken and restart in software mode
+ * This commonly happens with a certain driver updates, but the new lib GL requires running against a specific kernel
+ * version that is not yet loaded
+ * KDE bug 426019
+
+ * This method will respawn in software mode.
+ *
+ * @returns true if the GL context is fine. If false the user should exit
+*/
+
+static bool firstFrameSaftetyNvidia()
+{
+        // No other backend is set, so it must be openGL
+        if (!QQuickWindow::sceneGraphBackend().isEmpty()) {
+            return true;
+        }
+        // environment variables don't set QQuickWindow's backend till the
+        // first window  is created, check explicitly
+        if (qEnvironmentVariableIsSet("QT_QUICK_BACKEND")) {
+            return true;
+        }
+
+        QOpenGLContext context;
+        context.create();
+        QOffscreenSurface surface;
+        surface.create();
+        bool success = context.makeCurrent(&surface);
+        if (!success) {
+            QProcess restartProc;
+            QStringList arguments = qApp->arguments();
+            Q_ASSERT(arguments.count() > 0);
+            restartProc.setProgram(arguments.takeFirst());
+            restartProc.setArguments(arguments);
+            QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+            env.insert(QStringLiteral("QT_QUICK_BACKEND"), QStringLiteral("software"));
+            restartProc.setProcessEnvironment(env);
+            restartProc.startDetached();
+            restartProc.waitForStarted();
+            return false;
+        }
+        return true;
+}
+
 
 int main( int argc, char *argv[] )
 {
@@ -105,6 +164,13 @@ int main( int argc, char *argv[] )
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
 
     KAboutData::setApplicationData(aboutData);
+
+    KQuickAddons::QtQuickSettings::init();
+
+    // If the first frame safety method fails it will auto respawn system settings, we should exit our instance
+    if (!firstFrameSaftetyNvidia()) {
+        return 0;
+    }
 
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
@@ -164,7 +230,6 @@ int main( int argc, char *argv[] )
     KDBusService service(KDBusService::Unique);
 
     KWorkSpace::detectPlatform(argc, argv);
-    KQuickAddons::QtQuickSettings::init();
     KCrash::initialize();
     KLocalizedString::setApplicationDomain(binaryName.toUtf8().constData());
 
