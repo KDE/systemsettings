@@ -182,7 +182,13 @@ Kirigami.ScrollablePage {
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
             contentItem: CategoryItem {
-                showArrow: model.IsCategoryRole
+                showArrow: {
+                    if (!model.IsCategoryRole) {
+                        return false;
+                    }
+                    const modelIndex = delegate.ListView.view.model.index(index, 0)
+                    return delegate.ListView.view.model.rowCount(modelIndex) > 1
+                }
                 selected: delegate.highlighted || delegate.pressed
                 // Only indent subcategory icons in the search view
                 isSearching: searchField.text.length > 0
