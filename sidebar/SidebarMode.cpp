@@ -579,7 +579,8 @@ void SidebarMode::updateDefaults()
     Q_ASSERT(item);
     // If subcategory exist update from subcategory
     if (!item->children().isEmpty()) {
-        item = item->child(d->activeSubCategoryRow);
+        auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
+        item = subCateogryIdx.data(Qt::UserRole).value<MenuItem*>();
     }
     item->updateDefaultIndicator();
 
