@@ -587,7 +587,8 @@ void SidebarMode::updateDefaults()
     emit d->model->dataChanged(sourceIdx, sourceIdx);
 
     auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
-    emit d->subCategoryModel->dataChanged(subCateogryIdx, subCateogryIdx);
+    auto subCategorySourceIdx = d->categorizedModel->mapToSource(d->subCategoryModel->mapToSource(subCateogryIdx));
+    emit d->model->dataChanged(subCategorySourceIdx, subCategorySourceIdx);
 }
 
 int SidebarMode::activeSearchRow() const
