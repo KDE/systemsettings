@@ -212,7 +212,7 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
 
     if( !moduleInfo ) {
         // Seems like we have some form of a race condition going on here...
-        return; 
+        return;
     }
 
     page->setHeader( moduleInfo->moduleName() );
@@ -363,6 +363,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
                 style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                 style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
             d->mLayout->setContentsMargins(0, 0, 0, 0);
+            d->mLayout->setSpacing(0);
         } else {
             d->mButtons->setContentsMargins(0, 0, 0, 0);
             d->mLayout->setContentsMargins(
@@ -370,6 +371,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
                 style()->pixelMetric(QStyle::PM_LayoutTopMargin),
                 style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                 style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+            d->mLayout->setSpacing(style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
         }
         moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
     }
