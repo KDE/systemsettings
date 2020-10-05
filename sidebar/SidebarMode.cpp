@@ -359,6 +359,7 @@ void SidebarMode::initEvent()
     d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
+    d->mainLayout->setSpacing(0);
     d->moduleView = new ModuleView( d->mainWidget );
     connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
