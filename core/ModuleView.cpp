@@ -76,6 +76,9 @@ ModuleView::ModuleView( QWidget * parent )
     // Create the Page Widget
     d->mPageWidget = new KPageWidget(this);
     d->mPageWidget->layout()->setContentsMargins(0, 0, 0, 0);
+    // Zero out only the horizontal spacing (the vertical spacing is fine)
+    QGridLayout *gridLayout = static_cast<QGridLayout*>(d->mPageWidget->layout());
+    gridLayout->setHorizontalSpacing(0);
     d->mLayout->addWidget(d->mPageWidget);
     // Create the dialog
     d->mButtons = new QDialogButtonBox( Qt::Horizontal, this );
@@ -359,7 +362,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
         if (activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml")) {
             d->mButtons->setContentsMargins(
                 style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                0, // Remove extra space between KCM content and bottom buttons
                 style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                 style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
             d->mLayout->setContentsMargins(0, 0, 0, 0);
