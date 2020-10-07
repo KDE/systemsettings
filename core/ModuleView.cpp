@@ -33,6 +33,7 @@
 #include <QLoggingCategory>
 #include <QDesktopServices>
 #include <QDialogButtonBox>
+#include <QPainter>
 
 #include <KPageWidget>
 #include <KAuthorized>
@@ -44,10 +45,78 @@
 #include <KAboutData>
 #include <KAuthObjectDecorator>
 #include <KIconLoader>
+#include <KTitleWidget>
+#include <KSharedConfig>
+#include <KColorScheme>
 
 #include <KActivities/ResourceInstance>
 
+#include <cmath>
+
 #include "MenuItem.h"
+
+class CustomTitle : public KTitleWidget {
+public:
+    CustomTitle(QWidget *parent = nullptr);
+protected:
+    void paintEvent(QPaintEvent *event);
+    void colorsChanged();
+};
+
+CustomTitle::CustomTitle(QWidget *parent)
+    : KTitleWidget(parent)
+{
+    setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                       style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                       style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                       style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+
+    colorsChanged();
+    connect(qApp, &QApplication::paletteChanged, this, &CustomTitle::colorsChanged);
+}
+
+void CustomTitle::colorsChanged()
+{
+    auto config = KSharedConfig::openConfig();
+    auto active = KColorScheme(QPalette::Active, KColorScheme::Header, config);
+    auto inactive = KColorScheme(QPalette::Inactive, KColorScheme::Header, config);
+    auto disabled = KColorScheme(QPalette::Disabled, KColorScheme::Header, config);
+
+    QPalette palette = KColorScheme::createApplicationPalette(config);
+
+    palette.setBrush(QPalette::Active, QPalette::Window, active.background());
+    palette.setBrush(QPalette::Active, QPalette::WindowText, active.foreground());
+    palette.setBrush(QPalette::Disabled, QPalette::Window, disabled.background());
+    palette.setBrush(QPalette::Disabled, QPalette::WindowText, disabled.foreground());
+    palette.setBrush(QPalette::Inactive, QPalette::Window, inactive.background());
+    palette.setBrush(QPalette::Inactive, QPalette::WindowText, inactive.foreground());
+
+    setPalette(palette);
+}
+
+void CustomTitle::paintEvent(QPaintEvent *event)
+{
+    KTitleWidget::paintEvent(event);
+
+    auto linearlyInterpolateDouble = [](double one, double two, double factor) {
+        return one + (two - one) * factor;
+    };
+
+    QPainter p(this);
+
+    const QColor window = palette().color(QPalette::Window);
+    const QColor text = palette().color(QPalette::Text);
+    const qreal balance = 0.2;
+    
+    const QColor separator = QColor::fromHsv(
+        std::fmod(linearlyInterpolateDouble(window.hue(), text.hue(), balance), 360.0),
+        qBound(0.0, linearlyInterpolateDouble(window.saturation(), text.saturation(), balance), 255.0),
+        qBound(0.0, linearlyInterpolateDouble(window.value(), text.value(), balance), 255.0),
+        qBound(0.0, linearlyInterpolateDouble(window.alpha(), text.alpha(), balance), 255.0)
+    );
+    p.fillRect(event->rect(), window);
+    p.fillRect(QRect(QPoint(0, height() - 1), QSize(width(), 1)), separator);
+}
 
 class ModuleView::Private {
 public:
@@ -55,6 +124,7 @@ public:
     QMap<KPageWidgetItem*, KCModuleProxy*> mPages;
     QMap<KPageWidgetItem*, KCModuleInfo*> mModules;
     KPageWidget* mPageWidget = nullptr;
+    CustomTitle* mCustomHeader = nullptr;
     QVBoxLayout* mLayout = nullptr;
     QDialogButtonBox* mButtons = nullptr;
     KAuth::ObjectDecorator* mApplyAuthorize = nullptr;
@@ -71,14 +141,22 @@ ModuleView::ModuleView( QWidget * parent )
     : QWidget( parent )
     , d( new Private() )
 {
+    QVBoxLayout *rootLayout = new QVBoxLayout(this);
+    rootLayout->setContentsMargins(0, 0, 0, 0);
     // Configure a layout first
-    d->mLayout = new QVBoxLayout(this);
+    d->mLayout = new QVBoxLayout();
     // Create the Page Widget
     d->mPageWidget = new KPageWidget(this);
+    d->mCustomHeader = new CustomTitle(this);
+    rootLayout->addWidget(d->mCustomHeader);
+    rootLayout->addItem(d->mLayout);
+    //d->mPageWidget->setPageHeader(d->mCustomHeader);
     d->mPageWidget->layout()->setContentsMargins(0, 0, 0, 0);
+
     // Zero out only the horizontal spacing (the vertical spacing is fine)
     QGridLayout *gridLayout = static_cast<QGridLayout*>(d->mPageWidget->layout());
     gridLayout->setHorizontalSpacing(0);
+
     d->mLayout->addWidget(d->mPageWidget);
     // Create the dialog
     d->mButtons = new QDialogButtonBox( Qt::Horizontal, this );
@@ -220,16 +298,18 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
 
     page->setHeader( moduleInfo->moduleName() );
     page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
-    //HACK: not much other ways to detect is a qml kcm
-    if ( moduleProxy && moduleProxy->realModule()->inherits("KCModuleQml") ) {
-        page->setHeaderVisible(false);
-    }
+    //HACK: no other ways to detect is a qml kcm
+    d->mCustomHeader->setText(moduleInfo->moduleName());
+    d->mCustomHeader->setVisible(!moduleProxy || !moduleProxy->realModule()->inherits("KCModuleQml"));
+    page->setHeaderVisible(false);
+
     if( light ) {
         return;
     }
 
     if( moduleProxy && moduleProxy->realModule()->useRootOnlyMessage() ) {
         page->setHeader( moduleInfo->moduleName() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>") );
+        d->mCustomHeader->setText( moduleInfo->moduleName() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>") );
     }
 }
 
@@ -491,4 +571,18 @@ void ModuleView::moduleShowDefaultsIndicators(bool show)
     if (activeModule) {
         activeModule->setDefaultsIndicatorsVisible(show);
     }
+}
+
+void ModuleView::setHeaderHeight(qreal height)
+{
+    if (height == d->mCustomHeader->minimumHeight()) {
+        return;
+    }
+
+    d->mCustomHeader->setMinimumHeight(height);
+}
+
+qreal ModuleView::headerHeight() const
+{
+    return d->mCustomHeader->minimumHeight();
 }

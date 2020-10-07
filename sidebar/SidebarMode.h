@@ -77,6 +77,7 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(bool actionMenuVisible READ actionMenuVisible NOTIFY actionMenuVisibleChanged)
     Q_PROPERTY(bool introPageVisible READ introPageVisible WRITE setIntroPageVisible NOTIFY introPageVisibleChanged)
     Q_PROPERTY(bool defaultsIndicatorsVisible READ defaultsIndicatorsVisible NOTIFY defaultsIndicatorsVisibleChanged)
+    Q_PROPERTY(qreal headerHeight READ headerHeight WRITE setHeaderHeight NOTIFY headerHeightChanged)
 
 public:
     SidebarMode(QObject * parent, const QVariantList &args );
@@ -103,6 +104,9 @@ public:
 
     bool introPageVisible() const;
     void setIntroPageVisible(const bool &introPageVisible);
+
+    qreal headerHeight() const;
+    void setHeaderHeight(qreal height);
 
     bool defaultsIndicatorsVisible() const;
     Q_INVOKABLE void toggleDefaultsIndicatorsVisibility();
@@ -134,6 +138,7 @@ Q_SIGNALS:
     void widthChanged();
     void actionMenuVisibleChanged();
     void introPageVisibleChanged();
+    void headerHeightChanged();
     void defaultsIndicatorsVisibleChanged();
 
 private:

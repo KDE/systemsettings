@@ -33,6 +33,12 @@ Kirigami.ScrollablePage {
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.smallSpacing
 
+        Binding {
+            target: systemsettings
+            property: "headerHeight"
+            value: mainColumn.header.height
+        }
+
         contentItem: RowLayout {
             anchors.fill: parent
             spacing: Kirigami.Units.smallSpacing

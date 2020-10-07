@@ -142,6 +142,9 @@ public:
      */
     void moduleShowDefaultsIndicators(bool show);
 
+    qreal headerHeight() const;
+    void setHeaderHeight(qreal height);
+
 public Q_SLOTS:
     /**
      * Loads the module specified by menuItem.\n

@@ -252,6 +252,7 @@ public:
     int activeCategoryRow = -1;
     int activeSubCategoryRow = -1;
     int activeSearchRow = -1;
+    qreal headerHeight = 0;
     bool m_actionMenuVisible = false;
     void setActionMenuVisible(SidebarMode* sidebarMode, const bool &actionMenuVisible)
     {
@@ -633,6 +634,21 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
 
     d->m_introPageVisible = introPageVisible;
     emit introPageVisibleChanged();
+}
+
+void SidebarMode::setHeaderHeight(qreal height)
+{
+    if (height == d->moduleView->headerHeight()) {
+        return;
+    }
+
+    d->moduleView->setHeaderHeight(height);
+    emit headerHeightChanged();
+}
+
+qreal SidebarMode::headerHeight() const
+{
+    return d->moduleView->headerHeight();
 }
 
 void SidebarMode::toggleDefaultsIndicatorsVisibility()
