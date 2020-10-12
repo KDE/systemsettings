@@ -115,7 +115,7 @@ public:
         item->setData(QUrl(QStringLiteral("kcm:kcm_lookandfeel.desktop")), ResultModel::ResourceRole);
         m_defaultModel->appendRow(item);
         item = new QStandardItem();
-        item->setData(QUrl(QStringLiteral("kcm:users.desktop")), ResultModel::ResourceRole);
+        item->setData(QUrl(QStringLiteral("kcm:kcm_users.desktop")), ResultModel::ResourceRole);
         m_defaultModel->appendRow(item);
         item = new QStandardItem();
         item->setData(QUrl(QStringLiteral("kcm:screenlocker.desktop")), ResultModel::ResourceRole);
