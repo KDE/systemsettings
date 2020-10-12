@@ -26,6 +26,7 @@
 #include "BaseData.h"
 #include "ToolTips/tooltipmanager.h"
 
+#include <QGuiApplication>
 #include <QHBoxLayout>
 
 #include <QAction>
@@ -111,21 +112,18 @@ public:
         setDynamicSortFilter(true);
         //prepare default items
         m_defaultModel = new QStandardItemModel(this);
-        QStandardItem *item = new QStandardItem();
-        item->setData(QUrl(QStringLiteral("kcm:kcm_lookandfeel.desktop")), ResultModel::ResourceRole);
-        m_defaultModel->appendRow(item);
-        item = new QStandardItem();
-        item->setData(QUrl(QStringLiteral("kcm:kcm_users.desktop")), ResultModel::ResourceRole);
-        m_defaultModel->appendRow(item);
-        item = new QStandardItem();
-        item->setData(QUrl(QStringLiteral("kcm:screenlocker.desktop")), ResultModel::ResourceRole);
-        m_defaultModel->appendRow(item);
-        item = new QStandardItem();
-        item->setData(QUrl(QStringLiteral("kcm:powerdevilprofilesconfig.desktop")), ResultModel::ResourceRole);
-        m_defaultModel->appendRow(item);
-        item = new QStandardItem();
-        item->setData(QUrl(QStringLiteral("kcm:kcm_kscreen.desktop")), ResultModel::ResourceRole);
-        m_defaultModel->appendRow(item);
+
+        KService::Ptr service = KService::serviceByDesktopName(qGuiApp->desktopFileName());
+        if (service) {
+            const auto actions = service->actions();
+            for (const KServiceAction &action : actions) {
+                QStandardItem *item = new QStandardItem();
+                item->setData(QUrl(QStringLiteral("kcm:%1.desktop").arg(action.name())), ResultModel::ResourceRole);
+                m_defaultModel->appendRow(item);
+            }
+        } else {
+            qCritical() << "Failed to find desktop file for" << qGuiApp->desktopFileName();
+        }
     }
 
     void setResultModel(ResultModel *model)

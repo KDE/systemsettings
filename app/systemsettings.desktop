@@ -6,6 +6,7 @@ X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 X-KDE-Shortcuts=Tools
 OnlyShowIn=KDE;
+Actions=kcm_lookandfeel;kcm_users;screenlocker;powerdevilprofilesconfig;kcm_kscreen;
 
 GenericName=System Settings
 GenericName[ar]=إعدادات النّظام
@@ -224,3 +225,28 @@ Comment[zh_TW]=提供給您電腦的配置工具
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.systemsettings
 Categories=Qt;KDE;Settings;
+
+[Desktop Action kcm_lookandfeel]
+Name=Global Theme
+Icon=preferences-desktop-theme-global
+Exec=systemsettings5 kcm_lookandfeel
+
+[Desktop Action kcm_users]
+Name=Users
+Icon=preferences-system-users
+Exec=systemsettings5 kcm_users
+
+[Desktop Action screenlocker]
+Name=Screen Locking
+Icon=preferences-desktop-user-password
+Exec=systemsettings5 screenlocker
+
+[Desktop Action powerdevilprofilesconfig]
+Name=Energy Saving
+Icon=preferences-system-power-management
+Exec=systemsettings5 powerdevilprofilesconfig
+
+[Desktop Action kcm_kscreen]
+Name=Display Configuration
+Icon=preferences-desktop-display-randr
+Exec=systemsettings5 kcm_kscreen
