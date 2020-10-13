@@ -32,6 +32,8 @@ Kirigami.ScrollablePage {
         bottomPadding: Kirigami.Units.smallSpacing
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.smallSpacing
+        //slightly hacky to be sure to always match with the kcm area
+        preferredHeight: menuButton.implicitHeight + topPadding + bottomPadding
 
         Binding {
             target: systemsettings
@@ -40,6 +42,7 @@ Kirigami.ScrollablePage {
         }
 
         contentItem: RowLayout {
+            id: toolBarLayout
             anchors.fill: parent
             spacing: Kirigami.Units.smallSpacing
 

@@ -32,6 +32,7 @@ Kirigami.ScrollablePage {
         bottomPadding: Kirigami.Units.smallSpacing
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.smallSpacing
+        preferredHeight: toolBarLayout.implicitHeight + topPadding + bottomPadding
 
         background: MouseArea {
             anchors.fill: parent
@@ -40,6 +41,7 @@ Kirigami.ScrollablePage {
         }
 
         contentItem: RowLayout {
+            id: toolBarLayout
             anchors.fill: parent
             spacing: Kirigami.Units.smallSpacing
 
