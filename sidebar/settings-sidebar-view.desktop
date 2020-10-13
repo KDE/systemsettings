@@ -1,7 +1,6 @@
 [Desktop Entry]
 Icon=view-sidetree
 Type=Service
-X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=systemsettings_sidebar_mode
 X-KDE-Keywords=System Settings

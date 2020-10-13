@@ -5,6 +5,8 @@ set( sidebar_mode_srcs
 
 add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_srcs})
 
+kcoreaddons_desktop_to_json(systemsettings_sidebar_mode settings-sidebar-view.desktop)
+
 target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     KF5::ItemViews
     KF5::ItemModels
@@ -21,7 +23,6 @@ target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     Qt5::QuickWidgets
 )
 
-install( TARGETS systemsettings_sidebar_mode DESTINATION ${KDE_INSTALL_PLUGINDIR} )
-install( FILES settings-sidebar-view.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR} )
+install( TARGETS systemsettings_sidebar_mode DESTINATION ${KDE_INSTALL_PLUGINDIR}/systemsettingsview )
 install(DIRECTORY package/ DESTINATION ${KDE_INSTALL_DATAROOTDIR}/kpackage/genericqml/org.kde.systemsettings.sidebar)
 

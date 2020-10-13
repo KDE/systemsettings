@@ -22,7 +22,7 @@
 
 #include <QObject>
 
-#include <KService>
+#include <KPluginMetaData>
 
 class QAction;
 class MenuItem;
@@ -96,7 +96,7 @@ public:
      *
      * @param modeService Plugins service object, used for providing extra information to System Settings.
      */
-    void init( const KService::Ptr &modeService );
+    void init(const KPluginMetaData metaData);
 
     /**
      * Prepares the BaseMode for use.\n
@@ -167,12 +167,7 @@ public:
      */
     virtual QList<QAction*>& actionsList() const;
 
-    /**
-     * Provides the service object, which is used to retrieve information for the configuration dialog.
-     *
-     * @returns the service object of the plugin.
-     */
-    const KService::Ptr& service() const;
+    const KPluginMetaData &metaData() const;
 
     /**
      * tells the config view whether to make use of tooltips or not

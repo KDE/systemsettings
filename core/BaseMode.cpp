@@ -35,7 +35,7 @@ public:
     Private() {}
 
     QList<QAction*> actionsList;
-    KService::Ptr service;
+    KPluginMetaData metaData;
     MenuItem *rootItem = nullptr;
     MenuItem *homeItem = nullptr;
     QString startupModule;
@@ -65,12 +65,12 @@ BaseMode::~BaseMode()
     delete d;
 }
 
-void BaseMode::init( const KService::Ptr &modeService )
+void BaseMode::init(const KPluginMetaData metaData)
 {
     d->rootItem = BaseData::instance()->menuItem();
     d->homeItem = BaseData::instance()->homeItem();
-    d->service = modeService;
-    d->config = BaseData::instance()->configGroup( modeService->library() );
+    d->metaData = metaData;
+    d->config = BaseData::instance()->configGroup( metaData.pluginId() );
     initEvent();
     connect( moduleView(), &ModuleView::moduleChanged, this, &BaseMode::viewChanged );
 }
@@ -104,9 +104,9 @@ QList<QAction*>& BaseMode::actionsList() const
     return d->actionsList;
 }
 
-const KService::Ptr& BaseMode::service() const
+const KPluginMetaData &BaseMode::metaData() const
 {
-    return d->service;
+    return d->metaData;
 }
 
 void BaseMode::setShowToolTips( bool show)

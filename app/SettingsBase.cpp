@@ -33,6 +33,7 @@
 #include <KMessageBox>
 #include <KConfigGroup>
 #include <KCModuleInfo>
+#include <KPluginMetaData>
 #include <KXMLGUIFactory>
 #include <KStandardAction>
 #include <KActionCollection>
@@ -126,21 +127,30 @@ void SettingsBase::initApplication()
     BaseData::instance()->setMenuItem( rootModule );
     BaseData::instance()->setHomeItem( homeModule );
     // Load all possible views
-    const KService::List pluginObjects = KServiceTypeTrader::self()->query( QStringLiteral("SystemSettingsView") );
-    for (KService::Ptr activeService : pluginObjects) {
-        QString error;
-        BaseMode * controller = activeService->createInstance<BaseMode>(this, {m_mode, m_startupModule, m_startupModuleArgs}, &error);
-        if( error.isEmpty() ) {
-            possibleViews.insert( activeService->library(), controller );
-            controller->init( activeService );
-            connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
-            connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
-            connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
-            connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
-        } else {
-            qCWarning(SYSTEMSETTINGS_APP_LOG) << QStringLiteral("View load error: ") + error;
+    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("systemsettingsview/"));
+
+    for (const KPluginMetaData &plugin : plugins) {
+        KPluginLoader loader(plugin.fileName());
+        KPluginFactory* factory = loader.factory();
+        if (!factory) {
+            qCWarning(SYSTEMSETTINGS_APP_LOG) << "KPluginFactory could not load the plugin:" << plugin.pluginId() << loader.errorString();
+            continue;
         }
+
+        BaseMode *controller = factory->create<BaseMode>(this, {m_mode, m_startupModule, m_startupModuleArgs});
+        if (!controller) {
+            qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin";
+            continue;
+        }
+
+        possibleViews.insert(plugin.pluginId(), controller);
+        controller->init(plugin);
+        connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
+        connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
+        connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
+        connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
     }
+
     searchText->completionObject()->setIgnoreCase( true );
     searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
     changePlugin();
@@ -213,8 +223,8 @@ void SettingsBase::initConfig()
     // Get the list of modules
     foreach( BaseMode * mode, possibleViews ) {
         mode->addConfiguration( configDialog );
-        QRadioButton * radioButton = new QRadioButton( mode->service()->name(), configWidget.GbViewStyle );
-        radioButton->setIcon( QIcon::fromTheme(mode->service()->icon()) );
+        QRadioButton * radioButton = new QRadioButton( mode->metaData().name(), configWidget.GbViewStyle );
+        radioButton->setIcon( QIcon::fromTheme(mode->metaData().iconName()) );
         configLayout->addWidget( radioButton );
         viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
     }

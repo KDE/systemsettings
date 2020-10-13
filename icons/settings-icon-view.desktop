@@ -1,7 +1,6 @@
 [Desktop Entry]
 Icon=view-list-icons
 Type=Service
-X-KDE-ServiceTypes=SystemSettingsView
 
 X-KDE-Library=icon_mode
 X-KDE-Keywords=System Settings

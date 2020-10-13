@@ -34,7 +34,7 @@
 #include <KFileItemDelegate>
 #include <KLocalizedString>
 
-K_PLUGIN_FACTORY( IconModeFactory, registerPlugin<IconMode>(); )
+K_PLUGIN_CLASS_WITH_JSON(IconMode, "settings-icon-view.json")
 
 class IconMode::Private {
 public:

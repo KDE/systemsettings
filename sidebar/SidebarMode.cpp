@@ -59,7 +59,7 @@ namespace KAStats = KActivities::Stats;
 using namespace KAStats;
 using namespace KAStats::Terms;
 
-K_PLUGIN_FACTORY( SidebarModeFactory, registerPlugin<SidebarMode>(); )
+K_PLUGIN_CLASS_WITH_JSON(SidebarMode, "settings-sidebar-view.json")
 
 FocusHackWidget::FocusHackWidget(QWidget *parent)
     : QWidget(parent)
