@@ -22,8 +22,6 @@
 #ifndef MENUITEM_H
 #define MENUITEM_H
 
-#include "systemsettingsview_export.h"
-
 #include <KService>
 
 class QString;
@@ -47,7 +45,7 @@ template<typename T> class QList;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
-class SYSTEMSETTINGSVIEW_EXPORT MenuItem
+class MenuItem
 {
 public:
     /**

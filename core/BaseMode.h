@@ -21,7 +21,6 @@
 #define BASEMODE_H
 
 #include <QObject>
-#include "systemsettingsview_export.h"
 
 #include <KService>
 
@@ -46,7 +45,7 @@ template<typename T> class QList;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
 */
-class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
+class Q_DECL_EXPORT BaseMode : public QObject
 {
     Q_OBJECT
 

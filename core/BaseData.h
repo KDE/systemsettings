@@ -21,7 +21,6 @@
 #define BASEDATA_H
 
 #include <QObject>
-#include "systemsettingsview_export.h"
 
 class QString;
 class MenuItem;
@@ -35,7 +34,7 @@ class KConfigGroup;
  *
  * @author Ben Cooksley <bcooksley@kde.org>
 */
-class SYSTEMSETTINGSVIEW_EXPORT BaseData : public QObject 
+class BaseData : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(BaseData)
