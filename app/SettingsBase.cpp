@@ -125,9 +125,7 @@ void SettingsBase::initApplication()
     BaseData::instance()->setHomeItem( homeModule );
     // Load all possible views
     const KService::List pluginObjects = KServiceTypeTrader::self()->query( QStringLiteral("SystemSettingsView") );
-    const int nbPlugins = pluginObjects.count();
-    for( int pluginsDone = 0; pluginsDone < nbPlugins ; ++pluginsDone ) {
-        KService::Ptr activeService = pluginObjects.at( pluginsDone );
+    for (KService::Ptr activeService : pluginObjects) {
         QString error;
         BaseMode * controller = activeService->createInstance<BaseMode>(this, {m_mode, m_startupModule, m_startupModuleArgs}, &error);
         if( error.isEmpty() ) {
