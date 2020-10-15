@@ -8,6 +8,7 @@
   <name xml:lang="cs">Nastavení systému</name>
   <name xml:lang="da">Systemindstillinger</name>
   <name xml:lang="de">Systemeinstellungen</name>
+  <name xml:lang="el">Ρυθμίεεις συστήματος</name>
   <name xml:lang="en-GB">System Settings</name>
   <name xml:lang="es">Preferencias del sistema</name>
   <name xml:lang="et">Süsteemi seadistused</name>
@@ -42,6 +43,7 @@
   <summary xml:lang="cs">Konfigurační nástroje pro váš počítač</summary>
   <summary xml:lang="da">Konfigurationsværktøjer til din computer</summary>
   <summary xml:lang="de">Einstellungen für Ihren Rechner</summary>
+  <summary xml:lang="el">Εργαλεία διαμόρφωσης για τον υπολογιστή σας</summary>
   <summary xml:lang="en-GB">Configuration tools for your computer</summary>
   <summary xml:lang="es">Herramientas de configuración para su equipo</summary>
   <summary xml:lang="et">Oma arvuti tööriistade seadistamine</summary>
@@ -88,6 +90,7 @@
     <p xml:lang="cs">Nastavení systému vám umožňuje nastavit a ladit vaše pracovní prostředí KDE Plasma aby lépe vyhovovalo vašim potřebám.</p>
     <p xml:lang="da">Systemindstillinger lader dig indstille og tilpasse dit KDE Plasma-skrivebord så det passer bedre til netop dine behov.</p>
     <p xml:lang="de">Mit den Systemeinstellungen können Sie Ihre KDE-Plasma-Arbeitsfläche einrichten und optimieren, um sie besser an Ihre Bedürfnisse anzupassen.</p>
+    <p xml:lang="el">Με τις ρυθμίσεις συστήματος διαμορφώνετε και μαστορεύετε την επιφάνεια εργασίας KDE Plasma για να την προσαρμόσετε καλύτερα στις ανάγκες σας.</p>
     <p xml:lang="en-GB">System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
     <p xml:lang="es">Las preferencias del sistema le permiten configurar y afinar el escritorio Plasma para que se ajuste a sus necesidades.</p>
     <p xml:lang="et">Süsteemi seadistused võimaldavad seadistada ja täppishäälestada KDE Plasma töölauda, et see vastaks just sinu vajadustele.</p>
