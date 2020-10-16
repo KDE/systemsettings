@@ -228,11 +228,15 @@ Categories=Qt;KDE;Settings;
 
 [Desktop Action kcm_lookandfeel]
 Name=Global Theme
+Name[az]=Qlobal Mövzu
 Name[ca]=Tema global
+Name[el]=Καθολικό θέμα
 Name[es]=Tema global
 Name[eu]=Gai orokorra
 Name[nl]=Globaal thema
 Name[pa]=ਗਲੋਬਲ ਥੀਮ
+Name[pt]=Tema Global
+Name[sl]=Globalna tema
 Name[sv]=Globalt tema
 Name[uk]=Загальна тема
 Name[x-test]=xxGlobal Themexx
@@ -241,11 +245,15 @@ Exec=systemsettings5 kcm_lookandfeel
 
 [Desktop Action kcm_users]
 Name=Users
+Name[az]=İstifadəçilər
 Name[ca]=Usuaris
+Name[el]=Χρήστες
 Name[es]=Usuarios
 Name[eu]=Erabiltzaileak
 Name[nl]=Gebruikers
 Name[pa]=ਵਰਤੋਂਕਾਰ
+Name[pt]=Utilizadores
+Name[sl]=Uporabniki
 Name[sv]=Användare
 Name[uk]=Користувачі
 Name[x-test]=xxUsersxx
@@ -254,11 +262,15 @@ Exec=systemsettings5 kcm_users
 
 [Desktop Action screenlocker]
 Name=Screen Locking
+Name[az]=Ekran Kilidlənməsi
 Name[ca]=Bloqueig de pantalla
+Name[el]=Κλείδωμα οθόνης
 Name[es]=Bloqueo de pantalla
 Name[eu]=Pantaila giltzatzea
 Name[nl]=Scherm vergrendelen
 Name[pa]=ਸਕਰੀਨ ਲਾਕ
+Name[pt]=Bloqueio do Ecrã
+Name[sl]=Zaklepanje zaslona
 Name[sv]=Skärmlåsning
 Name[uk]=Блокування екрана
 Name[x-test]=xxScreen Lockingxx
@@ -267,11 +279,15 @@ Exec=systemsettings5 screenlocker
 
 [Desktop Action powerdevilprofilesconfig]
 Name=Energy Saving
+Name[az]=Enerjiyə Qənaət
 Name[ca]=Estalvi d'energia
+Name[el]=Εξοικονόμηση ενέργειας
 Name[es]=Ahorro de energía
 Name[eu]=Energia aurreztea
 Name[nl]=Energiebesparing
 Name[pa]=ਊਰਜਾ ਬੱਚਤ
+Name[pt]=Poupança de Energia
+Name[sl]=Varčevanje z energijo
 Name[sv]=Energibesparing
 Name[uk]=Заощадження енергії
 Name[x-test]=xxEnergy Savingxx
@@ -280,11 +296,15 @@ Exec=systemsettings5 powerdevilprofilesconfig
 
 [Desktop Action kcm_kscreen]
 Name=Display Configuration
+Name[az]=Ekran Ayarları
 Name[ca]=Configuració de la pantalla
+Name[el]=Διαμόρφωση οθόνης
 Name[es]=Configuración de la pantalla
 Name[eu]=Bistaratze-konfigurazioa
 Name[nl]=Instellingen van het scherm
 Name[pa]=ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ
+Name[pt]=Configuração do Ecrã
+Name[sl]=Nastavitev zaslona
 Name[sv]=Bildskärmsinställning
 Name[uk]=Налаштування дисплея
 Name[x-test]=xxDisplay Configurationxx
