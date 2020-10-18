@@ -200,7 +200,7 @@ Kirigami.ScrollablePage {
         QQC2.ToolButton {
             anchors.fill: parent
 
-            text: i18nc("Action to show indicators for settings with custom data", "Highlight Changed Settings")
+            text: i18nc("Action to show indicators for settings with custom data. Use as short a translation as is feasible, as horizontal space is limited.", "Highlight Changed Settings")
             icon.name: "draw-highlight"
 
             onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
