@@ -25,18 +25,6 @@ RowLayout {
         elide: Text.ElideRight
     }
 
-    Kirigami.Icon {
-        Layout.alignment: Qt.AlignVCenter
-        Layout.preferredHeight: Kirigami.Units.iconSizes.small
-        // This is to vertically align the defaults indicators when visible
-        Layout.rightMargin: systemsettings.defaultsIndicatorsVisible && !defaultIndicator.visible ? defaultIndicator.implicitWidth + layout.spacing : 0
-        opacity: 0.7
-        Layout.preferredWidth: Layout.preferredHeight
-        source: (LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic")
-        visible: layout.showArrow
-        selected: layout.selected
-    }
-
     Rectangle {
         id: defaultIndicator
         radius: width * 0.5
@@ -45,5 +33,22 @@ RowLayout {
         visible: model.showDefaultIndicator && systemsettings.defaultsIndicatorsVisible
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         color: Kirigami.Theme.neutralTextColor
+    }
+
+    // Extra space to make the defaults indicators line up vertically for all items
+    Item {
+        visible: defaultIndicator.visible && !arrow.visible
+        implicitWidth: arrow.Layout.preferredWidth
+    }
+
+    Kirigami.Icon {
+        id: arrow
+        Layout.alignment: Qt.AlignVCenter
+        Layout.preferredHeight: Kirigami.Units.iconSizes.small
+        opacity: 0.7
+        Layout.preferredWidth: Layout.preferredHeight
+        source: (LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic")
+        visible: layout.showArrow
+        selected: layout.selected
     }
 }
