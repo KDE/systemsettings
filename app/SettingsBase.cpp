@@ -62,6 +62,8 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent )
     searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
     searchText->setCompletionMode( KCompletion::CompletionPopup );
 
+    setProperty("_breeze_no_separator", true);
+
     if (m_mode == BaseMode::InfoCenter) {
         actionCollection()->removeAction(configureAction);
         configureAction = nullptr;
