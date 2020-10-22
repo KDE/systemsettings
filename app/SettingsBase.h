@@ -43,7 +43,6 @@ class SettingsBase : public KXmlGuiWindow
 public:
     explicit SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent = nullptr);
     ~SettingsBase() override;
-    bool isInfoCenterMode() const;
     bool queryClose() override;
 
     void setStartupModule(const QString &startupModule);
