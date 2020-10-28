@@ -76,6 +76,9 @@ int main( int argc, char *argv[] )
     //which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(binaryName);
 
+    // This has to be before the QApplication is created.
+    KWorkSpace::detectPlatform(argc, argv);
+
     QApplication application(argc, argv);
     application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
@@ -166,7 +169,6 @@ int main( int argc, char *argv[] )
 
     KDBusService service(KDBusService::Unique);
 
-    KWorkSpace::detectPlatform(argc, argv);
     KQuickAddons::QtQuickSettings::init();
     KCrash::initialize();
 
