@@ -30,6 +30,7 @@
 
 #include <QAction>
 #include <KAboutData>
+#include <KConfigGroup>
 #include <KCModuleInfo>
 #include <KDescendantsProxyModel>
 #include <KStandardAction>
@@ -283,6 +284,7 @@ SidebarMode::SidebarMode( QObject *parent, const QVariantList &args )
 
 SidebarMode::~SidebarMode()
 {
+    config().sync();
     delete d;
 }
 
@@ -370,6 +372,10 @@ void SidebarMode::initEvent()
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
         d->moduleView->setResetVisible(false);
+    }
+
+    if (config().readEntry("HighlightNonDefaultSettings", false)) {
+        toggleDefaultsIndicatorsVisibility();
     }
 }
 
@@ -666,6 +672,7 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
             }
         }
     }
+    config().writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
 
     emit defaultsIndicatorsVisibleChanged();
 }
