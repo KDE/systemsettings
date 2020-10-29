@@ -210,7 +210,7 @@ Kirigami.ScrollablePage {
             }
             text: i18nc("Action to show indicators for settings with custom data", "Highlight Changed Settings")
             icon.name: "draw-highlight"
-            onClicked: systemsettings.toggleDefaultsIndicatorsVisibility()
+            onToggled: systemsettings.toggleDefaultsIndicatorsVisibility()
             checkable: true
             checked: systemsettings.defaultsIndicatorsVisible
         }
