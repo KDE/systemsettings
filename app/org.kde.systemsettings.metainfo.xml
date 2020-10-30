@@ -32,6 +32,7 @@
   <name xml:lang="sl">Nastvitve sistema</name>
   <name xml:lang="tg">Танзимоти низом</name>
   <name xml:lang="uk">Системні параметри</name>
+  <name xml:lang="vi">Thiết lập hệ thống</name>
   <name xml:lang="x-test">xxSystem Settingsxx</name>
   <name xml:lang="zh-CN">系统设置</name>
   <name xml:lang="zh-TW">系統設定</name>
@@ -67,6 +68,7 @@
   <summary xml:lang="sl">Orodja za nastavitve vašega računalnika</summary>
   <summary xml:lang="tg">Абзорҳои танзимотӣ барои компютери шумо</summary>
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
+  <summary xml:lang="vi">Các công cụ cấu hình cho máy tính của bạn</summary>
   <summary xml:lang="x-test">xxConfiguration tools for your computerxx</summary>
   <summary xml:lang="zh-CN">您的计算机的配置工具</summary>
   <summary xml:lang="zh-TW">適用於您電腦的設定工具</summary>
@@ -97,6 +99,7 @@
     <p xml:lang="eu">Sistemako Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
     <p xml:lang="fi">Järjestelmäasetuksilla voit asettaa ja säätää KDE Plasma -työpöytääsi vastaamaan paremmin tarpeitasi.</p>
     <p xml:lang="fr">La configuration du système vous permet de configurer et d'ajuster votre environnement de bureau KDE Plasma pour l'adapter à vos besoins.</p>
+    <p xml:lang="ia">Preferentias de systema  te pemitte configurar e pinciar tu scriptorio de Plasma KDE pro facer que illo incontra meliormente tu necessitates.</p>
     <p xml:lang="id">System Settings memungkinkan kamu untuk mengkonfigurasi dan menguprek desktop KDE Plasma kamu untuk membuatnya lebih baik sesuai kebutuhanmu.</p>
     <p xml:lang="it">Impostazioni di sistema ti permette di configurare e di regolare il tuo desktop KDE Plasma, in modo che possa soddisfare meglio le tue esigenze.</p>
     <p xml:lang="ko">시스템 설정에서 KDE Plasma 데스크톱을 설정할 수 있습니다.</p>
@@ -113,6 +116,7 @@
     <p xml:lang="sl">Sistemske nastavitve omogočajo nastavitve in prilagajanje namizja KDE Plasma z namenom boljšega izpolnjevanja vaših potreb.</p>
     <p xml:lang="tg">Танзимоти низом ба шумо имкон медиҳад, то тавонед мизи кории KDE Plasma-ро ба талаботи шахсии худ танзим ва тасҳеҳ карда, беҳтар намоед.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
+    <p xml:lang="vi">"Thiết lập hệ thống" cho phép bạn cấu hình và điều chỉnh bàn làm việc Plasma KDE phù hợp hơn với nhu cầu của bạn.</p>
     <p xml:lang="x-test">xxSystem Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.xx</p>
     <p xml:lang="zh-CN">系统设置允许您配置和调整 KDE Plasma 桌面，使其更好地满足您的需要。</p>
     <p xml:lang="zh-TW">《系統設定》讓你能設定及調整您的 KDE Plasma 桌面，以讓其更符合您的需求。</p>
