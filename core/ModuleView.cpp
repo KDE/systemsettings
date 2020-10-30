@@ -107,7 +107,7 @@ void CustomTitle::paintEvent(QPaintEvent *event)
     const QColor window = palette().color(QPalette::Window);
     const QColor text = palette().color(QPalette::Text);
     const qreal balance = 0.2;
-    
+
     const QColor separator = QColor::fromHsv(
         std::fmod(linearlyInterpolateDouble(window.hue(), text.hue(), balance), 360.0),
         qBound(0.0, linearlyInterpolateDouble(window.saturation(), text.saturation(), balance), 255.0),
@@ -143,6 +143,7 @@ ModuleView::ModuleView( QWidget * parent )
 {
     QVBoxLayout *rootLayout = new QVBoxLayout(this);
     rootLayout->setContentsMargins(0, 0, 0, 0);
+    rootLayout->setSpacing(0);
     // Configure a layout first
     d->mLayout = new QVBoxLayout();
     // Create the Page Widget
