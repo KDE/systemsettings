@@ -231,6 +231,7 @@ Categories=Qt;KDE;Settings;
 
 [Desktop Action kcm_lookandfeel]
 Name=Global Theme
+Name[ast]=Estilu global
 Name[az]=Qlobal Mövzu
 Name[ca]=Tema global
 Name[el]=Καθολικό θέμα
@@ -256,6 +257,7 @@ Exec=systemsettings5 kcm_lookandfeel
 
 [Desktop Action kcm_users]
 Name=Users
+Name[ast]=Usuarios
 Name[az]=İstifadəçilər
 Name[ca]=Usuaris
 Name[el]=Χρήστες
@@ -306,6 +308,7 @@ Exec=systemsettings5 screenlocker
 
 [Desktop Action powerdevilprofilesconfig]
 Name=Energy Saving
+Name[ast]=Aforru d'enerxía
 Name[az]=Enerjiyə Qənaət
 Name[ca]=Estalvi d'energia
 Name[el]=Εξοικονόμηση ενέργειας
