@@ -30,6 +30,7 @@
   <name xml:lang="ru">Параметры системы</name>
   <name xml:lang="sk">Systémové nastavenia</name>
   <name xml:lang="sl">Nastvitve sistema</name>
+  <name xml:lang="sv">Systeminställningar</name>
   <name xml:lang="tg">Танзимоти низом</name>
   <name xml:lang="uk">Системні параметри</name>
   <name xml:lang="vi">Thiết lập hệ thống</name>
@@ -66,6 +67,7 @@
   <summary xml:lang="ru">Инструменты для настройки компьютера</summary>
   <summary xml:lang="sk">Koniguračné nástroje pre váš počítač</summary>
   <summary xml:lang="sl">Orodja za nastavitve vašega računalnika</summary>
+  <summary xml:lang="sv">Inställningsverktyg för datorn</summary>
   <summary xml:lang="tg">Абзорҳои танзимотӣ барои компютери шумо</summary>
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
   <summary xml:lang="vi">Các công cụ cấu hình cho máy tính của bạn</summary>
@@ -114,6 +116,7 @@
     <p xml:lang="ru">Приложение «Параметры системы» позволяет настроить рабочую среду Plasma для удобного использования.</p>
     <p xml:lang="sk">Systémové nastavenia vám umožnia nastaviť a prispôsobiť vašu pracovnú plochu Plasma, aby lepšie vyhovovala vašim potrebám.</p>
     <p xml:lang="sl">Sistemske nastavitve omogočajo nastavitve in prilagajanje namizja KDE Plasma z namenom boljšega izpolnjevanja vaših potreb.</p>
+    <p xml:lang="sv">Systeminställningarna låter dig anpassa och justera KDE Plasma-skrivbordet för att det bättre ska passa dina behov.</p>
     <p xml:lang="tg">Танзимоти низом ба шумо имкон медиҳад, то тавонед мизи кории KDE Plasma-ро ба талаботи шахсии худ танзим ва тасҳеҳ карда, беҳтар намоед.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
     <p xml:lang="vi">"Thiết lập hệ thống" cho phép bạn cấu hình và điều chỉnh bàn làm việc Plasma KDE phù hợp hơn với nhu cầu của bạn.</p>
