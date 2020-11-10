@@ -2,9 +2,11 @@
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=appearance
-X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=40
-Icon=preferences-desktop-theme
+X-KDE-System-Settings-Parent-Category=rootcategory
+X-KDE-System-Settings-Category-Module=kcm_lookandfeel
+X-KDE-Weight=1
+Icon=preferences-desktop-theme-global
+
 
 Name=Appearance
 Name[ar]=المظهر

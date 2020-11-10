@@ -267,7 +267,12 @@ void SettingsBase::initMenuList(MenuItem * parent)
             category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
         }
 
-        if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
+        QString parentCategoryKcm = parent->service() ? parent->service()->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString() : QString();
+
+        if (parentCategoryKcm == entry->library()) {
+            parent->setItem( KCModuleInfo(entry) );
+            removeList.append( modules.at(i) );
+        } else if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
             if (!entry->noDisplay() ) {
                 // Add the module info to the menu
                 MenuItem * infoItem = new MenuItem(false, parent);

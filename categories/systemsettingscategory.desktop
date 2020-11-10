@@ -95,3 +95,7 @@ Type=QString
 # parent category identifier version 2
 [PropertyDef::X-KDE-System-Settings-Parent-Category-V2]
 Type=QString
+
+# The category a module owns and represents
+[PropertyDef::X-KDE-System-Settings-Category-Module]
+Type=QString

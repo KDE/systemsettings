@@ -148,6 +148,12 @@ bool MenuItem::showDefaultIndicator() const
     return d->showDefaultIndicator;
 }
 
+void MenuItem::setItem( const KCModuleInfo &item )
+{
+   // d->name = item.moduleName();
+    d->item = item;
+}
+
 void MenuItem::updateDefaultIndicator()
 {
     d->showDefaultIndicator = !KCModuleLoader::isDefaults(d->item);

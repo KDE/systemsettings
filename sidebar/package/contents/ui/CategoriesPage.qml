@@ -145,13 +145,13 @@ Kirigami.ScrollablePage {
             Accessible.role: Accessible.ListItem
             Accessible.name: model.display
             supportsMouseEvents: !model.IsCategoryRole || !mainColumn.searchMode
-            enabled: !model.IsCategoryRole || !mainColumn.searchMode
+            enabled: model.IsKCMRole || !mainColumn.searchMode
             onClicked: {
-                if (model.IsCategoryRole && mainColumn.searchMode) {
+                if (!model.IsKCMRole && mainColumn.searchMode) {
                     return;
                 }
 
-                if (mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
+                if (model.IsKCMRole || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
                     systemsettings.loadModule(categoryView.model.index(index, 0));
                 }
                 if (!mainColumn.searchMode && root.pageStack.depth > 1) {

@@ -223,11 +223,15 @@ void ModuleView::loadModule( const QModelIndex &menuItem, const QStringList &arg
     }
 
     QList<QModelIndex> indexes;
+
+    MenuItem *item = menuItem.data( Qt::UserRole ).value<MenuItem*>();
+
+    if (!item->item().library().isEmpty()) {
+        indexes << menuItem;
+    }
+
     for ( int done = 0; menuItem.model()->rowCount( menuItem ) > done; done = 1 + done ) {
         indexes << menuItem.model()->index( done, 0, menuItem );
-    }
-    if ( indexes.empty() ) {
-        indexes << menuItem;
     }
 
     foreach ( const QModelIndex &module, indexes ) {
@@ -301,8 +305,10 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
     page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
     //HACK: no other ways to detect is a qml kcm
     d->mCustomHeader->setText(moduleInfo->moduleName());
-    d->mCustomHeader->setVisible(!moduleProxy || !moduleProxy->realModule()->inherits("KCModuleQml"));
     page->setHeaderVisible(false);
+    
+    KCModuleProxy * currentProxy = d->mPages.value( d->mPageWidget->currentPage() );
+    d->mCustomHeader->setVisible(!currentProxy || !currentProxy->realModule()->inherits("KCModuleQml"));
 
     if( light ) {
         return;
@@ -484,6 +490,10 @@ void ModuleView::stateChanged()
     }
 
     updatePageIconHeader( d->mPageWidget->currentPage() );
+
+    KCModuleProxy * moduleProxy = d->mPages.value( d->mPageWidget->currentPage() );
+    d->mCustomHeader->setVisible(!moduleProxy || !moduleProxy->realModule()->inherits("KCModuleQml"));
+
     d->mApplyAuthorize->setAuthAction( moduleAction );
     d->mDefault->setEnabled(!defaulted);
     d->mDefault->setVisible(buttons & KCModule::Default);

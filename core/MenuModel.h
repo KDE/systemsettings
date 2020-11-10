@@ -57,6 +57,8 @@ public:
 
         IsCategoryRole,
 
+        IsKCMRole,
+
         DefaultIndicatorRole
     };
 

@@ -20,6 +20,8 @@
 
 #include "MenuModel.h"
 
+#include <KCModuleInfo>
+#include <KPluginInfo>
 #include <KCategorizedSortFilterProxyModel>
 #include <QIcon>
 #include "MenuItem.h"
@@ -50,6 +52,7 @@ QHash<int, QByteArray> MenuModel::roleNames() const
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names[DepthRole] = "DepthRole";
     names[IsCategoryRole] = "IsCategoryRole";
+    names[IsKCMRole] = "IsKCMRole";
     names[DefaultIndicatorRole] = "showDefaultIndicator";
     return names;
 }
@@ -105,7 +108,10 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
                 candidate = candidate->parent();
             }
             if (candidate) {
-                theData.setValue( candidate->name() );
+                // Children of this special root category don't have an user visible category
+                if (candidate->item().fileName() != QStringLiteral("settings-root-category.desktop")) {
+                    theData.setValue( candidate->name() );
+                }
             }
             break;
         }
@@ -131,6 +137,9 @@ QVariant MenuModel::data( const QModelIndex &index, int role ) const
         }
         case MenuModel::IsCategoryRole:
             theData.setValue( mi->menu() );
+            break;
+        case MenuModel::IsKCMRole:
+            theData.setValue( !mi->item().library().isEmpty() );
             break;
         case MenuModel::DefaultIndicatorRole:
             theData.setValue(mi->showDefaultIndicator());

@@ -23,6 +23,7 @@
 #include "BaseMode.h"
 #include <QWidget>
 #include <KSelectionProxyModel>
+#include <QIcon>
 
 class ModuleView;
 class KAboutData;
@@ -30,6 +31,7 @@ class QModelIndex;
 class QAbstractItemView;
 class QAbstractItemModel;
 class QAction;
+class SidebarMode;
 
 class FocusHackWidget : public QWidget {
     Q_OBJECT
@@ -46,20 +48,29 @@ class SubcategoryModel : public KSelectionProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
+    Q_PROPERTY(QIcon icon READ icon NOTIFY iconChanged)
+    Q_PROPERTY(bool categoryOwnedByKCM READ categoryOwnedByKCM NOTIFY categoryOwnedByKCMChanged)
 
 public:
-    explicit SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent = nullptr);
+    explicit SubcategoryModel(QAbstractItemModel *parentModel, SidebarMode *parent = nullptr);
 
     QString title() const;
+    QIcon icon() const;
+    bool categoryOwnedByKCM() const;
 
     void setParentIndex(const QModelIndex &activeModule);
 
+    Q_INVOKABLE void loadParentCategoryModule();
+
 Q_SIGNALS:
     void titleChanged();
+    void iconChanged();
+    void categoryOwnedByKCMChanged();
 
 private:
+    SidebarMode *m_sidebarMode;
     QAbstractItemModel *m_parentModel;
-    QString m_title;
+    QPersistentModelIndex m_activeModuleIndex;
 };
 
 class SidebarMode : public BaseMode

@@ -80,9 +80,10 @@ void FocusHackWidget::focusPrevious()
     focusNextPrevChild(false);
 }
 
-SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, QObject *parent)
+SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, SidebarMode *parent)
     : KSelectionProxyModel(nullptr, parent),
-        m_parentModel(parentModel)
+        m_parentModel(parentModel),
+        m_sidebarMode(parent)
 {
     setSourceModel(parentModel);
     setSelectionModel(new QItemSelectionModel(parentModel, this));
@@ -91,16 +92,41 @@ SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, QObject *par
 
 QString SubcategoryModel::title() const
 {
-    return m_title;
+    MenuItem *mi = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
+
+    if (!mi) {
+        return QString();
+    }
+
+    return mi->item().moduleName();
+}
+
+QIcon SubcategoryModel::icon() const
+{
+    return m_activeModuleIndex.data(Qt::DecorationRole).value<QIcon>();
+}
+
+bool SubcategoryModel::categoryOwnedByKCM() const
+{
+    return m_activeModuleIndex.data(MenuModel::IsKCMRole).toBool();
 }
 
 void SubcategoryModel::setParentIndex(const QModelIndex &activeModule)
 {
     selectionModel()->select(activeModule, QItemSelectionModel::ClearAndSelect);
-    m_title = activeModule.data(Qt::DisplayRole).toString();
+    m_activeModuleIndex = QPersistentModelIndex(activeModule);
     emit titleChanged();
+    emit iconChanged();
+    emit categoryOwnedByKCMChanged();
 }
 
+void SubcategoryModel::loadParentCategoryModule()
+{
+    MenuItem *menuItem = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
+    if (!menuItem->item().library().isEmpty()) {
+        m_sidebarMode->loadModule(m_activeModuleIndex);
+    }
+}
 
 class MostUsedModel : public QSortFilterProxyModel
 {
@@ -466,23 +492,19 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
         setIntroPageVisible(false);
     }
 
-    if ( mi->children().length() < 1) {
-        d->moduleView->loadModule( activeModule, args );
-    } else {
-        d->moduleView->loadModule( activeModule.model()->index(0, 0, activeModule), args );
-    }
+    d->moduleView->loadModule( activeModule, args );
 
     if (activeModule.model() == d->categorizedModel) {
         const int newCategoryRow = activeModule.row();
 
-        if (d->activeCategoryRow == newCategoryRow) {
-            return;
-        }
-
         d->activeCategoryIndex = activeModule;
         d->activeCategoryRow = newCategoryRow;
 
-        d->activeSubCategoryRow = 0;
+        if (mi->item().library().isEmpty()) {
+            d->activeSubCategoryRow = 0;
+        } else {
+            d->activeSubCategoryRow = -1;
+        }
 
         d->subCategoryModel->setParentIndex( activeModule );
 
@@ -490,7 +512,6 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
             d->activeSearchRow = -1;
             emit activeSearchRowChanged();
         }
-
         emit activeCategoryRowChanged();
         emit activeSubCategoryRowChanged();
 
@@ -519,7 +540,7 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
                 d->activeSubCategoryRow = -1;
             }
 
-            d->subCategoryModel->setParentIndex( originalIndex.parent() );
+            d->subCategoryModel->setParentIndex( originalIndex.parent().isValid() ? originalIndex.parent() : originalIndex );
             emit activeCategoryRowChanged();
             emit activeSubCategoryRowChanged();
         }
@@ -550,12 +571,16 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
             QModelIndex idx = d->categorizedModel->mapFromSource(d->flatModel->mapToSource(flatIndex));
 
             MenuItem *parentMi = idx.parent().data(MenuModel::MenuItemRole).value<MenuItem *>();
+
             if (idx.isValid()) {
                 if (parentMi && parentMi->menu()) {
                     d->subCategoryModel->setParentIndex( idx.parent() );
                     d->activeCategoryRow = idx.parent().row();
                     d->activeSubCategoryRow = idx.row();
                 } else {
+                    if (d->categorizedModel->rowCount(idx) > 0) {
+                        d->subCategoryModel->setParentIndex( idx );
+                    }
                     d->activeCategoryRow = idx.row();
                     d->activeSubCategoryRow = -1;
                 }
@@ -583,8 +608,8 @@ void SidebarMode::updateDefaults()
     QModelIndex categoryIdx = d->categorizedModel->index(d->activeCategoryRow, 0);
     auto item = categoryIdx.data(Qt::UserRole).value<MenuItem*>();
     Q_ASSERT(item);
-    // If subcategory exist update from subcategory
-    if (!item->children().isEmpty()) {
+    // If subcategory exist update from subcategory, unless this category is owned by a kcm
+    if (!item->children().isEmpty() && d->activeSubCategoryRow > -1) {
         auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
         item = subCateogryIdx.data(Qt::UserRole).value<MenuItem*>();
     }
