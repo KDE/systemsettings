@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
 
         Connections {
             target: root
-            onSearchModeChanged: {
+            function onSearchModeChanged() {
                 if (root.searchMode) {
                     root.pageStack.pop(mainColumn);
                 } else if (subCategoryView.count > 1) {
@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
         }
         Connections {
             target: systemsettings
-            onActiveSubCategoryRowChanged: {
+            function onActiveSubCategoryRowChanged() {
                 if (systemsettings.activeSubCategoryRow < 0) {
                     root.pageStack.pop(mainColumn)
                 } else {
@@ -117,7 +117,7 @@ Kirigami.ScrollablePage {
                     subCategoryView.forceActiveFocus();
                 }
             }
-            onIntroPageVisibleChanged: {
+            function onIntroPageVisibleChanged() {
                 if (systemsettings.introPageVisible) {
                     root.pageStack.pop(mainColumn)
                 }
