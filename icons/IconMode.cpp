@@ -146,14 +146,19 @@ void IconMode::changeModuleWithArgs( const QModelIndex& activeModule, const QStr
     d->moduleView->closeModules();
     d->mainWidget->setCurrentWidget( d->moduleView );
 
+    const bool openCategoryFirst = activeModule.parent().isValid();
+
     // avoid double titles by setting the right face type before loading the module
-    if ( d->categoryView->model()->rowCount(activeModule) > 1 ) {
+    if (openCategoryFirst || d->categoryView->model()->rowCount(activeModule) > 1 ) {
         d->moduleView->setFaceType(KPageView::List);
     } else {
         d->moduleView->setFaceType(KPageView::Plain);
     }
 
-    d->moduleView->loadModule( activeModule, args );
+    if (openCategoryFirst) {
+        d->moduleView->loadModule(activeModule.parent(), {});
+    }
+    d->moduleView->loadModule(activeModule, args);
 }
 
 void IconMode::moduleLoaded()

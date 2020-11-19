@@ -175,6 +175,11 @@ void ModuleView::addModule( KCModuleInfo *module, const QStringList &args )
         return;
     }
 
+    if (KPageWidgetItem *page = d->mModules.key(module)) {
+        activeModuleChanged(page, d->mPageWidget->currentPage());
+        return;
+    }
+
     // Create the scroller
     QScrollArea * moduleScroll = new QScrollArea( this );
     // Prepare the scroll area
