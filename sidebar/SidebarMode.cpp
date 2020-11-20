@@ -34,11 +34,8 @@
 #include <KConfigGroup>
 #include <KCModuleInfo>
 #include <KDescendantsProxyModel>
-#include <KStandardAction>
 #include <KLocalizedString>
-#include <KIconLoader>
 #include <KLocalizedContext>
-#include <KServiceTypeTrader>
 #include <KXmlGuiWindow>
 #include <KActionCollection>
 #include <KPackage/Package>

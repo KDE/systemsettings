@@ -44,7 +44,6 @@
 #include <KAuthAction>
 #include <KAboutData>
 #include <KAuthObjectDecorator>
-#include <KIconLoader>
 #include <KTitleWidget>
 #include <KSharedConfig>
 #include <KColorScheme>
