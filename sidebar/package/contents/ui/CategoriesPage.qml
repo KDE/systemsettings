@@ -28,23 +28,13 @@ Kirigami.ScrollablePage {
     readonly property bool searchMode: searchField.text.length > 0
 
     header: Kirigami.AbstractApplicationHeader {
-        topPadding: Kirigami.Units.smallSpacing
-        bottomPadding: Kirigami.Units.smallSpacing
-        leftPadding: Kirigami.Units.smallSpacing
-        rightPadding: Kirigami.Units.smallSpacing
-        //slightly hacky to be sure to always match with the kcm area
-        preferredHeight: menuButton.implicitHeight + topPadding + bottomPadding
-
-        Binding {
-            target: systemsettings
-            property: "headerHeight"
-            value: mainColumn.header.height
-        }
-
         contentItem: RowLayout {
-            id: toolBarLayout
-            anchors.fill: parent
-            spacing: Kirigami.Units.smallSpacing
+            anchors {
+                left: parent.left
+                leftMargin: Kirigami.Units.smallSpacing
+                right: parent.right
+                rightMargin: Kirigami.Units.smallSpacing
+            }
 
             QQC2.ToolButton {
                 id: menuButton
