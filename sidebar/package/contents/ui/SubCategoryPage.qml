@@ -138,8 +138,9 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.AbstractListItem {
+        delegate: CategoryItem {
             id: delegate
+            leftPadding: Kirigami.Units.smallSpacing  + (Kirigami.Units.smallSpacing  + Kirigami.Units.iconSizes.smallMedium) * (model.DepthRole - 2)
             onClicked: {
                 systemsettings.loadModule(subCategoryView.model.index(index, 0));
             }
@@ -158,8 +159,6 @@ Kirigami.ScrollablePage {
             highlighted: systemsettings.activeSubCategoryRow == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
-            leftPadding: Kirigami.Units.smallSpacing  + (Kirigami.Units.smallSpacing  + Kirigami.Units.iconSizes.smallMedium) * (model.DepthRole - 2)
-            contentItem: CategoryItem {}
         }
     }
 
