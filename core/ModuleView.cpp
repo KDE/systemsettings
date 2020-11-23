@@ -148,6 +148,7 @@ ModuleView::ModuleView( QWidget * parent )
     // Create the Page Widget
     d->mPageWidget = new KPageWidget(this);
     d->mCustomHeader = new CustomTitle(this);
+
     rootLayout->addWidget(d->mCustomHeader);
     rootLayout->addItem(d->mLayout);
     //d->mPageWidget->setPageHeader(d->mCustomHeader);
@@ -155,6 +156,7 @@ ModuleView::ModuleView( QWidget * parent )
 
     // Zero out only the horizontal spacing (the vertical spacing is fine)
     QGridLayout *gridLayout = static_cast<QGridLayout*>(d->mPageWidget->layout());
+    
     gridLayout->setHorizontalSpacing(0);
 
     d->mLayout->addWidget(d->mPageWidget);
@@ -307,12 +309,9 @@ void ModuleView::updatePageIconHeader( KPageWidgetItem * page, bool light )
 
     page->setHeader( moduleInfo->moduleName() );
     page->setIcon( QIcon::fromTheme( moduleInfo->icon() ) );
-    //HACK: no other ways to detect is a qml kcm
-    d->mCustomHeader->setText(moduleInfo->moduleName());
+
+    d->mCustomHeader->setVisible(false);
     page->setHeaderVisible(false);
-    
-    KCModuleProxy * currentProxy = d->mPages.value( d->mPageWidget->currentPage() );
-    d->mCustomHeader->setVisible(!currentProxy || !currentProxy->realModule()->inherits("KCModuleQml"));
 
     if( light ) {
         return;
@@ -450,7 +449,21 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
             KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
                     QStringLiteral("org.kde.systemsettings"));
         }
-        if (activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml")) {
+
+        d->mCustomHeader->setText(activeModule->moduleInfo().moduleName());
+
+        const bool isQml = (activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml"));
+        d->mCustomHeader->setVisible(!isQml);
+        current->setHeaderVisible(!isQml);
+
+        QGridLayout *gridLayout = static_cast<QGridLayout*>(d->mPageWidget->layout());
+
+        // QML KCM
+        if (isQml) {
+            gridLayout->setHorizontalSpacing(0);
+            d->mCustomHeader->setVisible(false);
+            current->setHeaderVisible(false);
+            
             d->mButtons->setContentsMargins(
                 style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
                 0, // Remove extra space between KCM content and bottom buttons
@@ -458,13 +471,30 @@ void ModuleView::activeModuleChanged(KPageWidgetItem * current, KPageWidgetItem 
                 style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
             d->mLayout->setContentsMargins(0, 0, 0, 0);
             d->mLayout->setSpacing(0);
+
+        // QWidget KCM
         } else {
+            // Sidebar mode
+            if (faceType() == KPageView::Plain) {
+                d->mCustomHeader->setVisible(true);
+                current->setHeaderVisible(false);
+                gridLayout->setHorizontalSpacing(0);
+                
+                d->mLayout->setContentsMargins(
+                    style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                    style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                    style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                    style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+
+            // Icons mode
+            } else {
+                d->mCustomHeader->setVisible(false);
+                current->setHeaderVisible(true);
+                gridLayout->setHorizontalSpacing(style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing));
+                d->mLayout->setContentsMargins(0, 0, 0, 0);
+            }
+
             d->mButtons->setContentsMargins(0, 0, 0, 0);
-            d->mLayout->setContentsMargins(
-                style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                style()->pixelMetric(QStyle::PM_LayoutTopMargin),
-                style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
             d->mLayout->setSpacing(style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
         }
         moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
