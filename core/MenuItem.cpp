@@ -169,8 +169,12 @@ void MenuItem::updateDefaultIndicator()
 
 MenuItem *MenuItem::descendantForModule(const QString &moduleName)
 {
-    if (d->service && d->service->desktopEntryName() == moduleName) {
-        return this;
+    if (d->service) {
+        if (d->service->desktopEntryName() == moduleName) {
+            return this;
+        } else if (item().fileName().length() > 0 && item().fileName().split(QLatin1Char('.'), QString::SkipEmptyParts).first() == moduleName) {
+            return this;
+        }
     }
 
     for (auto *child : d->children) {
