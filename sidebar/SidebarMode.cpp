@@ -442,22 +442,17 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
         return;
     }
 
-    MenuItem *mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
-
-    if (!mi) {
-        return;
-    }
-
-    // If we are trying to load a module already open
-    if (d->moduleView->activeModule() && mi->item() == *d->moduleView->activeModule()) {
-        return;
-    }
-
     if( !d->moduleView->resolveChanges() ) {
         return;
     }
 
     d->moduleView->closeModules();
+
+    MenuItem *mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
+
+    if (!mi) {
+        return;
+    }
 
     if (homeItem()) {
         d->m_introPageVisible = activeModule == d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
