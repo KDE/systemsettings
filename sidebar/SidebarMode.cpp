@@ -438,15 +438,15 @@ void SidebarMode::showActionMenu(const QPoint &position)
 
 void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList &args )
 {
-    if (!activeModule.isValid()) {
-        return;
-    }
-
     if( !d->moduleView->resolveChanges() ) {
         return;
     }
 
     d->moduleView->closeModules();
+
+    if (!activeModule.isValid()) {
+        return;
+    }
 
     MenuItem *mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
 
@@ -618,6 +618,7 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
         }
     } else {
         if (introPageVisible) {
+            loadModule(QModelIndex());
             d->subCategoryModel->setParentIndex(QModelIndex());
             d->activeCategoryRow = -1;
             emit activeCategoryRowChanged();
