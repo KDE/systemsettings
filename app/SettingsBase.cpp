@@ -474,7 +474,7 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
         QList<QAction*> searchBarActions;
         searchBarActions << spacerAction << searchAction;
         guiFactory()->plugActionList( this, QStringLiteral("search"), searchBarActions );
-        actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL + Qt::Key_F));
+        actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL | Qt::Key_F));
     }
     if ( (BaseMode::Configure & toolbar) && configureAction) {
         QList<QAction*> configureBarActions;
