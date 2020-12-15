@@ -21,6 +21,7 @@
 #include "BaseConfig.h"
 #include "systemsettings_app_debug.h"
 
+#include <QFontDatabase>
 #include <QTimer>
 #include <QRadioButton>
 #include <QVariantList>
@@ -90,10 +91,12 @@ SettingsBase::~SettingsBase()
 
 QSize SettingsBase::sizeHint() const
 {
+    // Take the font size into account for the window size, as we do for UI elements
+    const float fontSize = QFontDatabase::systemFont(QFontDatabase::GeneralFont).pointSizeF();
+    const QSize targetSize = QSize(qRound(102 * fontSize), qRound(70 * fontSize));
 
     // on smaller or portrait-rotated screens, do not max out height and/or width
     const QSize screenSize = (QGuiApplication::primaryScreen()->availableSize()*0.9);
-    const QSize targetSize = QSize(1024, 700);
     return targetSize.boundedTo(screenSize);
 
 }
