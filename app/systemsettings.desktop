@@ -258,6 +258,7 @@ Name[sv]=Globalt tema
 Name[uk]=Загальна тема
 Name[vi]=Chủ đề toàn cục
 Name[x-test]=xxGlobal Themexx
+Name[zh_CN]=全局主题
 Icon=preferences-desktop-theme-global
 Exec=systemsettings5 kcm_lookandfeel
 
@@ -289,6 +290,7 @@ Name[sv]=Användare
 Name[uk]=Користувачі
 Name[vi]=Người dùng
 Name[x-test]=xxUsersxx
+Name[zh_CN]=用户
 Icon=preferences-system-users
 Exec=systemsettings5 kcm_users
 
@@ -320,6 +322,7 @@ Name[sv]=Skärmlåsning
 Name[uk]=Блокування екрана
 Name[vi]=Khoá màn hình
 Name[x-test]=xxScreen Lockingxx
+Name[zh_CN]=锁屏
 Icon=preferences-desktop-user-password
 Exec=systemsettings5 screenlocker
 
@@ -352,6 +355,7 @@ Name[sv]=Energibesparing
 Name[uk]=Заощадження енергії
 Name[vi]=Tiết kiệm năng lượng
 Name[x-test]=xxEnergy Savingxx
+Name[zh_CN]=节能
 Icon=preferences-system-power-management
 Exec=systemsettings5 powerdevilprofilesconfig
 
@@ -383,5 +387,6 @@ Name[sv]=Bildskärmsinställning
 Name[uk]=Налаштування дисплея
 Name[vi]=Cấu hình hiển thị
 Name[x-test]=xxDisplay Configurationxx
+Name[zh_CN]=显示器配置
 Icon=preferences-desktop-display-randr
 Exec=systemsettings5 kcm_kscreen
