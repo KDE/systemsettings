@@ -124,7 +124,7 @@
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
     <p xml:lang="vi">"Thiết lập hệ thống" cho phép bạn cấu hình và điều chỉnh bàn làm việc Plasma KDE phù hợp hơn với nhu cầu của bạn.</p>
     <p xml:lang="x-test">xxSystem Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.xx</p>
-    <p xml:lang="zh-CN">系统设置允许您配置和调整 KDE Plasma 桌面，使其更好地满足您的需要。</p>
+    <p xml:lang="zh-CN">系统设置工具让您可以按需配置和调整 KDE Plasma 桌面环境。</p>
     <p xml:lang="zh-TW">《系統設定》讓你能設定及調整您的 KDE Plasma 桌面，以讓其更符合您的需求。</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=systemsettings</url>
