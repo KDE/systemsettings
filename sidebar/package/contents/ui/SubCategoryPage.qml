@@ -28,11 +28,24 @@ Kirigami.ScrollablePage {
     title: systemsettings.subCategoryModel.title
 
     header: Kirigami.AbstractApplicationHeader {
+        id: pageHeader
+
         topPadding: Kirigami.Units.smallSpacing
         bottomPadding: Kirigami.Units.smallSpacing
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.smallSpacing
-        preferredHeight: toolBarLayout.implicitHeight + topPadding + bottomPadding
+
+        implicitHeight: topPadding + sizeHelper.implicitHeight + bottomPadding
+
+        // Not visible; just to get its size so we can match this custom header
+        // with the height of a standard header
+        Kirigami.Heading {
+            id: sizeHelper
+            // otherwise it gets parented to the content item which we don't want
+            parent: pageHeader
+            text: "Placeholder"
+            visible: false
+        }
 
         contentItem: RowLayout {
             id: toolBarLayout

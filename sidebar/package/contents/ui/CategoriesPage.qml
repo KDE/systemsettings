@@ -28,14 +28,30 @@ Kirigami.ScrollablePage {
     readonly property bool searchMode: searchField.text.length > 0
 
     header: Kirigami.AbstractApplicationHeader {
+        id: pageHeader
+
+        leftPadding: Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.smallSpacing
+
+        implicitHeight: topPadding + sizeHelper.implicitHeight + bottomPadding
+
+        // Not visible; just to get its size so we can match this custom header
+        // with the height of a standard header
+        Kirigami.Heading {
+            id: sizeHelper
+            // otherwise it gets parented to the content item which we don't want
+            parent: pageHeader
+            text: "Placeholder"
+            visible: false
+        }
+
         contentItem: RowLayout {
+            // FIXME: left and right anchors shouldn't ne needed here, but if
+            // they're rmeoved, the layout doesn't span the full width
             anchors {
                 left: parent.left
-                leftMargin: Kirigami.Units.smallSpacing
                 right: parent.right
-                rightMargin: Kirigami.Units.smallSpacing
             }
-
             QQC2.ToolButton {
                 id: menuButton
                 icon.name: "application-menu"
