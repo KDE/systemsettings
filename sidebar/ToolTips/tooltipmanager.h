@@ -39,7 +39,7 @@ class ToolTipManager : public QObject
 
 public:
     
-    enum ToolTipPosition { BottomCenter, Right };
+    enum ToolTipPosition { BottomCenter, Right, };
     
     /**
     * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided

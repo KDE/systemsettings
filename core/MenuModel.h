@@ -59,7 +59,7 @@ public:
 
         IsKCMRole,
 
-        DefaultIndicatorRole
+        DefaultIndicatorRole,
     };
 
     /**

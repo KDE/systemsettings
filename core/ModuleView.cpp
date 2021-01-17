@@ -190,9 +190,10 @@ ModuleView::ModuleView( QWidget * parent )
     connect( d->mReset, &QAbstractButton::clicked, this, &ModuleView::moduleLoad );
     connect( d->mHelp, &QAbstractButton::clicked, this, &ModuleView::moduleHelp );
     connect( d->mDefault, &QAbstractButton::clicked, this, &ModuleView::moduleDefaults );
-    connect( d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
-             this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)) );
-
+    // clang-format off
+    connect(d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
+             this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)));
+    // clang-format on
     d->mApplyAuthorize = new KAuth::ObjectDecorator(d->mApply);
     d->mApplyAuthorize->setAuthAction( KAuth::Action() );
 }
