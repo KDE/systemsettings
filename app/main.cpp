@@ -53,8 +53,9 @@ static void listModules()
                                                          "(exist [X-KDE-ParentApp] and [X-KDE-ParentApp] == 'kinfocenter')"));
     for (KService::List::const_iterator it = services.constBegin(); it != services.constEnd(); ++it) {
         const KService::Ptr s = (*it);
-        if (!KAuthorized::authorizeControlModule(s->menuId()))
+        if (!KAuthorized::authorizeControlModule(s->menuId())) {
             continue;
+        }
         m_modules.append(s);
     }
 
@@ -145,8 +146,9 @@ int main(int argc, char *argv[])
 
         for (KService::List::ConstIterator it = m_modules.constBegin(); it != m_modules.constEnd(); ++it) {
             int len = (*it)->desktopEntryName().length();
-            if (len > maxLen)
+            if (len > maxLen) {
                 maxLen = len;
+            }
         }
 
         for (KService::List::ConstIterator it = m_modules.constBegin(); it != m_modules.constEnd(); ++it) {
