@@ -32,22 +32,22 @@ class IconMode : public BaseMode
     Q_OBJECT
 
 public:
-    explicit IconMode(QObject * parent, const QVariantList& );
+    explicit IconMode(QObject *parent, const QVariantList &);
     ~IconMode() override;
-    QWidget * mainWidget() override;
+    QWidget *mainWidget() override;
     void initEvent() override;
     void giveFocus() override;
     void leaveModuleView() override;
-    KAboutData * aboutData() override;
-    ModuleView * moduleView() const override;
+    KAboutData *aboutData() override;
+    ModuleView *moduleView() const override;
     void reloadStartupModule() override;
 
 protected:
-    QList<QAbstractItemView*> views() const override;
-    bool eventFilter(QObject* watched, QEvent* event) override;
+    QList<QAbstractItemView *> views() const override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 public Q_SLOTS:
-    void searchChanged( const QString& text ) override;
+    void searchChanged(const QString &text) override;
 
 private Q_SLOTS:
     void moduleLoaded();
@@ -55,8 +55,8 @@ private Q_SLOTS:
     void initWidget();
 
 private:
-    void changeModule( const QModelIndex& activeModule);
-    void changeModuleWithArgs( const QModelIndex& activeModule, const QStringList &args );
+    void changeModule(const QModelIndex &activeModule);
+    void changeModuleWithArgs(const QModelIndex &activeModule, const QStringList &args);
 
     class Private;
     Private *const d;

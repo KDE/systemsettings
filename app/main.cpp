@@ -21,17 +21,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <QCommandLineParser>
 #include <KAboutData>
 #include <KCrash>
+#include <QCommandLineParser>
 
-#include <iostream>
-#include <kworkspace.h>
+#include <KAuthorized>
 #include <KDBusService>
 #include <KQuickAddons/QtQuickSettings>
 #include <KServiceTypeTrader>
-#include <KAuthorized>
 #include <KWindowSystem>
+#include <iostream>
+#include <kworkspace.h>
 
 #include "SettingsBase.h"
 
@@ -39,9 +39,7 @@ KService::List m_modules;
 
 static bool caseInsensitiveLessThan(const KService::Ptr s1, const KService::Ptr s2)
 {
-    const int compare = QString::compare(s1->desktopEntryName(),
-                                         s2->desktopEntryName(),
-                                         Qt::CaseInsensitive);
+    const int compare = QString::compare(s1->desktopEntryName(), s2->desktopEntryName(), Qt::CaseInsensitive);
     return (compare < 0);
 }
 
@@ -49,8 +47,11 @@ static void listModules()
 {
     // First condition is what systemsettings does, second what kinfocenter does, make sure this is kept in sync
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
-    const KService::List services = KServiceTypeTrader::self()->query( QStringLiteral("KCModule"), QStringLiteral("(exist [X-KDE-System-Settings-Parent-Category] and [X-KDE-System-Settings-Parent-Category] != '') or (exist [X-KDE-ParentApp] and [X-KDE-ParentApp] == 'kinfocenter')") );
-    for( KService::List::const_iterator it = services.constBegin(); it != services.constEnd(); ++it) {
+    const KService::List services =
+        KServiceTypeTrader::self()->query(QStringLiteral("KCModule"),
+                                          QStringLiteral("(exist [X-KDE-System-Settings-Parent-Category] and [X-KDE-System-Settings-Parent-Category] != '') or "
+                                                         "(exist [X-KDE-ParentApp] and [X-KDE-ParentApp] == 'kinfocenter')"));
+    for (KService::List::const_iterator it = services.constBegin(); it != services.constEnd(); ++it) {
         const KService::Ptr s = (*it);
         if (!KAuthorized::authorizeControlModule(s->menuId()))
             continue;
@@ -60,7 +61,7 @@ static void listModules()
     std::stable_sort(m_modules.begin(), m_modules.end(), caseInsensitiveLessThan);
 }
 
-int main( int argc, char *argv[] )
+int main(int argc, char *argv[])
 {
     // Make sure the binary name is either kinfocenter or systemsettings,
     // Anything else will just be considered as "systemsettings"
@@ -72,8 +73,8 @@ int main( int argc, char *argv[] )
         mode = BaseMode::InfoCenter;
     }
 
-    //exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
-    //which is before KAboutData::setApplicationData
+    // exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
+    // which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(binaryName);
 
     // This has to be before the QApplication is created.
@@ -89,13 +90,23 @@ int main( int argc, char *argv[] )
 
     if (mode == BaseMode::InfoCenter) {
         // About data
-        aboutData = KAboutData(QStringLiteral("kinfocenter"), i18n("Info Center"), QLatin1String(PROJECT_VERSION), i18n("Centralized and convenient overview of system information."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
+        aboutData = KAboutData(QStringLiteral("kinfocenter"),
+                               i18n("Info Center"),
+                               QLatin1String(PROJECT_VERSION),
+                               i18n("Centralized and convenient overview of system information."),
+                               KAboutLicense::GPL,
+                               i18n("(c) 2009, Ben Cooksley"));
         aboutData.setDesktopFileName(QStringLiteral("org.kde.kinfocenter"));
 
         application.setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
 
     } else {
-        aboutData = KAboutData(QStringLiteral("systemsettings"), i18n("System Settings"), QLatin1String(PROJECT_VERSION), i18n("Central configuration center by KDE."), KAboutLicense::GPL, i18n("(c) 2009, Ben Cooksley"));
+        aboutData = KAboutData(QStringLiteral("systemsettings"),
+                               i18n("System Settings"),
+                               QLatin1String(PROJECT_VERSION),
+                               i18n("Central configuration center by KDE."),
+                               KAboutLicense::GPL,
+                               i18n("(c) 2009, Ben Cooksley"));
 
         if (qEnvironmentVariableIsSet("KDE_FULL_SESSION")) {
             aboutData.setDesktopFileName(QStringLiteral("systemsettings"));
@@ -130,7 +141,7 @@ int main( int argc, char *argv[] )
 
         listModules();
 
-        int maxLen=0;
+        int maxLen = 0;
 
         for (KService::List::ConstIterator it = m_modules.constBegin(); it != m_modules.constEnd(); ++it) {
             int len = (*it)->desktopEntryName().length();
@@ -142,8 +153,7 @@ int main( int argc, char *argv[] )
             QString entry(QStringLiteral("%1 - %2"));
 
             entry = entry.arg((*it)->desktopEntryName().leftJustified(maxLen, QLatin1Char(' ')))
-                    .arg(!(*it)->comment().isEmpty() ? (*it)->comment()
-                                                     : i18n("No description available"));
+                        .arg(!(*it)->comment().isEmpty() ? (*it)->comment() : i18n("No description available"));
 
             std::cout << entry.toLocal8Bit().data() << std::endl;
         }

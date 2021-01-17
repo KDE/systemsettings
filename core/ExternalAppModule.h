@@ -32,17 +32,17 @@ class ExternalAppModule : public QWidget
     Q_OBJECT
 
 public:
-    explicit ExternalAppModule(QWidget * parent = nullptr, KCModuleInfo * module = nullptr);
+    explicit ExternalAppModule(QWidget *parent = nullptr, KCModuleInfo *module = nullptr);
     ~ExternalAppModule() override;
 
 protected:
-    void showEvent(QShowEvent * event) override;
+    void showEvent(QShowEvent *event) override;
 
 private Q_SLOTS:
     void runExternal();
 
 private:
-    KCModuleInfo * moduleInfo;
+    KCModuleInfo *moduleInfo;
     Ui::ExternalModule externalModule;
     bool firstShow;
 };

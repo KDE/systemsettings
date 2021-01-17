@@ -44,7 +44,7 @@ template<typename T> class QList;
  *
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
-*/
+ */
 class Q_DECL_EXPORT BaseMode : public QObject
 {
     Q_OBJECT
@@ -72,7 +72,7 @@ public:
      *
      * @param parent The parent of this BaseMode.
      */
-    explicit BaseMode( QObject * parent, const QVariantList &args );
+    explicit BaseMode(QObject *parent, const QVariantList &args);
     /**
      * Normal destructor. Plugin developers only need destroy what they created
      * not what is provided by BaseMode itself.
@@ -112,7 +112,7 @@ public:
      * @warning This function is called multiple times, ensure the widget is only created once.
      * @returns The main widget of the plugin.
      */
-    virtual QWidget * mainWidget();
+    virtual QWidget *mainWidget();
 
     /**
      * Provides information about the plugin, which is used in the About dialog of System Settings.\n
@@ -121,7 +121,7 @@ public:
      *
      * @returns The about data of the plugin.
      */
-    virtual KAboutData * aboutData();
+    virtual KAboutData *aboutData();
 
     /**
      * @returns the application mode of this systemsettings process: SystemSettings or InfoCenter
@@ -156,7 +156,7 @@ public:
      * changes, and for the module to not be displayed in the About dialog. It must be implemented.
      * @returns The ModuleView used by the plugin for handling modules.
      */
-    virtual ModuleView * moduleView() const;
+    virtual ModuleView *moduleView() const;
 
     /**
      * Provides the list of actions the plugin wants System Settings to display in the toolbar when
@@ -165,14 +165,14 @@ public:
      *
      * @returns The list of actions the plugin provides.
      */
-    virtual QList<QAction*>& actionsList() const;
+    virtual QList<QAction *> &actionsList() const;
 
     const KPluginMetaData &metaData() const;
 
     /**
      * tells the config view whether to make use of tooltips or not
      */
-    void setShowToolTips( bool show);
+    void setShowToolTips(bool show);
 
     /**
      * @returns true if the view should use tooltips
@@ -193,14 +193,14 @@ public Q_SLOTS:
      *
      * @warning Search will not work in the view if this function is not implemented.
      */
-    virtual void searchChanged( const QString& text );
+    virtual void searchChanged(const QString &text);
 
     /**
      * Allows views to add custom configuration pages to the System Settings configure dialog
      *
      * @warning Deleting the config object will cause System Settings to crash
      */
-    virtual void addConfiguration( KConfigDialog * config );
+    virtual void addConfiguration(KConfigDialog *config);
 
     /**
      * Allows views to load their configuration before the configuration dialog is shown
@@ -229,7 +229,7 @@ Q_SIGNALS:
      * @param state Determines whether changes have been made in the view.
      * @warning Failure to emit this will result in inconsistent application headers and change state.
      */
-    void viewChanged( bool state );
+    void viewChanged(bool state);
 
     /**
      * Causes System Settings to hide / show the toolbar items specified.
@@ -237,7 +237,7 @@ Q_SIGNALS:
      *
      * @param items The items that are wanted in the toolbar
      */
-    void changeToolBarItems( BaseMode::ToolBarItems items );
+    void changeToolBarItems(BaseMode::ToolBarItems items);
 
 protected:
     /**
@@ -247,7 +247,7 @@ protected:
      * @warning This is shared between all views, and should not be deleted manually.
      * @returns The root menu item as provided by System Settings.
      */
-    MenuItem * rootItem() const;
+    MenuItem *rootItem() const;
 
     /**
      * Returns (if present) an item that corresponds to a KCM which should be used as startup page.
@@ -255,14 +255,14 @@ protected:
      * @warning This is shared between all views, and should not be deleted manually.
      * @returns The item to load as startup page. It may be nullptr
      */
-    MenuItem * homeItem() const;
+    MenuItem *homeItem() const;
 
     /**
      * Provides access to the configuration for the plugin.
      *
      * @returns The configuration group for the plugin.
      */
-    KConfigGroup& config() const;
+    KConfigGroup &config() const;
 
     /**
      * Provides access to item views used by the plugin.
@@ -271,7 +271,7 @@ protected:
      * @returns A list of pointers to item views used by the mode.
      *          The list can be empty.
      */
-    virtual QList<QAbstractItemView*> views() const;
+    virtual QList<QAbstractItemView *> views() const;
 
 private:
     class Private;

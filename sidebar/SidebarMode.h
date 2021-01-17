@@ -21,9 +21,9 @@
 #define SIDEBARMODE_H
 
 #include "BaseMode.h"
-#include <QWidget>
 #include <KSelectionProxyModel>
 #include <QIcon>
+#include <QWidget>
 
 class ModuleView;
 class KAboutData;
@@ -33,7 +33,8 @@ class QAbstractItemModel;
 class QAction;
 class SidebarMode;
 
-class FocusHackWidget : public QWidget {
+class FocusHackWidget : public QWidget
+{
     Q_OBJECT
 public:
     explicit FocusHackWidget(QWidget *parent = nullptr);
@@ -91,13 +92,13 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(qreal headerHeight READ headerHeight WRITE setHeaderHeight NOTIFY headerHeightChanged)
 
 public:
-    SidebarMode(QObject * parent, const QVariantList &args );
+    SidebarMode(QObject *parent, const QVariantList &args);
     ~SidebarMode() override;
-    QWidget * mainWidget() override;
+    QWidget *mainWidget() override;
     void initEvent() override;
     void giveFocus() override;
-    KAboutData * aboutData() override;
-    ModuleView * moduleView() const override;
+    KAboutData *aboutData() override;
+    ModuleView *moduleView() const override;
     void reloadStartupModule() override;
 
     QAbstractItemModel *categoryModel() const;
@@ -131,11 +132,11 @@ public:
     Q_INVOKABLE void hideMostUsedToolTip();
     Q_INVOKABLE void showActionMenu(const QPoint &position);
 
-    Q_INVOKABLE void loadModule(const QModelIndex& activeModule, const QStringList &args = QStringList());
+    Q_INVOKABLE void loadModule(const QModelIndex &activeModule, const QStringList &args = QStringList());
 
 protected:
-    QList<QAbstractItemView*> views() const override;
-    bool eventFilter(QObject* watched, QEvent* event) override;
+    QList<QAbstractItemView *> views() const override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
     void moduleLoaded();

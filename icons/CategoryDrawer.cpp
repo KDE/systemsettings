@@ -21,19 +21,16 @@
 
 #include "MenuProxyModel.h"
 
-#include <QPainter>
 #include <QApplication>
+#include <QPainter>
 #include <QStyleOption>
 
 CategoryDrawer::CategoryDrawer(KCategorizedView *view)
-: KCategoryDrawer(view)
+    : KCategoryDrawer(view)
 {
 }
 
-void CategoryDrawer::drawCategory(const QModelIndex &index,
-                                            int sortRole,
-                                            const QStyleOption &option,
-                                            QPainter *painter) const
+void CategoryDrawer::drawCategory(const QModelIndex &index, int sortRole, const QStyleOption &option, QPainter *painter) const
 {
     QStyleOption copy = option;
     copy.palette.setBrush(QPalette::Window, option.palette.base());

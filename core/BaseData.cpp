@@ -24,14 +24,17 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-class DataHelper {
-
+class DataHelper
+{
 public:
-    DataHelper() {}
-    ~DataHelper() {
+    DataHelper()
+    {
+    }
+    ~DataHelper()
+    {
         delete object;
     }
-    BaseData * object = nullptr;
+    BaseData *object = nullptr;
 };
 
 Q_GLOBAL_STATIC(DataHelper, internalInstance)
@@ -47,35 +50,33 @@ BaseData::~BaseData()
 
 BaseData *BaseData::instance()
 {
-    if( !internalInstance->object ) {
+    if (!internalInstance->object) {
         new BaseData();
     }
     return internalInstance->object;
 }
 
-MenuItem * BaseData::menuItem()
+MenuItem *BaseData::menuItem()
 {
     return rootMenu;
 }
 
-void BaseData::setMenuItem( MenuItem * item )
+void BaseData::setMenuItem(MenuItem *item)
 {
     rootMenu = item;
 }
 
-MenuItem * BaseData::homeItem()
+MenuItem *BaseData::homeItem()
 {
     return m_homeItem;
 }
 
-void BaseData::setHomeItem( MenuItem * item )
+void BaseData::setHomeItem(MenuItem *item)
 {
     m_homeItem = item;
 }
 
-KConfigGroup BaseData::configGroup( const QString& pluginName )
+KConfigGroup BaseData::configGroup(const QString &pluginName)
 {
-    return KSharedConfig::openConfig()->group( pluginName );
+    return KSharedConfig::openConfig()->group(pluginName);
 }
-
-

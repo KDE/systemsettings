@@ -22,8 +22,8 @@
 #define MODULE_VIEW_H
 
 #include <KPageView>
-#include <QWidget>
 #include <QModelIndex>
+#include <QWidget>
 
 class KAboutData;
 class KCModuleInfo;
@@ -54,7 +54,7 @@ public:
     /**
      * Constructs a ModuleView, with the parent specified.
      */
-    explicit ModuleView(QWidget * parent = nullptr);
+    explicit ModuleView(QWidget *parent = nullptr);
 
     /**
      * Destroys the module view, along with all modules loaded, and any changes present in them.
@@ -67,12 +67,12 @@ public:
      * Provides the module information, which is used to set the caption of the window when either the
      * active module or configuration changes.
      */
-    KCModuleInfo * activeModule() const;
+    KCModuleInfo *activeModule() const;
 
     /**
      * Provides the about data of the active module, used for the about dialog.
      */
-    const KAboutData * aboutData() const;
+    const KAboutData *aboutData() const;
 
     /**
      * Resolves any changes in the currently active module by prompting the user if they exist.
@@ -151,7 +151,7 @@ public Q_SLOTS:
      *
      * @param menuItem the QModelIndex that you want to load. Must be sourced from either MenuModel or MenuProxyModel
      */
-    void loadModule(const QModelIndex &menuItem, const QStringList &args );
+    void loadModule(const QModelIndex &menuItem, const QStringList &args);
 
     /**
      * Will open KHelpCenter, and load the help for the active module.
@@ -176,16 +176,16 @@ public Q_SLOTS:
     /**
      * Reimplemented for internal reasons.\n
      */
-    void keyPressEvent( QKeyEvent * event ) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    bool resolveChanges( KCModuleProxy *currentProxy );
-    void addModule( KCModuleInfo *module, const QStringList &args );
-    bool moduleSave( KCModuleProxy *module );
-    void updatePageIconHeader( KPageWidgetItem * page, bool light = false );
+    bool resolveChanges(KCModuleProxy *currentProxy);
+    void addModule(KCModuleInfo *module, const QStringList &args);
+    bool moduleSave(KCModuleProxy *module);
+    void updatePageIconHeader(KPageWidgetItem *page, bool light = false);
 
 private Q_SLOTS:
-    void activeModuleChanged( KPageWidgetItem* current, KPageWidgetItem* previous);
+    void activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *previous);
     void stateChanged();
 
 Q_SIGNALS:
@@ -193,7 +193,7 @@ Q_SIGNALS:
      * Emitted when the currently active module is changed. This occurs whenever the active module or
      * its configuration changes. This causes the window caption to update.
      */
-    void moduleChanged( bool state );
+    void moduleChanged(bool state);
 
     /**
      * Emitted after the currently active module was saved.
@@ -208,7 +208,7 @@ Q_SIGNALS:
     /**
      * Emmitted when showDefaultsIndicators state changed
      */
-     void showDefaultsIndicatorsChanged(bool show);
+    void showDefaultsIndicatorsChanged(bool show);
 
 private:
     class Private;

@@ -15,40 +15,40 @@
  * along with this program; if not, write to the Free Software            *
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA          *
  * 02110-1301, USA.                                                       *
-***************************************************************************/
+ ***************************************************************************/
 
 #include "SidebarMode.h"
 
+#include "BaseData.h"
 #include "MenuItem.h"
 #include "MenuModel.h"
-#include "ModuleView.h"
 #include "MenuProxyModel.h"
-#include "BaseData.h"
+#include "ModuleView.h"
 #include "ToolTips/tooltipmanager.h"
 
 #include <QGuiApplication>
 #include <QHBoxLayout>
 
-#include <QAction>
 #include <KAboutData>
-#include <KConfigGroup>
-#include <KCModuleInfo>
-#include <KDescendantsProxyModel>
-#include <KLocalizedString>
-#include <KLocalizedContext>
-#include <KXmlGuiWindow>
 #include <KActionCollection>
+#include <KCModuleInfo>
+#include <KConfigGroup>
+#include <KDeclarative/KDeclarative>
+#include <KDescendantsProxyModel>
+#include <KLocalizedContext>
+#include <KLocalizedString>
 #include <KPackage/Package>
 #include <KPackage/PackageLoader>
-#include <KDeclarative/KDeclarative>
-#include <QStandardItemModel>
-#include <QQuickWidget>
-#include <QQmlEngine>
-#include <QQmlContext>
+#include <KXmlGuiWindow>
+#include <QAction>
+#include <QDebug>
 #include <QGraphicsOpacityEffect>
 #include <QLabel>
 #include <QMenu>
-#include <QDebug>
+#include <QQmlContext>
+#include <QQmlEngine>
+#include <QQuickWidget>
+#include <QStandardItemModel>
 
 #include <KActivities/Stats/ResultModel>
 #include <KActivities/Stats/ResultSet>
@@ -63,9 +63,12 @@ K_PLUGIN_CLASS_WITH_JSON(SidebarMode, "settings-sidebar-view.json")
 
 FocusHackWidget::FocusHackWidget(QWidget *parent)
     : QWidget(parent)
-{}
+{
+}
+
 FocusHackWidget::~FocusHackWidget()
-{}
+{
+}
 
 void FocusHackWidget::focusNext()
 {
@@ -78,9 +81,9 @@ void FocusHackWidget::focusPrevious()
 }
 
 SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, SidebarMode *parent)
-    : KSelectionProxyModel(nullptr, parent),
-        m_parentModel(parentModel),
-        m_sidebarMode(parent)
+    : KSelectionProxyModel(nullptr, parent)
+    , m_parentModel(parentModel)
+    , m_sidebarMode(parent)
 {
     setSourceModel(parentModel);
     setSelectionModel(new QItemSelectionModel(parentModel, this));
@@ -129,12 +132,12 @@ class MostUsedModel : public QSortFilterProxyModel
 {
 public:
     explicit MostUsedModel(QObject *parent = nullptr)
-        : QSortFilterProxyModel (parent)
+        : QSortFilterProxyModel(parent)
     {
         sort(0, Qt::DescendingOrder);
         setSortRole(ResultModel::ScoreRole);
         setDynamicSortFilter(true);
-        //prepare default items
+        // prepare default items
         m_defaultModel = new QStandardItemModel(this);
 
         KService::Ptr service = KService::serviceByDesktopName(qGuiApp->desktopFileName());
@@ -202,7 +205,7 @@ public:
             KService::Ptr service = KService::serviceByStorageId(desktopName);
 
             if (!service || !service->isValid()) {
-                qWarning()<<desktopName;
+                qWarning() << desktopName;
                 m_resultModel->forgetResource(QStringLiteral("kcm:") % desktopName);
                 return QVariant();
             }
@@ -210,24 +213,24 @@ public:
         }
 
         switch (role) {
-            case Qt::UserRole:
-                return QVariant::fromValue(mi);
-            case Qt::DisplayRole:
-                if (mi->service() && mi->service()->isValid()) {
-                    return mi->service()->name();
-                } else {
-                    return QVariant();
-                }
-            case Qt::DecorationRole:
-                if (mi->service() && mi->service()->isValid()) {
-                    return mi->service()->icon();
-                } else {
-                    return QVariant();
-                }
-            case ResultModel::ScoreRole:
-                return QSortFilterProxyModel::data(index, ResultModel::ScoreRole).toInt();
-            default:
+        case Qt::UserRole:
+            return QVariant::fromValue(mi);
+        case Qt::DisplayRole:
+            if (mi->service() && mi->service()->isValid()) {
+                return mi->service()->name();
+            } else {
                 return QVariant();
+            }
+        case Qt::DecorationRole:
+            if (mi->service() && mi->service()->isValid()) {
+                return mi->service()->icon();
+            } else {
+                return QVariant();
+            }
+        case ResultModel::ScoreRole:
+            return QSortFilterProxyModel::data(index, ResultModel::ScoreRole).toInt();
+        default:
+            return QVariant();
         }
     }
 
@@ -239,36 +242,39 @@ private:
     ResultModel *m_resultModel;
 };
 
-class SidebarMode::Private {
+class SidebarMode::Private
+{
 public:
     Private()
-      : quickWidget( nullptr ),
-        moduleView( nullptr ),
-        collection( nullptr ),
-        activeCategoryRow( -1 ),
-        activeSubCategoryRow( -1 )
-    {}
+        : quickWidget(nullptr)
+        , moduleView(nullptr)
+        , collection(nullptr)
+        , activeCategoryRow(-1)
+        , activeSubCategoryRow(-1)
+    {
+    }
 
-    virtual ~Private() {
+    virtual ~Private()
+    {
         delete aboutIcon;
     }
 
     ToolTipManager *toolTipManager = nullptr;
     ToolTipManager *mostUsedToolTipManager = nullptr;
-    QQuickWidget * quickWidget = nullptr;
+    QQuickWidget *quickWidget = nullptr;
     KPackage::Package package;
-    SubcategoryModel * subCategoryModel = nullptr;
-    MostUsedModel * mostUsedModel = nullptr;
-    FocusHackWidget * mainWidget = nullptr;
-    QQuickWidget * placeHolderWidget = nullptr;
-    QHBoxLayout * mainLayout = nullptr;
+    SubcategoryModel *subCategoryModel = nullptr;
+    MostUsedModel *mostUsedModel = nullptr;
+    FocusHackWidget *mainWidget = nullptr;
+    QQuickWidget *placeHolderWidget = nullptr;
+    QHBoxLayout *mainLayout = nullptr;
     KDeclarative::KDeclarative kdeclarative;
-    MenuModel * model = nullptr;
-    MenuProxyModel * categorizedModel = nullptr;
-    MenuProxyModel * searchModel = nullptr;
-    KDescendantsProxyModel * flatModel = nullptr;
-    KAboutData * aboutIcon = nullptr;
-    ModuleView * moduleView = nullptr;
+    MenuModel *model = nullptr;
+    MenuProxyModel *categorizedModel = nullptr;
+    MenuProxyModel *searchModel = nullptr;
+    KDescendantsProxyModel *flatModel = nullptr;
+    KAboutData *aboutIcon = nullptr;
+    ModuleView *moduleView = nullptr;
     KActionCollection *collection = nullptr;
     QPersistentModelIndex activeCategoryIndex;
     int activeCategoryRow = -1;
@@ -276,7 +282,7 @@ public:
     int activeSearchRow = -1;
     qreal headerHeight = 0;
     bool m_actionMenuVisible = false;
-    void setActionMenuVisible(SidebarMode* sidebarMode, const bool &actionMenuVisible)
+    void setActionMenuVisible(SidebarMode *sidebarMode, const bool &actionMenuVisible)
     {
         if (m_actionMenuVisible == actionMenuVisible) {
             return;
@@ -288,17 +294,20 @@ public:
     bool m_defaultsIndicatorsVisible = false;
 };
 
-SidebarMode::SidebarMode( QObject *parent, const QVariantList &args )
-    : BaseMode( parent, args )
-    , d( new Private() )
+SidebarMode::SidebarMode(QObject *parent, const QVariantList &args)
+    : BaseMode(parent, args)
+    , d(new Private())
 {
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
-    d->aboutIcon = new KAboutData( QStringLiteral("SidebarView"), i18n( "Sidebar View" ),
-                                 QStringLiteral("1.0"), i18n( "Provides a categorized sidebar for control modules." ),
-                                 KAboutLicense::GPL, i18n( "(c) 2017, Marco Martin" ) );
-    d->aboutIcon->addAuthor( i18n( "Marco Martin" ), i18n( "Author" ), QStringLiteral("mart@kde.org") );
-    d->aboutIcon->addAuthor( i18n( "Ben Cooksley" ), i18n( "Author" ), QStringLiteral("bcooksley@kde.org") );
-    d->aboutIcon->addAuthor( i18n( "Mathias Soeken" ), i18n( "Developer" ), QStringLiteral("msoeken@informatik.uni-bremen.de") );
+    d->aboutIcon = new KAboutData(QStringLiteral("SidebarView"),
+                                  i18n("Sidebar View"),
+                                  QStringLiteral("1.0"),
+                                  i18n("Provides a categorized sidebar for control modules."),
+                                  KAboutLicense::GPL,
+                                  i18n("(c) 2017, Marco Martin"));
+    d->aboutIcon->addAuthor(i18n("Marco Martin"), i18n("Author"), QStringLiteral("mart@kde.org"));
+    d->aboutIcon->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
+    d->aboutIcon->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
 
     qmlRegisterType<QAction>();
     qmlRegisterType<QAbstractItemModel>();
@@ -310,82 +319,82 @@ SidebarMode::~SidebarMode()
     delete d;
 }
 
-KAboutData * SidebarMode::aboutData()
+KAboutData *SidebarMode::aboutData()
 {
     return d->aboutIcon;
 }
 
-ModuleView * SidebarMode::moduleView() const
+ModuleView *SidebarMode::moduleView() const
 {
     return d->moduleView;
 }
 
-QWidget * SidebarMode::mainWidget()
+QWidget *SidebarMode::mainWidget()
 {
-    if( !d->quickWidget ) {
+    if (!d->quickWidget) {
         initWidget();
     }
     return d->mainWidget;
 }
 
-QAbstractItemModel * SidebarMode::categoryModel() const
+QAbstractItemModel *SidebarMode::categoryModel() const
 {
     return d->categorizedModel;
 }
 
-QAbstractItemModel * SidebarMode::searchModel() const
+QAbstractItemModel *SidebarMode::searchModel() const
 {
     return d->searchModel;
 }
 
-QAbstractItemModel * SidebarMode::subCategoryModel() const
+QAbstractItemModel *SidebarMode::subCategoryModel() const
 {
     return d->subCategoryModel;
 }
 
-QAbstractItemModel * SidebarMode::mostUsedModel() const
+QAbstractItemModel *SidebarMode::mostUsedModel() const
 {
     return d->mostUsedModel;
 }
 
-QList<QAbstractItemView*> SidebarMode::views() const
+QList<QAbstractItemView *> SidebarMode::views() const
 {
-    QList<QAbstractItemView*> list;
-    //list.append( d->categoryView );
+    QList<QAbstractItemView *> list;
+    // list.append( d->categoryView );
     return list;
 }
 
 void SidebarMode::initEvent()
 {
-    d->model = new MenuModel( rootItem(), this );
-    foreach( MenuItem * child, rootItem()->children() ) {
-        d->model->addException( child );
+    d->model = new MenuModel(rootItem(), this);
+    foreach (MenuItem *child, rootItem()->children()) {
+        d->model->addException(child);
     }
 
-    d->categorizedModel = new MenuProxyModel( this );
-    d->categorizedModel->setCategorizedModel( true );
-    d->categorizedModel->setSourceModel( d->model );
-    d->categorizedModel->sort( 0 );
-    d->categorizedModel->setFilterHighlightsEntries( false );
+    d->categorizedModel = new MenuProxyModel(this);
+    d->categorizedModel->setCategorizedModel(true);
+    d->categorizedModel->setSourceModel(d->model);
+    d->categorizedModel->sort(0);
+    d->categorizedModel->setFilterHighlightsEntries(false);
 
-    d->flatModel = new KDescendantsProxyModel( this );
-    d->flatModel->setSourceModel( d->model );
+    d->flatModel = new KDescendantsProxyModel(this);
+    d->flatModel->setSourceModel(d->model);
 
-    d->searchModel = new MenuProxyModel( this );
-    d->searchModel->setCategorizedModel( true );
-    d->searchModel->setFilterHighlightsEntries( false );
-    d->searchModel->setSourceModel( d->flatModel );
+    d->searchModel = new MenuProxyModel(this);
+    d->searchModel->setCategorizedModel(true);
+    d->searchModel->setFilterHighlightsEntries(false);
+    d->searchModel->setSourceModel(d->flatModel);
 
-    d->mostUsedModel = new MostUsedModel( this );
+    d->mostUsedModel = new MostUsedModel(this);
 
-    d->subCategoryModel = new SubcategoryModel( d->categorizedModel, this );
+    d->subCategoryModel = new SubcategoryModel(d->categorizedModel, this);
     d->mainWidget = new FocusHackWidget();
     d->mainWidget->installEventFilter(this);
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->mainLayout->setSpacing(0);
-    d->moduleView = new ModuleView( d->mainWidget );
-    connect( d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded );
+    d->moduleView = new ModuleView(d->mainWidget);
+    connect(d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded);
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
@@ -447,10 +456,16 @@ void SidebarMode::hideMostUsedToolTip()
 void SidebarMode::showActionMenu(const QPoint &position)
 {
     QMenu *menu = new QMenu();
-    connect(menu, &QMenu::aboutToHide, this, [this] () { d->setActionMenuVisible(this, false); } );
+    connect(menu, &QMenu::aboutToHide, this, [this]() {
+        d->setActionMenuVisible(this, false);
+    });
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
-    const QStringList actionList { QStringLiteral("configure"), QStringLiteral("help_contents"), QStringLiteral("help_report_bug"), QStringLiteral("help_about_app"), QStringLiteral("help_about_kde") };
+    const QStringList actionList{QStringLiteral("configure"),
+                                 QStringLiteral("help_contents"),
+                                 QStringLiteral("help_report_bug"),
+                                 QStringLiteral("help_about_app"),
+                                 QStringLiteral("help_about_kde")};
     for (const QString &actionName : actionList) {
         menu->addAction(d->collection->action(actionName));
     }
@@ -459,7 +474,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     d->setActionMenuVisible(this, true);
 }
 
-void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList &args )
+void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList &args)
 {
     if (!activeModule.isValid()) {
         return;
@@ -476,7 +491,7 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
         return;
     }
 
-    if( !d->moduleView->resolveChanges() ) {
+    if (!d->moduleView->resolveChanges()) {
         return;
     }
 
@@ -489,7 +504,7 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
         setIntroPageVisible(false);
     }
 
-    d->moduleView->loadModule( activeModule, args );
+    d->moduleView->loadModule(activeModule, args);
 
     if (activeModule.model() == d->categorizedModel) {
         const int newCategoryRow = activeModule.row();
@@ -503,7 +518,7 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
             d->activeSubCategoryRow = -1;
         }
 
-        d->subCategoryModel->setParentIndex( activeModule );
+        d->subCategoryModel->setParentIndex(activeModule);
 
         if (d->activeSearchRow > -1) {
             d->activeSearchRow = -1;
@@ -521,23 +536,21 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
         emit activeSubCategoryRowChanged();
 
     } else if (activeModule.model() == d->searchModel) {
-        QModelIndex originalIndex = d->categorizedModel->mapFromSource(
-            d->flatModel->mapToSource(
-                d->searchModel->mapToSource(activeModule)));
+        QModelIndex originalIndex = d->categorizedModel->mapFromSource(d->flatModel->mapToSource(d->searchModel->mapToSource(activeModule)));
 
         if (originalIndex.isValid()) {
-            //are we in a  subcategory of the top categories?
+            // are we in a  subcategory of the top categories?
             if (originalIndex.parent().isValid() && mi->parent()->menu()) {
                 d->activeCategoryRow = originalIndex.parent().row();
                 d->activeSubCategoryRow = originalIndex.row();
 
-            // Is this kcm directly at the top level without a top category?
+                // Is this kcm directly at the top level without a top category?
             } else {
                 d->activeCategoryRow = originalIndex.row();
                 d->activeSubCategoryRow = -1;
             }
 
-            d->subCategoryModel->setParentIndex( originalIndex.parent().isValid() ? originalIndex.parent() : originalIndex );
+            d->subCategoryModel->setParentIndex(originalIndex.parent().isValid() ? originalIndex.parent() : originalIndex);
             emit activeCategoryRowChanged();
             emit activeSubCategoryRowChanged();
         }
@@ -571,12 +584,12 @@ void SidebarMode::loadModule( const QModelIndex& activeModule, const QStringList
 
             if (idx.isValid()) {
                 if (parentMi && parentMi->menu()) {
-                    d->subCategoryModel->setParentIndex( idx.parent() );
+                    d->subCategoryModel->setParentIndex(idx.parent());
                     d->activeCategoryRow = idx.parent().row();
                     d->activeSubCategoryRow = idx.row();
                 } else {
                     if (d->categorizedModel->rowCount(idx) > 0) {
-                        d->subCategoryModel->setParentIndex( idx );
+                        d->subCategoryModel->setParentIndex(idx);
                     }
                     d->activeCategoryRow = idx.row();
                     d->activeSubCategoryRow = -1;
@@ -603,12 +616,12 @@ void SidebarMode::moduleLoaded()
 void SidebarMode::updateDefaults()
 {
     QModelIndex categoryIdx = d->categorizedModel->index(d->activeCategoryRow, 0);
-    auto item = categoryIdx.data(Qt::UserRole).value<MenuItem*>();
+    auto item = categoryIdx.data(Qt::UserRole).value<MenuItem *>();
     Q_ASSERT(item);
     // If subcategory exist update from subcategory, unless this category is owned by a kcm
     if (!item->children().isEmpty() && d->activeSubCategoryRow > -1) {
         auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
-        item = subCateogryIdx.data(Qt::UserRole).value<MenuItem*>();
+        item = subCateogryIdx.data(Qt::UserRole).value<MenuItem *>();
     }
     item->updateDefaultIndicator();
 
@@ -752,7 +765,8 @@ void SidebarMode::initWidget()
     d->quickWidget = new QQuickWidget(d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    qmlRegisterUncreatableType<SidebarMode>("org.kde.systemsettings", 1, 0, "SystemSettings", QStringLiteral("Not creatable, use the systemsettings attached property"));
+    qmlRegisterUncreatableType<SidebarMode>(
+        "org.kde.systemsettings", 1, 0, "SystemSettings", QStringLiteral("Not creatable, use the systemsettings attached property"));
 
     d->quickWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
     d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
@@ -776,15 +790,14 @@ void SidebarMode::initWidget()
     } else {
         d->quickWidget->setFixedWidth(240);
     }
-    connect(d->quickWidget->rootObject(), &QQuickItem::implicitWidthChanged,
-            this, [this]() {
-                const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
-                if (rootImplicitWidth != 0) {
-                    d->quickWidget->setFixedWidth(rootImplicitWidth);
-                } else {
-                    d->quickWidget->setFixedWidth(240);
-                }
-            });
+    connect(d->quickWidget->rootObject(), &QQuickItem::implicitWidthChanged, this, [this]() {
+        const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
+        if (rootImplicitWidth != 0) {
+            d->quickWidget->setFixedWidth(rootImplicitWidth);
+        } else {
+            d->quickWidget->setFixedWidth(240);
+        }
+    });
     connect(d->quickWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
     connect(d->quickWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
 
@@ -800,16 +813,16 @@ void SidebarMode::initWidget()
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
     d->placeHolderWidget->installEventFilter(this);
 
-    d->mainLayout->addWidget( d->quickWidget );
+    d->mainLayout->addWidget(d->quickWidget);
     d->moduleView->hide();
-    d->mainLayout->addWidget( d->moduleView );
-    d->mainLayout->addWidget( d->placeHolderWidget );
+    d->mainLayout->addWidget(d->moduleView);
+    d->mainLayout->addWidget(d->placeHolderWidget);
     emit changeToolBarItems(BaseMode::NoItems);
 
     d->toolTipManager = new ToolTipManager(d->categorizedModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
     d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
 
-    d->mostUsedModel->setResultModel(new ResultModel( AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
+    d->mostUsedModel->setResultModel(new ResultModel(AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
 
     if (homeItem()) {
         d->placeHolderWidget->hide();
@@ -835,20 +848,18 @@ void SidebarMode::reloadStartupModule()
     }
 }
 
-bool SidebarMode::eventFilter(QObject* watched, QEvent* event)
+bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
 {
-    //FIXME: those are all workarounds around the QQuickWidget brokeness
-    if ((watched == d->quickWidget || watched == d->placeHolderWidget)
-         && event->type() == QEvent::KeyPress) {
-        //allow tab navigation inside the qquickwidget
+    // FIXME: those are all workarounds around the QQuickWidget brokeness
+    if ((watched == d->quickWidget || watched == d->placeHolderWidget) && event->type() == QEvent::KeyPress) {
+        // allow tab navigation inside the qquickwidget
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);
         QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
         if (ke->key() == Qt::Key_Tab || ke->key() == Qt::Key_Backtab) {
             QCoreApplication::sendEvent(qqw->quickWindow(), event);
             return true;
         }
-    } else if ((watched == d->quickWidget || watched == d->placeHolderWidget)
-                && event->type() == QEvent::FocusIn) {
+    } else if ((watched == d->quickWidget || watched == d->placeHolderWidget) && event->type() == QEvent::FocusIn) {
         QFocusEvent *fe = static_cast<QFocusEvent *>(event);
         QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
         if (qqw && qqw->rootObject()) {

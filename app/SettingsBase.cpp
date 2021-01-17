@@ -22,32 +22,32 @@
 #include "systemsettings_app_debug.h"
 
 #include <QFontDatabase>
-#include <QTimer>
-#include <QRadioButton>
-#include <QVariantList>
 #include <QLoggingCategory>
 #include <QMenu>
 #include <QMenuBar>
+#include <QRadioButton>
 #include <QScreen>
+#include <QTimer>
+#include <QVariantList>
 
 #include <KAboutData>
-#include <KMessageBox>
-#include <KConfigGroup>
-#include <KCModuleInfo>
-#include <KPluginMetaData>
-#include <KXMLGUIFactory>
-#include <KStandardAction>
 #include <KActionCollection>
+#include <KCModuleInfo>
+#include <KConfigGroup>
+#include <KMessageBox>
+#include <KPluginMetaData>
 #include <KServiceTypeTrader>
+#include <KStandardAction>
 #include <KToolBar>
 #include <KWindowConfig>
+#include <KXMLGUIFactory>
 
 #include "BaseData.h"
 #include "ModuleView.h"
 
-SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent )
-    : KXmlGuiWindow(parent),
-      m_mode(mode)
+SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget *parent)
+    : KXmlGuiWindow(parent)
+    , m_mode(mode)
 {
     // Ensure delayed loading doesn't cause a crash
     activeView = nullptr;
@@ -55,14 +55,14 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent )
     configDialog = nullptr;
     lostFound = nullptr;
     // Prepare the view area
-    stackedWidget = new QStackedWidget( this );
+    stackedWidget = new QStackedWidget(this);
     setCentralWidget(stackedWidget);
-    setWindowFlags( windowFlags() | Qt::WindowContextHelpButtonHint );
+    setWindowFlags(windowFlags() | Qt::WindowContextHelpButtonHint);
     // Initialise search
-    searchText = new KLineEdit( this );
-    searchText->setClearButtonEnabled( true );
-    searchText->setPlaceholderText( i18nc( "Search through a list of control modules", "Search" ) );
-    searchText->setCompletionMode( KCompletion::CompletionPopup );
+    searchText = new KLineEdit(this);
+    searchText->setClearButtonEnabled(true);
+    searchText->setPlaceholderText(i18nc("Search through a list of control modules", "Search"));
+    searchText->setCompletionMode(KCompletion::CompletionPopup);
 
     setProperty("_breeze_no_separator", true);
 
@@ -76,8 +76,8 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget * parent )
         setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     }
 
-    spacerWidget = new QWidget( this );
-    spacerWidget->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Maximum );
+    spacerWidget = new QWidget(this);
+    spacerWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
     // Initialise the window so we don't flicker
     initToolBar();
     // We can now launch the delayed loading safely
@@ -96,9 +96,8 @@ QSize SettingsBase::sizeHint() const
     const QSize targetSize = QSize(qRound(102 * fontSize), qRound(70 * fontSize));
 
     // on smaller or portrait-rotated screens, do not max out height and/or width
-    const QSize screenSize = (QGuiApplication::primaryScreen()->availableSize()*0.9);
+    const QSize screenSize = (QGuiApplication::primaryScreen()->availableSize() * 0.9);
     return targetSize.boundedTo(screenSize);
-
 }
 
 void SettingsBase::initApplication()
@@ -113,28 +112,28 @@ void SettingsBase::initApplication()
         modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
     }
 
-    rootModule = new MenuItem( true, nullptr );
+    rootModule = new MenuItem(true, nullptr);
     initMenuList(rootModule);
 
     // Handle lost+found modules...
     if (lostFound) {
         for (int i = 0; i < modules.size(); ++i) {
             const KService::Ptr entry = modules.at(i);
-            MenuItem * infoItem = new MenuItem(false, lostFound);
-            infoItem->setService( entry );
+            MenuItem *infoItem = new MenuItem(false, lostFound);
+            infoItem->setService(entry);
             qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << entry->name();
         }
     }
 
     // Prepare the Base Data
-    BaseData::instance()->setMenuItem( rootModule );
-    BaseData::instance()->setHomeItem( homeModule );
+    BaseData::instance()->setMenuItem(rootModule);
+    BaseData::instance()->setHomeItem(homeModule);
     // Load all possible views
     const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("systemsettingsview/"));
 
     for (const KPluginMetaData &plugin : plugins) {
         KPluginLoader loader(plugin.fileName());
-        KPluginFactory* factory = loader.factory();
+        KPluginFactory *factory = loader.factory();
         if (!factory) {
             qCWarning(SYSTEMSETTINGS_APP_LOG) << "KPluginFactory could not load the plugin:" << plugin.pluginId() << loader.errorString();
             continue;
@@ -154,8 +153,8 @@ void SettingsBase::initApplication()
         connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
     }
 
-    searchText->completionObject()->setIgnoreCase( true );
-    searchText->completionObject()->setItems( BaseData::instance()->menuItem()->keywords() );
+    searchText->completionObject()->setIgnoreCase(true);
+    searchText->completionObject()->setItems(BaseData::instance()->menuItem()->keywords());
     changePlugin();
 
     // enforce minimum window size
@@ -167,11 +166,11 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    quitAction = actionCollection()->addAction( KStandardAction::Quit, QStringLiteral("quit_action"), this, SLOT(close()) );
+    quitAction = actionCollection()->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, SLOT(close()));
 
     // Configure goes at the end
-    configureAction = actionCollection()->addAction( KStandardAction::Preferences, QStringLiteral("configure"), this, SLOT(configShow()) );
-    configureAction->setText( i18n("Configure...") );
+    configureAction = actionCollection()->addAction(KStandardAction::Preferences, QStringLiteral("configure"), this, SLOT(configShow()));
+    configureAction->setText(i18n("Configure..."));
     // Help after it
     initHelpMenu();
     configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
@@ -182,63 +181,62 @@ void SettingsBase::initToolBar()
     }
 
     // Then a spacer so the search line-edit is kept separate
-    spacerAction = new QWidgetAction( this );
+    spacerAction = new QWidgetAction(this);
     spacerAction->setDefaultWidget(spacerWidget);
-    actionCollection()->addAction( QStringLiteral("spacer"), spacerAction );
+    actionCollection()->addAction(QStringLiteral("spacer"), spacerAction);
     // Finally the search line-edit
-    searchAction = new QWidgetAction( this );
+    searchAction = new QWidgetAction(this);
     searchAction->setDefaultWidget(searchText);
-    connect( searchAction, SIGNAL(triggered(bool)), searchText, SLOT(setFocus()));
-    actionCollection()->addAction( QStringLiteral("searchText"), searchAction );
+    connect(searchAction, SIGNAL(triggered(bool)), searchText, SLOT(setFocus()));
+    actionCollection()->addAction(QStringLiteral("searchText"), searchAction);
     // Initialise the Window
-    setupGUI(Save|Create,QString());
+    setupGUI(Save | Create, QString());
     menuBar()->hide();
 
     // Toolbar & Configuration
-    helpActionMenu->setMenu( dynamic_cast<QMenu*>( factory()->container(QStringLiteral("help"), this) ) );
+    helpActionMenu->setMenu(dynamic_cast<QMenu *>(factory()->container(QStringLiteral("help"), this)));
     toolBar()->setMovable(false); // We don't allow any changes
-    changeToolBar( BaseMode::Search | BaseMode::Configure );
+    changeToolBar(BaseMode::Search | BaseMode::Configure);
 }
 
 void SettingsBase::initHelpMenu()
 {
-    helpActionMenu = new KActionMenu( QIcon::fromTheme(QStringLiteral("help-contents")), i18n("Help"), this );
-    helpActionMenu->setDelayed( false );
-    actionCollection()->addAction( QStringLiteral("help_toolbar_menu"), helpActionMenu );
+    helpActionMenu = new KActionMenu(QIcon::fromTheme(QStringLiteral("help-contents")), i18n("Help"), this);
+    helpActionMenu->setDelayed(false);
+    actionCollection()->addAction(QStringLiteral("help_toolbar_menu"), helpActionMenu);
     // Add the custom actions
-    aboutModuleAction = actionCollection()->addAction( KStandardAction::AboutApp, QStringLiteral("help_about_module"), this, SLOT(about()) );
-    changeAboutMenu( nullptr, aboutModuleAction, i18n("About Active Module") );
-    aboutViewAction = actionCollection()->addAction( KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, SLOT(about()) );
+    aboutModuleAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_module"), this, SLOT(about()));
+    changeAboutMenu(nullptr, aboutModuleAction, i18n("About Active Module"));
+    aboutViewAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, SLOT(about()));
 }
 
 void SettingsBase::initConfig()
 {
     // Prepare dialog first
-    configDialog = new KConfigDialog( this, QStringLiteral("systemsettingsconfig"), BaseConfig::self() );
+    configDialog = new KConfigDialog(this, QStringLiteral("systemsettingsconfig"), BaseConfig::self());
     configDialog->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
     // Add our page
-    QWidget * configPage = new QWidget( configDialog );
+    QWidget *configPage = new QWidget(configDialog);
     configWidget.setupUi(configPage);
     QString iconName = KAboutData::applicationData().programIconName();
-    configDialog->addPage( configPage, i18nc("General config for System Settings", "General"), iconName );
-    QVBoxLayout * configLayout = new QVBoxLayout;
+    configDialog->addPage(configPage, i18nc("General config for System Settings", "General"), iconName);
+    QVBoxLayout *configLayout = new QVBoxLayout;
     // Get the list of modules
-    foreach( BaseMode * mode, possibleViews ) {
-        mode->addConfiguration( configDialog );
-        QRadioButton * radioButton = new QRadioButton( mode->metaData().name(), configWidget.GbViewStyle );
-        radioButton->setIcon( QIcon::fromTheme(mode->metaData().iconName()) );
-        configLayout->addWidget( radioButton );
-        viewSelection.addButton( radioButton, possibleViews.values().indexOf(mode) );
+    foreach (BaseMode *mode, possibleViews) {
+        mode->addConfiguration(configDialog);
+        QRadioButton *radioButton = new QRadioButton(mode->metaData().name(), configWidget.GbViewStyle);
+        radioButton->setIcon(QIcon::fromTheme(mode->metaData().iconName()));
+        configLayout->addWidget(radioButton);
+        viewSelection.addButton(radioButton, possibleViews.values().indexOf(mode));
     }
-    configWidget.GbViewStyle->setLayout( configLayout );
-    configWidget.GbViewStyle->setVisible( possibleViews.count() > 1 );
+    configWidget.GbViewStyle->setLayout(configLayout);
+    configWidget.GbViewStyle->setVisible(possibleViews.count() > 1);
     KWindowConfig::restoreWindowSize(configDialog->windowHandle(), KSharedConfig::openConfig()->group("ConfigDialog"));
     connect(configDialog, &KConfigDialog::accepted, this, &SettingsBase::configUpdated);
 }
 
-
-void SettingsBase::initMenuList(MenuItem * parent)
+void SettingsBase::initMenuList(MenuItem *parent)
 {
     // look for any categories inside this level, and recurse into them
     for (int i = 0; i < categories.size(); ++i) {
@@ -253,15 +251,15 @@ void SettingsBase::initMenuList(MenuItem * parent)
         }
 
         if (parentCategory == parent->category() ||
-             // V2 entries must not be empty if they want to become a proper category.
-             ( !parentCategory2.isEmpty() && parentCategory2 == parent->category() ) ) {
-            MenuItem * menuItem = new MenuItem(true, parent);
-            menuItem->setService( entry );
-            if( menuItem->category() == QLatin1String("lost-and-found") ) {
+            // V2 entries must not be empty if they want to become a proper category.
+            (!parentCategory2.isEmpty() && parentCategory2 == parent->category())) {
+            MenuItem *menuItem = new MenuItem(true, parent);
+            menuItem->setService(entry);
+            if (menuItem->category() == QLatin1String("lost-and-found")) {
                 lostFound = menuItem;
                 continue;
             }
-            initMenuList( menuItem );
+            initMenuList(menuItem);
         }
     }
 
@@ -280,29 +278,31 @@ void SettingsBase::initMenuList(MenuItem * parent)
             category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
         }
 
-        QString parentCategoryKcm = parent->service() ? parent->service()->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString() : QString();
+        QString parentCategoryKcm = parent->service() //
+            ? parent->service()->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString()
+            : QString();
 
         if (parentCategoryKcm == entry->library()) {
-            parent->setItem( KCModuleInfo(entry) );
-            removeList.append( modules.at(i) );
-        } else if( !parent->category().isEmpty() && (category == parent->category() || category2 == parent->category()) ) {
-            if (!entry->noDisplay() ) {
+            parent->setItem(KCModuleInfo(entry));
+            removeList.append(modules.at(i));
+        } else if (!parent->category().isEmpty() && (category == parent->category() || category2 == parent->category())) {
+            if (!entry->noDisplay()) {
                 // Add the module info to the menu
-                MenuItem * infoItem = new MenuItem(false, parent);
-                infoItem->setService( entry );
+                MenuItem *infoItem = new MenuItem(false, parent);
+                infoItem->setService(entry);
                 if (m_mode == BaseMode::InfoCenter && entry->pluginKeyword() == QStringLiteral("kcm-about-distro")) {
                     homeModule = infoItem;
                 }
             }
 
-            removeList.append( modules.at(i) );
+            removeList.append(modules.at(i));
         }
     }
 
     for (int i = 0; i < removeList.size(); ++i) {
-        modules.removeOne( removeList.at(i) );
+        modules.removeOne(removeList.at(i));
     }
-    
+
     parent->sortChildrenByWeight();
 }
 
@@ -310,10 +310,10 @@ void SettingsBase::configUpdated()
 {
     KConfigGroup dialogConfig = KSharedConfig::openConfig()->group("ConfigDialog");
     KWindowConfig::saveWindowSize(configDialog->windowHandle(), dialogConfig);
-    BaseConfig::setActiveView( possibleViews.keys().at(viewSelection.checkedId()) );
+    BaseConfig::setActiveView(possibleViews.keys().at(viewSelection.checkedId()));
 
-    BaseConfig::setShowToolTips( configWidget.ChTooltips->isChecked() );
-    activeView->setShowToolTips( configWidget.ChTooltips->isChecked() );
+    BaseConfig::setShowToolTips(configWidget.ChTooltips->isChecked());
+    activeView->setShowToolTips(configWidget.ChTooltips->isChecked());
     activeView->saveConfiguration();
     changePlugin();
 }
@@ -321,23 +321,23 @@ void SettingsBase::configUpdated()
 void SettingsBase::configShow()
 {
     // Initialise the configuration dialog if it hasn't already
-    if( !configDialog ) {
+    if (!configDialog) {
         initConfig();
     }
-    if( activeView && activeView->moduleView() && !activeView->moduleView()->resolveChanges() ) {
+    if (activeView && activeView->moduleView() && !activeView->moduleView()->resolveChanges()) {
         return; // It shouldn't be triggering anyway, since the action is disabled
     }
-    if ( activeView ) {
+    if (activeView) {
         activeView->loadConfiguration();
     }
 
     const QStringList pluginList = possibleViews.keys();
-    const int configIndex = pluginList.indexOf( BaseConfig::activeView() );
-    if( configIndex != -1 ) {
-        viewSelection.button( configIndex )->setChecked(true);
+    const int configIndex = pluginList.indexOf(BaseConfig::activeView());
+    if (configIndex != -1) {
+        viewSelection.button(configIndex)->setChecked(true);
     }
-    configWidget.ChTooltips->setChecked( BaseConfig::showToolTips() );
-    if( pluginList.isEmpty() ) {
+    configWidget.ChTooltips->setChecked(BaseConfig::showToolTips());
+    if (pluginList.isEmpty()) {
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence nothing is available to configure."), i18n("No views found"));
     } else {
         configDialog->show();
@@ -347,7 +347,7 @@ void SettingsBase::configShow()
 bool SettingsBase::queryClose()
 {
     bool changes = true;
-    if( activeView ) {
+    if (activeView) {
         activeView->saveState();
         changes = activeView->moduleView()->resolveChanges();
     }
@@ -385,14 +385,14 @@ void SettingsBase::about()
     delete aboutDialog;
     aboutDialog = nullptr;
 
-    const KAboutData * about = nullptr;
-    if( sender() == aboutViewAction ) {
+    const KAboutData *about = nullptr;
+    if (sender() == aboutViewAction) {
         about = activeView->aboutData();
-    } else if( sender() == aboutModuleAction && activeView->moduleView() ) {
+    } else if (sender() == aboutModuleAction && activeView->moduleView()) {
         about = activeView->moduleView()->aboutData();
     }
 
-    if( about ) {
+    if (about) {
         aboutDialog = new KAboutApplicationDialog(*about, nullptr);
         aboutDialog->show();
     }
@@ -400,43 +400,42 @@ void SettingsBase::about()
 
 void SettingsBase::changePlugin()
 {
-    if( possibleViews.isEmpty() ) { // We should ensure we have a plugin available to choose
+    if (possibleViews.isEmpty()) { // We should ensure we have a plugin available to choose
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         close();
         return; // Halt now!
     }
 
-    if( activeView ) {
+    if (activeView) {
         activeView->saveState();
         activeView->leaveModuleView();
     }
 
     const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
-    if( possibleViews.keys().contains(viewToUse) ) { // First the configuration entry
+    if (possibleViews.keys().contains(viewToUse)) { // First the configuration entry
         activeView = possibleViews.value(viewToUse);
-    }
-    else { // Otherwise we activate the failsafe
+    } else { // Otherwise we activate the failsafe
         activeView = possibleViews.begin().value();
     }
 
-    if( stackedWidget->indexOf(activeView->mainWidget()) == -1 ) {
+    if (stackedWidget->indexOf(activeView->mainWidget()) == -1) {
         stackedWidget->addWidget(activeView->mainWidget());
     }
 
     show();
 
     // Handle the tooltips
-    qDeleteAll( tooltipManagers );
+    qDeleteAll(tooltipManagers);
     tooltipManagers.clear();
-    if ( BaseConfig::showToolTips() ) {
-        QList<QAbstractItemView*> theViews = activeView->views();
-        foreach ( QAbstractItemView* view, theViews ) {
-            tooltipManagers << new ToolTipManager( view );
+    if (BaseConfig::showToolTips()) {
+        QList<QAbstractItemView *> theViews = activeView->views();
+        foreach (QAbstractItemView *view, theViews) {
+            tooltipManagers << new ToolTipManager(view);
         }
     }
-    activeView->setShowToolTips( BaseConfig::showToolTips() );
+    activeView->setShowToolTips(BaseConfig::showToolTips());
 
-    changeAboutMenu( activeView->aboutData(), aboutViewAction, i18n("About Active View") );
+    changeAboutMenu(activeView->aboutData(), aboutViewAction, i18n("About Active View"));
     viewChange(false);
 
     stackedWidget->setCurrentWidget(activeView->mainWidget());
@@ -447,47 +446,47 @@ void SettingsBase::changePlugin()
 
 void SettingsBase::viewChange(bool state)
 {
-    KCModuleInfo * moduleInfo = activeView->moduleView()->activeModule();
+    KCModuleInfo *moduleInfo = activeView->moduleView()->activeModule();
     if (configureAction) {
         configureAction->setDisabled(state);
     }
-    if( moduleInfo ) {
-        setCaption( moduleInfo->moduleName(), state );
+    if (moduleInfo) {
+        setCaption(moduleInfo->moduleName(), state);
     } else {
-        setCaption( QString(), state );
+        setCaption(QString(), state);
     }
-    changeAboutMenu( activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About Active Module") );
+    changeAboutMenu(activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About Active Module"));
 }
 
 void SettingsBase::updateViewActions()
 {
-    guiFactory()->unplugActionList( this, QStringLiteral("viewActions") );
-    guiFactory()->plugActionList( this, QStringLiteral("viewActions"), activeView->actionsList() );
+    guiFactory()->unplugActionList(this, QStringLiteral("viewActions"));
+    guiFactory()->plugActionList(this, QStringLiteral("viewActions"), activeView->actionsList());
 }
 
-void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
+void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
 {
-    if( sender() != activeView ) {
+    if (sender() != activeView) {
         return;
     }
-    guiFactory()->unplugActionList( this, QStringLiteral("configure") );
-    guiFactory()->unplugActionList( this, QStringLiteral("search") );
-    guiFactory()->unplugActionList( this, QStringLiteral("quit") );
-    if ( BaseMode::Search & toolbar ) {
-        QList<QAction*> searchBarActions;
+    guiFactory()->unplugActionList(this, QStringLiteral("configure"));
+    guiFactory()->unplugActionList(this, QStringLiteral("search"));
+    guiFactory()->unplugActionList(this, QStringLiteral("quit"));
+    if (BaseMode::Search & toolbar) {
+        QList<QAction *> searchBarActions;
         searchBarActions << spacerAction << searchAction;
-        guiFactory()->plugActionList( this, QStringLiteral("search"), searchBarActions );
+        guiFactory()->plugActionList(this, QStringLiteral("search"), searchBarActions);
         actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL | Qt::Key_F));
     }
-    if ( (BaseMode::Configure & toolbar) && configureAction) {
-        QList<QAction*> configureBarActions;
+    if ((BaseMode::Configure & toolbar) && configureAction) {
+        QList<QAction *> configureBarActions;
         configureBarActions << configureAction;
-        guiFactory()->plugActionList( this, QStringLiteral("configure"), configureBarActions );
+        guiFactory()->plugActionList(this, QStringLiteral("configure"), configureBarActions);
     }
-    if ( BaseMode::Quit & toolbar ) {
-        QList<QAction*> quitBarActions;
+    if (BaseMode::Quit & toolbar) {
+        QList<QAction *> quitBarActions;
         quitBarActions << quitAction;
-        guiFactory()->plugActionList( this, QStringLiteral("quit"), quitBarActions );
+        guiFactory()->plugActionList(this, QStringLiteral("quit"), quitBarActions);
     }
     if (BaseMode::NoItems & toolbar) {
         // Remove search shortcut when there's no toolbar so it doesn't
@@ -499,20 +498,19 @@ void SettingsBase::changeToolBar( BaseMode::ToolBarItems toolbar )
     toolBar()->setVisible(toolbar != BaseMode::NoItems || (activeView && activeView->actionsList().count() > 0));
 }
 
-void SettingsBase::changeAboutMenu( const KAboutData * menuAbout, QAction * menuItem, const QString &fallback )
+void SettingsBase::changeAboutMenu(const KAboutData *menuAbout, QAction *menuItem, const QString &fallback)
 {
-    if( !menuItem ) {
+    if (!menuItem) {
         return;
     }
 
-    if( menuAbout ) {
-        menuItem->setText( i18n( "About %1", menuAbout->displayName() ) );
-        menuItem->setIcon( QIcon::fromTheme( menuAbout->programIconName() ) );
+    if (menuAbout) {
+        menuItem->setText(i18n("About %1", menuAbout->displayName()));
+        menuItem->setIcon(QIcon::fromTheme(menuAbout->programIconName()));
         menuItem->setEnabled(true);
     } else {
-        menuItem->setText( fallback );
-        menuItem->setIcon( QIcon::fromTheme( KAboutData::applicationData().programIconName() ) );
+        menuItem->setText(fallback);
+        menuItem->setIcon(QIcon::fromTheme(KAboutData::applicationData().programIconName()));
         menuItem->setEnabled(false);
     }
 }
-

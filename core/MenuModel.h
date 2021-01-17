@@ -16,7 +16,7 @@
  * along with this program; if not, write to the Free Software            *
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA          *
  * 02110-1301, USA.                                                       *
-***************************************************************************/
+ ***************************************************************************/
 
 #ifndef MENUMODEL_H
 #define MENUMODEL_H
@@ -44,13 +44,13 @@ public:
         MenuItemRole = Qt::UserRole,
 
         /**
-        * Role used to request the keywords to filter the items when searching.
-        */
+         * Role used to request the keywords to filter the items when searching.
+         */
         UserFilterRole,
 
         /**
-        * Role used to request the weight of a module, used to sort the items.
-        */
+         * Role used to request the weight of a module, used to sort the items.
+         */
         UserSortRole,
 
         DepthRole,
@@ -69,7 +69,7 @@ public:
      * @param menuRoot The MenuItem to use as the basis for providing information.
      * @param parent The QObject to use as a parent of the MenuModel.
      */
-    explicit MenuModel( MenuItem * menuRoot, QObject *parent = nullptr );
+    explicit MenuModel(MenuItem *menuRoot, QObject *parent = nullptr);
 
     /**
      * Destroys the MenuModel. The menuRoot will not be destroyed.
@@ -86,7 +86,7 @@ public:
      * @param role The information role you want information about.
      * @returns The data requested for the role provided from the QModelIndex provided.
      */
-    QVariant data( const QModelIndex &index, int role ) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -95,7 +95,7 @@ public:
      *
      * @returns The flags for the QModelIndex provided.
      */
-    Qt::ItemFlags flags( const QModelIndex &index ) const override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -106,7 +106,7 @@ public:
      * @param parent The parent of the requested child.
      * @returns The QModelIndex for the item requested.
      */
-    QModelIndex index( int row, int column, const QModelIndex &parent = QModelIndex() ) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -115,7 +115,7 @@ public:
      * @param index The child of the parent.
      * @returns A QModelIndex for the parent.
      */
-    QModelIndex parent( const QModelIndex &index ) const override;
+    QModelIndex parent(const QModelIndex &index) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -124,7 +124,7 @@ public:
      * @param parent The QModelIndex the count is performed on.
      * @returns The number of rows ( children ) in the parent.
      */
-    int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -133,7 +133,7 @@ public:
      * @param parent This is ignored, as the count is always 1.
      * @returns The number of columns ( 1 ) in the parent.
      */
-    int columnCount( const QModelIndex &parent = QModelIndex() ) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     /**
      * Makes the MenuItem specified be hidden from the list, while still showing its children.\n
@@ -142,7 +142,7 @@ public:
      *
      * @param exception The MenuItem to give an exception to.
      */
-    void addException( MenuItem * exception );
+    void addException(MenuItem *exception);
 
     /**
      * Revokes the exception granted above. After this, the MenuItem's parents will return their children
@@ -151,9 +151,9 @@ public:
      *
      * @param exception The MenuItem to revoke an exception from.
      */
-    void removeException( MenuItem * exception );
+    void removeException(MenuItem *exception);
 
-    QModelIndex indexForItem( MenuItem * item ) const;
+    QModelIndex indexForItem(MenuItem *item) const;
 
 protected:
     /**
@@ -161,7 +161,7 @@ protected:
      *
      * @returns The MenuItem used internally.
      */
-    MenuItem* rootItem() const;
+    MenuItem *rootItem() const;
 
     /**
      * Provides a list of children of an item which has been altered by the exceptions list
@@ -169,7 +169,7 @@ protected:
      * @param parent The parent of the children desired
      * @returns The list of children for the item specified
      */
-    QList<MenuItem*> childrenList( MenuItem * parent ) const;
+    QList<MenuItem *> childrenList(MenuItem *parent) const;
 
     /**
      * Provides the parent of the child specified altered by the exceptions list
@@ -177,7 +177,7 @@ protected:
      * @param child The child of the parent
      * @returns The exceptions list affected parent of the child
      */
-    MenuItem* parentItem( MenuItem * child ) const;
+    MenuItem *parentItem(MenuItem *child) const;
 
 private:
     class Private;

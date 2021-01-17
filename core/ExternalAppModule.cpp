@@ -23,15 +23,15 @@
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
 
-ExternalAppModule::ExternalAppModule(QWidget * parent, KCModuleInfo * module)
+ExternalAppModule::ExternalAppModule(QWidget *parent, KCModuleInfo *module)
 {
     Q_UNUSED(parent)
 
     firstShow = true;
     moduleInfo = module;
-    externalModule.setupUi( this );
-    externalModule.LblText->setText( i18n("%1 is an external application and has been automatically launched", module->moduleName() ) );
-    externalModule.PbRelaunch->setText( i18n("Relaunch %1", module->moduleName()) );
+    externalModule.setupUi(this);
+    externalModule.LblText->setText(i18n("%1 is an external application and has been automatically launched", module->moduleName()));
+    externalModule.PbRelaunch->setText(i18n("Relaunch %1", module->moduleName()));
     connect(externalModule.PbRelaunch, &QPushButton::clicked, this, &ExternalAppModule::runExternal);
 }
 
@@ -39,9 +39,9 @@ ExternalAppModule::~ExternalAppModule()
 {
 }
 
-void ExternalAppModule::showEvent(QShowEvent * event)
+void ExternalAppModule::showEvent(QShowEvent *event)
 {
-    if( firstShow ) {
+    if (firstShow) {
         runExternal();
         firstShow = false;
     }
@@ -54,5 +54,3 @@ void ExternalAppModule::runExternal()
     job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }
-
-

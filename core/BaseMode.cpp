@@ -19,22 +19,25 @@
 
 #include "BaseMode.h"
 
-#include <QList>
-#include <QAction>
 #include <QAbstractItemView>
+#include <QAction>
+#include <QList>
 
-#include <KConfigGroup>
 #include <KConfigDialog>
+#include <KConfigGroup>
 
-#include "MenuItem.h"
 #include "BaseData.h"
+#include "MenuItem.h"
 #include "ModuleView.h"
 
-class BaseMode::Private {
+class BaseMode::Private
+{
 public:
-    Private() {}
+    Private()
+    {
+    }
 
-    QList<QAction*> actionsList;
+    QList<QAction *> actionsList;
     KPluginMetaData metaData;
     MenuItem *rootItem = nullptr;
     MenuItem *homeItem = nullptr;
@@ -45,9 +48,9 @@ public:
     BaseMode::ApplicationMode applicationMode = BaseMode::SystemSettings;
 };
 
-BaseMode::BaseMode( QObject* parent, const QVariantList &args )
-    : QObject( parent )
-    , d( new Private() )
+BaseMode::BaseMode(QObject *parent, const QVariantList &args)
+    : QObject(parent)
+    , d(new Private())
 {
     if (args.count() >= 1 && args.first().canConvert<ApplicationMode>()) {
         d->applicationMode = args.first().value<ApplicationMode>();
@@ -70,21 +73,21 @@ void BaseMode::init(const KPluginMetaData metaData)
     d->rootItem = BaseData::instance()->menuItem();
     d->homeItem = BaseData::instance()->homeItem();
     d->metaData = metaData;
-    d->config = BaseData::instance()->configGroup( metaData.pluginId() );
+    d->config = BaseData::instance()->configGroup(metaData.pluginId());
     initEvent();
-    connect( moduleView(), &ModuleView::moduleChanged, this, &BaseMode::viewChanged );
+    connect(moduleView(), &ModuleView::moduleChanged, this, &BaseMode::viewChanged);
 }
 
 void BaseMode::initEvent()
 {
 }
 
-QWidget * BaseMode::mainWidget()
+QWidget *BaseMode::mainWidget()
 {
     return nullptr;
 }
 
-KAboutData * BaseMode::aboutData()
+KAboutData *BaseMode::aboutData()
 {
     return nullptr;
 }
@@ -94,12 +97,12 @@ BaseMode::ApplicationMode BaseMode::applicationMode() const
     return d->applicationMode;
 }
 
-ModuleView * BaseMode::moduleView() const
+ModuleView *BaseMode::moduleView() const
 {
     return nullptr;
 }
 
-QList<QAction*>& BaseMode::actionsList() const
+QList<QAction *> &BaseMode::actionsList() const
 {
     return d->actionsList;
 }
@@ -109,7 +112,7 @@ const KPluginMetaData &BaseMode::metaData() const
     return d->metaData;
 }
 
-void BaseMode::setShowToolTips( bool show)
+void BaseMode::setShowToolTips(bool show)
 {
     d->showToolTips = show;
 }
@@ -139,9 +142,9 @@ QStringList BaseMode::startupModuleArgs() const
     return d->startupModuleArgs;
 }
 
-void BaseMode::searchChanged( const QString& text )
+void BaseMode::searchChanged(const QString &text)
 {
-    Q_UNUSED( text );
+    Q_UNUSED(text);
 }
 
 void BaseMode::saveState()
@@ -156,9 +159,9 @@ void BaseMode::giveFocus()
 {
 }
 
-void BaseMode::addConfiguration( KConfigDialog * config )
+void BaseMode::addConfiguration(KConfigDialog *config)
 {
-    Q_UNUSED( config );
+    Q_UNUSED(config);
 }
 
 void BaseMode::loadConfiguration()
@@ -169,24 +172,22 @@ void BaseMode::saveConfiguration()
 {
 }
 
-MenuItem * BaseMode::rootItem() const
+MenuItem *BaseMode::rootItem() const
 {
     return d->rootItem;
 }
 
-MenuItem * BaseMode::homeItem() const
+MenuItem *BaseMode::homeItem() const
 {
     return d->homeItem;
 }
 
-KConfigGroup& BaseMode::config() const
+KConfigGroup &BaseMode::config() const
 {
     return d->config;
 }
 
-QList<QAbstractItemView*> BaseMode::views() const
+QList<QAbstractItemView *> BaseMode::views() const
 {
-    return QList<QAbstractItemView*>();
+    return QList<QAbstractItemView *>();
 }
-
-

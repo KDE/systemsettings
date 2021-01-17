@@ -16,7 +16,7 @@
  * along with this program; if not, write to the Free Software            *
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA          *
  * 02110-1301, USA.                                                       *
-***************************************************************************/
+ ***************************************************************************/
 
 #ifndef MENUPROXYMODEL_H
 #define MENUPROXYMODEL_H
@@ -32,7 +32,7 @@
  * Call setFilterRegExp(QString) with the desired text to filter to perform searching.
  * Items that do not match the search parameters will be disabled, not hidden.
  *
- * @author Will Stephenson <wstephenson@kde.org> 
+ * @author Will Stephenson <wstephenson@kde.org>
  * @author Ben Cooksley <bcooksley@kde.org>
  */
 class MenuProxyModel : public KCategorizedSortFilterProxyModel
@@ -47,7 +47,7 @@ public:
      *
      * @param parent The QObject to use as a parent.
      */
-    MenuProxyModel( QObject *parent = nullptr );
+    MenuProxyModel(QObject *parent = nullptr);
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -59,7 +59,7 @@ public:
      * @param right the QModelIndex to compare against.
      * @returns true if the left is below the right.
      */
-    bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
     /**
      * Please see the KDE KCategorizedSortFilterProxyModel documentation for further information.\n
@@ -69,7 +69,7 @@ public:
      * @param right the QModelIndex to compare against.
      * @returns true if the left is below the right.
      */
-    bool subSortLessThan( const QModelIndex &left, const QModelIndex &right ) const override;
+    bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
     /**
      * Please see the Qt QSortFilterProxyModel documentation for futher information.\n
@@ -79,7 +79,7 @@ public:
      * @param source_parent Please see QSortFilterProxyModel documentation.
      * @returns true if the row should be displayed, false if it should not.
      */
-    bool filterAcceptsRow( int source_column, const QModelIndex &source_parent ) const override;
+    bool filterAcceptsRow(int source_column, const QModelIndex &source_parent) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
@@ -88,26 +88,26 @@ public:
      *
      * @returns The flags for the QModelIndex provided.
      */
-    Qt::ItemFlags flags( const QModelIndex &index ) const override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
      * Reimplemented for internal reasons.
      */
-    void setFilterRegExp ( const QRegExp & regExp );
-    
+    void setFilterRegExp(const QRegExp &regExp);
+
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
      * Reimplemented for internal reasons.
      */
-    void setFilterRegExp ( const QString & pattern );
+    void setFilterRegExp(const QString &pattern);
 
     QString filterRegExp() const;
 
     /**
      * makes the filter highlight matching entries instead of hiding them
      */
-    void setFilterHighlightsEntries (bool highlight );
+    void setFilterHighlightsEntries(bool highlight);
 
     /**
      * @returns the filter highlight matching entries instead of hiding them, default true

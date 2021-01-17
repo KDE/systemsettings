@@ -55,7 +55,7 @@ public:
      * @param isMenu Specifies if it is a category or not.
      * @param parent The item it is parented to. Provide 0 for a top level item.
      */
-    MenuItem( bool isMenu, MenuItem * parent );
+    MenuItem(bool isMenu, MenuItem *parent);
 
     /**
      * Destroys a MenuItem, including all children, the service object and the module information.
@@ -76,7 +76,7 @@ public:
      * @param index The index of the child.
      * @returns The MenuItem object of the specified child.
      */
-    MenuItem * child( int index );
+    MenuItem *child(int index);
 
     /**
      * Returns the list of keywords, which is used for searching the list of categories and modules.
@@ -98,14 +98,14 @@ public:
      *
      * @returns The list of children this has.
      */
-    QList<MenuItem*>& children() const;
+    QList<MenuItem *> &children() const;
 
     /**
      * Returns the service object of this item, which contains useful information about it.
      *
      * @returns The service object of this item if it has been set.
      */
-    KService::Ptr& service() const;
+    KService::Ptr &service() const;
 
     /**
      * Provides the KDE control module information item, which can be used to load control modules
@@ -113,21 +113,21 @@ public:
      *
      * @returns The control module information object of the item, if the service object has been set.
      */
-    KCModuleInfo& item() const;
+    KCModuleInfo &item() const;
 
     /**
      * Convenience function which provides the name of the current item.
      *
      * @returns The name of the item, if the service object has been set.
      */
-    QString& name() const;
+    QString &name() const;
 
     /**
      * Convenience function which provides the System Settings category of the current item.
      *
      * @returns The category of the item, if the service object has been set.
      */
-    QString& category() const;
+    QString &category() const;
 
     /**
      * Provides the weight of the current item, as determined by its service.
@@ -151,9 +151,9 @@ public:
      *
      * @param service The service object to store.
      */
-    void setService( const KService::Ptr& service );
+    void setService(const KService::Ptr &service);
 
-    void setItem( const KCModuleInfo &item );
+    void setItem(const KCModuleInfo &item);
 
     MenuItem *descendantForModule(const QString &moduleName);
 
@@ -166,6 +166,6 @@ private:
     Private *const d;
 };
 
-Q_DECLARE_METATYPE( MenuItem * )
+Q_DECLARE_METATYPE(MenuItem *)
 
 #endif

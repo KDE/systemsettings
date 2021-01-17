@@ -20,8 +20,8 @@
 #ifndef TOOLTIPMANAGER_H
 #define TOOLTIPMANAGER_H
 
-#include <QObject>
 #include <QModelIndex>
+#include <QObject>
 
 class QLayout;
 class QAbstractItemView;
@@ -39,12 +39,12 @@ class ToolTipManager : public QObject
 
 public:
     /**
-    * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided
-    * view immediately.
-    *
-    * @param parent The view which will have the tooltips displayed for.
-    */
-    explicit ToolTipManager(QAbstractItemView* parent);
+     * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided
+     * view immediately.
+     *
+     * @param parent The view which will have the tooltips displayed for.
+     */
+    explicit ToolTipManager(QAbstractItemView *parent);
     ~ToolTipManager() override;
 
 public Q_SLOTS:
@@ -56,19 +56,19 @@ public Q_SLOTS:
     void hideToolTip();
 
 protected:
-    bool eventFilter(QObject* watched, QEvent* event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
     void prepareToolTip();
-    void requestToolTip(const QModelIndex& index);
+    void requestToolTip(const QModelIndex &index);
 
 private:
-    void showToolTip( const QModelIndex &menuItem );
-    QWidget * createTipContent( QModelIndex item );
-    QLayout * generateToolTipLine( QModelIndex * item, QWidget * toolTip, QSize iconSize, bool comment );
+    void showToolTip(const QModelIndex &menuItem);
+    QWidget *createTipContent(QModelIndex item);
+    QLayout *generateToolTipLine(QModelIndex *item, QWidget *toolTip, QSize iconSize, bool comment);
 
     class Private;
-    ToolTipManager::Private* d;
+    ToolTipManager::Private *d;
 };
 
 #endif

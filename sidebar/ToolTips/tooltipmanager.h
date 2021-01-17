@@ -20,8 +20,8 @@
 #ifndef TOOLTIPMANAGER_H
 #define TOOLTIPMANAGER_H
 
-#include <QObject>
 #include <QModelIndex>
+#include <QObject>
 #include <QQuickItem>
 
 class QLayout;
@@ -38,17 +38,19 @@ class ToolTipManager : public QObject
     Q_OBJECT
 
 public:
-    
-    enum ToolTipPosition { BottomCenter, Right, };
-    
+    enum ToolTipPosition {
+        BottomCenter,
+        Right,
+    };
+
     /**
-    * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided
-    * view immediately.
-    *
-    * @param parent The view which will have the tooltips displayed for.
-    * @param toolTipPosition The position of the tooltip.
-    */
-    explicit ToolTipManager(const QAbstractItemModel *model, QWidget* parent, ToolTipManager::ToolTipPosition toolTipPosition);
+     * Standard constructor. The ToolTipManager will start handling ToolTip events on the provided
+     * view immediately.
+     *
+     * @param parent The view which will have the tooltips displayed for.
+     * @param toolTipPosition The position of the tooltip.
+     */
+    explicit ToolTipManager(const QAbstractItemModel *model, QWidget *parent, ToolTipManager::ToolTipPosition toolTipPosition);
     ~ToolTipManager() override;
 
     void setModel(const QAbstractItemModel *model);
@@ -61,21 +63,21 @@ public Q_SLOTS:
      * an item is hovered.
      */
     void hideToolTip();
-    void requestToolTip(const QModelIndex& index, const QRect &rect);
+    void requestToolTip(const QModelIndex &index, const QRect &rect);
 
 protected:
-    bool eventFilter(QObject* watched, QEvent* event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
     void prepareToolTip();
 
 private:
-    void showToolTip( const QModelIndex &menuItem );
-    QWidget * createTipContent( QModelIndex item );
-    QLayout * generateToolTipLine( QModelIndex * item, QWidget * toolTip, QSize iconSize, bool comment );
+    void showToolTip(const QModelIndex &menuItem);
+    QWidget *createTipContent(QModelIndex item);
+    QLayout *generateToolTipLine(QModelIndex *item, QWidget *toolTip, QSize iconSize, bool comment);
 
     class Private;
-    ToolTipManager::Private* d;
+    ToolTipManager::Private *d;
 };
 
 #endif
