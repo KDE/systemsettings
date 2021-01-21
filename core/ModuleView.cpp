@@ -443,17 +443,18 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     // We need to get the state of the now active module
     stateChanged();
 
+    KCModuleInfo *activeModuleInfo = activeModule();
     KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
-    if (activeModule) {
+    if (activeModule || activeModuleInfo) {
         // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
-        if (d->mSaveStatistics) {
+        if (activeModule && d->mSaveStatistics) {
             KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
                                                           QStringLiteral("org.kde.systemsettings"));
         }
 
-        d->mCustomHeader->setText(activeModule->moduleInfo().moduleName());
+        d->mCustomHeader->setText(activeModuleInfo->moduleName());
 
-        const bool isQml = (activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml"));
+        const bool isQml = (activeModule && activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml"));
         d->mCustomHeader->setVisible(!isQml);
         current->setHeaderVisible(!isQml);
 
