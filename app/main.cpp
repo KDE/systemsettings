@@ -47,10 +47,11 @@ static void listModules()
 {
     // First condition is what systemsettings does, second what kinfocenter does, make sure this is kept in sync
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
-    const KService::List services =
+    KService::List services =
         KServiceTypeTrader::self()->query(QStringLiteral("KCModule"),
                                           QStringLiteral("(exist [X-KDE-System-Settings-Parent-Category] and [X-KDE-System-Settings-Parent-Category] != '') or "
                                                          "(exist [X-KDE-ParentApp] and [X-KDE-ParentApp] == 'kinfocenter')"));
+    services += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
     for (KService::List::const_iterator it = services.constBegin(); it != services.constEnd(); ++it) {
         const KService::Ptr s = (*it);
         if (!KAuthorized::authorizeControlModule(s->menuId())) {
