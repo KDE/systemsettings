@@ -149,11 +149,17 @@ void IconMode::searchChanged(const QString &text)
 
 void IconMode::changeModule(const QModelIndex &activeModule)
 {
+    // Already loaded?
+    MenuItem *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
+    if(d->moduleView->activeModule() == &item->item())
+        return;
+
     changeModuleWithArgs(activeModule, QStringList());
 }
 
 void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStringList &args)
 {
+    // Always reopen because args might have changed
     d->moduleView->closeModules();
     d->mainWidget->setCurrentWidget(d->moduleView);
 
