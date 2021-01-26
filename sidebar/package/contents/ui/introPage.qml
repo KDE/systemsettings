@@ -44,16 +44,16 @@ Rectangle {
             bottomMargin: verticalMargin
             horizontalCenter: parent.horizontalCenter
         }
-        Layout.alignment: Qt.AlignHCenter
+        spacing: Kirigami.Units.largeSpacing
+
         Kirigami.Icon {
             Layout.alignment: Qt.AlignHCenter
             source: "preferences-system"
-            Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
-            Layout.preferredHeight: Kirigami.Units.iconSizes.enormous
+            implicitWidth: Kirigami.Units.iconSizes.enormous
+            implicitHeight: Kirigami.Units.iconSizes.enormous
         }
-        Item {
-            width: Kirigami.Units.largeSpacing
-        }
+
+
         ColumnLayout {
             RowLayout {
                 Kirigami.Icon {
@@ -61,8 +61,8 @@ Rectangle {
                     source: Qt.resolvedUrl("../images/plasma-logo.svg")
                     color: Kirigami.Theme.textColor
                     isMask: true
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                    implicitWidth: Kirigami.Units.iconSizes.medium
+                    implicitHeight: Kirigami.Units.iconSizes.medium
                 }
                 Kirigami.Heading {
                     text: i18n("Plasma")
@@ -70,7 +70,7 @@ Rectangle {
                     font.weight: Font.Bold
                 }
             }
-            
+
             Kirigami.Heading {
                 text: i18n("System Settings")
                 level: 1
@@ -93,15 +93,14 @@ Rectangle {
             wrapMode: Text.NoWrap
             text: i18n("Frequently Used")
         }
+
         RowLayout {
             id: iconsRow
+
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignHCenter
-            spacing: Kirigami.Units.largeSpacing
-            property int spaceForIcon: Math.max((iconsRow.parent.width - iconsRow.spacing * 4) / 5, Kirigami.Units.iconSizes.medium)
-            property int iconSize: iconsRow.spaceForIcon >= Kirigami.Units.iconSizes.huge
-                        ? Kirigami.Units.iconSizes.huge
-                        : (iconsRow.spaceForIcon >= Kirigami.Units.iconSizes.large ? Kirigami.Units.iconSizes.large : Kirigami.Units.iconSizes.medium)
+
+            spacing: Kirigami.Units.largeSpacing * 3
 
             Repeater {
                 id: mostUsedRepeater
@@ -109,10 +108,6 @@ Rectangle {
                 delegate: IntroIcon {
                     icon: model.decoration
                     text: model.display
-                    iconSize: iconsRow.iconSize
-                    Layout.minimumWidth: iconsRow.spaceForIcon
-                    Layout.maximumWidth: Layout.minimumWidth
-                    visible: (index + 1) * iconSize + index * iconsRow.spacing  < iconsRow.parent.width
                 }
             }
         }

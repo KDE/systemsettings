@@ -27,14 +27,13 @@ MouseArea {
     property alias icon: iconItem.source
     property alias text: label.text
     property string module
-    property int iconSize: Kirigami.Units.iconSizes.huge
-    Layout.minimumWidth: Kirigami.Units.iconSizes.medium
-    Layout.minimumHeight: column.implicitHeight
-    cursorShape: Qt.PointingHandCursor
-    Layout.fillWidth: true
-    Layout.alignment: Qt.AlignTop
+
+    width:  childrenRect.width
+    height: childrenRect.height
+
     activeFocusOnTab: true
     hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
 
     onClicked: systemsettings.loadModule(systemsettings.mostUsedModel.index(index, 0));
     onEntered: systemsettings.requestMostUsedToolTip(index, item.mapToItem(root, 0, Kirigami.Units.largeSpacing, width, height));
@@ -54,33 +53,26 @@ MouseArea {
             root.focusPreviousRequest();
         }
     }
-    Kirigami.Separator {
-        anchors{
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
-        visible: item.activeFocus
-        color: Kirigami.Theme.highlightColor
-    }
     ColumnLayout {
-        id: column
-        width: parent.width
         Kirigami.Icon {
             id: iconItem
             active: item.containsMouse || item.activeFocus
             Layout.alignment: Qt.AlignHCenter
-            Layout.minimumWidth: item.iconSize
-            Layout.minimumHeight: Layout.minimumWidth
-            height: width
+            implicitWidth: Kirigami.Units.iconSizes.huge
+            implicitHeight: Kirigami.Units.iconSizes.huge
         }
         QQC2.Label {
             id: label
             Layout.fillWidth: true
-            Layout.maximumWidth: item.width
+            Layout.maximumWidth: Kirigami.Units.iconSizes.huge + (4 * Kirigami.Units.largeSpacing)
             Layout.alignment: Qt.AlignHCenter
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
+        }
+        Kirigami.Separator {
+            Layout.fillWidth: true
+            visible: item.activeFocus
+            color: Kirigami.Theme.highlightColor
         }
     }
 
