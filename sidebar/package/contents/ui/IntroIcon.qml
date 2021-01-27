@@ -24,21 +24,31 @@ import org.kde.kirigami 2.5 as Kirigami
 
 MouseArea {
     id: item
+
     property alias icon: iconItem.source
     property alias text: label.text
     property string module
     property int iconSize: Kirigami.Units.iconSizes.huge
+
+    function loadModule() {
+        systemsettings.loadModule(systemsettings.mostUsedModel.index(index, 0));
+    }
+
     Layout.minimumWidth: Kirigami.Units.iconSizes.medium
     Layout.minimumHeight: column.implicitHeight
     cursorShape: Qt.PointingHandCursor
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignTop
+
     activeFocusOnTab: true
     hoverEnabled: true
 
-    onClicked: systemsettings.loadModule(systemsettings.mostUsedModel.index(index, 0));
     onEntered: systemsettings.requestMostUsedToolTip(index, item.mapToItem(root, 0, Kirigami.Units.largeSpacing, width, height));
     onExited: systemsettings.hideMostUsedToolTip();
+
+    onClicked: loadModule();
+    Keys.onEnterPressed: { loadModule(); }
+    Keys.onReturnPressed: { loadModule(); }
 
     Keys.onTabPressed: {
         if (index < (mostUsedRepeater.count-1)) {
