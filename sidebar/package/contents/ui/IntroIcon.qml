@@ -24,9 +24,14 @@ import org.kde.kirigami 2.5 as Kirigami
 
 MouseArea {
     id: item
+
     property alias icon: iconItem.source
     property alias text: label.text
     property string module
+
+    function loadModule() {
+        systemsettings.loadModule(systemsettings.mostUsedModel.index(index, 0));
+    }
 
     width:  childrenRect.width
     height: childrenRect.height
@@ -35,9 +40,12 @@ MouseArea {
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
 
-    onClicked: systemsettings.loadModule(systemsettings.mostUsedModel.index(index, 0));
     onEntered: systemsettings.requestMostUsedToolTip(index, item.mapToItem(root, 0, Kirigami.Units.largeSpacing, width, height));
     onExited: systemsettings.hideMostUsedToolTip();
+
+    onClicked: loadModule();
+    Keys.onEnterPressed: { loadModule(); }
+    Keys.onReturnPressed: { loadModule(); }
 
     Keys.onTabPressed: {
         if (index < (mostUsedRepeater.count-1)) {
@@ -53,6 +61,7 @@ MouseArea {
             root.focusPreviousRequest();
         }
     }
+
     ColumnLayout {
         Kirigami.Icon {
             id: iconItem
