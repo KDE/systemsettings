@@ -34,7 +34,7 @@ MouseArea {
     }
 
     width:  childrenRect.width
-    height: childrenRect.height
+    height: Kirigami.Units.gridUnit * 6
 
     activeFocusOnTab: true
     hoverEnabled: true
@@ -77,6 +77,7 @@ MouseArea {
             Layout.alignment: Qt.AlignHCenter
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
+            maximumLineCount: 3
         }
         Kirigami.Separator {
             Layout.fillWidth: true
