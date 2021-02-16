@@ -25,11 +25,12 @@ Kirigami.ApplicationItem {
     implicitWidth: wideScreen ? Kirigami.Units.gridUnit * 30 :  Kirigami.Units.gridUnit * 15
     pageStack.initialPage: mainColumn
     pageStack.defaultColumnWidth: wideScreen ? root.width / 2 : root.width
-    
+
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     property alias searchMode: mainColumn.searchMode
+    readonly property real headerHeight: mainColumn.header.height
 
     signal focusNextRequest()
     signal focusPreviousRequest()
