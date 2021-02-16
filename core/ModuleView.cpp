@@ -442,6 +442,13 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
 
         d->mCustomHeader->setText(activeModuleInfo->moduleName());
 
+        d->mLayout->setContentsMargins(0, 0, 0, 0);
+        d->mLayout->setSpacing(0);
+        d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                                        0, // Remove extra space between KCM content and bottom buttons
+                                        style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                        style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+
         const bool isQml = (activeModule && activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml"));
         d->mCustomHeader->setVisible(!isQml);
         current->setHeaderVisible(!isQml);
@@ -454,13 +461,6 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
             d->mCustomHeader->setVisible(false);
             current->setHeaderVisible(false);
 
-            d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                                            0, // Remove extra space between KCM content and bottom buttons
-                                            style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                                            style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
-            d->mLayout->setContentsMargins(0, 0, 0, 0);
-            d->mLayout->setSpacing(0);
-
             // QWidget KCM
         } else {
             // Sidebar mode
@@ -469,22 +469,14 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
                 current->setHeaderVisible(false);
                 gridLayout->setHorizontalSpacing(0);
 
-                d->mLayout->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                                               style()->pixelMetric(QStyle::PM_LayoutTopMargin),
-                                               style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                                               style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
-
                 // Icons mode
             } else {
                 d->mCustomHeader->setVisible(false);
                 current->setHeaderVisible(true);
                 gridLayout->setHorizontalSpacing(style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing));
-                d->mLayout->setContentsMargins(0, 0, 0, 0);
             }
-
-            d->mButtons->setContentsMargins(0, 0, 0, 0);
-            d->mLayout->setSpacing(style()->pixelMetric(QStyle::PM_LayoutVerticalSpacing));
         }
+
         moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
     }
 }
