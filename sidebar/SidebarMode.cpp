@@ -798,6 +798,9 @@ void SidebarMode::initWidget()
             d->quickWidget->setFixedWidth(240);
         }
     });
+
+    setHeaderHeight(d->quickWidget->rootObject()->property("headerHeight").toReal());
+
     connect(d->quickWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
     connect(d->quickWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
 
