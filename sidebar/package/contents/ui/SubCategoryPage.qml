@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
             QQC2.ToolButton {
                 id: backButton
                 visible: !applicationWindow().wideScreen
-                icon.name: LayoutMirroring.enabled ? "go-next-symbolic" : "go-next-symbolic-rtl"
+                icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
                 onClicked: root.pageStack.currentIndex = 0;
                 Accessible.role: Accessible.Button
                 Accessible.name: i18n("Go back")
