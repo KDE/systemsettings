@@ -150,6 +150,8 @@ public:
 
     void updateDefaultIndicator();
 
+    void setDefaultIndicator(bool defaultIndicator);
+    
     /**
      * If true this is the main module of this category and should appear in a more prominent way compared to the others
      */

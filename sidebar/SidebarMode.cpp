@@ -19,6 +19,7 @@
 #include <KAboutData>
 #include <KActionCollection>
 #include <KCModuleInfo>
+#include <KCMUtils/KCModuleLoader>
 #include <KConfigGroup>
 #include <KDeclarative/KDeclarative>
 #include <KDescendantsProxyModel>
@@ -616,6 +617,25 @@ void SidebarMode::updateDefaults()
         auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
         item = subCateogryIdx.data(Qt::UserRole).value<MenuItem *>();
     }
+
+
+    auto *moduleData = KCModuleLoader::loadModuleData(item->item());
+    if (moduleData) {
+        auto *moduleDataSignaling = qobject_cast<KCModuleDataSignaling *>(moduleData);
+        if (moduleDataSignaling) {
+            connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling]() {
+                item->setDefaultIndicator(!moduleDataSignaling->isDefaults());
+
+                auto itemIdx = d->model->indexForItem(item);
+                emit d->model->dataChanged(itemIdx, itemIdx);
+
+                moduleDataSignaling->deleteLater();
+            });
+        } else {
+            delete moduleData;
+        }
+    }
+
     item->updateDefaultIndicator();
 
     auto sourceIdx = d->categorizedModel->mapToSource(categoryIdx);
@@ -705,6 +725,34 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
             if (item->menu()) {
                 continue;
             }
+
+            auto *moduleData = KCModuleLoader::loadModuleData(item->item());
+            if (moduleData) {
+                auto *moduleDataSignaling = qobject_cast<KCModuleDataSignaling *>(moduleData);
+                if (moduleDataSignaling) {
+                    connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling]() {
+                        item->setDefaultIndicator(!moduleDataSignaling->isDefaults());
+
+                        auto itemIdx = d->model->indexForItem(item);
+                        emit d->model->dataChanged(itemIdx, itemIdx);
+                        MenuItem *parent = item->parent();
+                        while (parent) {
+                            auto parentIdx = d->model->indexForItem(parent);
+                            if (parentIdx.isValid()) {
+                                emit d->model->dataChanged(parentIdx, parentIdx);
+                                parent = parent->parent();
+                            } else {
+                                parent = nullptr;
+                            }
+                        }
+                        emit defaultsIndicatorsVisibleChanged();
+                        moduleDataSignaling->deleteLater();
+                    });
+                } else {
+                    delete moduleData;
+                }
+            }
+
             const bool showIndicator = item->showDefaultIndicator();
             item->updateDefaultIndicator();
             if (showIndicator == item->showDefaultIndicator()) {

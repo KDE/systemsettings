@@ -167,6 +167,19 @@ void MenuItem::updateDefaultIndicator()
     }
 }
 
+void MenuItem::setDefaultIndicator(bool defaultIndicator)
+{
+    d->showDefaultIndicator = defaultIndicator;
+    if (menu()) {
+        for (auto child : children()) {
+            d->showDefaultIndicator |= child->showDefaultIndicator();
+        }
+    }
+    if (d->parent) {
+        d->parent->updateDefaultIndicator();
+    }
+}
+
 MenuItem *MenuItem::descendantForModule(const QString &moduleName)
 {
     if (d->service) {
