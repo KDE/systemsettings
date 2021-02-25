@@ -19,6 +19,7 @@ class QAbstractItemView;
 class QAbstractItemModel;
 class QAction;
 class SidebarMode;
+class MenuItem;
 
 class FocusHackWidget : public QWidget
 {
@@ -129,6 +130,10 @@ private Q_SLOTS:
     void moduleLoaded();
     void updateDefaults();
     void initWidget();
+
+private:
+    void updateModelMenuItem(MenuItem *item);
+    void updateCategoryModel(const QModelIndex &categoryIdx);
 
 Q_SIGNALS:
     void activeCategoryRowChanged();

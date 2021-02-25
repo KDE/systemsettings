@@ -618,17 +618,13 @@ void SidebarMode::updateDefaults()
         item = subCateogryIdx.data(Qt::UserRole).value<MenuItem *>();
     }
 
-
     auto *moduleData = KCModuleLoader::loadModuleData(item->item());
     if (moduleData) {
         auto *moduleDataSignaling = qobject_cast<KCModuleDataSignaling *>(moduleData);
         if (moduleDataSignaling) {
-            connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling]() {
+            connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling, categoryIdx]() {
                 item->setDefaultIndicator(!moduleDataSignaling->isDefaults());
-
-                auto itemIdx = d->model->indexForItem(item);
-                emit d->model->dataChanged(itemIdx, itemIdx);
-
+                updateCategoryModel(categoryIdx);
                 moduleDataSignaling->deleteLater();
             });
         } else {
@@ -637,7 +633,11 @@ void SidebarMode::updateDefaults()
     }
 
     item->updateDefaultIndicator();
+    updateCategoryModel(categoryIdx);
+}
 
+void SidebarMode::updateCategoryModel(const QModelIndex &categoryIdx)
+{
     auto sourceIdx = d->categorizedModel->mapToSource(categoryIdx);
     emit d->model->dataChanged(sourceIdx, sourceIdx);
 
@@ -732,20 +732,7 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
                 if (moduleDataSignaling) {
                     connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling]() {
                         item->setDefaultIndicator(!moduleDataSignaling->isDefaults());
-
-                        auto itemIdx = d->model->indexForItem(item);
-                        emit d->model->dataChanged(itemIdx, itemIdx);
-                        MenuItem *parent = item->parent();
-                        while (parent) {
-                            auto parentIdx = d->model->indexForItem(parent);
-                            if (parentIdx.isValid()) {
-                                emit d->model->dataChanged(parentIdx, parentIdx);
-                                parent = parent->parent();
-                            } else {
-                                parent = nullptr;
-                            }
-                        }
-                        emit defaultsIndicatorsVisibleChanged();
+                        updateModelMenuItem(item);
                         moduleDataSignaling->deleteLater();
                     });
                 } else {
@@ -758,23 +745,27 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
             if (showIndicator == item->showDefaultIndicator()) {
                 continue;
             }
-            auto itemIdx = d->model->indexForItem(item);
-            emit d->model->dataChanged(itemIdx, itemIdx);
-            MenuItem *parent = item->parent();
-            while (parent) {
-                auto parentIdx = d->model->indexForItem(parent);
-                if (parentIdx.isValid()) {
-                    emit d->model->dataChanged(parentIdx, parentIdx);
-                    parent = parent->parent();
-                } else {
-                    parent = nullptr;
-                }
-            }
+            updateModelMenuItem(item);
         }
     }
     config().writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
-
     emit defaultsIndicatorsVisibleChanged();
+}
+
+void SidebarMode::updateModelMenuItem(MenuItem *item)
+{
+    auto itemIdx = d->model->indexForItem(item);
+    emit d->model->dataChanged(itemIdx, itemIdx);
+    MenuItem *parent = item->parent();
+    while (parent) {
+        auto parentIdx = d->model->indexForItem(parent);
+        if (parentIdx.isValid()) {
+            emit d->model->dataChanged(parentIdx, parentIdx);
+            parent = parent->parent();
+        } else {
+            parent = nullptr;
+        }
+    }
 }
 
 int SidebarMode::width() const
