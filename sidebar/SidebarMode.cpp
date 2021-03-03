@@ -620,20 +620,12 @@ void SidebarMode::updateDefaults()
 
     auto *moduleData = KCModuleLoader::loadModuleData(item->item());
     if (moduleData) {
-        auto *moduleDataSignaling = qobject_cast<KCModuleDataSignaling *>(moduleData);
-        if (moduleDataSignaling) {
-            connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling, categoryIdx]() {
-                item->setDefaultIndicator(!moduleDataSignaling->isDefaults());
-                updateCategoryModel(categoryIdx);
-                moduleDataSignaling->deleteLater();
-            });
-        } else {
-            delete moduleData;
-        }
+        connect(moduleData, &KCModuleData::loaded, this, [this, item, moduleData, categoryIdx]() {
+            item->setDefaultIndicator(!moduleData->isDefaults());
+            updateCategoryModel(categoryIdx);
+            moduleData->deleteLater();
+        });
     }
-
-    item->updateDefaultIndicator();
-    updateCategoryModel(categoryIdx);
 }
 
 void SidebarMode::updateCategoryModel(const QModelIndex &categoryIdx)
@@ -728,24 +720,12 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
 
             auto *moduleData = KCModuleLoader::loadModuleData(item->item());
             if (moduleData) {
-                auto *moduleDataSignaling = qobject_cast<KCModuleDataSignaling *>(moduleData);
-                if (moduleDataSignaling) {
-                    connect(moduleDataSignaling, &KCModuleDataSignaling::loaded, this, [this, item, moduleDataSignaling]() {
-                        item->setDefaultIndicator(!moduleDataSignaling->isDefaults());
-                        updateModelMenuItem(item);
-                        moduleDataSignaling->deleteLater();
-                    });
-                } else {
-                    delete moduleData;
-                }
+                connect(moduleData, &KCModuleData::loaded, this, [this, item, moduleData]() {
+                    item->setDefaultIndicator(!moduleData->isDefaults());
+                    updateModelMenuItem(item);
+                    moduleData->deleteLater();
+                });
             }
-
-            const bool showIndicator = item->showDefaultIndicator();
-            item->updateDefaultIndicator();
-            if (showIndicator == item->showDefaultIndicator()) {
-                continue;
-            }
-            updateModelMenuItem(item);
         }
     }
     config().writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
