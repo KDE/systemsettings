@@ -15,6 +15,8 @@ kconfig_add_kcfg_files( systemsettings_SRCS BaseConfig.kcfgc )
 
 add_executable( systemsettings5 ${systemsettings_SRCS})
 target_compile_definitions(systemsettings5 PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+# Required to export the plugin interface (the BaseMode class)
+set_target_properties(systemsettings5 PROPERTIES ENABLE_EXPORTS ON)
 
 target_link_libraries( systemsettings5 systemsettingsview
     KF5::Crash
