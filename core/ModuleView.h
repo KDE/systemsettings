@@ -25,6 +25,8 @@
 #include <QModelIndex>
 #include <QWidget>
 
+#include "systemsettingsview_export.h"
+
 class KAboutData;
 class KCModuleInfo;
 class KCModuleProxy;
@@ -46,7 +48,7 @@ class KPageWidgetItem;
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
  * @author Ben Cooksley <bcooksley@kde.org>
  */
-class ModuleView : public QWidget
+class SYSTEMSETTINGSVIEW_EXPORT ModuleView : public QWidget
 {
     Q_OBJECT
 

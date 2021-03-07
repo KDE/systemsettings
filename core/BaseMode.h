@@ -24,6 +24,8 @@
 
 #include <KPluginMetaData>
 
+#include "systemsettingsview_export.h"
+
 class QAction;
 class MenuItem;
 class ModuleView;
@@ -45,7 +47,7 @@ template<typename T> class QList;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
  */
-class Q_DECL_EXPORT BaseMode : public QObject
+class SYSTEMSETTINGSVIEW_EXPORT BaseMode : public QObject
 {
     Q_OBJECT
 

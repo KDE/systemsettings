@@ -23,6 +23,8 @@
 
 #include <QAbstractItemModel>
 
+#include "systemsettingsview_export.h"
+
 class MenuItem;
 
 /**
@@ -35,7 +37,7 @@ class MenuItem;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
-class MenuModel : public QAbstractItemModel
+class SYSTEMSETTINGSVIEW_EXPORT MenuModel : public QAbstractItemModel
 {
     Q_OBJECT
 

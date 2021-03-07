@@ -24,6 +24,8 @@
 
 #include <KService>
 
+#include "systemsettingsview_export.h"
+
 class QString;
 class KCModuleInfo;
 template<typename T> class QList;
@@ -45,7 +47,7 @@ template<typename T> class QList;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
-class MenuItem
+class SYSTEMSETTINGSVIEW_EXPORT MenuItem
 {
 public:
     /**
