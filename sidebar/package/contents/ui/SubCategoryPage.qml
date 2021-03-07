@@ -100,7 +100,8 @@ Kirigami.ScrollablePage {
                     Kirigami.Icon {
                         visible: systemsettings.subCategoryModel.categoryOwnedByKCM
                         source: systemsettings.subCategoryModel.icon
-                        Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
                     }
                     Kirigami.Heading {
                         Layout.fillWidth: true
