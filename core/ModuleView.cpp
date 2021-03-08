@@ -434,7 +434,8 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (activeModule || activeModuleInfo) {
         // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
-        if (activeModule && d->mSaveStatistics) {
+
+        if (activeModule && d->mSaveStatistics && activeModule->moduleInfo().service()->desktopEntryName() != QStringLiteral("kcm_landingpage")) {
             KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
                                                           QStringLiteral("org.kde.systemsettings"));
         }

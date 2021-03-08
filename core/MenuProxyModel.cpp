@@ -75,12 +75,18 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
 
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
     MenuItem *mItem = index.data(Qt::UserRole).value<MenuItem *>();
+
+    if (mItem->service()->library() == QLatin1String("kcm_landingpage")) {
+        return false;
+    }
+
     // accept only systemsettings categories that have children
     if (mItem->children().isEmpty() && mItem->service()->serviceTypes().contains(QLatin1String("SystemSettingsCategory"))) {
         return false;
     } else {
         return true; // Items matching the regexp are disabled, not hidden
     }
+
 }
 
 void MenuProxyModel::setFilterHighlightsEntries(bool highlight)

@@ -602,6 +602,10 @@ void SidebarMode::moduleLoaded()
 
 void SidebarMode::updateDefaults()
 {
+    // When the landing page is loaded, we don't have activeCategoryRow
+    if (d->activeCategoryRow < 0) {
+        return;
+    }
     QModelIndex categoryIdx = d->categorizedModel->index(d->activeCategoryRow, 0);
     auto item = categoryIdx.data(Qt::UserRole).value<MenuItem *>();
     Q_ASSERT(item);
@@ -641,7 +645,17 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
         d->placeHolderWidget->hide();
         d->moduleView->show();
         if (introPageVisible) {
-            loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
+            QModelIndex index = d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
+            if (index.isValid()) {
+                loadModule(index);
+            } else {
+                d->moduleView->closeModules();
+                d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
+                d->activeCategoryRow = -1;
+                d->activeSubCategoryRow = -1;
+                emit activeCategoryRowChanged();
+                emit activeSubCategoryRowChanged();
+            }
         }
     } else {
         if (introPageVisible) {
@@ -814,16 +828,19 @@ void SidebarMode::initWidget()
 
     d->mostUsedModel->setResultModel(new ResultModel(AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
 
-    if (homeItem()) {
-        d->placeHolderWidget->hide();
-        d->moduleView->show();
-        loadModule(d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem())));
-    }
-
     if (!startupModule().isEmpty()) {
         MenuItem *item = rootItem()->descendantForModule(startupModule());
         if (item) {
             loadModule(d->model->indexForItem(item), startupModuleArgs());
+        }
+    } else if (homeItem()) {
+        d->placeHolderWidget->hide();
+        d->moduleView->show();
+        QModelIndex index = d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
+        if (index.isValid()) {
+            loadModule(index);
+        } else {
+            d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
         }
     }
 }

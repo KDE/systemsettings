@@ -279,6 +279,8 @@ void SettingsBase::initMenuList(MenuItem *parent)
                 infoItem->setService(entry);
                 if (m_mode == BaseMode::InfoCenter && entry->pluginKeyword() == QStringLiteral("kcm-about-distro")) {
                     homeModule = infoItem;
+                } else if (m_mode == BaseMode::SystemSettings && entry->pluginKeyword() == QStringLiteral("kcm_landingpage")) {
+                    homeModule = infoItem;
                 }
             }
 
