@@ -269,14 +269,21 @@ void SettingsBase::initMenuList(MenuItem *parent)
             ? parent->service()->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString()
             : QString();
 
+        bool isCategoryOwner = false;
+
         if (!parentCategoryKcm.isEmpty() && parentCategoryKcm == entry->library()) {
             parent->setItem(KCModuleInfo(entry));
             removeList.append(modules.at(i));
-        } else if (!parent->category().isEmpty() && (category == parent->category() || category2 == parent->category())) {
+            isCategoryOwner = true;
+        }
+
+        if (!parent->category().isEmpty() && (category == parent->category() || category2 == parent->category())) {
             if (!entry->noDisplay()) {
                 // Add the module info to the menu
                 MenuItem *infoItem = new MenuItem(false, parent);
                 infoItem->setService(entry);
+                infoItem->setCategoryOwner(isCategoryOwner);
+
                 if (m_mode == BaseMode::InfoCenter && entry->pluginKeyword() == QStringLiteral("kcm-about-distro")) {
                     homeModule = infoItem;
                 } else if (m_mode == BaseMode::SystemSettings && entry->pluginKeyword() == QStringLiteral("kcm_landingpage")) {

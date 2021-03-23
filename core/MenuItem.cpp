@@ -34,7 +34,8 @@ public:
     int weight;
     KService::Ptr service;
     KCModuleInfo item;
-    bool showDefaultIndicator;
+    bool showDefaultIndicator = false;
+    bool isCategoryOwner = false;
 };
 
 MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
@@ -42,7 +43,6 @@ MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
 {
     d->parent = itsParent;
     d->menu = isMenu;
-    d->showDefaultIndicator = false;
 
     if (d->parent) {
         d->parent->children().append(this);
@@ -136,6 +136,16 @@ void MenuItem::setService(const KService::Ptr &service)
 bool MenuItem::showDefaultIndicator() const
 {
     return d->showDefaultIndicator;
+}
+
+bool MenuItem::isCategoryOwner() const
+{
+    return d->isCategoryOwner;
+}
+
+void MenuItem::setCategoryOwner(bool owner)
+{
+    d->isCategoryOwner = owner;
 }
 
 void MenuItem::setItem(const KCModuleInfo &item)

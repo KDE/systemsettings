@@ -150,6 +150,12 @@ public:
 
     void updateDefaultIndicator();
 
+    /**
+     * If true this is the main module of this category and should appear in a more prominent way compared to the others
+     */
+    bool isCategoryOwner() const;
+    void setCategoryOwner(bool owner);
+
 private:
     class Private;
     Private *const d;

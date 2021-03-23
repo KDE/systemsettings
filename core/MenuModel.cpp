@@ -112,7 +112,12 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         theData.setValue(mi->keywords().join(QString()));
         break;
     case MenuModel::UserSortRole:
-        theData.setValue(QStringLiteral("%1").arg(QString::number(mi->weight()), 5, QLatin1Char('0')));
+        //Category owners are always before everything else, regardless of weight
+        if (mi->isCategoryOwner()) {
+            theData.setValue(QStringLiteral("%1").arg(QString::number(mi->weight()), 5, QLatin1Char('0')));
+        } else {
+            theData.setValue(QStringLiteral("1%1").arg(QString::number(mi->weight()), 5, QLatin1Char('0')));
+        }
         break;
     case MenuModel::DepthRole: {
         MenuItem *candidate = mi;
@@ -120,6 +125,13 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         int depth = -1;
         while (candidate && candidate->parent()) {
             candidate = candidate->parent();
+            ++depth;
+        }
+
+        MenuItem *parent = mi->parent();
+        // Items that are in a category with an owner are one level deeper,
+        // except the owner
+        if (parent && parent->menu() && !parent->item().service()->library().isEmpty() && !mi->isCategoryOwner()) {
             ++depth;
         }
         theData.setValue(depth);

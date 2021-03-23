@@ -85,7 +85,7 @@ QString SubcategoryModel::title() const
         return QString();
     }
 
-    return mi->item().moduleName();
+    return mi->name();
 }
 
 QIcon SubcategoryModel::icon() const
@@ -432,7 +432,9 @@ void SidebarMode::requestMostUsedToolTip(int index, const QRectF &rect)
 
 void SidebarMode::hideToolTip()
 {
-    d->toolTipManager->hideToolTip();
+    if (d->toolTipManager) {
+        d->toolTipManager->hideToolTip();
+    }
 }
 
 void SidebarMode::hideMostUsedToolTip()
