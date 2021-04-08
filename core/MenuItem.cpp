@@ -172,7 +172,7 @@ MenuItem *MenuItem::descendantForModule(const QString &moduleName)
     if (d->service) {
         if (d->service->desktopEntryName() == moduleName) {
             return this;
-        } else if (item().fileName().length() > 0 && item().fileName().split(QLatin1Char('.'), QString::SkipEmptyParts).first() == moduleName) {
+        } else if (item().fileName().length() > 0 && item().fileName().split(QLatin1Char('.'), Qt::SkipEmptyParts).first() == moduleName) {
             return this;
         }
     }
