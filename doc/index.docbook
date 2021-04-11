@@ -22,8 +22,8 @@
 </copyright>
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2018-03-23</date>
-<releaseinfo>Plasma 5.12</releaseinfo>
+<date>2021-04-11</date>
+<releaseinfo>Plasma 5.20</releaseinfo>
 
 <abstract>
 <para>
@@ -72,6 +72,7 @@ individual &systemsettings; modules</link> for more information.
 <listitem><para><link linkend="personalization">Personalization</link></para></listitem>
 <listitem><para><link linkend="network">Network</link></para></listitem>
 <listitem><para><link linkend="hardware">Hardware</link></para></listitem>
+<listitem><para><link linkend="system_administration">System Administration</link></para></listitem>
 </itemizedlist>
 </para>
 
@@ -152,7 +153,13 @@ appears, either explaining the purpose of the module or showing the modules in t
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Workspace Theme (Look and Feel, Desktop Theme, Cursor Theme, Splash Screen)
+Global Theme
+</para></listitem>
+<listitem><para>
+Plasma Style
+</para></listitem>
+<listitem><para>
+Application Style (Application Style, Window Decorations)
 </para></listitem>
 <listitem><para>
 Colors
@@ -161,10 +168,10 @@ Colors
 Font (Fonts, Font Management)
 </para></listitem>
 <listitem><para>
-Icons (Icons, Emoticons)
+Icons
 </para></listitem>
 <listitem><para>
-Application Style (Window Decorations, Widget Style, GNOME Application Style (GTK))
+Cursors
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -175,19 +182,19 @@ Application Style (Window Decorations, Widget Style, GNOME Application Style (GT
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Desktop Behavior (Workspace, Desktop Effects, Screen Edges, Screen Locking, Virtual Desktops, Activities)
+Workspace Behavior (General Behavior, Desktop Effects, Screen Edges, Touch Screen, Screen Locking, Virtual Desktops, Activities)
 </para></listitem>
 <listitem><para>
 Window Management (Window Behavior, Task Switcher, KWin Scripts, Window Rules)
 </para></listitem>
 <listitem><para>
-Shortcuts (Standard Shortcuts, Global Shortcuts, Web Shortcuts, Custom Shortcuts)
+Shortcuts (Shortcuts, Custom Shortcuts)
 </para></listitem>
 <listitem><para>
-Startup and Shutdown (Login Screen (SDDM), Autostart, Background Services, Desktop Session, Boot Splash)
+Startup and Shutdown (Login Screen (SDDM), Autostart, Background Services, Desktop Session, Splash Screen)
 </para></listitem>
 <listitem><para>
-Search (Plasma Search, File Search)
+Search (File Search, Krunner, Web Search Keywords)
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -198,19 +205,28 @@ Search (Plasma Search, File Search)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Account Details (KDE Wallet, User Manager)
-</para></listitem>
-<listitem><para>
-Regional Settings (Translations, Format, Spell Check, Date &amp; Time)
-</para></listitem>
-<listitem><para>
 Notifications
+</para></listitem>
+<listitem><para>
+Users
+</para></listitem>
+<listitem><para>
+Regional Settings (Language, Formats, Spell Check, Date &amp; Time)
+</para></listitem>
+<listitem><para>
+Accessibility
 </para></listitem>
 <listitem><para>
 Applications (Default Applications, File Associations, Locations, Launch Feedback)
 </para></listitem>
 <listitem><para>
-Accessibility
+KDE Wallet
+</para></listitem>
+<listitem><para>
+Online Accounts
+</para></listitem>
+<listitem><para>
+User Feedback
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -221,18 +237,7 @@ Accessibility
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Connections
-</para></listitem>
-<listitem><para>
-Settings (Proxy, Connection Preferences, SSL Preferences, Cache, Cookies, Browser Identification)
-</para></listitem>
-
-<listitem><para>
-Connectivity (Windows Shares)
-</para></listitem>
-
-<listitem><para>
-Bluetooth (Devices, Adapters, Advanced Settings)
+Settings (Proxy, Connection Preferences, SSL Preferences, Cache, Cookies, Browser Identification, Windows Shares)
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -243,19 +248,36 @@ Bluetooth (Devices, Adapters, Advanced Settings)
 <listitem>
 <para><itemizedlist>
 <listitem><para>
-Input Devices (Keyboard, Mouse, Joystick, Touchpad)
+Input Devices (Keyboard, Mouse, Game Controller, Graphic Tablet, Touchpad)
 </para></listitem>
 <listitem><para>
-Display and Monitor (Displays, Compositor, Gamma)
+Display and Monitor (Display Configuration, Compositor, Gamma, Night Color)
 </para></listitem>
 <listitem><para>
-Multimedia (Audio Volume, Audio and Video)
+Audio
 </para></listitem>
 <listitem><para>
-Power Management (Energy Saving, Advanced Settings, Activity Settings)
+Multimedia (Audio CDs, CDDB Retrieval)
 </para></listitem>
 <listitem><para>
-Removable Storage (Device Actions, Removable Devices)
+Power Management (Energy Saving, Activity Settings, Advanced Settings)
+</para></listitem>
+<listitem><para>
+Bluetooth
+</para></listitem>
+<listitem><para>
+Removable Storage (Device Actions, Digital Camera, Removable Devices)
+</para></listitem>
+</itemizedlist></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="system_administration" >
+<term>System Administration</term>
+<listitem>
+<para><itemizedlist>
+<listitem><para>
+System Information
 </para></listitem>
 </itemizedlist></para>
 </listitem>
@@ -292,20 +314,14 @@ Click on the <guibutton>Close</guibutton> button located in the toolbar.
 
 <para>
 The <guiicon>Configure</guiicon> icon in the toolbar allows you to change some &systemsettings; parameters.
-You can change from <guilabel>Icon View</guilabel> (default view) to <guilabel>Classic Tree View</guilabel>
-or <guilabel>Sidebar View</guilabel>.
-In <guilabel>Sidebar View</guilabel> mode the welcome page shows the frequently used modules
+You can change from <guilabel>Icon View</guilabel> (default view) to <guilabel>Sidebar View</guilabel>.
+In <guilabel>Sidebar View</guilabel> mode, the welcome page shows the frequently used modules
 for quick access.
 </para>
 
 <para>
 You can also turn off the detailed tooltips by unchecking <guilabel>Show detailed tooltips</guilabel>. 
 You will then get only normal tooltips and not the content of a module group.
-</para>
-
-<para>
-The <guilabel>Tree View</guilabel> has an option to expand the first level automatically
-on startup of the &systemsettings;.
 </para>
 
 </sect1>
@@ -326,7 +342,7 @@ Additionally you can start KRunner and start type keywords. When you start typin
 <title>The &systemsettings; Modules</title>
 
 <para>
-In order to make it as easy as possible, the &systemsettings; has organized options into five categories. Under each category, there are icons grouped together under subcategories. Each icon is called a module. When you double click on a module icon, you will be presented with the options of the module in the main window.
+In order to make it as easy as possible, the &systemsettings; has organized options into six categories. Under each category, there are icons grouped together under subcategories. Each icon is called a module. When you double click on a module icon, you will be presented with the options of the module in the main window.
 </para>
 
 <para>
