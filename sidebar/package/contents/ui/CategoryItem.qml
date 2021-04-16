@@ -1,3 +1,8 @@
+/*
+ *   SPDX-FileCopyrightText: 2021 Jan Blackquill <uhhadd@gmail.com>
+ *
+ *   SPDX-License-Identifier: LGPL-2.0-only
+ */
 import QtQuick 2.5
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
