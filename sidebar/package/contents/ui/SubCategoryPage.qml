@@ -140,6 +140,7 @@ Kirigami.ScrollablePage {
 
         delegate: CategoryItem {
             id: delegate
+
             onClicked: {
                 systemsettings.loadModule(subCategoryView.model.index(index, 0));
             }

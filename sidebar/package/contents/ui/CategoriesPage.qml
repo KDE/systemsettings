@@ -137,8 +137,19 @@ Kirigami.ScrollablePage {
         delegate: CategoryItem {
             id: delegate
 
+            showArrow: {
+                if (!model.IsCategoryRole) {
+                    return false;
+                }
+                const modelIndex = delegate.ListView.view.model.index(index, 0)
+                return delegate.ListView.view.model.rowCount(modelIndex) > 1
+            }
+            // Only indent subcategory icons in the search view
+            isSearching: searchField.text.length > 0
+
             hoverEnabled: !model.IsCategoryRole || !mainColumn.searchMode
             enabled: model.IsKCMRole || !mainColumn.searchMode
+
             onClicked: {
                 if (!model.IsKCMRole && mainColumn.searchMode) {
                     return;
@@ -171,15 +182,6 @@ Kirigami.ScrollablePage {
             }
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
-            showArrow: {
-                if (!model.IsCategoryRole) {
-                    return false;
-                }
-                const modelIndex = delegate.ListView.view.model.index(index, 0)
-                return delegate.ListView.view.model.rowCount(modelIndex) > 1
-            }
-            // Only indent subcategory icons in the search view
-            isSearching: searchField.text.length > 0
         }
     }
 
