@@ -15,16 +15,13 @@ Kirigami.BasicListItem {
     property bool selected: delegate.highlighted || delegate.pressed
     property bool isSearching: false
 
-    text: model.display
-    leading: RowLayout {
-        id: row
-        Kirigami.Icon {
-            source: model.decoration
-            Layout.preferredWidth: row.height
-            Layout.preferredHeight: row.height
-            Layout.leftMargin: (model.DepthRole > 1 && delegate.isSearching) ? ( model.DepthRole - 1 ) * ( row.height * 1.5 ) : 0
-        }
+    leading: Item {
+        width: (model.DepthRole > 1 && delegate.isSearching) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
     }
+
+    text: model.display
+    icon: model.decoration
+
     trailing: RowLayout {
         Rectangle {
             id: defaultIndicator
