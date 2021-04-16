@@ -18,6 +18,8 @@ Kirigami.BasicListItem {
     leading: Item {
         width: (model.DepthRole > 1 && delegate.isSearching) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
     }
+    // We are manipulating the padding in the leading item itself, so set this to 0
+    leadingPadding: 0
 
     icon: model.decoration
     text: model.display
