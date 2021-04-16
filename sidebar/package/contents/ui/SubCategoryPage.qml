@@ -155,7 +155,6 @@ Kirigami.ScrollablePage {
                     onCurrentIndexChanged: subCategoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
-            highlighted: systemsettings.activeSubCategoryRow == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
         }

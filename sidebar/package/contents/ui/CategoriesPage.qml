@@ -169,7 +169,6 @@ Kirigami.ScrollablePage {
                     categoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
-            highlighted: categoryView.currentIndex == index
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
             showArrow: {
