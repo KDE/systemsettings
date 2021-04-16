@@ -19,8 +19,9 @@ Kirigami.BasicListItem {
         width: (model.DepthRole > 1 && delegate.isSearching) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
     }
 
-    text: model.display
     icon: model.decoration
+    text: model.display
+    Accessible.name: model.display
 
     trailing: RowLayout {
         Rectangle {
