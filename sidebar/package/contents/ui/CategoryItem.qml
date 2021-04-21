@@ -44,10 +44,10 @@ Kirigami.BasicListItem {
 
         Kirigami.Icon {
             id: arrow
-            implicitWidth: Kirigami.Units.iconSizes.small
-            implicitHeight: Kirigami.Units.iconSizes.small
             Layout.alignment: Qt.AlignVCenter
+            Layout.preferredHeight: Kirigami.Units.iconSizes.small
             opacity: 0.7
+            Layout.preferredWidth: Layout.preferredHeight
             source: (LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic")
             visible: delegate.showArrow
             selected: delegate.selected
