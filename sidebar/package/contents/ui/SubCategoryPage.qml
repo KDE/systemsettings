@@ -141,6 +141,7 @@ Kirigami.ScrollablePage {
         delegate: CategoryItem {
             id: delegate
 
+            // Indent items that are children of other KCMs within the same group
             leadingPadding: model.DepthRole > 2 ? (( model.DepthRole - 2 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
             onClicked: {

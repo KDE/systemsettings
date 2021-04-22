@@ -145,7 +145,7 @@ Kirigami.ScrollablePage {
                 return delegate.ListView.view.model.rowCount(modelIndex) > 1
             }
             // Only indent subcategory icons in the search view
-            isSearching: searchField.text.length > 0
+            leadingPadding: (model.DepthRole > 1 && searchField.text.length > 0) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
             hoverEnabled: !model.IsCategoryRole || !mainColumn.searchMode
             enabled: model.IsKCMRole || !mainColumn.searchMode

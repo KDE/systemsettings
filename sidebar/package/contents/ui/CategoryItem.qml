@@ -15,10 +15,10 @@ Kirigami.BasicListItem {
     property bool selected: delegate.highlighted || delegate.pressed
     property bool isSearching: false
 
+    // Dummy item to make leadingPadding value manipulable by clients
     leading: Item {
-        width: (model.DepthRole > 1 && delegate.isSearching) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
+        width: 0
     }
-    // We are manipulating the padding in the leading item itself, so set this to 0
     leadingPadding: 0
 
     icon: model.decoration
