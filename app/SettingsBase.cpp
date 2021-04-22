@@ -278,7 +278,6 @@ void SettingsBase::initMenuList(MenuItem *parent)
 
         if (!parentCategoryKcm.isEmpty() && parentCategoryKcm == entry->library()) {
             parent->setItem(KCModuleInfo(entry));
-            removeList.append(modules.at(i));
             isCategoryOwner = true;
         }
 

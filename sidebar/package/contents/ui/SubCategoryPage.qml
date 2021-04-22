@@ -141,6 +141,8 @@ Kirigami.ScrollablePage {
         delegate: CategoryItem {
             id: delegate
 
+            leadingPadding: model.DepthRole > 2 ? (( model.DepthRole - 2 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
+
             onClicked: {
                 systemsettings.loadModule(subCategoryView.model.index(index, 0));
             }
