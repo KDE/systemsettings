@@ -34,8 +34,8 @@ Kirigami.ScrollablePage {
         }
 
         contentItem: RowLayout {
-            // FIXME: left and right anchors shouldn't ne needed here, but if
-            // they're rmeoved, the layout doesn't span the full width
+            // FIXME: left and right anchors shouldn't be needed here, but if
+            // they're removed, the layout doesn't span the full width
             anchors {
                 left: parent.left
                 right: parent.right
