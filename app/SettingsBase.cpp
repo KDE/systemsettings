@@ -211,7 +211,7 @@ void SettingsBase::initConfig()
     // Add our page
     QWidget *configPage = new QWidget(configDialog);
     configWidget.setupUi(configPage);
-    QString iconName = KAboutData::applicationData().programIconName();
+    QString iconName = QApplication::windowIcon().name();
     configDialog->addPage(configPage, i18nc("General config for System Settings", "General"), iconName);
     QVBoxLayout *configLayout = new QVBoxLayout;
     // Get the list of modules
