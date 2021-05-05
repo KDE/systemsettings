@@ -2,14 +2,6 @@
 <ui version="4.0">
  <class>ConfigDialog</class>
  <widget class="QWidget" name="ConfigDialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>491</width>
-    <height>141</height>
-   </rect>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QGroupBox" name="GbViewStyle">
