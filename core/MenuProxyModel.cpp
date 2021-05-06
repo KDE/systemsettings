@@ -70,7 +70,11 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
         if (mItem->menu() && mItem->children().isEmpty()) {
             return false;
         }
-        return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+        if (mItem->service()->library() == QLatin1String("kcm_landingpage")) {
+            return false;
+        } else {
+            return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+        }
     }
 
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
