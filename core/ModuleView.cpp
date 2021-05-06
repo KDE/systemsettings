@@ -301,7 +301,8 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page, bool light)
     page->setHeader(moduleInfo->moduleName());
     page->setIcon(QIcon::fromTheme(moduleInfo->icon()));
 
-    d->mCustomHeader->setVisible(false);
+    const bool isQml = (moduleProxy && moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml"));
+    d->mCustomHeader->setVisible(!isQml);
     page->setHeaderVisible(false);
 
     if (light) {
