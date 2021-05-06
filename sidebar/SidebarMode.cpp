@@ -502,11 +502,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
         d->activeCategoryIndex = activeModule;
         d->activeCategoryRow = newCategoryRow;
 
-        if (mi->item().library().isEmpty()) {
-            d->activeSubCategoryRow = 0;
-        } else {
-            d->activeSubCategoryRow = -1;
-        }
+        d->activeSubCategoryRow = 0;
 
         d->subCategoryModel->setParentIndex(activeModule);
 
