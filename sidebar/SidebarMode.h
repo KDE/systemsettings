@@ -134,6 +134,7 @@ private Q_SLOTS:
 private:
     void updateModelMenuItem(MenuItem *item);
     void updateCategoryModel(const QModelIndex &categoryIdx);
+    void refreshDefaults();
 
 Q_SIGNALS:
     void activeCategoryRowChanged();
