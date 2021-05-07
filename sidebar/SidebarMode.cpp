@@ -591,17 +591,24 @@ void SidebarMode::moduleLoaded()
 
 void SidebarMode::updateDefaults()
 {
-    // When the landing page is loaded, we don't have activeCategoryRow
+    // When the landing page is loaded, we don't have activeCategoryRow and need to reload everything
     if (d->activeCategoryRow < 0) {
+        refreshDefaults();
         return;
     }
     QModelIndex categoryIdx = d->categorizedModel->index(d->activeCategoryRow, 0);
     auto item = categoryIdx.data(Qt::UserRole).value<MenuItem *>();
     Q_ASSERT(item);
+
     // If subcategory exist update from subcategory, unless this category is owned by a kcm
     if (!item->children().isEmpty() && d->activeSubCategoryRow > -1) {
         auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
         item = subCateogryIdx.data(Qt::UserRole).value<MenuItem *>();
+    }
+    // In case we are updating a parent like LnF we refresh all defaults
+    if (item->isCategoryOwner() && item->parent() != rootItem()) {
+        refreshDefaults();
+        return;
     }
 
     auto *moduleData = KCModuleLoader::loadModuleData(item->item());
@@ -691,11 +698,8 @@ qreal SidebarMode::headerHeight() const
     return d->moduleView->headerHeight();
 }
 
-void SidebarMode::toggleDefaultsIndicatorsVisibility()
+void SidebarMode::refreshDefaults()
 {
-    d->m_defaultsIndicatorsVisible = !d->m_defaultsIndicatorsVisible;
-    d->moduleView->moduleShowDefaultsIndicators(d->m_defaultsIndicatorsVisible);
-
     if (d->m_defaultsIndicatorsVisible) {
         for (int i = 0; i < d->flatModel->rowCount(); ++i) {
             QModelIndex idx = d->flatModel->index(i, 0);
@@ -714,6 +718,12 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
             }
         }
     }
+}
+void SidebarMode::toggleDefaultsIndicatorsVisibility()
+{
+    d->m_defaultsIndicatorsVisible = !d->m_defaultsIndicatorsVisible;
+    d->moduleView->moduleShowDefaultsIndicators(d->m_defaultsIndicatorsVisible);
+    refreshDefaults();
     config().writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
     Q_EMIT defaultsIndicatorsVisibleChanged();
 }
