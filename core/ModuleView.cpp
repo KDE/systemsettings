@@ -379,7 +379,7 @@ bool ModuleView::moduleSave(KCModuleProxy *module)
     }
 
     module->save();
-    emit moduleSaved();
+    Q_EMIT moduleSaved();
     return true;
 }
 
@@ -518,7 +518,7 @@ void ModuleView::stateChanged()
     d->mReset->setVisible(buttons & KCModule::Apply);
     d->mHelp->setEnabled(buttons & KCModule::Help);
     d->mHelp->setVisible(buttons & KCModule::Help);
-    emit moduleChanged(change);
+    Q_EMIT moduleChanged(change);
 }
 
 void ModuleView::keyPressEvent(QKeyEvent *event)
@@ -529,7 +529,7 @@ void ModuleView::keyPressEvent(QKeyEvent *event)
         return;
     } else if (event->key() == Qt::Key_Escape) {
         event->accept();
-        emit closeRequest();
+        Q_EMIT closeRequest();
         return;
     } else if (event->key() == Qt::Key_F1 && event->modifiers() == Qt::ShiftModifier) {
         QWhatsThis::enterWhatsThisMode();

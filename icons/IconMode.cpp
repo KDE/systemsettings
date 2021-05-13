@@ -168,7 +168,7 @@ void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStri
 void IconMode::moduleLoaded()
 {
     d->backAction->setEnabled(true);
-    emit changeToolBarItems(BaseMode::NoItems);
+    Q_EMIT changeToolBarItems(BaseMode::NoItems);
 }
 
 void IconMode::backToOverview()
@@ -177,8 +177,8 @@ void IconMode::backToOverview()
         d->mainWidget->setCurrentWidget(d->categoryView);
         d->moduleView->closeModules();
         d->backAction->setEnabled(false);
-        emit changeToolBarItems(BaseMode::Search | BaseMode::Configure | BaseMode::Quit);
-        emit viewChanged(false);
+        Q_EMIT changeToolBarItems(BaseMode::Search | BaseMode::Configure | BaseMode::Quit);
+        Q_EMIT viewChanged(false);
     }
 }
 
@@ -207,7 +207,7 @@ void IconMode::initWidget()
     d->mainWidget->addWidget(d->categoryView);
     d->mainWidget->addWidget(d->moduleView);
     d->mainWidget->setCurrentWidget(d->categoryView);
-    emit changeToolBarItems(BaseMode::Search | BaseMode::Configure | BaseMode::Quit);
+    Q_EMIT changeToolBarItems(BaseMode::Search | BaseMode::Configure | BaseMode::Quit);
     d->mainWidget->installEventFilter(this);
 
     if (!startupModule().isEmpty()) {
@@ -231,7 +231,7 @@ void IconMode::reloadStartupModule()
 bool IconMode::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == d->mainWidget && event->type() == QEvent::Show) {
-        emit changeToolBarItems(BaseMode::Search | BaseMode::Configure | BaseMode::Quit);
+        Q_EMIT changeToolBarItems(BaseMode::Search | BaseMode::Configure | BaseMode::Quit);
     }
     return BaseMode::eventFilter(watched, event);
 }

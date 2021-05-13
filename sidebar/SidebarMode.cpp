@@ -103,9 +103,9 @@ void SubcategoryModel::setParentIndex(const QModelIndex &activeModule)
 {
     selectionModel()->select(activeModule, QItemSelectionModel::ClearAndSelect);
     m_activeModuleIndex = QPersistentModelIndex(activeModule);
-    emit titleChanged();
-    emit iconChanged();
-    emit categoryOwnedByKCMChanged();
+    Q_EMIT titleChanged();
+    Q_EMIT iconChanged();
+    Q_EMIT categoryOwnedByKCMChanged();
 }
 
 void SubcategoryModel::loadParentCategoryModule()
@@ -276,7 +276,7 @@ public:
             return;
         }
         m_actionMenuVisible = actionMenuVisible;
-        emit sidebarMode->actionMenuVisibleChanged();
+        Q_EMIT sidebarMode->actionMenuVisibleChanged();
     }
     bool m_introPageVisible = true;
     bool m_defaultsIndicatorsVisible = false;
@@ -489,7 +489,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
 
     if (homeItem()) {
         d->m_introPageVisible = activeModule == d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
-        emit introPageVisibleChanged();
+        Q_EMIT introPageVisibleChanged();
     } else {
         setIntroPageVisible(false);
     }
@@ -508,18 +508,18 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
 
         if (d->activeSearchRow > -1) {
             d->activeSearchRow = -1;
-            emit activeSearchRowChanged();
+            Q_EMIT activeSearchRowChanged();
         }
-        emit activeCategoryRowChanged();
-        emit activeSubCategoryRowChanged();
+        Q_EMIT activeCategoryRowChanged();
+        Q_EMIT activeSubCategoryRowChanged();
 
     } else if (activeModule.model() == d->subCategoryModel) {
         if (d->activeSearchRow > -1) {
             d->activeSearchRow = -1;
-            emit activeSearchRowChanged();
+            Q_EMIT activeSearchRowChanged();
         }
         d->activeSubCategoryRow = activeModule.row();
-        emit activeSubCategoryRowChanged();
+        Q_EMIT activeSubCategoryRowChanged();
 
     } else if (activeModule.model() == d->searchModel) {
         QModelIndex originalIndex = d->categorizedModel->mapFromSource(d->flatModel->mapToSource(d->searchModel->mapToSource(activeModule)));
@@ -537,17 +537,17 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
             }
 
             d->subCategoryModel->setParentIndex(originalIndex.parent().isValid() ? originalIndex.parent() : originalIndex);
-            emit activeCategoryRowChanged();
-            emit activeSubCategoryRowChanged();
+            Q_EMIT activeCategoryRowChanged();
+            Q_EMIT activeSubCategoryRowChanged();
         }
 
         d->activeSearchRow = activeModule.row();
-        emit activeSearchRowChanged();
+        Q_EMIT activeSearchRowChanged();
 
     } else {
         if (d->activeSearchRow > -1) {
             d->activeSearchRow = -1;
-            emit activeSearchRowChanged();
+            Q_EMIT activeSearchRowChanged();
         }
 
         QModelIndex flatIndex;
@@ -580,8 +580,8 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
                     d->activeCategoryRow = idx.row();
                     d->activeSubCategoryRow = -1;
                 }
-                emit activeCategoryRowChanged();
-                emit activeSubCategoryRowChanged();
+                Q_EMIT activeCategoryRowChanged();
+                Q_EMIT activeSubCategoryRowChanged();
             }
         }
     }
@@ -627,11 +627,11 @@ void SidebarMode::updateDefaults()
 void SidebarMode::updateCategoryModel(const QModelIndex &categoryIdx)
 {
     auto sourceIdx = d->categorizedModel->mapToSource(categoryIdx);
-    emit d->model->dataChanged(sourceIdx, sourceIdx);
+    Q_EMIT d->model->dataChanged(sourceIdx, sourceIdx);
 
     auto subCateogryIdx = d->subCategoryModel->index(d->activeSubCategoryRow, 0);
     auto subCategorySourceIdx = d->categorizedModel->mapToSource(d->subCategoryModel->mapToSource(subCateogryIdx));
-    emit d->model->dataChanged(subCategorySourceIdx, subCategorySourceIdx);
+    Q_EMIT d->model->dataChanged(subCategorySourceIdx, subCategorySourceIdx);
 }
 
 int SidebarMode::activeSearchRow() const
@@ -663,17 +663,17 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
                 d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
                 d->activeCategoryRow = -1;
                 d->activeSubCategoryRow = -1;
-                emit activeCategoryRowChanged();
-                emit activeSubCategoryRowChanged();
+                Q_EMIT activeCategoryRowChanged();
+                Q_EMIT activeSubCategoryRowChanged();
             }
         }
     } else {
         if (introPageVisible) {
             d->subCategoryModel->setParentIndex(QModelIndex());
             d->activeCategoryRow = -1;
-            emit activeCategoryRowChanged();
+            Q_EMIT activeCategoryRowChanged();
             d->activeSubCategoryRow = -1;
-            emit activeSubCategoryRowChanged();
+            Q_EMIT activeSubCategoryRowChanged();
             d->placeHolderWidget->show();
             d->moduleView->hide();
         } else {
@@ -683,7 +683,7 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
     }
 
     d->m_introPageVisible = introPageVisible;
-    emit introPageVisibleChanged();
+    Q_EMIT introPageVisibleChanged();
 }
 
 void SidebarMode::setHeaderHeight(qreal height)
@@ -693,7 +693,7 @@ void SidebarMode::setHeaderHeight(qreal height)
     }
 
     d->moduleView->setHeaderHeight(height);
-    emit headerHeightChanged();
+    Q_EMIT headerHeightChanged();
 }
 
 qreal SidebarMode::headerHeight() const
@@ -725,18 +725,18 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
         }
     }
     config().writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
-    emit defaultsIndicatorsVisibleChanged();
+    Q_EMIT defaultsIndicatorsVisibleChanged();
 }
 
 void SidebarMode::updateModelMenuItem(MenuItem *item)
 {
     auto itemIdx = d->model->indexForItem(item);
-    emit d->model->dataChanged(itemIdx, itemIdx);
+    Q_EMIT d->model->dataChanged(itemIdx, itemIdx);
     MenuItem *parent = item->parent();
     while (parent) {
         auto parentIdx = d->model->indexForItem(parent);
         if (parentIdx.isValid()) {
-            emit d->model->dataChanged(parentIdx, parentIdx);
+            Q_EMIT d->model->dataChanged(parentIdx, parentIdx);
             parent = parent->parent();
         } else {
             parent = nullptr;
@@ -838,7 +838,7 @@ void SidebarMode::initWidget()
     d->moduleView->hide();
     d->mainLayout->addWidget(d->moduleView);
     d->mainLayout->addWidget(d->placeHolderWidget);
-    emit changeToolBarItems(BaseMode::NoItems);
+    Q_EMIT changeToolBarItems(BaseMode::NoItems);
 
     d->toolTipManager = new ToolTipManager(d->categorizedModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
     d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
@@ -896,9 +896,9 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
     } else if (watched == d->quickWidget && event->type() == QEvent::Leave) {
         QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
     } else if (watched == d->mainWidget && event->type() == QEvent::Resize) {
-        emit widthChanged();
+        Q_EMIT widthChanged();
     } else if (watched == d->mainWidget && event->type() == QEvent::Show) {
-        emit changeToolBarItems(BaseMode::NoItems);
+        Q_EMIT changeToolBarItems(BaseMode::NoItems);
     }
     return BaseMode::eventFilter(watched, event);
 }

@@ -216,7 +216,7 @@ Q_SIGNALS:
      * of displayed view is changed.
      *
      * @param state Determines whether changes have been made in the view.
-     * @warning Failure to emit this will result in inconsistent application headers and change state.
+     * @warning Failure to Q_EMIT this will result in inconsistent application headers and change state.
      */
     void viewChanged(bool state);
 

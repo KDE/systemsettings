@@ -122,10 +122,10 @@ void MenuProxyModel::setFilterRegExp(const QString &pattern)
     if (pattern == filterRegExp()) {
         return;
     }
-    emit layoutAboutToBeChanged();
+    Q_EMIT layoutAboutToBeChanged();
     KCategorizedSortFilterProxyModel::setFilterRegExp(pattern);
-    emit layoutChanged();
-    emit filterRegExpChanged();
+    Q_EMIT layoutChanged();
+    Q_EMIT filterRegExpChanged();
 }
 
 QString MenuProxyModel::filterRegExp() const
@@ -135,7 +135,7 @@ QString MenuProxyModel::filterRegExp() const
 
 void MenuProxyModel::setFilterRegExp(const QRegExp &regExp)
 {
-    emit layoutAboutToBeChanged();
+    Q_EMIT layoutAboutToBeChanged();
     KCategorizedSortFilterProxyModel::setFilterRegExp(regExp);
-    emit layoutChanged();
+    Q_EMIT layoutChanged();
 }
