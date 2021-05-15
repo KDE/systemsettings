@@ -65,6 +65,7 @@ Kirigami.ScrollablePage {
                 icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
             }
             Kirigami.Icon {
+                visible: !applicationWindow().wideScreen
                 source: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
                 Layout.preferredWidth: buttonSizePlaceholder.implicitWidth
                 Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
