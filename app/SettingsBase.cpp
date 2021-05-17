@@ -119,11 +119,6 @@ void SettingsBase::initApplication()
     const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("systemsettingsview/"));
 
     for (const KPluginMetaData &plugin : plugins) {
-        // Make sure we only load one plugin per type if we're installed on multiple prefixes
-        if (possibleViews.contains(plugin.pluginId())) {
-            continue;
-        }
-
         KPluginLoader loader(plugin.fileName());
         KPluginFactory *factory = loader.factory();
         if (!factory) {
