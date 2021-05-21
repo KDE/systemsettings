@@ -32,6 +32,7 @@
   <name xml:lang="sk">Systémové nastavenia</name>
   <name xml:lang="sl">Nastavitve sistema</name>
   <name xml:lang="sv">Systeminställningar</name>
+  <name xml:lang="ta">கணினி அமைப்புகள்</name>
   <name xml:lang="tg">Танзимоти низом</name>
   <name xml:lang="tr">Sistem Ayarları</name>
   <name xml:lang="uk">Системні параметри</name>
@@ -71,6 +72,7 @@
   <summary xml:lang="sk">Koniguračné nástroje pre váš počítač</summary>
   <summary xml:lang="sl">Orodja za nastavitve vašega računalnika</summary>
   <summary xml:lang="sv">Inställningsverktyg för datorn</summary>
+  <summary xml:lang="ta">உங்கள் கணினியை அமைக்க உதவும் கருவிகள்</summary>
   <summary xml:lang="tg">Абзорҳои танзимотӣ барои компютери шумо</summary>
   <summary xml:lang="tr">Bilgisayarınız için yapılandırma araçları</summary>
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
@@ -122,6 +124,7 @@
     <p xml:lang="sk">Systémové nastavenia vám umožnia nastaviť a prispôsobiť vašu pracovnú plochu Plasma, aby lepšie vyhovovala vašim potrebám.</p>
     <p xml:lang="sl">Sistemske nastavitve omogočajo nastavitve in prilagajanje namizja KDE Plasma z namenom boljšega izpolnjevanja vaših potreb.</p>
     <p xml:lang="sv">Systeminställningarna låter dig anpassa och justera KDE Plasma-skrivbordet för att det bättre ska passa dina behov.</p>
+    <p xml:lang="ta">கே.டீ.யீ. பிளாஸ்மா பணிமேடையை உங்கள் தேவைக்கேற்ப மாற்றியமைக்க கணினி அமைப்புகள் உதவும்.</p>
     <p xml:lang="tg">Танзимоти низом ба шумо имкон медиҳад, то тавонед мизи кории KDE Plasma-ро ба талаботи шахсии худ танзим ва тасҳеҳ карда, беҳтар намоед.</p>
     <p xml:lang="tr">Sistem Ayarları, ihtiyaçlarınızı daha iyi karşılaması için KDE Plasma masaüstünüzü yapılandırmanıza ve ince ayar yapmanıza olanak tanır.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
