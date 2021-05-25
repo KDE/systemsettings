@@ -157,7 +157,7 @@ void SettingsBase::initToolBar()
 
     // Configure goes at the end
     configureAction = actionCollection()->addAction(KStandardAction::Preferences, QStringLiteral("configure"), this, SLOT(configShow()));
-    configureAction->setText(i18n("Configure..."));
+    configureAction->setText(i18n("Configure…"));
     // Help after it
     initHelpMenu();
     configureAction->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
