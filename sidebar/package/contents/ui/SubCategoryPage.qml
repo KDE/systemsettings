@@ -65,6 +65,7 @@ Kirigami.ScrollablePage {
                 icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
             }
             Kirigami.Icon {
+                id: backIcon
                 visible: !applicationWindow().wideScreen
                 source: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
                 Layout.preferredWidth: buttonSizePlaceholder.implicitWidth
@@ -75,6 +76,7 @@ Kirigami.ScrollablePage {
             Kirigami.Heading {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
                 // Don't be too short when the back button isn't visible
                 Layout.minimumHeight: buttonSizePlaceholder.implicitHeight
                 level: 3
