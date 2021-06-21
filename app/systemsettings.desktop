@@ -181,6 +181,7 @@ Name[zh_CN]=系统设置
 Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
+Comment[ar]=أدوات ضبط لجهازك
 Comment[ast]=Ferramientes de configuración pal ordenador
 Comment[az]=Kompyuteriniz üçün ayarlama alətləri
 Comment[bg]=Конфигурационни инструменти за вашия компютър
@@ -232,6 +233,7 @@ Categories=Qt;KDE;Settings;
 
 [Desktop Action kcm-lookandfeel]
 Name=Global Theme
+Name[ar]=سمة شاملة
 Name[ast]=Estilu global
 Name[az]=Qlobal Mövzu
 Name[ca]=Tema global
@@ -272,6 +274,7 @@ Exec=systemsettings5 kcm_lookandfeel
 
 [Desktop Action kcm-users]
 Name=Users
+Name[ar]=المستخدمين
 Name[ast]=Usuarios
 Name[az]=İstifadəçilər
 Name[ca]=Usuaris
@@ -312,6 +315,7 @@ Exec=systemsettings5 kcm_users
 
 [Desktop Action screenlocker]
 Name=Screen Locking
+Name[ar]=قفل الشاشة
 Name[az]=Ekran Kilidlənməsi
 Name[ca]=Bloqueig de pantalla
 Name[cs]=Uzamykání obrazovky
@@ -351,6 +355,7 @@ Exec=systemsettings5 screenlocker
 
 [Desktop Action powerdevilprofilesconfig]
 Name=Energy Saving
+Name[ar]=حفظ الطاقة
 Name[ast]=Aforru d'enerxía
 Name[az]=Enerjiyə Qənaət
 Name[ca]=Estalvi d'energia
@@ -391,6 +396,7 @@ Exec=systemsettings5 powerdevilprofilesconfig
 
 [Desktop Action kcm-kscreen]
 Name=Display Configuration
+Name[ar]=إعدادات الشاشة
 Name[az]=Ekran Ayarları
 Name[ca]=Configuració de la pantalla
 Name[cs]=Nastavení zobrazení
