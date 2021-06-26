@@ -81,7 +81,7 @@ private:
     MenuItem *rootModule = nullptr;
     MenuItem *homeModule = nullptr;
     MenuItem *lostFound = nullptr;
-    KService::List categories;
+    QStringList categories;
     KService::List modules;
     // The about dialog
     KAboutApplicationDialog *aboutDialog = nullptr;

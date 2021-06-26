@@ -8,6 +8,8 @@
 #include "BaseConfig.h"
 #include "systemsettings_app_debug.h"
 
+#include <QDir>
+#include <QFileInfo>
 #include <QFontDatabase>
 #include <QLoggingCategory>
 #include <QMenu>
@@ -91,12 +93,21 @@ void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
     if (m_mode == BaseMode::InfoCenter) {
-        categories = KServiceTypeTrader::self()->query(QStringLiteral("KInfoCenterCategory"));
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
     } else {
-        categories = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsCategory"));
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
         modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+    }
+    const QString path =
+        QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                               m_mode == BaseMode::InfoCenter ? QStringLiteral("kinfocentercategories") : QStringLiteral("systemsettingscategories"),
+                               QStandardPaths::LocateDirectory);
+    if (!path.isEmpty()) {
+        QDir dir(path);
+        const auto infoList = dir.entryInfoList(QStringList(QStringLiteral("*.desktop")));
+        for (const QFileInfo &info : infoList) {
+            categories << info.absoluteFilePath();
+        }
     }
 
     rootModule = new MenuItem(true, nullptr);
@@ -230,22 +241,22 @@ void SettingsBase::initMenuList(MenuItem *parent)
 {
     // look for any categories inside this level, and recurse into them
     for (int i = 0; i < categories.size(); ++i) {
-        const KService::Ptr entry = categories.at(i);
+        const KConfigGroup entry = KSharedConfig::openConfig(categories.at(i))->group("Desktop Entry");
         QString parentCategory;
         QString parentCategory2;
         if (m_mode == BaseMode::InfoCenter) {
-            parentCategory = entry->property(QStringLiteral("X-KDE-KInfoCenter-Parent-Category")).toString();
+            parentCategory = entry.readEntry("X-KDE-KInfoCenter-Parent-Category");
         } else {
-            parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-            parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+            parentCategory = entry.readEntry("X-KDE-System-Settings-Parent-Category");
+            parentCategory2 = entry.readEntry("X-KDE-System-Settings-Parent-Category-V2");
         }
 
         if (parentCategory == parent->category() ||
             // V2 entries must not be empty if they want to become a proper category.
             (!parentCategory2.isEmpty() && parentCategory2 == parent->category())) {
             MenuItem *menuItem = new MenuItem(true, parent);
-            menuItem->setService(entry);
-            if (menuItem->category() == QLatin1String("lost-and-found")) {
+            menuItem->setService(KService::Ptr(new KService(categories.at(i))));
+            if (entry.readEntry("X-KDE-System-Settings-Category") == QLatin1String("lost-and-found")) {
                 lostFound = menuItem;
                 continue;
             }
