@@ -21,7 +21,6 @@
 #include <KCModuleInfo>
 #include <KCMUtils/KCModuleLoader>
 #include <KConfigGroup>
-#include <KDeclarative/KDeclarative>
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -256,7 +255,6 @@ public:
     FocusHackWidget *mainWidget = nullptr;
     QQuickWidget *placeHolderWidget = nullptr;
     QHBoxLayout *mainLayout = nullptr;
-    KDeclarative::KDeclarative kdeclarative;
     MenuModel *model = nullptr;
     MenuProxyModel *categorizedModel = nullptr;
     MenuProxyModel *searchModel = nullptr;
@@ -790,9 +788,7 @@ void SidebarMode::initWidget()
     d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
     d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
 
-    d->kdeclarative.setDeclarativeEngine(d->quickWidget->engine());
-    d->kdeclarative.setupEngine(d->quickWidget->engine());
-    d->kdeclarative.setupContext();
+    d->quickWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
 
     d->quickWidget->setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 
