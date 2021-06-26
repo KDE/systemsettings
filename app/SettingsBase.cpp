@@ -1,5 +1,6 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
+ *   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -8,6 +9,8 @@
 #include "BaseConfig.h"
 #include "systemsettings_app_debug.h"
 
+#include <QDir>
+#include <QFileInfo>
 #include <QFontDatabase>
 #include <QLoggingCategory>
 #include <QMenu>
@@ -21,6 +24,8 @@
 #include <KActionCollection>
 #include <KCModuleInfo>
 #include <KConfigGroup>
+#include <KDesktopFile>
+#include <KFileUtils>
 #include <KMessageBox>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
@@ -91,13 +96,13 @@ void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
     if (m_mode == BaseMode::InfoCenter) {
-        categories = KServiceTypeTrader::self()->query(QStringLiteral("KInfoCenterCategory"));
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
     } else {
-        categories = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsCategory"));
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
         modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
     }
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("categories"), QStandardPaths::LocateDirectory);
+    categories = KFileUtils::findAllUniqueFiles(dirs, QStringList(QStringLiteral("*.desktop")));
 
     rootModule = new MenuItem(true, nullptr);
     initMenuList(rootModule);
@@ -229,23 +234,24 @@ void SettingsBase::initConfig()
 void SettingsBase::initMenuList(MenuItem *parent)
 {
     // look for any categories inside this level, and recurse into them
-    for (int i = 0; i < categories.size(); ++i) {
-        const KService::Ptr entry = categories.at(i);
+    for (const QString &category : qAsConst(categories)) {
+        const KDesktopFile file(category);
+        const KConfigGroup entry = file.desktopGroup();
         QString parentCategory;
         QString parentCategory2;
         if (m_mode == BaseMode::InfoCenter) {
-            parentCategory = entry->property(QStringLiteral("X-KDE-KInfoCenter-Parent-Category")).toString();
+            parentCategory = entry.readEntry("X-KDE-KInfoCenter-Parent-Category");
         } else {
-            parentCategory = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-            parentCategory2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
+            parentCategory = entry.readEntry("X-KDE-System-Settings-Parent-Category");
+            parentCategory2 = entry.readEntry("X-KDE-System-Settings-Parent-Category-V2");
         }
 
         if (parentCategory == parent->category() ||
             // V2 entries must not be empty if they want to become a proper category.
             (!parentCategory2.isEmpty() && parentCategory2 == parent->category())) {
             MenuItem *menuItem = new MenuItem(true, parent);
-            menuItem->setService(entry);
-            if (menuItem->category() == QLatin1String("lost-and-found")) {
+            menuItem->setCategoryConfig(file);
+            if (entry.readEntry("X-KDE-System-Settings-Category") == QLatin1String("lost-and-found")) {
                 lostFound = menuItem;
                 continue;
             }
@@ -268,10 +274,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
             category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
         }
 
-        QString parentCategoryKcm = parent->service() //
-            ? parent->service()->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString()
-            : QString();
-
+        const QString parentCategoryKcm = parent->systemsettingsCategoryModule();
         bool isCategoryOwner = false;
 
         if (!parentCategoryKcm.isEmpty() && parentCategoryKcm == entry->library()) {

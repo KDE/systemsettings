@@ -78,10 +78,10 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         theData.setValue(mi->name());
         break;
     case Qt::ToolTipRole:
-        theData.setValue(mi->service()->comment());
+        theData.setValue(mi->comment());
         break;
     case Qt::DecorationRole:
-        theData = QVariant(QIcon::fromTheme(mi->service()->icon()));
+        theData = QVariant(QIcon::fromTheme(mi->iconName()));
         break;
     case KCategorizedSortFilterProxyModel::CategorySortRole:
         if (mi->parent()) {
@@ -99,7 +99,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         }
         if (candidate) {
             // Children of this special root category don't have an user visible category
-            if (candidate->item().fileName() != QStringLiteral("settings-root-category.desktop")) {
+            if (!candidate->isSystemsettingsRootCategory()) {
                 theData.setValue(candidate->name());
             }
         }
@@ -131,7 +131,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         MenuItem *parent = mi->parent();
         // Items that are in a category with an owner are one level deeper,
         // except the owner
-        if (parent && parent->menu() && !parent->item().service()->library().isEmpty() && !mi->isCategoryOwner()) {
+        if (parent && parent->menu() && (parent->item().isValid() && !parent->item().service()->library().isEmpty()) && !mi->isCategoryOwner()) {
             ++depth;
         }
         theData.setValue(depth);

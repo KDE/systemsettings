@@ -218,7 +218,7 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
 
     MenuItem *item = menuItem.data(Qt::UserRole).value<MenuItem *>();
 
-    if (!item->item().library().isEmpty() || !item->service()->exec().isEmpty()) {
+    if (!item->item().library().isEmpty()) {
         indexes << menuItem;
     }
 

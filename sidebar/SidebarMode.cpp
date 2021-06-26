@@ -203,17 +203,9 @@ public:
         case Qt::UserRole:
             return QVariant::fromValue(mi);
         case Qt::DisplayRole:
-            if (mi->service() && mi->service()->isValid()) {
-                return mi->service()->name();
-            } else {
-                return QVariant();
-            }
+            return mi->name();
         case Qt::DecorationRole:
-            if (mi->service() && mi->service()->isValid()) {
-                return mi->service()->icon();
-            } else {
-                return QVariant();
-            }
+            return mi->iconName();
         case ResultModel::ScoreRole:
             return QSortFilterProxyModel::data(index, ResultModel::ScoreRole).toInt();
         default:

@@ -2,6 +2,7 @@
    This file is part of the KDE project
    SPDX-FileCopyrightText: 2007 Will Stephenson <wstephenson@kde.org>
    SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
+   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
 
    SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
@@ -13,6 +14,9 @@
 
 #include <KCMUtils/KCModuleLoader>
 #include <KCModuleInfo>
+#include <KConfigGroup>
+#include <KDesktopFile>
+#include <QFileInfo>
 
 static bool childIsLessThan(MenuItem *left, MenuItem *right)
 {
@@ -36,6 +40,10 @@ public:
     KCModuleInfo item;
     bool showDefaultIndicator = false;
     bool isCategoryOwner = false;
+    QString comment;
+    QString iconName;
+    QString systemsettingsCategoryModule;
+    bool isSystemsettingsRootCategory;
 };
 
 MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
@@ -86,9 +94,29 @@ QList<MenuItem *> &MenuItem::children() const
     return d->children;
 }
 
-KService::Ptr &MenuItem::service() const
+QString MenuItem::comment() const
 {
-    return d->service;
+    return d->comment;
+}
+
+QString MenuItem::iconName() const
+{
+    return d->iconName;
+}
+
+bool MenuItem::isSystemsettingsCategory() const
+{
+    return false;
+}
+
+QString MenuItem::systemsettingsCategoryModule() const
+{
+    return d->systemsettingsCategoryModule;
+}
+
+bool MenuItem::isSystemsettingsRootCategory() const
+{
+    return d->isSystemsettingsRootCategory;
 }
 
 KCModuleInfo &MenuItem::item() const
@@ -131,6 +159,24 @@ void MenuItem::setService(const KService::Ptr &service)
     } else {
         d->weight = 100;
     }
+    d->comment = service->comment();
+    d->iconName = service->icon();
+    d->systemsettingsCategoryModule = service->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString();
+}
+
+void MenuItem::setCategoryConfig(const KDesktopFile &file)
+{
+    const KConfigGroup grp = file.desktopGroup();
+    d->category = grp.readEntry("X-KDE-System-Settings-Category");
+    if (d->category.isEmpty()) {
+        d->category = grp.readEntry("X-KDE-KInfoCenter-Category");
+    }
+    d->name = grp.readEntry("Name");
+    d->weight = grp.readEntry(QStringLiteral("X-KDE-Weight"), 100);
+    d->comment = grp.readEntry("Comment");
+    d->iconName = grp.readEntry("Icon");
+    d->systemsettingsCategoryModule = grp.readEntry("X-KDE-System-Settings-Category-Module");
+    d->isSystemsettingsRootCategory = QFileInfo(file.fileName()).fileName() == QLatin1String("settings-root-category.desktop");
 }
 
 bool MenuItem::showDefaultIndicator() const
