@@ -13,6 +13,8 @@
 
 #include <KCMUtils/KCModuleLoader>
 #include <KCModuleInfo>
+#include <KConfigGroup>
+#include <KDesktopFile>
 
 static bool childIsLessThan(MenuItem *left, MenuItem *right)
 {
@@ -36,6 +38,10 @@ public:
     KCModuleInfo item;
     bool showDefaultIndicator = false;
     bool isCategoryOwner = false;
+    QString comment;
+    QString iconName;
+    QString systemsettingsCategoryModule;
+    bool isSystemsettingsCategory = false;
 };
 
 MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
@@ -86,9 +92,24 @@ QList<MenuItem *> &MenuItem::children() const
     return d->children;
 }
 
-KService::Ptr &MenuItem::service() const
+QString MenuItem::comment() const
 {
-    return d->service;
+    return d->comment;
+}
+
+QString MenuItem::iconName() const
+{
+    return d->iconName;
+}
+
+bool MenuItem::isSystemsettingsCategory() const
+{
+    return false;
+}
+
+QString MenuItem::systemsettingsCategoryModule() const
+{
+    return d->systemsettingsCategoryModule;
 }
 
 KCModuleInfo &MenuItem::item() const
@@ -131,6 +152,22 @@ void MenuItem::setService(const KService::Ptr &service)
     } else {
         d->weight = 100;
     }
+    d->comment = service->comment();
+    d->iconName = service->icon();
+    d->systemsettingsCategoryModule = service->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString();
+}
+
+void MenuItem::setCategoryConfig(const KConfigGroup &grp)
+{
+    d->category = grp.readEntry("X-KDE-System-Settings-Category");
+    if (d->category.isEmpty()) {
+        d->category = grp.readEntry("X-KDE-KInfoCenter-Category");
+    }
+    d->name = grp.readEntry("Name");
+    d->weight = grp.readEntry(QStringLiteral("X-KDE-Weight"), 100);
+    d->comment = grp.readEntry("Comment");
+    d->iconName = grp.readEntry("Icon");
+    d->systemsettingsCategoryModule = grp.readEntry("X-KDE-System-Settings-Category-Module");
 }
 
 bool MenuItem::showDefaultIndicator() const

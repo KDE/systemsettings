@@ -10,6 +10,8 @@
 #include "MenuItem.h"
 #include "MenuModel.h"
 
+#include <KCModuleInfo>
+
 MenuProxyModel::MenuProxyModel(QObject *parent)
     : KCategorizedSortFilterProxyModel(parent)
     , m_filterHighlightsEntries(true)
@@ -70,7 +72,7 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
         if (mItem->menu() && mItem->children().isEmpty()) {
             return false;
         }
-        if (mItem->service()->library() == QLatin1String("kcm_landingpage")) {
+        if (mItem->item().library() == QLatin1String("kcm_landingpage")) {
             return false;
         } else {
             return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
@@ -80,17 +82,16 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
     MenuItem *mItem = index.data(Qt::UserRole).value<MenuItem *>();
 
-    if (mItem->service()->library() == QLatin1String("kcm_landingpage")) {
+    if (mItem->item().library() == QLatin1String("kcm_landingpage")) {
         return false;
     }
 
     // accept only systemsettings categories that have children
-    if (mItem->children().isEmpty() && mItem->service()->serviceTypes().contains(QLatin1String("SystemSettingsCategory"))) {
+    if (mItem->children().isEmpty() && mItem->isSystemsettingsCategory()) {
         return false;
     } else {
         return true; // Items matching the regexp are disabled, not hidden
     }
-
 }
 
 void MenuProxyModel::setFilterHighlightsEntries(bool highlight)

@@ -182,8 +182,8 @@ QLayout *ToolTipManager::generateToolTipLine(QModelIndex *item, QWidget *toolTip
     // Generate text
     if (comment) {
         text += QStringLiteral("<br />");
-        if (!menuItem->service()->comment().isEmpty()) {
-            text += menuItem->service()->comment();
+        if (!menuItem->comment().isEmpty()) {
+            text += menuItem->comment();
         } else {
             int childCount = d->view->model()->rowCount(*item);
             text += i18np("Contains 1 item", "Contains %1 items", childCount);
@@ -203,7 +203,7 @@ QLayout *ToolTipManager::generateToolTipLine(QModelIndex *item, QWidget *toolTip
 
     privateIconLoaderSelf->self.setCustomPalette(pal);
 
-    QIcon icon = KDE::icon(menuItem->service()->icon(), &privateIconLoaderSelf->self);
+    QIcon icon = KDE::icon(menuItem->iconName(), &privateIconLoaderSelf->self);
     QLabel *iconLabel = new QLabel(toolTip);
     iconLabel->setPixmap(icon.pixmap(iconSize));
     iconLabel->setMaximumSize(iconSize);

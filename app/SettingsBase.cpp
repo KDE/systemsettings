@@ -23,6 +23,7 @@
 #include <KActionCollection>
 #include <KCModuleInfo>
 #include <KConfigGroup>
+#include <KDesktopFile>
 #include <KMessageBox>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
@@ -98,10 +99,7 @@ void SettingsBase::initApplication()
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
         modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
     }
-    const QString path =
-        QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                               m_mode == BaseMode::InfoCenter ? QStringLiteral("kinfocentercategories") : QStringLiteral("systemsettingscategories"),
-                               QStandardPaths::LocateDirectory);
+    const QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("categories"), QStandardPaths::LocateDirectory);
     if (!path.isEmpty()) {
         QDir dir(path);
         const auto infoList = dir.entryInfoList(QStringList(QStringLiteral("*.desktop")));
@@ -240,8 +238,9 @@ void SettingsBase::initConfig()
 void SettingsBase::initMenuList(MenuItem *parent)
 {
     // look for any categories inside this level, and recurse into them
-    for (int i = 0; i < categories.size(); ++i) {
-        const KConfigGroup entry = KSharedConfig::openConfig(categories.at(i))->group("Desktop Entry");
+    for (const QString &category : qAsConst(categories)) {
+        const KDesktopFile file(category);
+        const KConfigGroup entry = file.desktopGroup();
         QString parentCategory;
         QString parentCategory2;
         if (m_mode == BaseMode::InfoCenter) {
@@ -255,7 +254,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
             // V2 entries must not be empty if they want to become a proper category.
             (!parentCategory2.isEmpty() && parentCategory2 == parent->category())) {
             MenuItem *menuItem = new MenuItem(true, parent);
-            menuItem->setService(KService::Ptr(new KService(categories.at(i))));
+            menuItem->setCategoryConfig(entry);
             if (entry.readEntry("X-KDE-System-Settings-Category") == QLatin1String("lost-and-found")) {
                 lostFound = menuItem;
                 continue;
@@ -279,10 +278,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
             category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
         }
 
-        QString parentCategoryKcm = parent->service() //
-            ? parent->service()->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString()
-            : QString();
-
+        const QString parentCategoryKcm = parent->systemsettingsCategoryModule();
         bool isCategoryOwner = false;
 
         if (!parentCategoryKcm.isEmpty() && parentCategoryKcm == entry->library()) {

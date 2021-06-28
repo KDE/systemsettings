@@ -35,11 +35,11 @@ install( FILES
 
     settings-system-administration.desktop
 
-    DESTINATION  ${KDE_INSTALL_DATADIR}/systemsettingscategories)
+    DESTINATION  ${KDE_INSTALL_DATADIR}/systemsettings/categories)
 
 if (NOT WIN32)
     install( FILES
          settings-network-bluetooth.desktop
-         DESTINATION  ${KDE_INSTALL_DATADIR}/systemsettingscategories)
+         DESTINATION  ${KDE_INSTALL_DATADIR}/systemsettings/categories)
 endif ()
 

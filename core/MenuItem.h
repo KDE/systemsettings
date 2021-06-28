@@ -15,6 +15,7 @@
 
 class QString;
 class KCModuleInfo;
+class KConfigGroup;
 template<typename T> class QList;
 
 /**
@@ -89,12 +90,10 @@ public:
      */
     QList<MenuItem *> &children() const;
 
-    /**
-     * Returns the service object of this item, which contains useful information about it.
-     *
-     * @returns The service object of this item if it has been set.
-     */
-    KService::Ptr &service() const;
+    QString comment() const;
+    QString iconName() const;
+    bool isSystemsettingsCategory() const;
+    QString systemsettingsCategoryModule() const;
 
     /**
      * Provides the KDE control module information item, which can be used to load control modules
@@ -141,6 +140,12 @@ public:
      * @param service The service object to store.
      */
     void setService(const KService::Ptr &service);
+
+    /**
+     * Constructs an item which resembles a category using the given filename.
+     * The properties are read using KConfig
+     */
+    void setCategoryConfig(const KConfigGroup &file);
 
     void setItem(const KCModuleInfo &item);
 
