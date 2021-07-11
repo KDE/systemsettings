@@ -15,6 +15,7 @@
   <name xml:lang="eu">Sistemako Ezarpenak</name>
   <name xml:lang="fi">Järjestelmäasetukset</name>
   <name xml:lang="fr">Configuration du système</name>
+  <name xml:lang="hi">केडीई तंत्र विन्यास</name>
   <name xml:lang="hu">Rendszerbeállítások</name>
   <name xml:lang="ia">Preferentias de systema</name>
   <name xml:lang="id">System Settings</name>
@@ -54,6 +55,7 @@
   <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
   <summary xml:lang="fi">Tietokoneen ylläpitotyökalut</summary>
   <summary xml:lang="fr">Outils de configuration pour votre ordinateur</summary>
+  <summary xml:lang="hi">आपके कंप्यूटर के लिए विन्यास साधन</summary>
   <summary xml:lang="hu">Beállítóeszközök számítógépéhez</summary>
   <summary xml:lang="ia">Instrumentos de configuration per tu computator</summary>
   <summary xml:lang="id">Peralatan konfigurasi untuk komputermu</summary>
@@ -105,6 +107,7 @@
     <p xml:lang="eu">Sistemako Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
     <p xml:lang="fi">Järjestelmäasetuksilla voit asettaa ja säätää KDE Plasma -työpöytääsi vastaamaan paremmin tarpeitasi.</p>
     <p xml:lang="fr">La configuration du système vous permet de configurer et d'ajuster votre environnement de bureau KDE Plasma pour l'adapter à vos besoins.</p>
+    <p xml:lang="hi">तंत्र विन्यास आपको अपने केडीई प्लाज़्मा डेस्कटॉप को बेहतर ढंग से अपनी आवश्यकताओं को पूरा करने के लिए विन्यस्त और सुधार करने में काम आता है।</p>
     <p xml:lang="hu">A Rendszerbeállítások lehetővé teszi a KDE Plasma beállítását és finomhangolását, hogy jobban illeszkedjen az igényeihez.</p>
     <p xml:lang="ia">Preferentias de systema  te pemitte configurar e pinciar tu scriptorio de Plasma KDE pro facer que illo incontra meliormente tu necessitates.</p>
     <p xml:lang="id">System Settings memungkinkan kamu untuk mengkonfigurasi dan menguprek desktop KDE Plasma kamu untuk membuatnya lebih baik sesuai kebutuhanmu.</p>
