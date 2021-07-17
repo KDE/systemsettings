@@ -92,6 +92,9 @@ public:
 
     QString comment() const;
     QString iconName() const;
+
+    bool isExternalAppModule() const;
+
     bool isSystemsettingsCategory() const;
     QString systemsettingsCategoryModule() const;
     bool isSystemsettingsRootCategory() const;

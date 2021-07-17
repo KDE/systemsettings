@@ -43,7 +43,9 @@ public:
     QString comment;
     QString iconName;
     QString systemsettingsCategoryModule;
-    bool isSystemsettingsRootCategory;
+    bool isSystemsettingsCategory = false;
+    bool isSystemsettingsRootCategory = false;
+    bool isExternalAppModule = false;
 };
 
 MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
@@ -104,9 +106,14 @@ QString MenuItem::iconName() const
     return d->iconName;
 }
 
+bool MenuItem::isExternalAppModule() const
+{
+    return d->isExternalAppModule;
+}
+
 bool MenuItem::isSystemsettingsCategory() const
 {
-    return false;
+    return d->isSystemsettingsCategory;
 }
 
 QString MenuItem::systemsettingsCategoryModule() const
@@ -162,6 +169,7 @@ void MenuItem::setService(const KService::Ptr &service)
     d->comment = service->comment();
     d->iconName = service->icon();
     d->systemsettingsCategoryModule = service->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString();
+    d->isExternalAppModule = service->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) && service->library().isEmpty() && !service->exec().isEmpty();
 }
 
 void MenuItem::setCategoryConfig(const KDesktopFile &file)
@@ -175,6 +183,7 @@ void MenuItem::setCategoryConfig(const KDesktopFile &file)
     d->weight = grp.readEntry(QStringLiteral("X-KDE-Weight"), 100);
     d->comment = grp.readEntry("Comment");
     d->iconName = grp.readEntry("Icon");
+    d->isSystemsettingsCategory = true;
     d->systemsettingsCategoryModule = grp.readEntry("X-KDE-System-Settings-Category-Module");
     d->isSystemsettingsRootCategory = QFileInfo(file.fileName()).fileName() == QLatin1String("settings-root-category.desktop");
 }
