@@ -7,19 +7,19 @@
 #ifndef EXTERNALAPPMODULE_H
 #define EXTERNALAPPMODULE_H
 
+#include <KService>
 #include <QWidget>
 
 #include "ui_externalModule.h"
 
 class QShowEvent;
-class KCModuleInfo;
 
 class ExternalAppModule : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ExternalAppModule(QWidget *parent = nullptr, KCModuleInfo *module = nullptr);
+    explicit ExternalAppModule(QWidget *parent, const KService::Ptr &module);
     ~ExternalAppModule() override;
 
 protected:
@@ -29,7 +29,7 @@ private Q_SLOTS:
     void runExternal();
 
 private:
-    KCModuleInfo *moduleInfo;
+    const KService::Ptr module;
     Ui::ExternalModule externalModule;
     bool firstShow;
 };
