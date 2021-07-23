@@ -197,8 +197,6 @@ void SettingsBase::initHelpMenu()
     helpActionMenu->setDelayed(false);
     actionCollection()->addAction(QStringLiteral("help_toolbar_menu"), helpActionMenu);
     // Add the custom actions
-    aboutModuleAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_module"), this, SLOT(about()));
-    changeAboutMenu(nullptr, aboutModuleAction, i18n("About Active Module"));
     aboutViewAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, SLOT(about()));
 }
 
@@ -389,8 +387,6 @@ void SettingsBase::about()
     const KAboutData *about = nullptr;
     if (sender() == aboutViewAction) {
         about = activeView->aboutData();
-    } else if (sender() == aboutModuleAction && activeView->moduleView()) {
-        about = activeView->moduleView()->aboutData();
     }
 
     if (about) {
@@ -456,7 +452,6 @@ void SettingsBase::viewChange(bool state)
     } else {
         setCaption(QString(), state);
     }
-    changeAboutMenu(activeView->moduleView()->aboutData(), aboutModuleAction, i18n("About Active Module"));
 }
 
 void SettingsBase::updateViewActions()

@@ -14,7 +14,6 @@
 
 #include "systemsettingsview_export.h"
 
-class KAboutData;
 class KCModuleInfo;
 class KCModuleProxy;
 class KPageWidgetItem;
@@ -57,11 +56,6 @@ public:
      * active module or configuration changes.
      */
     KCModuleInfo *activeModule() const;
-
-    /**
-     * Provides the about data of the active module, used for the about dialog.
-     */
-    const KAboutData *aboutData() const;
 
     /**
      * Resolves any changes in the currently active module by prompting the user if they exist.

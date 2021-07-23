@@ -69,7 +69,6 @@ private:
     QAction *quitAction = nullptr;
     // The help menu
     QAction *aboutViewAction = nullptr;
-    QAction *aboutModuleAction = nullptr;
     KActionMenu *helpActionMenu = nullptr;
     // The configuration
     KConfigDialog *configDialog = nullptr;

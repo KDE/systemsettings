@@ -198,16 +198,6 @@ KCModuleInfo *ModuleView::activeModule() const
     return d->mModules.value(d->mPageWidget->currentPage());
 }
 
-const KAboutData *ModuleView::aboutData() const
-{
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
-    KAboutData *aboutData = nullptr;
-    if (activeModule) {
-        aboutData = const_cast<KAboutData *>(activeModule->aboutData());
-    }
-    return aboutData;
-}
-
 void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args)
 {
     if (!menuItem.isValid()) {
