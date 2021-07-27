@@ -42,13 +42,14 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
     DBusAddons
     Config
-    DocTools
     Package
     Declarative
     Activities
     ActivitiesStats
     GuiAddons # UrlHanlder hanldes help:/ urls
     Kirigami2
+    OPTIONAL_COMPONENTS
+    DocTools
     QUIET
 )
 
@@ -63,7 +64,9 @@ add_subdirectory(app)
 add_subdirectory(categories)
 add_subdirectory(icons)
 add_subdirectory(sidebar)
-add_subdirectory(doc)
+if(KF5DocTools_FOUND)
+    add_subdirectory(doc)
+endif()
 
 ecm_qt_install_logging_categories(EXPORT SYSTEMSETTINGS FILE systemsettings.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
