@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "Description": "Find system settings and system information modules",
+        "Icon": "systemsettings",
+        "Name": "System Settings",
+        "EnabledByDefault": true
+    },
+    "X-Plasma-Runner-Unique-Results": true
+}

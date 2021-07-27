@@ -48,6 +48,8 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     ActivitiesStats
     GuiAddons # UrlHanlder hanldes help:/ urls
     Kirigami2
+    Notifications
+    Runner
     OPTIONAL_COMPONENTS
     DocTools
     QUIET
@@ -67,6 +69,7 @@ add_subdirectory(sidebar)
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
 endif()
+add_subdirectory(runner)
 
 ecm_qt_install_logging_categories(EXPORT SYSTEMSETTINGS FILE systemsettings.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
