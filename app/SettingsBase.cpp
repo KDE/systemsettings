@@ -49,7 +49,6 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget *parent)
     // Prepare the view area
     stackedWidget = new QStackedWidget(this);
     setCentralWidget(stackedWidget);
-    setWindowFlags(windowFlags() | Qt::WindowContextHelpButtonHint);
     // Initialise search
     searchText = new KLineEdit(this);
     searchText->setClearButtonEnabled(true);
