@@ -35,20 +35,23 @@ Kirigami.ScrollablePage {
             visible: false
         }
 
-        background: MouseArea {
-            acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
-            onClicked: root.pageStack.currentIndex = 0;
-            hoverEnabled: !Kirigami.Settings.isMobile
+        background: Rectangle {
             visible: !applicationWindow().wideScreen
+            color: Kirigami.Theme.highlightColor
+            opacity: mousearea.containsMouse  ? (mousearea.pressed ? 0.4 : 0.2) : 0
             Accessible.role: Accessible.Button
             Accessible.name: i18n("Go back")
-            Rectangle {
-                anchors.fill: parent
-                color: Kirigami.Theme.highlightColor
-                opacity: parent.containsMouse ? (parent.pressed ? 0.4 : 0.2) : 0
-            }
+
             QQC2.ToolTip {
                 text: parent.Accessible.name
+            }
+
+            MouseArea {
+                id: mousearea
+                anchors.fill: parent
+                acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
+                onClicked: root.pageStack.currentIndex = 0;
+                hoverEnabled: !Kirigami.Settings.isMobile
             }
         }
 
