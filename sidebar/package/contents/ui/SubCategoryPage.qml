@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
             MouseArea {
                 id: mousearea
                 anchors.fill: parent
-                acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
+                enabled: !applicationWindow().wideScreen
                 onClicked: root.pageStack.currentIndex = 0;
                 hoverEnabled: !Kirigami.Settings.isMobile
             }
