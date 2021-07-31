@@ -1,9 +1,23 @@
 {
     "KPlugin": {
         "Description": "Find system settings and system information modules",
+        "Description[az]": "Sistem ayarları və sistem məlumatı modullarını tapın",
+        "Description[ca]": "Cerca dels mòduls de l'arranjament del sistema i d'informació del sistema",
+        "Description[es]": "Encontrar preferencias del sistema y módulos de información del sistema",
+        "Description[nl]": "Zoek naar systeeminstellingen en systeeminformatiemodules",
+        "Description[sv]": "Sök efter systeminställnings- och systeminformationsmoduler",
+        "Description[uk]": "Пошук модулів «Системних параметрів» і «Інформації про систему»",
+        "Description[x-test]": "xxFind system settings and system information modulesxx",
         "EnabledByDefault": true,
         "Icon": "systemsettings",
-        "Name": "System Settings"
+        "Name": "System Settings",
+        "Name[az]": "Sistem ayarları",
+        "Name[ca]": "Arranjament del sistema",
+        "Name[es]": "Preferencias del sistema",
+        "Name[nl]": "Systeeminstellingen",
+        "Name[sv]": "Systeminställningar",
+        "Name[uk]": "Системні параметри",
+        "Name[x-test]": "xxSystem Settingsxx"
     },
     "X-Plasma-Runner-Unique-Results": true
 }
