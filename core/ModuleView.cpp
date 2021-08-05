@@ -44,10 +44,10 @@
 class CustomTitle : public KTitleWidget
 {
 public:
-    CustomTitle(QWidget *parent = nullptr);
+    explicit CustomTitle(QWidget *parent = nullptr);
 
 protected:
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *event) override;
     void colorsChanged();
 };
 
