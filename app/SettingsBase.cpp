@@ -193,7 +193,7 @@ void SettingsBase::initToolBar()
 void SettingsBase::initHelpMenu()
 {
     helpActionMenu = new KActionMenu(QIcon::fromTheme(QStringLiteral("help-contents")), i18n("Help"), this);
-    helpActionMenu->setDelayed(false);
+    helpActionMenu->setPopupMode(QToolButton::InstantPopup);
     actionCollection()->addAction(QStringLiteral("help_toolbar_menu"), helpActionMenu);
     // Add the custom actions
     aboutViewAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, SLOT(about()));
