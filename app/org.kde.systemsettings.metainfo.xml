@@ -13,7 +13,7 @@
   <name xml:lang="en-GB">System Settings</name>
   <name xml:lang="es">Preferencias del sistema</name>
   <name xml:lang="et">Süsteemi seadistused</name>
-  <name xml:lang="eu">Sistemako Ezarpenak</name>
+  <name xml:lang="eu">Sistemaren Ezarpenak</name>
   <name xml:lang="fi">Järjestelmäasetukset</name>
   <name xml:lang="fr">Configuration du système</name>
   <name xml:lang="hi">तंत्र विन्यास</name>
@@ -109,7 +109,7 @@
     <p xml:lang="en-GB">System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
     <p xml:lang="es">Las preferencias del sistema le permiten configurar y afinar el escritorio Plasma para que se ajuste a sus necesidades.</p>
     <p xml:lang="et">Süsteemi seadistused võimaldavad seadistada ja täppishäälestada KDE Plasma töölauda, et see vastaks just sinu vajadustele.</p>
-    <p xml:lang="eu">Sistemako Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
+    <p xml:lang="eu">Sistemaren Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
     <p xml:lang="fi">Järjestelmäasetuksilla voit asettaa ja säätää KDE Plasma -työpöytääsi vastaamaan paremmin tarpeitasi.</p>
     <p xml:lang="fr">La configuration du système vous permet de configurer et d'ajuster votre environnement de bureau KDE Plasma pour l'adapter à vos besoins.</p>
     <p xml:lang="hi">तंत्र विन्यास आपको अपने केडीई प्लाज़्मा डेस्कटॉप को बेहतर ढंग से अपनी आवश्यकताओं को पूरा करने के लिए विन्यस्त और सुधार करने में काम आता है।</p>
