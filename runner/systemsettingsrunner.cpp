@@ -60,34 +60,6 @@ public:
     }
 
 private:
-    void seen(const KService::Ptr &service)
-    {
-        m_seen.insert(service->storageId());
-        m_seen.insert(service->exec());
-    }
-
-    void seen(const KServiceAction &action)
-    {
-        m_seen.insert(action.exec());
-    }
-
-    bool hasSeen(const KService::Ptr &service)
-    {
-        return m_seen.contains(service->storageId()) && m_seen.contains(service->exec());
-    }
-
-    bool hasSeen(const KServiceAction &action)
-    {
-        return m_seen.contains(action.exec());
-    }
-
-    bool disqualify(const KService::Ptr &service)
-    {
-        auto ret = hasSeen(service) || service->noDisplay();
-        seen(service);
-        return ret;
-    }
-
     qreal increaseMatchRelavance(const KService::Ptr &service, const QVector<QStringRef> &strList, const QString &category)
     {
         // Increment the relevance based on all the words (other than the first) of the query list
@@ -177,7 +149,7 @@ private:
         const KService::List services = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), query);
 
         for (const KService::Ptr &service : qAsConst(services)) {
-            if (disqualify(service)) {
+            if (service->noDisplay()) {
                 continue;
             }
 
@@ -226,7 +198,6 @@ private:
     }
 
     SystemsettingsRunner *m_runner;
-    QSet<QString> m_seen;
 
     QList<Plasma::QueryMatch> matches;
     QString term;
