@@ -20,6 +20,7 @@
         "Description[uk]": "Пошук модулів «Системних параметрів» і «Інформації про систему»",
         "Description[vi]": "Tìm các khối thiết lập hệ thống và thông tin hệ thống",
         "Description[x-test]": "xxFind system settings and system information modulesxx",
+        "Description[zh_CN]": "查找系统设置和系统信息模块",
         "EnabledByDefault": true,
         "Icon": "systemsettings",
         "Name": "System Settings",
@@ -41,7 +42,8 @@
         "Name[sv]": "Systeminställningar",
         "Name[uk]": "Системні параметри",
         "Name[vi]": "Thiết lập hệ thống",
-        "Name[x-test]": "xxSystem Settingsxx"
+        "Name[x-test]": "xxSystem Settingsxx",
+        "Name[zh_CN]": "系统设置"
     },
     "X-Plasma-Runner-Unique-Results": true
 }
