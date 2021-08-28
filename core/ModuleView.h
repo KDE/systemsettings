@@ -1,7 +1,6 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
  *   SPDX-FileCopyrightText: 2009 Mathias Soeken <msoeken@informatik.uni-bremen.de>
- *   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -18,6 +17,7 @@
 class KCModuleInfo;
 class KCModuleProxy;
 class KPageWidgetItem;
+class KPluginMetaData;
 class MenuItem;
 
 /**
@@ -57,7 +57,7 @@ public:
      * Provides the module information, which is used to set the caption of the window when either the
      * active module or configuration changes.
      */
-    KCModuleInfo *activeModule() const;
+    QString activeModuleName() const;
 
     /**
      * Resolves any changes in the currently active module by prompting the user if they exist.
@@ -165,7 +165,7 @@ public Q_SLOTS:
 
 private:
     bool resolveChanges(KCModuleProxy *currentProxy);
-    void addModule(MenuItem *menuItem, const QStringList &args);
+    void addModule(MenuItem *item, const QStringList &args);
     bool moduleSave(KCModuleProxy *module);
     void updatePageIconHeader(KPageWidgetItem *page, bool light = false);
 

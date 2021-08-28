@@ -131,7 +131,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         MenuItem *parent = mi->parent();
         // Items that are in a category with an owner are one level deeper,
         // except the owner
-        if (parent && parent->menu() && (parent->item().isValid() && !parent->item().service()->library().isEmpty()) && !mi->isCategoryOwner()) {
+        if (parent && parent->menu() && mi->isLibrary() && !mi->isCategoryOwner()) {
             ++depth;
         }
         theData.setValue(depth);
@@ -141,7 +141,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         theData.setValue(mi->menu());
         break;
     case MenuModel::IsKCMRole:
-        theData.setValue(!mi->item().library().isEmpty());
+        theData.setValue(mi->isLibrary());
         break;
     case MenuModel::DefaultIndicatorRole:
         theData.setValue(mi->showDefaultIndicator());

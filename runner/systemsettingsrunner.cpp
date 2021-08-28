@@ -11,197 +11,24 @@
 
 #include <algorithm>
 
-#include <QMimeData>
-
 #include <QDebug>
 #include <QDir>
 #include <QIcon>
+#include <QMimeData>
+#include <QMutexLocker>
 #include <QStandardPaths>
 #include <QUrl>
 #include <QUrlQuery>
 
 #include <KActivities/ResourceInstance>
+#include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
 #include <KNotificationJobUiDelegate>
-#include <KServiceAction>
-#include <KServiceTypeTrader>
-#include <KStringHandler>
 #include <KSycoca>
 
-#include <KIO/ApplicationLauncherJob>
-#include <KIO/DesktopExecParser>
+#include "../core/loadkcmmetadata.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SystemsettingsRunner, "systemsettingsrunner.json")
-
-/**
- * @brief Finds all KServices for a given runner query
- */
-class SystemsettingsFinder
-{
-public:
-    SystemsettingsFinder(SystemsettingsRunner *runner)
-        : m_runner(runner)
-    {
-    }
-
-    void match(Plasma::RunnerContext &context)
-    {
-        if (!context.isValid()) {
-            return;
-        }
-
-        KSycoca::disableAutoRebuild();
-
-        term = context.query();
-
-        matchNameKeywordAndGenericName();
-
-        context.addMatches(matches);
-    }
-
-private:
-    qreal increaseMatchRelavance(const KService::Ptr &service, const QVector<QStringRef> &strList, const QString &category)
-    {
-        // Increment the relevance based on all the words (other than the first) of the query list
-        qreal relevanceIncrement = 0;
-
-        for (int i = 1; i < strList.size(); ++i) {
-            const auto &str = strList.at(i);
-            if (category == QLatin1String("Name")) {
-                if (service->name().contains(str, Qt::CaseInsensitive)) {
-                    relevanceIncrement += 0.01;
-                }
-            } else if (category == QLatin1String("GenericName")) {
-                if (service->genericName().contains(str, Qt::CaseInsensitive)) {
-                    relevanceIncrement += 0.01;
-                }
-            } else if (category == QLatin1String("Exec")) {
-                if (service->exec().contains(str, Qt::CaseInsensitive)) {
-                    relevanceIncrement += 0.01;
-                }
-            } else if (category == QLatin1String("Comment")) {
-                if (service->comment().contains(str, Qt::CaseInsensitive)) {
-                    relevanceIncrement += 0.01;
-                }
-            }
-        }
-
-        return relevanceIncrement;
-    }
-
-    QString generateQuery(const QVector<QStringRef> &strList)
-    {
-        QString keywordTemplate = QStringLiteral("exist Keywords");
-        QString genericNameTemplate = QStringLiteral("exist GenericName");
-        QString nameTemplate = QStringLiteral("exist Name");
-        QString commentTemplate = QStringLiteral("exist Comment");
-
-        // Search for applications which are executable and the term case-insensitive matches any of
-        // * a substring of one of the keywords
-        // * a substring of the GenericName field
-        // * a substring of the Name field
-        // Note that before asking for the content of e.g. Keywords and GenericName we need to ask if
-        // they exist to prevent a tree evaluation error if they are not defined.
-        for (const QStringRef &str : strList) {
-            keywordTemplate += QStringLiteral(" and '%1' ~subin Keywords").arg(str.toString());
-            genericNameTemplate += QStringLiteral(" and '%1' ~~ GenericName").arg(str.toString());
-            nameTemplate += QStringLiteral(" and '%1' ~~ Name").arg(str.toString());
-            commentTemplate += QStringLiteral(" and '%1' ~~ Comment").arg(str.toString());
-        }
-
-        QString finalQuery = QStringLiteral("exist Exec and ( (%1) or (%2) or (%3) or ('%4' ~~ Exec) or (%5) )")
-                                 .arg(keywordTemplate, genericNameTemplate, nameTemplate, strList[0].toString(), commentTemplate);
-
-        return finalQuery;
-    }
-
-    void setupMatch(const KService::Ptr &service, Plasma::QueryMatch &match)
-    {
-        const QString name = service->name();
-
-        match.setText(name);
-
-        QUrl url(service->storageId());
-        url.setScheme(QStringLiteral("applications"));
-        match.setData(url);
-        QString exec = service->exec();
-        const QStringList resultingArgs = KIO::DesktopExecParser(KService(QString(), exec, QString()), {}).resultingArguments();
-        match.setId(QStringLiteral("exec://") + resultingArgs.join(QLatin1Char(' ')));
-        if (!service->genericName().isEmpty() && service->genericName() != name) {
-            match.setSubtext(service->genericName());
-        } else if (!service->comment().isEmpty()) {
-            match.setSubtext(service->comment());
-        }
-
-        if (!service->icon().isEmpty()) {
-            match.setIconName(service->icon());
-        }
-    }
-
-    void matchNameKeywordAndGenericName()
-    {
-        // Splitting the query term to match using subsequences
-        QVector<QStringRef> queryList = term.splitRef(QLatin1Char(' '));
-
-        // If the term length is < 3, no real point searching the Keywords and GenericName
-        const QString query = generateQuery(queryList);
-
-        const KService::List services = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), query);
-
-        for (const KService::Ptr &service : qAsConst(services)) {
-            if (service->noDisplay()) {
-                continue;
-            }
-
-            Plasma::QueryMatch match(m_runner);
-            match.setType(Plasma::QueryMatch::CompletionMatch);
-            setupMatch(service, match);
-            qreal relevance(0.6);
-
-            if (service->name().contains(queryList[0], Qt::CaseInsensitive)) {
-                relevance = 0.8;
-                relevance += increaseMatchRelavance(service, queryList, QStringLiteral("Name"));
-
-                if (service->name().startsWith(queryList[0], Qt::CaseInsensitive)) {
-                    relevance += 0.1;
-                }
-            } else if (service->genericName().contains(queryList[0], Qt::CaseInsensitive)) {
-                relevance = 0.65;
-                relevance += increaseMatchRelavance(service, queryList, QStringLiteral("GenericName"));
-
-                if (service->genericName().startsWith(queryList[0], Qt::CaseInsensitive)) {
-                    relevance += 0.05;
-                }
-            } else if (service->comment().contains(queryList[0], Qt::CaseInsensitive)) {
-                relevance = 0.5;
-                relevance += increaseMatchRelavance(service, queryList, QStringLiteral("Comment"));
-
-                if (service->comment().startsWith(queryList[0], Qt::CaseInsensitive)) {
-                    relevance += 0.05;
-                }
-            }
-
-            if (service->parentApp() == QStringLiteral("kinfocenter")) {
-                match.setMatchCategory(i18n("System Information"));
-            } else {
-                match.setMatchCategory(i18n("System Settings"));
-            }
-            // KCMs are, on the balance, less relevant. Drop it ever so much. So they may get outscored
-            // by an otherwise equally applicable match.
-            relevance -= .001;
-
-            // qCDebug(RUNNER_SERVICES) << service->name() << "is this relevant:" << relevance;
-            match.setRelevance(relevance);
-
-            matches << match;
-        }
-    }
-
-    SystemsettingsRunner *m_runner;
-
-    QList<Plasma::QueryMatch> matches;
-    QString term;
-};
 
 SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
     : Plasma::AbstractRunner(parent, metaData, args)
@@ -210,59 +37,131 @@ SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaDat
     setPriority(AbstractRunner::HighestPriority);
 
     addSyntax(Plasma::RunnerSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:")));
+    connect(this, &SystemsettingsRunner::teardown, this, [this]() {
+        m_modules.clear();
+    });
 }
 
 SystemsettingsRunner::~SystemsettingsRunner() = default;
 
 void SystemsettingsRunner::match(Plasma::RunnerContext &context)
 {
-    // This helper class aids in keeping state across numerous
-    // different queries that together form the matches set.
-    SystemsettingsFinder finder(this);
-    finder.match(context);
+    {
+        QMutexLocker lock(&m_mutex);
+        if (m_modules.isEmpty()) {
+            KSycoca::disableAutoRebuild();
+            m_modules = findKCMsMetaData(MetaDataSource::All);
+        }
+    }
+    matchNameKeywordAndGenericName(context);
 }
 
 void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &match)
 {
     Q_UNUSED(context)
 
-    const QUrl dataUrl = match.data().toUrl();
+    const auto data = match.data().value<KPluginMetaData>();
 
-    KService::Ptr service = KService::serviceByStorageId(dataUrl.path());
-    if (!service) {
-        return;
+    KIO::CommandLauncherJob *job = nullptr;
+    if (data.value(QStringLiteral("X-KDE-ParentApp")) == QLatin1String("kinfocenter")) {
+        job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), {data.pluginId()});
+        job->setDesktopName(QStringLiteral("org.kde.kinfocenter"));
+    } else if (!data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()) {
+        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings5"), {data.pluginId()});
+        job->setDesktopName(QStringLiteral("org.kde.systemsettings"));
+    } else {
+        // If we have created the KPluginMetaData from a desktop file KCMShell needs the pluginId, otherwise we can give
+        // it the absolute path to the plugin. That works in any case, see commit 866d730fd098775f6b16cc8ba15974af80700d12 in kde-cli-tools
+        bool isDesktopFile = data.metaDataFileName().endsWith(QLatin1String(".desktop"));
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {isDesktopFile ? data.pluginId() : data.fileName()});
     }
-
-    KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("applications:") + service->storageId()), QStringLiteral("org.kde.krunner"));
-
-    KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
     auto *delegate = new KNotificationJobUiDelegate;
     delegate->setAutoErrorHandlingEnabled(true);
     job->setUiDelegate(delegate);
     job->start();
+
+    KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("systemsettings:") + data.pluginId()), QStringLiteral("org.kde.krunner"));
 }
 
 QMimeData *SystemsettingsRunner::mimeDataForMatch(const Plasma::QueryMatch &match)
 {
-    const QUrl dataUrl = match.data().toUrl();
+    const auto value = match.data().value<KPluginMetaData>();
+    if (value.isValid() && value.metaDataFileName().endsWith(QLatin1String(".desktop"))) {
+        auto *data = new QMimeData();
+        data->setUrls(QList<QUrl>{QUrl::fromLocalFile(value.metaDataFileName())});
+        return data;
+    }
+    return nullptr;
+}
 
-    KService::Ptr service = KService::serviceByStorageId(dataUrl.path());
-    if (!service) {
-        return nullptr;
+void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::QueryMatch &match)
+{
+    const QString name = data.name();
+
+    match.setText(name);
+    const QString genericName = data.value(QStringLiteral("GenericName"));
+    if (!genericName.isEmpty() && genericName != name) {
+        match.setSubtext(genericName);
+    } else if (!data.description().isEmpty()) {
+        match.setSubtext(data.description());
     }
 
-    QString path = service->entryPath();
-    if (!QDir::isAbsolutePath(path)) {
-        path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kservices5/") + path);
+    if (!data.iconName().isEmpty()) {
+        match.setIconName(data.iconName());
     }
+    match.setData(QVariant::fromValue(data));
+}
 
-    if (path.isEmpty()) {
-        return nullptr;
+void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext &ctx)
+{
+    QList<Plasma::QueryMatch> matches;
+    // Splitting the query term to match using subsequences
+    const QStringList queryList = ctx.query().split(QLatin1Char(' '));
+
+    for (const KPluginMetaData &data : qAsConst(m_modules)) {
+        Plasma::QueryMatch match(this);
+        match.setType(Plasma::QueryMatch::CompletionMatch);
+        setupMatch(data, match);
+        qreal relevance = -1;
+
+        auto checkMatchAndRelevance = [queryList, data, &relevance](const QString &value, qreal relevanceValue) {
+            if (value.contains(queryList.first(), Qt::CaseInsensitive)) {
+                relevance = relevanceValue;
+                return true;
+            }
+            for (const QString &query : queryList) {
+                if (relevance == -1 && value.contains(query, Qt::CaseInsensitive)) {
+                    relevance = 0.5;
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        if (checkMatchAndRelevance(data.name(), 0.8)) {
+            if (data.name().startsWith(queryList[0], Qt::CaseInsensitive)) {
+                relevance += 0.1;
+            }
+        } else {
+            if (!checkMatchAndRelevance(data.value(QStringLiteral("GenericName")), 0.65) && !checkMatchAndRelevance(data.description(), 0.5)) {
+                continue;
+            }
+        }
+
+        if (data.value(QStringLiteral("X-KDE-ParentApp")) == QLatin1String("kinfocenter")) {
+            match.setMatchCategory(i18n("System Information"));
+        } else {
+            match.setMatchCategory(i18n("System Settings"));
+        }
+        // KCMs are, on the balance, less relevant. Drop it ever so much. So they may get outscored
+        // by an otherwise equally applicable match.
+        relevance -= .001;
+
+        match.setRelevance(relevance);
+
+        matches << match;
     }
-
-    auto *data = new QMimeData();
-    data->setUrls(QList<QUrl>{QUrl::fromLocalFile(path)});
-    return data;
+    ctx.addMatches(matches);
 }
 
 #include "systemsettingsrunner.moc"

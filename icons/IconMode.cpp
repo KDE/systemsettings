@@ -138,7 +138,7 @@ void IconMode::changeModule(const QModelIndex &activeModule)
 {
     // Already loaded?
     MenuItem *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
-    if(d->moduleView->activeModule() == &item->item())
+    if (d->moduleView->activeModuleName() == &item->name())
         return;
 
     changeModuleWithArgs(activeModule, QStringList());

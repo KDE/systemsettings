@@ -39,6 +39,7 @@
 #include <KActivities/ResourceInstance>
 
 #include <cmath>
+#include <kpluginmetadata.h>
 
 #include "MenuItem.h"
 
@@ -112,7 +113,7 @@ public:
     {
     }
     QMap<KPageWidgetItem *, KCModuleProxy *> mPages;
-    QMap<KPageWidgetItem *, KCModuleInfo *> mModules;
+    QMap<KPageWidgetItem *, QString> mPagesPluginIdMap;
     KPageWidget *mPageWidget = nullptr;
     CustomTitle *mCustomHeader = nullptr;
     QVBoxLayout *mLayout = nullptr;
@@ -194,9 +195,9 @@ ModuleView::~ModuleView()
     delete d;
 }
 
-KCModuleInfo *ModuleView::activeModule() const
+QString ModuleView::activeModuleName() const
 {
-    return d->mModules.value(d->mPageWidget->currentPage());
+    return d->mPageWidget->currentPage() ? d->mPageWidget->currentPage()->name() : QString();
 }
 
 void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args)
@@ -208,7 +209,7 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
     MenuItem *item = menuItem.data(Qt::UserRole).value<MenuItem *>();
 
     // if module has a main page (like in Appearance > Global Theme) we'll load that
-    if (!item->item().library().isEmpty() || item->isExternalAppModule()) {
+    if (item->isLibrary() || item->isExternalAppModule()) {
         addModule(item, args);
     }
     // if module doesn't have a main page, we'll load the first subpage
@@ -218,52 +219,44 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
     }
 }
 
-void ModuleView::addModule(MenuItem *menuItem, const QStringList &args)
+void ModuleView::addModule(MenuItem *item, const QStringList &args)
 {
-    KCModuleInfo *module = &menuItem->item();
-    if (!module || !module->service()->isValid()) {
-        return;
-    }
-    if (!module->service()) {
-        qWarning() << "ModuleInfo has no associated KService";
-        return;
-    }
-    if (!KAuthorized::authorizeControlModule(module->service()->menuId())) {
+    const KPluginMetaData data = item->metaData();
+    if (!KAuthorized::authorizeControlModule(data.pluginId())) {
         qWarning() << "Not authorised to load module";
         return;
     }
-    if (module->service()->noDisplay()) {
+    if (data.isHidden()) {
         return;
     }
 
-    if (KPageWidgetItem *page = d->mModules.key(module)) {
+    if (KPageWidgetItem *page = d->mPagesPluginIdMap.key(data.name())) {
         activeModuleChanged(page, d->mPageWidget->currentPage());
         return;
     }
 
     // Create the scroller
-    QScrollArea *moduleScroll = new QScrollArea(this);
+    auto *moduleScroll = new QScrollArea(this);
     // Prepare the scroll area
     moduleScroll->setWidgetResizable(true);
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
     // Create the page
-    KPageWidgetItem *page = new KPageWidgetItem(moduleScroll, module->moduleName());
+    auto *page = new KPageWidgetItem(moduleScroll, data.name());
     // Provide information to the users
 
-    if (menuItem->isExternalAppModule() || // Is it an external app?
-        module->service()->substituteUid()) { // ...or does it require UID substitution?
-        QWidget *externalWidget = new ExternalAppModule(this, module->service());
+    if (item->isExternalAppModule()) { // TODO Load external KCMs using KPLuginMetaData ...or does it require UID substitution?
+        auto *externalWidget = new ExternalAppModule(this, KService::Ptr(new KService(item->metaData().metaDataFileName())));
         moduleScroll->setWidget(externalWidget);
     } else { // It must be a normal module then
-        KCModuleProxy *moduleProxy = new KCModuleProxy(*module, moduleScroll, args);
+        auto *moduleProxy = new KCModuleProxy(data, moduleScroll, args);
         moduleScroll->setWidget(moduleProxy);
         moduleProxy->setAutoFillBackground(false);
         connect(moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
         d->mPages.insert(page, moduleProxy);
     }
 
-    d->mModules.insert(page, module);
+    d->mPagesPluginIdMap.insert(page, data.name());
     updatePageIconHeader(page, true);
     // Add the new page
     d->mPageWidget->addPage(page);
@@ -277,18 +270,18 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page, bool light)
     }
 
     KCModuleProxy *moduleProxy = d->mPages.value(page);
-    KCModuleInfo *moduleInfo = d->mModules.value(page);
 
-    if (!moduleInfo) {
+    if (!moduleProxy || !moduleProxy->metaData().isValid()) {
         // Seems like we have some form of a race condition going on here...
         return;
     }
 
-    page->setHeader(moduleInfo->moduleName());
-    page->setIcon(QIcon::fromTheme(moduleInfo->icon()));
+    const QString currentModuleName = moduleProxy->metaData().name();
+    page->setHeader(currentModuleName);
+    page->setIcon(QIcon::fromTheme(moduleProxy->metaData().iconName()));
 
-    const bool isQml = (moduleProxy && moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml"));
-    if (activeModule() == moduleInfo) {
+    const bool isQml = (moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml"));
+    if (d->mPageWidget->currentPage() && d->mPageWidget->currentPage()->name() == currentModuleName) {
         d->mCustomHeader->setVisible(!isQml);
     }
     page->setHeaderVisible(false);
@@ -297,9 +290,9 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page, bool light)
         return;
     }
 
-    if (moduleProxy && moduleProxy->realModule()->useRootOnlyMessage()) {
-        page->setHeader(moduleInfo->moduleName() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>"));
-        d->mCustomHeader->setText(moduleInfo->moduleName() + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage()
+    if (moduleProxy->realModule()->useRootOnlyMessage()) {
+        page->setHeader(currentModuleName + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>"));
+        d->mCustomHeader->setText(currentModuleName + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage()
                                   + QStringLiteral("</small>"));
     }
 }
@@ -343,14 +336,12 @@ void ModuleView::closeModules()
 {
     d->pageChangeSupressed = true;
     d->mApplyAuthorize->setAuthAction(KAuth::Action()); // Ensure KAuth knows that authentication is now pointless...
-    QMap<KPageWidgetItem *, KCModuleInfo *>::iterator page = d->mModules.begin();
-    QMap<KPageWidgetItem *, KCModuleInfo *>::iterator pageEnd = d->mModules.end();
-    for (; page != pageEnd; ++page) {
+    for (auto page = d->mPagesPluginIdMap.begin(), pageEnd = d->mPagesPluginIdMap.end(); page != pageEnd; ++page) {
         d->mPageWidget->removePage(page.key());
     }
 
     d->mPages.clear();
-    d->mModules.clear();
+    d->mPagesPluginIdMap.clear();
     d->pageChangeSupressed = false;
 }
 
@@ -389,12 +380,12 @@ void ModuleView::moduleDefaults()
 
 void ModuleView::moduleHelp()
 {
-    KCModuleInfo *activeModule = d->mModules.value(d->mPageWidget->currentPage());
+    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (!activeModule) {
         return;
     }
 
-    QString docPath = activeModule->docPath();
+    const QString docPath = activeModule->metaData().value(QStringLiteral("X-DocPath"));
     if (docPath.isEmpty()) {
         return;
     }
@@ -419,17 +410,16 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     // We need to get the state of the now active module
     stateChanged();
 
-    KCModuleInfo *activeModuleInfo = activeModule();
     KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
-    if (activeModule || activeModuleInfo) {
+    if (activeModule) {
         // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
 
-        if (activeModule && d->mSaveStatistics && activeModule->moduleInfo().service()->desktopEntryName() != QStringLiteral("kcm_landingpage")) {
-            KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->moduleInfo().service()->storageId()),
+        if (d->mSaveStatistics && activeModule->metaData().pluginId() != QStringLiteral("kcm_landingpage")) {
+            KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->metaData().pluginId()),
                                                           QStringLiteral("org.kde.systemsettings"));
         }
 
-        d->mCustomHeader->setText(activeModuleInfo->moduleName());
+        d->mCustomHeader->setText(activeModule->metaData().name());
 
         d->mLayout->setContentsMargins(0, 0, 0, 0);
         d->mLayout->setSpacing(0);

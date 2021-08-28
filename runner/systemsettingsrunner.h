@@ -11,6 +11,7 @@
 #include <KService>
 
 #include <KRunner/AbstractRunner>
+#include <QMutex>
 
 class SystemsettingsRunner : public Plasma::AbstractRunner
 {
@@ -26,8 +27,11 @@ public:
 protected Q_SLOTS:
     QMimeData *mimeDataForMatch(const Plasma::QueryMatch &match) override;
 
-protected:
-    void setupMatch(const KService::Ptr &service, Plasma::QueryMatch &action);
+private:
+    void setupMatch(const KPluginMetaData &data, Plasma::QueryMatch &match);
+    void matchNameKeywordAndGenericName(Plasma::RunnerContext &ctx);
+    QMutex m_mutex;
+    QList<KPluginMetaData> m_modules;
 };
 
 #endif

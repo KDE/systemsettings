@@ -90,7 +90,14 @@ public:
      */
     QList<MenuItem *> &children() const;
 
+    /**
+     * @return comment of service or description of KPluginMetaData
+     */
     QString comment() const;
+
+    /**
+     * @return icon of service or iconName of KPluginMetaData
+     */
     QString iconName() const;
 
     bool isExternalAppModule() const;
@@ -100,12 +107,9 @@ public:
     bool isSystemsettingsRootCategory() const;
 
     /**
-     * Provides the KDE control module information item, which can be used to load control modules
-     * by the ModuleView.
-     *
-     * @returns The control module information object of the item, if the service object has been set.
+     * @return true if module represents a KCM plugin
      */
-    KCModuleInfo &item() const;
+    bool isLibrary();
 
     /**
      * Convenience function which provides the name of the current item.
@@ -138,20 +142,18 @@ public:
     bool menu() const;
 
     /**
-     * Sets the service object, which is used to provide the module information, name and keywords
-     * Applications will crash if it is not set, unless it is the top level item.
-     *
-     * @param service The service object to store.
-     */
-    void setService(const KService::Ptr &service);
-
-    /**
      * Constructs an item which resembles a category using the given filename.
      * The properties are read using KConfig
      */
     void setCategoryConfig(const KDesktopFile &file);
 
-    void setItem(const KCModuleInfo &item);
+    /**
+     * Constructs an item which resembles a category using the meta data.
+     * This method is preferred to setService(const KService &service)
+     */
+    void setMetaData(const KPluginMetaData &data);
+
+    KPluginMetaData metaData();
 
     MenuItem *descendantForModule(const QString &moduleName);
 

@@ -1,12 +1,12 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
  *   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
- *   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
 
 #include "SettingsBase.h"
+#include "../core/loadkcmmetadata.h"
 #include "BaseConfig.h"
 #include "systemsettings_app_debug.h"
 
@@ -94,13 +94,8 @@ QSize SettingsBase::sizeHint() const
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
-    if (m_mode == BaseMode::InfoCenter) {
-        modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
-        modules += KServiceTypeTrader::self()->query(QStringLiteral("InfoCenterExternalApp"));
-    } else {
-        modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
-        modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
-    }
+    pluginModules = findKCMsMetaData(m_mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings);
+
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("categories"), QStandardPaths::LocateDirectory);
     categories = KFileUtils::findAllUniqueFiles(dirs, QStringList(QStringLiteral("*.desktop")));
 
@@ -109,11 +104,10 @@ void SettingsBase::initApplication()
 
     // Handle lost+found modules...
     if (lostFound) {
-        for (int i = 0; i < modules.size(); ++i) {
-            const KService::Ptr entry = modules.at(i);
-            MenuItem *infoItem = new MenuItem(false, lostFound);
-            infoItem->setService(entry);
-            qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << entry->name();
+        for (const auto &metaData : pluginModules) {
+            auto infoItem = new MenuItem(false, lostFound);
+            infoItem->setMetaData(metaData);
+            qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << metaData.pluginId();
         }
     }
 
@@ -235,49 +229,32 @@ void SettingsBase::initMenuList(MenuItem *parent)
         }
     }
 
-    KService::List removeList;
-
     // scan for any modules at this level and add them
-    for (int i = 0; i < modules.size(); ++i) {
-        const KService::Ptr entry = modules.at(i);
-
-        QString category;
-        QString category2;
-        if (m_mode == BaseMode::InfoCenter) {
-            category = entry->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
-        } else {
-            category = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category")).toString();
-            category2 = entry->property(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).toString();
-        }
-
+    for (const auto &metaData : qAsConst(pluginModules)) {
+        const QString category = metaData.value(m_mode == BaseMode::InfoCenter ? QStringLiteral("X-KDE-KInfoCenter-Category")
+                                                                               : QStringLiteral("X-KDE-System-Settings-Parent-Category"));
         const QString parentCategoryKcm = parent->systemsettingsCategoryModule();
         bool isCategoryOwner = false;
 
-        if (!parentCategoryKcm.isEmpty() && parentCategoryKcm == entry->library()) {
-            parent->setItem(KCModuleInfo(entry));
+        if (!parentCategoryKcm.isEmpty() && parentCategoryKcm == metaData.pluginId()) {
+            parent->setMetaData(metaData);
             isCategoryOwner = true;
         }
 
-        if (!parent->category().isEmpty() && (category == parent->category() || category2 == parent->category())) {
-            if (!entry->noDisplay()) {
+        if (!parent->category().isEmpty() && category == parent->category()) {
+            if (!metaData.isHidden()) {
                 // Add the module info to the menu
                 MenuItem *infoItem = new MenuItem(false, parent);
-                infoItem->setService(entry);
+                infoItem->setMetaData(metaData);
                 infoItem->setCategoryOwner(isCategoryOwner);
 
-                if (m_mode == BaseMode::InfoCenter && entry->pluginKeyword() == QStringLiteral("kcm-about-distro")) {
+                if (m_mode == BaseMode::InfoCenter && metaData.pluginId() == QStringLiteral("kcm_about_distro")) {
                     homeModule = infoItem;
-                } else if (m_mode == BaseMode::SystemSettings && entry->pluginKeyword() == QStringLiteral("kcm_landingpage")) {
+                } else if (m_mode == BaseMode::SystemSettings && metaData.pluginId() == QStringLiteral("kcm_landingpage")) {
                     homeModule = infoItem;
                 }
             }
-
-            removeList.append(modules.at(i));
         }
-    }
-
-    for (int i = 0; i < removeList.size(); ++i) {
-        modules.removeOne(removeList.at(i));
     }
 
     parent->sortChildrenByWeight();
@@ -380,12 +357,7 @@ void SettingsBase::changePlugin()
 
 void SettingsBase::viewChange(bool state)
 {
-    KCModuleInfo *moduleInfo = activeView->moduleView()->activeModule();
-    if (moduleInfo) {
-        setCaption(moduleInfo->moduleName(), state);
-    } else {
-        setCaption(QString(), state);
-    }
+    setCaption(activeView->moduleView()->activeModuleName(), state);
 }
 
 void SettingsBase::updateViewActions()

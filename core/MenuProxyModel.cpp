@@ -72,7 +72,7 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
         if (mItem->menu() && mItem->children().isEmpty()) {
             return false;
         }
-        if (mItem->item().library() == QLatin1String("kcm_landingpage")) {
+        if (mItem->metaData().pluginId() == QLatin1String("kcm_landingpage")) {
             return false;
         } else {
             return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
@@ -82,7 +82,7 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
     MenuItem *mItem = index.data(Qt::UserRole).value<MenuItem *>();
 
-    if (mItem->item().library() == QLatin1String("kcm_landingpage")) {
+    if (mItem->metaData().pluginId() == QLatin1String("kcm_landingpage")) {
         return false;
     }
 

@@ -18,8 +18,8 @@
 
 #include <KAboutData>
 #include <KActionCollection>
-#include <KCModuleInfo>
 #include <KCMUtils/KCModuleLoader>
+#include <KCModuleInfo>
 #include <KConfigGroup>
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
@@ -36,6 +36,7 @@
 #include <QQmlEngine>
 #include <QQuickWidget>
 #include <QStandardItemModel>
+#include <QStandardPaths>
 
 #include <KActivities/Stats/ResultModel>
 #include <KActivities/Stats/ResultSet>
@@ -110,7 +111,7 @@ void SubcategoryModel::setParentIndex(const QModelIndex &activeModule)
 void SubcategoryModel::loadParentCategoryModule()
 {
     MenuItem *menuItem = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
-    if (!menuItem->item().library().isEmpty()) {
+    if (menuItem->isLibrary()) {
         m_sidebarMode->loadModule(m_activeModuleIndex);
     }
 }
@@ -196,7 +197,8 @@ public:
                 m_resultModel->forgetResource(QStringLiteral("kcm:") % desktopName);
                 return QVariant();
             }
-            mi->setService(service);
+            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + service->entryPath());
+            mi->setMetaData(KPluginMetaData::fromDesktopFile(path));
         }
 
         switch (role) {
@@ -467,7 +469,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
     }
 
     // If we are trying to load a module already open
-    if (d->moduleView->activeModule() && mi->item() == *d->moduleView->activeModule()) {
+    if (mi->name() == d->moduleView->activeModuleName()) {
         return;
     }
 
@@ -547,7 +549,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
             QModelIndex idx = d->flatModel->index(i, 0);
             MenuItem *otherMi = idx.data(MenuModel::MenuItemRole).value<MenuItem *>();
 
-            if (otherMi->item() == mi->item()) {
+            if (mi->metaData().isValid() && otherMi->metaData() == mi->metaData()) {
                 flatIndex = idx;
                 break;
             }
@@ -611,7 +613,7 @@ void SidebarMode::updateDefaults()
         return;
     }
 
-    auto *moduleData = KCModuleLoader::loadModuleData(item->item());
+    auto *moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(item->metaData()).plugin;
     if (moduleData) {
         connect(moduleData, &KCModuleData::loaded, this, [this, item, moduleData, categoryIdx]() {
             item->setDefaultIndicator(!moduleData->isDefaults());
@@ -708,7 +710,7 @@ void SidebarMode::refreshDefaults()
                 continue;
             }
 
-            auto *moduleData = KCModuleLoader::loadModuleData(item->item());
+            auto *moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(item->metaData()).plugin;
             if (moduleData) {
                 connect(moduleData, &KCModuleData::loaded, this, [this, item, moduleData]() {
                     item->setDefaultIndicator(!moduleData->isDefaults());

@@ -73,7 +73,7 @@ private:
     MenuItem *homeModule = nullptr;
     MenuItem *lostFound = nullptr;
     QStringList categories;
-    KService::List modules;
+    QList<KPluginMetaData> pluginModules;
     // The about dialog
     KAboutApplicationDialog *aboutDialog = nullptr;
     BaseMode::ApplicationMode m_mode = BaseMode::SystemSettings;

@@ -38,7 +38,6 @@ public:
     QString category;
     int weight;
     KService::Ptr service;
-    KCModuleInfo item;
     bool showDefaultIndicator = false;
     bool isCategoryOwner = false;
     QString comment;
@@ -47,6 +46,7 @@ public:
     bool isSystemsettingsCategory = false;
     bool isSystemsettingsRootCategory = false;
     bool isExternalAppModule = false;
+    KPluginMetaData metaData;
 };
 
 MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
@@ -79,8 +79,8 @@ MenuItem *MenuItem::child(int index)
 QStringList MenuItem::keywords()
 {
     QStringList listOfKeywords;
-
-    listOfKeywords << d->item.keywords() << d->name;
+    listOfKeywords << KPluginMetaData::readTranslatedString(d->metaData.rawData(), QStringLiteral("X-KDE-Keywords")).split(QLatin1String(","));
+    listOfKeywords << d->name;
     foreach (MenuItem *child, d->children) {
         listOfKeywords += child->keywords();
     }
@@ -127,11 +127,6 @@ bool MenuItem::isSystemsettingsRootCategory() const
     return d->isSystemsettingsRootCategory;
 }
 
-KCModuleInfo &MenuItem::item() const
-{
-    return d->item;
-}
-
 QString &MenuItem::name() const
 {
     return d->name;
@@ -152,29 +147,6 @@ bool MenuItem::menu() const
     return d->menu;
 }
 
-void MenuItem::setService(const KService::Ptr &service)
-{
-    d->service = service;
-    d->category = service->property(QStringLiteral("X-KDE-System-Settings-Category")).toString();
-    if (d->category.isEmpty()) {
-        d->category = service->property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString();
-    }
-    d->name = service->name();
-    d->item = KCModuleInfo(service);
-    const QVariant itemWeight = service->property(QStringLiteral("X-KDE-Weight"), QVariant::Int);
-    if (itemWeight.isValid()) {
-        d->weight = itemWeight.toInt();
-    } else {
-        d->weight = 100;
-    }
-    d->comment = service->comment();
-    d->iconName = service->icon();
-    d->systemsettingsCategoryModule = service->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString();
-    d->isExternalAppModule =
-        (service->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) || service->hasServiceType(QStringLiteral("InfoCenterExternalApp")))
-        && service->library().isEmpty() && !service->exec().isEmpty();
-}
-
 void MenuItem::setCategoryConfig(const KDesktopFile &file)
 {
     const KConfigGroup grp = file.desktopGroup();
@@ -189,6 +161,33 @@ void MenuItem::setCategoryConfig(const KDesktopFile &file)
     d->isSystemsettingsCategory = true;
     d->systemsettingsCategoryModule = grp.readEntry("X-KDE-System-Settings-Category-Module");
     d->isSystemsettingsRootCategory = QFileInfo(file.fileName()).fileName() == QLatin1String("settings-root-category.desktop");
+}
+
+void MenuItem::setMetaData(const KPluginMetaData &data)
+{
+    d->metaData = data;
+    d->category = data.value(QStringLiteral("X-KDE-System-Settings-Category"));
+    if (d->category.isEmpty()) {
+        d->category = data.value(QStringLiteral("X-KDE-KInfoCenter-Category"));
+    }
+    d->name = data.name();
+    const QVariant itemWeight = data.initialPreference();
+    if (itemWeight.isValid()) {
+        d->weight = itemWeight.toInt();
+    } else {
+        d->weight = 100;
+    }
+    d->comment = data.description();
+    d->iconName = data.iconName();
+    d->systemsettingsCategoryModule = data.value(QStringLiteral("X-KDE-System-Settings-Category-Module"));
+    d->isExternalAppModule = (data.serviceTypes().contains(QStringLiteral("SystemSettingsExternalApp"))
+        || data.serviceTypes().contains(QStringLiteral("SystemSettingsExternalApp")))
+        && !data.value(QStringLiteral("Exec")).isEmpty(); // TODO load these without KServiceTypeTrader
+}
+
+KPluginMetaData MenuItem::metaData()
+{
+    return d->metaData;
 }
 
 bool MenuItem::showDefaultIndicator() const
@@ -206,15 +205,11 @@ void MenuItem::setCategoryOwner(bool owner)
     d->isCategoryOwner = owner;
 }
 
-void MenuItem::setItem(const KCModuleInfo &item)
-{
-    // d->name = item.moduleName();
-    d->item = item;
-}
-
 void MenuItem::updateDefaultIndicator()
 {
-    d->showDefaultIndicator = !KCModuleLoader::isDefaults(d->item);
+    std::unique_ptr<KCModuleData> moduleData(KPluginFactory::instantiatePlugin<KCModuleData>(d->metaData, nullptr).plugin);
+
+    d->showDefaultIndicator = moduleData && !moduleData->isDefaults();
     if (menu()) {
         for (auto child : children()) {
             d->showDefaultIndicator |= child->showDefaultIndicator();
@@ -243,9 +238,11 @@ MenuItem *MenuItem::descendantForModule(const QString &moduleName)
     if (d->service) {
         if (d->service->desktopEntryName() == moduleName) {
             return this;
-        } else if (item().fileName().length() > 0 && item().fileName().split(QLatin1Char('.'), Qt::SkipEmptyParts).first() == moduleName) {
-            return this;
         }
+    }
+
+    if (d->metaData.isValid() && d->metaData.pluginId() == moduleName) {
+        return this;
     }
 
     for (auto *child : d->children) {
@@ -256,4 +253,9 @@ MenuItem *MenuItem::descendantForModule(const QString &moduleName)
     }
 
     return nullptr;
+}
+
+bool MenuItem::isLibrary()
+{
+    return d->metaData.isValid() && !isExternalAppModule();
 }
