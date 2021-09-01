@@ -3,6 +3,7 @@
    SPDX-FileCopyrightText: 2007 Will Stephenson <wstephenson@kde.org>
    SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
    SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
    SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
@@ -169,7 +170,9 @@ void MenuItem::setService(const KService::Ptr &service)
     d->comment = service->comment();
     d->iconName = service->icon();
     d->systemsettingsCategoryModule = service->property(QStringLiteral("X-KDE-System-Settings-Category-Module")).toString();
-    d->isExternalAppModule = service->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) && service->library().isEmpty() && !service->exec().isEmpty();
+    d->isExternalAppModule =
+        (service->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) || service->hasServiceType(QStringLiteral("InfoCenterExternalApp")))
+        && service->library().isEmpty() && !service->exec().isEmpty();
 }
 
 void MenuItem::setCategoryConfig(const KDesktopFile &file)

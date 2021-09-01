@@ -26,4 +26,8 @@ target_link_libraries( systemsettingsview
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
 
 install( TARGETS systemsettingsview ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
-install( FILES systemsettingsview.desktop systemsettingsexternalapp.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR} )
+install(FILES
+        systemsettingsview.desktop
+        systemsettingsexternalapp.desktop
+        infocenterexternalapp.desktop
+    DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})

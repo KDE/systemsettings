@@ -1,6 +1,7 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
  *   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+ *   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -95,6 +96,7 @@ void SettingsBase::initApplication()
     // Prepare the menu of all modules
     if (m_mode == BaseMode::InfoCenter) {
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
+        modules += KServiceTypeTrader::self()->query(QStringLiteral("InfoCenterExternalApp"));
     } else {
         modules = KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
         modules += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));

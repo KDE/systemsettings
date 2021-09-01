@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
+ * SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  * This file was sourced from the System Settings package
  * SPDX-FileCopyrightText: 2005 Benjamin C Meyer <ben+systempreferences at meyerhome dot net>
@@ -40,6 +41,7 @@ static void listModules()
                                           QStringLiteral("(exist [X-KDE-System-Settings-Parent-Category] and [X-KDE-System-Settings-Parent-Category] != '') or "
                                                          "(exist [X-KDE-ParentApp] and [X-KDE-ParentApp] == 'kinfocenter')"));
     services += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+    services += KServiceTypeTrader::self()->query(QStringLiteral("InfoCenterExternalApp"));
     for (KService::List::const_iterator it = services.constBegin(); it != services.constEnd(); ++it) {
         const KService::Ptr s = (*it);
         if (!KAuthorized::authorizeControlModule(s->menuId())) {
