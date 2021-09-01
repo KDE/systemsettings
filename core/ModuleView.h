@@ -1,6 +1,7 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
  *   SPDX-FileCopyrightText: 2009 Mathias Soeken <msoeken@informatik.uni-bremen.de>
+ *   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -17,6 +18,7 @@
 class KCModuleInfo;
 class KCModuleProxy;
 class KPageWidgetItem;
+class MenuItem;
 
 /**
  * @brief Provides a convenient way to display modules
@@ -163,7 +165,7 @@ public Q_SLOTS:
 
 private:
     bool resolveChanges(KCModuleProxy *currentProxy);
-    void addModule(KCModuleInfo *module, const QStringList &args);
+    void addModule(MenuItem *menuItem, const QStringList &args);
     bool moduleSave(KCModuleProxy *module);
     void updatePageIconHeader(KPageWidgetItem *page, bool light = false);
 

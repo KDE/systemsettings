@@ -1,6 +1,7 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
  *   SPDX-FileCopyrightText: 2009 Mathias Soeken <msoeken@informatik.uni-bremen.de>
+ *   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -217,8 +218,9 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
     }
 }
 
-void ModuleView::addModule(KCModuleInfo *module, const QStringList &args)
+void ModuleView::addModule(MenuItem *menuItem, const QStringList &args)
 {
+    KCModuleInfo *module = &menuItem->item();
     if (!module || !module->service()->isValid()) {
         return;
     }
@@ -249,7 +251,7 @@ void ModuleView::addModule(KCModuleInfo *module, const QStringList &args)
     KPageWidgetItem *page = new KPageWidgetItem(moduleScroll, module->moduleName());
     // Provide information to the users
 
-    if (module->service()->hasServiceType(QStringLiteral("SystemSettingsExternalApp")) || // Is it an external app?
+    if (menuItem->isExternalAppModule() || // Is it an external app?
         module->service()->substituteUid()) { // ...or does it require UID substitution?
         QWidget *externalWidget = new ExternalAppModule(this, module->service());
         moduleScroll->setWidget(externalWidget);
