@@ -15,6 +15,9 @@ Kirigami.ScrollablePage {
     id: subCategoryColumn
     title: systemsettings.subCategoryModel.title
 
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    Kirigami.Theme.inherit: false
+
     header: Kirigami.AbstractApplicationHeader {
         id: pageHeader
 
@@ -90,11 +93,7 @@ Kirigami.ScrollablePage {
 
         }
     }
-    background: Rectangle {
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        color: Kirigami.Theme.backgroundColor
-    }
+
     ListView {
         id: subCategoryView
         anchors.fill: parent

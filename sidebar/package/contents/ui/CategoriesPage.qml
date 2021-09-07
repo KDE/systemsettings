@@ -15,6 +15,9 @@ Kirigami.ScrollablePage {
     Component.onCompleted: searchField.forceActiveFocus()
     readonly property bool searchMode: searchField.text.length > 0
 
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    Kirigami.Theme.inherit: false
+
     header: Kirigami.AbstractApplicationHeader {
         id: pageHeader
 
@@ -84,11 +87,7 @@ Kirigami.ScrollablePage {
             }
         }
     }
-    background: Rectangle {
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        color: Kirigami.Theme.backgroundColor
-    }
+
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.gridUnit * 4)
