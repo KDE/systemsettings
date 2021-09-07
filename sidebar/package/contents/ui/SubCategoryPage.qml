@@ -173,32 +173,19 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: Rectangle {
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        Kirigami.Theme.inherit: false
-        color: Kirigami.Theme.backgroundColor
-        width: mainColumn.width
-        height: Kirigami.Units.gridUnit * 2
+    footer: QQC2.ToolBar {
         visible: systemsettings.applicationMode == SystemSettings.SystemSettings &&
                      !applicationWindow().wideScreen
+
         QQC2.ToolButton {
-            anchors {
-                fill: parent
-                margins: Kirigami.Units.smallSpacing
-            }
-            text: i18nc("Action to show indicators for settings with custom data", "Highlight Changed Settings")
+            anchors.fill: parent
+
+            text: i18nc("Action to show indicators for settings with custom data. Use as short a translation as is feasible, as horizontal space is limited.", "Highlight Changed Settings")
             icon.name: "draw-highlight"
+
             onToggled: systemsettings.toggleDefaultsIndicatorsVisibility()
             checkable: true
             checked: systemsettings.defaultsIndicatorsVisible
-        }
-
-        Kirigami.Separator {
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-            }
         }
     }
 }
