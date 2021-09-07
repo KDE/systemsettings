@@ -9,10 +9,12 @@
 
 #include <KAboutData>
 #include <KCrash>
+#include <QApplication>
 #include <QCommandLineParser>
 
 #include <KAuthorized>
 #include <KDBusService>
+#include <KLocalizedString>
 #include <KQuickAddons/QtQuickSettings>
 #include <KServiceTypeTrader>
 #include <KWindowSystem>

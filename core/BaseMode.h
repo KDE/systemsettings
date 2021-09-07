@@ -158,16 +158,6 @@ public:
 
     const KPluginMetaData &metaData() const;
 
-    /**
-     * tells the config view whether to make use of tooltips or not
-     */
-    void setShowToolTips(bool show);
-
-    /**
-     * @returns true if the view should use tooltips
-     */
-    bool showToolTips() const;
-
     void setStartupModule(const QString &startupModule);
     QString startupModule() const;
 

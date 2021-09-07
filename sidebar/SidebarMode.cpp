@@ -408,7 +408,7 @@ QString SidebarMode::actionIconName(const QString &name) const
 
 void SidebarMode::requestToolTip(const QModelIndex &index, const QRectF &rect)
 {
-    if (showToolTips() && index.model()) {
+    if (index.model()) {
         d->toolTipManager->setModel(index.model());
         d->toolTipManager->requestToolTip(index, rect.toRect());
     }
@@ -416,9 +416,7 @@ void SidebarMode::requestToolTip(const QModelIndex &index, const QRectF &rect)
 
 void SidebarMode::requestMostUsedToolTip(int index, const QRectF &rect)
 {
-    if (showToolTips()) {
-        d->mostUsedToolTipManager->requestToolTip(d->mostUsedModel->index(index, 0), rect.toRect());
-    }
+    d->mostUsedToolTipManager->requestToolTip(d->mostUsedModel->index(index, 0), rect.toRect());
 }
 
 void SidebarMode::hideToolTip()
@@ -441,11 +439,13 @@ void SidebarMode::showActionMenu(const QPoint &position)
     });
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
-    const QStringList actionList{QStringLiteral("configure"),
+    const QStringList actionList{QStringLiteral("switchto_iconview"),
+                                 QStringLiteral("configure"),
                                  QStringLiteral("help_contents"),
                                  QStringLiteral("help_report_bug"),
                                  QStringLiteral("help_about_app"),
                                  QStringLiteral("help_about_kde")};
+
     for (const QString &actionName : actionList) {
         menu->addAction(d->collection->action(actionName));
     }

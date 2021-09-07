@@ -10,8 +10,6 @@
 #include "BaseMode.h"
 #include "MenuItem.h"
 #include "tooltipmanager.h"
-#include "ui_configDialog.h"
-
 #include <QButtonGroup>
 #include <QMap>
 #include <QStackedWidget>
@@ -43,10 +41,7 @@ private Q_SLOTS:
     void initApplication();
     void initToolBar();
     void initHelpMenu();
-    void initConfig();
     void initMenuList(MenuItem *parent);
-    void configUpdated();
-    void configShow();
     void about();
     void changePlugin();
     void viewChange(bool state);
@@ -65,15 +60,12 @@ private:
     // The toolbar
     QWidgetAction *searchAction = nullptr;
     QWidgetAction *spacerAction = nullptr;
-    QAction *configureAction = nullptr;
+    QAction *switchToIconAction = nullptr;
+    QAction *switchToSidebarAction = nullptr;
     QAction *quitAction = nullptr;
     // The help menu
     QAction *aboutViewAction = nullptr;
     KActionMenu *helpActionMenu = nullptr;
-    // The configuration
-    KConfigDialog *configDialog = nullptr;
-    Ui::ConfigDialog configWidget;
-    QButtonGroup viewSelection;
     // The control module
     QStackedWidget *stackedWidget = nullptr;
     // The module list

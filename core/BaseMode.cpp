@@ -99,16 +99,6 @@ const KPluginMetaData &BaseMode::metaData() const
     return d->metaData;
 }
 
-void BaseMode::setShowToolTips(bool show)
-{
-    d->showToolTips = show;
-}
-
-bool BaseMode::showToolTips() const
-{
-    return d->showToolTips;
-}
-
 void BaseMode::setStartupModule(const QString &startupModule)
 {
     d->startupModule = startupModule;

@@ -10,7 +10,6 @@ ecm_qt_declare_logging_category(systemsettings_SRCS HEADER systemsettings_app_de
 
 # port it it's in kdelibs4support
 # kde4_add_app_icon( systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png" )
-ki18n_wrap_ui( systemsettings_SRCS configDialog.ui )
 kconfig_add_kcfg_files( systemsettings_SRCS BaseConfig.kcfgc )
 
 add_executable( systemsettings5 ${systemsettings_SRCS})
