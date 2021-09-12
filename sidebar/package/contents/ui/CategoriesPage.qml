@@ -43,18 +43,18 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
             }
+
             QQC2.ToolButton {
-                id: menuButton
-                icon.name: "application-menu"
-                checkable: true
-                checked: systemsettings.actionMenuVisible
+                id: showIntroPageButton
+                enabled: !systemsettings.introPageVisible
+                icon.name: "go-home"
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
-                onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
+                onClicked: systemsettings.introPageVisible = true
 
                 Accessible.role: Accessible.Button
-                Accessible.name: i18n("Show menu")
+                Accessible.name: i18n("Show intro page")
                 QQC2.ToolTip {
                     text: parent.Accessible.name
                 }
@@ -71,16 +71,17 @@ Kirigami.ScrollablePage {
             }
 
             QQC2.ToolButton {
-                id: showIntroPageButton
-                enabled: !systemsettings.introPageVisible
-                icon.name: "go-home"
+                id: menuButton
+                icon.name: "application-menu"
+                checkable: true
+                checked: systemsettings.actionMenuVisible
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
-                onClicked: systemsettings.introPageVisible = true
+                onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
 
                 Accessible.role: Accessible.Button
-                Accessible.name: i18n("Show intro page")
+                Accessible.name: i18n("Show menu")
                 QQC2.ToolTip {
                     text: parent.Accessible.name
                 }
