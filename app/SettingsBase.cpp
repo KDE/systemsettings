@@ -115,22 +115,16 @@ void SettingsBase::initApplication()
     BaseData::instance()->setMenuItem(rootModule);
     BaseData::instance()->setHomeItem(homeModule);
     // Load all possible views
-    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("systemsettingsview/"));
+    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"));
 
     for (const KPluginMetaData &plugin : plugins) {
-        KPluginLoader loader(plugin.fileName());
-        KPluginFactory *factory = loader.factory();
-        if (!factory) {
-            qCWarning(SYSTEMSETTINGS_APP_LOG) << "KPluginFactory could not load the plugin:" << plugin.pluginId() << loader.errorString();
+        auto controllerResult = KPluginFactory::instantiatePlugin<BaseMode>(plugin, this, {m_mode, m_startupModule, m_startupModuleArgs});
+        if (!controllerResult) {
+            qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin" << controllerResult.errorText;
             continue;
         }
 
-        BaseMode *controller = factory->create<BaseMode>(this, {m_mode, m_startupModule, m_startupModuleArgs});
-        if (!controller) {
-            qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin";
-            continue;
-        }
-
+        auto controller = controllerResult.plugin;
         possibleViews.insert(plugin.pluginId(), controller);
         controller->init(plugin);
         connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
