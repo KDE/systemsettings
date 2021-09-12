@@ -305,7 +305,7 @@ bool ModuleView::resolveChanges()
 
 bool ModuleView::resolveChanges(KCModuleProxy *currentProxy)
 {
-    if (!currentProxy || !currentProxy->changed()) {
+    if (!currentProxy || !currentProxy->isChanged()) {
         return true;
     }
 
@@ -469,7 +469,7 @@ void ModuleView::stateChanged()
     KCModule::Buttons buttons = KCModule::NoAdditionalButton;
     if (activeModule) {
         buttons = activeModule->buttons();
-        change = activeModule->changed();
+        change = activeModule->isChanged();
         defaulted = activeModule->defaulted();
 
         disconnect(d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()));
