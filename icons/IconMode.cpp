@@ -163,6 +163,11 @@ void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStri
         d->moduleView->loadModule(activeModule.parent(), {});
     }
     d->moduleView->loadModule(activeModule, args);
+
+    for (int done = 1 /* starting from 1 to avoid double global theme */; activeModule.model()->rowCount(activeModule) > done; done = 1 + done) {
+        QModelIndex subpageItem = activeModule.model()->index(done, 0, activeModule);
+        d->moduleView->loadModule(subpageItem, args);
+    }
 }
 
 void IconMode::moduleLoaded()

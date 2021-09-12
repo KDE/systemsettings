@@ -204,23 +204,17 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
         return;
     }
 
-    QList<QModelIndex> indexes;
-
     MenuItem *item = menuItem.data(Qt::UserRole).value<MenuItem *>();
 
+    // if module has a main page (like in Appearance > Global Theme) we'll load that
     if (!item->item().library().isEmpty() || item->isExternalAppModule()) {
-        indexes << menuItem;
+        addModule(&item->item(), args);
     }
-
-    for (int done = 0; menuItem.model()->rowCount(menuItem) > done; done = 1 + done) {
-        indexes << menuItem.model()->index(done, 0, menuItem);
+    // if module doesn't have a main page, we'll load the first subpage
+    else if (menuItem.model()->rowCount(menuItem) > 0) {
+        MenuItem *subpageItem = menuItem.model()->index(0, 0, menuItem).data(Qt::UserRole).value<MenuItem *>();
+        addModule(&subpageItem->item(), args);
     }
-
-    foreach (const QModelIndex &module, indexes) {
-        MenuItem *newMenuItem = module.data(Qt::UserRole).value<MenuItem *>();
-        addModule(&newMenuItem->item(), args);
-    }
-    // changing state is not needed here as the adding / changing of pages does it
 }
 
 void ModuleView::addModule(KCModuleInfo *module, const QStringList &args)
