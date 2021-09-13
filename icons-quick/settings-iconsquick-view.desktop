@@ -1,0 +1,9 @@
+[Desktop Entry]
+Icon=view-sidetree
+Type=Service
+
+X-KDE-Library=systemsettings_iconsquick_mode
+X-KDE-Keywords=System Settings
+
+Name=Icons View
+Comment=Categorized icons style
