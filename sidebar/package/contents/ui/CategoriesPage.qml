@@ -182,6 +182,17 @@ Kirigami.ScrollablePage {
             }
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
+
+            Keys.onLeftPressed: {
+                if (LayoutMirroring.enabled) {
+                    clicked();
+                }
+            }
+            Keys.onRightPressed: {
+                if (!LayoutMirroring.enabled) {
+                    clicked();
+                }
+            }
         }
     }
 

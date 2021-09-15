@@ -169,6 +169,23 @@ Kirigami.ScrollablePage {
             }
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
+
+            Keys.onEscapePressed: root.pageStack.currentIndex = 0;
+
+            Keys.onLeftPressed: {
+                if (LayoutMirroring.enabled) {
+                    clicked();
+                } else {
+                    root.pageStack.currentIndex = 0;
+                }
+            }
+            Keys.onRightPressed: {
+                if (!LayoutMirroring.enabled) {
+                    clicked();
+                } else {
+                    root.pageStack.currentIndex = 0;
+                }
+            }
         }
     }
 

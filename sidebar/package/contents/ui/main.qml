@@ -39,7 +39,6 @@ Kirigami.ApplicationItem {
 
     SubCategoryPage {
         id: subCategoryColumn
-        KeyNavigation.left: mainColumn
     }
     Kirigami.Separator {
         z: 999
