@@ -209,12 +209,12 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
 
     // if module has a main page (like in Appearance > Global Theme) we'll load that
     if (!item->item().library().isEmpty() || item->isExternalAppModule()) {
-        addModule(&item->item(), args);
+        addModule(item, args);
     }
     // if module doesn't have a main page, we'll load the first subpage
     else if (menuItem.model()->rowCount(menuItem) > 0) {
         MenuItem *subpageItem = menuItem.model()->index(0, 0, menuItem).data(Qt::UserRole).value<MenuItem *>();
-        addModule(&subpageItem->item(), args);
+        addModule(subpageItem, args);
     }
 }
 
