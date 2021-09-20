@@ -1,3 +1,9 @@
+/*
+ *   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+ *
+ *   SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
 #include <KAuthorized>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
@@ -13,7 +19,6 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 {
     QList<KPluginMetaData> modules;
     QSet<QString> uniquePluginIds;
-    // First condition is what systemsettings does, second what kinfocenter does, make sure this is kept in sync
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
     KService::List services;
     QVector<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"));

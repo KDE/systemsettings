@@ -42,8 +42,6 @@ SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaDat
     });
 }
 
-SystemsettingsRunner::~SystemsettingsRunner() = default;
-
 void SystemsettingsRunner::match(Plasma::RunnerContext &context)
 {
     {

@@ -19,7 +19,6 @@ class SystemsettingsRunner : public Plasma::AbstractRunner
 
 public:
     SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args);
-    ~SystemsettingsRunner() override;
 
     void match(Plasma::RunnerContext &context) override;
     void run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &match) override;

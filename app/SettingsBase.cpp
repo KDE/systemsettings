@@ -104,7 +104,7 @@ void SettingsBase::initApplication()
 
     // Handle lost+found modules...
     if (lostFound) {
-        for (const auto &metaData : pluginModules) {
+        for (const auto &metaData : qAsConst(pluginModules)) {
             auto infoItem = new MenuItem(false, lostFound);
             infoItem->setMetaData(metaData);
             qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << metaData.pluginId();

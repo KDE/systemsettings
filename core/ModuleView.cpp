@@ -336,7 +336,7 @@ void ModuleView::closeModules()
 {
     d->pageChangeSupressed = true;
     d->mApplyAuthorize->setAuthAction(KAuth::Action()); // Ensure KAuth knows that authentication is now pointless...
-    for (auto page = d->mPagesPluginIdMap.begin(), pageEnd = d->mPagesPluginIdMap.end(); page != pageEnd; ++page) {
+    for (auto page = d->mPagesPluginIdMap.cbegin(); page != d->mPagesPluginIdMap.cend(); ++page) {
         d->mPageWidget->removePage(page.key());
     }
 
