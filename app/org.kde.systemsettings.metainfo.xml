@@ -21,6 +21,7 @@
   <name xml:lang="ia">Preferentias de systema</name>
   <name xml:lang="id">System Settings</name>
   <name xml:lang="it">Impostazioni di sistema</name>
+  <name xml:lang="ja">システム設定</name>
   <name xml:lang="ko">시스템 설정</name>
   <name xml:lang="lt">Sistemos nuostatos</name>
   <name xml:lang="nl">Systeeminstellingen</name>
@@ -63,6 +64,7 @@
   <summary xml:lang="ia">Instrumentos de configuration per tu computator</summary>
   <summary xml:lang="id">Peralatan konfigurasi untuk komputermu</summary>
   <summary xml:lang="it">Strumenti di configurazione per il tuo computer</summary>
+  <summary xml:lang="ja">コンピュータ設定ツール</summary>
   <summary xml:lang="ko">컴퓨터 설정 도구</summary>
   <summary xml:lang="lt">Jūsų kompiuterio konfigūravimo įrankiai</summary>
   <summary xml:lang="nl">Hulpmiddelen voor configuratie van uw computer</summary>
@@ -117,6 +119,7 @@
     <p xml:lang="ia">Preferentias de systema  te pemitte configurar e pinciar tu scriptorio de Plasma KDE pro facer que illo incontra meliormente tu necessitates.</p>
     <p xml:lang="id">System Settings memungkinkan kamu untuk mengkonfigurasi dan menguprek desktop KDE Plasma kamu untuk membuatnya lebih baik sesuai kebutuhanmu.</p>
     <p xml:lang="it">Impostazioni di sistema ti permette di configurare e di regolare il tuo desktop KDE Plasma, in modo che possa soddisfare meglio le tue esigenze.</p>
+    <p xml:lang="ja">システム設定では、KDE Plasma デスクトップをよりニーズに合ったものにするために、設定や調整を行うことができます。</p>
     <p xml:lang="ko">시스템 설정에서 KDE Plasma 데스크톱을 설정할 수 있습니다.</p>
     <p xml:lang="lt">Sistemos nuostatos leidžia jums konfigūruoti ir derinti savo KDE Plasma darbalaukį taip, kad jis geriau atitiktų jūsų poreikius.</p>
     <p xml:lang="nl">Systeeminstellingen biedt u het configureren en aanpassen van uw KDE Plasma bureaublad om het aan uw behoeften aan te passen.</p>
