@@ -4,3 +4,11 @@
 Type=ServiceType
 X-KDE-ServiceType=InfoCenterExternalApp
 Name=Info Center External Application
+Name[az]=İnformasiya Mərkəzi Xarici Tərbiqi
+Name[ca]=Aplicació externa de centre d'informació
+Name[es]=Aplicación externa del centro de información
+Name[hu]=Külső Rendszerinformáció-alkalmazás
+Name[nl]=Externe toepassing van informatiecentrum
+Name[sv]=Externt program för informationscentralen
+Name[uk]=Зовнішня програма «Центру інформації»
+Name[x-test]=xxInfo Center External Applicationxx
