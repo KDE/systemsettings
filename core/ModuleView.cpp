@@ -38,6 +38,8 @@
 
 #include <KActivities/ResourceInstance>
 
+#include <kwidgetsaddons_version.h>
+
 #include <cmath>
 
 #include "MenuItem.h"
@@ -55,12 +57,21 @@ protected:
 CustomTitle::CustomTitle(QWidget *parent)
     : KTitleWidget(parent)
 {
+    double topMarginMultiplier = 1;
+
+#if KIWIDGETSADDONS_VERSION > QT_VERSION_CHECK(5, 86, 0)
+    topMarginMultiplier = 1.8;
+#endif
+
     setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                       style()->pixelMetric(QStyle::PM_LayoutTopMargin),
+                       style()->pixelMetric(QStyle::PM_LayoutTopMargin) * topMarginMultiplier,
                        style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                        style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
 
     colorsChanged();
+#if KIWIDGETSADDONS_VERSION > QT_VERSION_CHECK(5, 86, 0)
+    setLevel(2);
+#endif
     connect(qApp, &QApplication::paletteChanged, this, &CustomTitle::colorsChanged);
 }
 
