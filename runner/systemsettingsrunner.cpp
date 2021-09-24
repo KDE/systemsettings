@@ -37,6 +37,7 @@ SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaDat
     setPriority(AbstractRunner::HighestPriority);
 
     addSyntax(Plasma::RunnerSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:")));
+    // teardown is called in the main thread when all matches are over
     connect(this, &SystemsettingsRunner::teardown, this, [this]() {
         m_modules.clear();
     });
@@ -45,6 +46,8 @@ SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaDat
 void SystemsettingsRunner::match(Plasma::RunnerContext &context)
 {
     {
+        // The match method is called multithreaded, to make sure we do not start multiple plugin searches or
+        // write to the list in different threads the lock is used
         QMutexLocker lock(&m_mutex);
         if (m_modules.isEmpty()) {
             KSycoca::disableAutoRebuild();
