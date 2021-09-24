@@ -33,7 +33,10 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
     }
     for (const auto &m : qAsConst(metaDataList)) {
         modules << m;
-        uniquePluginIds << m.pluginId();
+        auto insertionIterator = uniquePluginIds.insert(m.pluginId());
+        Q_ASSERT_X(insertionIterator != uniquePluginIds.end(),
+                   Q_FUNC_INFO,
+                   qPrintable(QStringLiteral("the plugin %1 was found in mutiple namespaces").arg(m.pluginId())));
     }
     for (const auto &s : qAsConst(services)) {
         if (!s->noDisplay() && !uniquePluginIds.contains(s->library()) && KAuthorized::authorizeControlModule(s->menuId())) {
