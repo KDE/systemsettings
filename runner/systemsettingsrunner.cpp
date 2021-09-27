@@ -26,7 +26,7 @@
 #include <KNotificationJobUiDelegate>
 #include <KSycoca>
 
-#include "../core/loadkcmmetadata.h"
+#include "../core/kcmmetadatahelpers.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SystemsettingsRunner, "systemsettingsrunner.json")
 
@@ -64,7 +64,7 @@ void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasm
     const auto data = match.data().value<KPluginMetaData>();
 
     KIO::CommandLauncherJob *job = nullptr;
-    if (data.value(QStringLiteral("X-KDE-ParentApp")) == QLatin1String("kinfocenter")) {
+    if (isKinfoCenterKcm(data)) {
         job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), {data.pluginId()});
         job->setDesktopName(QStringLiteral("org.kde.kinfocenter"));
     } else if (!data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()) {
@@ -149,7 +149,7 @@ void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext 
             }
         }
 
-        if (data.value(QStringLiteral("X-KDE-ParentApp")) == QLatin1String("kinfocenter")) {
+        if (isKinfoCenterKcm(data)) {
             match.setMatchCategory(i18n("System Information"));
         } else {
             match.setMatchCategory(i18n("System Settings"));

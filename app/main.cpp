@@ -20,7 +20,7 @@
 #include <iostream>
 #include <kworkspace.h>
 
-#include "../core/loadkcmmetadata.h"
+#include "../core/kcmmetadatahelpers.h"
 #include "SettingsBase.h"
 
 int main(int argc, char *argv[])

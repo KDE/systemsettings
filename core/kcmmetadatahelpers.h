@@ -84,3 +84,16 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
     });
     return modules;
 }
+
+inline bool isKinfoCenterKcm(const KPluginMetaData &data)
+{
+    // KServiceTypeTrader compat
+    if (data.value(QStringLiteral("X-KDE-ParentApp")) == QLatin1String("kinfocenter")) {
+        return true;
+    }
+    // external module or a KCM in the namespace
+    if (data.fileName().contains(QLatin1String("/kinfocenter/"))) {
+        return true;
+    }
+    return false;
+}

@@ -6,7 +6,7 @@
  */
 
 #include "SettingsBase.h"
-#include "../core/loadkcmmetadata.h"
+#include "../core/kcmmetadatahelpers.h"
 #include "BaseConfig.h"
 #include "systemsettings_app_debug.h"
 
