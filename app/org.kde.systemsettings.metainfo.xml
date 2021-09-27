@@ -24,6 +24,7 @@
   <name xml:lang="ja">システム設定</name>
   <name xml:lang="ko">시스템 설정</name>
   <name xml:lang="lt">Sistemos nuostatos</name>
+  <name xml:lang="ml">സിസ്റ്റം സജ്ജീകരണങ്ങൾ</name>
   <name xml:lang="my">စစ်စတမ်ဆက်တင်များ</name>
   <name xml:lang="nl">Systeeminstellingen</name>
   <name xml:lang="nn">Systeminnstillingar</name>
@@ -68,6 +69,7 @@
   <summary xml:lang="ja">コンピュータ設定ツール</summary>
   <summary xml:lang="ko">컴퓨터 설정 도구</summary>
   <summary xml:lang="lt">Jūsų kompiuterio konfigūravimo įrankiai</summary>
+  <summary xml:lang="ml">നിങ്ങളുടെ കമ്പ്യൂട്ടറിനുള്ള ക്രമീകരണങ്ങൾ</summary>
   <summary xml:lang="my">သင့်ကွန်ပြူတာအတွက် ပြင်ဆင်ရေးကိရိယာများ</summary>
   <summary xml:lang="nl">Hulpmiddelen voor configuratie van uw computer</summary>
   <summary xml:lang="nn">Oppsettverktøy for datamaskina</summary>
@@ -124,6 +126,7 @@
     <p xml:lang="ja">システム設定では、KDE Plasma デスクトップをよりニーズに合ったものにするために、設定や調整を行うことができます。</p>
     <p xml:lang="ko">시스템 설정에서 KDE Plasma 데스크톱을 설정할 수 있습니다.</p>
     <p xml:lang="lt">Sistemos nuostatos leidžia jums konfigūruoti ir derinti savo KDE Plasma darbalaukį taip, kad jis geriau atitiktų jūsų poreikius.</p>
+    <p xml:lang="ml">നിങ്ങളുടെ പ്ലാസ്മ ഡെസ്ക്ടോപ് നിങ്ങളുടെ ഇഷ്ടങ്ങൾക്കനുസരിച്ച് ക്രമീകരിക്കാൻ സിസ്റ്റം സജ്ജീകരണങ്ങൾ സഹായിക്കുന്നു.</p>
     <p xml:lang="nl">Systeeminstellingen biedt u het configureren en aanpassen van uw KDE Plasma bureaublad om het aan uw behoeften aan te passen.</p>
     <p xml:lang="nn">Med systeminnstillingane kan du setja opp og skreddarsy KDE Plasma-skrivebordet etter eigne ønskjer og behov.</p>
     <p xml:lang="pa">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਕੇਡੀਈ (KDE) ਪਲਾਜ਼ਮਾ ਡੈਸਕਟਾਪ ਨੂੰ ਤੁਹਾਡੀਆਂ ਲੋੜਾਂ ਮੁਤਾਬਕ ਵਧੀਆ ਢੰਗ ਨਾਲ ਸੰਰਚਨਾ ਕਰਨ ਤੇ ਢਾਲਣ ਲਈ ਸਹਾਇਕ ਹੈ।</p>
