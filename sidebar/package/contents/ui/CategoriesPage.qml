@@ -90,10 +90,11 @@ Kirigami.ScrollablePage {
     }
 
     Kirigami.PlaceholderMessage {
+        opacity: categoryView.count == 0 ? 1 : 0
+        visible: opacity > 0
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.gridUnit * 4)
         text: i18nc("A search yielded no results", "No items matching your search")
-        opacity: categoryView.count == 0 ? 1 : 0
         Behavior on opacity {
             OpacityAnimator {
                 duration: Kirigami.Units.longDuration
