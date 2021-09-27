@@ -245,7 +245,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     auto *page = new KPageWidgetItem(moduleScroll, data.name());
     // Provide information to the users
 
-    if (item->isExternalAppModule()) { // TODO Load external KCMs using KPLuginMetaData ...or does it require UID substitution?
+    if (item->isExternalAppModule()) {
         auto *externalWidget = new ExternalAppModule(this, KService::Ptr(new KService(item->metaData().metaDataFileName())));
         moduleScroll->setWidget(externalWidget);
     } else { // It must be a normal module then

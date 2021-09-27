@@ -1,10 +1,12 @@
 /*
  *   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+ *   SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
 
 #include <KAuthorized>
+#include <KFileUtils>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
 #include <QStandardPaths>
@@ -15,6 +17,36 @@ enum MetaDataSource {
     KInfoCenter = 2,
     All = SystemSettings | KInfoCenter,
 };
+inline QVector<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
+{
+    const auto findExternalModulesInFilesystem = [](const QString &sourceNamespace, const QString &serviceType) {
+        const QString sourceNamespaceDirName = QStringLiteral("plasma/%1/externalmodules").arg(sourceNamespace);
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, sourceNamespaceDirName);
+        const QStringList files = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.desktop")});
+
+        QVector<KPluginMetaData> metaDataList;
+        for (const QString &file : files) {
+            metaDataList << KPluginMetaData::fromDesktopFile(file, QStringList(serviceType));
+        }
+        return metaDataList;
+    };
+
+    QVector<KPluginMetaData> metaDataList;
+    if (source & SystemSettings) {
+        const auto servicesList = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
+        for (const auto &s : servicesList) {
+            const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
+            metaDataList << KPluginMetaData::fromDesktopFile(path);
+        }
+        metaDataList << findExternalModulesInFilesystem(QStringLiteral("systemsettings"), QStringLiteral("systemsettingsexternalapp.desktop"));
+    }
+
+    if (source & KInfoCenter) {
+        metaDataList << findExternalModulesInFilesystem(QStringLiteral("kinfocenter"), QStringLiteral("infocenterexternalapp.desktop"));
+    }
+
+    return metaDataList;
+}
 inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 {
     QList<KPluginMetaData> modules;
@@ -25,7 +57,6 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
     if (source & SystemSettings) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"));
         services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
-        services += KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
     }
     if (source & KInfoCenter) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"));
@@ -38,6 +69,9 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
                    Q_FUNC_INFO,
                    qPrintable(QStringLiteral("the plugin %1 was found in mutiple namespaces").arg(m.pluginId())));
     }
+
+    metaDataList << findExternalKCMModules(source);
+
     for (const auto &s : qAsConst(services)) {
         if (!s->noDisplay() && !uniquePluginIds.contains(s->library()) && KAuthorized::authorizeControlModule(s->menuId())) {
             QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
