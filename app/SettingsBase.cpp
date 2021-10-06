@@ -94,7 +94,8 @@ QSize SettingsBase::sizeHint() const
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
-    pluginModules = findKCMsMetaData(m_mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings);
+    auto source = m_mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
+    pluginModules = findKCMsMetaData(source) << findExternalKCMModules(source);
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("categories"), QStandardPaths::LocateDirectory);
     categories = KFileUtils::findAllUniqueFiles(dirs, QStringList(QStringLiteral("*.desktop")));
@@ -225,8 +226,14 @@ void SettingsBase::initMenuList(MenuItem *parent)
 
     // scan for any modules at this level and add them
     for (const auto &metaData : qAsConst(pluginModules)) {
-        const QString category = metaData.value(m_mode == BaseMode::InfoCenter ? QStringLiteral("X-KDE-KInfoCenter-Category")
-                                                                               : QStringLiteral("X-KDE-System-Settings-Parent-Category"));
+        QString category;
+        QString categoryv2;
+        if (m_mode == BaseMode::InfoCenter) {
+            category = metaData.value(QStringLiteral("X-KDE-KInfoCenter-Category"));
+        } else {
+            category = metaData.value(QStringLiteral("X-KDE-System-Settings-Parent-Category"));
+            categoryv2 = metaData.value(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2"));
+        }
         const QString parentCategoryKcm = parent->systemsettingsCategoryModule();
         bool isCategoryOwner = false;
 
@@ -235,7 +242,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
             isCategoryOwner = true;
         }
 
-        if (!parent->category().isEmpty() && category == parent->category()) {
+        if (!parent->category().isEmpty() && (category == parent->category() || categoryv2 == parent->category())) {
             if (!metaData.isHidden()) {
                 // Add the module info to the menu
                 MenuItem *infoItem = new MenuItem(false, parent);

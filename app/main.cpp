@@ -101,7 +101,8 @@ int main(int argc, char *argv[])
     if (parser.isSet(QStringLiteral("list"))) {
         std::cout << i18n("The following modules are available:").toLocal8Bit().data() << std::endl;
 
-        const auto modules = findKCMsMetaData(mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings);
+        auto source = mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
+        const auto modules = findKCMsMetaData(source) << findExternalKCMModules(source);
 
         int maxLen = 0;
 

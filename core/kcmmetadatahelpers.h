@@ -17,21 +17,22 @@ enum MetaDataSource {
     KInfoCenter = 2,
     All = SystemSettings | KInfoCenter,
 };
-inline QVector<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
+
+inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
 {
     const auto findExternalModulesInFilesystem = [](const QString &sourceNamespace, const QString &serviceType) {
         const QString sourceNamespaceDirName = QStringLiteral("plasma/%1/externalmodules").arg(sourceNamespace);
-        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, sourceNamespaceDirName);
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, sourceNamespaceDirName, QStandardPaths::LocateDirectory);
         const QStringList files = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.desktop")});
 
-        QVector<KPluginMetaData> metaDataList;
+        QList<KPluginMetaData> metaDataList;
         for (const QString &file : files) {
             metaDataList << KPluginMetaData::fromDesktopFile(file, QStringList(serviceType));
         }
         return metaDataList;
     };
 
-    QVector<KPluginMetaData> metaDataList;
+    QList<KPluginMetaData> metaDataList;
     if (source & SystemSettings) {
         const auto servicesList = KServiceTypeTrader::self()->query(QStringLiteral("SystemSettingsExternalApp"));
         for (const auto &s : servicesList) {
@@ -47,6 +48,7 @@ inline QVector<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
 
     return metaDataList;
 }
+
 inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 {
     QList<KPluginMetaData> modules;
@@ -69,8 +71,6 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
                    Q_FUNC_INFO,
                    qPrintable(QStringLiteral("the plugin %1 was found in mutiple namespaces").arg(m.pluginId())));
     }
-
-    metaDataList << findExternalKCMModules(source);
 
     for (const auto &s : qAsConst(services)) {
         if (!s->noDisplay() && !uniquePluginIds.contains(s->library()) && KAuthorized::authorizeControlModule(s->menuId())) {
