@@ -139,8 +139,9 @@ void ToolTipManager::showToolTip(const QModelIndex &menuItem)
 
 QWidget *ToolTipManager::createTipContent(QModelIndex item)
 {
-    const QSize dialogIconSize = QSize(IconSize(KIconLoader::Dialog), IconSize(KIconLoader::Dialog));
-    const QSize toolbarIconSize = QSize(IconSize(KIconLoader::MainToolbar), IconSize(KIconLoader::MainToolbar));
+    const QSize dialogIconSize = QSize(KIconLoader::global()->currentSize(KIconLoader::Dialog), KIconLoader::global()->currentSize(KIconLoader::Dialog));
+    const QSize toolbarIconSize =
+        QSize(KIconLoader::global()->currentSize(KIconLoader::MainToolbar), KIconLoader::global()->currentSize(KIconLoader::MainToolbar));
 
     QWidget *tipContent = new QWidget();
     QGridLayout *tipLayout = new QGridLayout();
