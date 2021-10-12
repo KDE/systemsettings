@@ -409,11 +409,11 @@ void SettingsBase::changeAboutMenu(const KAboutData *menuAbout, QAction *menuIte
 
     if (menuAbout) {
         menuItem->setText(i18n("About %1", menuAbout->displayName()));
-        menuItem->setIcon(QIcon::fromTheme(menuAbout->programIconName()));
+        menuItem->setIcon(QGuiApplication::windowIcon());
         menuItem->setEnabled(true);
     } else {
         menuItem->setText(fallback);
-        menuItem->setIcon(QIcon::fromTheme(KAboutData::applicationData().programIconName()));
+        menuItem->setIcon(QGuiApplication::windowIcon());
         menuItem->setEnabled(false);
     }
 }
