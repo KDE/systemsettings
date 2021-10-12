@@ -252,7 +252,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         auto *moduleProxy = new KCModuleProxy(data, moduleScroll, args);
         moduleScroll->setWidget(moduleProxy);
         moduleProxy->setAutoFillBackground(false);
-        connect(moduleProxy, SIGNAL(changed(bool)), this, SLOT(stateChanged()));
+        connect(moduleProxy, &KCModuleProxy::changed, this, &ModuleView::stateChanged);
         d->mPages.insert(page, moduleProxy);
     }
 
