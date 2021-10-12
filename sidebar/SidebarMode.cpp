@@ -290,8 +290,8 @@ SidebarMode::SidebarMode(QObject *parent, const QVariantList &args)
     d->aboutIcon->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
     d->aboutIcon->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
 
-    qmlRegisterType<QAction>();
-    qmlRegisterType<QAbstractItemModel>();
+    qmlRegisterAnonymousType<QAction>("", 1);
+    qmlRegisterAnonymousType<QAbstractItemModel>("", 1);
 }
 
 SidebarMode::~SidebarMode()

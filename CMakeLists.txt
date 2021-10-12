@@ -20,6 +20,7 @@ include(ECMQtDeclareLoggingCategory)
 include(KDEGitCommitHooks)
 
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055700)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_USE_QSTRINGBUILDER)
@@ -61,8 +62,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 ecm_find_qmlmodule(org.kde.kcm 1.0)
 
 find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
-
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 
 add_subdirectory(core)
 add_subdirectory(app)
