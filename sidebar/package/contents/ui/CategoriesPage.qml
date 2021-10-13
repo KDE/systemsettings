@@ -7,7 +7,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.systemsettings 1.0
 
 Kirigami.ScrollablePage {
@@ -65,7 +65,7 @@ Kirigami.ScrollablePage {
 
             Kirigami.SearchField {
                 id: searchField
-                focus: true
+                focus: Kirigami.InputMethod ? !Kirigami.InputMethod.willShowOnActive : true
                 Layout.fillWidth: true
                 onTextChanged: {
                     systemsettings.searchModel.filterRegExp = text;
