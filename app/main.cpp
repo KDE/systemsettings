@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         mode = BaseMode::InfoCenter;
     }
 
-    // exec is systemsettings5, but we need the QPT to use the right config from the qApp constructor
+    // exec is systemsettings, but we need the QPT to use the right config from the qApp constructor
     // which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(binaryName);
 

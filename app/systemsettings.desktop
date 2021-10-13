@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=systemsettings5
+Exec=systemsettings
 Icon=preferences-system
 Type=Application
 X-DocPath=systemsettings/index.html
@@ -278,7 +278,7 @@ Name[x-test]=xxGlobal Themexx
 Name[zh_CN]=全局主题
 Name[zh_TW]=全域主題
 Icon=preferences-desktop-theme-global
-Exec=systemsettings5 kcm_lookandfeel
+Exec=systemsettings kcm_lookandfeel
 
 [Desktop Action kcm-users]
 Name=Users
@@ -324,7 +324,7 @@ Name[x-test]=xxUsersxx
 Name[zh_CN]=用户
 Name[zh_TW]=使用者
 Icon=preferences-system-users
-Exec=systemsettings5 kcm_users
+Exec=systemsettings kcm_users
 
 [Desktop Action screenlocker]
 Name=Screen Locking
@@ -369,7 +369,7 @@ Name[x-test]=xxScreen Lockingxx
 Name[zh_CN]=锁屏
 Name[zh_TW]=螢幕鎖定
 Icon=preferences-desktop-user-password
-Exec=systemsettings5 screenlocker
+Exec=systemsettings screenlocker
 
 [Desktop Action powerdevilprofilesconfig]
 Name=Energy Saving
@@ -414,7 +414,7 @@ Name[x-test]=xxEnergy Savingxx
 Name[zh_CN]=节能
 Name[zh_TW]=節能選項
 Icon=preferences-system-power-management
-Exec=systemsettings5 powerdevilprofilesconfig
+Exec=systemsettings powerdevilprofilesconfig
 
 [Desktop Action kcm-kscreen]
 Name=Display Configuration
@@ -457,4 +457,4 @@ Name[x-test]=xxDisplay Configurationxx
 Name[zh_CN]=显示器配置
 Name[zh_TW]=顯示設定
 Icon=preferences-desktop-display-randr
-Exec=systemsettings5 kcm_kscreen
+Exec=systemsettings kcm_kscreen

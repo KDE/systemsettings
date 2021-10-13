@@ -68,7 +68,7 @@ void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasm
         job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), {data.pluginId()});
         job->setDesktopName(QStringLiteral("org.kde.kinfocenter"));
     } else if (!data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()) {
-        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings5"), {data.pluginId()});
+        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings"), {data.pluginId()});
         job->setDesktopName(QStringLiteral("org.kde.systemsettings"));
     } else {
         // If we have created the KPluginMetaData from a desktop file KCMShell needs the pluginId, otherwise we can give
