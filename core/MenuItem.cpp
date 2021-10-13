@@ -166,9 +166,11 @@ void MenuItem::setCategoryConfig(const KDesktopFile &file)
 void MenuItem::setMetaData(const KPluginMetaData &data)
 {
     d->metaData = data;
-    d->category = data.value(QStringLiteral("X-KDE-System-Settings-Category"));
-    if (d->category.isEmpty()) {
-        d->category = data.value(QStringLiteral("X-KDE-KInfoCenter-Category"));
+    if (!d->isSystemsettingsCategory) {
+        d->category = data.value(QStringLiteral("X-KDE-System-Settings-Category"));
+        if (d->category.isEmpty()) {
+            d->category = data.value(QStringLiteral("X-KDE-KInfoCenter-Category"));
+        }
     }
     d->name = data.name();
     const QVariant itemWeight = data.rawData().value(QStringLiteral("X-KDE-Weight")).toInt();
