@@ -249,7 +249,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
                 infoItem->setMetaData(metaData);
                 infoItem->setCategoryOwner(isCategoryOwner);
 
-                if (m_mode == BaseMode::InfoCenter && metaData.pluginId() == QStringLiteral("kcm_about_distro")) {
+                if (m_mode == BaseMode::InfoCenter && metaData.pluginId() == QStringLiteral("kcm_about-distro")) {
                     homeModule = infoItem;
                 } else if (m_mode == BaseMode::SystemSettings && metaData.pluginId() == QStringLiteral("kcm_landingpage")) {
                     homeModule = infoItem;
