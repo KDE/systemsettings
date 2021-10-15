@@ -34,7 +34,7 @@ target_link_libraries( systemsettings systemsettingsview
 
 
 add_custom_command(TARGET systemsettings POST_BUILD
-                  COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/systemsettings systemsettings5)
+                   COMMAND ${CMAKE_COMMAND} -E create_symlink systemsettings systemsettings5)
 
 install( FILES ${CMAKE_CURRENT_BINARY_DIR}/systemsettings5 DESTINATION ${KDE_INSTALL_FULL_BINDIR}/ )
 
