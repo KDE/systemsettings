@@ -191,7 +191,7 @@ Q_SIGNALS:
     void closeRequest();
 
     /**
-     * Emmitted when showDefaultsIndicators state changed
+     * Emitted when showDefaultsIndicators state changed
      */
     void showDefaultsIndicatorsChanged(bool show);
 

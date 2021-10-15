@@ -61,7 +61,7 @@ public:
     bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
     /**
-     * Please see the Qt QSortFilterProxyModel documentation for futher information.\n
+     * Please see the Qt QSortFilterProxyModel documentation for further information.\n
      * Provides additional filtering of the MenuModel to only show categories which contain modules.
      *
      * @param source_column Please see QSortFilterProxyModel documentation.
