@@ -613,7 +613,14 @@ void SidebarMode::updateDefaults()
         return;
     }
 
-    auto *moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(item->metaData()).plugin;
+    KCModuleData *moduleData = nullptr;
+    if (item->metaData().isValid()) {
+        moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(item->metaData(), nullptr).plugin;
+        if (!moduleData) {
+            KPluginMetaData kcmsData(QStringLiteral("kcms/") + item->metaData().fileName());
+            moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(kcmsData, nullptr).plugin;
+        }
+    }
     if (moduleData) {
         connect(moduleData, &KCModuleData::loaded, this, [this, item, moduleData, categoryIdx]() {
             item->setDefaultIndicator(!moduleData->isDefaults());

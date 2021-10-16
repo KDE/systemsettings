@@ -209,7 +209,14 @@ void MenuItem::setCategoryOwner(bool owner)
 
 void MenuItem::updateDefaultIndicator()
 {
-    std::unique_ptr<KCModuleData> moduleData(KPluginFactory::instantiatePlugin<KCModuleData>(d->metaData, nullptr).plugin);
+    std::unique_ptr<KCModuleData> moduleData;
+    if (d->metaData.isValid()) {
+        moduleData.reset(KPluginFactory::instantiatePlugin<KCModuleData>(d->metaData, nullptr).plugin);
+        if (!moduleData) {
+            KPluginMetaData kcmsData(QStringLiteral("kcms/") + d->metaData.fileName());
+            moduleData.reset(KPluginFactory::instantiatePlugin<KCModuleData>(kcmsData, nullptr).plugin);
+        }
+    }
 
     d->showDefaultIndicator = moduleData && !moduleData->isDefaults();
     if (menu()) {
