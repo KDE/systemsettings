@@ -10,6 +10,8 @@
 
 #include "MenuItem.h"
 
+#include "kcmmetadatahelpers.h"
+
 #include <QList>
 #include <QString>
 
@@ -209,16 +211,9 @@ void MenuItem::setCategoryOwner(bool owner)
 
 void MenuItem::updateDefaultIndicator()
 {
-    std::unique_ptr<KCModuleData> moduleData;
-    if (d->metaData.isValid()) {
-        moduleData.reset(KPluginFactory::instantiatePlugin<KCModuleData>(d->metaData, nullptr).plugin);
-        if (!moduleData) {
-            KPluginMetaData kcmsData(QStringLiteral("kcms/") + d->metaData.fileName());
-            moduleData.reset(KPluginFactory::instantiatePlugin<KCModuleData>(kcmsData, nullptr).plugin);
-        }
-    }
-
+    std::unique_ptr<KCModuleData> moduleData(loadModuleData(d->metaData));
     d->showDefaultIndicator = moduleData && !moduleData->isDefaults();
+
     if (menu()) {
         for (auto child : children()) {
             d->showDefaultIndicator |= child->showDefaultIndicator();

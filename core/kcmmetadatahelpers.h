@@ -6,6 +6,7 @@
  */
 
 #include <KAuthorized>
+#include <KCModuleData>
 #include <KFileUtils>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
@@ -97,4 +98,17 @@ inline bool isKinfoCenterKcm(const KPluginMetaData &data)
         return true;
     }
     return false;
+}
+
+inline KCModuleData *loadModuleData(const KPluginMetaData &data)
+{
+    KCModuleData *moduleData = nullptr;
+    if (data.isValid()) {
+        moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(data, nullptr).plugin;
+        if (!moduleData) {
+            KPluginMetaData kcmsData(QStringLiteral("kcms/") + data.fileName());
+            moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(kcmsData, nullptr).plugin;
+        }
+    }
+    return moduleData;
 }

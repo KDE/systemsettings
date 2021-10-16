@@ -10,4 +10,5 @@ target_link_libraries(krunner_systemsettings
     KF5::Runner
     KF5::Service
     KF5::Activities
+    KF5::KCMUtils
 )
