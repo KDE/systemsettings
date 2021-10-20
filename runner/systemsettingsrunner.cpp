@@ -100,6 +100,11 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
     const QString name = data.name();
 
     match.setText(name);
+    if (data.metaDataFileName().endsWith(QLatin1String(".desktop"))) {
+        QUrl url(data.metaDataFileName());
+        url.setScheme(QStringLiteral("applications"));
+        match.setUrls({url});
+    }
     const QString genericName = data.value(QStringLiteral("GenericName"));
     if (!genericName.isEmpty() && genericName != name) {
         match.setSubtext(genericName);
