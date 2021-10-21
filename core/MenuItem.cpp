@@ -249,6 +249,11 @@ MenuItem *MenuItem::descendantForModule(const QString &moduleName)
         return this;
     }
 
+    // check the desktop file name since that is used in handful of places to reference the KCM
+    if (d->metaData.isValid() && QFileInfo(d->metaData.metaDataFileName()).fileName() == moduleName + QLatin1String(".desktop")) {
+        return this;
+    }
+
     for (auto *child : d->children) {
         MenuItem *candidate = child->descendantForModule(moduleName);
         if (candidate) {
