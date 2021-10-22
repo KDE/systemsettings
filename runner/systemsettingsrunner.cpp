@@ -104,6 +104,11 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
         QUrl url(data.metaDataFileName());
         url.setScheme(QStringLiteral("applications"));
         match.setUrls({url});
+    } else {
+        // Derive path to a decktop file from pluginId, this will allow one to pin the KCM
+        QUrl url(QStringLiteral("kcms/") + data.pluginId() + QLatin1String(".desktop"));
+        url.setScheme(QStringLiteral("applications"));
+        match.setUrls({url});
     }
     const QString genericName = data.value(QStringLiteral("GenericName"));
     if (!genericName.isEmpty() && genericName != name) {
