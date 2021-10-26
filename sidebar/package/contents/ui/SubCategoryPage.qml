@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-only
 */
 
-import QtQuick 2.5
+import QtQuick 2.15
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 
@@ -38,23 +38,23 @@ Kirigami.ScrollablePage {
             visible: false
         }
 
-        background: Rectangle {
-            visible: !applicationWindow().wideScreen
+         background: Rectangle {
             color: Kirigami.Theme.highlightColor
-            opacity: mousearea.containsMouse  ? (mousearea.pressed ? 0.4 : 0.2) : 0
+            opacity: hoverHandler.hovered ? (tapHandler.pressed ? 0.4 : 0.2) : 0
+            visible: !applicationWindow().wideScreen
             Accessible.role: Accessible.Button
             Accessible.name: i18n("Go back")
-
+            TapHandler {
+                id: tapHandler
+                acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
+                onTapped: root.pageStack.currentIndex = 0;
+            }
+            HoverHandler {
+                id: hoverHandler
+                enabled: !Kirigami.Settings.isMobile
+            }
             QQC2.ToolTip {
                 text: parent.Accessible.name
-            }
-
-            MouseArea {
-                id: mousearea
-                anchors.fill: parent
-                enabled: !applicationWindow().wideScreen
-                onClicked: root.pageStack.currentIndex = 0;
-                hoverEnabled: !Kirigami.Settings.isMobile
             }
         }
 
