@@ -85,7 +85,6 @@ Kirigami.ScrollablePage {
                 Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
                 // Don't be too short when the back button isn't visible
                 Layout.minimumHeight: buttonSizePlaceholder.implicitHeight
-                level: 3
                 text: subCategoryColumn.title
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
