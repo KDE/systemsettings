@@ -84,6 +84,8 @@ Kirigami.ScrollablePage {
                 Accessible.name: i18n("Show menu")
                 QQC2.ToolTip {
                     text: parent.Accessible.name
+                    // Close when menu is open, or else it gets cut off behind
+                    visible: menuButton.hovered & !menuButton.checked
                 }
             }
         }
