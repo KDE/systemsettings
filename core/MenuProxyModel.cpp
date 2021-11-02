@@ -111,7 +111,9 @@ Qt::ItemFlags MenuProxyModel::flags(const QModelIndex &index) const
     }
 
     QString matchText = index.data(MenuModel::UserFilterRole).toString();
-    if (!matchText.contains(filterRegExp())) {
+    QRegExp pattern = KCategorizedSortFilterProxyModel::filterRegExp();
+
+    if (!matchText.contains(pattern)) {
         return Qt::NoItemFlags;
     } else {
         return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
