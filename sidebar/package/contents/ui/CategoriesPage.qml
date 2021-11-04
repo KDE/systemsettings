@@ -70,22 +70,9 @@ Kirigami.ScrollablePage {
                 KeyNavigation.tab: categoryView
             }
 
-            QQC2.ToolButton {
-                id: menuButton
-                icon.name: "application-menu"
-                checkable: true
-                checked: systemsettings.actionMenuVisible
+            HamburgerMenuButton {
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
-                }
-                onClicked: systemsettings.showActionMenu(mapToGlobal(0, height))
-
-                Accessible.role: Accessible.Button
-                Accessible.name: i18n("Show menu")
-                QQC2.ToolTip {
-                    text: parent.Accessible.name
-                    // Close when menu is open, or else it gets cut off behind
-                    visible: menuButton.hovered & !menuButton.checked
                 }
             }
         }

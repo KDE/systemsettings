@@ -38,59 +38,76 @@ Kirigami.ScrollablePage {
             visible: false
         }
 
-         background: Rectangle {
-            color: Kirigami.Theme.highlightColor
-            opacity: hoverHandler.hovered ? (tapHandler.pressed ? 0.4 : 0.2) : 0
-            visible: !applicationWindow().wideScreen
-            Accessible.role: Accessible.Button
-            Accessible.name: i18n("Go back")
-            TapHandler {
-                id: tapHandler
-                acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
-                onTapped: root.pageStack.currentIndex = 0;
-            }
-            HoverHandler {
-                id: hoverHandler
-                enabled: !Kirigami.Settings.isMobile
-            }
-            QQC2.ToolTip {
-                text: parent.Accessible.name
-            }
-        }
-
         contentItem: RowLayout {
             id: toolBarLayout
             anchors.fill: parent
             spacing: 0
 
-            // NOTE: this toolbutton is needed even if is not visible in order to have good
-            // size hints for the toolbar height which should perfectly align with the toolbar on the other side
-            QQC2.ToolButton {
-                id: buttonSizePlaceholder
-                visible: false
-                icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
-            }
-            Kirigami.Icon {
-                id: backIcon
-                visible: !applicationWindow().wideScreen
-                source: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
-                Layout.preferredWidth: buttonSizePlaceholder.implicitWidth
-                Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-                Layout.alignment: Qt.AlignCenter
-            }
-
-            Kirigami.Heading {
+            Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
-                // Don't be too short when the back button isn't visible
+                // Don't be too short when the back and burger buttons aren't visible
                 Layout.minimumHeight: buttonSizePlaceholder.implicitHeight
-                level: 3
-                text: subCategoryColumn.title
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
+
+                // Colored background for hover/press states
+                Rectangle {
+                    anchors.fill: parent
+                    color: Kirigami.Theme.highlightColor
+                    opacity: hoverHandler.hovered ? (tapHandler.pressed ? 0.4 : 0.2) : 0
+                    visible: !applicationWindow().wideScreen
+                    Accessible.role: Accessible.Button
+                    Accessible.name: i18n("Go back")
+                    TapHandler {
+                        id: tapHandler
+                        acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
+                        onTapped: root.pageStack.currentIndex = 0;
+                    }
+                    HoverHandler {
+                        id: hoverHandler
+                        enabled: !Kirigami.Settings.isMobile
+                    }
+                    QQC2.ToolTip {
+                        text: parent.Accessible.name
+                    }
+                }
+
+                // DIY back button
+                RowLayout {
+                    anchors.fill: parent
+                    // NOTE: this toolbutton is needed even if is not visible in order to have good
+                    // size hints for the toolbar height which should perfectly align with the toolbar on the other side
+                    QQC2.ToolButton {
+                        id: buttonSizePlaceholder
+                        visible: false
+                        icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
+                    }
+                    Kirigami.Icon {
+                        id: backIcon
+                        visible: !applicationWindow().wideScreen
+                        source: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
+                        Layout.preferredWidth: buttonSizePlaceholder.implicitWidth
+                        Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+                        Layout.alignment: Qt.AlignCenter
+                    }
+
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
+                        level: 3
+                        text: subCategoryColumn.title
+                        verticalAlignment: Text.AlignVCenter
+                        elide: Text.ElideRight
+                    }
+                }
             }
 
+            HamburgerMenuButton {
+                visible: !applicationWindow().wideScreen
+                Keys.onBacktabPressed: {
+                    root.focusPreviousRequest()
+                }
+            }
         }
     }
 
