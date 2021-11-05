@@ -39,67 +39,54 @@ Kirigami.ScrollablePage {
         }
 
         contentItem: RowLayout {
-            id: toolBarLayout
             anchors.fill: parent
-            spacing: 0
 
-            Item {
+            // Show a back Button when only one column is visible
+            QQC2.ToolButton {
+                id: backButton
                 Layout.fillWidth: true
-                Layout.fillHeight: true
-                // Don't be too short when the back and burger buttons aren't visible
-                Layout.minimumHeight: buttonSizePlaceholder.implicitHeight
+                visible: !applicationWindow().wideScreen
+                // Uncomment once QQC2.ToolButton can force-left-align its contents
+                // text: subCategoryColumn.title
+                // icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
+                onClicked: { root.pageStack.currentIndex = 0; }
 
-                // Colored background for hover/press states
-                Rectangle {
-                    anchors.fill: parent
-                    color: Kirigami.Theme.highlightColor
-                    opacity: hoverHandler.hovered ? (tapHandler.pressed ? 0.4 : 0.2) : 0
-                    visible: !applicationWindow().wideScreen
-                    Accessible.role: Accessible.Button
-                    Accessible.name: i18n("Go back")
-                    TapHandler {
-                        id: tapHandler
-                        acceptedButtons: applicationWindow().wideScreen ? Qt.NoButton : Qt.LeftButton
-                        onTapped: root.pageStack.currentIndex = 0;
-                    }
-                    HoverHandler {
-                        id: hoverHandler
-                        enabled: !Kirigami.Settings.isMobile
-                    }
-                    QQC2.ToolTip {
-                        text: parent.Accessible.name
-                    }
-                }
-
-                // DIY back button
-                RowLayout {
-                    anchors.fill: parent
-                    // NOTE: this toolbutton is needed even if is not visible in order to have good
-                    // size hints for the toolbar height which should perfectly align with the toolbar on the other side
-                    QQC2.ToolButton {
-                        id: buttonSizePlaceholder
-                        visible: false
-                        icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
-                    }
+                // Need a custom content item to left-align everything, because
+                // ToolButtons center everything when you force the width to be
+                // higher than normal, which looks bad here
+                // See https://bugs.kde.org/show_bug.cgi?id=445033
+                contentItem: RowLayout {
                     Kirigami.Icon {
                         id: backIcon
-                        visible: !applicationWindow().wideScreen
                         source: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
-                        Layout.preferredWidth: buttonSizePlaceholder.implicitWidth
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
+                        Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
                         Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
                         Layout.alignment: Qt.AlignCenter
                     }
-
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
-                        level: 3
+                        level: 4
                         text: subCategoryColumn.title
                         verticalAlignment: Text.AlignVCenter
                         elide: Text.ElideRight
                     }
                 }
+            }
+
+            // Show a non-interactive heading when both columns are visible
+            Kirigami.Heading {
+                visible: !backButton.visible
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                // Don't be too short when the back and burger buttons aren't visible
+                Layout.minimumHeight: backButton.implicitHeight
+                Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
+                level: 3
+                text: subCategoryColumn.title
+                verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
             }
 
             HamburgerMenuButton {
