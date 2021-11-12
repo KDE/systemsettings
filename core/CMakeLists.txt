@@ -1,11 +1,19 @@
 set(systemsettingsview_LIB_SRCS
-    MenuItem.cpp
-    MenuModel.cpp
-    MenuProxyModel.cpp
-    ModuleView.cpp
     BaseData.cpp
+    BaseData.h
     BaseMode.cpp
+    BaseMode.h
     ExternalAppModule.cpp
+    ExternalAppModule.h
+    kcmmetadatahelpers.h
+    MenuItem.cpp
+    MenuItem.h
+    MenuModel.cpp
+    MenuModel.h
+    MenuProxyModel.cpp
+    MenuProxyModel.h
+    ModuleView.cpp
+    ModuleView.h
 )
 
 ki18n_wrap_ui( systemsettingsview_LIB_SRCS externalModule.ui )

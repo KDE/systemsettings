@@ -2,9 +2,12 @@
 include_directories( ToolTips )
 
 set( systemsettings_SRCS
-     SettingsBase.cpp
-     ToolTips/tooltipmanager.cpp
-     main.cpp )
+    main.cpp
+    SettingsBase.cpp
+    SettingsBase.h
+    ToolTips/tooltipmanager.cpp
+    ToolTips/tooltipmanager.h
+     )
 
 ecm_qt_declare_logging_category(systemsettings_SRCS HEADER systemsettings_app_debug.h IDENTIFIER SYSTEMSETTINGS_APP_LOG CATEGORY_NAME org.kde.systemsettings.app DESCRIPTION "systemsettings" EXPORT SYSTEMSETTINGS)
 
