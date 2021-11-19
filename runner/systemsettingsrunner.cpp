@@ -104,6 +104,10 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
         QUrl url(data.metaDataFileName());
         url.setScheme(QStringLiteral("applications"));
         match.setUrls({url});
+    } else {
+        QUrl url(data.pluginId());
+        url.setScheme(QStringLiteral("applications"));
+        match.setUrls({url});
     }
     const QString genericName = data.value(QStringLiteral("GenericName"));
     if (!genericName.isEmpty() && genericName != name) {
