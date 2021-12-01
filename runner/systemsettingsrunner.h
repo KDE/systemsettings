@@ -8,8 +8,6 @@
 #ifndef SYSTEMSETTINGSRUNNER_H
 #define SYSTEMSETTINGSRUNNER_H
 
-#include <KService>
-
 #include <KRunner/AbstractRunner>
 #include <QMutex>
 

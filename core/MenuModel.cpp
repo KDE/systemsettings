@@ -10,7 +10,6 @@
 #include "MenuItem.h"
 #include <KCModuleInfo>
 #include <KCategorizedSortFilterProxyModel>
-#include <KPluginInfo>
 #include <QIcon>
 
 class MenuModel::Private

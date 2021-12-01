@@ -18,7 +18,6 @@
 #include <KActionMenu>
 #include <KConfigDialog>
 #include <KLineEdit>
-#include <KService>
 #include <KXmlGuiWindow>
 
 class SettingsBase : public KXmlGuiWindow
