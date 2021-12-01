@@ -875,7 +875,7 @@ void SidebarMode::reloadStartupModule()
 
 bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
 {
-    // FIXME: those are all workarounds around the QQuickWidget brokeness
+    // FIXME: those are all workarounds around the QQuickWidget brokenness
     if ((watched == d->quickWidget || watched == d->placeHolderWidget) && event->type() == QEvent::KeyPress) {
         // allow tab navigation inside the qquickwidget
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);

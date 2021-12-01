@@ -50,7 +50,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Declarative
     Activities
     ActivitiesStats
-    GuiAddons # UrlHanlder hanldes help:/ urls
+    GuiAddons # UrlHanlder handles help:/ urls
     Kirigami2
     Notifications
     Runner
