@@ -72,9 +72,11 @@ public:
      * Returns the list of keywords, which is used for searching the list of categories and modules.
      *
      * @note The parent items share all the keywords of their children.
+     *
+     * @param doesRemoveDuplicates Whether to remove duplicate keywords from the list.
      * @returns The list of keywords the item has.
      */
-    QStringList keywords();
+    QStringList keywords(bool doesRemoveDuplicates = true) const;
 
     /**
      * Returns the parent of this item.

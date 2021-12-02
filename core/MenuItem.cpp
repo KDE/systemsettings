@@ -19,6 +19,7 @@
 #include <KCModuleInfo>
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KJsonUtils>
 #include <QFileInfo>
 
 static bool childIsLessThan(MenuItem *left, MenuItem *right)
@@ -78,13 +79,19 @@ MenuItem *MenuItem::child(int index)
     return d->children.at(index);
 }
 
-QStringList MenuItem::keywords()
+QStringList MenuItem::keywords(bool doesRemoveDuplicates) const
 {
     QStringList listOfKeywords;
-    listOfKeywords << KPluginMetaData::readTranslatedString(d->metaData.rawData(), QStringLiteral("X-KDE-Keywords")).split(QLatin1String(","));
+    // Always add English keywords so users in other languages won't have to switch IME when searching.
+    listOfKeywords << d->metaData.value(QStringLiteral("X-KDE-Keywords"), QString()).split(QLatin1String(","));
+    listOfKeywords << KJsonUtils::readTranslatedString(d->metaData.rawData(), QStringLiteral("X-KDE-Keywords")).split(QLatin1String(","));
     listOfKeywords << d->name;
-    foreach (MenuItem *child, d->children) {
-        listOfKeywords += child->keywords();
+    for (MenuItem *child : qAsConst(d->children)) {
+        listOfKeywords << child->keywords(false);
+    }
+    // Only remove duplicate keywords in the end
+    if (doesRemoveDuplicates) {
+        listOfKeywords.removeDuplicates();
     }
     return listOfKeywords;
 }
