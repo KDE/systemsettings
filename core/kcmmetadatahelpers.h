@@ -113,13 +113,19 @@ inline bool isKinfoCenterKcm(const KPluginMetaData &data)
 
 inline KCModuleData *loadModuleData(const KPluginMetaData &data)
 {
+    if (!data.isValid()) {
+        return nullptr;
+    }
     KCModuleData *moduleData = nullptr;
-    if (data.isValid()) {
-        moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(data, nullptr).plugin;
-        if (!moduleData) {
-            KPluginMetaData kcmsData(QStringLiteral("kcms/") + data.fileName());
-            moduleData = KPluginFactory::instantiatePlugin<KCModuleData>(kcmsData, nullptr).plugin;
+    auto loadFromMetaData = [&moduleData](const KPluginMetaData &data) {
+        if (data.isValid()) {
+            auto factory = KPluginFactory::loadFactory(data).plugin;
+            moduleData = factory ? factory->create<KCModuleData>() : nullptr;
         }
+    };
+    loadFromMetaData(data);
+    if (!moduleData) {
+        loadFromMetaData(KPluginMetaData(QStringLiteral("kcms/") + data.fileName()));
     }
     return moduleData;
 }
