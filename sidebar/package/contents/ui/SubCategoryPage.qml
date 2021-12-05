@@ -54,7 +54,6 @@ Kirigami.ScrollablePage {
                 // Need a custom content item to left-align everything, because
                 // ToolButtons center everything when you force the width to be
                 // higher than normal, which looks bad here
-                // See https://bugs.kde.org/show_bug.cgi?id=445033
                 contentItem: RowLayout {
                     Kirigami.Icon {
                         id: backIcon
