@@ -82,8 +82,10 @@ MenuItem *MenuItem::child(int index)
 QStringList MenuItem::keywords(bool doesRemoveDuplicates) const
 {
     QStringList listOfKeywords;
-    // Always add English keywords so users in other languages won't have to switch IME when searching.
-    listOfKeywords << d->metaData.value(QStringLiteral("X-KDE-Keywords"), QString()).split(QStringLiteral(","));
+    // Add English keywords so users in other languages won't have to switch IME when searching.
+    if (!QLocale().name().startsWith(QLatin1String("en_"))) {
+        listOfKeywords << d->metaData.value(QStringLiteral("X-KDE-Keywords"), QString()).split(QLatin1String(","));
+    }
     listOfKeywords << KJsonUtils::readTranslatedString(d->metaData.rawData(), QStringLiteral("X-KDE-Keywords")).split(QStringLiteral(","));
     listOfKeywords << d->name;
     for (MenuItem *child : qAsConst(d->children)) {
