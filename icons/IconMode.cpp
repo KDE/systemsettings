@@ -27,9 +27,6 @@ class IconMode::Private
 {
 public:
     Private()
-        : categoryDrawer(nullptr)
-        , categoryView(nullptr)
-        , moduleView(nullptr)
     {
     }
 
@@ -38,14 +35,14 @@ public:
         delete aboutIcon;
     }
 
-    KCategoryDrawer *categoryDrawer;
-    KCategorizedView *categoryView;
-    QStackedWidget *mainWidget;
-    MenuModel *model;
-    MenuProxyModel *proxyModel;
-    KAboutData *aboutIcon;
-    ModuleView *moduleView;
-    QAction *backAction;
+    KCategoryDrawer *categoryDrawer = nullptr;
+    KCategorizedView *categoryView = nullptr;
+    QStackedWidget *mainWidget = nullptr;
+    MenuModel *model = nullptr;
+    MenuProxyModel *proxyModel = nullptr;
+    KAboutData *aboutIcon = nullptr;
+    ModuleView *moduleView = nullptr;
+    QAction *backAction = nullptr;
 };
 
 IconMode::IconMode(QObject *parent, const QVariantList &args)

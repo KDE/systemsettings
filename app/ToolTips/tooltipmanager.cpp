@@ -43,9 +43,9 @@ public:
     {
     }
 
-    KToolTipWidget *tooltip;
-    QAbstractItemView *view;
-    QTimer *timer;
+    KToolTipWidget *tooltip = nullptr;
+    QAbstractItemView *view = nullptr;
+    QTimer *timer = nullptr;
     QModelIndex item;
     QRect itemRect;
     int delay;

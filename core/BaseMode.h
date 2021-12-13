@@ -85,7 +85,7 @@ public:
      *
      * @param modeService Plugins service object, used for providing extra information to System Settings.
      */
-    void init(const KPluginMetaData metaData);
+    void init(const KPluginMetaData &metaData);
 
     /**
      * Prepares the BaseMode for use.\n

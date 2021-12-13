@@ -55,7 +55,7 @@ BaseMode::~BaseMode()
     delete d;
 }
 
-void BaseMode::init(const KPluginMetaData metaData)
+void BaseMode::init(const KPluginMetaData &metaData)
 {
     d->rootItem = BaseData::instance()->menuItem();
     d->homeItem = BaseData::instance()->homeItem();

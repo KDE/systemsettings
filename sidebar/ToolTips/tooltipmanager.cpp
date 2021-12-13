@@ -44,10 +44,10 @@ public:
     {
     }
 
-    KToolTipWidget *tooltip;
-    QWidget *view;
+    KToolTipWidget *tooltip = nullptr;
+    QWidget *view = nullptr;
     const QAbstractItemModel *model;
-    QTimer *timer;
+    QTimer *timer = nullptr;
     QPersistentModelIndex item;
     QRect itemRect;
     int delay;

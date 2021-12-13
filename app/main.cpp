@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         // About data
         aboutData = KAboutData(QStringLiteral("kinfocenter"),
                                i18n("Info Center"),
-                               QLatin1String(PROJECT_VERSION),
+                               QStringLiteral(PROJECT_VERSION),
                                i18n("Centralized and convenient overview of system information."),
                                KAboutLicense::GPL,
                                i18n("(c) 2009, Ben Cooksley"));
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     } else {
         aboutData = KAboutData(QStringLiteral("systemsettings"),
                                i18n("System Settings"),
-                               QLatin1String(PROJECT_VERSION),
+                               QStringLiteral(PROJECT_VERSION),
                                i18n("Central configuration center by KDE."),
                                KAboutLicense::GPL,
                                i18n("(c) 2009, Ben Cooksley"));
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
 
     parser.addOption(QCommandLineOption(QStringLiteral("list"), i18n("List all possible modules")));
     parser.addPositionalArgument(QStringLiteral("module"), i18n("Configuration module to open"));
-    parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QLatin1String("arguments")));
+    parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QStringLiteral("arguments")));
 
     aboutData.setupCommandLine(&parser);
 
@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
     QString startupModule;
 
     if (parser.positionalArguments().count() == 1) {
-        startupModule = parser.positionalArguments().first();
+        startupModule = parser.positionalArguments().constFirst();
     }
 
     if (!args.isEmpty() && startupModule.isEmpty()) {
@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
         // We don't need to do the error checking again though.
         QCommandLineParser parser;
         parser.addPositionalArgument(QStringLiteral("module"), i18n("Configuration module to open"));
-        parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QLatin1String("arguments")));
+        parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the module"), QStringLiteral("arguments")));
 
         parser.parse(arguments);
 
@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
         QString startupModule;
 
         if (parser.positionalArguments().count() == 1) {
-            startupModule = parser.positionalArguments().first();
+            startupModule = parser.positionalArguments().constFirst();
         }
 
         if (!startupModule.isEmpty()) {
