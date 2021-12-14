@@ -10,6 +10,7 @@
 #include <KFileUtils>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
+#include <QGuiApplication>
 #include <QStandardPaths>
 #include <kservice.h>
 
@@ -54,16 +55,22 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 {
     QList<KPluginMetaData> modules;
     QSet<QString> uniquePluginIds;
+
+    auto filter = [](const KPluginMetaData &data) {
+        const auto supportedPlatforms = data.value(QStringLiteral("X-KDE-OnlyShowOnQtPlatforms"), QStringList());
+        return supportedPlatforms.isEmpty() || supportedPlatforms.contains(qGuiApp->platformName());
+    };
+
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
     KService::List services;
-    QVector<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"));
+    QVector<KPluginMetaData> metaDataList = KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms"), filter);
     if (source & SystemSettings) {
-        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"));
-        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings_qwidgets"));
+        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"), filter);
+        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings_qwidgets"), filter);
         services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
     }
     if (source & KInfoCenter) {
-        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"));
+        metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"), filter);
         services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
     }
     for (const auto &m : qAsConst(metaDataList)) {
