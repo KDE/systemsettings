@@ -74,6 +74,10 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
         services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-ParentApp] == 'kinfocenter'"));
     }
     for (const auto &m : qAsConst(metaDataList)) {
+        // We check both since porting a module to loading view KPluginMetaData drops ".desktop" from the pluginId()
+        if (!KAuthorized::authorizeControlModule(m.pluginId()) || !KAuthorized::authorizeControlModule(m.pluginId().append(QStringLiteral(".desktop")))) {
+            continue;
+        }
         modules << m;
         auto insertionIterator = uniquePluginIds.insert(m.pluginId());
         Q_ASSERT_X(insertionIterator != uniquePluginIds.end(),
