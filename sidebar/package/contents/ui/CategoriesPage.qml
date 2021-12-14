@@ -51,7 +51,10 @@ Kirigami.ScrollablePage {
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
-                onClicked: systemsettings.introPageVisible = true
+                onClicked: {
+                    searchField.text = "";
+                    systemsettings.introPageVisible = true;
+                }
 
                 Accessible.role: Accessible.Button
                 Accessible.name: i18n("Show intro page")
