@@ -289,12 +289,6 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page, bool light)
     if (light) {
         return;
     }
-
-    if (moduleProxy->realModule()->useRootOnlyMessage()) {
-        page->setHeader(currentModuleName + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage() + QStringLiteral("</small>"));
-        d->mCustomHeader->setText(currentModuleName + QStringLiteral("<br><small>") + moduleProxy->realModule()->rootOnlyMessage()
-                                  + QStringLiteral("</small>"));
-    }
 }
 
 bool ModuleView::resolveChanges()
