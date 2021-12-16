@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Find system settings and system information modules",
+        "Description[ar]": "اعثر على معلومات النظام و إعداده",
         "Description[az]": "Sistem ayarları və sistem məlumatı modullarını tapın",
         "Description[ca@valencia]": "Cerca dels mòduls de l'arranjament del sistema i d'informació del sistema",
         "Description[ca]": "Cerca dels mòduls de l'arranjament del sistema i d'informació del sistema",
@@ -20,6 +21,7 @@
         "Description[ko]": "시스템 설정과 시스템 정보 모듈 검색",
         "Description[my]": "စစ်စတမ်ဆက်တင်များနှင့် စစ်စတမ်အချက်အလက်ဆိုင်ရာမော်ဂျူးများ ရှာသည်",
         "Description[nl]": "Zoek naar systeeminstellingen en systeeminformatiemodules",
+        "Description[nn]": "Finn systemoppsett og modular for systeminformasjon",
         "Description[pl]": "Znajduje ustawienia systemowe i moduły szczegółów systemu",
         "Description[pt]": "Procurar por módulos de configuração e informação do sistema",
         "Description[pt_BR]": "Encontre configurações do sistema e módulos de informações do sistema",
@@ -34,6 +36,7 @@
         "EnabledByDefault": true,
         "Icon": "systemsettings",
         "Name": "System Settings",
+        "Name[ar]": "إعدادات النّظام",
         "Name[az]": "Sistem ayarları",
         "Name[ca@valencia]": "Arranjament del sistema",
         "Name[ca]": "Arranjament del sistema",
@@ -54,6 +57,7 @@
         "Name[ko]": "시스템 설정",
         "Name[my]": "စစ်စတမ်ဆက်တင်များ",
         "Name[nl]": "Systeeminstellingen",
+        "Name[nn]": "System­oppsett",
         "Name[pl]": "Ustawienia systemowe",
         "Name[pt]": "Configuração do Sistema",
         "Name[pt_BR]": "Configurações do sistema",
