@@ -204,7 +204,6 @@ void IconMode::initWidget()
     d->categoryView->setFrameShape(QFrame::NoFrame);
     d->categoryView->setModel(d->proxyModel);
     connect(d->categoryView, &QAbstractItemView::activated, this, &IconMode::changeModule);
-    connect(d->categoryView, &QAbstractItemView::clicked, this, &IconMode::changeModule);
 
     d->mainWidget->addWidget(d->categoryView);
     d->mainWidget->addWidget(d->moduleView);
