@@ -12,6 +12,7 @@
 CategorizedView::CategorizedView(QWidget *parent)
     : KCategorizedView(parent)
 {
+    setStyle(new ActivateItemOnSingleClickStyle(style()));
     setWordWrap(true);
 }
 
