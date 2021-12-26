@@ -5,6 +5,8 @@ Type=Application
 X-DocPath=systemsettings/index.html
 X-KDE-StartupNotify=true
 X-KDE-Shortcuts=Tools
+X-GNOME-SingleWindow=true
+
 OnlyShowIn=KDE;
 Actions=kcm-lookandfeel;kcm-users;screenlocker;powerdevilprofilesconfig;kcm-kscreen;
 
