@@ -187,12 +187,7 @@ void MenuItem::setMetaData(const KPluginMetaData &data)
         d->category = data.value(QStringLiteral("X-KDE-KInfoCenter-Category"));
     }
     d->name = data.name();
-    const QVariant itemWeight = data.rawData().value(QStringLiteral("X-KDE-Weight")).toInt();
-    if (itemWeight.isValid()) {
-        d->weight = itemWeight.toInt();
-    } else {
-        d->weight = 100;
-    }
+    d->weight = data.value(QStringLiteral("X-KDE-Weight"), 100);
     d->comment = data.description();
     d->iconName = data.iconName();
     d->systemsettingsCategoryModule = data.value(QStringLiteral("X-KDE-System-Settings-Category-Module"));
