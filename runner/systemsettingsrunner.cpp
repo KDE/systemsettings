@@ -153,8 +153,19 @@ void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext 
                 relevance += 0.1;
             }
         } else {
+            // check if the generic name or description matches
             if (!checkMatchAndRelevance(data.value(QStringLiteral("GenericName")), 0.65) && !checkMatchAndRelevance(data.description(), 0.5)) {
-                continue;
+                // if not, check the keyowords
+                const QString &query = ctx.query();
+                const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
+                bool anyKeywordMatches = std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
+                    return keyword.startsWith(query);
+                });
+                if (anyKeywordMatches) {
+                    relevance = 0.2; // give it a lower relevance than if it had been found by name or description
+                } else {
+                    continue; // we haven't found any matching keyword, skip this KCM
+                }
             }
         }
 
