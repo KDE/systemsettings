@@ -51,7 +51,7 @@ inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
     return metaDataList;
 }
 
-inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
+inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool useSystemsettingsConstraint = true)
 {
     QList<KPluginMetaData> modules;
     QSet<QString> uniquePluginIds;
@@ -67,7 +67,9 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
     if (source & SystemSettings) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings"), filter);
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/systemsettings_qwidgets"), filter);
-        services += KServiceTypeTrader::self()->query(QStringLiteral("KCModule"), QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''"));
+        services +=
+            KServiceTypeTrader::self()->query(QStringLiteral("KCModule"),
+                                              useSystemsettingsConstraint ? QStringLiteral("[X-KDE-System-Settings-Parent-Category] != ''") : QString());
     }
     if (source & KInfoCenter) {
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"), filter);

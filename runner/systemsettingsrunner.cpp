@@ -51,7 +51,7 @@ void SystemsettingsRunner::match(Plasma::RunnerContext &context)
         QMutexLocker lock(&m_mutex);
         if (m_modules.isEmpty()) {
             KSycoca::disableAutoRebuild();
-            m_modules = findKCMsMetaData(MetaDataSource::All);
+            m_modules = findKCMsMetaData(MetaDataSource::All, false);
         }
     }
     matchNameKeywordAndGenericName(context);
