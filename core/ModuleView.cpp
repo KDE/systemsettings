@@ -249,6 +249,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         auto *externalWidget = new ExternalAppModule(this, KService::Ptr(new KService(item->metaData().metaDataFileName())));
         moduleScroll->setWidget(externalWidget);
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
+        page->setName(QString());
     } else { // It must be a normal module then
         auto *moduleProxy = new KCModuleProxy(data, moduleScroll, args);
         moduleScroll->setWidget(moduleProxy);
