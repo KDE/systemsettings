@@ -492,6 +492,9 @@ void ModuleView::stateChanged()
     d->mReset->setVisible(buttons & KCModule::Apply);
     d->mHelp->setEnabled(buttons & KCModule::Help);
     d->mHelp->setVisible(buttons & KCModule::Help);
+
+    d->mButtons->setVisible(buttons != KCModule::NoAdditionalButton);
+
     Q_EMIT moduleChanged(change);
 }
 
