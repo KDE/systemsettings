@@ -80,7 +80,7 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 // Don't be too short when the back and burger buttons aren't visible
-                Layout.minimumHeight: backButton.implicitHeight
+                Layout.minimumHeight: Math.max(backButton.implicitHeight, burgerButton.implicitHeight)
                 Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
                 level: 3
                 text: subCategoryColumn.title
@@ -89,6 +89,7 @@ Kirigami.ScrollablePage {
             }
 
             HamburgerMenuButton {
+                id: burgerButton
                 visible: !applicationWindow().wideScreen
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
