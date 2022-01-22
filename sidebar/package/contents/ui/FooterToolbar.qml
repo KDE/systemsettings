@@ -7,18 +7,19 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.5 as QQC2
 
+import org.kde.qqc2desktopstyle.private 1.0 as Style
 import org.kde.systemsettings 1.0
 
 QQC2.ToolBar {
     // Match height and padding of SystemSettings-provided footer for KCMs
-
-    // FIXME: get margin values from the QStyle instead of hardcoding them
-    // 6px are the Breeze layout margin values
+    Style.StyleItem {
+        id: desktopStyle
+    }
     // + 1 on top to account for the height of the separator line in the toolbar
-    topPadding: 6 + 1
-    bottomPadding: 6
-    leftPadding: 6
-    rightPadding: 6
+    topPadding:    desktopStyle.pixelMetric("layouttopmargin") + 1
+    bottomPadding: desktopStyle.pixelMetric("layoutbottommargin")
+    leftPadding:   desktopStyle.pixelMetric("layoutleftmargin")
+    rightPadding:  desktopStyle.pixelMetric("layoutrightmargin")
 
     // TODO: remove this sizer button if System Settings is ever changed to
     //       use toolbuttons instead of pushbuttons, as then the heights will
