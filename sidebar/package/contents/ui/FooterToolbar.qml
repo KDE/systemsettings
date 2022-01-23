@@ -10,15 +10,20 @@ import QtQuick.Controls 2.5 as QQC2
 import org.kde.systemsettings 1.0
 
 QQC2.ToolBar {
-    // Match height of SystemSettings-provided footer for KCMs
-    // The magic number 13 comes from adding the following:
-    // - 6 * 2 for 6px Breeze top and bottom margin values
-    // - 1 to account for the height of the separator line in the toolbar
+    // Match height and padding of SystemSettings-provided footer for KCMs
+
     // FIXME: get margin values from the QStyle instead of hardcoding them
+    // 6px are the Breeze layout margin values
+    // + 1 on top to account for the height of the separator line in the toolbar
+    topPadding: 6 + 1
+    bottomPadding: 6
+    leftPadding: 6
+    rightPadding: 6
+
     // TODO: remove this sizer button if System Settings is ever changed to
     //       use toolbuttons instead of pushbuttons, as then the heights will
     //       automatically be equal
-    height: sizerButton.height + 13
+    height: sizerButton.height + topPadding + bottomPadding
     QQC2.Button {
         id: sizerButton
         text: "I don't exist"
