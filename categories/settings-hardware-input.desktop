@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=input-devices
 X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-Weight=40
-Icon=preferences-desktop-peripherals
+Icon=preferences-desktop-mouse
 
 Name=Input Devices
 Name[ar]=أجهزة الدّخل
