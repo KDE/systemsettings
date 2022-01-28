@@ -14,12 +14,28 @@ QQC2.ToolBar {
     // Match height and padding of SystemSettings-provided footer for KCMs
     Style.StyleItem {
         id: desktopStyle
+
+        // Initialize with default breeze values (6px)
+        property int topMargin    : 6
+        property int bottomMargin : 6
+        property int leftMargin   : 6
+        property int rightMargin  : 6
+
+        function updateStyle() {
+            topMargin    = desktopStyle.pixelMetric("layouttopmargin")
+            bottomMargin = desktopStyle.pixelMetric("layoutbottommargin")
+            leftMargin   = desktopStyle.pixelMetric("layoutleftmargin")
+            rightMargin  = desktopStyle.pixelMetric("layoutrightmargin")
+        }
+
+        onStyleNameChanged: updateStyle()
+        Component.onCompleted: updateStyle()
     }
     // + 1 on top to account for the height of the separator line in the toolbar
-    topPadding:    desktopStyle.pixelMetric("layouttopmargin") + 1
-    bottomPadding: desktopStyle.pixelMetric("layoutbottommargin")
-    leftPadding:   desktopStyle.pixelMetric("layoutleftmargin")
-    rightPadding:  desktopStyle.pixelMetric("layoutrightmargin")
+    topPadding:    desktopStyle.topMargin + 1
+    bottomPadding: desktopStyle.bottomMargin
+    leftPadding:   desktopStyle.leftMargin
+    rightPadding:  desktopStyle.rightMargin
 
     // TODO: remove this sizer button if System Settings is ever changed to
     //       use toolbuttons instead of pushbuttons, as then the heights will
