@@ -464,6 +464,11 @@ void ModuleView::updateButtons()
         change = activeModule->isChanged();
         defaulted = activeModule->defaulted();
 
+        // Do not display Help button if there is no docPath available
+        if (activeModule->metaData().value(QStringLiteral("X-DocPath")).isEmpty()) {
+            buttons &= ~KCModule::Help;
+        }
+
         disconnect(d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()));
         disconnect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
         if (activeModule->realModule()->authAction().isValid()) {
