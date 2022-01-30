@@ -161,7 +161,9 @@ void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext 
                 bool anyKeywordMatches = std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
                     return keyword.startsWith(query);
                 });
-                if (anyKeywordMatches) {
+                if (anyKeywordMatches && keywords.contains(query, Qt::CaseInsensitive)) {
+                    relevance = 0.5; // If the keyword matches exactly we give it the same relevance as if the description matched
+                } else if (anyKeywordMatches) {
                     relevance = 0.2; // give it a lower relevance than if it had been found by name or description
                 } else {
                     continue; // we haven't found any matching keyword, skip this KCM
