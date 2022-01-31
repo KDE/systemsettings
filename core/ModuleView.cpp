@@ -126,6 +126,7 @@ public:
     bool pageChangeSupressed = false;
     bool mSaveStatistics = true;
     bool mDefaultsIndicatorsVisible = false;
+    KCModule::Buttons mButtonMask = ~KCModule::Buttons(KCModule::NoAdditionalButton);
 };
 
 ModuleView::ModuleView(QWidget *parent)
@@ -443,13 +444,23 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
 
 void ModuleView::stateChanged()
 {
+    updatePageIconHeader(d->mPageWidget->currentPage());
+    updateButtons();
+
+    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    Q_EMIT moduleChanged(activeModule && activeModule->isChanged());
+}
+
+void ModuleView::updateButtons()
+{
     KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     KAuth::Action moduleAction;
     bool change = false;
     bool defaulted = false;
     KCModule::Buttons buttons = KCModule::NoAdditionalButton;
+
     if (activeModule) {
-        buttons = activeModule->buttons();
+        buttons = activeModule->buttons() & d->mButtonMask;
         change = activeModule->isChanged();
         defaulted = activeModule->defaulted();
 
@@ -463,8 +474,6 @@ void ModuleView::stateChanged()
         }
     }
 
-    updatePageIconHeader(d->mPageWidget->currentPage());
-
     d->mApplyAuthorize->setAuthAction(moduleAction);
     d->mDefault->setEnabled(!defaulted);
     d->mDefault->setVisible(buttons & KCModule::Default);
@@ -476,8 +485,6 @@ void ModuleView::stateChanged()
     d->mHelp->setVisible(buttons & KCModule::Help);
 
     d->mButtons->setVisible(buttons != KCModule::NoAdditionalButton);
-
-    Q_EMIT moduleChanged(change);
 }
 
 void ModuleView::keyPressEvent(QKeyEvent *event)
@@ -521,7 +528,8 @@ bool ModuleView::saveStatistics() const
 
 void ModuleView::setApplyVisible(bool visible)
 {
-    d->mApply->setVisible(visible);
+    d->mButtonMask.setFlag(KCModule::Apply, visible);
+    updateButtons();
 }
 
 bool ModuleView::isApplyVisible() const
@@ -531,17 +539,13 @@ bool ModuleView::isApplyVisible() const
 
 void ModuleView::setDefaultsVisible(bool visible)
 {
-    d->mDefault->setVisible(visible);
+    d->mButtonMask.setFlag(KCModule::Default, visible);
+    updateButtons();
 }
 
 bool ModuleView::isDefaultsVisible() const
 {
     return d->mDefault->isVisible();
-}
-
-void ModuleView::setResetVisible(bool visible)
-{
-    d->mReset->setVisible(visible);
 }
 
 bool ModuleView::isResetVisible() const

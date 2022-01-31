@@ -383,7 +383,6 @@ void SidebarMode::initEvent()
         d->moduleView->setSaveStatistics(false);
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
-        d->moduleView->setResetVisible(false);
     }
 
     if (config().readEntry("HighlightNonDefaultSettings", false)) {
@@ -588,7 +587,6 @@ void SidebarMode::moduleLoaded()
         d->moduleView->setSaveStatistics(false);
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
-        d->moduleView->setResetVisible(false);
     }
 }
 

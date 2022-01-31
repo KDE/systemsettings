@@ -112,11 +112,6 @@ public:
     bool isDefaultsVisible() const;
 
     /**
-     * Shows or hides the Reset button.
-     */
-    void setResetVisible(bool visible);
-
-    /**
      * @returns True if the Reset button is visible.
      */
     bool isResetVisible() const;
@@ -168,6 +163,7 @@ private:
     void addModule(MenuItem *item, const QStringList &args);
     bool moduleSave(KCModuleProxy *module);
     void updatePageIconHeader(KPageWidgetItem *page);
+    void updateButtons();
 
 private Q_SLOTS:
     void activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *previous);
