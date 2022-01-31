@@ -283,22 +283,18 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
     page->setIcon(QIcon::fromTheme(moduleProxy->metaData().iconName()));
 
     const bool isQml = moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml");
-    QGridLayout *gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
     if (isQml) {
         // QML KCM: We don't use any widgets header
         d->mCustomHeader->setVisible(false);
         page->setHeaderVisible(false);
-        gridLayout->setHorizontalSpacing(0);
     } else if (faceType() == KPageView::Plain) {
         // QWidgets KCM on Sidebar mode: Use the custom header
         d->mCustomHeader->setVisible(true);
         page->setHeaderVisible(false);
-        gridLayout->setHorizontalSpacing(0);
     } else {
         // QWidgets KCM on Icons mode: Use the module's header
         d->mCustomHeader->setVisible(false);
         page->setHeaderVisible(true);
-        gridLayout->setHorizontalSpacing(style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing));
     }
 }
 
@@ -433,6 +429,13 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
                                     0, // Remove extra space between KCM content and bottom buttons
                                     style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                     style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+    d->mPageWidget->layout()->setSpacing(0);
+    if (auto titleWidget = qobject_cast<KTitleWidget *>(d->mPageWidget->pageHeader())) {
+        titleWidget->layout()->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                                                  style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                                  style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                                  style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+    }
 
     updatePageIconHeader(current);
     moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
