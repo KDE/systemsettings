@@ -167,7 +167,7 @@ private:
     bool resolveChanges(KCModuleProxy *currentProxy);
     void addModule(MenuItem *item, const QStringList &args);
     bool moduleSave(KCModuleProxy *module);
-    void updatePageIconHeader(KPageWidgetItem *page, bool light = false);
+    void updatePageIconHeader(KPageWidgetItem *page);
 
 private Q_SLOTS:
     void activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *previous);

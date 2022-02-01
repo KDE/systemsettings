@@ -259,12 +259,12 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     }
 
     d->mPagesPluginIdMap.insert(page, data.name());
-    updatePageIconHeader(page, true);
+    updatePageIconHeader(page);
     // Add the new page
     d->mPageWidget->addPage(page);
 }
 
-void ModuleView::updatePageIconHeader(KPageWidgetItem *page, bool light)
+void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
 {
     if (!page) {
         // Page is invalid. Probably means we have a race condition during closure of everyone so do nothing
@@ -272,24 +272,33 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page, bool light)
     }
 
     KCModuleProxy *moduleProxy = d->mPages.value(page);
-
     if (!moduleProxy || !moduleProxy->metaData().isValid()) {
         // Seems like we have some form of a race condition going on here...
         return;
     }
 
-    const QString currentModuleName = moduleProxy->metaData().name();
-    page->setHeader(currentModuleName);
+    const QString moduleName = moduleProxy->metaData().name();
+    page->setHeader(moduleName);
+    d->mCustomHeader->setText(moduleName);
     page->setIcon(QIcon::fromTheme(moduleProxy->metaData().iconName()));
 
-    const bool isQml = (moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml"));
-    if (d->mPageWidget->currentPage() && d->mPageWidget->currentPage()->name() == currentModuleName) {
-        d->mCustomHeader->setVisible(!isQml);
-    }
-    page->setHeaderVisible(false);
-
-    if (light) {
-        return;
+    const bool isQml = moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml");
+    QGridLayout *gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
+    if (isQml) {
+        // QML KCM: We don't use any widgets header
+        d->mCustomHeader->setVisible(false);
+        page->setHeaderVisible(false);
+        gridLayout->setHorizontalSpacing(0);
+    } else if (faceType() == KPageView::Plain) {
+        // QWidgets KCM on Sidebar mode: Use the custom header
+        d->mCustomHeader->setVisible(true);
+        page->setHeaderVisible(false);
+        gridLayout->setHorizontalSpacing(0);
+    } else {
+        // QWidgets KCM on Icons mode: Use the module's header
+        d->mCustomHeader->setVisible(false);
+        page->setHeaderVisible(true);
+        gridLayout->setHorizontalSpacing(style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing));
     }
 }
 
@@ -403,57 +412,30 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     if (d->pageChangeSupressed) {
         return;
     }
+
     // We need to get the state of the now active module
     stateChanged();
 
     KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
-    if (activeModule) {
-        // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
-
-        if (d->mSaveStatistics && activeModule->metaData().pluginId() != QStringLiteral("kcm_landingpage")) {
-            KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->metaData().pluginId()),
-                                                          QStringLiteral("org.kde.systemsettings"));
-        }
-
-        d->mCustomHeader->setText(activeModule->metaData().name());
-
-        d->mLayout->setContentsMargins(0, 0, 0, 0);
-        d->mLayout->setSpacing(0);
-        d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                                        0, // Remove extra space between KCM content and bottom buttons
-                                        style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                                        style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
-
-        const bool isQml = (activeModule && activeModule->realModule() && activeModule->realModule()->inherits("KCModuleQml"));
-        d->mCustomHeader->setVisible(!isQml);
-        current->setHeaderVisible(!isQml);
-
-        QGridLayout *gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
-
-        // QML KCM
-        if (isQml) {
-            gridLayout->setHorizontalSpacing(0);
-            d->mCustomHeader->setVisible(false);
-            current->setHeaderVisible(false);
-
-            // QWidget KCM
-        } else {
-            // Sidebar mode
-            if (faceType() == KPageView::Plain) {
-                d->mCustomHeader->setVisible(true);
-                current->setHeaderVisible(false);
-                gridLayout->setHorizontalSpacing(0);
-
-                // Icons mode
-            } else {
-                d->mCustomHeader->setVisible(false);
-                current->setHeaderVisible(true);
-                gridLayout->setHorizontalSpacing(style()->pixelMetric(QStyle::PM_LayoutHorizontalSpacing));
-            }
-        }
-
-        moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
+    if (!activeModule) {
+        return;
     }
+
+    // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
+    if (d->mSaveStatistics && activeModule->metaData().pluginId() != QStringLiteral("kcm_landingpage")) {
+        KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->metaData().pluginId()),
+                                                      QStringLiteral("org.kde.systemsettings"));
+    }
+
+    d->mLayout->setContentsMargins(0, 0, 0, 0);
+    d->mLayout->setSpacing(0);
+    d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                                    0, // Remove extra space between KCM content and bottom buttons
+                                    style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                    style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+
+    updatePageIconHeader(current);
+    moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
 }
 
 void ModuleView::stateChanged()
@@ -479,9 +461,6 @@ void ModuleView::stateChanged()
     }
 
     updatePageIconHeader(d->mPageWidget->currentPage());
-
-    KCModuleProxy *moduleProxy = d->mPages.value(d->mPageWidget->currentPage());
-    d->mCustomHeader->setVisible(!moduleProxy || !moduleProxy->realModule()->inherits("KCModuleQml"));
 
     d->mApplyAuthorize->setAuthAction(moduleAction);
     d->mDefault->setEnabled(!defaulted);
