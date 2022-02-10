@@ -49,8 +49,15 @@ private Q_SLOTS:
     void changeAboutMenu(const KAboutData *menuAbout, QAction *menuItem, const QString &fallback);
 
 private:
+    /**
+     * @return @c true if the current view is found in the plugin list and sucessfully loaded,
+     *         @c false otherwise
+     */
+    bool loadCurrentView();
+
     // The plugins
-    QMap<QString, BaseMode *> possibleViews;
+    QVector<KPluginMetaData> m_plugins;
+    QMap<QString, BaseMode *> m_loadedViews;
     QList<ToolTipManager *> tooltipManagers;
     BaseMode *activeView = nullptr;
     // The search bar
