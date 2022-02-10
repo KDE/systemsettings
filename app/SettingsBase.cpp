@@ -335,6 +335,9 @@ void SettingsBase::changePlugin()
         return; // Halt now!
     }
 
+    // Don't let the user wait for nothing until the QML component is loaded.
+    show();
+
     if (activeView) {
         activeView->saveState();
         activeView->leaveModuleView();
@@ -353,8 +356,6 @@ void SettingsBase::changePlugin()
     if (stackedWidget->indexOf(activeView->mainWidget()) == -1) {
         stackedWidget->addWidget(activeView->mainWidget());
     }
-
-    show();
 
     // Handle the tooltips
     qDeleteAll(tooltipManagers);
