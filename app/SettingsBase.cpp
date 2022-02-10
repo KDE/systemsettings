@@ -115,24 +115,9 @@ void SettingsBase::initApplication()
     // Prepare the Base Data
     BaseData::instance()->setMenuItem(rootModule);
     BaseData::instance()->setHomeItem(homeModule);
-    // Load all possible views
-    const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"));
-
-    for (const KPluginMetaData &plugin : plugins) {
-        auto controllerResult = KPluginFactory::instantiatePlugin<BaseMode>(plugin, this, {m_mode, m_startupModule, m_startupModuleArgs});
-        if (!controllerResult) {
-            qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin" << controllerResult.errorText;
-            continue;
-        }
-
-        auto controller = controllerResult.plugin;
-        possibleViews.insert(plugin.pluginId(), controller);
-        controller->init(plugin);
-        connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
-        connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
-        connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
-        connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
-    }
+    // Only load the current used view
+    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"));
+    loadCurrentView();
 
     searchText->completionObject()->setIgnoreCase(true);
     searchText->completionObject()->setItems(BaseData::instance()->menuItem()->keywords());
@@ -261,6 +246,35 @@ void SettingsBase::initMenuList(MenuItem *parent)
     parent->sortChildrenByWeight();
 }
 
+bool SettingsBase::loadCurrentView()
+{
+    const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
+
+    const KPluginMetaData *const plugin = std::find_if(m_plugins.cbegin(), m_plugins.cend(), [&viewToUse](const KPluginMetaData &plugin) {
+        return viewToUse.contains(plugin.pluginId());
+    });
+
+    if (plugin == m_plugins.cend()) {
+        return false;
+    }
+
+    const auto controllerResult = KPluginFactory::instantiatePlugin<BaseMode>(*plugin, this, {m_mode, m_startupModule, m_startupModuleArgs});
+    if (!controllerResult) {
+        qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin" << controllerResult.errorText;
+        return false;
+    }
+
+    const auto controller = controllerResult.plugin;
+    m_loadedViews.insert(viewToUse, controller);
+    controller->init(*plugin);
+    connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
+    connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
+    connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
+    connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
+
+    return true;
+}
+
 bool SettingsBase::queryClose()
 {
     bool changes = true;
@@ -315,7 +329,7 @@ void SettingsBase::about()
 
 void SettingsBase::changePlugin()
 {
-    if (possibleViews.isEmpty()) { // We should ensure we have a plugin available to choose
+    if (m_loadedViews.empty()) { // We should ensure we have a plugin available to choose
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         close();
         return; // Halt now!
@@ -327,10 +341,13 @@ void SettingsBase::changePlugin()
     }
 
     const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
-    if (possibleViews.keys().contains(viewToUse)) { // First the configuration entry
-        activeView = possibleViews.value(viewToUse);
+    if (m_loadedViews.keys().contains(viewToUse)) {
+        // First the configuration entry
+        activeView = m_loadedViews.value(viewToUse);
+    } else if (loadCurrentView()) {
+        activeView = m_loadedViews.value(viewToUse);
     } else { // Otherwise we activate the failsafe
-        activeView = possibleViews.begin().value();
+        activeView = m_loadedViews.cbegin().value();
     }
 
     if (stackedWidget->indexOf(activeView->mainWidget()) == -1) {
