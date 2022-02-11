@@ -246,33 +246,33 @@ void SettingsBase::initMenuList(MenuItem *parent)
     parent->sortChildrenByWeight();
 }
 
-bool SettingsBase::loadCurrentView()
+BaseMode *SettingsBase::loadCurrentView()
 {
     const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
 
-    const KPluginMetaData *const plugin = std::find_if(m_plugins.cbegin(), m_plugins.cend(), [&viewToUse](const KPluginMetaData &plugin) {
+    const auto pluginIt = std::find_if(m_plugins.cbegin(), m_plugins.cend(), [&viewToUse](const KPluginMetaData &plugin) {
         return viewToUse.contains(plugin.pluginId());
     });
 
-    if (plugin == m_plugins.cend()) {
-        return false;
+    if (pluginIt == m_plugins.cend()) {
+        return nullptr;
     }
 
-    const auto controllerResult = KPluginFactory::instantiatePlugin<BaseMode>(*plugin, this, {m_mode, m_startupModule, m_startupModuleArgs});
+    const auto controllerResult = KPluginFactory::instantiatePlugin<BaseMode>(*pluginIt, this, {m_mode, m_startupModule, m_startupModuleArgs});
     if (!controllerResult) {
         qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin" << controllerResult.errorText;
-        return false;
+        return nullptr;
     }
 
     const auto controller = controllerResult.plugin;
     m_loadedViews.insert(viewToUse, controller);
-    controller->init(*plugin);
+    controller->init(*pluginIt);
     connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
     connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
     connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
     connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
 
-    return true;
+    return controller;
 }
 
 bool SettingsBase::queryClose()
@@ -329,7 +329,7 @@ void SettingsBase::about()
 
 void SettingsBase::changePlugin()
 {
-    if (m_loadedViews.empty()) { // We should ensure we have a plugin available to choose
+    if (m_plugins.empty()) { // We should ensure we have a plugin available to choose
         KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
         close();
         return; // Halt now!
@@ -344,13 +344,18 @@ void SettingsBase::changePlugin()
     }
 
     const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
-    if (m_loadedViews.keys().contains(viewToUse)) {
+    const auto it = m_loadedViews.constFind(viewToUse);
+    if (it != m_loadedViews.cend()) {
         // First the configuration entry
-        activeView = m_loadedViews.value(viewToUse);
-    } else if (loadCurrentView()) {
-        activeView = m_loadedViews.value(viewToUse);
-    } else { // Otherwise we activate the failsafe
+        activeView = *it;
+    } else if (auto *view = loadCurrentView()) {
+        activeView = view;
+    } else if (!m_loadedViews.empty()) { // Otherwise we activate the failsafe
         activeView = m_loadedViews.cbegin().value();
+    } else {
+        qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load any views, and hence has nothing to display.";
+        close();
+        return; // Halt now!
     }
 
     if (stackedWidget->indexOf(activeView->mainWidget()) == -1) {
