@@ -50,10 +50,10 @@ private Q_SLOTS:
 
 private:
     /**
-     * @return @c true if the current view is found in the plugin list and sucessfully loaded,
-     *         @c false otherwise
+     * @return the plugin controller if the current view is found in the plugin list and successfully loaded,
+     *         @c nullptr otherwise
      */
-    bool loadCurrentView();
+    BaseMode *loadCurrentView();
 
     // The plugins
     QVector<KPluginMetaData> m_plugins;
