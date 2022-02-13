@@ -141,6 +141,7 @@ ModuleView::ModuleView(QWidget *parent)
     // Create the Page Widget
     d->mPageWidget = new KPageWidget(this);
     d->mCustomHeader = new CustomTitle(this);
+    d->mCustomHeader->setVisible(false);
 
     rootLayout->addWidget(d->mCustomHeader);
     rootLayout->addItem(d->mLayout);
@@ -280,22 +281,22 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
 
     const QString moduleName = moduleProxy->metaData().name();
     page->setHeader(moduleName);
-    d->mCustomHeader->setText(moduleName);
     page->setIcon(QIcon::fromTheme(moduleProxy->metaData().iconName()));
 
     const bool isQml = moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml");
-    if (isQml) {
-        // QML KCM: We don't use any widgets header
-        d->mCustomHeader->setVisible(false);
-        page->setHeaderVisible(false);
-    } else if (faceType() == KPageView::Plain) {
-        // QWidgets KCM on Sidebar mode: Use the custom header
-        d->mCustomHeader->setVisible(true);
-        page->setHeaderVisible(false);
-    } else {
-        // QWidgets KCM on Icons mode: Use the module's header
-        d->mCustomHeader->setVisible(false);
-        page->setHeaderVisible(true);
+    const bool isSidebar = faceType() == KPageView::Plain;
+
+    // Use the module's header only for QWidgets KCMs on Icons mode
+    page->setHeaderVisible(!isQml && !isSidebar);
+
+    // Use the custom header only for QWidgets KCMs on Sidebar mode
+    // Only affect visibility if it's the current page
+    if (d->mPageWidget->currentPage() == page) {
+        d->mCustomHeader->setVisible(!isQml && isSidebar);
+        // KTitleWidget->setText() would set the titlebar visible again
+        if (d->mCustomHeader->isVisible()) {
+            d->mCustomHeader->setText(moduleName);
+        }
     }
 }
 
