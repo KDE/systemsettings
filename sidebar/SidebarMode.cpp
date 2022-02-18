@@ -581,7 +581,9 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
 
 void SidebarMode::moduleLoaded()
 {
-    d->placeHolderWidget->hide();
+    if (d->placeHolderWidget) {
+        d->placeHolderWidget->hide();
+    }
     d->moduleView->show();
     if (applicationMode() == BaseMode::InfoCenter) {
         d->moduleView->setSaveStatistics(false);
@@ -650,7 +652,9 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
 
     // TODO: Make the intro page of SystemSettings a KCM as well
     if (homeItem()) {
-        d->placeHolderWidget->hide();
+        if (d->placeHolderWidget) {
+            d->placeHolderWidget->hide();
+        }
         d->moduleView->show();
         if (introPageVisible) {
             QModelIndex index = d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
@@ -672,10 +676,15 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
             Q_EMIT activeCategoryRowChanged();
             d->activeSubCategoryRow = -1;
             Q_EMIT activeSubCategoryRowChanged();
+            if (!d->placeHolderWidget) {
+                initPlaceHolderWidget();
+            }
             d->placeHolderWidget->show();
             d->moduleView->hide();
         } else {
-            d->placeHolderWidget->hide();
+            if (d->placeHolderWidget) {
+                d->placeHolderWidget->hide();
+            }
             d->moduleView->show();
         }
     }
@@ -823,6 +832,36 @@ void SidebarMode::initWidget()
 
     d->quickWidget->installEventFilter(this);
 
+    d->mainLayout->addWidget(d->quickWidget);
+    d->moduleView->hide();
+    d->mainLayout->addWidget(d->moduleView);
+    Q_EMIT changeToolBarItems(BaseMode::NoItems);
+
+    d->toolTipManager = new ToolTipManager(d->categorizedModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
+
+    if (!startupModule().isEmpty()) {
+        initPlaceHolderWidget();
+        d->placeHolderWidget->show();
+        MenuItem *item = rootItem()->descendantForModule(startupModule());
+        if (item) {
+            loadModule(d->model->indexForItem(item), startupModuleArgs());
+        }
+    } else if (homeItem()) {
+        d->moduleView->show();
+        QModelIndex index = d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
+        if (index.isValid()) {
+            loadModule(index);
+        } else {
+            d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
+        }
+    } else {
+        initPlaceHolderWidget();
+        d->placeHolderWidget->show();
+    }
+}
+
+void SidebarMode::initPlaceHolderWidget()
+{
     d->placeHolderWidget = new QQuickWidget(d->mainWidget);
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
@@ -833,32 +872,10 @@ void SidebarMode::initWidget()
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
     d->placeHolderWidget->installEventFilter(this);
 
-    d->mainLayout->addWidget(d->quickWidget);
-    d->moduleView->hide();
-    d->mainLayout->addWidget(d->moduleView);
     d->mainLayout->addWidget(d->placeHolderWidget);
-    Q_EMIT changeToolBarItems(BaseMode::NoItems);
 
-    d->toolTipManager = new ToolTipManager(d->categorizedModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
     d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
-
     d->mostUsedModel->setResultModel(new ResultModel(AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
-
-    if (!startupModule().isEmpty()) {
-        MenuItem *item = rootItem()->descendantForModule(startupModule());
-        if (item) {
-            loadModule(d->model->indexForItem(item), startupModuleArgs());
-        }
-    } else if (homeItem()) {
-        d->placeHolderWidget->hide();
-        d->moduleView->show();
-        QModelIndex index = d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
-        if (index.isValid()) {
-            loadModule(index);
-        } else {
-            d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
-        }
-    }
 }
 
 void SidebarMode::reloadStartupModule()
