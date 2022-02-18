@@ -132,6 +132,7 @@ private Q_SLOTS:
     void initWidget();
 
 private:
+    void initPlaceHolderWidget();
     void updateModelMenuItem(MenuItem *item);
     void updateCategoryModel(const QModelIndex &categoryIdx);
     void refreshDefaults();
