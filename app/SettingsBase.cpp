@@ -351,11 +351,25 @@ void SettingsBase::changePlugin()
     } else if (auto *view = loadCurrentView()) {
         activeView = view;
     } else if (!m_loadedViews.empty()) { // Otherwise we activate the failsafe
+        qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load" << viewToUse;
         activeView = m_loadedViews.cbegin().value();
     } else {
-        qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load any views, and hence has nothing to display.";
-        close();
-        return; // Halt now!
+        // Current view is missing on startup, try to load alternate view.
+        qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load" << viewToUse;
+        if (viewToUse == QStringLiteral("systemsettings_icon_mode")) {
+            BaseConfig::setActiveView(QStringLiteral("systemsettings_sidebar_mode"));
+        } else if (m_mode != BaseMode::InfoCenter) {
+            BaseConfig::setActiveView(QStringLiteral("systemsettings_icon_mode"));
+        }
+
+        if (auto *view = loadCurrentView()) {
+            activeView = view;
+            activeView->saveState();
+        } else {
+            qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load any views, and hence has nothing to display.";
+            close();
+            return; // Halt now!
+        }
     }
 
     if (stackedWidget->indexOf(activeView->mainWidget()) == -1) {
