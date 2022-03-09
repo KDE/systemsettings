@@ -15,7 +15,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 include(GenerateExportHeader)
-include(ECMQMLModules)
+include(ECMFindQmlModule)
 include(ECMQtDeclareLoggingCategory)
 include(KDEGitCommitHooks)
 
