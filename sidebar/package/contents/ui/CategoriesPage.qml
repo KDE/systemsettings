@@ -39,10 +39,7 @@ Kirigami.ScrollablePage {
         contentItem: RowLayout {
             // FIXME: left and right anchors shouldn't be needed here, but if
             // they're removed, the layout doesn't span the full width
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
+            anchors.fill: parent
             spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
 
             QQC2.ToolButton {
