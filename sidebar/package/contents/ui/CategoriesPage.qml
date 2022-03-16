@@ -43,6 +43,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
             }
+            spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
 
             QQC2.ToolButton {
                 id: showIntroPageButton

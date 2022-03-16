@@ -40,6 +40,7 @@ Kirigami.ScrollablePage {
 
         contentItem: RowLayout {
             anchors.fill: parent
+            spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
 
             // Show a back Button when only one column is visible
             QQC2.ToolButton {
