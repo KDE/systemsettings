@@ -30,7 +30,6 @@ target_link_libraries( systemsettings systemsettingsview
     KF5::XmlGui
     KF5::DBusAddons
     KF5::ConfigGui
-    KF5::QuickAddons
     KF5::GuiAddons # UrlHanlder handles help:/ urls
     PW::KWorkspace
 )

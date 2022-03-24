@@ -19,7 +19,6 @@ Dependencies:
     'frameworks/kdbusaddons': '@latest'
     'frameworks/kconfig': '@latest'
     'frameworks/kpackage': '@latest'
-    'frameworks/kdeclarative': '@latest'
     'frameworks/kactivities': '@latest'
     'frameworks/kactivities-stats': '@latest'
     'frameworks/kguiaddons': '@latest'

@@ -15,7 +15,6 @@
 #include <KDBusService>
 #include <KLocalizedString>
 #include <KPluginMetaData>
-#include <KQuickAddons/QtQuickSettings>
 #include <KWindowSystem>
 #include <iostream>
 #include <kworkspace.h>
@@ -143,7 +142,6 @@ int main(int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique);
 
-    KQuickAddons::QtQuickSettings::init();
     KCrash::initialize();
 
     SettingsBase *mainWindow = new SettingsBase(mode);

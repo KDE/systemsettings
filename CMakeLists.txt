@@ -47,7 +47,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     Config
     Package
-    Declarative
     Activities
     ActivitiesStats
     GuiAddons # UrlHanlder handles help:/ urls
