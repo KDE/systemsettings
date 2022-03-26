@@ -159,7 +159,7 @@ void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext 
                 const QString &query = ctx.query();
                 const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
                 bool anyKeywordMatches = std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
-                    return keyword.startsWith(query);
+                    return keyword.startsWith(query, Qt::CaseInsensitive);
                 });
                 if (anyKeywordMatches && keywords.contains(query, Qt::CaseInsensitive)) {
                     relevance = 0.5; // If the keyword matches exactly we give it the same relevance as if the description matched
