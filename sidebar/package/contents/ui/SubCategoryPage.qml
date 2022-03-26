@@ -57,7 +57,12 @@ Kirigami.ScrollablePage {
                 contentItem: RowLayout {
                     Kirigami.Icon {
                         id: backIcon
-                        source: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
+                        // We are not not using the icon versions that end in -symbolic
+                        // or -symbolic-rtl to work around the issue described in
+                        // https://invent.kde.org/frameworks/kirigami/-/merge_requests/511
+                        // TODO: change back once Kirigami stops automatically making
+                        // icons with the -symbolic suffix monochrome
+                        source: LayoutMirroring.enabled ? "go-next" : "go-previous"
                         Layout.leftMargin: Kirigami.Units.smallSpacing
                         Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
                         Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
