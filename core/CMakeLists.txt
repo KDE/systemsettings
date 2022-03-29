@@ -29,6 +29,7 @@ target_link_libraries( systemsettingsview
     KF5::Service
     KF5::IconThemes
     KF5::Activities
+    KF5::Auth
  )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
