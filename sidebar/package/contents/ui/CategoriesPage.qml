@@ -79,18 +79,22 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Kirigami.PlaceholderMessage {
-        opacity: categoryView.count == 0 ? 1 : 0
-        visible: opacity > 0
+    Loader {
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.gridUnit * 4)
-        icon.name: "edit-none"
-        text: i18nc("A search yielded no results", "No items matching your search")
+        opacity: categoryView.count == 0 ? 1 : 0
+        active: opacity > 0
+        visible: active
         Behavior on opacity {
             OpacityAnimator {
                 duration: Kirigami.Units.longDuration
                 easing.type: Easing.InOutQuad
             }
+        }
+        sourceComponent: Kirigami.PlaceholderMessage {
+            width: parent.width
+            icon.name: "edit-none"
+            text: i18nc("A search yielded no results", "No items matching your search")
         }
     }
 
