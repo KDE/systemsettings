@@ -84,6 +84,7 @@ Kirigami.ScrollablePage {
         visible: opacity > 0
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.gridUnit * 4)
+        icon.name: "edit-none"
         text: i18nc("A search yielded no results", "No items matching your search")
         Behavior on opacity {
             OpacityAnimator {
