@@ -15,8 +15,8 @@
 #include <QList>
 #include <QString>
 
-#include <KCMUtils/KCModuleLoader>
 #include <KCModuleInfo>
+#include <KCModuleLoader>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KJsonUtils>

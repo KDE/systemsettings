@@ -29,7 +29,8 @@ target_link_libraries( systemsettingsview
     KF5::Service
     KF5::IconThemes
     KF5::Activities
-    KF5::Auth
+    KF5::AuthCore
+    KF5::AuthWidgets
  )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
@@ -39,4 +40,4 @@ install(FILES
         systemsettingsview.desktop
         systemsettingsexternalapp.desktop
         infocenterexternalapp.desktop
-    DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
+    DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})

@@ -1,4 +1,4 @@
-install( FILES systemsettingscategory.desktop DESTINATION  ${KDE_INSTALL_KSERVICETYPES5DIR} )
+install( FILES systemsettingscategory.desktop DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )
 
 install( FILES
     settings-appearance.desktop
