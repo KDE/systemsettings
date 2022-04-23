@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    const QStringList args = parser.value(QStringLiteral("args")).split(QRegExp(QStringLiteral(" +")), Qt::SkipEmptyParts);
+    const QStringList args = parser.value(QStringLiteral("args")).split(QRegularExpression(QStringLiteral(" +")), Qt::SkipEmptyParts);
     QString startupModule;
 
     if (parser.positionalArguments().count() == 1) {
@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 
         parser.parse(arguments);
 
-        const QStringList args = parser.value(QStringLiteral("args")).split(QRegExp(QStringLiteral(" +")), Qt::SkipEmptyParts);
+        const QStringList args = parser.value(QStringLiteral("args")).split(QRegularExpression(QStringLiteral(" +")), Qt::SkipEmptyParts);
         QString startupModule;
 
         if (parser.positionalArguments().count() == 1) {

@@ -28,7 +28,11 @@ class SYSTEMSETTINGSVIEW_EXPORT MenuProxyModel : public KCategorizedSortFilterPr
 {
     Q_OBJECT
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Q_PROPERTY(QString filterRegExp READ filterRegExp WRITE setFilterRegExp NOTIFY filterRegExpChanged)
+#else
+    Q_PROPERTY(QString filterRegExp READ filterRegularExpression WRITE setFilterRegularExpression NOTIFY filterRegularExpressionChanged)
+#endif
 
 public:
     /**
@@ -79,6 +83,7 @@ public:
      */
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     /**
      * Please see Qt QAbstractItemModel documentation for more details.\n
      * Reimplemented for internal reasons.
@@ -92,6 +97,21 @@ public:
     void setFilterRegExp(const QString &pattern);
 
     QString filterRegExp() const;
+#else
+    /**
+     * Please see Qt QAbstractItemModel documentation for more details.\n
+     * Reimplemented for internal reasons.
+     */
+    void setFilterRegularExpression(const QRegularExpression &regExp);
+
+    /**
+     * Please see Qt QAbstractItemModel documentation for more details.\n
+     * Reimplemented for internal reasons.
+     */
+    void setFilterRegularExpression(const QString &pattern);
+
+    QString filterRegularExpression() const;
+#endif
 
     /**
      * makes the filter highlight matching entries instead of hiding them
@@ -104,7 +124,11 @@ public:
     bool filterHighlightsEntries() const;
 
 Q_SIGNALS:
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void filterRegExpChanged();
+#else
+    void filterRegularExpressionChanged();
+#endif
 
 private:
     bool m_filterHighlightsEntries : 1;
