@@ -31,7 +31,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPluginMetaData>
-#include <KServiceTypeTrader>
 #include <KStandardAction>
 #include <KToolBar>
 #include <KWindowConfig>
