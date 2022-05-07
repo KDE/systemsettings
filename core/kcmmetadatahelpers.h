@@ -119,7 +119,16 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool useSy
             const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
             const KPluginMetaData data = KPluginMetaData::fromDesktopFile(path);
             const bool inserted = uniquePluginIds.insert(data.pluginId()).second;
-            if (inserted) {
+            const static QStringList ignoredPlugins = {
+                QStringLiteral("kcm_driver_manager"), // archived, but still on KDE Neon
+                QStringLiteral("kcm_kwallet5"), // already ported, but part of KDE Gear
+                QStringLiteral("kcm_kup"), // already ported, but part of KDE Gear
+                QStringLiteral("kcm_ssl"), // frameworks, will be removed in KF6
+            };
+            if (inserted && !ignoredPlugins.contains(data.pluginId())) {
+                qWarning() << "Loading KCModule " << data.pluginId()
+                           << "using KServicetypeTrader, please install QML KCMs in the plasma/kcms/systemsettings namespace and QWidget KCMs in "
+                              "plasma/kcms/systemsettings/qwidgets with embedded json metadata";
                 modules << data;
             }
         }
