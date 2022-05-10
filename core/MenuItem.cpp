@@ -191,8 +191,7 @@ void MenuItem::setMetaData(const KPluginMetaData &data)
     d->comment = data.description();
     d->iconName = data.iconName();
     d->systemsettingsCategoryModule = data.value(QStringLiteral("X-KDE-System-Settings-Category-Module"));
-    d->isExternalAppModule = data.serviceTypes().contains(QStringLiteral("SystemSettingsExternalApp")) //
-        || data.serviceTypes().contains(QStringLiteral("InfoCenterExternalApp"));
+    d->isExternalAppModule = data.value(QStringLiteral("IsExternalApp"), false);
 }
 
 KPluginMetaData MenuItem::metaData()

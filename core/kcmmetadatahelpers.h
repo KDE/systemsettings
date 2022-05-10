@@ -24,14 +24,27 @@ enum MetaDataSource {
 
 inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
 {
-    const auto findExternalModulesInFilesystem = [](const QString &sourceNamespace, const QString &serviceType) {
+    const auto findExternalModulesInFilesystem = [](const QString &sourceNamespace) {
         const QString sourceNamespaceDirName = QStringLiteral("plasma/%1/externalmodules").arg(sourceNamespace);
         const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, sourceNamespaceDirName, QStandardPaths::LocateDirectory);
         const QStringList files = KFileUtils::findAllUniqueFiles(dirs, QStringList{QStringLiteral("*.desktop")});
 
         QList<KPluginMetaData> metaDataList;
         for (const QString &file : files) {
-            metaDataList << KPluginMetaData::fromDesktopFile(file, QStringList(serviceType));
+            KService service(file);
+            QJsonObject kplugin;
+            kplugin.insert(QLatin1String("Name"), service.name());
+            kplugin.insert(QLatin1String("Icon"), service.icon());
+            kplugin.insert(QLatin1String("Description"), service.comment());
+
+            QJsonObject root;
+            root.insert(QLatin1String("KPlugin"), kplugin);
+            root.insert(QLatin1String("X-KDE-Weight"), service.property(QStringLiteral("X-KDE-Weight")).toInt());
+            root.insert(QLatin1String("X-KDE-KInfoCenter-Category"), service.property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString());
+            root.insert(QLatin1String("X-KDE-System-Settings-Category"), service.property(QStringLiteral("X-KDE-System-Settings-Category")).toString());
+            root.insert(QLatin1String("IsExternalApp"), true);
+
+            metaDataList << KPluginMetaData(root, file);
         }
         return metaDataList;
     };
@@ -43,11 +56,11 @@ inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
             const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
             metaDataList << KPluginMetaData::fromDesktopFile(path);
         }
-        metaDataList << findExternalModulesInFilesystem(QStringLiteral("systemsettings"), QStringLiteral("systemsettingsexternalapp.desktop"));
+        metaDataList << findExternalModulesInFilesystem(QStringLiteral("systemsettings"));
     }
 
     if (source & KInfoCenter) {
-        metaDataList << findExternalModulesInFilesystem(QStringLiteral("kinfocenter"), QStringLiteral("infocenterexternalapp.desktop"));
+        metaDataList << findExternalModulesInFilesystem(QStringLiteral("kinfocenter"));
     }
 
     return metaDataList;
