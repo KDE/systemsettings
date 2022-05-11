@@ -140,6 +140,7 @@ Kirigami.ScrollablePage {
         Connections {
             target: systemsettings
             function onActiveSubCategoryRowChanged() {
+                subCategoryView.currentIndex = systemsettings.activeSubCategoryRow
                 if (systemsettings.activeSubCategoryRow >= 0) {
                     if (subCategoryView.count > 1) {
                         root.pageStack.push(subCategoryColumn);
