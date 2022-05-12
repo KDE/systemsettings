@@ -172,7 +172,8 @@ int main(int argc, char *argv[])
             mainWindow->reloadStartupModule();
         }
 
-        KWindowSystem::forceActiveWindow(mainWindow->winId());
+        KWindowSystem::updateStartupId(mainWindow->windowHandle());
+        KWindowSystem::activateWindow(mainWindow->windowHandle());
     });
 
     if (!startupModule.isEmpty()) {
