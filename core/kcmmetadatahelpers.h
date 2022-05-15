@@ -13,6 +13,7 @@
 #include <QGuiApplication>
 #include <QStandardPaths>
 #include <kservice.h>
+#include <set>
 
 enum MetaDataSource {
     SystemSettings = 1,
@@ -54,7 +55,7 @@ inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
 inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool useSystemsettingsConstraint = true)
 {
     QList<KPluginMetaData> modules;
-    QSet<QString> uniquePluginIds;
+    std::set<QString> uniquePluginIds;
 
     auto filter = [](const KPluginMetaData &data) {
         const auto supportedPlatforms = data.value(QStringLiteral("X-KDE-OnlyShowOnQtPlatforms"), QStringList());
@@ -81,19 +82,19 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool useSy
             continue;
         }
         modules << m;
-        auto insertionIterator = uniquePluginIds.insert(m.pluginId());
-        Q_ASSERT_X(insertionIterator != uniquePluginIds.end(),
-                   Q_FUNC_INFO,
-                   qPrintable(QStringLiteral("the plugin %1 was found in multiple namespaces").arg(m.pluginId())));
+        const bool inserted = uniquePluginIds.insert(m.pluginId()).second;
+        if (!inserted) {
+            qWarning() << "the plugin" << m.pluginId() << " was found in multiple namespaces";
+        }
     }
 
     for (const auto &s : qAsConst(services)) {
         if (!s->noDisplay() && !s->exec().isEmpty() && KAuthorized::authorizeControlModule(s->menuId())) {
             const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
             const KPluginMetaData data = KPluginMetaData::fromDesktopFile(path);
-            if (!uniquePluginIds.contains(data.pluginId())) {
+            const bool inserted = uniquePluginIds.insert(data.pluginId()).second;
+            if (inserted) {
                 modules << data;
-                uniquePluginIds << data.pluginId();
             }
         }
     }
