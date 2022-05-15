@@ -89,7 +89,7 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool useSy
 
     for (const auto &s : qAsConst(services)) {
         if (!s->noDisplay() && !s->exec().isEmpty() && KAuthorized::authorizeControlModule(s->menuId())) {
-            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
+            const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + s->entryPath());
             const KPluginMetaData data = KPluginMetaData::fromDesktopFile(path);
             if (!uniquePluginIds.contains(data.pluginId())) {
                 modules << data;
