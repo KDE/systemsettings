@@ -76,9 +76,6 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         theData.setValue(mi->name());
         break;
-    case Qt::ToolTipRole:
-        theData.setValue(mi->comment());
-        break;
     case Qt::DecorationRole:
         theData = QVariant(QIcon::fromTheme(mi->iconName()));
         break;
