@@ -31,6 +31,7 @@ target_link_libraries( systemsettingsview
     KF5::Activities
     KF5::AuthCore
     KF5::AuthWidgets
+    KF5::Kirigami2
  )
 
 set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
