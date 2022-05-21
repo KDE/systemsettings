@@ -151,23 +151,28 @@ void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStri
     d->moduleView->closeModules();
     d->mainWidget->setCurrentWidget(d->moduleView);
 
-    const bool openCategoryFirst = activeModule.parent().isValid();
+    const QModelIndex categoryIndex = activeModule.parent();
+    const bool hasCategory = categoryIndex.isValid();
+    const bool hasChildren = d->categoryView->model()->rowCount(activeModule) > 1;
 
-    // avoid double titles by setting the right face type before loading the module
-    if (openCategoryFirst || d->categoryView->model()->rowCount(activeModule) > 1) {
-        d->moduleView->setFaceType(KPageView::List);
-    } else {
+    // We have no children or any other items in the category, so we load a single KCM
+    if (!hasCategory && !hasChildren) {
         d->moduleView->setFaceType(KPageView::Plain);
+        d->moduleView->loadModule(activeModule, args);
+        return;
     }
 
-    if (openCategoryFirst) {
-        d->moduleView->loadModule(activeModule.parent(), {});
-    }
-    d->moduleView->loadModule(activeModule, args);
+    d->moduleView->setFaceType(KPageView::List);
 
-    for (int done = 1 /* starting from 1 to avoid double global theme */; activeModule.model()->rowCount(activeModule) > done; done = 1 + done) {
-        QModelIndex subpageItem = activeModule.model()->index(done, 0, activeModule);
-        d->moduleView->loadModule(subpageItem, args);
+    // In the case of Appearance -> GlobalTheme we will load its children items
+    // Otherwise, load the modules that belong into that category
+    const QModelIndex rootIndex = hasCategory ? categoryIndex : activeModule;
+
+    for (int row = 0; row < d->categoryView->model()->rowCount(rootIndex); row++) {
+        const QModelIndex subpageItem = d->categoryView->model()->index(row, 0, rootIndex);
+        const QStringList &effectiveArgs = activeModule.row() == row ? args : QStringList(); // Only set args for the active module
+
+        d->moduleView->loadModule(subpageItem, effectiveArgs);
     }
 
     MenuItem *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
