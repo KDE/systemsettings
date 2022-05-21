@@ -587,3 +587,14 @@ qreal ModuleView::headerHeight() const
 {
     return d->mCustomHeader->minimumHeight();
 }
+
+void ModuleView::setActiveModule(const QString &moduleName)
+{
+    const auto pageList = d->mPagesPluginIdMap.keys();
+    for (const auto page : pageList) {
+        if (d->mPagesPluginIdMap.value(page) == moduleName) {
+            d->mPageWidget->setCurrentPage(page);
+            break;
+        }
+    }
+}

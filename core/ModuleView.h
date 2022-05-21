@@ -124,6 +124,8 @@ public:
     qreal headerHeight() const;
     void setHeaderHeight(qreal height);
 
+    void setActiveModule(const QString &moduleName);
+
 public Q_SLOTS:
     /**
      * Loads the module specified by menuItem.\n
