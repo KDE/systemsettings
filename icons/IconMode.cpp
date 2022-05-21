@@ -169,6 +169,11 @@ void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStri
         QModelIndex subpageItem = activeModule.model()->index(done, 0, activeModule);
         d->moduleView->loadModule(subpageItem, args);
     }
+
+    MenuItem *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
+    if (item) {
+        d->moduleView->setActiveModule(item->name());
+    }
 }
 
 void IconMode::moduleLoaded()
