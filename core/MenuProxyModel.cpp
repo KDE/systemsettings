@@ -11,6 +11,7 @@
 #include "MenuModel.h"
 
 #include <KCModuleInfo>
+#include <KPluginMetaData>
 
 MenuProxyModel::MenuProxyModel(QObject *parent)
     : KCategorizedSortFilterProxyModel(parent)

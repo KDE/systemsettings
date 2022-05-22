@@ -8,6 +8,7 @@
 #include <KAuthorized>
 #include <KCModuleData>
 #include <KFileUtils>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KServiceTypeTrader>
 #include <QGuiApplication>

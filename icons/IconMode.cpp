@@ -18,6 +18,7 @@
 #include <KAboutData>
 #include <KFileItemDelegate>
 #include <KLocalizedString>
+#include <KPluginFactory>
 #include <KStandardAction>
 #include <QAction>
 
