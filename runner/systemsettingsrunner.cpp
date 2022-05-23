@@ -87,10 +87,17 @@ void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasm
 QMimeData *SystemsettingsRunner::mimeDataForMatch(const Plasma::QueryMatch &match)
 {
     const auto value = match.data().value<KPluginMetaData>();
-    if (value.isValid() && value.metaDataFileName().endsWith(QLatin1String(".desktop"))) {
-        auto *data = new QMimeData();
-        data->setUrls(QList<QUrl>{QUrl::fromLocalFile(value.metaDataFileName())});
-        return data;
+    if (value.isValid()) {
+        if (value.metaDataFileName().endsWith(QLatin1String(".desktop"))) {
+            auto *data = new QMimeData();
+            data->setUrls(QList<QUrl>{QUrl::fromLocalFile(value.metaDataFileName())});
+            return data;
+        }
+        if (KService::Ptr ptr = KService::serviceByStorageId(value.pluginId() + QLatin1String(".desktop"))) {
+            auto *data = new QMimeData();
+            data->setUrls(QList<QUrl>{QUrl::fromLocalFile(ptr->entryPath())});
+            return data;
+        }
     }
     return nullptr;
 }
