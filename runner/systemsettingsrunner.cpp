@@ -119,6 +119,7 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
     if (!data.iconName().isEmpty()) {
         match.setIconName(data.iconName());
     }
+    match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
     match.setData(QVariant::fromValue(data));
 }
 
