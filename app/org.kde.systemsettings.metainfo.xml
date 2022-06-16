@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
+  <id>org.kde.systemsettings</id>
+  <launchable type="desktop-id">systemsettings.desktop</launchable>
+  <provides>
+    <id>systemsettings.desktop</id>
+    <id>kdesystemsettings.desktop</id>
+  </provides>
+  <project_group>KDE</project_group>
+  <compulsory_for_desktop>KDE</compulsory_for_desktop>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <content_rating type="oars-1.0"/>
+  <categories>
+    <category>KDE</category>
+    <category>Qt</category>
+    <category>Settings</category>
+  </categories>
   <name>System Settings</name>
   <name xml:lang="ar">إعدادات النظام</name>
   <name xml:lang="ast">Axustes del sistema</name>
@@ -91,16 +107,6 @@
   <summary xml:lang="zh-CN">您的计算机的配置工具</summary>
   <summary xml:lang="zh-TW">適用於您電腦的設定工具</summary>
   <icon type="stock">systemsettings</icon>
-  <id>org.kde.systemsettings</id>
-  <launchable type="desktop-id">systemsettings.desktop</launchable>
-  <provides>
-    <id>systemsettings.desktop</id>
-    <id>kdesystemsettings.desktop</id>
-  </provides>
-  <project_group>KDE</project_group>
-  <compulsory_for_desktop>KDE</compulsory_for_desktop>
-  <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-2.0+</project_license>
   <description>
     <p>System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
     <p xml:lang="ar">تسمح لك إعدادات النظام بتكوين وتعديل سطح مكتب كدي بلازما كي يلبي احتياجاتك بشكل أفضل.</p>
