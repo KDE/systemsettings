@@ -20,6 +20,8 @@
 #include <KLineEdit>
 #include <KXmlGuiWindow>
 
+class QScreen;
+
 class SettingsBase : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -48,12 +50,21 @@ private Q_SLOTS:
     void changeToolBar(BaseMode::ToolBarItems toolbar);
     void changeAboutMenu(const KAboutData *menuAbout, QAction *menuItem, const QString &fallback);
 
+private Q_SLOTS:
+    /**
+     * Updates the window size limit
+     */
+    void slotGeometryChanged();
+
 private:
     /**
      * @return the plugin controller if the current view is found in the plugin list and successfully loaded,
      *         @c nullptr otherwise
      */
     BaseMode *loadCurrentView();
+
+    // Follow screen resolution
+    QScreen *m_screen = nullptr;
 
     // The plugins
     QVector<KPluginMetaData> m_plugins;

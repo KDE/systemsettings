@@ -125,6 +125,18 @@ void SettingsBase::initApplication()
     // enforce minimum window size
     setMinimumSize(SettingsBase::sizeHint());
     activateWindow();
+
+    // Change size limit after screen resolution is changed
+    m_screen = qGuiApp->primaryScreen();
+    connect(qGuiApp, &QGuiApplication::primaryScreenChanged, this, [this](QScreen *screen) {
+        if (m_screen) {
+            disconnect(m_screen, &QScreen::geometryChanged, this, &SettingsBase::slotGeometryChanged);
+        }
+        m_screen = screen;
+        slotGeometryChanged();
+        connect(m_screen, &QScreen::geometryChanged, this, &SettingsBase::slotGeometryChanged);
+    });
+    connect(m_screen, &QScreen::geometryChanged, this, &SettingsBase::slotGeometryChanged);
 }
 
 void SettingsBase::initToolBar()
@@ -452,4 +464,9 @@ void SettingsBase::changeAboutMenu(const KAboutData *menuAbout, QAction *menuIte
         menuItem->setIcon(QGuiApplication::windowIcon());
         menuItem->setEnabled(false);
     }
+}
+
+void SettingsBase::slotGeometryChanged()
+{
+    setMinimumSize(SettingsBase::sizeHint());
 }
