@@ -53,7 +53,7 @@ public:
         SystemSettings = 0,
         InfoCenter,
     };
-    Q_ENUM(ApplicationMode);
+    Q_ENUM(ApplicationMode)
 
     /**
      * Constructs a BaseMode for use in System Settings.\n
