@@ -57,11 +57,13 @@ protected:
 
 private Q_SLOTS:
     void prepareToolTip();
+    void slotSettingsChanged(const QString &file);
 
 private:
     void showToolTip(const QModelIndex &menuItem);
     QWidget *createTipContent(QModelIndex item);
     QLayout *generateToolTipLine(QModelIndex *item, QWidget *toolTip, QSize iconSize, bool comment);
+    void loadSettings();
 
     class Private;
     ToolTipManager::Private *d;

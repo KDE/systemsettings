@@ -19,6 +19,8 @@
 #include <QTimer>
 
 #include <KColorScheme>
+#include <KConfigGroup>
+#include <KDirWatch>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KToolTipWidget>
@@ -40,6 +42,7 @@ public:
         : tooltip(nullptr)
         , view(nullptr)
         , timer(nullptr)
+        , tooltipsEnabledGlobally(true)
         , delay(QApplication::style()->styleHint(QStyle::SH_ToolTip_WakeUpDelay))
     {
     }
@@ -48,6 +51,7 @@ public:
     QWidget *view = nullptr;
     const QAbstractItemModel *model;
     QTimer *timer = nullptr;
+    bool tooltipsEnabledGlobally;
     QPersistentModelIndex item;
     QRect itemRect;
     int delay;
@@ -69,11 +73,35 @@ ToolTipManager::ToolTipManager(const QAbstractItemModel *model, QWidget *parent,
     connect(d->timer, &QTimer::timeout, this, &ToolTipManager::prepareToolTip);
 
     d->view->installEventFilter(this);
+
+    // Load the tooltip configuration
+    loadSettings();
+    // Monitor the configuration file and reload the setting
+    const QString configFile = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QStringLiteral("/plasmarc");
+    KDirWatch::self()->addFile(configFile);
+    connect(KDirWatch::self(), &KDirWatch::created, this, &ToolTipManager::slotSettingsChanged);
+    connect(KDirWatch::self(), &KDirWatch::dirty, this, &ToolTipManager::slotSettingsChanged);
 }
 
 ToolTipManager::~ToolTipManager()
 {
     delete d;
+}
+
+void ToolTipManager::loadSettings()
+{
+    // Check if the display of informational tooltip is disabled, Delay = -1
+    d->tooltipsEnabledGlobally = KConfigGroup(KSharedConfig::openConfig(QStringLiteral("plasmarc")), "PlasmaToolTips").readEntry("Delay", d->delay) > 0;
+}
+
+void ToolTipManager::slotSettingsChanged(const QString &file)
+{
+    if (!file.endsWith(QLatin1String("plasmarc"))) {
+        return;
+    }
+
+    KSharedConfig::openConfig(QStringLiteral("plasmarc"))->reparseConfiguration();
+    loadSettings();
 }
 
 void ToolTipManager::setModel(const QAbstractItemModel *model)
@@ -136,6 +164,11 @@ void ToolTipManager::prepareToolTip()
 
 void ToolTipManager::showToolTip(const QModelIndex &menuItem)
 {
+    // Do not show the tooltips if the display of informational tooltips is disabled
+    if (!d->tooltipsEnabledGlobally) {
+        return;
+    }
+
     if (QApplication::mouseButtons() & Qt::LeftButton) {
         return;
     }
