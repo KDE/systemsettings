@@ -122,8 +122,6 @@ void SettingsBase::initApplication()
     searchText->completionObject()->setItems(BaseData::instance()->menuItem()->keywords());
     changePlugin();
 
-    // enforce minimum window size
-    setMinimumSize(SettingsBase::sizeHint());
     activateWindow();
 }
 
