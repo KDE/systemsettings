@@ -57,8 +57,8 @@ Q_SIGNALS:
     void categoryOwnedByKCMChanged();
 
 private:
-    SidebarMode *m_sidebarMode;
     QAbstractItemModel *m_parentModel;
+    SidebarMode *m_sidebarMode;
     QPersistentModelIndex m_activeModuleIndex;
 };
 
