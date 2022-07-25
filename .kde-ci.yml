@@ -26,6 +26,5 @@ Dependencies:
     'frameworks/knotifications': '@latest'
     'frameworks/krunner': '@latest'
     'frameworks/kdoctools': '@latest'
-    'plasma/plasma-workspace': '@same'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']

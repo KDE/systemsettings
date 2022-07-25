@@ -61,8 +61,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 ecm_find_qmlmodule(org.kde.kcm 1.0)
 
-find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
-
 add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)
