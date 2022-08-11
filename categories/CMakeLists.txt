@@ -1,5 +1,3 @@
-install( FILES systemsettingscategory.desktop DESTINATION  ${KDE_INSTALL_KSERVICETYPESDIR} )
-
 install( FILES
     settings-appearance.desktop
     settings-appearance-color.desktop

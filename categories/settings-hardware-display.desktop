@@ -1,6 +1,5 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=display
 X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-Weight=50

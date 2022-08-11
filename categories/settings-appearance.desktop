@@ -1,6 +1,5 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=appearance
 X-KDE-System-Settings-Parent-Category=rootcategory
 X-KDE-System-Settings-Category-Module=kcm_lookandfeel

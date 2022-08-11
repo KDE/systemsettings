@@ -1,6 +1,5 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=search
 X-KDE-System-Settings-Parent-Category=workspace
 X-KDE-Weight=80
