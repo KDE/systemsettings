@@ -40,6 +40,7 @@
   <name xml:lang="is">Kerfisstillingar</name>
   <name xml:lang="it">Impostazioni di sistema</name>
   <name xml:lang="ja">システム設定</name>
+  <name xml:lang="ka">სისტემის მორგება</name>
   <name xml:lang="ko">시스템 설정</name>
   <name xml:lang="lt">Sistemos nuostatos</name>
   <name xml:lang="ml">സിസ്റ്റം സജ്ജീകരണങ്ങൾ</name>
@@ -87,6 +88,7 @@
   <summary xml:lang="is">Stillingatól fyrir tölvuna þína</summary>
   <summary xml:lang="it">Strumenti di configurazione per il tuo computer</summary>
   <summary xml:lang="ja">コンピュータ設定ツール</summary>
+  <summary xml:lang="ka">თქვენი კომპიუტერის თქვენზე მორგების ხელსაწყოები</summary>
   <summary xml:lang="ko">컴퓨터 설정 도구</summary>
   <summary xml:lang="lt">Jūsų kompiuterio konfigūravimo įrankiai</summary>
   <summary xml:lang="ml">നിങ്ങളുടെ കമ്പ്യൂട്ടറിനുള്ള ക്രമീകരണങ്ങൾ</summary>
@@ -136,6 +138,7 @@
     <p xml:lang="is">Kerfisstillingar gera þér kleift að stilla og aðlaga KDE Plasma kerfið þitt eins og þér hentar best.</p>
     <p xml:lang="it">Impostazioni di sistema ti permette di configurare e di regolare il tuo desktop KDE Plasma, in modo che possa soddisfare meglio le tue esigenze.</p>
     <p xml:lang="ja">システム設定では、KDE Plasma デスクトップをよりニーズに合ったものにするために、設定や調整を行うことができます。</p>
+    <p xml:lang="ka">სისტემის პარამეტრებში თქვენ შეგიძლიათ მოირგოთ KDE-ის Plasma სამუშაო მაგიდა ისე, რომ ის თქვენთვის უფრო მოსახერხებელი გახდეს.</p>
     <p xml:lang="ko">시스템 설정에서 KDE Plasma 데스크톱을 설정할 수 있습니다.</p>
     <p xml:lang="lt">Sistemos nuostatos leidžia jums konfigūruoti ir derinti savo KDE Plasma darbalaukį taip, kad jis geriau atitiktų jūsų poreikius.</p>
     <p xml:lang="ml">നിങ്ങളുടെ പ്ലാസ്മ ഡെസ്ക്ടോപ് നിങ്ങളുടെ ഇഷ്ടങ്ങൾക്കനുസരിച്ച് ക്രമീകരിക്കാൻ സിസ്റ്റം സജ്ജീകരണങ്ങൾ സഹായിക്കുന്നു.</p>
