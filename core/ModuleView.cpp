@@ -144,6 +144,7 @@ ModuleView::ModuleView(QWidget *parent)
     rootLayout->setSpacing(0);
     // Configure a layout first
     d->mLayout = new QVBoxLayout();
+    d->mLayout->setSpacing(250);
     // Create the Page Widget
     d->mPageWidget = new KPageWidget(this);
     d->mCustomHeader = new CustomTitle(this);
@@ -157,7 +158,7 @@ ModuleView::ModuleView(QWidget *parent)
     // Zero out only the horizontal spacing (the vertical spacing is fine)
     QGridLayout *gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
 
-    gridLayout->setHorizontalSpacing(0);
+    gridLayout->setHorizontalSpacing(80);
 
     d->mLayout->addWidget(d->mPageWidget);
     // Create the dialog
