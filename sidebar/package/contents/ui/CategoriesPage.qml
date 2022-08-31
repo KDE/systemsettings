@@ -18,9 +18,6 @@ Kirigami.ScrollablePage {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
-    // HACK: workaround for https://bugreports.qt.io/browse/QTBUG-83890
-    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
     header: Kirigami.AbstractApplicationHeader {
         id: pageHeader
 
