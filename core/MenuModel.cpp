@@ -43,6 +43,7 @@ QHash<int, QByteArray> MenuModel::roleNames() const
     names[IsCategoryRole] = "IsCategoryRole";
     names[IsKCMRole] = "IsKCMRole";
     names[DefaultIndicatorRole] = "showDefaultIndicator";
+    names[IconNameRole] = "iconName";
     return names;
 }
 
@@ -141,6 +142,9 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         break;
     case MenuModel::DefaultIndicatorRole:
         theData.setValue(mi->showDefaultIndicator());
+        break;
+    case MenuModel::IconNameRole:
+        theData.setValue(mi->iconName());
         break;
     default:
         break;

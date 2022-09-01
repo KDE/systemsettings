@@ -21,7 +21,7 @@ Kirigami.BasicListItem {
     }
     leadingPadding: 0
 
-    icon: model.decoration
+    icon: model.iconName
     text: model.display
     Accessible.name: model.display
 

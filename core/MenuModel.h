@@ -49,6 +49,8 @@ public:
         IsKCMRole,
 
         DefaultIndicatorRole,
+
+        IconNameRole,
     };
 
     /**

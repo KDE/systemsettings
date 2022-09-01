@@ -94,7 +94,7 @@ Rectangle {
                 id: mostUsedRepeater
                 model: systemsettings.mostUsedModel
                 delegate: IntroIcon {
-                    icon: model.decoration
+                    icon: model.iconName
                     text: model.display
                 }
             }
