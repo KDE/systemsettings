@@ -227,10 +227,8 @@ QLayout *ToolTipManager::generateToolTipLine(QModelIndex *item, QWidget *toolTip
     QString text = menuItem->name();
     if (comment) {
         text = QStringLiteral("<b>%1</b>").arg(menuItem->name());
-    }
 
-    // Generate text
-    if (comment) {
+        // Generate text
         text += QStringLiteral("<br />");
         if (!menuItem->comment().isEmpty()) {
             text += menuItem->comment();
