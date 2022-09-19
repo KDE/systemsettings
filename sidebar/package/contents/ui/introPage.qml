@@ -65,39 +65,4 @@ Rectangle {
             }
         }
     }
-
-    ColumnLayout {
-        anchors {
-            top: parent.verticalCenter
-            topMargin: verticalMargin
-            horizontalCenter: parent.horizontalCenter
-        }
-        width: Math.round(parent.width * 0.8)
-
-        Kirigami.Heading {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.bottomMargin: Kirigami.Units.largeSpacing
-            level: 3
-            wrapMode: Text.NoWrap
-            text: i18n("Frequently Used")
-        }
-
-        RowLayout {
-            id: iconsRow
-
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignHCenter
-
-            spacing: Kirigami.Units.largeSpacing * 3
-
-            Repeater {
-                id: mostUsedRepeater
-                model: systemsettings.mostUsedModel
-                delegate: IntroIcon {
-                    icon: model.iconName
-                    text: model.display
-                }
-            }
-        }
-    }
 }

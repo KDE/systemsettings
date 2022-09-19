@@ -69,7 +69,6 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(QAbstractItemModel *categoryModel READ categoryModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *searchModel READ searchModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *subCategoryModel READ subCategoryModel CONSTANT)
-    Q_PROPERTY(QAbstractItemModel *mostUsedModel READ mostUsedModel CONSTANT)
     Q_PROPERTY(int activeCategoryRow READ activeCategoryRow NOTIFY activeCategoryRowChanged)
     Q_PROPERTY(int activeSearchRow READ activeSearchRow NOTIFY activeSearchRowChanged)
     Q_PROPERTY(int activeSubCategoryRow READ activeSubCategoryRow NOTIFY activeSubCategoryRowChanged)
@@ -92,7 +91,6 @@ public:
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *searchModel() const;
     QAbstractItemModel *subCategoryModel() const;
-    QAbstractItemModel *mostUsedModel() const;
 
     int activeCategoryRow() const;
     int activeSubCategoryRow() const;
@@ -115,9 +113,7 @@ public:
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
     Q_INVOKABLE QString actionIconName(const QString &name) const;
     Q_INVOKABLE void requestToolTip(const QModelIndex &index, const QRectF &rect);
-    Q_INVOKABLE void requestMostUsedToolTip(int index, const QRectF &rect);
     Q_INVOKABLE void hideToolTip();
-    Q_INVOKABLE void hideMostUsedToolTip();
     Q_INVOKABLE void showActionMenu(const QPoint &position);
 
     Q_INVOKABLE void loadModule(const QModelIndex &activeModule, const QStringList &args = QStringList());

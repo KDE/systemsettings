@@ -117,113 +117,6 @@ void SubcategoryModel::loadParentCategoryModule()
     }
 }
 
-class MostUsedModel : public QSortFilterProxyModel
-{
-public:
-    explicit MostUsedModel(QObject *parent = nullptr)
-        : QSortFilterProxyModel(parent)
-    {
-        sort(0, Qt::DescendingOrder);
-        setSortRole(ResultModel::ScoreRole);
-        setDynamicSortFilter(true);
-        // prepare default items
-        m_defaultModel = new QStandardItemModel(this);
-
-        KService::Ptr service = KService::serviceByDesktopName(qGuiApp->desktopFileName());
-        if (service) {
-            const auto actions = service->actions();
-            for (const KServiceAction &action : actions) {
-                QStandardItem *item = new QStandardItem();
-                item->setData(QUrl(QStringLiteral("kcm:%1.desktop").arg(action.name())), ResultModel::ResourceRole);
-                m_defaultModel->appendRow(item);
-            }
-        } else {
-            qCritical() << "Failed to find desktop file for" << qGuiApp->desktopFileName();
-        }
-    }
-
-    void setResultModel(ResultModel *model)
-    {
-        if (m_resultModel == model) {
-            return;
-        }
-
-        auto updateModel = [this]() {
-            if (m_resultModel->rowCount() >= 5) {
-                setSourceModel(m_resultModel);
-            } else {
-                setSourceModel(m_defaultModel);
-            }
-        };
-
-        m_resultModel = model;
-
-        connect(m_resultModel, &QAbstractItemModel::rowsInserted, this, updateModel);
-        connect(m_resultModel, &QAbstractItemModel::rowsRemoved, this, updateModel);
-
-        updateModel();
-    }
-
-    QHash<int, QByteArray> roleNames() const override
-    {
-        QHash<int, QByteArray> roleNames;
-        roleNames.insert(Qt::DisplayRole, "display");
-        roleNames.insert(Qt::DecorationRole, "decoration");
-        roleNames.insert(ResultModel::ScoreRole, "score");
-        return roleNames;
-    }
-
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override
-    {
-        const QString desktopName = sourceModel()->index(source_row, 0, source_parent).data(ResultModel::ResourceRole).toUrl().path();
-        KService::Ptr service = KService::serviceByStorageId(desktopName);
-        return service;
-    }
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
-    {
-        MenuItem *mi;
-        const QString desktopName = QSortFilterProxyModel::data(index, ResultModel::ResourceRole).toUrl().path();
-
-        if (m_menuItems.contains(desktopName)) {
-            mi = m_menuItems.value(desktopName);
-        } else {
-            mi = new MenuItem(false, nullptr);
-            const_cast<MostUsedModel *>(this)->m_menuItems.insert(desktopName, mi);
-
-            KService::Ptr service = KService::serviceByStorageId(desktopName);
-
-            if (!service || !service->isValid()) {
-                qWarning() << desktopName;
-                m_resultModel->forgetResource(QStringLiteral("kcm:") % desktopName);
-                return QVariant();
-            }
-            QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("kservices5/") + service->entryPath());
-            mi->setMetaData(KPluginMetaData::fromDesktopFile(path));
-        }
-
-        switch (role) {
-        case Qt::UserRole:
-            return QVariant::fromValue(mi);
-        case Qt::DisplayRole:
-            return mi->name();
-        case Qt::DecorationRole:
-            return mi->iconName();
-        case ResultModel::ScoreRole:
-            return QSortFilterProxyModel::data(index, ResultModel::ScoreRole).toInt();
-        default:
-            return QVariant();
-        }
-    }
-
-private:
-    QHash<QString, MenuItem *> m_menuItems;
-    // Model when there is nothing from kactivities-stat
-    QStandardItemModel *m_defaultModel;
-    // Model fed by kactivities-stats
-    ResultModel *m_resultModel;
-};
-
 class SidebarMode::Private
 {
 public:
@@ -242,11 +135,9 @@ public:
     }
 
     ToolTipManager *toolTipManager = nullptr;
-    ToolTipManager *mostUsedToolTipManager = nullptr;
     QQuickWidget *quickWidget = nullptr;
     KPackage::Package package;
     SubcategoryModel *subCategoryModel = nullptr;
-    MostUsedModel *mostUsedModel = nullptr;
     FocusHackWidget *mainWidget = nullptr;
     QQuickWidget *placeHolderWidget = nullptr;
     QHBoxLayout *mainLayout = nullptr;
@@ -333,11 +224,6 @@ QAbstractItemModel *SidebarMode::subCategoryModel() const
     return d->subCategoryModel;
 }
 
-QAbstractItemModel *SidebarMode::mostUsedModel() const
-{
-    return d->mostUsedModel;
-}
-
 QList<QAbstractItemView *> SidebarMode::views() const
 {
     QList<QAbstractItemView *> list;
@@ -365,8 +251,6 @@ void SidebarMode::initEvent()
     d->searchModel->setCategorizedModel(true);
     d->searchModel->setFilterHighlightsEntries(false);
     d->searchModel->setSourceModel(d->flatModel);
-
-    d->mostUsedModel = new MostUsedModel(this);
 
     d->subCategoryModel = new SubcategoryModel(d->categorizedModel, this);
     d->mainWidget = new FocusHackWidget();
@@ -416,21 +300,11 @@ void SidebarMode::requestToolTip(const QModelIndex &index, const QRectF &rect)
     }
 }
 
-void SidebarMode::requestMostUsedToolTip(int index, const QRectF &rect)
-{
-    d->mostUsedToolTipManager->requestToolTip(d->mostUsedModel->index(index, 0), rect.toRect());
-}
-
 void SidebarMode::hideToolTip()
 {
     if (d->toolTipManager) {
         d->toolTipManager->hideToolTip();
     }
-}
-
-void SidebarMode::hideMostUsedToolTip()
-{
-    d->mostUsedToolTipManager->hideToolTip();
 }
 
 void SidebarMode::showActionMenu(const QPoint &position)
@@ -873,9 +747,6 @@ void SidebarMode::initPlaceHolderWidget()
     d->placeHolderWidget->installEventFilter(this);
 
     d->mainLayout->addWidget(d->placeHolderWidget);
-
-    d->mostUsedToolTipManager = new ToolTipManager(d->mostUsedModel, d->placeHolderWidget, ToolTipManager::ToolTipPosition::BottomCenter);
-    d->mostUsedModel->setResultModel(new ResultModel(AllResources | Agent(QStringLiteral("org.kde.systemsettings")) | HighScoredFirst | Limit(5), this));
 }
 
 void SidebarMode::reloadStartupModule()
