@@ -11,6 +11,7 @@
 #include <KCrash>
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QSurfaceFormat>
 
 #include <KDBusService>
 #include <KLocalizedString>
@@ -24,6 +25,10 @@
 
 int main(int argc, char *argv[])
 {
+    auto format = QSurfaceFormat::defaultFormat();
+    format.setOption(QSurfaceFormat::ResetNotification);
+    QSurfaceFormat::setDefaultFormat(format);
+
     // Make sure the binary name is either kinfocenter or systemsettings,
     // Anything else will just be considered as "systemsettings"
     const QString executableName = QString::fromUtf8(argv[0]);
