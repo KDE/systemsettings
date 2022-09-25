@@ -28,6 +28,8 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KFileUtils>
+#include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPluginMetaData>
@@ -159,6 +161,14 @@ void SettingsBase::initToolBar()
         });
         switchToSidebarAction->setText(i18n("Switch to Sidebar View"));
         switchToSidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("view-sidetree")));
+
+        reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
+            auto job = new KIO::OpenUrlJob(QUrl(activeView->moduleView()->activeModuleMetadata().bugReportUrl()));
+            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+            job->start();
+        });
+        reportPageSpecificBugAction->setText(i18n("Report a Bug in the Current Page…"));
+        reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
     }
 
     // Help after it
@@ -402,6 +412,16 @@ void SettingsBase::changePlugin()
     updateViewActions();
 
     activeView->giveFocus();
+
+    // Update visibility of the "report a bug on this page" and "report bug in general"
+    // actions based on whether the current page has a bug report URL set
+    auto reportGeneralBugAction = actionCollection()->action(QStringLiteral("help_report_bug"));
+    reportGeneralBugAction->setVisible(false);
+    auto moduleView = activeView->moduleView();
+    connect(moduleView, &ModuleView::moduleChanged, this, [=] {
+        reportPageSpecificBugAction->setVisible(!moduleView->activeModuleMetadata().bugReportUrl().isEmpty());
+        reportGeneralBugAction->setVisible(!reportPageSpecificBugAction->isVisible());
+    });
 }
 
 void SettingsBase::viewChange(bool state)

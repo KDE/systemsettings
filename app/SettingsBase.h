@@ -79,6 +79,7 @@ private:
     QWidgetAction *spacerAction = nullptr;
     QAction *switchToIconAction = nullptr;
     QAction *switchToSidebarAction = nullptr;
+    QAction *reportPageSpecificBugAction = nullptr;
     QAction *quitAction = nullptr;
     // The help menu
     QAction *aboutViewAction = nullptr;

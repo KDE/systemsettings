@@ -317,8 +317,9 @@ void SidebarMode::showActionMenu(const QPoint &position)
 
     const QStringList actionList{QStringLiteral("switchto_iconview"),
                                  QStringLiteral("configure"),
-                                 QStringLiteral("help_contents"),
+                                 QStringLiteral("report_bug_in_current_module"),
                                  QStringLiteral("help_report_bug"),
+                                 QStringLiteral("help_contents"),
                                  QStringLiteral("help_about_app"),
                                  QStringLiteral("help_about_kde")};
 

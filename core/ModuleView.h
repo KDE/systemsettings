@@ -126,6 +126,11 @@ public:
 
     void setActiveModule(const QString &moduleName);
 
+    /**
+     * The active module's KPluginMetaData.
+     */
+    KPluginMetaData activeModuleMetadata() const;
+
 public Q_SLOTS:
     /**
      * Loads the module specified by menuItem.\n

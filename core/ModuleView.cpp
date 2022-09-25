@@ -598,3 +598,12 @@ void ModuleView::setActiveModule(const QString &moduleName)
         }
     }
 }
+
+KPluginMetaData ModuleView::activeModuleMetadata() const
+{
+    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    if (!activeModule) {
+        return {};
+    }
+    return activeModule->metaData();
+}
