@@ -161,15 +161,15 @@ void SettingsBase::initToolBar()
         });
         switchToSidebarAction->setText(i18n("Switch to Sidebar View"));
         switchToSidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("view-sidetree")));
-
-        reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
-            auto job = new KIO::OpenUrlJob(QUrl(activeView->moduleView()->activeModuleMetadata().bugReportUrl()));
-            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
-            job->start();
-        });
-        reportPageSpecificBugAction->setText(i18n("Report a Bug in the Current Page…"));
-        reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
     }
+
+    reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
+        auto job = new KIO::OpenUrlJob(QUrl(activeView->moduleView()->activeModuleMetadata().bugReportUrl()));
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+        job->start();
+    });
+    reportPageSpecificBugAction->setText(i18n("Report a Bug in the Current Page…"));
+    reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
 
     // Help after it
     initHelpMenu();
