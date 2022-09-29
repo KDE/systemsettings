@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2014 Vishesh Handa <vhanda@kde.org>
     SPDX-FileCopyrightText: 2016-2020 Harald Sitter <sitter@kde.org>
     SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+    SPDX-FileCopyrightText: 2022 Natalie Clarius <natalie_clarius@yahoo.de>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -128,62 +129,64 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
 void SystemsettingsRunner::matchNameKeyword(Plasma::RunnerContext &ctx)
 {
     QList<Plasma::QueryMatch> matches;
-    // Splitting the query term to match using subsequences
-    const QStringList queryList = ctx.query().split(QLatin1Char(' '));
+    const QString query = ctx.query();
 
     for (const KPluginMetaData &data : qAsConst(m_modules)) {
+        const QString name = data.name();
+        const QString description = data.description();
+        const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
+
         Plasma::QueryMatch match(this);
-        match.setType(Plasma::QueryMatch::CompletionMatch);
         setupMatch(data, match);
         qreal relevance = -1;
+        Plasma::QueryMatch::Type type = Plasma::QueryMatch::CompletionMatch;
 
-        auto checkMatchAndRelevance = [queryList, data, &relevance](const QString &value, qreal relevanceValue) {
-            if (value.contains(queryList.first(), Qt::CaseInsensitive)) {
-                relevance = relevanceValue;
+        auto checkMatchAndRelevance = [query, data, &relevance](const QString &value, qreal relevanceValue) {
+            if (value.startsWith(query, Qt::CaseInsensitive)) {
+                relevance = relevanceValue + 0.1;
                 return true;
             }
-            for (const QString &query : queryList) {
-                if (relevance == -1 && value.contains(query, Qt::CaseInsensitive)) {
-                    relevance = 0.5;
+            for (const QString &queryWord : query.split(QLatin1Char(' '))) {
+                if (relevance == -1 && value.contains(queryWord, Qt::CaseInsensitive)) {
+                    relevance = relevanceValue;
                     return true;
                 }
             }
             return false;
         };
 
-        if (checkMatchAndRelevance(data.name(), 0.8)) {
-            if (data.name().startsWith(queryList[0], Qt::CaseInsensitive)) {
-                relevance += 0.1;
+        // check for matches and set relevance
+        if (checkMatchAndRelevance(name, 0.8)) { // name starts with query or contains any query word
+        } else if (checkMatchAndRelevance(description, 0.5)) { // description starts with query or contains any query word
+        } else if (std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
+                       return keyword.startsWith(query, Qt::CaseInsensitive);
+                   })) {
+            if (keywords.contains(query, Qt::CaseInsensitive)) { // any of the keywords matches query
+                relevance = 0.5;
+            } else { // any of the keywords starts with query
+                relevance = 0.2;
             }
-        } else {
-            // check if the description matches
-            if (!checkMatchAndRelevance(data.description(), 0.5)) {
-                // if not, check the keyowords
-                const QString &query = ctx.query();
-                const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
-                bool anyKeywordMatches = std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
-                    return keyword.startsWith(query, Qt::CaseInsensitive);
-                });
-                if (anyKeywordMatches && keywords.contains(query, Qt::CaseInsensitive)) {
-                    relevance = 0.5; // If the keyword matches exactly we give it the same relevance as if the description matched
-                } else if (anyKeywordMatches) {
-                    relevance = 0.2; // give it a lower relevance than if it had been found by name or description
-                } else {
-                    continue; // we haven't found any matching keyword, skip this KCM
-                }
-            }
+        } else { // none of the properties matches
+            continue; // skip this KCM
         }
+
+        // set type
+        if (name.compare(query, Qt::CaseInsensitive) == 0) { // name matches exactly
+            type = Plasma::QueryMatch::ExactMatch;
+        } else if (name.startsWith(query, Qt::CaseInsensitive) || description.startsWith(query, Qt::CaseInsensitive)) { // name or description matches as start
+            type = Plasma::QueryMatch::PossibleMatch;
+        } else if (keywords.contains(query, Qt::CaseInsensitive)) { // any of the keywords matches exactly
+            type = Plasma::QueryMatch::PossibleMatch;
+        }
+
+        match.setRelevance(relevance);
+        match.setType(type);
 
         if (isKinfoCenterKcm(data)) {
             match.setMatchCategory(i18n("System Information"));
         } else {
             match.setMatchCategory(i18n("System Settings"));
         }
-        // KCMs are, on the balance, less relevant. Drop it ever so much. So they may get outscored
-        // by an otherwise equally applicable match.
-        relevance -= .001;
-
-        match.setRelevance(relevance);
 
         matches << match;
     }
