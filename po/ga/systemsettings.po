@@ -1,0 +1,467 @@
+# Irish translation of systemsettings
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the systemsettings package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdebase/systemsettings.po\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"PO-Revision-Date: 2007-06-27 10:27-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kevin Scannell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kscanne@gmail.com"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:64
+#, kde-format
+msgid "Info Center"
+msgstr ""
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr ""
+
+#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "© 2009, Ben Cooksley"
+
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: sidebar/package/contents/ui/introPage.qml:63
+#, kde-format
+msgid "System Settings"
+msgstr "Socruithe an Chórais"
+
+#: app/main.cpp:74
+#, fuzzy, kde-format
+#| msgid "Central configuration center for KDE."
+msgid "Central configuration center by KDE."
+msgstr "Lárionad cumraíochta le haghaidh KDE."
+
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "Ben Cooksley"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "Cothaitheoir"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Developer"
+msgstr "Forbróir"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Will Stephenson"
+msgstr "Will Stephenson"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "Léiriú agus samhail inmheánach modúl"
+
+#: app/main.cpp:97
+#, kde-format
+msgid "List all possible modules"
+msgstr ""
+
+#: app/main.cpp:98 app/main.cpp:161
+#, kde-format
+msgid "Configuration module to open"
+msgstr ""
+
+#: app/main.cpp:99 app/main.cpp:162
+#, kde-format
+msgid "Arguments for the module"
+msgstr ""
+
+#: app/main.cpp:107
+#, kde-format
+msgid "The following modules are available:"
+msgstr ""
+
+#: app/main.cpp:125
+#, kde-format
+msgid "No description available"
+msgstr ""
+
+#: app/SettingsBase.cpp:58
+#, kde-format
+msgctxt "Search through a list of control modules"
+msgid "Search"
+msgstr "Cuardaigh"
+
+#: app/SettingsBase.cpp:155
+#, fuzzy, kde-format
+#| msgid "Icon View"
+msgid "Switch to Icon View"
+msgstr "Amharc le Deilbhíní"
+
+#: app/SettingsBase.cpp:162
+#, kde-format
+msgid "Switch to Sidebar View"
+msgstr ""
+
+#: app/SettingsBase.cpp:171
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr ""
+
+#: app/SettingsBase.cpp:198
+#, kde-format
+msgid "Help"
+msgstr "Cabhair"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid ""
+"System Settings was unable to find any views, and hence has nothing to "
+"display."
+msgstr ""
+"Níorbh fhéidir le Socruithe an Chórais aon amhairc a aimsiú, agus mar sin "
+"níl aon rud le taispeáint aige."
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid "No views found"
+msgstr "Níor aimsíodh aon amhairc"
+
+#: app/SettingsBase.cpp:408
+#, kde-format
+msgid "About Active View"
+msgstr "Maidir leis an Amharc Gníomhach"
+
+#: app/SettingsBase.cpp:479
+#, kde-format
+msgid "About %1"
+msgstr "Maidir le %1"
+
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Ainm inmheánach ar an amharc úsáidte"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Maidir le Socruithe an Chórais"
+
+#: app/ToolTips/tooltipmanager.cpp:188
+#, fuzzy, kde-format
+#| msgid "<i>Contains 1 item</i>"
+#| msgid_plural "<i>Contains %1 items</i>"
+msgid "Contains 1 item"
+msgid_plural "Contains %1 items"
+msgstr[0] "<i>1 mhír ann</i>"
+msgstr[1] "<i>%1 mhír ann</i>"
+msgstr[2] "<i>%1 mhír ann</i>"
+msgstr[3] "<i>%1 mír ann</i>"
+msgstr[4] "<i>%1 mír ann</i>"
+
+#: core/ExternalAppModule.cpp:27
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "Is feidhmchlár seachtrach é %1 agus bhí sé tosaithe go huathoibríoch"
+
+#: core/ExternalAppModule.cpp:28
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Atosaigh %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialóg"
+
+#: core/ModuleView.cpp:177
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Fill ar na luachanna roimhe seo"
+
+#: core/ModuleView.cpp:323
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Athraíodh socruithe an mhodúil reatha.\n"
+"An bhfuil fonn ort na hathruithe a chur i bhfeidhm?"
+
+#: core/ModuleView.cpp:325
+#, kde-format
+msgid "Apply Settings"
+msgstr "Cuir na Socruithe i bhFeidhm"
+
+#: icons/IconMode.cpp:54
+#, kde-format
+msgid "Icon View"
+msgstr "Amharc le Deilbhíní"
+
+#: icons/IconMode.cpp:56
+#, kde-format
+msgid "Provides a categorized icons view of control modules."
+msgstr "Soláthraíonn sé amharc le deilbhíní catagóirithe ar mhodúil rialaithe."
+
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Author"
+msgstr "Údar"
+
+#: icons/IconMode.cpp:63
+#, fuzzy, kde-format
+#| msgid "Apply Settings"
+msgid "All Settings"
+msgstr "Cuir na Socruithe i bhFeidhm"
+
+#: icons/IconMode.cpp:64
+#, kde-format
+msgid "Keyboard Shortcut: %1"
+msgstr "Aicearra Méarchláir: %1"
+
+#: runner/systemsettingsrunner.cpp:39
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:183
+#, fuzzy, kde-format
+#| msgid "System Settings"
+msgid "System Information"
+msgstr "Socruithe an Chórais"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#, kde-format
+msgid "Show intro page"
+msgstr ""
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr ""
+
+#: sidebar/package/contents/ui/FooterToolbar.qml:37
+#, kde-format
+msgctxt ""
+"Action to show indicators for settings with custom data. Use as short a "
+"translation as is feasible, as horizontal space is limited."
+msgid "Highlight Changed Settings"
+msgstr ""
+
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#, kde-format
+msgid "Show menu"
+msgstr ""
+
+#: sidebar/package/contents/ui/introPage.qml:56
+#, kde-format
+msgid "Plasma"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:175
+#, kde-format
+msgid "Sidebar View"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:177
+#, fuzzy, kde-format
+#| msgid "Provides a categorized icons view of control modules."
+msgid "Provides a categorized sidebar for control modules."
+msgstr "Soláthraíonn sé amharc le deilbhíní catagóirithe ar mhodúil rialaithe."
+
+#: sidebar/SidebarMode.cpp:179
+#, kde-format
+msgid "(c) 2017, Marco Martin"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:180
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:669
+#, kde-format
+msgid "Sidebar"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:741
+#, kde-format
+msgid "Most Used"
+msgstr ""
+
+#: sidebar/ToolTips/tooltipmanager.cpp:237
+#, kde-format
+msgid "<i>Contains 1 item</i>"
+msgid_plural "<i>Contains %1 items</i>"
+msgstr[0] "<i>1 mhír ann</i>"
+msgstr[1] "<i>%1 mhír ann</i>"
+msgstr[2] "<i>%1 mhír ann</i>"
+msgstr[3] "<i>%1 mír ann</i>"
+msgstr[4] "<i>%1 mír ann</i>"
+
+#~ msgid "View Style"
+#~ msgstr "Stíl an Amhairc"
+
+#~ msgid "Show detailed tooltips"
+#~ msgstr "Taispeáin leideanna mionsonraithe"
+
+#, fuzzy
+#~| msgid "Configure"
+#~ msgid "Configure…"
+#~ msgstr "Cumraigh"
+
+#~ msgctxt "General config for System Settings"
+#~ msgid "General"
+#~ msgstr "Ginearálta"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence nothing is "
+#~ "available to configure."
+#~ msgstr ""
+#~ "Níorbh fhéidir le Socruithe an Chórais aon amhairc a aimsiú, agus mar sin "
+#~ "níl aon rud le cumrú aige."
+
+#~ msgid "Determines whether detailed tooltips should be used"
+#~ msgstr "Úsáid leideanna uirlisí mionsonraithe nó ná húsáid"
+
+#~ msgid "About Active Module"
+#~ msgstr "Maidir leis an Modúl Gníomhach"
+
+#~ msgid "Configure your system"
+#~ msgstr "Cumraigh do chóras"
+
+#~ msgid ""
+#~ "Welcome to \"System Settings\", a central place to configure your "
+#~ "computer system."
+#~ msgstr ""
+#~ "Fáilte romhat!  Seo é Lárionad Socruithe an Chórais, áit lárnach inar "
+#~ "féidir leat do ríomhaire a chumrú."
+
+#~ msgid "Tree View"
+#~ msgstr "Amharc Crainn"
+
+#~ msgid "Provides a classic tree-based view of control modules."
+#~ msgstr "Soláthraíonn sé amharc clasaiceach crainn ar mhodúil rialaithe."
+
+#~ msgid "Expand the first level automatically"
+#~ msgstr "Leathnaigh an chéad leibhéal go huathoibríoch"
+
+#, fuzzy
+#~| msgctxt "Search through a list of control modules"
+#~| msgid "Search"
+#~ msgid "Search..."
+#~ msgstr "Cuardaigh"
+
+#, fuzzy
+#~| msgid "System Settings"
+#~ msgid "System Settings Handbook"
+#~ msgstr "Socruithe an Chórais"
+
+#, fuzzy
+#~| msgid "About"
+#~ msgid "About KDE"
+#~ msgstr "Maidir Leis"
+
+#~ msgid "Overview"
+#~ msgstr "Foramharc"
+
+#~ msgid "Control Center Icons View"
+#~ msgstr "Lárionad Rialaithe: Amharc Deilbhíní"
+
+#~ msgid "Control Center Tree View"
+#~ msgstr "Lárionad Rialaithe: Amharc Crainn"
+
+#~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
+#~ msgstr "© 2005, Benjamin C. Meyer; © 2007, Canonical Ltd"
+
+#~ msgid "Benjamin C. Meyer"
+#~ msgstr "Benjamin C. Meyer"
+
+#~ msgid "Jonathan Riddell"
+#~ msgstr "Jonathan Riddell"
+
+#~ msgid "Contributor"
+#~ msgstr "Cuiditheoir"
+
+#~ msgid "Michael D. Stemle"
+#~ msgstr "Michael D. Stemle"
+
+#~ msgid "Simon Edwards"
+#~ msgstr "Simon Edwards"
+
+#~ msgid "Ellen Reitmayr"
+#~ msgstr "Ellen Reitmayr"
+
+#~ msgid "Usability"
+#~ msgstr "Inúsáidteacht"
+
+#~ msgid "Overview (%1)"
+#~ msgstr "Foramharc (%1)"
+
+#~ msgid "S&earch:"
+#~ msgstr "C&uardaigh:"
+
+#~ msgid "Search Bar<p>Enter a search term.</p>"
+#~ msgstr "Barra Cuardaigh<p>Iontráil téarma cuardaigh.</p>"
+
+#~ msgid "%1 hit in General"
+#~ msgid_plural "%1 hits in General"
+#~ msgstr[0] "%1 amas faoi \"Ginearálta\""
+#~ msgstr[1] "%1 amas faoi \"Ginearálta\""
+#~ msgstr[2] "%1 amas faoi \"Ginearálta\""
+#~ msgstr[3] "%1 n-amas faoi \"Ginearálta\""
+#~ msgstr[4] "%1 amas faoi \"Ginearálta\""
+
+#~ msgid "%1 hit in Advanced"
+#~ msgid_plural "%1 hits in Advanced"
+#~ msgstr[0] "%1 amas faoi \"Casta\""
+#~ msgstr[1] "%1 amas faoi \"Casta\""
+#~ msgstr[2] "%1 amas faoi \"Casta\""
+#~ msgstr[3] "%1 n-amas faoi \"Casta\""
+#~ msgstr[4] "%1 amas faoi \"Casta\""
+
+#~ msgid "Unsaved Changes"
+#~ msgstr "Athruithe gan sábháil"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Cealaigh na hAthruithe"
+
+#~ msgid "Ctrl+O"
+#~ msgstr "Ctrl+O"
+
+#~ msgid "&File"
+#~ msgstr "&Comhad"
+
+#~ msgid "&View"
+#~ msgstr "&Amharc"
+
+#~ msgid "Menu file"
+#~ msgstr "Comhad roghchláir"

@@ -1,0 +1,397 @@
+# translation of systemsettings.po to marathi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2009.
+# Chetan Khona <chetan@kompkin.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: systemsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"PO-Revision-Date: 2013-02-23 17:39+0530\n"
+"Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
+"Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"संदिप शेडमाके, \n"
+"चेतन खोना"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"sandeep.shedmake@gmail.com, \n"
+"chetan@kompkin.com"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:64
+#, kde-format
+msgid "Info Center"
+msgstr ""
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr ""
+
+#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "(C) 2009, बेन कूक्सली"
+
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: sidebar/package/contents/ui/introPage.qml:63
+#, kde-format
+msgid "System Settings"
+msgstr "प्रणाली संयोजना"
+
+#: app/main.cpp:74
+#, fuzzy, kde-format
+#| msgid "Central configuration center for KDE."
+msgid "Central configuration center by KDE."
+msgstr "केडीई करिता केंद्रीय संयोजना कार्यक्रम"
+
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "बेन कूक्सली"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "नियंत्रक"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "माथिआस सोकेन"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Developer"
+msgstr "विकासकर्ता"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Will Stephenson"
+msgstr "विल स्टीफन्सन"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "अंतर्गत विभाग प्रतिनिधीत्व, अंतर्गत विभाग पद्धत"
+
+#: app/main.cpp:97
+#, kde-format
+msgid "List all possible modules"
+msgstr ""
+
+#: app/main.cpp:98 app/main.cpp:161
+#, kde-format
+msgid "Configuration module to open"
+msgstr ""
+
+#: app/main.cpp:99 app/main.cpp:162
+#, kde-format
+msgid "Arguments for the module"
+msgstr ""
+
+#: app/main.cpp:107
+#, kde-format
+msgid "The following modules are available:"
+msgstr ""
+
+#: app/main.cpp:125
+#, kde-format
+msgid "No description available"
+msgstr ""
+
+#: app/SettingsBase.cpp:58
+#, kde-format
+msgctxt "Search through a list of control modules"
+msgid "Search"
+msgstr "शोध"
+
+#: app/SettingsBase.cpp:155
+#, fuzzy, kde-format
+#| msgid "Icon View"
+msgid "Switch to Icon View"
+msgstr "चिन्ह दृश्य"
+
+#: app/SettingsBase.cpp:162
+#, kde-format
+msgid "Switch to Sidebar View"
+msgstr ""
+
+#: app/SettingsBase.cpp:171
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr ""
+
+#: app/SettingsBase.cpp:198
+#, kde-format
+msgid "Help"
+msgstr "मदत"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid ""
+"System Settings was unable to find any views, and hence has nothing to "
+"display."
+msgstr "प्रणाली संयोजना कोणतेही दृश्य शोधू शकत नाही व त्यामुळे दर्शविण्याकरिता काही नाही."
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid "No views found"
+msgstr "एकही दृश्य सापडले नाही"
+
+#: app/SettingsBase.cpp:408
+#, kde-format
+msgid "About Active View"
+msgstr "कार्यशील दृश्या बद्दल"
+
+#: app/SettingsBase.cpp:479
+#, kde-format
+msgid "About %1"
+msgstr "%1 विषयी"
+
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "दृश्या करिता अंतर्गत नाव वापरले"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "प्रणाली संयोजने बद्दल"
+
+#: app/ToolTips/tooltipmanager.cpp:188
+#, fuzzy, kde-format
+#| msgid "<i>Contains 1 item</i>"
+#| msgid_plural "<i>Contains %1 items</i>"
+msgid "Contains 1 item"
+msgid_plural "Contains %1 items"
+msgstr[0] "<i>1 घटक समाविष्ट आहे</i>"
+msgstr[1] "<i>%1 घटक समाविष्ट आहेत</i>"
+
+#: core/ExternalAppModule.cpp:27
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 हा प्रणाली संयोजना बाहेरचा अनुप्रयोग स्वयंचलितरित्या प्रक्षेपित केलेला आहे"
+
+#: core/ExternalAppModule.cpp:28
+#, kde-format
+msgid "Relaunch %1"
+msgstr "%1 पुन्हा प्रक्षेपण करा"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "संवाद"
+
+#: core/ModuleView.cpp:177
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "आता केलेले सर्व बदल काढून टाकून पूर्वीची मूल्ये पुन्हस्थापित करा"
+
+#: core/ModuleView.cpp:323
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"सध्याच्या विभागाच्या संयोजनेत बदल केले गेले आहेत.\n"
+"तुम्हाला बदल साठवायचे आहेत का वगळायचे आहेत?"
+
+#: core/ModuleView.cpp:325
+#, kde-format
+msgid "Apply Settings"
+msgstr "संयोजना साठवा"
+
+#: icons/IconMode.cpp:54
+#, kde-format
+msgid "Icon View"
+msgstr "चिन्ह दृश्य"
+
+#: icons/IconMode.cpp:56
+#, kde-format
+msgid "Provides a categorized icons view of control modules."
+msgstr "नियंत्रण कक्ष विभागवार चिन्हांच्या रुपात दर्शवितो."
+
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Author"
+msgstr "लेखक"
+
+#: icons/IconMode.cpp:63
+#, fuzzy, kde-format
+#| msgid "Apply Settings"
+msgid "All Settings"
+msgstr "संयोजना साठवा"
+
+#: icons/IconMode.cpp:64
+#, kde-format
+msgid "Keyboard Shortcut: %1"
+msgstr "कळफलक शॉर्टकट : %1"
+
+#: runner/systemsettingsrunner.cpp:39
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:183
+#, fuzzy, kde-format
+#| msgid "System Settings"
+msgid "System Information"
+msgstr "प्रणाली संयोजना"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#, kde-format
+msgid "Show intro page"
+msgstr ""
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr ""
+
+#: sidebar/package/contents/ui/FooterToolbar.qml:37
+#, kde-format
+msgctxt ""
+"Action to show indicators for settings with custom data. Use as short a "
+"translation as is feasible, as horizontal space is limited."
+msgid "Highlight Changed Settings"
+msgstr ""
+
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#, kde-format
+msgid "Show menu"
+msgstr ""
+
+#: sidebar/package/contents/ui/introPage.qml:56
+#, kde-format
+msgid "Plasma"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:175
+#, kde-format
+msgid "Sidebar View"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:177
+#, fuzzy, kde-format
+#| msgid "Provides a categorized icons view of control modules."
+msgid "Provides a categorized sidebar for control modules."
+msgstr "नियंत्रण कक्ष विभागवार चिन्हांच्या रुपात दर्शवितो."
+
+#: sidebar/SidebarMode.cpp:179
+#, kde-format
+msgid "(c) 2017, Marco Martin"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:180
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:669
+#, kde-format
+msgid "Sidebar"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:741
+#, kde-format
+msgid "Most Used"
+msgstr ""
+
+#: sidebar/ToolTips/tooltipmanager.cpp:237
+#, kde-format
+msgid "<i>Contains 1 item</i>"
+msgid_plural "<i>Contains %1 items</i>"
+msgstr[0] "<i>1 घटक समाविष्ट आहे</i>"
+msgstr[1] "<i>%1 घटक समाविष्ट आहेत</i>"
+
+#~ msgid "View Style"
+#~ msgstr "दृश्य शैली"
+
+#~ msgid "Show detailed tooltips"
+#~ msgstr "तपशीलवार टूलटिप दर्शवा"
+
+#, fuzzy
+#~| msgid "Configure"
+#~ msgid "Configure…"
+#~ msgstr "संयोजन"
+
+#~ msgctxt "General config for System Settings"
+#~ msgid "General"
+#~ msgstr "सामान्य"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence nothing is "
+#~ "available to configure."
+#~ msgstr ""
+#~ "प्रणाली संयोजना कोणतेही दृश्य शोधू शकत नाही व त्यामुळे संयोजना करण्याकरिता काही नाही."
+
+#~ msgid "Determines whether detailed tooltips should be used"
+#~ msgstr "तपशीलवार टूलटिप दर्शवायचे की नाही ते ठरवितो"
+
+#~ msgid "About Active Module"
+#~ msgstr "कार्यशील विभागा बद्दल"
+
+#~ msgid "Configure your system"
+#~ msgstr "तुमची प्रणाली संयोजीत करा"
+
+#~ msgid ""
+#~ "Welcome to \"System Settings\", a central place to configure your "
+#~ "computer system."
+#~ msgstr ""
+#~ "\"प्रणाली संयोजनेत\" तुमचे स्वागत आहे. तुमची संगणक प्रणाली संयोजीत करण्याचे हे केंद्रीय "
+#~ "स्थान आहे."
+
+#~ msgid "Tree View"
+#~ msgstr "ट्री दृश्य"
+
+#~ msgid "Provides a classic tree-based view of control modules."
+#~ msgstr "नियंत्रण कक्ष क्लासिक ट्री दृश्यरुपात दर्शवितो."
+
+#~ msgid "Expand the first level automatically"
+#~ msgstr "पहिली पातळी स्वयंचलितरित्या विस्तारीत करा"
+
+#, fuzzy
+#~| msgctxt "Search through a list of control modules"
+#~| msgid "Search"
+#~ msgid "Search..."
+#~ msgstr "शोध"
+
+#, fuzzy
+#~| msgid "System Settings"
+#~ msgid "System Settings Handbook"
+#~ msgstr "प्रणाली संयोजना"
+
+#, fuzzy
+#~| msgid "About %1"
+#~ msgid "About KDE"
+#~ msgstr "%1 विषयी"
+
+#~ msgid "Overview"
+#~ msgstr "आढावा"
+
+#~ msgid "Contributor"
+#~ msgstr "सहभागी"
+
+#~ msgid "Unsaved Changes"
+#~ msgstr "असंचयीत बदलाव"

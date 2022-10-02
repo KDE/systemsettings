@@ -1,0 +1,462 @@
+# translation of systemsettings.po to Walloon
+# Ratournaedje e walon des messaedjes di KDE.
+#
+# Pablo Saratxaga <pablo@walon.org>, 2007.
+# Jean Cayron <jean.cayron@tele2allin.be>, 2007, 2008.
+# Jean Cayron <jean.cayron@gmail.com>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: systemsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"PO-Revision-Date: 2010-05-11 17:39+0200\n"
+"Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
+"Language-Team: Walloon <linux-wa@walon.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Jean Cayron,Lorint Hendschel,Pablo Saratxaga"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "jean.cayron@gmail.com,laurent.hendschel@skynet.be,pablo@walon.org"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:64
+#, kde-format
+msgid "Info Center"
+msgstr ""
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr ""
+
+#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "© 2009, Ben Cooksley"
+
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: sidebar/package/contents/ui/introPage.qml:63
+#, kde-format
+msgid "System Settings"
+msgstr "Apontiaedjes do sistinme"
+
+#: app/main.cpp:74
+#, fuzzy, kde-format
+#| msgid "Central configuration center for KDE."
+msgid "Central configuration center by KDE."
+msgstr "Cinte d' apontiaedje po KDE."
+
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "Ben Cooksley"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "Mintneu"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Developer"
+msgstr "Programeu"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Will Stephenson"
+msgstr "Will Stephenson"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "Riprezintaedje do dvintrin module, modele do dvintrin module"
+
+#: app/main.cpp:97
+#, kde-format
+msgid "List all possible modules"
+msgstr ""
+
+#: app/main.cpp:98 app/main.cpp:161
+#, kde-format
+msgid "Configuration module to open"
+msgstr ""
+
+#: app/main.cpp:99 app/main.cpp:162
+#, fuzzy, kde-format
+#| msgid "About Current Module"
+msgid "Arguments for the module"
+msgstr "Åd fwait do module do moumint"
+
+#: app/main.cpp:107
+#, kde-format
+msgid "The following modules are available:"
+msgstr ""
+
+#: app/main.cpp:125
+#, kde-format
+msgid "No description available"
+msgstr ""
+
+#: app/SettingsBase.cpp:58
+#, kde-format
+msgctxt "Search through a list of control modules"
+msgid "Search"
+msgstr "Trover"
+
+#: app/SettingsBase.cpp:155
+#, fuzzy, kde-format
+#| msgid "Icon View"
+msgid "Switch to Icon View"
+msgstr "Vuwe èn imådjetes"
+
+#: app/SettingsBase.cpp:162
+#, kde-format
+msgid "Switch to Sidebar View"
+msgstr ""
+
+#: app/SettingsBase.cpp:171
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr ""
+
+#: app/SettingsBase.cpp:198
+#, kde-format
+msgid "Help"
+msgstr "Aidance"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid ""
+"System Settings was unable to find any views, and hence has nothing to "
+"display."
+msgstr ""
+"Apontiaedjes do sistinme n' a nén sepou trover d' vuwe et d' abôrd n' a rén "
+"a håyner."
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid "No views found"
+msgstr "Nole vuwe di trovêye"
+
+#: app/SettingsBase.cpp:408
+#, kde-format
+msgid "About Active View"
+msgstr "Åd fwait del vuwe en alaedje"
+
+#: app/SettingsBase.cpp:479
+#, kde-format
+msgid "About %1"
+msgstr "Åd fwait di %1"
+
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Divintrin no pol vuwe d' eployeye"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Åd fwait d' Apontiaedjes do sistinme"
+
+#: app/ToolTips/tooltipmanager.cpp:188
+#, fuzzy, kde-format
+#| msgid "<i>Contains 1 item</i>"
+#| msgid_plural "<i>Contains %1 items</i>"
+msgid "Contains 1 item"
+msgid_plural "Contains %1 items"
+msgstr[0] "<i>I gn a dvins 1 cayet</i>"
+msgstr[1] "<i>I gn a dvins %1 cayets</i>"
+
+#: core/ExternalAppModule.cpp:27
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 est on dfoûtrin programe eyet il a stî enondé otomaticmint"
+
+#: core/ExternalAppModule.cpp:28
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Renonder %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Purnea di dvize"
+
+#: core/ModuleView.cpp:177
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Rimete tos les candjmints do moumint come il estént dvant"
+
+#: core/ModuleView.cpp:323
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Les apontiaedjes do module do moumint ont candjî.\n"
+"Voloz vs mete en ouve les candjmint oudonbén les rovyî?"
+
+#: core/ModuleView.cpp:325
+#, kde-format
+msgid "Apply Settings"
+msgstr "Mete apontiaedjes en ouve"
+
+#: icons/IconMode.cpp:54
+#, kde-format
+msgid "Icon View"
+msgstr "Vuwe èn imådjetes"
+
+#: icons/IconMode.cpp:56
+#, kde-format
+msgid "Provides a categorized icons view of control modules."
+msgstr "Dene ene vuwe ène imådjetes des modules di controle."
+
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Author"
+msgstr "Oteur"
+
+#: icons/IconMode.cpp:63
+#, fuzzy, kde-format
+#| msgid "Apply Settings"
+msgid "All Settings"
+msgstr "Mete apontiaedjes en ouve"
+
+#: icons/IconMode.cpp:64
+#, kde-format
+msgid "Keyboard Shortcut: %1"
+msgstr "Rascourti taprece: %1"
+
+#: runner/systemsettingsrunner.cpp:39
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:183
+#, fuzzy, kde-format
+#| msgid "System Settings"
+msgid "System Information"
+msgstr "Apontiaedjes do sistinme"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#, kde-format
+msgid "Show intro page"
+msgstr ""
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr ""
+
+#: sidebar/package/contents/ui/FooterToolbar.qml:37
+#, kde-format
+msgctxt ""
+"Action to show indicators for settings with custom data. Use as short a "
+"translation as is feasible, as horizontal space is limited."
+msgid "Highlight Changed Settings"
+msgstr ""
+
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#, kde-format
+msgid "Show menu"
+msgstr ""
+
+#: sidebar/package/contents/ui/introPage.qml:56
+#, kde-format
+msgid "Plasma"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:175
+#, kde-format
+msgid "Sidebar View"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:177
+#, fuzzy, kde-format
+#| msgid "Provides a categorized icons view of control modules."
+msgid "Provides a categorized sidebar for control modules."
+msgstr "Dene ene vuwe ène imådjetes des modules di controle."
+
+#: sidebar/SidebarMode.cpp:179
+#, kde-format
+msgid "(c) 2017, Marco Martin"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:180
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:669
+#, kde-format
+msgid "Sidebar"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:741
+#, kde-format
+msgid "Most Used"
+msgstr ""
+
+#: sidebar/ToolTips/tooltipmanager.cpp:237
+#, kde-format
+msgid "<i>Contains 1 item</i>"
+msgid_plural "<i>Contains %1 items</i>"
+msgstr[0] "<i>I gn a dvins 1 cayet</i>"
+msgstr[1] "<i>I gn a dvins %1 cayets</i>"
+
+#~ msgid "View Style"
+#~ msgstr "Stîle di vuwe"
+
+#~ msgid "Show detailed tooltips"
+#~ msgstr "Mostrer sipepieusès racsegnes"
+
+#, fuzzy
+#~| msgid "Configure"
+#~ msgid "Configure…"
+#~ msgstr "Apontyî"
+
+#~ msgctxt "General config for System Settings"
+#~ msgid "General"
+#~ msgstr "Djenerå"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence nothing is "
+#~ "available to configure."
+#~ msgstr ""
+#~ "Apontiaedjes do sistinme n' a nén sepou trover d' vuwe et d' abôrd i gn a "
+#~ "rén az apontyî."
+
+#~ msgid "Determines whether detailed tooltips should be used"
+#~ msgstr "Dit s' on s' doet siervi des sipepieusès racsegnes"
+
+#~ msgid "About Active Module"
+#~ msgstr "Åd fwait do module en alaedje"
+
+#~ msgid "Configure your system"
+#~ msgstr "Apontyî vosse sistinme"
+
+#~ msgid ""
+#~ "Welcome to \"System Settings\", a central place to configure your "
+#~ "computer system."
+#~ msgstr ""
+#~ "Wilicome ås « Apontiaedjes do sistinme », li plaece å mitan pos apontyî "
+#~ "l' sistinme di vosse copiutrece."
+
+#~ msgid "Tree View"
+#~ msgstr "Vuwe e coxhlaedje"
+
+#~ msgid "Provides a classic tree-based view of control modules."
+#~ msgstr ""
+#~ "Dene ene vuwe classike des modules di controle båzé soz on coxhlaedje d' "
+#~ "åbe."
+
+#~ msgid "Expand the first level automatically"
+#~ msgstr "Totafwait mostrer otomaticmint l' prumî livea"
+
+#, fuzzy
+#~| msgctxt "Search through a list of control modules"
+#~| msgid "Search"
+#~ msgid "Search..."
+#~ msgstr "Trover"
+
+#, fuzzy
+#~| msgid "System Settings"
+#~ msgid "System Settings Handbook"
+#~ msgstr "Apontiaedjes do sistinme"
+
+#, fuzzy
+#~| msgid "About %1"
+#~ msgid "About KDE"
+#~ msgstr "Åd fwait di %1"
+
+#~ msgid "Overview"
+#~ msgstr "Mwaisse vuwe"
+
+#~ msgid ""
+#~ "Below you can select your preferred style for viewing System Settings"
+#~ msgstr ""
+#~ "Vos savoz chal pa dzo tchoezi li stîle ki vs eployoz l' pus voltî po vey "
+#~ "vos Apontiaedjes do sistinme"
+
+#, fuzzy
+#~| msgid "About Current Module"
+#~ msgid "About current module"
+#~ msgstr "Åd fwait do module do moumint"
+
+#~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
+#~ msgstr "© 2005, Benjamin C. Meyer; © 2007, Canonical Ltd"
+
+#~ msgid "Benjamin C. Meyer"
+#~ msgstr "Benjamin C. Meyer"
+
+#~ msgid "Jonathan Riddell"
+#~ msgstr "Jonathan Riddell"
+
+#~ msgid "Contributor"
+#~ msgstr "Contribouweu"
+
+#~ msgid "Michael D. Stemle"
+#~ msgstr "Michael D. Stemle"
+
+#~ msgid "Simon Edwards"
+#~ msgstr "Simon Edwards"
+
+#~ msgid "Ellen Reitmayr"
+#~ msgstr "Ellen Reitmayr"
+
+#~ msgid "Usability"
+#~ msgstr "Eployåvté"
+
+#~ msgid "Search Bar<p>Enter a search term.</p>"
+#~ msgstr "Bår di cweraedje<p>Tapez l' tchinne a cweri.</p>"
+
+#~ msgid "%1 hit in General"
+#~ msgid_plural "%1 hits in General"
+#~ msgstr[0] "%1 di trové dins «Djenerå»"
+#~ msgstr[1] "%1 di trovés dins «Djenerå»"
+
+#~ msgid "%1 hit in Advanced"
+#~ msgid_plural "%1 hits in Advanced"
+#~ msgstr[0] "%1 di trové dins «Spepieus»"
+#~ msgstr[1] "%1 di trovés dins «Spepieus»"
+
+#~ msgid "Unsaved Changes"
+#~ msgstr "Candjmints nén schapés"
+
+#~ msgid "Undo Changes"
+#~ msgstr "Disfé les candjmints"
+
+#~ msgid "Reset to Defaults"
+#~ msgstr "Rimete les prémetowès valixhances"
+
+#~ msgid "Ctrl+O"
+#~ msgstr "Ctrl+O"
+
+#~ msgid "&File"
+#~ msgstr "&Fitchî"
+
+#~ msgid "&View"
+#~ msgstr "&Vey"
+
+#~ msgid "Menu file"
+#~ msgstr "Fitchî menu"

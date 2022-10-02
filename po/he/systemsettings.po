@@ -1,0 +1,389 @@
+# Translation of systemsettings.po to Hebrew
+# Copyright (C) 2007 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Assaf Gillat <gillata@gmail.com>, 2007.
+# Meni Livne <livne@kde.org>, 2007.
+# Diego Iastrubni <elcuco@kde.org>, 2008.
+# kde4, 2009.
+# Elkana Bardugo <ttv200@gmail.com>, 2016.
+# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: systemsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"PO-Revision-Date: 2017-05-22 04:54-0400\n"
+"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Zanata 3.9.6\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:64
+#, kde-format
+msgid "Info Center"
+msgstr ""
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr ""
+
+#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "(c) 2009, Ben Cooksley"
+
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: sidebar/package/contents/ui/introPage.qml:63
+#, kde-format
+msgid "System Settings"
+msgstr "הגדרות מערכת"
+
+#: app/main.cpp:74
+#, kde-format
+msgid "Central configuration center by KDE."
+msgstr "מרכז התצורה המרכזי של KDE."
+
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "Ben Cooksley"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "מתחזק"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Developer"
+msgstr "מפתח"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Will Stephenson"
+msgstr "Will Stephenson"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "תצוגה פנימית של מודולים, מודל פנימי של מודולים"
+
+#: app/main.cpp:97
+#, kde-format
+msgid "List all possible modules"
+msgstr ""
+
+#: app/main.cpp:98 app/main.cpp:161
+#, kde-format
+msgid "Configuration module to open"
+msgstr ""
+
+#: app/main.cpp:99 app/main.cpp:162
+#, kde-format
+msgid "Arguments for the module"
+msgstr ""
+
+#: app/main.cpp:107
+#, kde-format
+msgid "The following modules are available:"
+msgstr ""
+
+#: app/main.cpp:125
+#, kde-format
+msgid "No description available"
+msgstr ""
+
+#: app/SettingsBase.cpp:58
+#, kde-format
+msgctxt "Search through a list of control modules"
+msgid "Search"
+msgstr "חיפוש"
+
+#: app/SettingsBase.cpp:155
+#, fuzzy, kde-format
+#| msgid "Icon View"
+msgid "Switch to Icon View"
+msgstr "תצוגת סמלים"
+
+#: app/SettingsBase.cpp:162
+#, fuzzy, kde-format
+#| msgid "Sidebar View"
+msgid "Switch to Sidebar View"
+msgstr "תצוגת סרגל צדדי"
+
+#: app/SettingsBase.cpp:171
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr ""
+
+#: app/SettingsBase.cpp:198
+#, kde-format
+msgid "Help"
+msgstr "עזרה"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid ""
+"System Settings was unable to find any views, and hence has nothing to "
+"display."
+msgstr "הגדרות המערכת לא מצא רכיבים להצגה , לכן לא יוצג דבר."
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid "No views found"
+msgstr "לא נמצאו רכיבים להצגה"
+
+#: app/SettingsBase.cpp:408
+#, kde-format
+msgid "About Active View"
+msgstr "אודות המודול הנוכחי"
+
+#: app/SettingsBase.cpp:479
+#, kde-format
+msgid "About %1"
+msgstr "אודות %1"
+
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "שם פנימי המשמש את הרכיב להצגה"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "אודות הגדרות המערכת"
+
+#: app/ToolTips/tooltipmanager.cpp:188
+#, fuzzy, kde-format
+#| msgid "<i>Contains 1 item</i>"
+#| msgid_plural "<i>Contains %1 items</i>"
+msgid "Contains 1 item"
+msgid_plural "Contains %1 items"
+msgstr[0] "<i>מכיל פריט אחד</i>"
+msgstr[1] "<i>מכיל %1 פריטים</i>"
+
+#: core/ExternalAppModule.cpp:27
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 הוא יישום חיצוני ששוגר באופן אוטומטי"
+
+#: core/ExternalAppModule.cpp:28
+#, kde-format
+msgid "Relaunch %1"
+msgstr "שגר מחדש את %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "דו-שיח"
+
+#: core/ModuleView.cpp:177
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "שחזר שינויים להגדרות הקודמות"
+
+#: core/ModuleView.cpp:323
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"המודול הפעיל מכיל שינויים שלא נשמרו.\n"
+"האם ברצונך להחיל את השינויים או לבטל אותם?"
+
+#: core/ModuleView.cpp:325
+#, kde-format
+msgid "Apply Settings"
+msgstr "החל הגדרות "
+
+#: icons/IconMode.cpp:54
+#, kde-format
+msgid "Icon View"
+msgstr "תצוגת סמלים"
+
+#: icons/IconMode.cpp:56
+#, kde-format
+msgid "Provides a categorized icons view of control modules."
+msgstr "מספק תצוגת סמלים מקוטלגות לרכיב השליטה"
+
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Author"
+msgstr "כותב"
+
+#: icons/IconMode.cpp:63
+#, kde-format
+msgid "All Settings"
+msgstr "כל ההגדרות"
+
+#: icons/IconMode.cpp:64
+#, kde-format
+msgid "Keyboard Shortcut: %1"
+msgstr "מקש קיצור: %1"
+
+#: runner/systemsettingsrunner.cpp:39
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:183
+#, fuzzy, kde-format
+#| msgid "System Settings"
+msgid "System Information"
+msgstr "הגדרות מערכת"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#, kde-format
+msgid "Show intro page"
+msgstr ""
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr ""
+
+#: sidebar/package/contents/ui/FooterToolbar.qml:37
+#, kde-format
+msgctxt ""
+"Action to show indicators for settings with custom data. Use as short a "
+"translation as is feasible, as horizontal space is limited."
+msgid "Highlight Changed Settings"
+msgstr ""
+
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#, kde-format
+msgid "Show menu"
+msgstr ""
+
+#: sidebar/package/contents/ui/introPage.qml:56
+#, kde-format
+msgid "Plasma"
+msgstr ""
+
+#: sidebar/SidebarMode.cpp:175
+#, kde-format
+msgid "Sidebar View"
+msgstr "תצוגת סרגל צדדי"
+
+#: sidebar/SidebarMode.cpp:177
+#, kde-format
+msgid "Provides a categorized sidebar for control modules."
+msgstr "מספק תצוגת  סרגל צדדי מקוטלגות למודולי ההגדרות"
+
+#: sidebar/SidebarMode.cpp:179
+#, kde-format
+msgid "(c) 2017, Marco Martin"
+msgstr "(c) 2017, Marco Martin"
+
+#: sidebar/SidebarMode.cpp:180
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: sidebar/SidebarMode.cpp:669
+#, fuzzy, kde-format
+#| msgid "Sidebar View"
+msgid "Sidebar"
+msgstr "תצוגת סרגל צדדי"
+
+#: sidebar/SidebarMode.cpp:741
+#, kde-format
+msgid "Most Used"
+msgstr ""
+
+#: sidebar/ToolTips/tooltipmanager.cpp:237
+#, kde-format
+msgid "<i>Contains 1 item</i>"
+msgid_plural "<i>Contains %1 items</i>"
+msgstr[0] "<i>מכיל פריט אחד</i>"
+msgstr[1] "<i>מכיל %1 פריטים</i>"
+
+#~ msgid "View Style"
+#~ msgstr "סגנון תצוגה"
+
+#~ msgid "Show detailed tooltips"
+#~ msgstr "הצג חלוניות מידע"
+
+#, fuzzy
+#~| msgid "Configure"
+#~ msgid "Configure…"
+#~ msgstr "הגדרות"
+
+#~ msgctxt "General config for System Settings"
+#~ msgid "General"
+#~ msgstr "כללי"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence nothing is "
+#~ "available to configure."
+#~ msgstr "הגדרות המערכת לא מצא רכיבים להצגה , לכן דבר אינו זמין להגדרה."
+
+#~ msgid "Determines whether detailed tooltips should be used"
+#~ msgstr "קובע האם חלוניות המידע יציגו מידע מפורט"
+
+#~ msgid "About Active Module"
+#~ msgstr "אודות המודול הנוכחי"
+
+#~ msgid "Configure your system"
+#~ msgstr "הגדר את המערכת שלך"
+
+#~ msgid ""
+#~ "Welcome to \"System Settings\", a central place to configure your "
+#~ "computer system."
+#~ msgstr ""
+#~ "ברוך בואך אל \"הגדרות המערכת\", מקום מרכזי בו תוכל להגדיר את תצורת המחשב "
+#~ "שלך."
+
+#~ msgid "Tree View"
+#~ msgstr "תצוגת עץ"
+
+#~ msgid "Provides a classic tree-based view of control modules."
+#~ msgstr " מספק תצוגה קלאסית מבוססת עץ לרכיב השליטה."
+
+#~ msgid "Expand the first level automatically"
+#~ msgstr "פתח את הרמה הראשונה באופן אוטומטי"
+
+#, fuzzy
+#~| msgctxt "Search through a list of control modules"
+#~| msgid "Search"
+#~ msgid "Search..."
+#~ msgstr "חיפוש"
+
+#, fuzzy
+#~| msgid "System Settings"
+#~ msgid "System Settings Handbook"
+#~ msgstr "הגדרות מערכת"
+
+#, fuzzy
+#~| msgid "About %1"
+#~ msgid "About KDE"
+#~ msgstr "אודות %1"
+
+#~ msgid "Select an item from the list to see the available options"
+#~ msgstr "בחר פריט מהרשימה לצפריה באפשרויות הזמינות"

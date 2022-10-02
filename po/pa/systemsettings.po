@@ -1,0 +1,430 @@
+# translation of systemsettings.po to Punjabi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# A S Alam <aalam@users.sf.net>, 2007, 2008, 2009, 2010, 2012, 2014, 2016, 2017, 2018, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: systemsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"PO-Revision-Date: 2021-10-07 17:50-0700\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alam.yellow@gmail.com"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:64
+#, kde-format
+msgid "Info Center"
+msgstr "ਜਾਣਕਾਰੀ ਕੇਂਦਰ"
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ ਦੀ ਕੇਂਦਰੀ ਅਤੇ ਸੁਖਾਲੀ ਝਲਕ ਹੈ।"
+
+#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "(c) ੨੦੦੯, Ben Cooksley"
+
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: sidebar/package/contents/ui/introPage.qml:63
+#, kde-format
+msgid "System Settings"
+msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ"
+
+#: app/main.cpp:74
+#, kde-format
+msgid "Central configuration center by KDE."
+msgstr "KDE ਲਈ ਕੇਂਦਰੀ ਸੰਰਚਨਾ ਕੇਂਦਰ ਹੈ।"
+
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "ਬੇਨ ਕੁੱਕਸਲੇਯ"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "ਪਰਬੰਧਕ"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "ਮੈਥਿਸ ਸੋਈਕੇਨ"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Developer"
+msgstr "ਡਿਵੈਲਪਰ"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Will Stephenson"
+msgstr "ਵਿਲ ਸਟੀਫਨਸਨ"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "ਅੰਦਰੂਨੀ ਮੋਡੀਊਲ ਪਰਦਰਸ਼ਨ, ਅੰਦਰੂਨੀ ਮੋਡੀਊਲ ਮਾਡਲ"
+
+#: app/main.cpp:97
+#, kde-format
+msgid "List all possible modules"
+msgstr "ਸਾਰੇ ਸੰਭਵ ਮੋਡੀਊਲ ਸੂਚੀਬੱਧ ਕਰੋ"
+
+#: app/main.cpp:98 app/main.cpp:161
+#, kde-format
+msgid "Configuration module to open"
+msgstr "ਖੋਲ੍ਹਣ ਲਈ ਸੰਰਚਨਾ ਮੋਡੀਊਲ"
+
+#: app/main.cpp:99 app/main.cpp:162
+#, kde-format
+msgid "Arguments for the module"
+msgstr "ਮੋਡੀਊਲ ਲਈ ਆਰਗੂਮੈਂਟ"
+
+#: app/main.cpp:107
+#, kde-format
+msgid "The following modules are available:"
+msgstr "ਅੱਗੇ ਦਿੱਤੇ ਮੋਡੀਊਲ ਮੌਜੂਦ ਹਨ:"
+
+#: app/main.cpp:125
+#, kde-format
+msgid "No description available"
+msgstr "ਕੋਈ ਵੇਰਵਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+
+#: app/SettingsBase.cpp:58
+#, kde-format
+msgctxt "Search through a list of control modules"
+msgid "Search"
+msgstr "ਖੋਜ"
+
+#: app/SettingsBase.cpp:155
+#, kde-format
+msgid "Switch to Icon View"
+msgstr "ਆਈਕਾਨ ਝਲਕ ਲਈ ਬਦਲੋ"
+
+#: app/SettingsBase.cpp:162
+#, kde-format
+msgid "Switch to Sidebar View"
+msgstr "ਬਾਹੀ ਝਲਕ ਲਈ ਬਦਲੋ"
+
+#: app/SettingsBase.cpp:171
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr ""
+
+#: app/SettingsBase.cpp:198
+#, kde-format
+msgid "Help"
+msgstr "ਮਦਦ"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid ""
+"System Settings was unable to find any views, and hence has nothing to "
+"display."
+msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਕੋਈ ਵੀ ਝਲਕ ਲੱਭਣ ਲਈ ਅਸਮਰੱਥ ਹੈ, ਤੇ ਇਸਕਰਕੇ ਵੇਖਾਉਣ ਲਈ ਕੁਝ ਵੀ ਨਹੀਂ ਹੈ।"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid "No views found"
+msgstr "ਕੋਈ ਝਲਕ ਨਹੀਂ ਲੱਭੀ"
+
+#: app/SettingsBase.cpp:408
+#, kde-format
+msgid "About Active View"
+msgstr "ਸਰਗਰਮ ਝਲਕ ਬਾਰੇ"
+
+#: app/SettingsBase.cpp:479
+#, kde-format
+msgid "About %1"
+msgstr "%1 ਬਾਰੇ"
+
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "ਵਰਤੀ ਝਲਕ ਲਈ ਅੰਦਰੂਨੀ ਨਾਂ"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਦੇ ਬਾਰੇ"
+
+#: app/ToolTips/tooltipmanager.cpp:188
+#, kde-format
+msgid "Contains 1 item"
+msgid_plural "Contains %1 items"
+msgstr[0] "੧ ਆਈਟਮ ਰੱਖਦਾ ਹੈ"
+msgstr[1] "%1 ਆਈਟਮਾਂ ਰੱਖਦਾ ਹੈ"
+
+#: core/ExternalAppModule.cpp:27
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 ਬਾਹਰੀ  ਐਪਲੀਕੇਸ਼ਨ ਹੈ ਅਤੇ ਆਟੋਮੈਟਿਕ ਚਲਾਈ ਜਾ ਚੁੱਕੀ ਹੈ।"
+
+#: core/ExternalAppModule.cpp:28
+#, kde-format
+msgid "Relaunch %1"
+msgstr "%1 ਮੁੜ-ਚਲਾਓ"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "ਡਾਈਲਾਗ"
+
+#: core/ModuleView.cpp:177
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਨੂੰ ਪਿਛਲੇ ਮੁੱਲ ਲਈ ਸੈੱਟ ਕਰੋ"
+
+#: core/ModuleView.cpp:323
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"ਮੌਜੂਦਾ ਮੋਡੀਊਲ ਵਿੱਚ ਕੁਝ ਅਣ-ਸੰਭਾਲੇ ਬਦਲਾਅ ਹਨ।\n"
+"ਕੀ ਤੁਸੀਂ ਇੰਨ੍ਹਾਂ ਨੂੰ ਲਾਗੂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਅਣਡਿੱਠਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#: core/ModuleView.cpp:325
+#, kde-format
+msgid "Apply Settings"
+msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਲਾਗੂ ਕਰੋ"
+
+#: icons/IconMode.cpp:54
+#, kde-format
+msgid "Icon View"
+msgstr "ਆਈਕਾਨ ਝਲਕ"
+
+#: icons/IconMode.cpp:56
+#, kde-format
+msgid "Provides a categorized icons view of control modules."
+msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਕੈਟਾਗਰੀ ਆਈਕਾਨ ਝਲਕ ਦਿੰਦਾ ਹੈ।"
+
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Author"
+msgstr "ਲੇਖਕ"
+
+#: icons/IconMode.cpp:63
+#, kde-format
+msgid "All Settings"
+msgstr "ਸਾਰੀਆਂ ਸੈਟਿੰਗਾਂ"
+
+#: icons/IconMode.cpp:64
+#, kde-format
+msgid "Keyboard Shortcut: %1"
+msgstr "ਕੀਬੋਰਡ ਦਾ ਸ਼ਾਰਟਕੱਟ: %1"
+
+#: runner/systemsettingsrunner.cpp:39
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:183
+#, kde-format
+msgid "System Information"
+msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#, kde-format
+msgid "Show intro page"
+msgstr "ਜਾਣ-ਪਛਾਣ ਸਫ਼ਾ ਵੇਖੋ"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਕੋਈ ਚੀਜਾਂ ਨਹੀਂ ਮਿਲੀਆਂ"
+
+#: sidebar/package/contents/ui/FooterToolbar.qml:37
+#, kde-format
+msgctxt ""
+"Action to show indicators for settings with custom data. Use as short a "
+"translation as is feasible, as horizontal space is limited."
+msgid "Highlight Changed Settings"
+msgstr "ਤਬਦੀਲ ਕੀਤੀਆਂ ਸੈਟਿੰਗਾਂ ਉਘਾੜੋ"
+
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#, kde-format
+msgid "Show menu"
+msgstr "ਮੇਨੂ ਵੇਖੋ"
+
+#: sidebar/package/contents/ui/introPage.qml:56
+#, kde-format
+msgid "Plasma"
+msgstr "ਪਲਾਜ਼ਮਾ"
+
+#: sidebar/SidebarMode.cpp:175
+#, kde-format
+msgid "Sidebar View"
+msgstr "ਝਲਕ ਬਾਹੀ"
+
+#: sidebar/SidebarMode.cpp:177
+#, kde-format
+msgid "Provides a categorized sidebar for control modules."
+msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਕੈਟਾਗਰੀ ਬਾਹੀ ਦਿੰਦਾ ਹੈ।"
+
+#: sidebar/SidebarMode.cpp:179
+#, kde-format
+msgid "(c) 2017, Marco Martin"
+msgstr "(c) ੨੦੧੭ ਮਾਰਕੋ ਮਾਰਟਿਨ"
+
+#: sidebar/SidebarMode.cpp:180
+#, kde-format
+msgid "Marco Martin"
+msgstr "ਮਾਰਕੋ ਮਾਰਟਿਨ"
+
+#: sidebar/SidebarMode.cpp:669
+#, kde-format
+msgid "Sidebar"
+msgstr "ਬਾਹੀ"
+
+#: sidebar/SidebarMode.cpp:741
+#, kde-format
+msgid "Most Used"
+msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"
+
+#: sidebar/ToolTips/tooltipmanager.cpp:237
+#, kde-format
+msgid "<i>Contains 1 item</i>"
+msgid_plural "<i>Contains %1 items</i>"
+msgstr[0] "<i>੧ ਆਈਟਮ ਰੱਖਦਾ ਹੈ</i>"
+msgstr[1] "<i>%1 ਆਈਟਮਾਂ ਰੱਖਦਾ ਹੈ</i>"
+
+#~ msgid "Most used module number %1"
+#~ msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ ਮੋਡੀਊਲ ਗਿਣਤੀ %1"
+
+#~ msgid "Frequently Used"
+#~ msgstr "ਆਮ ਵਰਤੇ"
+
+#~ msgid "Go back"
+#~ msgstr "ਪਿੱਛੇ ਜਾਓ"
+
+#~ msgid "View Style"
+#~ msgstr "ਵੇਖਣ ਸਟਾਈਲ"
+
+#~ msgid "Show detailed tooltips"
+#~ msgstr "ਵੇਰਵੇ ਸਮੇਤ ਟੂਲ-ਟਿੱਪ ਵੇਖੋ"
+
+#~ msgid "Configure…"
+#~ msgstr "…ਸੰਰਚਨਾ"
+
+#~ msgctxt "General config for System Settings"
+#~ msgid "General"
+#~ msgstr "ਆਮ"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence nothing is "
+#~ "available to configure."
+#~ msgstr ""
+#~ "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਕੋਈ ਵੀ ਝਲਕ ਲੱਭਣ ਲਈ ਅਸਮਰੱਥ ਹੈ, ਤੇ ਇਸਕਰਕੇ ਸੰਰਚਨਾ ਲਈ ਕੁਝ ਵੀ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।"
+
+#~ msgid "Determines whether detailed tooltips should be used"
+#~ msgstr "ਪਛਾਣ ਕਰਦਾ ਹੈ ਕਿ ਕੀ ਟੂਲ-ਟਿੱਪ ਵਰਤੇ ਜਾਣ"
+
+#~ msgctxt "Action to show indicators for settings with custom data"
+#~ msgid "Highlight Changed Settings"
+#~ msgstr "ਤਬਦੀਲ ਕੀਤੀਆਂ ਸੈਟਿੰਗਾਂ ਉਘਾੜੋ"
+
+#~ msgid "About Active Module"
+#~ msgstr "ਸਰਗਰਮ ਮੋਡੀਊਲ ਬਾਰੇ"
+
+#~ msgid "Back"
+#~ msgstr "ਪਿੱਛੇ"
+
+#~ msgid "Configure your system"
+#~ msgstr "ਤੁਹਾਡੇ ਸਿਸਟਮ ਦੀ ਸੰਰਚਨਾ"
+
+#~ msgid ""
+#~ "Welcome to \"System Settings\", a central place to configure your "
+#~ "computer system."
+#~ msgstr ""
+#~ "\"ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ\" ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ, ਸਾਂਝੀ ਥਾਂ, ਜਿੱਥੇ ਤੁਸੀਂ ਆਪਣੇ ਕੰਪਿਊਟਰ ਸਿਸਟਮ ਦੀ ਸੰਰਚਨਾ "
+#~ "ਕਰ ਸਕਦੇ ਹੋ।"
+
+#~ msgid "Tree View"
+#~ msgstr "ਲੜੀ ਝਲਕ"
+
+#~ msgid "Provides a classic tree-based view of control modules."
+#~ msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਟਕਸਾਲੀ ਟਰੀ-ਅਧਾਰਿਤ ਝਲਕ ਦਿੰਦਾ ਹੈ।"
+
+#~ msgid "Expand the first level automatically"
+#~ msgstr "ਪਹਿਲਾਂ ਲੈਵਲ ਆਟੋਮੈਟਿਕ ਹੀ ਫੈਲਾਓ"
+
+#~ msgid "Search..."
+#~ msgstr "ਖੋਜ..."
+
+#, fuzzy
+#~| msgid "System Settings"
+#~ msgid "System Settings Handbook"
+#~ msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗ"
+
+#, fuzzy
+#~| msgid "About %1"
+#~ msgid "About KDE"
+#~ msgstr "%1 ਬਾਰੇ"
+
+#~ msgid "Overview"
+#~ msgstr "ਸੰਖੇਪ"
+
+#~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
+#~ msgstr "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
+
+#~ msgid "Benjamin C. Meyer"
+#~ msgstr "ਬੈਨਜਮਿਨ ਸੀ. ਮੀਯੀਰ"
+
+#~ msgid "Jonathan Riddell"
+#~ msgstr "ਜਾਨਥਮ ਰਿੱਡੈਲ"
+
+#~ msgid "Contributor"
+#~ msgstr "ਯੋਗਦਾਨੀ"
+
+#~ msgid "Michael D. Stemle"
+#~ msgstr "ਮਾਈਕਲ ਡੀ. ਸਟੀਲਮਲੇ"
+
+#~ msgid "Simon Edwards"
+#~ msgstr "ਸਾਮੋਨ ਐਡਵਰਡ"
+
+#~ msgid "Ellen Reitmayr"
+#~ msgstr "ਇੱਲਨ ਰੀਈਟਮਾਰ"
+
+#~ msgid "Usability"
+#~ msgstr "ਸਹੂਲਤ"
+
+#~ msgid "Search Bar<p>Enter a search term.</p>"
+#~ msgstr "ਖੋਜ ਪੱਟੀ<p>ਇੱਕ ਖੋਜ ਸ਼ਬਦ ਦਿਓ।</p>"
+
+#~ msgid "%1 hit in General"
+#~ msgid_plural "%1 hits in General"
+#~ msgstr[0] "ਆਮ ਵਿੱਚ %1 ਹਿੱਟ"
+#~ msgstr[1] "ਆਮ ਵਿੱਚ %1 ਹਿੱਟ"
+
+#~ msgid "%1 hit in Advanced"
+#~ msgid_plural "%1 hits in Advanced"
+#~ msgstr[0] "ਤਕਨੀਕੀ ਵਿੱਚ %1 ਹਿੱਟ"
+#~ msgstr[1] "ਤਕਨੀਕੀ ਵਿੱਚ %1 ਹਿੱਟ"
+
+#~ msgid "Unsaved Changes"
+#~ msgstr "ਅਣ-ਸੰਭਾਲੇ ਬਦਲਾਅ"

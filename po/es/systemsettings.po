@@ -1,0 +1,400 @@
+# translation of systemsettings.po to Spanish
+# Translation of systemsettings to Spanish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
+# Jaime Robles <jaime@kde.org>, 2007, 2008, 2009.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: systemsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"PO-Revision-Date: 2022-09-29 00:35+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"com>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Eloy Cuadra,Jaime Robles,Enrique Matías Sánchez (Quique)"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ecuadra@eloihr.net,jaime@kde.org,cronopios@gmail.com"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:64
+#, kde-format
+msgid "Info Center"
+msgstr "Centro de información"
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr "Resumen centralizado y práctico de información del sistema."
+
+#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "© 2009, Ben Cooksley"
+
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: sidebar/package/contents/ui/introPage.qml:63
+#, kde-format
+msgid "System Settings"
+msgstr "Preferencias del sistema"
+
+#: app/main.cpp:74
+#, kde-format
+msgid "Central configuration center by KDE."
+msgstr "Centro de configuración principal creado por KDE."
+
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "Ben Cooksley"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "Encargado"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#, kde-format
+msgid "Developer"
+msgstr "Desarrollador"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Will Stephenson"
+msgstr "Will Stephenson"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "Representación de módulos internos, modelo de módulos internos"
+
+#: app/main.cpp:97
+#, kde-format
+msgid "List all possible modules"
+msgstr "Listar todos los módulos posibles"
+
+#: app/main.cpp:98 app/main.cpp:161
+#, kde-format
+msgid "Configuration module to open"
+msgstr "Módulo de configuración a abrir"
+
+#: app/main.cpp:99 app/main.cpp:162
+#, kde-format
+msgid "Arguments for the module"
+msgstr "Argumentos para el módulo"
+
+#: app/main.cpp:107
+#, kde-format
+msgid "The following modules are available:"
+msgstr "Están disponibles los siguientes módulos:"
+
+#: app/main.cpp:125
+#, kde-format
+msgid "No description available"
+msgstr "Descripción no disponible"
+
+#: app/SettingsBase.cpp:58
+#, kde-format
+msgctxt "Search through a list of control modules"
+msgid "Search"
+msgstr "Buscar"
+
+#: app/SettingsBase.cpp:155
+#, kde-format
+msgid "Switch to Icon View"
+msgstr "Cambiar a la vista de iconos"
+
+#: app/SettingsBase.cpp:162
+#, kde-format
+msgid "Switch to Sidebar View"
+msgstr "Cambiar a la vista de barra lateral"
+
+#: app/SettingsBase.cpp:171
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr "Informar de errores en la página actual..."
+
+#: app/SettingsBase.cpp:198
+#, kde-format
+msgid "Help"
+msgstr "Ayuda"
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid ""
+"System Settings was unable to find any views, and hence has nothing to "
+"display."
+msgstr ""
+"El sistema de configuración no ha podido encontrar ninguna vista, por lo que "
+"no hay nada que mostrar."
+
+#: app/SettingsBase.cpp:354
+#, kde-format
+msgid "No views found"
+msgstr "No se han encontrado vistas"
+
+#: app/SettingsBase.cpp:408
+#, kde-format
+msgid "About Active View"
+msgstr "Acerca de la vista activa"
+
+#: app/SettingsBase.cpp:479
+#, kde-format
+msgid "About %1"
+msgstr "Acerca de %1"
+
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Nombre usado internamente para la vista"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Acerca de las preferencias del sistema"
+
+#: app/ToolTips/tooltipmanager.cpp:188
+#, kde-format
+msgid "Contains 1 item"
+msgid_plural "Contains %1 items"
+msgstr[0] "Contiene 1 elemento"
+msgstr[1] "Contiene %1 elementos"
+
+#: core/ExternalAppModule.cpp:27
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 es una aplicación externa y se ha lanzado automáticamente"
+
+#: core/ExternalAppModule.cpp:28
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Volver a lanzar %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Diálogo"
+
+#: core/ModuleView.cpp:177
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Reiniciar todos los cambios actuales con sus valores anteriores"
+
+#: core/ModuleView.cpp:323
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Hay cambios sin guardar en el módulo activo.\n"
+"¿Desea aplicar los cambios o descartarlos?"
+
+#: core/ModuleView.cpp:325
+#, kde-format
+msgid "Apply Settings"
+msgstr "Aplicar preferencias"
+
+#: icons/IconMode.cpp:54
+#, kde-format
+msgid "Icon View"
+msgstr "Vista de iconos"
+
+#: icons/IconMode.cpp:56
+#, kde-format
+msgid "Provides a categorized icons view of control modules."
+msgstr ""
+"Proporciona una vista de iconos por categorías de los módulos de control."
+
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
+#, kde-format
+msgid "Author"
+msgstr "Autor"
+
+#: icons/IconMode.cpp:63
+#, kde-format
+msgid "All Settings"
+msgstr "Todas las preferencias"
+
+#: icons/IconMode.cpp:64
+#, kde-format
+msgid "Keyboard Shortcut: %1"
+msgstr "Acceso rápido de teclado: %1"
+
+#: runner/systemsettingsrunner.cpp:39
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+"Encuentra módulos de preferencias del sistema cuyos nombres o descripciones "
+"coincidan con :q:"
+
+#: runner/systemsettingsrunner.cpp:183
+#, kde-format
+msgid "System Information"
+msgstr "Información del sistema"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#, kde-format
+msgid "Show intro page"
+msgstr "Mostrar la página de introducción"
+
+#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "Ningún elemento satisface la búsqueda"
+
+#: sidebar/package/contents/ui/FooterToolbar.qml:37
+#, kde-format
+msgctxt ""
+"Action to show indicators for settings with custom data. Use as short a "
+"translation as is feasible, as horizontal space is limited."
+msgid "Highlight Changed Settings"
+msgstr "Resaltar preferencias modificadas"
+
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#, kde-format
+msgid "Show menu"
+msgstr "Mostrar el menú"
+
+#: sidebar/package/contents/ui/introPage.qml:56
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
+#: sidebar/SidebarMode.cpp:175
+#, kde-format
+msgid "Sidebar View"
+msgstr "Vista de barra lateral"
+
+#: sidebar/SidebarMode.cpp:177
+#, kde-format
+msgid "Provides a categorized sidebar for control modules."
+msgstr "Proporciona una barra lateral con categorías para módulos de control."
+
+#: sidebar/SidebarMode.cpp:179
+#, kde-format
+msgid "(c) 2017, Marco Martin"
+msgstr "© 2017, Marco Martin"
+
+#: sidebar/SidebarMode.cpp:180
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: sidebar/SidebarMode.cpp:669
+#, kde-format
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: sidebar/SidebarMode.cpp:741
+#, kde-format
+msgid "Most Used"
+msgstr "Más usados"
+
+#: sidebar/ToolTips/tooltipmanager.cpp:237
+#, kde-format
+msgid "<i>Contains 1 item</i>"
+msgid_plural "<i>Contains %1 items</i>"
+msgstr[0] "<i>Contiene 1 elemento</i>"
+msgstr[1] "<i>Contiene %1 elementos</i>"
+
+#~ msgid "Most used module number %1"
+#~ msgstr "Módulo número %1 más usado"
+
+#~ msgid "Frequently Used"
+#~ msgstr "Usadas frecuentemente"
+
+#~ msgid "Go back"
+#~ msgstr "Volver"
+
+#~ msgid "View Style"
+#~ msgstr "Estilo de la vista"
+
+#~ msgid "Show detailed tooltips"
+#~ msgstr "Mostrar consejos detallados"
+
+#~ msgid "Configure…"
+#~ msgstr "Configurar..."
+
+#~ msgctxt "General config for System Settings"
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence nothing is "
+#~ "available to configure."
+#~ msgstr ""
+#~ "El sistema de configuración no ha podido encontrar ninguna vista, por lo "
+#~ "que no hay nada disponible para configurar."
+
+#~ msgid "Determines whether detailed tooltips should be used"
+#~ msgstr "Determina si se deben usar consejos detallados"
+
+#~ msgctxt "Action to show indicators for settings with custom data"
+#~ msgid "Highlight Changed Settings"
+#~ msgstr "Resaltar las preferencias modificadas"
+
+#~ msgid "About Active Module"
+#~ msgstr "Acerca del módulo activo"
+
+#~ msgid "Back"
+#~ msgstr "Volver"
+
+#~ msgid "Configure your system"
+#~ msgstr "Configurar el sistema"
+
+#~ msgid ""
+#~ "Welcome to \"System Settings\", a central place to configure your "
+#~ "computer system."
+#~ msgstr ""
+#~ "Bienvenido a las «Preferencias del sistema», un lugar donde podrá "
+#~ "configurar su equipo informático."
+
+#~ msgid "Tree View"
+#~ msgstr "Vista de árbol"
+
+#~ msgid "Provides a classic tree-based view of control modules."
+#~ msgstr "Proporciona una vista de árbol clásica de los módulos de control."
+
+#~ msgid "Expand the first level automatically"
+#~ msgstr "Expandir el primer nivel automáticamente"
+
+#~ msgid "Search..."
+#~ msgstr "Buscar..."
+
+#~ msgid "System Settings Handbook"
+#~ msgstr "Manual de las preferencias del sistema"
+
+#~ msgid "About KDE"
+#~ msgstr "Acerca de KDE"
+
+#~ msgid "Select an item from the list to see the available options"
+#~ msgstr ""
+#~ "Seleccione un elemento de la lista para ver las opciones disponibles"
+
+#~ msgid "Overview"
+#~ msgstr "Vista general"
