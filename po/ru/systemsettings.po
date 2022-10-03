@@ -6,13 +6,13 @@
 # Nick Shaforostoff <shaforostoff@kde.ru>, 2008.
 # Andrey Cherepanov <skull@kde.ru>, 2009.
 # Alexander Potashev <aspotashev@gmail.com>, 2009, 2010, 2011, 2014, 2016, 2017, 2018, 2019.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-28 00:52+0000\n"
-"PO-Revision-Date: 2021-12-28 14:45+0300\n"
+"PO-Revision-Date: 2022-10-02 14:44+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 21.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -136,7 +136,7 @@ msgstr "Боковая панель"
 #: app/SettingsBase.cpp:171
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Сообщить об ошибке на текущей странице…"
 
 #: app/SettingsBase.cpp:198
 #, kde-format
