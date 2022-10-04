@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
 
 kcoreaddons_add_plugin(krunner_systemsettings SOURCES systemsettingsrunner.cpp
-    systemsettingsrunner.h INSTALL_NAMESPACE "kf5/krunner")
+    systemsettingsrunner.h INSTALL_NAMESPACE kf${QT_MAJOR_VERSION}/krunner)
 target_link_libraries(krunner_systemsettings
     KF5::CoreAddons
     KF5::KIOGui
