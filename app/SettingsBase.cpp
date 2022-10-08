@@ -28,7 +28,7 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KFileUtils>
-#include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -165,7 +165,7 @@ void SettingsBase::initToolBar()
 
     reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
         auto job = new KIO::OpenUrlJob(QUrl(activeView->moduleView()->activeModuleMetadata().bugReportUrl()));
-        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+        job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
         job->start();
     });
     reportPageSpecificBugAction->setText(i18n("Report a Bug in the Current Page…"));

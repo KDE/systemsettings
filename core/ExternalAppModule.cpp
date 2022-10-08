@@ -8,7 +8,7 @@
 
 #include <KCModuleInfo>
 #include <KIO/ApplicationLauncherJob>
-#include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 
 ExternalAppModule::ExternalAppModule(QWidget *parent, const KService::Ptr &module)
     : module(module)
@@ -45,6 +45,6 @@ void ExternalAppModule::showEvent(QShowEvent *event)
 void ExternalAppModule::runExternal()
 {
     KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(module);
-    job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }
