@@ -69,7 +69,7 @@ void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasm
         job->setDesktopName(QStringLiteral("org.kde.kinfocenter"));
     } else if (!data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()) {
         job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings"), {data.pluginId()});
-        job->setDesktopName(QStringLiteral("org.kde.systemsettings"));
+        job->setDesktopName(QStringLiteral("systemsettings"));
     } else {
         // If we have created the KPluginMetaData from a desktop file KCMShell needs the pluginId, otherwise we can give
         // it the absolute path to the plugin. That works in any case, see commit 866d730fd098775f6b16cc8ba15974af80700d12 in kde-cli-tools
