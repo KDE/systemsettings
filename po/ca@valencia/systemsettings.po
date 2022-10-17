@@ -95,7 +95,7 @@ msgstr "Llista tots els mòduls possibles"
 #: app/main.cpp:98 app/main.cpp:161
 #, kde-format
 msgid "Configuration module to open"
-msgstr "Mòdul de configuració que s'obrirà"
+msgstr "Mòdul de configuració que s'ha d'obrir"
 
 #: app/main.cpp:99 app/main.cpp:162
 #, kde-format
