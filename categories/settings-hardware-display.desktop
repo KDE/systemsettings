@@ -7,7 +7,6 @@ Icon=preferences-desktop-display
 
 Name=Display and Monitor
 Name[ar]=العرض والشّاشة
-Name[ast]=Pantalles
 Name[az]=Ekran və Monitor
 Name[be]=Дысплэй і мантіор
 Name[bg]=Екран и монитор
@@ -77,7 +76,6 @@ Name[zh_TW]=顯示與螢幕
 Comment=Display Settings
 Comment[af]=Skerm Instellings
 Comment[ar]=إعدادات العرض
-Comment[ast]=Axustes pa pantalles
 Comment[az]=Ekran ayarları
 Comment[be]=Налады экрана
 Comment[be@latin]=Nałady ekrana

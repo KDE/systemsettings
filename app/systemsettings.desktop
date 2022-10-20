@@ -12,7 +12,6 @@ Actions=kcm-lookandfeel;kcm-users;screenlocker;powerdevilprofilesconfig;kcm-kscr
 
 GenericName=System Settings
 GenericName[ar]=إعدادات النّظام
-GenericName[ast]=Axustes del sistema
 GenericName[az]=Sistem ayarları
 GenericName[be]=Налады сістэмы
 GenericName[be@latin]=Systemnyja nałady
@@ -98,7 +97,6 @@ GenericName[zh_TW]=系統設定
 
 Name=System Settings
 Name[ar]=إعدادات النّظام
-Name[ast]=Axustes del sistema
 Name[az]=Sistem ayarları
 Name[be]=Налады сістэмы
 Name[be@latin]=Systemnyja nałady
@@ -188,7 +186,6 @@ Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
 Comment[ar]=أدوات ضبط لجهازك
-Comment[ast]=Ferramientes de configuración pal ordenador
 Comment[az]=Kompyuteriniz üçün tənzimləmə alətləri
 Comment[be]=Інструменты для наладжвання вашага камп'ютара
 Comment[bg]=Конфигурационни инструменти за вашия компютър
@@ -246,7 +243,6 @@ Categories=Qt;KDE;Settings;
 [Desktop Action kcm-lookandfeel]
 Name=Global Theme
 Name[ar]=سمة شاملة
-Name[ast]=Estilu global
 Name[az]=Ümumi mövzu
 Name[be]=Глабальная тэма
 Name[bg]=Глобална тема
@@ -297,7 +293,6 @@ Exec=systemsettings kcm_lookandfeel
 [Desktop Action kcm-users]
 Name=Users
 Name[ar]=المستخدمين
-Name[ast]=Usuarios
 Name[az]=İstifadəçilər
 Name[be]=Карыстальнікі
 Name[bg]=Потребители
@@ -401,7 +396,6 @@ Exec=systemsettings screenlocker
 [Desktop Action powerdevilprofilesconfig]
 Name=Energy Saving
 Name[ar]=حفظ الطاقة
-Name[ast]=Aforru d'enerxía
 Name[az]=Enerjiyə qənaət
 Name[be]=Захаванне энергіі
 Name[bg]=Пестене на енергия
