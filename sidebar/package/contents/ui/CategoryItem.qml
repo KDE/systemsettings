@@ -36,21 +36,20 @@ Kirigami.BasicListItem {
             color: Kirigami.Theme.neutralTextColor
         }
 
-        // Extra space to make the defaults indicators line up vertically for all items
+        // Extra wrapper to make the defaultIndicator line up vertically for all items
         Item {
-            visible: defaultIndicator.visible && !arrow.visible
-            implicitWidth: arrow.Layout.preferredWidth
-        }
-
-        Kirigami.Icon {
-            id: arrow
             Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: Kirigami.Units.iconSizes.small
             Layout.preferredHeight: Kirigami.Units.iconSizes.small
-            opacity: 0.7
-            Layout.preferredWidth: Layout.preferredHeight
-            source: (LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic")
-            visible: delegate.showArrow
-            selected: delegate.selected
+
+            Kirigami.Icon {
+                id: arrow
+                anchors.fill: parent
+                opacity: 0.7
+                source: LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic"
+                visible: delegate.showArrow
+                selected: delegate.selected
+            }
         }
     }
 }
