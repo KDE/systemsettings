@@ -54,7 +54,7 @@ void SystemsettingsRunner::match(Plasma::RunnerContext &context)
             m_modules = findKCMsMetaData(MetaDataSource::All, false);
         }
     }
-    matchNameKeywordAndGenericName(context);
+    matchNameKeyword(context);
 }
 
 void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &match)
@@ -116,12 +116,7 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
         url.setScheme(QStringLiteral("applications"));
         match.setUrls({url});
     }
-    const QString genericName = data.value(QStringLiteral("GenericName"));
-    if (!genericName.isEmpty() && genericName != name) {
-        match.setSubtext(genericName);
-    } else if (!data.description().isEmpty()) {
-        match.setSubtext(data.description());
-    }
+    match.setSubtext(data.description());
 
     if (!data.iconName().isEmpty()) {
         match.setIconName(data.iconName());
@@ -130,7 +125,7 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
     match.setData(QVariant::fromValue(data));
 }
 
-void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext &ctx)
+void SystemsettingsRunner::matchNameKeyword(Plasma::RunnerContext &ctx)
 {
     QList<Plasma::QueryMatch> matches;
     // Splitting the query term to match using subsequences
@@ -161,8 +156,8 @@ void SystemsettingsRunner::matchNameKeywordAndGenericName(Plasma::RunnerContext 
                 relevance += 0.1;
             }
         } else {
-            // check if the generic name or description matches
-            if (!checkMatchAndRelevance(data.value(QStringLiteral("GenericName")), 0.65) && !checkMatchAndRelevance(data.description(), 0.5)) {
+            // check if the description matches
+            if (!checkMatchAndRelevance(data.description(), 0.5)) {
                 // if not, check the keyowords
                 const QString &query = ctx.query();
                 const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));

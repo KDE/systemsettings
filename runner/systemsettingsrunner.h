@@ -26,7 +26,7 @@ protected Q_SLOTS:
 
 private:
     void setupMatch(const KPluginMetaData &data, Plasma::QueryMatch &match);
-    void matchNameKeywordAndGenericName(Plasma::RunnerContext &ctx);
+    void matchNameKeyword(Plasma::RunnerContext &ctx);
     QMutex m_mutex;
     QList<KPluginMetaData> m_modules;
 };
