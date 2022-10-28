@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"POT-Creation-Date: 2022-10-28 00:47+0000\n"
 "PO-Revision-Date: 2021-12-13 13:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -195,12 +195,12 @@ msgstr "Paleisti %1 iš naujo"
 msgid "Dialog"
 msgstr "Dialogas"
 
-#: core/ModuleView.cpp:177
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Atstatyti visus dabartinius pakeitimus į ankstesnes reikšmes"
 
-#: core/ModuleView.cpp:323
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,7 +209,7 @@ msgstr ""
 "Šio modulio nuostatos pasikeitė.\n"
 "Ar norite šiuos pakeitimus taikyti, ar juos atmesti?"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:327
 #, kde-format
 msgid "Apply Settings"
 msgstr "Pritaikyti nuostatas"

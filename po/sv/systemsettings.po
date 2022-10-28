@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"POT-Creation-Date: 2022-10-28 00:47+0000\n"
 "PO-Revision-Date: 2022-09-30 18:07+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -193,12 +193,12 @@ msgstr "Starta om %1"
 msgid "Dialog"
 msgstr "Dialogruta"
 
-#: core/ModuleView.cpp:177
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Återställ alla nuvarande ändringar till föregående värden"
 
-#: core/ModuleView.cpp:323
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -207,7 +207,7 @@ msgstr ""
 "Inställningarna i nuvarande modul har ändrats.\n"
 "Vill du verkställa ändringarna eller kasta dem?"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:327
 #, kde-format
 msgid "Apply Settings"
 msgstr "Verkställ inställningar"

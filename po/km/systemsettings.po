@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:52+0000\n"
+"POT-Creation-Date: 2022-10-28 00:47+0000\n"
 "PO-Revision-Date: 2009-12-22 09:22+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -195,12 +195,12 @@ msgstr "ចាប់ផ្ដើម​ឡើង​វិញ %1"
 msgid "Dialog"
 msgstr "ប្រអប់"
 
-#: core/ModuleView.cpp:177
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "កំណត់​ការ​ផ្លាស់ប្ដូរ​បច្ចុប្បន្ន​ទាំង​អស់​ទៅ​តម្លៃ​មុន"
 
-#: core/ModuleView.cpp:323
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,7 +209,7 @@ msgstr ""
 "ការ​កំណត់​ម៉ូឌុល​បច្ចុប្បន្ន​បានផ្លាស់ប្ដូរ ។\n"
 "តើអ្នក​ចង់​អនុវត្ត​ការ​ផ្លាស់ប្ដូរ ឬ​បោះបង់​ពួកវា ?"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:327
 #, kde-format
 msgid "Apply Settings"
 msgstr "អនុវត្ត​ការ​កំណត់"
