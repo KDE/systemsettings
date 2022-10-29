@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:47+0000\n"
+"POT-Creation-Date: 2022-10-29 00:49+0000\n"
 "PO-Revision-Date: 2022-09-11 16:13\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -46,7 +46,7 @@ msgstr "Цэнтралізаваны і зручны агляд сістэмна
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -249,7 +249,7 @@ msgstr "Спалучэнні клавіш: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Шукае модулі налад сістэмы, чыі назвы або апісанні супадаюць :q:"
 
-#: runner/systemsettingsrunner.cpp:183
+#: runner/systemsettingsrunner.cpp:178
 #, kde-format
 msgid "System Information"
 msgstr "Сістэмная інфармацыя"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:47+0000\n"
+"POT-Creation-Date: 2022-10-29 00:49+0000\n"
 "PO-Revision-Date: 2021-10-10 11:06+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -45,7 +45,7 @@ msgstr "Centralised and convenient overview of system information."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -246,7 +246,7 @@ msgstr "Keyboard Shortcut: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Finds system settings modules whose names or descriptions match :q:"
 
-#: runner/systemsettingsrunner.cpp:183
+#: runner/systemsettingsrunner.cpp:178
 #, kde-format
 msgid "System Information"
 msgstr "System Information"

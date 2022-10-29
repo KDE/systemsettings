@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:47+0000\n"
+"POT-Creation-Date: 2022-10-29 00:49+0000\n"
 "PO-Revision-Date: 2021-08-28 20:47+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr "集中且便利的系統資訊一覽"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -247,7 +247,7 @@ msgstr "鍵盤捷徑：%1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "搜尋標題或描述符合 :q: 的系統設定模組"
 
-#: runner/systemsettingsrunner.cpp:183
+#: runner/systemsettingsrunner.cpp:178
 #, kde-format
 msgid "System Information"
 msgstr "系統資訊"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:47+0000\n"
+"POT-Creation-Date: 2022-10-29 00:49+0000\n"
 "PO-Revision-Date: 2022-09-28 18:34+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "Phần tổng quan tập trung và tiện lợi về thông tin hệ th�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:185
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -244,7 +244,7 @@ msgstr "Phím tắt: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Tìm các khối thiết lập hệ thống mà tên hoặc mô tả khớp với :q:"
 
-#: runner/systemsettingsrunner.cpp:183
+#: runner/systemsettingsrunner.cpp:178
 #, kde-format
 msgid "System Information"
 msgstr "Thông tin hệ thống"
