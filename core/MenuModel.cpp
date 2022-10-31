@@ -128,7 +128,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         MenuItem *parent = mi->parent();
         // Items that are in a category with an owner are one level deeper,
         // except the owner
-        if (parent && parent->menu() && mi->isLibrary() && !mi->isCategoryOwner()) {
+        if (parent && parent->menu() && parent->isLibrary() && !mi->isCategoryOwner()) {
             ++depth;
         }
         theData.setValue(depth);
