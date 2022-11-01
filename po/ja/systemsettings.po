@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-29 00:49+0000\n"
+"POT-Creation-Date: 2022-11-01 00:49+0000\n"
 "PO-Revision-Date: 2021-09-18 19:42-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr "システム情報の概要"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -247,12 +247,12 @@ msgstr "すべての設定"
 msgid "Keyboard Shortcut: %1"
 msgstr "キーボードショートカット: %1"
 
-#: runner/systemsettingsrunner.cpp:39
+#: runner/systemsettingsrunner.cpp:40
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "名前または説明が :q: に一致するシステム設定モジュールを検索します。"
 
-#: runner/systemsettingsrunner.cpp:178
+#: runner/systemsettingsrunner.cpp:186
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

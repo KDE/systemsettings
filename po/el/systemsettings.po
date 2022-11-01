@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-29 00:49+0000\n"
+"POT-Creation-Date: 2022-11-01 00:49+0000\n"
 "PO-Revision-Date: 2021-09-19 10:05+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr "Συγκεντρωτική και βολική επισκόπηση τω
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -246,14 +246,14 @@ msgstr "Όλες οι ρυθμίσεις"
 msgid "Keyboard Shortcut: %1"
 msgstr "Συντόμευση πληκτρολογίου: %1"
 
-#: runner/systemsettingsrunner.cpp:39
+#: runner/systemsettingsrunner.cpp:40
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Βρίσκει αρθρώματα ρυθμίσεων του συστήματος τα ονόματα των οποίων ή οι "
 "περιγραφές ταιριάζουν με :q:"
 
-#: runner/systemsettingsrunner.cpp:178
+#: runner/systemsettingsrunner.cpp:186
 #, kde-format
 msgid "System Information"
 msgstr "Πληροφορίες συστήματος"

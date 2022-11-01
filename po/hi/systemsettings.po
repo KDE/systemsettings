@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-29 00:49+0000\n"
+"POT-Creation-Date: 2022-11-01 00:49+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -45,7 +45,7 @@ msgstr "तंत्र की जानकारी का केंद्र�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन कूक्सले"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:180
+#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -240,12 +240,12 @@ msgstr "सभी विन्यास"
 msgid "Keyboard Shortcut: %1"
 msgstr "कुंजीपट शार्टकट: %1"
 
-#: runner/systemsettingsrunner.cpp:39
+#: runner/systemsettingsrunner.cpp:40
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "तंत्र विन्यास मॉड्यूल ढूंढता है जिनके नाम या विवरण :q: से मेल खाते हैं"
 
-#: runner/systemsettingsrunner.cpp:178
+#: runner/systemsettingsrunner.cpp:186
 #, kde-format
 msgid "System Information"
 msgstr "तंत्र की जानकारी"
