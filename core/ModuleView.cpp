@@ -321,18 +321,18 @@ bool ModuleView::resolveChanges(KCModuleProxy *currentProxy)
     }
 
     // Let the user decide
-    const int queryUser = KMessageBox::warningYesNoCancel(this,
-                                                          i18n("The settings of the current module have changed.\n"
-                                                               "Do you want to apply the changes or discard them?"),
-                                                          i18n("Apply Settings"),
-                                                          KStandardGuiItem::apply(),
-                                                          KStandardGuiItem::discard(),
-                                                          KStandardGuiItem::cancel());
+    const int queryUser = KMessageBox::warningTwoActionsCancel(this,
+                                                               i18n("The settings of the current module have changed.\n"
+                                                                    "Do you want to apply the changes or discard them?"),
+                                                               i18n("Apply Settings"),
+                                                               KStandardGuiItem::apply(),
+                                                               KStandardGuiItem::discard(),
+                                                               KStandardGuiItem::cancel());
 
     switch (queryUser) {
-    case KMessageBox::Yes:
+    case KMessageBox::PrimaryAction:
         return moduleSave(currentProxy);
-    case KMessageBox::No:
+    case KMessageBox::SecondaryAction:
         currentProxy->load();
         return true;
     case KMessageBox::Cancel:
