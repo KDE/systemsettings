@@ -4,15 +4,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Richard Allen <ra@ra.is>, 2007.
-# Sveinn í Felli <sveinki@nett.is>, 2009, 2010, 2016, 2022.
+# Sveinn í Felli <sv1@fellsnet.is>, 2009, 2010, 2016, 2022.
+# Guðmundur Erlingsson <gudmundure@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-01 00:49+0000\n"
-"PO-Revision-Date: 2022-08-23 10:10+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2022-10-31 22:35+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +21,17 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Richard Allen, Sveinn í Felli"
+msgstr "Richard Allen, Sveinn í Felli,Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ra@ra.is, sv1@fellsnet.is"
+msgstr "ra@ra.is, sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:64
 #, kde-format
@@ -40,7 +41,7 @@ msgstr "Upplýsingaborð"
 #: app/main.cpp:63
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr "Miðlægt og hentugt yfirlit um kerfisupplýsingar."
+msgstr "Miðlægt og þægilegt yfirlit yfir kerfisupplýsingar."
 
 #: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
 #, kde-format
@@ -56,7 +57,7 @@ msgstr "Kerfisstillingar"
 #: app/main.cpp:74
 #, kde-format
 msgid "Central configuration center by KDE."
-msgstr "Miðlæg stillingastjórnun frá KDE."
+msgstr "Grunnstillingamiðstöð KDE."
 
 #: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
@@ -122,12 +123,12 @@ msgstr "Leita"
 #: app/SettingsBase.cpp:155
 #, kde-format
 msgid "Switch to Icon View"
-msgstr "Skipta yfir í táknmyndasýn"
+msgstr "Skipta í táknayfirlit"
 
 #: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Switch to Sidebar View"
-msgstr "Skipta yfir í hliðarstikusýn"
+msgstr "Skipta í hliðarstikuyfirlit"
 
 #: app/SettingsBase.cpp:171
 #, kde-format
@@ -145,18 +146,18 @@ msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr ""
-"Kerfisstillingaforritið fann engar sýnir, og þar með er ekkert sem hægt er "
+"Kerfisstillingaforritið fann engin yfirlit, og þar með er ekkert sem hægt er "
 "að birta."
 
 #: app/SettingsBase.cpp:354
 #, kde-format
 msgid "No views found"
-msgstr "Engar sýnir fundust"
+msgstr "Engin yfirlit fundust"
 
 #: app/SettingsBase.cpp:408
 #, kde-format
 msgid "About Active View"
-msgstr "Um virka sýn"
+msgstr "Um virkt yfirlit"
 
 #: app/SettingsBase.cpp:479
 #, kde-format
@@ -167,7 +168,7 @@ msgstr "Um %1"
 #: app/systemsettings.kcfg:9
 #, kde-format
 msgid "Internal name for the view used"
-msgstr "Innra heiti á sýninni sem er í notkun"
+msgstr "Innra heiti á yfirlitinu sem er í notkun"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -185,7 +186,7 @@ msgstr[1] "Inniheldur %1 atriði"
 #: core/ExternalAppModule.cpp:27
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 er utanaðkomandi forrit og hefur verið ræst sjálfvirkt"
+msgstr "%1 er ytra forrit og hefur verið ræst sjálfvirkt"
 
 #: core/ExternalAppModule.cpp:28
 #, kde-format
@@ -196,7 +197,7 @@ msgstr "Endurræsa %1"
 #: core/externalModule.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Samskiptagluggi"
+msgstr "Svargluggi"
 
 #: core/ModuleView.cpp:179
 #, kde-format
@@ -209,8 +210,8 @@ msgid ""
 "The settings of the current module have changed.\n"
 "Do you want to apply the changes or discard them?"
 msgstr ""
-"Það eru breytingar í einingunni sem nú er virk.\n"
-"Viltu virkja þær eða henda þeim?"
+"Stillingar í þessari einingu hafa breyst.\n"
+"Viltu virkja þær eða farga þeim?"
 
 #: core/ModuleView.cpp:327
 #, kde-format
@@ -220,12 +221,12 @@ msgstr "Virkja stillingar"
 #: icons/IconMode.cpp:54
 #, kde-format
 msgid "Icon View"
-msgstr "Táknmyndasýn"
+msgstr "Táknayfirlit"
 
 #: icons/IconMode.cpp:56
 #, kde-format
 msgid "Provides a categorized icons view of control modules."
-msgstr "Sýnir flokkaða táknmyndasýn með stjórneiningum."
+msgstr "Sýnir stjórneiningar í flokkuðu táknayfirliti."
 
 #: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #: sidebar/SidebarMode.cpp:181
@@ -270,12 +271,12 @@ msgctxt ""
 "Action to show indicators for settings with custom data. Use as short a "
 "translation as is feasible, as horizontal space is limited."
 msgid "Highlight Changed Settings"
-msgstr "Áherslulita breyttar stillingar"
+msgstr "Merkja breyttar stillingar"
 
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
 #, kde-format
 msgid "Show menu"
-msgstr "Birta valmynd"
+msgstr "Sýna valmynd"
 
 #: sidebar/package/contents/ui/introPage.qml:56
 #, kde-format
@@ -285,12 +286,12 @@ msgstr "Plasma"
 #: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
-msgstr "Hliðarstikusýn"
+msgstr "Hliðarstikuyfirlit"
 
 #: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
-msgstr "Sýnir flokkaða hliðarstikusýn með stjórneiningum."
+msgstr "Sýnir stjórneiningar í flokkuðu hliðarstikuyfirliti."
 
 #: sidebar/SidebarMode.cpp:179
 #, kde-format
