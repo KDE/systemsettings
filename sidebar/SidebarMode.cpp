@@ -11,7 +11,6 @@
 #include "MenuModel.h"
 #include "MenuProxyModel.h"
 #include "ModuleView.h"
-#include "ToolTips/tooltipmanager.h"
 #include "kcmmetadatahelpers.h"
 
 #include <QGuiApplication>
@@ -35,6 +34,7 @@
 #include <QMenu>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QQuickItem>
 #include <QQuickWidget>
 #include <QStandardItemModel>
 #include <QStandardPaths>
@@ -134,7 +134,6 @@ public:
         delete aboutIcon;
     }
 
-    ToolTipManager *toolTipManager = nullptr;
     QQuickWidget *quickWidget = nullptr;
     KPackage::Package package;
     SubcategoryModel *subCategoryModel = nullptr;
@@ -290,21 +289,6 @@ QString SidebarMode::actionIconName(const QString &name) const
     }
 
     return QString();
-}
-
-void SidebarMode::requestToolTip(const QModelIndex &index, const QRectF &rect)
-{
-    if (index.model()) {
-        d->toolTipManager->setModel(index.model());
-        d->toolTipManager->requestToolTip(index, rect.toRect());
-    }
-}
-
-void SidebarMode::hideToolTip()
-{
-    if (d->toolTipManager) {
-        d->toolTipManager->hideToolTip();
-    }
 }
 
 void SidebarMode::showActionMenu(const QPoint &position)
@@ -711,8 +695,6 @@ void SidebarMode::initWidget()
     d->moduleView->hide();
     d->mainLayout->addWidget(d->moduleView);
     Q_EMIT changeToolBarItems(BaseMode::NoItems);
-
-    d->toolTipManager = new ToolTipManager(d->categorizedModel, d->quickWidget, ToolTipManager::ToolTipPosition::Right);
 
     if (!startupModule().isEmpty()) {
         initPlaceHolderWidget();

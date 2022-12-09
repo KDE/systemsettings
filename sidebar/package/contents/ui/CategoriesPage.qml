@@ -111,7 +111,6 @@ Kirigami.ScrollablePage {
         anchors.fill: parent
         model: mainColumn.searchMode ? systemsettings.searchModel : systemsettings.categoryModel
 
-        onContentYChanged: systemsettings.hideToolTip();
         activeFocusOnTab: true
         keyNavigationWraps: true
         Accessible.role: Accessible.List
@@ -156,16 +155,6 @@ Kirigami.ScrollablePage {
                 }
                 if (!mainColumn.searchMode && root.pageStack.depth > 1) {
                     root.pageStack.currentIndex = 1;
-                }
-            }
-            onHoveredChanged: {
-                if (model.IsCategoryRole && mainColumn.searchMode) {
-                    return;
-                }
-                if (hovered) {
-                    systemsettings.requestToolTip(categoryView.model.index(index, 0), delegate.mapToItem(root, 0, 0, width, height));
-                } else {
-                    systemsettings.hideToolTip();
                 }
             }
             onFocusChanged: {

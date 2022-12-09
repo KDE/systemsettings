@@ -112,8 +112,6 @@ public:
     Q_INVOKABLE QAction *action(const QString &name) const;
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
     Q_INVOKABLE QString actionIconName(const QString &name) const;
-    Q_INVOKABLE void requestToolTip(const QModelIndex &index, const QRectF &rect);
-    Q_INVOKABLE void hideToolTip();
     Q_INVOKABLE void showActionMenu(const QPoint &position);
 
     Q_INVOKABLE void loadModule(const QModelIndex &activeModule, const QStringList &args = QStringList());

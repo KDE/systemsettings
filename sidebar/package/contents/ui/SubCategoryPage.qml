@@ -106,7 +106,6 @@ Kirigami.ScrollablePage {
         anchors.fill: parent
         model: systemsettings.subCategoryModel
         currentIndex: systemsettings.activeSubCategoryRow
-        onContentYChanged: systemsettings.hideToolTip();
         activeFocusOnTab: true
         keyNavigationWraps: true
         Accessible.role: Accessible.List
@@ -162,13 +161,6 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 systemsettings.loadModule(subCategoryView.model.index(index, 0));
-            }
-            onHoveredChanged: {
-                if (hovered) {
-                    systemsettings.requestToolTip(subCategoryView.model.index(index, 0), delegate.mapToItem(root, 0, 0, width, height));
-                } else {
-                    systemsettings.hideToolTip();
-                }
             }
             onFocusChanged: {
                 if (focus) {

@@ -1,8 +1,6 @@
 set(sidebar_mode_SRCS
     SidebarMode.cpp
     SidebarMode.h
-    ToolTips/tooltipmanager.cpp
-    ToolTips/tooltipmanager.h
 )
 
 add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_SRCS})
