@@ -1,4 +1,4 @@
-install( FILES
+install(FILES
     settings-appearance.desktop
     settings-appearance-color.desktop
     settings-appearance-font.desktop
@@ -28,4 +28,5 @@ install( FILES
 
     settings-system-administration.desktop
 
-    DESTINATION  ${KDE_INSTALL_DATADIR}/systemsettings/categories)
+    DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings/categories
+)

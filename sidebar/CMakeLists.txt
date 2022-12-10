@@ -1,11 +1,11 @@
-set( sidebar_mode_srcs
+set(sidebar_mode_SRCS
     SidebarMode.cpp
     SidebarMode.h
     ToolTips/tooltipmanager.cpp
     ToolTips/tooltipmanager.h
-) 
+)
 
-add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_srcs})
+add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_SRCS})
 
 kcoreaddons_desktop_to_json(systemsettings_sidebar_mode settings-sidebar-view.desktop)
 
@@ -24,6 +24,5 @@ target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     Qt::QuickWidgets
 )
 
-install( TARGETS systemsettings_sidebar_mode DESTINATION ${KDE_INSTALL_PLUGINDIR}/systemsettingsview )
+install(TARGETS systemsettings_sidebar_mode DESTINATION ${KDE_INSTALL_PLUGINDIR}/systemsettingsview)
 install(DIRECTORY package/ DESTINATION ${KDE_INSTALL_DATAROOTDIR}/kpackage/genericqml/org.kde.systemsettings.sidebar)
-

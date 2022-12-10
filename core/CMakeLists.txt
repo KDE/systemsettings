@@ -16,12 +16,12 @@ set(systemsettingsview_LIB_SRCS
     ModuleView.h
 )
 
-ki18n_wrap_ui( systemsettingsview_LIB_SRCS externalModule.ui )
+ki18n_wrap_ui(systemsettingsview_LIB_SRCS externalModule.ui)
 
-add_library( systemsettingsview ${systemsettingsview_LIB_SRCS} )
+add_library(systemsettingsview ${systemsettingsview_LIB_SRCS})
 generate_export_header(systemsettingsview)
 
-target_link_libraries( systemsettingsview
+target_link_libraries(systemsettingsview
     KF5::ItemViews
     KF5::KCMUtils
     KF5::I18n
@@ -32,12 +32,13 @@ target_link_libraries( systemsettingsview
     KF5::AuthCore
     KF5::AuthWidgets
     KF5::Kirigami2
- )
+)
 
-set_target_properties( systemsettingsview PROPERTIES SOVERSION 3 )
+set_target_properties(systemsettingsview PROPERTIES SOVERSION 3)
 
-install( TARGETS systemsettingsview ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS systemsettingsview ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 install(FILES
         systemsettingsexternalapp.desktop
         infocenterexternalapp.desktop
-    DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
+    DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR}
+)
