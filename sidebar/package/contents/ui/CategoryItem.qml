@@ -24,6 +24,7 @@ Kirigami.BasicListItem {
     icon: model.iconName
     text: model.display
     Accessible.name: model.display
+    Accessible.onPressAction: clicked()
 
     trailing: RowLayout {
         Rectangle {
