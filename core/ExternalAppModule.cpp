@@ -19,7 +19,7 @@ ExternalAppModule::ExternalAppModule(QWidget *parent, const KService::Ptr &modul
     externalModule.setupUi(this);
     QString moduleName = module->name();
     if (moduleName.isEmpty()) {
-        moduleName = module->property(QStringLiteral("X-KDE-PluginInfo-Name"), QVariant::String).toString();
+        moduleName = module->property(QStringLiteral("X-KDE-PluginInfo-Name"), QMetaType::QString).toString();
         if (!moduleName.isEmpty()) {
             qWarning() << "Reading deprecated X-KDE-PluginInfo-Name property from ExternalAppModule, use Name property instead";
         }
