@@ -1,79 +1,15 @@
+set --local commands -h --help --list --args --help-all -v --version --author --license --desktopfile
+
 complete --command systemsettings --no-files
 
 complete --command systemsettings5 --wraps systemsettings
 
-complete --command systemsettings --arguments "
-cookies\t'Configure the way cookies work'
-kcm_about-distro\t'Information About This System'
-kcm_access\t'Configure Accessibility Options'
-kcm_activities\t'Activities help you to focus on a specific task'
-kcm_audiocd\t'Audiocd IO Worker Configuration'
-kcm_autostart\t'Automatically Started Applications'
-kcm_baloofile\t'Configure File Search'
-kcm_bluetooth\t'Manage Bluetooth devices'
-kcm_bolt\t'Thunderbolt Device Management'
-kcm_cddb\t'Configure the CDDB Retrieval'
-kcm_clock\t'Date and Time'
-kcm_colors\t'Choose color scheme'
-kcm_componentchooser\t'Choose default Applications'
-kcm_cursortheme\t'Choose mouse cursor theme'
-kcm_desktoppaths\t'Location for Personal Files'
-kcm_desktoptheme\t'Choose Plasma style'
-kcm_device_automounter\t'Configure automatic handling of removable storage media'
-kcm_energyinfo\t'Energy Consumption Statistics'
-kcm_filetypes\t'Configure file associations'
-kcm_fontinst\t'Install, manage and preview fonts'
-kcm_fonts\t'Configure user interface fonts'
-kcm_icons\t'Choose icon theme'
-kcm_joystick\t'Calibrate Game Controller'
-kcm_kaccounts\t'Configure your internet accounts such as Google, Live, Owncloud'
-kcm_kded\t'Configure background services'
-kcm_keyboard\t'Keyboard Hardware and Layout'
-kcm_keys\t'Configure Keyboard Shortcuts'
-kcm_kscreen\t'Manage and configure monitors and displays'
-kcm_kwallet5\t'KDE Wallet Configuration'
-kcm_kwin_effects\t'Configure compositor settings for desktop effects'
-kcm_kwin_scripts\t'Manage KWin scripts'
-kcm_kwin_virtualdesktops\t'Configure navigation, number and layout of virtual desktops'
-kcm_kwindecoration\t'Configure window titlebars and borders'
-kcm_kwinoptions\t'Configure window actions and behavior'
-kcm_kwinrules\t'Individual Window Behavior'
-kcm_kwinscreenedges\t'Configure active screen corners and edges'
-kcm_kwintabbox\t'Navigation Through Windows'
-kcm_kwintouchscreen\t'Configure touch screen swipe gestures'
-kcm_landingpage\t'Landing page with some basic settings'
-kcm_launchfeedback\t'Application Launch Feedback'
-kcm_lookandfeel\t'Choose global look and feel'
-kcm_mouse\t'Mouse Controls'
-kcm_networkmanagement\t'Edit your Network Connections'
-kcm_nightcolor\t'Adjust color temperature based on time'
-kcm_notifications\t'Event Notifications and Actions'
-kcm_plasmasearch\t'Configure search settings'
-kcm_powerdevilactivitiesconfig\t'Per Activity Power Management'
-kcm_powerdevilglobalconfig\t'Advanced Power Management Settings'
-kcm_powerdevilprofilesconfig\t'Energy Saving'
-kcm_printer_manager\t'Configure your printers'
-kcm_pulseaudio\t'Configure audio devices and volume'
-kcm_qtquicksettings\t'No description available'
-kcm_recentFiles\t'Manage your file activity history preferences'
-kcm_regionandlang\t'Language Setting, Numeric, Currency and Time Formats'
-kcm_screenlocker\t'Configure screen locking'
-kcm_sddm\t'Configure Login Manager'
-kcm_smserver\t'Desktop Session Login and Logout'
-kcm_solid_actions\t'Manage actions available to the user when connecting new devices'
-kcm_splashscreen\t'Choose splash screen theme'
-kcm_style\t'Configure application style and behavior'
-kcm_tablet\t'No description available'
-kcm_touchpad\t'Touchpad settings'
-kcm_users\t'Manage user accounts'
-kcm_virtualkeyboard\t'Select which virtual keyboard to use'
-kcm_wacomtablet\t'Wacom Tablet Settings'
-kcm_workspace\t'Configure general workspace behavior'
-kcmspellchecking\t'Spell Checker Dictionaries and Options'
-kwincompositing\t'Compositor Settings for Desktop Effects'
-netpref\t'Configure generic network preferences, like timeout values'
-proxy\t'Configure the proxy servers used'
-smb\t'Credentials used to access SMB shares'
-webshortcuts\t'Configure web search keywords'
-"
+set --local arguments (systemsettings --list | awk 'NR>1{print $1}')
 
+set --local descriptions (systemsettings --list | awk 'NR>1{ print substr($0, index($0,$3)) }')
+
+set --local argcount (seq 1 (count $arguments))
+
+for i in $argcount
+    complete --command systemsettings --condition "not __fish_seen_subcommand_from $commands" --arguments "$arguments[$i]" --description "$descriptions[$i]"
+end
