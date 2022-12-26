@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:55+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -51,7 +51,7 @@ msgstr "സിസ്റ്റത്തിലെ സജ്ജീകരണങ്�
 msgid "Central configuration center by KDE."
 msgstr "കെ‌ഡി‌ഇയുടെ കേന്ദ്ര ക്രമീകരണ കേന്ദ്രം."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "ബെന്‍ കുക്ക്സ്ലി"
@@ -61,12 +61,12 @@ msgstr "ബെന്‍ കുക്ക്സ്ലി"
 msgid "Maintainer"
 msgstr "പരിപാലകന്‍"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "മത്തിയാസ് സോക്കെന്‍"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Developer"
 msgstr "രചയിതാവു്"
@@ -222,8 +222,8 @@ msgstr "ചിഹ്നങ്ങളായി കാണുക"
 msgid "Provides a categorized icons view of control modules."
 msgstr "നിയന്ത്രണ മൊഡ്യൂളുകളുടെ ചിഹ്നങ്ങള്‍ തരംതിരിച്ചു് കാണിയ്ക്കന്നു."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Author"
 msgstr "രചയിതാവു്"
@@ -278,42 +278,40 @@ msgstr "മെനു കാണിക്കുക"
 msgid "Plasma"
 msgstr "പ്ലാസ്മ"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:174
 #, kde-format
 msgid "Sidebar View"
 msgstr "സൈഡ്‌ബാർ കാഴ്ച"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:176
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "നിയന്ത്രണ മൊഡ്യൂളുകൾക്കായി ഒരു വർഗ്ഗീകരിച്ച സൈഡ്‌ബാർ നൽകുന്നു."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:178
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, മാർക്കോ മാർട്ടിൻ"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "Marco Martin"
 msgstr "മാർക്കോ മാർട്ടിൻ"
 
-#: sidebar/SidebarMode.cpp:669
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr "സൈഡ്‌ബാർ"
 
-#: sidebar/SidebarMode.cpp:741
+#: sidebar/SidebarMode.cpp:723
 #, kde-format
 msgid "Most Used"
 msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
 
-#: sidebar/ToolTips/tooltipmanager.cpp:237
-#, kde-format
-msgid "<i>Contains 1 item</i>"
-msgid_plural "<i>Contains %1 items</i>"
-msgstr[0] "<i>1 ഇനം ഉള്‍ക്കൊള്ളുന്നു</i>"
-msgstr[1] "<i>%1 ഇനങ്ങള്‍ ഉള്‍ക്കൊള്ളുന്നു</i>"
+#~ msgid "<i>Contains 1 item</i>"
+#~ msgid_plural "<i>Contains %1 items</i>"
+#~ msgstr[0] "<i>1 ഇനം ഉള്‍ക്കൊള്ളുന്നു</i>"
+#~ msgstr[1] "<i>%1 ഇനങ്ങള്‍ ഉള്‍ക്കൊള്ളുന്നു</i>"
 
 #~ msgid "Most used module number %1"
 #~ msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ച മൊഡ്യൂൾ നമ്പർ %1"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:55+0000\n"
 "PO-Revision-Date: 2017-05-22 04:54-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr "הגדרות מערכת"
 msgid "Central configuration center by KDE."
 msgstr "מרכז התצורה המרכזי של KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -69,12 +69,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "מתחזק"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Developer"
 msgstr "מפתח"
@@ -230,8 +230,8 @@ msgstr "תצוגת סמלים"
 msgid "Provides a categorized icons view of control modules."
 msgstr "מספק תצוגת סמלים מקוטלגות לרכיב השליטה"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Author"
 msgstr "כותב"
@@ -286,43 +286,41 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:174
 #, kde-format
 msgid "Sidebar View"
 msgstr "תצוגת סרגל צדדי"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:176
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "מספק תצוגת  סרגל צדדי מקוטלגות למודולי ההגדרות"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:178
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:669
+#: sidebar/SidebarMode.cpp:653
 #, fuzzy, kde-format
 #| msgid "Sidebar View"
 msgid "Sidebar"
 msgstr "תצוגת סרגל צדדי"
 
-#: sidebar/SidebarMode.cpp:741
+#: sidebar/SidebarMode.cpp:723
 #, kde-format
 msgid "Most Used"
 msgstr ""
 
-#: sidebar/ToolTips/tooltipmanager.cpp:237
-#, kde-format
-msgid "<i>Contains 1 item</i>"
-msgid_plural "<i>Contains %1 items</i>"
-msgstr[0] "<i>מכיל פריט אחד</i>"
-msgstr[1] "<i>מכיל %1 פריטים</i>"
+#~ msgid "<i>Contains 1 item</i>"
+#~ msgid_plural "<i>Contains %1 items</i>"
+#~ msgstr[0] "<i>מכיל פריט אחד</i>"
+#~ msgstr[1] "<i>מכיל %1 פריטים</i>"
 
 #~ msgid "View Style"
 #~ msgstr "סגנון תצוגה"

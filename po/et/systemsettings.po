@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:55+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -56,7 +56,7 @@ msgstr "Süsteemi seadistused"
 msgid "Central configuration center by KDE."
 msgstr "KDE keskne seadistamiskeskus."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -66,12 +66,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Hooldaja"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Developer"
 msgstr "Arendaja"
@@ -225,8 +225,8 @@ msgstr "Ikoonivaade"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Juhtimiskeskuse moodulite kategooriatesse jagatud vaade."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Author"
 msgstr "Autor"
@@ -280,42 +280,40 @@ msgstr "Menüü näitamine"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:174
 #, kde-format
 msgid "Sidebar View"
 msgstr "Külgribavaade"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:176
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Juhtimiskeskuse moodulite kategooriatesse jagatud vaade."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:178
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017: Marco Martin"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:669
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr "Külgriba"
 
-#: sidebar/SidebarMode.cpp:741
+#: sidebar/SidebarMode.cpp:723
 #, kde-format
 msgid "Most Used"
 msgstr "Enim tarvitatud"
 
-#: sidebar/ToolTips/tooltipmanager.cpp:237
-#, kde-format
-msgid "<i>Contains 1 item</i>"
-msgid_plural "<i>Contains %1 items</i>"
-msgstr[0] "<i>Sisaldab 1 elementi</i>"
-msgstr[1] "<i>Sisaldab %1 elementi</i>"
+#~ msgid "<i>Contains 1 item</i>"
+#~ msgid_plural "<i>Contains %1 items</i>"
+#~ msgstr[0] "<i>Sisaldab 1 elementi</i>"
+#~ msgstr[1] "<i>Sisaldab %1 elementi</i>"
 
 #~ msgid "Most used module number %1"
 #~ msgstr "Enim tarvitatud mooduli number %1"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:55+0000\n"
 "PO-Revision-Date: 2009-12-12 12:21+0100\n"
 "Last-Translator: Mark Kwidzińśczi <mark@linuxcsb.org>\n"
 "Language-Team: Kaszëbsczi <i18n-csb@linuxcsb.org>\n"
@@ -58,7 +58,7 @@ msgstr "Systemòwé nastôwë"
 msgid "Central configuration center by KDE."
 msgstr "Przédny môl kònfigùracëjów dlô KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -68,12 +68,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Òpiekùn"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Developer"
 msgstr "Rozwijôrz"
@@ -231,8 +231,8 @@ msgstr "Wëzdrzatk ikònów"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Dôwô skategòrizowóné wëzdrzatczi ikònów dlô kòntrolowónëch mòdułów."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Author"
 msgstr "Ùsôdzca"
@@ -288,44 +288,42 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:174
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:176
 #, fuzzy, kde-format
 #| msgid "Provides a categorized icons view of control modules."
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Dôwô skategòrizowóné wëzdrzatczi ikònów dlô kòntrolowónëch mòdułów."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:178
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:669
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:741
+#: sidebar/SidebarMode.cpp:723
 #, kde-format
 msgid "Most Used"
 msgstr ""
 
-#: sidebar/ToolTips/tooltipmanager.cpp:237
-#, kde-format
-msgid "<i>Contains 1 item</i>"
-msgid_plural "<i>Contains %1 items</i>"
-msgstr[0] "<i>Zamëkô w se 1 element</i>"
-msgstr[1] "<i>Zamëkô w se %1 elementë</i>"
-msgstr[2] "<i>Zamëkô w se %1 elementów</i>"
+#~ msgid "<i>Contains 1 item</i>"
+#~ msgid_plural "<i>Contains %1 items</i>"
+#~ msgstr[0] "<i>Zamëkô w se 1 element</i>"
+#~ msgstr[1] "<i>Zamëkô w se %1 elementë</i>"
+#~ msgstr[2] "<i>Zamëkô w se %1 elementów</i>"
 
 #~ msgid "View Style"
 #~ msgstr "Sztél wëzdrzatkù"

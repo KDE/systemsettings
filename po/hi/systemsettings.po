@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:55+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -56,7 +56,7 @@ msgstr "तंत्र विन्यास"
 msgid "Central configuration center by KDE."
 msgstr "केडीई द्वारा केंद्रीय विन्यास केंद्र।"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "बेन कूक्सले"
@@ -66,12 +66,12 @@ msgstr "बेन कूक्सले"
 msgid "Maintainer"
 msgstr "प्रबंधक"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "मथियस सोकेन"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Developer"
 msgstr "डेवेलपर"
@@ -224,8 +224,8 @@ msgstr "प्रतीक दृश्य"
 msgid "Provides a categorized icons view of control modules."
 msgstr "नियंत्रण मॉड्यूल का एक वर्गीकृत प्रतीक दृश्य प्रदान करता है। "
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Author"
 msgstr "लेखक"
@@ -279,42 +279,40 @@ msgstr "मेन्यू दिखाएँ"
 msgid "Plasma"
 msgstr "प्लाज़्मा"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:174
 #, kde-format
 msgid "Sidebar View"
 msgstr "बाजूपट्टी दृश्य"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:176
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "नियंत्रण मॉड्यूल के लिए एक वर्गीकृत बाजूपट्टी प्रदान करता है।"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:178
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) २०१७, मार्को मार्टिन"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "Marco Martin"
 msgstr "मार्को मार्टिन"
 
-#: sidebar/SidebarMode.cpp:669
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr "बाजूपट्टी"
 
-#: sidebar/SidebarMode.cpp:741
+#: sidebar/SidebarMode.cpp:723
 #, kde-format
 msgid "Most Used"
 msgstr "सर्वाधिक उपयोग किया गया"
 
-#: sidebar/ToolTips/tooltipmanager.cpp:237
-#, kde-format
-msgid "<i>Contains 1 item</i>"
-msgid_plural "<i>Contains %1 items</i>"
-msgstr[0] "<i>१ वस्तु शामिल है</i>"
-msgstr[1] "<i>%1 वस्तुएँ शामिल हैं</i>"
+#~ msgid "<i>Contains 1 item</i>"
+#~ msgid_plural "<i>Contains %1 items</i>"
+#~ msgstr[0] "<i>१ वस्तु शामिल है</i>"
+#~ msgstr[1] "<i>%1 वस्तुएँ शामिल हैं</i>"
 
 #~ msgid "Most used module number %1"
 #~ msgstr "सर्वाधिक प्रयुक्त मॉड्यूल संख्या %1"

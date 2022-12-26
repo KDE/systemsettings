@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-01 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:55+0000\n"
 "PO-Revision-Date: 2022-09-29 21:23+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -53,7 +53,7 @@ msgstr "கணினி அமைப்புகள்"
 msgid "Central configuration center by KDE."
 msgstr "கே.டீ.யீ.யின் ஒருங்கிணைந்த விருப்பத்தேர்வு மையம்"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "பென் குக்குஸ்லி"
@@ -63,12 +63,12 @@ msgstr "பென் குக்குஸ்லி"
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "மத்தியாசு ஸொய்க்கன்"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Developer"
 msgstr "நிரலாளர்"
@@ -221,8 +221,8 @@ msgstr "சின்னங்களைக் கொண்ட காட்சி�
 msgid "Provides a categorized icons view of control modules."
 msgstr "கட்டுப்பாடு கூறுகளின் வகைப்படுத்தப்பட்ட, சின்னங்களைக் கொண்ட காட்சிமுறை"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Author"
 msgstr "இயற்றியவர்"
@@ -276,42 +276,40 @@ msgstr "பட்டியைக் காட்டு"
 msgid "Plasma"
 msgstr "பிளாஸ்மா"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:174
 #, kde-format
 msgid "Sidebar View"
 msgstr "பக்கப்பட்டை காட்சிமுறை"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:176
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "கட்டுப்பாடு கூறுகளை வகைப்படுத்திக் காட்டும் ஒரு பக்கப்பட்டையை வழங்கும்."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:178
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, மார்க்கோ மார்ட்டின்"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "Marco Martin"
 msgstr "மார்க்கோ மார்ட்டின்"
 
-#: sidebar/SidebarMode.cpp:669
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: sidebar/SidebarMode.cpp:741
+#: sidebar/SidebarMode.cpp:723
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"
 
-#: sidebar/ToolTips/tooltipmanager.cpp:237
-#, kde-format
-msgid "<i>Contains 1 item</i>"
-msgid_plural "<i>Contains %1 items</i>"
-msgstr[0] "<i>1 உருப்படியைக் கொண்டது</i>"
-msgstr[1] "<i>%1 உருப்படிகளைக் கொண்டது</i>"
+#~ msgid "<i>Contains 1 item</i>"
+#~ msgid_plural "<i>Contains %1 items</i>"
+#~ msgstr[0] "<i>1 உருப்படியைக் கொண்டது</i>"
+#~ msgstr[1] "<i>%1 உருப்படிகளைக் கொண்டது</i>"
 
 #~ msgid "Most used module number %1"
 #~ msgstr "அடிக்கடி பயன்படுத்தப்படும் கூறு எண் %1"
