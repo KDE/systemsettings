@@ -41,6 +41,7 @@
         "Description[vi]": "Tìm các khối thiết lập hệ thống và thông tin hệ thống",
         "Description[x-test]": "xxFind system settings and system information modulesxx",
         "Description[zh_CN]": "查找系统设置和系统信息模块",
+        "Description[zh_TW]": "搜尋系統設定與系統資訊模組",
         "EnabledByDefault": true,
         "Icon": "systemsettings",
         "Name": "System Settings",
@@ -83,6 +84,7 @@
         "Name[uk]": "Системні параметри",
         "Name[vi]": "Thiết lập hệ thống",
         "Name[x-test]": "xxSystem Settingsxx",
-        "Name[zh_CN]": "系统设置"
+        "Name[zh_CN]": "系统设置",
+        "Name[zh_TW]": "系統設定"
     }
 }
