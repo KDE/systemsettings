@@ -28,6 +28,7 @@ target_link_libraries(systemsettings
     systemsettingsview
     KF5::Crash
     KF5::ItemViews
+    KF5::ItemModels
     KF5::KCMUtils
     KF5::I18n
     KF5::IconThemes

@@ -168,3 +168,12 @@ QList<QAbstractItemView *> BaseMode::views() const
 {
     return QList<QAbstractItemView *>();
 }
+
+bool BaseMode::defaultsIndicatorsVisible() const
+{
+    return false;
+}
+
+void BaseMode::toggleDefaultsIndicatorsVisibility()
+{
+}

@@ -55,6 +55,9 @@ public:
     };
     Q_ENUM(ApplicationMode)
 
+    virtual bool defaultsIndicatorsVisible() const;
+    virtual void toggleDefaultsIndicatorsVisibility();
+
     /**
      * Constructs a BaseMode for use in System Settings.\n
      * Plugin developers should perform all initialisation in initEvent() not here.

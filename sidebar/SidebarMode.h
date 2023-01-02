@@ -106,8 +106,8 @@ public:
     qreal headerHeight() const;
     void setHeaderHeight(qreal height);
 
-    bool defaultsIndicatorsVisible() const;
-    Q_INVOKABLE void toggleDefaultsIndicatorsVisibility();
+    bool defaultsIndicatorsVisible() const override;
+    void toggleDefaultsIndicatorsVisibility() override;
 
     Q_INVOKABLE QAction *action(const QString &name) const;
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself

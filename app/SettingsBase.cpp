@@ -161,6 +161,14 @@ void SettingsBase::initToolBar()
         });
         switchToSidebarAction->setText(i18n("Switch to Sidebar View"));
         switchToSidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("view-sidetree")));
+
+        highlightChangesAction = actionCollection()->addAction(QStringLiteral("highlight_changes"), this, [this] {
+            activeView->toggleDefaultsIndicatorsVisibility();
+        });
+        highlightChangesAction->setCheckable(true);
+        connect(highlightChangesAction, SIGNAL(triggered(bool)), this, SLOT(&activeView::toggleDefaultsIndicatorsVisibility));
+        highlightChangesAction->setText(i18n("Highlight Changed Settings"));
+        highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
     }
 
     reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
@@ -405,6 +413,7 @@ void SettingsBase::changePlugin()
         tooltipManagers << new ToolTipManager(view);
     }
 
+    highlightChangesAction->setChecked(activeView->defaultsIndicatorsVisible());
     changeAboutMenu(activeView->aboutData(), aboutViewAction, i18n("About Active View"));
     viewChange(false);
 

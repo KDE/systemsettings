@@ -180,8 +180,4 @@ Kirigami.ScrollablePage {
             }
         }
     }
-
-    footer: FooterToolbar {
-        visible: systemsettings.applicationMode == SystemSettings.SystemSettings
-    }
 }
