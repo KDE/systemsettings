@@ -163,10 +163,11 @@ void SettingsBase::initToolBar()
         switchToSidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("view-sidetree")));
 
         highlightChangesAction = actionCollection()->addAction(QStringLiteral("highlight_changes"), this, [this] {
-            activeView->toggleDefaultsIndicatorsVisibility();
+            if (activeView) {
+                activeView->toggleDefaultsIndicatorsVisibility();
+            }
         });
         highlightChangesAction->setCheckable(true);
-        connect(highlightChangesAction, SIGNAL(triggered(bool)), this, SLOT(&activeView::toggleDefaultsIndicatorsVisibility));
         highlightChangesAction->setText(i18n("Highlight Changed Settings"));
         highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
     }
