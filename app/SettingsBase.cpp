@@ -1,6 +1,7 @@
 /*
  *   SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
  *   SPDX-FileCopyrightText: 2021 Alexander Lohnau <alexander.lohnau@gmx.de>
+ *   SPDX-FileCopyrightText: 2022 ivan tkachenko <me@ratijas.tk>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -21,6 +22,7 @@
 #include <QScreen>
 #include <QTimer>
 #include <QVariantList>
+#include <QtGlobal>
 
 #include <KAboutData>
 #include <KActionCollection>
@@ -145,7 +147,7 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    quitAction = actionCollection()->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, SLOT(close()));
+    quitAction = actionCollection()->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
 
     if (m_mode == BaseMode::SystemSettings) {
         switchToIconAction = actionCollection()->addAction(QStringLiteral("switchto_iconview"), this, [this] {
@@ -190,7 +192,7 @@ void SettingsBase::initToolBar()
     // Finally the search line-edit
     searchAction = new QWidgetAction(this);
     searchAction->setDefaultWidget(searchText);
-    connect(searchAction, SIGNAL(triggered(bool)), searchText, SLOT(setFocus()));
+    connect(searchAction, &QAction::triggered, searchText, QOverload<>::of(&KLineEdit::setFocus));
     actionCollection()->addAction(QStringLiteral("searchText"), searchAction);
     // Initialise the Window
     setupGUI(Save | Create, QString());
@@ -208,7 +210,7 @@ void SettingsBase::initHelpMenu()
     helpActionMenu->setPopupMode(QToolButton::InstantPopup);
     actionCollection()->addAction(QStringLiteral("help_toolbar_menu"), helpActionMenu);
     // Add the custom actions
-    aboutViewAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, SLOT(about()));
+    aboutViewAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, &SettingsBase::about);
 }
 
 void SettingsBase::initMenuList(MenuItem *parent)
