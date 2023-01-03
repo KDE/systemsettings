@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2009 Ben Cooksley <bcooksley@kde.org>
+ * SPDX-FileCopyrightText: 2022 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -309,7 +310,10 @@ void SidebarMode::showActionMenu(const QPoint &position)
                                  QStringLiteral("help_about_kde")};
 
     for (const QString &actionName : actionList) {
-        menu->addAction(d->collection->action(actionName));
+        QAction *action = d->collection->action(actionName);
+        if (action) {
+            menu->addAction(action);
+        }
     }
 
     menu->popup(position);
