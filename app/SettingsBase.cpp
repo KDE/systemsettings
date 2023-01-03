@@ -416,7 +416,10 @@ void SettingsBase::changePlugin()
         tooltipManagers << new ToolTipManager(view);
     }
 
-    highlightChangesAction->setChecked(activeView->defaultsIndicatorsVisible());
+    if (highlightChangesAction) {
+        highlightChangesAction->setChecked(activeView->defaultsIndicatorsVisible());
+    }
+
     changeAboutMenu(activeView->aboutData(), aboutViewAction, i18n("About Active View"));
     viewChange(false);
 
