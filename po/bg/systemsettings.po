@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-26 00:55+0000\n"
+"POT-Creation-Date: 2023-01-03 00:49+0000\n"
 "PO-Revision-Date: 2022-09-29 13:54+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -126,17 +126,26 @@ msgstr "Изглед икони"
 msgid "Switch to Sidebar View"
 msgstr "Изглед на странична лента"
 
-#: app/SettingsBase.cpp:171
+#: app/SettingsBase.cpp:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to show indicators for settings with custom data. Use as short a "
+#| "translation as is feasible, as horizontal space is limited."
+#| msgid "Highlight Changed Settings"
+msgid "Highlight Changed Settings"
+msgstr "Осветяване на променени настройки"
+
+#: app/SettingsBase.cpp:179
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Докладване на грешка в текущата страница..."
 
-#: app/SettingsBase.cpp:198
+#: app/SettingsBase.cpp:206
 #, kde-format
 msgid "Help"
 msgstr "Помощ"
 
-#: app/SettingsBase.cpp:354
+#: app/SettingsBase.cpp:362
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -145,17 +154,17 @@ msgstr ""
 "Програмата за системни настройки не открива зададени изгледи и затова не "
 "показва нищо."
 
-#: app/SettingsBase.cpp:354
+#: app/SettingsBase.cpp:362
 #, kde-format
 msgid "No views found"
 msgstr "Не са открити изгледи"
 
-#: app/SettingsBase.cpp:408
+#: app/SettingsBase.cpp:417
 #, kde-format
 msgid "About Active View"
 msgstr "Относно активния изглед"
 
-#: app/SettingsBase.cpp:479
+#: app/SettingsBase.cpp:488
 #, kde-format
 msgid "About %1"
 msgstr "Относно %1"
@@ -263,14 +272,6 @@ msgstr ""
 "Търсенето не откри никакви резултатиНяма критерии, отговарящи на вашето "
 "търсене"
 
-#: sidebar/package/contents/ui/FooterToolbar.qml:37
-#, kde-format
-msgctxt ""
-"Action to show indicators for settings with custom data. Use as short a "
-"translation as is feasible, as horizontal space is limited."
-msgid "Highlight Changed Settings"
-msgstr "Осветяване на променени настройки"
-
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
 #, kde-format
 msgid "Show menu"
@@ -301,12 +302,12 @@ msgstr "Притежател на авторските права - Марко �
 msgid "Marco Martin"
 msgstr "Марко Мартин"
 
-#: sidebar/SidebarMode.cpp:653
+#: sidebar/SidebarMode.cpp:655
 #, kde-format
 msgid "Sidebar"
 msgstr "Странична лента"
 
-#: sidebar/SidebarMode.cpp:723
+#: sidebar/SidebarMode.cpp:725
 #, kde-format
 msgid "Most Used"
 msgstr "Най-използвано"

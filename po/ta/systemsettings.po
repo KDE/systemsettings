@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-26 00:55+0000\n"
+"POT-Creation-Date: 2023-01-03 00:49+0000\n"
 "PO-Revision-Date: 2022-09-29 21:23+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -124,17 +124,26 @@ msgstr "சின்னங்களை கொண்ட காட்சிமு�
 msgid "Switch to Sidebar View"
 msgstr "பக்கப்பட்டை காட்சிமுறையை பயன்படுத்து"
 
-#: app/SettingsBase.cpp:171
+#: app/SettingsBase.cpp:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to show indicators for settings with custom data. Use as short a "
+#| "translation as is feasible, as horizontal space is limited."
+#| msgid "Highlight Changed Settings"
+msgid "Highlight Changed Settings"
+msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
+
+#: app/SettingsBase.cpp:179
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SettingsBase.cpp:198
+#: app/SettingsBase.cpp:206
 #, kde-format
 msgid "Help"
 msgstr "உதவி"
 
-#: app/SettingsBase.cpp:354
+#: app/SettingsBase.cpp:362
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -142,17 +151,17 @@ msgid ""
 msgstr ""
 "கணினி அமைப்புகள் எந்த காட்சிமுறையையும் கண்டுபிடிக்காததால், காட்டுவதற்கு எதுவும் இல்லை."
 
-#: app/SettingsBase.cpp:354
+#: app/SettingsBase.cpp:362
 #, kde-format
 msgid "No views found"
 msgstr "எந்தக் காட்சிமுறையும் கண்டுபிடிக்கப்படவில்லை"
 
-#: app/SettingsBase.cpp:408
+#: app/SettingsBase.cpp:417
 #, kde-format
 msgid "About Active View"
 msgstr "செயலில் உள்ள காட்சிமுறையைப் பற்றி"
 
-#: app/SettingsBase.cpp:479
+#: app/SettingsBase.cpp:488
 #, kde-format
 msgid "About %1"
 msgstr "%1-ஐ பற்றி"
@@ -258,14 +267,6 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "உங்கள் தேடலுக்கு பொருத்தமானவை ஏதுமில்லை"
 
-#: sidebar/package/contents/ui/FooterToolbar.qml:37
-#, kde-format
-msgctxt ""
-"Action to show indicators for settings with custom data. Use as short a "
-"translation as is feasible, as horizontal space is limited."
-msgid "Highlight Changed Settings"
-msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
-
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
 #, kde-format
 msgid "Show menu"
@@ -296,12 +297,12 @@ msgstr "(c) 2017, மார்க்கோ மார்ட்டின்"
 msgid "Marco Martin"
 msgstr "மார்க்கோ மார்ட்டின்"
 
-#: sidebar/SidebarMode.cpp:653
+#: sidebar/SidebarMode.cpp:655
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: sidebar/SidebarMode.cpp:723
+#: sidebar/SidebarMode.cpp:725
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"

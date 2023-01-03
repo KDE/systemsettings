@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-26 00:55+0000\n"
+"POT-Creation-Date: 2023-01-03 00:49+0000\n"
 "PO-Revision-Date: 2022-10-31 22:35+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -130,17 +130,26 @@ msgstr "Skipta í táknayfirlit"
 msgid "Switch to Sidebar View"
 msgstr "Skipta í hliðarstikuyfirlit"
 
-#: app/SettingsBase.cpp:171
+#: app/SettingsBase.cpp:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to show indicators for settings with custom data. Use as short a "
+#| "translation as is feasible, as horizontal space is limited."
+#| msgid "Highlight Changed Settings"
+msgid "Highlight Changed Settings"
+msgstr "Merkja breyttar stillingar"
+
+#: app/SettingsBase.cpp:179
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:198
+#: app/SettingsBase.cpp:206
 #, kde-format
 msgid "Help"
 msgstr "Hjálp"
 
-#: app/SettingsBase.cpp:354
+#: app/SettingsBase.cpp:362
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -149,17 +158,17 @@ msgstr ""
 "Kerfisstillingaforritið fann engin yfirlit, og þar með er ekkert sem hægt er "
 "að birta."
 
-#: app/SettingsBase.cpp:354
+#: app/SettingsBase.cpp:362
 #, kde-format
 msgid "No views found"
 msgstr "Engin yfirlit fundust"
 
-#: app/SettingsBase.cpp:408
+#: app/SettingsBase.cpp:417
 #, kde-format
 msgid "About Active View"
 msgstr "Um virkt yfirlit"
 
-#: app/SettingsBase.cpp:479
+#: app/SettingsBase.cpp:488
 #, kde-format
 msgid "About %1"
 msgstr "Um %1"
@@ -265,14 +274,6 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Engin atriði samsvara þessari leit"
 
-#: sidebar/package/contents/ui/FooterToolbar.qml:37
-#, kde-format
-msgctxt ""
-"Action to show indicators for settings with custom data. Use as short a "
-"translation as is feasible, as horizontal space is limited."
-msgid "Highlight Changed Settings"
-msgstr "Merkja breyttar stillingar"
-
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
 #, kde-format
 msgid "Show menu"
@@ -303,12 +304,12 @@ msgstr "(c) 2017, Marco Martin"
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:653
+#: sidebar/SidebarMode.cpp:655
 #, kde-format
 msgid "Sidebar"
 msgstr "Hliðarstika"
 
-#: sidebar/SidebarMode.cpp:723
+#: sidebar/SidebarMode.cpp:725
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"
