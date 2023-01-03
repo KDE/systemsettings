@@ -12,6 +12,8 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
+#include <kwindowsystem_version.h>
+
 #include <KDBusService>
 #include <KLocalizedString>
 #include <KPluginMetaData>
@@ -172,7 +174,9 @@ int main(int argc, char *argv[])
             mainWindow->reloadStartupModule();
         }
 
+#if KWINDOWSYSTEM_VERSION > QT_VERSION_CHECK(5, 90, 0)
         KWindowSystem::updateStartupId(mainWindow->windowHandle());
+#endif
         KWindowSystem::activateWindow(mainWindow->windowHandle());
     });
 
