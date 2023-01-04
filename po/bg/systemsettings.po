@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:49+0000\n"
+"POT-Creation-Date: 2023-01-04 00:51+0000\n"
 "PO-Revision-Date: 2022-09-29 13:54+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yasen@lindeas.com, stalliondrift@gmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:64
+#: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
 msgstr "Информационен център"
@@ -44,7 +44,7 @@ msgstr "Централизиран и удобен преглед на сист�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -55,7 +55,7 @@ msgstr "Системни настройки"
 msgid "Central configuration center by KDE."
 msgstr "Център за настройки на KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -65,12 +65,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Поддръжка"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Mathias Soeken"
 msgstr " Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Developer"
 msgstr "Разработчик"
@@ -110,23 +110,23 @@ msgstr "Налични са следните модули:"
 msgid "No description available"
 msgstr "Няма налично описание"
 
-#: app/SettingsBase.cpp:58
+#: app/SettingsBase.cpp:60
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Търсене"
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:157
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "Изглед икони"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:164
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "Изглед на странична лента"
 
-#: app/SettingsBase.cpp:170
+#: app/SettingsBase.cpp:173
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -135,17 +135,17 @@ msgstr "Изглед на странична лента"
 msgid "Highlight Changed Settings"
 msgstr "Осветяване на променени настройки"
 
-#: app/SettingsBase.cpp:179
+#: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Докладване на грешка в текущата страница..."
 
-#: app/SettingsBase.cpp:206
+#: app/SettingsBase.cpp:209
 #, kde-format
 msgid "Help"
 msgstr "Помощ"
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -154,17 +154,17 @@ msgstr ""
 "Програмата за системни настройки не открива зададени изгледи и затова не "
 "показва нищо."
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid "No views found"
 msgstr "Не са открити изгледи"
 
-#: app/SettingsBase.cpp:417
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "Относно активния изглед"
 
-#: app/SettingsBase.cpp:488
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "Относно %1"
@@ -233,8 +233,8 @@ msgstr "Изглед като икони"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Осигурява категоризиран изглед с икони на контролните модули"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
-#: sidebar/SidebarMode.cpp:180
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Author"
 msgstr "Автор"
@@ -282,32 +282,32 @@ msgstr "Показване на меню"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:174
+#: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
 msgstr "Изглед със странична лента"
 
-#: sidebar/SidebarMode.cpp:176
+#: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Осигурява категоризиран изглед с икони на контролните модули."
 
-#: sidebar/SidebarMode.cpp:178
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "Притежател на авторските права - Марко Мартин, 2017 г."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Marco Martin"
 msgstr "Марко Мартин"
 
-#: sidebar/SidebarMode.cpp:655
+#: sidebar/SidebarMode.cpp:659
 #, kde-format
 msgid "Sidebar"
 msgstr "Странична лента"
 
-#: sidebar/SidebarMode.cpp:725
+#: sidebar/SidebarMode.cpp:729
 #, kde-format
 msgid "Most Used"
 msgstr "Най-използвано"

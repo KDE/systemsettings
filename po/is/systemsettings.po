@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:49+0000\n"
+"POT-Creation-Date: 2023-01-04 00:51+0000\n"
 "PO-Revision-Date: 2022-10-31 22:35+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ra@ra.is, sv1@fellsnet.is, gudmundure@gmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:64
+#: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
 msgstr "Upplýsingaborð"
@@ -48,7 +48,7 @@ msgstr "Miðlægt og þægilegt yfirlit yfir kerfisupplýsingar."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -59,7 +59,7 @@ msgstr "Kerfisstillingar"
 msgid "Central configuration center by KDE."
 msgstr "Grunnstillingamiðstöð KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -69,12 +69,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Umsjónarmaður"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Developer"
 msgstr "Forritari"
@@ -114,23 +114,23 @@ msgstr "Eftirfarandi einingar eru í boði:"
 msgid "No description available"
 msgstr "Engin lýsing tiltæk"
 
-#: app/SettingsBase.cpp:58
+#: app/SettingsBase.cpp:60
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Leita"
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:157
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "Skipta í táknayfirlit"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:164
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "Skipta í hliðarstikuyfirlit"
 
-#: app/SettingsBase.cpp:170
+#: app/SettingsBase.cpp:173
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -139,17 +139,17 @@ msgstr "Skipta í hliðarstikuyfirlit"
 msgid "Highlight Changed Settings"
 msgstr "Merkja breyttar stillingar"
 
-#: app/SettingsBase.cpp:179
+#: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:206
+#: app/SettingsBase.cpp:209
 #, kde-format
 msgid "Help"
 msgstr "Hjálp"
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -158,17 +158,17 @@ msgstr ""
 "Kerfisstillingaforritið fann engin yfirlit, og þar með er ekkert sem hægt er "
 "að birta."
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid "No views found"
 msgstr "Engin yfirlit fundust"
 
-#: app/SettingsBase.cpp:417
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "Um virkt yfirlit"
 
-#: app/SettingsBase.cpp:488
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "Um %1"
@@ -237,8 +237,8 @@ msgstr "Táknayfirlit"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Sýnir stjórneiningar í flokkuðu táknayfirliti."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
-#: sidebar/SidebarMode.cpp:180
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Author"
 msgstr "Höfundur"
@@ -284,32 +284,32 @@ msgstr "Sýna valmynd"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:174
+#: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
 msgstr "Hliðarstikuyfirlit"
 
-#: sidebar/SidebarMode.cpp:176
+#: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Sýnir stjórneiningar í flokkuðu hliðarstikuyfirliti."
 
-#: sidebar/SidebarMode.cpp:178
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:655
+#: sidebar/SidebarMode.cpp:659
 #, kde-format
 msgid "Sidebar"
 msgstr "Hliðarstika"
 
-#: sidebar/SidebarMode.cpp:725
+#: sidebar/SidebarMode.cpp:729
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"

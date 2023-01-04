@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:49+0000\n"
+"POT-Creation-Date: 2023-01-04 00:51+0000\n"
 "PO-Revision-Date: 2022-10-23 16:29+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andhika.padmawan@gmail.com,wantoyek@gmail.com,linerly@protonmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:64
+#: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
 msgstr "Pusat Info"
@@ -45,7 +45,7 @@ msgstr "Ikhtisar informasi sistem yang terpusat dan serasi."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -56,7 +56,7 @@ msgstr "System Settings"
 msgid "Central configuration center by KDE."
 msgstr "Pusat konfigurasi pokok oleh KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -66,12 +66,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Pemelihara"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Developer"
 msgstr "Pengembang"
@@ -111,23 +111,23 @@ msgstr "Modul berikut yang tersedia:"
 msgid "No description available"
 msgstr "Tidak ada deskripsi yang tersedia"
 
-#: app/SettingsBase.cpp:58
+#: app/SettingsBase.cpp:60
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Cari"
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:157
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "Ubah ke Tampilan Ikon"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:164
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "Ubah ke Tampilan Bilah Sisi"
 
-#: app/SettingsBase.cpp:170
+#: app/SettingsBase.cpp:173
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -136,17 +136,17 @@ msgstr "Ubah ke Tampilan Bilah Sisi"
 msgid "Highlight Changed Settings"
 msgstr "Sorot Pengaturan Yang Diubah"
 
-#: app/SettingsBase.cpp:179
+#: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Laporkan Bug di Halaman Saat Ini..."
 
-#: app/SettingsBase.cpp:206
+#: app/SettingsBase.cpp:209
 #, kde-format
 msgid "Help"
 msgstr "Bantuan"
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -155,17 +155,17 @@ msgstr ""
 "System Settings tidak bisa menemukan tampilan apa pun, sehingga tidak ada "
 "yang ditampilkan."
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid "No views found"
 msgstr "Tidak ada tampilan yang ditemukan"
 
-#: app/SettingsBase.cpp:417
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "Tentang Tampilan Aktif"
 
-#: app/SettingsBase.cpp:488
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "Tentang %1"
@@ -234,8 +234,8 @@ msgstr "Tampilan Ikon"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Memberikan tampilan ikon yang dikategorikan dari modul kendali."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
-#: sidebar/SidebarMode.cpp:180
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Author"
 msgstr "Penulis"
@@ -282,32 +282,32 @@ msgstr "Tampilkan menu"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:174
+#: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
 msgstr "Tampilan Bilah Sisi"
 
-#: sidebar/SidebarMode.cpp:176
+#: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Memberikan bilah sisi yang dikategorikan untuk modul kendali."
 
-#: sidebar/SidebarMode.cpp:178
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:655
+#: sidebar/SidebarMode.cpp:659
 #, kde-format
 msgid "Sidebar"
 msgstr "Bilah Sisi"
 
-#: sidebar/SidebarMode.cpp:725
+#: sidebar/SidebarMode.cpp:729
 #, kde-format
 msgid "Most Used"
 msgstr "Paling Banyak Digunakan"

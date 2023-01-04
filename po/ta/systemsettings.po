@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Kishore G <kishore96@gmail.com>, 2021, 2022.
+# Kishore G <kishore96@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:49+0000\n"
-"PO-Revision-Date: 2022-09-29 21:23+0530\n"
+"POT-Creation-Date: 2023-01-04 00:51+0000\n"
+"PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ubuntu-l10n-tam@lists.ubuntu.com, kde-l10n-ta@kde.org"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:64
+#: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
 msgstr "விவர மையம்"
@@ -42,7 +42,7 @@ msgstr "கணினியின் விவரங்களை வசதிய�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -53,7 +53,7 @@ msgstr "கணினி அமைப்புகள்"
 msgid "Central configuration center by KDE."
 msgstr "கே.டீ.யீ.யின் ஒருங்கிணைந்த விருப்பத்தேர்வு மையம்"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "பென் குக்குஸ்லி"
@@ -63,12 +63,12 @@ msgstr "பென் குக்குஸ்லி"
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "மத்தியாசு ஸொய்க்கன்"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Developer"
 msgstr "நிரலாளர்"
@@ -108,42 +108,38 @@ msgstr "கீழ்காணும் கூறுகள் உள்ளன:"
 msgid "No description available"
 msgstr "விவரணம் இல்லை"
 
-#: app/SettingsBase.cpp:58
+#: app/SettingsBase.cpp:60
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "தேடு"
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:157
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "சின்னங்களை கொண்ட காட்சிமுறையை பயன்படுத்து"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:164
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "பக்கப்பட்டை காட்சிமுறையை பயன்படுத்து"
 
-#: app/SettingsBase.cpp:170
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to show indicators for settings with custom data. Use as short a "
-#| "translation as is feasible, as horizontal space is limited."
-#| msgid "Highlight Changed Settings"
+#: app/SettingsBase.cpp:173
+#, kde-format
 msgid "Highlight Changed Settings"
 msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
 
-#: app/SettingsBase.cpp:179
+#: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SettingsBase.cpp:206
+#: app/SettingsBase.cpp:209
 #, kde-format
 msgid "Help"
 msgstr "உதவி"
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -151,17 +147,17 @@ msgid ""
 msgstr ""
 "கணினி அமைப்புகள் எந்த காட்சிமுறையையும் கண்டுபிடிக்காததால், காட்டுவதற்கு எதுவும் இல்லை."
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid "No views found"
 msgstr "எந்தக் காட்சிமுறையும் கண்டுபிடிக்கப்படவில்லை"
 
-#: app/SettingsBase.cpp:417
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "செயலில் உள்ள காட்சிமுறையைப் பற்றி"
 
-#: app/SettingsBase.cpp:488
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "%1-ஐ பற்றி"
@@ -230,8 +226,8 @@ msgstr "சின்னங்களைக் கொண்ட காட்சி�
 msgid "Provides a categorized icons view of control modules."
 msgstr "கட்டுப்பாடு கூறுகளின் வகைப்படுத்தப்பட்ட, சின்னங்களைக் கொண்ட காட்சிமுறை"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
-#: sidebar/SidebarMode.cpp:180
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Author"
 msgstr "இயற்றியவர்"
@@ -277,32 +273,32 @@ msgstr "பட்டியைக் காட்டு"
 msgid "Plasma"
 msgstr "பிளாஸ்மா"
 
-#: sidebar/SidebarMode.cpp:174
+#: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
 msgstr "பக்கப்பட்டை காட்சிமுறை"
 
-#: sidebar/SidebarMode.cpp:176
+#: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "கட்டுப்பாடு கூறுகளை வகைப்படுத்திக் காட்டும் ஒரு பக்கப்பட்டையை வழங்கும்."
 
-#: sidebar/SidebarMode.cpp:178
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, மார்க்கோ மார்ட்டின்"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Marco Martin"
 msgstr "மார்க்கோ மார்ட்டின்"
 
-#: sidebar/SidebarMode.cpp:655
+#: sidebar/SidebarMode.cpp:659
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: sidebar/SidebarMode.cpp:725
+#: sidebar/SidebarMode.cpp:729
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"

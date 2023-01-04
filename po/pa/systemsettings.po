@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:49+0000\n"
+"POT-Creation-Date: 2023-01-04 00:51+0000\n"
 "PO-Revision-Date: 2021-10-07 17:50-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alam.yellow@gmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:64
+#: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
 msgstr "ਜਾਣਕਾਰੀ ਕੇਂਦਰ"
@@ -43,7 +43,7 @@ msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ ਦੀ ਕੇਂਦਰੀ ਅਤ�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ੨੦੦੯, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:67 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -54,7 +54,7 @@ msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ"
 msgid "Central configuration center by KDE."
 msgstr "KDE ਲਈ ਕੇਂਦਰੀ ਸੰਰਚਨਾ ਕੇਂਦਰ ਹੈ।"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "ਬੇਨ ਕੁੱਕਸਲੇਯ"
@@ -64,12 +64,12 @@ msgstr "ਬੇਨ ਕੁੱਕਸਲੇਯ"
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "ਮੈਥਿਸ ਸੋਈਕੇਨ"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
 #, kde-format
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
@@ -109,23 +109,23 @@ msgstr "ਅੱਗੇ ਦਿੱਤੇ ਮੋਡੀਊਲ ਮੌਜੂਦ ਹਨ:"
 msgid "No description available"
 msgstr "ਕੋਈ ਵੇਰਵਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: app/SettingsBase.cpp:58
+#: app/SettingsBase.cpp:60
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "ਖੋਜ"
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:157
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "ਆਈਕਾਨ ਝਲਕ ਲਈ ਬਦਲੋ"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:164
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "ਬਾਹੀ ਝਲਕ ਲਈ ਬਦਲੋ"
 
-#: app/SettingsBase.cpp:170
+#: app/SettingsBase.cpp:173
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -134,34 +134,34 @@ msgstr "ਬਾਹੀ ਝਲਕ ਲਈ ਬਦਲੋ"
 msgid "Highlight Changed Settings"
 msgstr "ਤਬਦੀਲ ਕੀਤੀਆਂ ਸੈਟਿੰਗਾਂ ਉਘਾੜੋ"
 
-#: app/SettingsBase.cpp:179
+#: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:206
+#: app/SettingsBase.cpp:209
 #, kde-format
 msgid "Help"
 msgstr "ਮਦਦ"
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਕੋਈ ਵੀ ਝਲਕ ਲੱਭਣ ਲਈ ਅਸਮਰੱਥ ਹੈ, ਤੇ ਇਸਕਰਕੇ ਵੇਖਾਉਣ ਲਈ ਕੁਝ ਵੀ ਨਹੀਂ ਹੈ।"
 
-#: app/SettingsBase.cpp:362
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid "No views found"
 msgstr "ਕੋਈ ਝਲਕ ਨਹੀਂ ਲੱਭੀ"
 
-#: app/SettingsBase.cpp:417
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "ਸਰਗਰਮ ਝਲਕ ਬਾਰੇ"
 
-#: app/SettingsBase.cpp:488
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "%1 ਬਾਰੇ"
@@ -230,8 +230,8 @@ msgstr "ਆਈਕਾਨ ਝਲਕ"
 msgid "Provides a categorized icons view of control modules."
 msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਕੈਟਾਗਰੀ ਆਈਕਾਨ ਝਲਕ ਦਿੰਦਾ ਹੈ।"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:179
-#: sidebar/SidebarMode.cpp:180
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:181
 #, kde-format
 msgid "Author"
 msgstr "ਲੇਖਕ"
@@ -277,32 +277,32 @@ msgstr "ਮੇਨੂ ਵੇਖੋ"
 msgid "Plasma"
 msgstr "ਪਲਾਜ਼ਮਾ"
 
-#: sidebar/SidebarMode.cpp:174
+#: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
 msgstr "ਝਲਕ ਬਾਹੀ"
 
-#: sidebar/SidebarMode.cpp:176
+#: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਕੈਟਾਗਰੀ ਬਾਹੀ ਦਿੰਦਾ ਹੈ।"
 
-#: sidebar/SidebarMode.cpp:178
+#: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) ੨੦੧੭ ਮਾਰਕੋ ਮਾਰਟਿਨ"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Marco Martin"
 msgstr "ਮਾਰਕੋ ਮਾਰਟਿਨ"
 
-#: sidebar/SidebarMode.cpp:655
+#: sidebar/SidebarMode.cpp:659
 #, kde-format
 msgid "Sidebar"
 msgstr "ਬਾਹੀ"
 
-#: sidebar/SidebarMode.cpp:725
+#: sidebar/SidebarMode.cpp:729
 #, kde-format
 msgid "Most Used"
 msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"
