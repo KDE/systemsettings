@@ -132,7 +132,6 @@ Kirigami.ScrollablePage {
     ListView {
         id: categoryView
 
-        anchors.fill: parent
         model: mainColumn.searchMode ? systemsettings.searchModel : systemsettings.categoryModel
 
         activeFocusOnTab: true
