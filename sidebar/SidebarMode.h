@@ -130,6 +130,7 @@ private:
     void updateModelMenuItem(MenuItem *item);
     void updateCategoryModel(const QModelIndex &categoryIdx);
     void refreshDefaults();
+    void setActionMenuVisible(bool visible);
 
 Q_SIGNALS:
     void activeCategoryRowChanged();

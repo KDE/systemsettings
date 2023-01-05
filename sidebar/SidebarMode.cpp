@@ -143,15 +143,7 @@ public:
     int activeSubCategoryRow = -1;
     int activeSearchRow = -1;
     qreal headerHeight = 0;
-    bool m_actionMenuVisible = false;
-    void setActionMenuVisible(SidebarMode *sidebarMode, const bool &actionMenuVisible)
-    {
-        if (m_actionMenuVisible == actionMenuVisible) {
-            return;
-        }
-        m_actionMenuVisible = actionMenuVisible;
-        Q_EMIT sidebarMode->actionMenuVisibleChanged();
-    }
+    bool actionMenuVisible = false;
     bool m_introPageVisible = true;
     bool m_defaultsIndicatorsVisible = false;
 };
@@ -286,7 +278,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
 {
     auto menu = new QMenu();
     connect(menu, &QMenu::aboutToHide, this, [this]() {
-        d->setActionMenuVisible(this, false);
+        setActionMenuVisible(false);
     });
     menu->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -308,7 +300,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
 
     menu->popup(position);
     menu->windowHandle()->setTransientParent(d->quickWidget->window()->windowHandle());
-    d->setActionMenuVisible(this, true);
+    setActionMenuVisible(true);
 }
 
 void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList &args)
@@ -617,7 +609,16 @@ int SidebarMode::width() const
 
 bool SidebarMode::actionMenuVisible() const
 {
-    return d->m_actionMenuVisible;
+    return d->actionMenuVisible;
+}
+
+void SidebarMode::setActionMenuVisible(bool visible)
+{
+    if (d->actionMenuVisible == visible) {
+        return;
+    }
+    d->actionMenuVisible = visible;
+    Q_EMIT actionMenuVisibleChanged();
 }
 
 int SidebarMode::activeSubCategoryRow() const
