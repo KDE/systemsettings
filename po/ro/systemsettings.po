@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:51+0000\n"
+"POT-Creation-Date: 2023-01-07 00:51+0000\n"
 "PO-Revision-Date: 2022-12-29 17:23+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -275,7 +275,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Niciun element nu se potrivește căutării"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
 #, kde-format
 msgid "Show menu"
 msgstr "Arată meniul"

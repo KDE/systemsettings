@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:51+0000\n"
+"POT-Creation-Date: 2023-01-07 00:51+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -270,7 +270,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "आपकी खोज से मेल खाने वाली कोई वस्तु नहीं"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
 #, kde-format
 msgid "Show menu"
 msgstr "मेन्यू दिखाएँ"

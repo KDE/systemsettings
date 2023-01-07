@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/systemsettings.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:51+0000\n"
+"POT-Creation-Date: 2023-01-07 00:51+0000\n"
 "PO-Revision-Date: 2007-06-27 10:27-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -273,7 +273,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr ""
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
 #, kde-format
 msgid "Show menu"
 msgstr ""

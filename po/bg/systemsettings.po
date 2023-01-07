@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:51+0000\n"
+"POT-Creation-Date: 2023-01-07 00:51+0000\n"
 "PO-Revision-Date: 2022-09-29 13:54+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -272,7 +272,7 @@ msgstr ""
 "Търсенето не откри никакви резултатиНяма критерии, отговарящи на вашето "
 "търсене"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
 #, kde-format
 msgid "Show menu"
 msgstr "Показване на меню"

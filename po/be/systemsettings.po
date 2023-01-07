@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:51+0000\n"
-"PO-Revision-Date: 2022-09-11 16:13\n"
+"POT-Creation-Date: 2023-01-07 00:51+0000\n"
+"PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -29,7 +29,7 @@ msgstr "Дарафей Праляскоўскі, Antikruk"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "komzpa@licei2. com, nashtlumach@gmail. com"
+msgstr "komzpa@licei2.com, nashtlumach@gmail.com"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
@@ -140,7 +140,7 @@ msgstr "Падсвятляць змененыя налады"
 #: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Паведаміць пра хібу на бягучай старонцы…"
 
 #: app/SettingsBase.cpp:209
 #, kde-format
@@ -167,7 +167,7 @@ msgstr "Пра актыўны выгляд"
 #: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
-msgstr "Пра %1"
+msgstr "Пра \"%1\""
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -274,7 +274,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Няма элементаў, якія адпавядаюць пошуку"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:17
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
 #, kde-format
 msgid "Show menu"
 msgstr "Паказваць меню"
