@@ -317,6 +317,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     }
 
     menu->popup(position);
+    menu->windowHandle()->setTransientParent(d->quickWidget->window()->windowHandle());
     d->setActionMenuVisible(this, true);
 }
 
