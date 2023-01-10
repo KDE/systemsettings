@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:51+0000\n"
+"POT-Creation-Date: 2023-01-10 00:58+0000\n"
 "PO-Revision-Date: 2023-01-03 06:08+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -302,12 +302,12 @@ msgstr "(c) 2017, Marco Martin"
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:659
+#: sidebar/SidebarMode.cpp:660
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: sidebar/SidebarMode.cpp:729
+#: sidebar/SidebarMode.cpp:730
 #, kde-format
 msgid "Most Used"
 msgstr "Més usat"

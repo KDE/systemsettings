@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:51+0000\n"
+"POT-Creation-Date: 2023-01-10 00:58+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -296,12 +296,12 @@ msgstr "(c) ၂၀၁၇၊ မာကိုမာတင်"
 msgid "Marco Martin"
 msgstr "မာကိုမာတင်"
 
-#: sidebar/SidebarMode.cpp:659
+#: sidebar/SidebarMode.cpp:660
 #, kde-format
 msgid "Sidebar"
 msgstr "ဘေးတန်း"
 
-#: sidebar/SidebarMode.cpp:729
+#: sidebar/SidebarMode.cpp:730
 #, kde-format
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"
