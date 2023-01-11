@@ -63,10 +63,10 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget *parent)
     setProperty("_breeze_no_separator", true);
 
     if (m_mode == BaseMode::InfoCenter) {
-        setWindowTitle(i18n("Info Center"));
+        setWindowTitle(i18nd("systemsettings", "Info Center"));
         setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
     } else {
-        setWindowTitle(i18n("System Settings"));
+        setWindowTitle(i18nd("systemsettings", "System Settings"));
         setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     }
 
@@ -154,14 +154,14 @@ void SettingsBase::initToolBar()
             BaseConfig::setActiveView(QStringLiteral("systemsettings_icon_mode"));
             changePlugin();
         });
-        switchToIconAction->setText(i18n("Switch to Icon View"));
+        switchToIconAction->setText(i18nd("systemsettings", "Switch to Icon View"));
         switchToIconAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
 
         switchToSidebarAction = actionCollection()->addAction(QStringLiteral("switchto_sidebar"), this, [this] {
             BaseConfig::setActiveView(QStringLiteral("systemsettings_sidebar_mode"));
             changePlugin();
         });
-        switchToSidebarAction->setText(i18n("Switch to Sidebar View"));
+        switchToSidebarAction->setText(i18nd("systemsettings", "Switch to Sidebar View"));
         switchToSidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("view-sidetree")));
 
         highlightChangesAction = actionCollection()->addAction(QStringLiteral("highlight_changes"), this, [this] {
@@ -170,7 +170,7 @@ void SettingsBase::initToolBar()
             }
         });
         highlightChangesAction->setCheckable(true);
-        highlightChangesAction->setText(i18n("Highlight Changed Settings"));
+        highlightChangesAction->setText(i18nd("systemsettings", "Highlight Changed Settings"));
         highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
     }
 
@@ -179,7 +179,7 @@ void SettingsBase::initToolBar()
         job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
         job->start();
     });
-    reportPageSpecificBugAction->setText(i18n("Report a Bug in the Current Page…"));
+    reportPageSpecificBugAction->setText(i18nd("systemsettings", "Report a Bug in the Current Page…"));
     reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
 
     // Help after it
@@ -206,7 +206,7 @@ void SettingsBase::initToolBar()
 
 void SettingsBase::initHelpMenu()
 {
-    helpActionMenu = new KActionMenu(QIcon::fromTheme(QStringLiteral("help-contents")), i18n("Help"), this);
+    helpActionMenu = new KActionMenu(QIcon::fromTheme(QStringLiteral("help-contents")), i18nd("systemsettings", "Help"), this);
     helpActionMenu->setPopupMode(QToolButton::InstantPopup);
     actionCollection()->addAction(QStringLiteral("help_toolbar_menu"), helpActionMenu);
     // Add the custom actions
@@ -362,7 +362,9 @@ void SettingsBase::about()
 void SettingsBase::changePlugin()
 {
     if (m_plugins.empty()) { // We should ensure we have a plugin available to choose
-        KMessageBox::error(this, i18n("System Settings was unable to find any views, and hence has nothing to display."), i18n("No views found"));
+        KMessageBox::error(this,
+                           i18nd("systemsettings", "System Settings was unable to find any views, and hence has nothing to display."),
+                           i18nd("systemsettings", "No views found"));
         close();
         return; // Halt now!
     }
@@ -420,7 +422,7 @@ void SettingsBase::changePlugin()
         highlightChangesAction->setChecked(activeView->defaultsIndicatorsVisible());
     }
 
-    changeAboutMenu(activeView->aboutData(), aboutViewAction, i18n("About Active View"));
+    changeAboutMenu(activeView->aboutData(), aboutViewAction, i18nd("systemsettings", "About Active View"));
     viewChange(false);
 
     stackedWidget->setCurrentWidget(activeView->mainWidget());
@@ -491,7 +493,7 @@ void SettingsBase::changeAboutMenu(const KAboutData *menuAbout, QAction *menuIte
     }
 
     if (menuAbout) {
-        menuItem->setText(i18n("About %1", menuAbout->displayName()));
+        menuItem->setText(i18nd("systemsettings", "About %1", menuAbout->displayName()));
         menuItem->setIcon(QGuiApplication::windowIcon());
         menuItem->setEnabled(true);
     } else {
