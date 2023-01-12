@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:58+0000\n"
+"POT-Creation-Date: 2023-01-12 00:57+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Help"
 msgstr "സഹായം"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -152,17 +152,17 @@ msgstr ""
 "സിസ്റ്റം സജ്ജീകരണങ്ങള്‍ക്കു് അവതരണരീതികളൊന്നും കണ്ടുപിടിയ്ക്കാന്‍ സാധിച്ചില്ല, അതുകൊണ്ടു് തന്നെ "
 "കാണിയ്ക്കാന്‍ ഒന്നുമില്ല."
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid "No views found"
 msgstr "പ്രദര്‍ശനരീതികളൊന്നും കണ്ടില്ല"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:425
 #, kde-format
 msgid "About Active View"
 msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറിച്ചു്"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "%1 ന്റെ അണിയറ വിശേഷം"

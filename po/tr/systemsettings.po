@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:58+0000\n"
+"POT-Creation-Date: 2023-01-12 00:57+0000\n"
 "PO-Revision-Date: 2023-01-04 22:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -141,24 +141,24 @@ msgstr "Geçerli Sayfada Bir Hata Bildir…"
 msgid "Help"
 msgstr "Yardım"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "Sistem Ayarları hiçbir görünüm bulamadı, yapılandırılacak bir şey yok."
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid "No views found"
 msgstr "Görünüm bulunamadı"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:425
 #, kde-format
 msgid "About Active View"
 msgstr "Etkin Görünüm Hakkında"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "%1 Hakkında"

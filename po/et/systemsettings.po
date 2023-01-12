@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:58+0000\n"
+"POT-Creation-Date: 2023-01-12 00:57+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Help"
 msgstr "Abi"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -155,17 +155,17 @@ msgstr ""
 "Süsteemi seadistused ei leidnud ühtegi vaadet ja seepärast ei saa ka midagi "
 "näidata."
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid "No views found"
 msgstr "Vaateid ei leitud"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:425
 #, kde-format
 msgid "About Active View"
 msgstr "Teave aktiivse vaate kohta"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "Teave %1 kohta"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:58+0000\n"
+"POT-Creation-Date: 2023-01-12 00:57+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -144,24 +144,24 @@ msgstr ""
 msgid "Help"
 msgstr "အကူအညီ"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "စစ်စတမ်ဆက်တင်များသည် မည်သည်မြင်ကွင်းမှ ရှာမတွေ့ပါ။ ထို့ကြောင် ဘာမှ ပြစရာမရှိပါ။"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid "No views found"
 msgstr "မြင်ကွင်းများမတွေ့ပါ"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:425
 #, kde-format
 msgid "About Active View"
 msgstr "သက်ဝင်မြင်ကွင်းအကြောင်း"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "%1 အကြောင်း"
