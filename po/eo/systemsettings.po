@@ -1,16 +1,17 @@
 # translation of systemsettings.po to Esperanto
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2007 Free Software Foundation, Inc.
+# This file is distributed under the same license as the systemsettings package.
 # Cindy McKee <cfmckee@gmail.com>, 2007.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-12 00:57+0000\n"
-"PO-Revision-Date: 2009-12-18 21:46+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-01-18 19:57+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -22,22 +23,22 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Cindy McKee"
+msgstr "Cindy McKee,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "cfmckee@gmail.com"
+msgstr "cfmckee@gmail.com,okellogg@users.sourceforge.net"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "Informcentro"
 
 #: app/main.cpp:63
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "Centrigita kaj konvena superrigardo de sisteminformoj."
 
 #: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
 #, kde-format
@@ -51,10 +52,9 @@ msgid "System Settings"
 msgstr "Sistema agordo"
 
 #: app/main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
-msgstr "Centra agorda centro por KDE"
+msgstr "Centra agorda centro de KDE."
 
 #: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
 #, kde-format
@@ -84,33 +84,32 @@ msgstr "Will Stephenson"
 #: app/main.cpp:89
 #, kde-format
 msgid "Internal module representation, internal module model"
-msgstr ""
+msgstr "Interna modulreprezento, interna modulmodelo"
 
 #: app/main.cpp:97
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "Listigi ĉiujn eblajn modulojn"
 
 #: app/main.cpp:98 app/main.cpp:161
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "Agordmodulo malfermenda"
 
 #: app/main.cpp:99 app/main.cpp:162
-#, fuzzy, kde-format
-#| msgid "About Current Module"
+#, kde-format
 msgid "Arguments for the module"
-msgstr "Pri nuna modulo"
+msgstr "Argumentoj por la modulo"
 
 #: app/main.cpp:107
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "La sekvantaj moduloj haveblas:"
 
 #: app/main.cpp:125
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "Priskribo ne disponebla"
 
 #: app/SettingsBase.cpp:60
 #, kde-format
@@ -119,25 +118,24 @@ msgid "Search"
 msgstr "Serĉi"
 
 #: app/SettingsBase.cpp:157
-#, fuzzy, kde-format
-#| msgid "Icon View"
+#, kde-format
 msgid "Switch to Icon View"
-msgstr "Piktograma vido"
+msgstr "Ŝalti al Piktograma vido"
 
 #: app/SettingsBase.cpp:164
 #, kde-format
 msgid "Switch to Sidebar View"
-msgstr ""
+msgstr "Ŝalti al Flankbreta vido"
 
 #: app/SettingsBase.cpp:173
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Reliefigi Ŝanĝitajn Metojn"
 
 #: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Raporti Cimon en la Aktuala Paĝo…"
 
 #: app/SettingsBase.cpp:209
 #, kde-format
@@ -150,6 +148,8 @@ msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr ""
+"Sistemagordo estis malebla trovi iujn vidojn kaj tial havas nenion por "
+"montri."
 
 #: app/SettingsBase.cpp:367
 #, kde-format
@@ -179,18 +179,16 @@ msgid "About System Settings"
 msgstr "Pri Sistema agordo"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "<i>Enhavas 1 eron</i>"
-msgstr[1] "<i>Enhavas %1 erojn</i>"
+msgstr[0] "Enhavas 1 eron"
+msgstr[1] "Enhavas %1 erojn"
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr ""
+msgstr "%1 estas ekstera aplikaĵo kaj estis aŭtomate lanĉita"
 
 #: core/ExternalAppModule.cpp:28
 #, kde-format
@@ -206,7 +204,7 @@ msgstr "Dialogo"
 #: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
-msgstr ""
+msgstr "Restarigi ĉiujn aktualajn metojn al antaŭaj valoroj"
 
 #: core/ModuleView.cpp:325
 #, kde-format
@@ -230,7 +228,7 @@ msgstr "Piktograma vido"
 #: icons/IconMode.cpp:56
 #, kde-format
 msgid "Provides a categorized icons view of control modules."
-msgstr ""
+msgstr "Provizas kategoriigatan piktogramvidon de stirmoduloj."
 
 #: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
 #: sidebar/SidebarMode.cpp:181
@@ -239,10 +237,9 @@ msgid "Author"
 msgstr "Aŭtoro"
 
 #: icons/IconMode.cpp:63
-#, fuzzy, kde-format
-#| msgid "Apply Settings"
+#, kde-format
 msgid "All Settings"
-msgstr "Apliki agordon"
+msgstr "Apliki Agordojn"
 
 #: icons/IconMode.cpp:64
 #, kde-format
@@ -252,179 +249,60 @@ msgstr "Fulmoklavo: %1"
 #: runner/systemsettingsrunner.cpp:40
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr ""
+msgstr "Trovas sistemmetajn modulojn kies nomo aŭ priskribo kongruas al :q:"
 
 #: runner/systemsettingsrunner.cpp:186
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "Sistema agordo"
+msgstr "Sisteminformoj"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:58
 #, kde-format
 msgid "Show intro page"
-msgstr ""
+msgstr "Montri enkondukpaĝon"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:97
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "Neniu ero kongrua al via serĉo"
 
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "Montri menuon"
 
 #: sidebar/package/contents/ui/introPage.qml:56
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: sidebar/SidebarMode.cpp:175
 #, kde-format
 msgid "Sidebar View"
-msgstr ""
+msgstr "Flankbreta Vido"
 
 #: sidebar/SidebarMode.cpp:177
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
-msgstr ""
+msgstr "Provizas kategoriigatan flankbreton por stirmoduloj."
 
 #: sidebar/SidebarMode.cpp:179
 #, kde-format
 msgid "(c) 2017, Marco Martin"
-msgstr ""
+msgstr "(c) 2017, Marco Martin"
 
 #: sidebar/SidebarMode.cpp:180
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: sidebar/SidebarMode.cpp:660
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "Flankbreto"
 
 #: sidebar/SidebarMode.cpp:730
 #, kde-format
 msgid "Most Used"
-msgstr ""
-
-#~ msgid "<i>Contains 1 item</i>"
-#~ msgid_plural "<i>Contains %1 items</i>"
-#~ msgstr[0] "<i>Enhavas 1 eron</i>"
-#~ msgstr[1] "<i>Enhavas %1 erojn</i>"
-
-#~ msgid "View Style"
-#~ msgstr "Vida stilo"
-
-#~ msgid "Show detailed tooltips"
-#~ msgstr "Montri detalajn ŝpruchelpilojn"
-
-#, fuzzy
-#~| msgid "Configure"
-#~ msgid "Configure…"
-#~ msgstr "Agordi"
-
-#~ msgctxt "General config for System Settings"
-#~ msgid "General"
-#~ msgstr "Ĝenerala"
-
-#~ msgid "About Active Module"
-#~ msgstr "Pri aktiva modulo"
-
-#~ msgid "Configure your system"
-#~ msgstr "Agordi vian sistemon"
-
-#~ msgid ""
-#~ "Welcome to \"System Settings\", a central place to configure your "
-#~ "computer system."
-#~ msgstr ""
-#~ "Bonvenon en la \"Sistemaj Agordoj\", centra loko por agordi vian "
-#~ "komputilan sistemon."
-
-#~ msgid "Tree View"
-#~ msgstr "Arboperspektivo"
-
-#, fuzzy
-#~| msgctxt "Search through a list of control modules"
-#~| msgid "Search"
-#~ msgid "Search..."
-#~ msgstr "Serĉi"
-
-#, fuzzy
-#~| msgid "System Settings"
-#~ msgid "System Settings Handbook"
-#~ msgstr "Sistema agordo"
-
-#, fuzzy
-#~| msgid "About %1"
-#~ msgid "About KDE"
-#~ msgstr "Pri %1"
-
-#~ msgid "Overview"
-#~ msgstr "Superrigardo"
-
-#, fuzzy
-#~| msgid "About Current Module"
-#~ msgid "About current module"
-#~ msgstr "Pri nuna modulo"
-
-#~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
-#~ msgstr "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
-
-#~ msgid "Benjamin C. Meyer"
-#~ msgstr "Benjamin C. Meyer"
-
-#~ msgid "Jonathan Riddell"
-#~ msgstr "Jonathan Riddell"
-
-#~ msgid "Contributor"
-#~ msgstr "Kontribuanto"
-
-#~ msgid "Michael D. Stemle"
-#~ msgstr "Michael D. Stemle"
-
-#~ msgid "Simon Edwards"
-#~ msgstr "Simon Edwards"
-
-#~ msgid "Ellen Reitmayr"
-#~ msgstr "Ellen Reitmayr"
-
-#~ msgid "Usability"
-#~ msgstr "Afabligo"
-
-#~ msgid "Search Bar<p>Enter a search term.</p>"
-#~ msgstr "Serĉobreto<p>Entajpu serĉesprimon.</p>"
-
-#~ msgid "%1 hit in General"
-#~ msgid_plural "%1 hits in General"
-#~ msgstr[0] "%1 trafo en ĝenerala"
-#~ msgstr[1] "%1 trafoj en ĝenerala"
-
-#~ msgid "%1 hit in Advanced"
-#~ msgid_plural "%1 hits in Advanced"
-#~ msgstr[0] "%1 trafo en altnivela"
-#~ msgstr[1] "%1 trafoj en altnivela"
-
-#~ msgid "Unsaved Changes"
-#~ msgstr "Nekonservitaj ŝanĝoj"
-
-#~ msgid "Undo Changes"
-#~ msgstr "Malfari ŝanĝojn"
-
-#~ msgid "Reset to Defaults"
-#~ msgstr "Restarigi defaŭltojn"
-
-#~ msgid "Ctrl+O"
-#~ msgstr "Ctrl+O"
-
-#~ msgid "&File"
-#~ msgstr "&Dosiero"
-
-#~ msgid "&View"
-#~ msgstr "&Vidigi"
-
-#~ msgid "Menu file"
-#~ msgstr "Menua dosiero"
+msgstr "Plej Uzata"
