@@ -40,15 +40,6 @@
 #include <QStandardItemModel>
 #include <QStandardPaths>
 
-#include <KActivities/Stats/ResultModel>
-#include <KActivities/Stats/ResultSet>
-#include <KActivities/Stats/Terms>
-
-namespace KAStats = KActivities::Stats;
-
-using namespace KAStats;
-using namespace KAStats::Terms;
-
 K_PLUGIN_CLASS_WITH_JSON(SidebarMode, "settings-sidebar-view.json")
 
 FocusHackWidget::FocusHackWidget(QWidget *parent)
