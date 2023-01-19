@@ -28,6 +28,7 @@
   <name xml:lang="de">Systemeinstellungen</name>
   <name xml:lang="el">Ρυθμίεεις συστήματος</name>
   <name xml:lang="en-GB">System Settings</name>
+  <name xml:lang="eo">Sistema Agordo</name>
   <name xml:lang="es">Preferencias del sistema</name>
   <name xml:lang="et">Süsteemi seadistused</name>
   <name xml:lang="eu">Sistemaren Ezarpenak</name>
@@ -76,6 +77,7 @@
   <summary xml:lang="de">Einstellungen für Ihren Rechner</summary>
   <summary xml:lang="el">Εργαλεία διαμόρφωσης για τον υπολογιστή σας</summary>
   <summary xml:lang="en-GB">Configuration tools for your computer</summary>
+  <summary xml:lang="eo">Agordiloj por via komputilo</summary>
   <summary xml:lang="es">Herramientas de configuración para su equipo</summary>
   <summary xml:lang="et">Oma arvuti tööriistade seadistamine</summary>
   <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
@@ -126,6 +128,7 @@
     <p xml:lang="de">Mit den Systemeinstellungen können Sie Ihre KDE-Plasma-Arbeitsfläche einrichten und optimieren, um sie besser an Ihre Bedürfnisse anzupassen.</p>
     <p xml:lang="el">Με τις ρυθμίσεις συστήματος διαμορφώνετε και μαστορεύετε την επιφάνεια εργασίας KDE Plasma για να την προσαρμόσετε καλύτερα στις ανάγκες σας.</p>
     <p xml:lang="en-GB">System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
+    <p xml:lang="eo">Sistemagordo permesas al vi agordi kaj ĝustigi vian KDE Plasma-labortablon por plibonigi ĝin laŭ viaj bezonoj.</p>
     <p xml:lang="es">Las preferencias del sistema le permiten configurar y afinar el escritorio Plasma para que se ajuste a sus necesidades.</p>
     <p xml:lang="et">Süsteemi seadistused võimaldavad seadistada ja täppishäälestada KDE Plasma töölauda, et see vastaks just sinu vajadustele.</p>
     <p xml:lang="eu">Sistemaren Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
