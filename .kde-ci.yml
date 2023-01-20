@@ -20,7 +20,6 @@ Dependencies:
     'frameworks/kconfig': '@latest'
     'frameworks/kpackage': '@latest'
     'frameworks/kactivities': '@latest'
-    'frameworks/kactivities-stats': '@latest'
     'frameworks/kguiaddons': '@latest'
     'frameworks/kirigami': '@latest'
     'frameworks/knotifications': '@latest'
