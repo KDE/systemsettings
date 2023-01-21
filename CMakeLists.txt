@@ -62,6 +62,17 @@ ecm_find_qmlmodule(org.kde.kcm 1.0)
 
 find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
 
+
+set(debug_SRCS)
+ecm_qt_declare_logging_category(debug_SRCS
+    HEADER systemsettings_app_debug.h
+    IDENTIFIER SYSTEMSETTINGS_APP_LOG
+    CATEGORY_NAME org.kde.systemsettings.app
+    DESCRIPTION "systemsettings"
+    EXPORT SYSTEMSETTINGS
+)
+
+
 add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)

@@ -8,8 +8,8 @@
 
 #include "SettingsBase.h"
 #include "../core/kcmmetadatahelpers.h"
+#include "../systemsettings_app_debug.h"
 #include "BaseConfig.h"
-#include "systemsettings_app_debug.h"
 
 #include <QDir>
 #include <QFileInfo>

@@ -19,6 +19,8 @@
 #include <kservice.h>
 #include <set>
 
+#include "../systemsettings_app_debug.h"
+
 enum MetaDataSource {
     SystemSettings = 1,
     KInfoCenter = 2,
@@ -126,9 +128,10 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool useSy
                 QStringLiteral("kcm_ssl"), // frameworks, will be removed in KF6
             };
             if (inserted && !ignoredPlugins.contains(data.pluginId())) {
-                qWarning() << "Loading KCModule " << data.pluginId()
-                           << "using KServicetypeTrader, please install QML KCMs in the plasma/kcms/systemsettings namespace and QWidget KCMs in "
-                              "plasma/kcms/systemsettings/qwidgets with embedded json metadata";
+                qWarning(SYSTEMSETTINGS_APP_LOG)
+                    << "Loading KCModule" << data.pluginId()
+                    << "using KServicetypeTrader, please install QML KCMs in the plasma/kcms/systemsettings namespace and QWidget KCMs in "
+                       "plasma/kcms/systemsettings/qwidgets with embedded json metadata";
                 modules << data;
             }
         }
