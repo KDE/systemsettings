@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2022-11-16 22:43+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr "Sistemos nuostatos"
 msgid "Central configuration center by KDE."
 msgstr "Pagrindinis KDE konfigūravimo centras."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -65,12 +65,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Prižiūrėtojas"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Developer"
 msgstr "Programuotojas"
@@ -233,8 +233,8 @@ msgstr "Piktogramų rodinys"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Valdymo modulius rodo kaip kategorizuotą piktogramų rodinį."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Author"
 msgstr "Autorius"
@@ -281,32 +281,32 @@ msgstr "Rodyti meniu"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Sidebar View"
 msgstr "Šoninės juostos rodinys"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:168
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Valdymo modulius rodo kategorizuotoje šoninėje juostoje."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:660
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr "Šoninė juosta"
 
-#: sidebar/SidebarMode.cpp:730
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr "Labiausiai naudojami"

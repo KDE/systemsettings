@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2022-12-21 04:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -59,7 +59,7 @@ msgstr "系統設定"
 msgid "Central configuration center by KDE."
 msgstr "KDE 設定中心。"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -69,12 +69,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "維護者"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Developer"
 msgstr "開發者"
@@ -234,8 +234,8 @@ msgstr "圖示檢視"
 msgid "Provides a categorized icons view of control modules."
 msgstr "提供控制模組的分類圖示檢視。"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Author"
 msgstr "作者"
@@ -281,32 +281,32 @@ msgstr "顯示選單"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Sidebar View"
 msgstr "側邊欄檢視"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:168
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "提供控制模組的分類側邊欄檢視。"
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:660
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr "側邊欄"
 
-#: sidebar/SidebarMode.cpp:730
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr "最常使用"

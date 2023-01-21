@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2010-07-14 10:56+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr "Systeemynstellings"
 msgid "Central configuration center by KDE."
 msgstr "Sintraal konfiguraasje sintrum foar KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -65,12 +65,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Underhâlder"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Developer"
 msgstr "Untwikkelder"
@@ -230,8 +230,8 @@ msgstr "Byldkaike"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Ferskaft in katogorisearre byldkaikewerjefte fan bestjoeringsmodullen."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Author"
 msgstr "Skriuwer"
@@ -279,33 +279,33 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:168
 #, fuzzy, kde-format
 #| msgid "Provides a categorized icons view of control modules."
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Ferskaft in katogorisearre byldkaikewerjefte fan bestjoeringsmodullen."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:660
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:730
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr ""
