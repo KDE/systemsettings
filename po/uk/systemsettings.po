@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:57+0000\n"
+"POT-Creation-Date: 2023-01-21 02:38+0000\n"
 "PO-Revision-Date: 2023-01-03 15:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr "Системні параметри"
 msgid "Central configuration center by KDE."
 msgstr "Основний центр керування від KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -67,12 +67,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Developer"
 msgstr "Розробник"
@@ -233,8 +233,8 @@ msgstr "Перегляд піктограмами"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Перегляд піктограм модулів керування, поділених за категоріями."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Author"
 msgstr "Автор"
@@ -281,33 +281,33 @@ msgstr "Показати меню"
 msgid "Plasma"
 msgstr "Плазма"
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Sidebar View"
 msgstr "Бічна панель"
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:168
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr ""
 "Забезпечує роботу категоризованої бічної панелі для списку модулів керування."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "© Marco Martin, 2017"
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:660
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr "Бічна панель"
 
-#: sidebar/SidebarMode.cpp:730
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr "Найвживаніші"

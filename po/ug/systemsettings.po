@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:57+0000\n"
+"POT-Creation-Date: 2023-01-21 02:38+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -54,7 +54,7 @@ msgstr "سىستېما تەڭشەكلىرى"
 msgid "Central configuration center by KDE."
 msgstr "ك د ئې(KDE) نىڭ سەپلەش مەركىزى."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:181
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -64,12 +64,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "مەسئۇل كىشى"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:182
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
 msgid "Developer"
 msgstr "ئىجادىيەتچى"
@@ -232,8 +232,8 @@ msgstr ""
 "تىزگىنلەش بۆلەكلىرىنىڭ كاتېگورىيەگە ئايرىلغان، سىنبەلگىلىك كۆرۈنۈشىنى "
 "تەمىنلەيدۇ."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:180
-#: sidebar/SidebarMode.cpp:181
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Author"
 msgstr "ئاپتور"
@@ -281,12 +281,12 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:175
+#: sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:177
+#: sidebar/SidebarMode.cpp:168
 #, fuzzy, kde-format
 #| msgid "Provides a categorized icons view of control modules."
 msgid "Provides a categorized sidebar for control modules."
@@ -294,22 +294,22 @@ msgstr ""
 "تىزگىنلەش بۆلەكلىرىنىڭ كاتېگورىيەگە ئايرىلغان، سىنبەلگىلىك كۆرۈنۈشىنى "
 "تەمىنلەيدۇ."
 
-#: sidebar/SidebarMode.cpp:179
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:180
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:660
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:730
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr ""
