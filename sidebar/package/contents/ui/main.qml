@@ -1,47 +1,51 @@
 /*
    SPDX-FileCopyrightText: 2017 Marco Martin <mart@kde.org>
+   SPDX-FileCopyrightText: 2023 ivan tkachenko <me@ratijas.tk>
 
    SPDX-License-Identifier: LGPL-2.0-only
 */
 
-import QtQuick 2.5
+import QtQuick 2.15
 
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 
-Kirigami.ApplicationItem {
+Item {
     id: root
-    implicitWidth: wideScreen ? Kirigami.Units.gridUnit * 30 :  Kirigami.Units.gridUnit * 15
-    pageStack.initialPage: mainColumn
-    pageStack.defaultColumnWidth: wideScreen ? root.width / 2 : root.width
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
-    LayoutMirroring.childrenInherit: true
+    // properties, signals and methods used by C++ backend
 
-    property alias searchMode: mainColumn.searchMode
-    readonly property real headerHeight: mainColumn.header.height
+    readonly property real headerHeight: sideBar.headerHeight
 
     signal focusNextRequest()
     signal focusPreviousRequest()
 
     function focusFirstChild() {
-        mainColumn.focus = true;
+        sideBar.focusFirstChild();
     }
 
     function focusLastChild() {
-        subCategoryColumn.focus = true;
+        sideBar.focusLastChild();
     }
 
-    wideScreen: pageStack.depth > 1 && systemsettings.width > Kirigami.Units.gridUnit * 70
-    CategoriesPage {
-        id: mainColumn
-        focus: true
+    implicitHeight: sideBar.implicitHeight
+    implicitWidth: sideBar.implicitWidth + separator.implicitWidth
+
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
+    SideBarItem {
+        id: sideBar
+
+        anchors.fill: parent
+        anchors.rightMargin: separator.width
+
+        onFocusNextRequest: root.focusNextRequest()
+        onFocusPreviousRequest: root.focusPreviousRequest()
     }
 
-    SubCategoryPage {
-        id: subCategoryColumn
-    }
     Kirigami.Separator {
-        z: 999
+        id: separator
+        z: 1
         anchors {
             top: parent.top
             right: parent.right
