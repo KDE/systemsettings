@@ -3,20 +3,20 @@
 # Michal Sulek <misurel@gmail.com>, 2009, 2010.
 # Roman Paholik <wizzardsk@gmail.com>, 2015, 2017, 2019, 2022.
 # Mthw <jari_45@hotmail.com>, 2018.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-21 01:00+0000\n"
-"PO-Revision-Date: 2022-04-07 18:20+0200\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"PO-Revision-Date: 2023-01-22 17:02+0100\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -127,18 +127,14 @@ msgid "Switch to Sidebar View"
 msgstr "Pohľad bočného panelu"
 
 #: app/SettingsBase.cpp:173
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to show indicators for settings with custom data. Use as short a "
-#| "translation as is feasible, as horizontal space is limited."
-#| msgid "Highlight Changed Settings"
+#, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Zvýrazniť zmenené nastavenia"
 
 #: app/SettingsBase.cpp:182
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Nahlásiť chybu na aktuálnej stránke..."
 
 #: app/SettingsBase.cpp:209
 #, kde-format
