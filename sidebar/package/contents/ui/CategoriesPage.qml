@@ -143,13 +143,10 @@ Kirigami.ScrollablePage {
             leadingPadding: (model.DepthRole > 1 && searchField.text.length > 0) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
             hoverEnabled: !model.IsCategoryRole || !mainColumn.searchMode
-            enabled: model.IsKCMRole || !mainColumn.searchMode
+            enabled: !model.IsCategoryRole || !mainColumn.searchMode
 
             onClicked: {
-                if (!model.IsKCMRole && mainColumn.searchMode) {
-                    return;
-                }
-
+                
                 if (model.IsKCMRole || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
                     systemsettings.loadModule(categoryView.model.index(index, 0));
                 }
