@@ -14,8 +14,12 @@ import org.kde.systemsettings 1.0
 
 QQC2.ToolButton {
     icon.name: "application-menu"
-    down: systemsettings.actionMenuVisible || pressed
-    onPressed: systemsettings.showActionMenu(mapToGlobal(0, height));
+
+    checkable: true
+    checked: systemsettings.actionMenuVisible
+    onToggled: if (checked) {
+        systemsettings.showActionMenu(mapToGlobal(0, height));
+    }
 
     Accessible.role: Accessible.ButtonMenu
     Accessible.name: i18n("Show menu")
