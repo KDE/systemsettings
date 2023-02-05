@@ -121,8 +121,8 @@ int main(int argc, char *argv[])
         for (const auto &metaData : modules) {
             QString entry(QStringLiteral("%1 - %2"));
 
-            entry = entry.arg(metaData.pluginId().leftJustified(maxLen, QLatin1Char(' ')))
-                        .arg(!metaData.description().isEmpty() ? metaData.description() : i18n("No description available"));
+            entry = entry.arg(metaData.pluginId().leftJustified(maxLen, QLatin1Char(' ')),
+                              !metaData.description().isEmpty() ? metaData.description() : i18n("No description available"));
 
             std::cout << entry.toLocal8Bit().data() << std::endl;
         }
