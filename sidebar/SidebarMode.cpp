@@ -641,7 +641,7 @@ void SidebarMode::initWidget()
     // Create the widgets
 
     if (!KMainWindow::memberList().isEmpty()) {
-        KXmlGuiWindow *mainWindow = qobject_cast<KXmlGuiWindow *>(KMainWindow::memberList().first());
+        KXmlGuiWindow const *mainWindow = qobject_cast<KXmlGuiWindow *>(KMainWindow::memberList().constFirst());
         if (mainWindow) {
             d->collection = mainWindow->actionCollection();
         }
