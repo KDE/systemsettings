@@ -662,7 +662,8 @@ void SidebarMode::initWidget()
     d->quickWidget->setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 
     if (!d->quickWidget->rootObject()) {
-        for (const auto &err : d->quickWidget->errors()) {
+        const QList<QQmlError> errors{d->quickWidget->errors()};
+        for (const auto &err : errors) {
             qWarning() << err.toString();
         }
         qFatal("Fatal error while loading the sidebar view qml component");
