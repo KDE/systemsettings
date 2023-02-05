@@ -146,7 +146,8 @@ void SystemsettingsRunner::matchNameKeyword(Plasma::RunnerContext &ctx)
                 relevance = relevanceValue + 0.1;
                 return true;
             }
-            for (const QString &queryWord : query.split(QLatin1Char(' '))) {
+            const QStringList queryWords{query.split(QLatin1Char(' '))};
+            for (const QString &queryWord : queryWords) {
                 if (relevance == -1 && queryWord.length() > 3 && value.contains(queryWord, Qt::CaseInsensitive)) {
                     relevance = relevanceValue;
                     return true;
