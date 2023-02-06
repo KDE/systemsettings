@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -45,7 +45,7 @@ msgstr "तंत्र की जानकारी का केंद्र�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन कूक्सले"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -254,7 +254,7 @@ msgstr "कुंजीपट शार्टकट: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "तंत्र विन्यास मॉड्यूल ढूंढता है जिनके नाम या विवरण :q: से मेल खाते हैं"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "तंत्र की जानकारी"
@@ -305,7 +305,7 @@ msgstr "मार्को मार्टिन"
 msgid "Sidebar"
 msgstr "बाजूपट्टी"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "सर्वाधिक उपयोग किया गया"

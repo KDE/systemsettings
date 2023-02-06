@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2008-11-15 21:44+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -257,7 +257,7 @@ msgstr ""
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr ""

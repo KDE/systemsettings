@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2023-01-04 08:41+0100\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr "Panoramica centralizzata e comoda delle informazioni di sistema"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -255,7 +255,7 @@ msgstr ""
 "Trova i moduli delle impostazioni di sistema i cui nomi o descrizioni "
 "corrispondono a :q:"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "Informazioni sul sistema"
@@ -307,7 +307,7 @@ msgstr "Marco Martin"
 msgid "Sidebar"
 msgstr "Barra laterale"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "Più usato"

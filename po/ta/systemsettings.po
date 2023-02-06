@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr "கணினியின் விவரங்களை வசதிய�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -247,7 +247,7 @@ msgstr "விசைப்பலகை சுருக்குவழி: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: என்பதற்கு பொருந்தும் கணினி அமைப்பு கூறுகளை கண்டுபிடிக்கும்"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "கணினி விவரங்கள்"
@@ -298,7 +298,7 @@ msgstr "மார்க்கோ மார்ட்டின்"
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2022-10-17 00:26+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr "© 2009 Ben Cooksley"
 # pmap: =:gen=Järjestelmäasetusten:
 # pmap: =:elat=Järjestelmäasetuksista:
 # pmap: =:yleisnimi=kyllä:
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -267,7 +267,7 @@ msgstr "Pikanäppäin: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Etsii järjestelmäasetusosiota, jonka nimessä tai kuvauksessa on :q:"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "Järjestelmätiedot"
@@ -318,7 +318,7 @@ msgstr "Marco Martin"
 msgid "Sidebar"
 msgstr "Sivupalkki"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "Käytetyin"

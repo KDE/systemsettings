@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "စစ်စတမ်ဆိုင်ရာအချက်အလက်မ
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ၂၀၁၉၊ ဘန်ကွတ်စလေ"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -250,7 +250,7 @@ msgstr "ကီးဘုတ်ဖြတ်လမ်း - %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: နှင့် အမည် သို့မဟုတ် ဖော်ပြချက်နှင့် ကိုက်ညီသော စစ်စတမ်ဆက်တင်မော်ဂျူးများ ရှာဖွေမည်။"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "စစ်စတမ်ဆိုင်ရာ အချက်အလက်"
@@ -301,7 +301,7 @@ msgstr "မာကိုမာတင်"
 msgid "Sidebar"
 msgstr "ဘေးတန်း"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"

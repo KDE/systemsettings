@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-06 01:02+0000\n"
 "PO-Revision-Date: 2021-09-20 10:06+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr "A rendszerjellemzők központosított és kényelmes áttekintése."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) Ben Cooksley, 2009."
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -258,7 +258,7 @@ msgstr ""
 "Rendszerbeállítás-modulok keresése, amiknek a nevére vagy leírására "
 "illeszkedik a(z) :q: kifejezés"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "Rendszerjellemzők"
@@ -309,7 +309,7 @@ msgstr "Marco Martin"
 msgid "Sidebar"
 msgstr "Oldalsáv"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "Leggyakrabban használt"
