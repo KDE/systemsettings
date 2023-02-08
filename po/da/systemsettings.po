@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 02:38+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-08-08 17:48+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -271,7 +271,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Ingen elementer matcher din søgning"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
 msgstr "Vis i menu"

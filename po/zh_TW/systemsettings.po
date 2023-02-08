@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 02:38+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-12-21 04:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -271,7 +271,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "沒有任何項目符合你的搜尋"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
 msgstr "顯示選單"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 02:38+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-10-17 00:26+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -283,7 +283,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Ei hakuasi vastaavia tietueita"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
 msgstr "Näytä valikko"
