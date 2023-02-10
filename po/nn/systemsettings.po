@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-02-08 01:01+0000\n"
 "PO-Revision-Date: 2023-01-15 12:23+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -46,7 +46,7 @@ msgstr "Sentralisert og praktisk oversikt over systeminformasjon."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009 Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:188
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -250,7 +250,7 @@ msgstr "Tastatursnarveg: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 
-#: runner/systemsettingsrunner.cpp:186
+#: runner/systemsettingsrunner.cpp:187
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
@@ -267,7 +267,7 @@ msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Fann ingen søkjetreff"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:21
+#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
 msgstr "Vis menylinje"
@@ -302,7 +302,7 @@ msgstr "Marco Martin"
 msgid "Sidebar"
 msgstr "Sidestolpe"
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr "Mest brukte"
