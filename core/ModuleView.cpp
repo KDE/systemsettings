@@ -36,7 +36,7 @@
 #include <KCModuleInfo>
 #include <KCModuleProxy>
 #include <KColorScheme>
-#include <KMessageBox>
+#include <KMessageDialog>
 #include <KPageWidget>
 #include <KSharedConfig>
 #include <KStandardGuiItem>
@@ -131,6 +131,7 @@ public:
     QPushButton *mReset = nullptr;
     QPushButton *mDefault = nullptr;
     QPushButton *mHelp = nullptr;
+    KMessageDialog *mResolvingChangesDialog = nullptr;
     bool pageChangeSupressed = false;
     bool mSaveStatistics = true;
     bool mDefaultsIndicatorsVisible = false;
@@ -320,22 +321,29 @@ bool ModuleView::resolveChanges(KCModuleProxy *currentProxy)
         return true;
     }
 
-    // Let the user decide
-    const int queryUser = KMessageBox::warningTwoActionsCancel(this,
-                                                               i18n("The settings of the current module have changed.\n"
-                                                                    "Do you want to apply the changes or discard them?"),
-                                                               i18n("Apply Settings"),
-                                                               KStandardGuiItem::apply(),
-                                                               KStandardGuiItem::discard(),
-                                                               KStandardGuiItem::cancel());
+    // if we are already resolving changes handle it like a cancel
+    if (d->mResolvingChangesDialog) {
+        d->mResolvingChangesDialog->reject();
+    }
 
-    switch (queryUser) {
-    case KMessageBox::PrimaryAction:
+    // Let the user decide
+    d->mResolvingChangesDialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel,
+                                                    i18n("The settings of the current module have changed.\n"
+                                                         "Do you want to apply the changes or discard them?"),
+                                                    this);
+    d->mResolvingChangesDialog->setAttribute(Qt::WA_DeleteOnClose);
+    d->mResolvingChangesDialog->setButtons(KStandardGuiItem::apply(), KStandardGuiItem::discard(), KStandardGuiItem::cancel());
+    d->mResolvingChangesDialog->setCaption(i18n("Apply Settings"));
+    int result = d->mResolvingChangesDialog->exec();
+    d->mResolvingChangesDialog = nullptr;
+
+    switch (result) {
+    case KMessageDialog::PrimaryAction:
         return moduleSave(currentProxy);
-    case KMessageBox::SecondaryAction:
+    case KMessageDialog::SecondaryAction:
         currentProxy->load();
         return true;
-    case KMessageBox::Cancel:
+    case KMessageDialog::Cancel:
         return false;
     default:
         Q_ASSERT(false);
