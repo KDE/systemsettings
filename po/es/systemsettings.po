@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 01:01+0000\n"
-"PO-Revision-Date: 2023-01-03 04:58+0100\n"
+"PO-Revision-Date: 2023-02-10 17:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "com>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -132,7 +132,7 @@ msgstr "Cambiar a la vista de barra lateral"
 #: app/SettingsBase.cpp:173
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr "Resaltar preferencias modificadas"
+msgstr "Resaltar las preferencias modificadas"
 
 #: app/SettingsBase.cpp:182
 #, kde-format
