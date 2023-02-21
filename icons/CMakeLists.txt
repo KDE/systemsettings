@@ -6,8 +6,6 @@ set(icon_mode_SRCS
 
 add_library(icon_mode MODULE ${icon_mode_SRCS})
 
-kcoreaddons_desktop_to_json(icon_mode settings-icon-view.desktop)
-
 target_link_libraries(icon_mode systemsettingsview
     KF5::ItemViews
     KF5::KCMUtils

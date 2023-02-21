@@ -5,8 +5,6 @@ set(sidebar_mode_SRCS
 
 add_library(systemsettings_sidebar_mode MODULE ${sidebar_mode_SRCS})
 
-kcoreaddons_desktop_to_json(systemsettings_sidebar_mode settings-sidebar-view.desktop)
-
 target_link_libraries(systemsettings_sidebar_mode systemsettingsview
     KF5::ItemViews
     KF5::ItemModels

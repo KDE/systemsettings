@@ -119,7 +119,7 @@ void SettingsBase::initApplication()
     BaseData::instance()->setMenuItem(rootModule);
     BaseData::instance()->setHomeItem(homeModule);
     // Only load the current used view
-    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"));
+    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"), {}, KPluginMetaData::AllowEmptyMetaData);
     loadCurrentView();
 
     searchText->completionObject()->setIgnoreCase(true);
