@@ -139,7 +139,7 @@ void IconMode::searchChanged(const QString &text)
 void IconMode::changeModule(const QModelIndex &activeModule)
 {
     // Already loaded?
-    MenuItem *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
+    auto *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
     if (d->moduleView->activeModuleName() == item->name())
         return;
 
@@ -176,7 +176,7 @@ void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStri
         d->moduleView->loadModule(subpageItem, effectiveArgs);
     }
 
-    MenuItem *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
+    auto *item = activeModule.data(Qt::UserRole).value<MenuItem *>();
     if (item) {
         d->moduleView->setActiveModule(item->name());
     }
@@ -212,7 +212,7 @@ void IconMode::initWidget()
     d->categoryView->setMouseTracking(true);
     d->categoryView->viewport()->setAttribute(Qt::WA_Hover);
 
-    KFileItemDelegate *delegate = new KFileItemDelegate(d->categoryView);
+    auto *delegate = new KFileItemDelegate(d->categoryView);
     delegate->setWrapMode(QTextOption::WordWrap);
     d->categoryView->setItemDelegate(delegate);
 
