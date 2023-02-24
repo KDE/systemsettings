@@ -21,7 +21,7 @@ include(ECMDeprecationSettings)
 include(KDEGitCommitHooks)
 
 ecm_set_disabled_deprecation_versions(
-    QT ${QT_MIN_VERSION}
+    QT 5.15.4
     KF 5.103.0
 )
 

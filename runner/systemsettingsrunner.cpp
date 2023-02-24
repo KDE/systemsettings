@@ -32,19 +32,19 @@
 K_PLUGIN_CLASS_WITH_JSON(SystemsettingsRunner, "systemsettingsrunner.json")
 
 SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
-    : Plasma::AbstractRunner(parent, metaData, args)
+    : KRunner::AbstractRunner(parent, metaData, args)
 {
     setObjectName(QStringLiteral("SystemsettingsRunner"));
     setPriority(AbstractRunner::HighestPriority);
 
-    addSyntax(Plasma::RunnerSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:")));
+    addSyntax(KRunner::RunnerSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:")));
     // teardown is called in the main thread when all matches are over
     connect(this, &SystemsettingsRunner::teardown, this, [this]() {
         m_modules.clear();
     });
 }
 
-void SystemsettingsRunner::match(Plasma::RunnerContext &context)
+void SystemsettingsRunner::match(KRunner::RunnerContext &context)
 {
     {
         // The match method is called multithreaded, to make sure we do not start multiple plugin searches or
@@ -57,7 +57,7 @@ void SystemsettingsRunner::match(Plasma::RunnerContext &context)
     matchNameKeyword(context);
 }
 
-void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &match)
+void SystemsettingsRunner::run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match)
 {
     Q_UNUSED(context)
 
@@ -82,7 +82,7 @@ void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasm
     KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("systemsettings:") + data.pluginId()), QStringLiteral("org.kde.krunner"));
 }
 
-QMimeData *SystemsettingsRunner::mimeDataForMatch(const Plasma::QueryMatch &match)
+QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &match)
 {
     const auto value = match.data().value<KPluginMetaData>();
     if (value.isValid()) {
@@ -95,7 +95,7 @@ QMimeData *SystemsettingsRunner::mimeDataForMatch(const Plasma::QueryMatch &matc
     return nullptr;
 }
 
-void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::QueryMatch &match)
+void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match)
 {
     const QString name = data.name();
 
@@ -112,9 +112,9 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
     match.setData(QVariant::fromValue(data));
 }
 
-void SystemsettingsRunner::matchNameKeyword(Plasma::RunnerContext &ctx)
+void SystemsettingsRunner::matchNameKeyword(KRunner::RunnerContext &ctx)
 {
-    QList<Plasma::QueryMatch> matches;
+    QList<KRunner::QueryMatch> matches;
     const QString query = ctx.query();
 
     for (const KPluginMetaData &data : qAsConst(m_modules)) {
@@ -122,10 +122,10 @@ void SystemsettingsRunner::matchNameKeyword(Plasma::RunnerContext &ctx)
         const QString description = data.description();
         const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
 
-        Plasma::QueryMatch match(this);
+        KRunner::QueryMatch match(this);
         setupMatch(data, match);
         qreal relevance = -1;
-        Plasma::QueryMatch::Type type = Plasma::QueryMatch::CompletionMatch;
+        KRunner::QueryMatch::Type type = KRunner::QueryMatch::CompletionMatch;
 
         auto checkMatchAndRelevance = [query, data, &relevance](const QString &value, qreal relevanceValue) {
             if (value.startsWith(query, Qt::CaseInsensitive)) {
@@ -159,11 +159,11 @@ void SystemsettingsRunner::matchNameKeyword(Plasma::RunnerContext &ctx)
 
         // set type
         if (name.compare(query, Qt::CaseInsensitive) == 0) { // name matches exactly
-            type = Plasma::QueryMatch::ExactMatch;
+            type = KRunner::QueryMatch::ExactMatch;
         } else if (name.startsWith(query, Qt::CaseInsensitive) || description.startsWith(query, Qt::CaseInsensitive)) { // name or description matches as start
-            type = Plasma::QueryMatch::PossibleMatch;
+            type = KRunner::QueryMatch::PossibleMatch;
         } else if (keywords.contains(query, Qt::CaseInsensitive)) { // any of the keywords matches exactly
-            type = Plasma::QueryMatch::PossibleMatch;
+            type = KRunner::QueryMatch::PossibleMatch;
         }
 
         match.setRelevance(relevance);

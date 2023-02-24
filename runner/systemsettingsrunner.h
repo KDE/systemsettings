@@ -11,22 +11,22 @@
 #include <KRunner/AbstractRunner>
 #include <QMutex>
 
-class SystemsettingsRunner : public Plasma::AbstractRunner
+class SystemsettingsRunner : public KRunner::AbstractRunner
 {
     Q_OBJECT
 
 public:
     SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args);
 
-    void match(Plasma::RunnerContext &context) override;
-    void run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &match) override;
+    void match(KRunner::RunnerContext &context) override;
+    void run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match) override;
 
 protected Q_SLOTS:
-    QMimeData *mimeDataForMatch(const Plasma::QueryMatch &match) override;
+    QMimeData *mimeDataForMatch(const KRunner::QueryMatch &match) override;
 
 private:
-    void setupMatch(const KPluginMetaData &data, Plasma::QueryMatch &match);
-    void matchNameKeyword(Plasma::RunnerContext &ctx);
+    void setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match);
+    void matchNameKeyword(KRunner::RunnerContext &ctx);
     QMutex m_mutex;
     QList<KPluginMetaData> m_modules;
 };
