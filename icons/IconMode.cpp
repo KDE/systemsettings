@@ -117,11 +117,7 @@ void IconMode::initEvent()
 
 void IconMode::searchChanged(const QString &text)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    d->proxyModel->setFilterRegExp(text);
-#else
     d->proxyModel->setFilterRegularExpression(text);
-#endif
     if (d->categoryView) {
         QAbstractItemModel *model = d->categoryView->model();
         const int column = d->categoryView->modelColumn();

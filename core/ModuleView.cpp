@@ -24,14 +24,8 @@
 #include <QWhatsThis>
 
 #include <KAboutData>
-#include <kauth_version.h>
-#if KAUTH_VERSION >= QT_VERSION_CHECK(5, 92, 0)
 #include <KAuth/Action>
 #include <KAuth/ObjectDecorator>
-#else
-#include <KAuthAction>
-#include <KAuthObjectDecorator>
-#endif
 #include <KAuthorized>
 #include <KCModuleInfo>
 #include <KCModuleProxy>

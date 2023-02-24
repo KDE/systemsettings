@@ -112,11 +112,7 @@ Qt::ItemFlags MenuProxyModel::flags(const QModelIndex &index) const
     }
 
     QString matchText = index.data(MenuModel::UserFilterRole).toString();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QRegExp pattern = KCategorizedSortFilterProxyModel::filterRegExp();
-#else
     QRegularExpression pattern = KCategorizedSortFilterProxyModel::filterRegularExpression();
-#endif
 
     if (!matchText.contains(pattern)) {
         return Qt::NoItemFlags;
@@ -125,30 +121,6 @@ Qt::ItemFlags MenuProxyModel::flags(const QModelIndex &index) const
     }
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-void MenuProxyModel::setFilterRegExp(const QString &pattern)
-{
-    if (pattern == filterRegExp()) {
-        return;
-    }
-    Q_EMIT layoutAboutToBeChanged();
-    KCategorizedSortFilterProxyModel::setFilterRegExp(pattern);
-    Q_EMIT layoutChanged();
-    Q_EMIT filterRegExpChanged();
-}
-
-QString MenuProxyModel::filterRegExp() const
-{
-    return KCategorizedSortFilterProxyModel::filterRegExp().pattern();
-}
-
-void MenuProxyModel::setFilterRegExp(const QRegExp &regExp)
-{
-    Q_EMIT layoutAboutToBeChanged();
-    KCategorizedSortFilterProxyModel::setFilterRegExp(regExp);
-    Q_EMIT layoutChanged();
-}
-#else
 void MenuProxyModel::setFilterRegularExpression(const QString &pattern)
 {
     if (pattern == filterRegularExpression()) {
@@ -171,4 +143,3 @@ void MenuProxyModel::setFilterRegularExpression(const QRegularExpression &regExp
     KCategorizedSortFilterProxyModel::setFilterRegularExpression(regExp);
     Q_EMIT layoutChanged();
 }
-#endif
