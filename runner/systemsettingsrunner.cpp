@@ -71,10 +71,8 @@ void SystemsettingsRunner::run(const Plasma::RunnerContext &context, const Plasm
         job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings"), {data.pluginId()});
         job->setDesktopName(QStringLiteral("systemsettings"));
     } else {
-        // If we have created the KPluginMetaData from a desktop file KCMShell needs the pluginId, otherwise we can give
-        // it the absolute path to the plugin. That works in any case, see commit 866d730fd098775f6b16cc8ba15974af80700d12 in kde-cli-tools
-        bool isDesktopFile = data.metaDataFileName().endsWith(QLatin1String(".desktop"));
-        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {isDesktopFile ? data.pluginId() : data.fileName()});
+        // Systemsettings only uses predefined namespaces that kcmshell5/6 also knows about
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {data.pluginId()});
     }
     auto *delegate = new KNotificationJobUiDelegate;
     delegate->setAutoErrorHandlingEnabled(true);
@@ -88,11 +86,6 @@ QMimeData *SystemsettingsRunner::mimeDataForMatch(const Plasma::QueryMatch &matc
 {
     const auto value = match.data().value<KPluginMetaData>();
     if (value.isValid()) {
-        if (value.metaDataFileName().endsWith(QLatin1String(".desktop"))) {
-            auto *data = new QMimeData();
-            data->setUrls(QList<QUrl>{QUrl::fromLocalFile(value.metaDataFileName())});
-            return data;
-        }
         if (KService::Ptr ptr = KService::serviceByStorageId(value.pluginId() + QLatin1String(".desktop"))) {
             auto *data = new QMimeData();
             data->setUrls(QList<QUrl>{QUrl::fromLocalFile(ptr->entryPath())});
@@ -107,15 +100,9 @@ void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, Plasma::Query
     const QString name = data.name();
 
     match.setText(name);
-    if (data.metaDataFileName().endsWith(QLatin1String(".desktop"))) {
-        QUrl url(data.metaDataFileName());
-        url.setScheme(QStringLiteral("applications"));
-        match.setUrls({url});
-    } else {
-        QUrl url(data.pluginId());
-        url.setScheme(QStringLiteral("applications"));
-        match.setUrls({url});
-    }
+    QUrl url(data.pluginId());
+    url.setScheme(QStringLiteral("applications"));
+    match.setUrls({url});
     match.setSubtext(data.description());
 
     if (!data.iconName().isEmpty()) {
