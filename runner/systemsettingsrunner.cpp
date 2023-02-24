@@ -51,8 +51,7 @@ void SystemsettingsRunner::match(Plasma::RunnerContext &context)
         // write to the list in different threads the lock is used
         QMutexLocker lock(&m_mutex);
         if (m_modules.isEmpty()) {
-            KSycoca::disableAutoRebuild();
-            m_modules = findKCMsMetaData(MetaDataSource::All, false);
+            m_modules = findKCMsMetaData(MetaDataSource::All);
         }
     }
     matchNameKeyword(context);
