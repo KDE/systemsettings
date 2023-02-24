@@ -6,9 +6,9 @@
 
 #include "ExternalAppModule.h"
 
-#include <KCModuleInfo>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegateFactory>
+#include <QDebug>
 
 ExternalAppModule::ExternalAppModule(QWidget *parent, const KService::Ptr &module)
     : module(module)

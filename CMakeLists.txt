@@ -17,10 +17,13 @@ include(KDEClangFormat)
 include(GenerateExportHeader)
 include(ECMFindQmlModule)
 include(ECMQtDeclareLoggingCategory)
+include(ECMDeprecationSettings)
 include(KDEGitCommitHooks)
 
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055700)
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
+ecm_set_disabled_deprecation_versions(
+    QT ${QT_MIN_VERSION}
+    KF 5.103.0
+)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_USE_QSTRINGBUILDER)
