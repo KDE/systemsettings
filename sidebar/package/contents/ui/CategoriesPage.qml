@@ -146,7 +146,7 @@ Kirigami.ScrollablePage {
             enabled: !model.IsCategoryRole || !mainColumn.searchMode
 
             onClicked: {
-                
+
                 if (model.IsKCMRole || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
                     systemsettings.loadModule(categoryView.model.index(index, 0));
                 }
