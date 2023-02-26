@@ -79,7 +79,11 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Loader {
+    // We don't want it to go into default property and be reparented to a
+    // ScrollView, otherwise after clearing search term the scrollbar would
+    // appear and shift the fading out placeholder to the left.
+    property Item __placeholder: Loader {
+        parent: mainColumn
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.gridUnit * 4)
         opacity: categoryView.count == 0 ? 1 : 0
