@@ -90,7 +90,7 @@ Kirigami.ScrollablePage {
         active: opacity > 0
         visible: active
         Behavior on opacity {
-            OpacityAnimator {
+            NumberAnimation {
                 duration: Kirigami.Units.longDuration
                 easing.type: Easing.InOutQuad
             }
