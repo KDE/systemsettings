@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-27 01:03+0000\n"
 "PO-Revision-Date: 2013-10-18 20:13+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -273,7 +273,7 @@ msgstr "Sistemske postavke"
 msgid "Show intro page"
 msgstr ""
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#: sidebar/package/contents/ui/CategoriesPage.qml:101
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

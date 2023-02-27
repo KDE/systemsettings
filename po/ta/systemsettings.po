@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-27 01:03+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -257,7 +257,7 @@ msgstr "கணினி விவரங்கள்"
 msgid "Show intro page"
 msgstr "அறிமுகப் பக்கத்தைக் காட்டு"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#: sidebar/package/contents/ui/CategoriesPage.qml:101
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

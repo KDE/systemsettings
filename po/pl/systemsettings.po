@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-27 01:03+0000\n"
 "PO-Revision-Date: 2023-01-04 20:45+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -264,7 +264,7 @@ msgstr "Szczegóły systemu"
 msgid "Show intro page"
 msgstr "Pokaż stronę powitalną"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#: sidebar/package/contents/ui/CategoriesPage.qml:101
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

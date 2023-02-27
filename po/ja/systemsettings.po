@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-27 01:03+0000\n"
 "PO-Revision-Date: 2021-09-18 19:42-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -272,7 +272,7 @@ msgstr "KDE システム設定"
 msgid "Show intro page"
 msgstr "紹介ページを表示"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:97
+#: sidebar/package/contents/ui/CategoriesPage.qml:101
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
