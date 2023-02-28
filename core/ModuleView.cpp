@@ -135,7 +135,7 @@ ModuleView::ModuleView(QWidget *parent)
     : QWidget(parent)
     , d(new Private())
 {
-    auto *rootLayout = new QVBoxLayout(this);
+    auto rootLayout = new QVBoxLayout(this);
     rootLayout->setContentsMargins(0, 0, 0, 0);
     rootLayout->setSpacing(0);
     // Configure a layout first
@@ -151,7 +151,7 @@ ModuleView::ModuleView(QWidget *parent)
     d->mPageWidget->layout()->setContentsMargins(0, 0, 0, 0);
 
     // Zero out only the horizontal spacing (the vertical spacing is fine)
-    auto *gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
+    auto gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
 
     gridLayout->setHorizontalSpacing(0);
 
@@ -210,7 +210,7 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
         return;
     }
 
-    auto *item = menuItem.data(Qt::UserRole).value<MenuItem *>();
+    auto item = menuItem.data(Qt::UserRole).value<MenuItem *>();
 
     // if module has a main page (like in Appearance > Global Theme) we'll load that
     if (item->isLibrary() || item->isExternalAppModule()) {
@@ -218,7 +218,7 @@ void ModuleView::loadModule(const QModelIndex &menuItem, const QStringList &args
     }
     // if module doesn't have a main page, we'll load the first subpage
     else if (menuItem.model()->rowCount(menuItem) > 0) {
-        auto *subpageItem = menuItem.model()->index(0, 0, menuItem).data(Qt::UserRole).value<MenuItem *>();
+        auto subpageItem = menuItem.model()->index(0, 0, menuItem).data(Qt::UserRole).value<MenuItem *>();
         addModule(subpageItem, args);
     }
 }
@@ -240,22 +240,22 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     }
 
     // Create the scroller
-    auto *moduleScroll = new QScrollArea(this);
+    auto moduleScroll = new QScrollArea(this);
     // Prepare the scroll area
     moduleScroll->setWidgetResizable(true);
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
     // Create the page
-    auto *page = new KPageWidgetItem(moduleScroll, data.name());
+    auto page = new KPageWidgetItem(moduleScroll, data.name());
     // Provide information to the users
 
     if (item->isExternalAppModule()) {
-        auto *externalWidget = new ExternalAppModule(this, KService::Ptr(new KService(item->metaData().fileName())));
+        auto externalWidget = new ExternalAppModule(this, KService::Ptr(new KService(item->metaData().fileName())));
         moduleScroll->setWidget(externalWidget);
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
         page->setName(QString());
     } else { // It must be a normal module then
-        auto *moduleProxy = new KCModuleProxy(data, moduleScroll, args);
+        auto moduleProxy = new KCModuleProxy(data, moduleScroll, args);
         moduleScroll->setWidget(moduleProxy);
         moduleProxy->setAutoFillBackground(false);
         connect(moduleProxy, &KCModuleProxy::changed, this, &ModuleView::stateChanged);

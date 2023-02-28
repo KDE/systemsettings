@@ -44,7 +44,7 @@ void ExternalAppModule::showEvent(QShowEvent *event)
 
 void ExternalAppModule::runExternal()
 {
-    auto *job = new KIO::ApplicationLauncherJob(module);
+    auto job = new KIO::ApplicationLauncherJob(module);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }

@@ -254,7 +254,7 @@ MenuItem *MenuItem::descendantForModule(const QString &moduleName)
         return this;
     }
 
-    for (auto *child : qAsConst(d->children)) {
+    for (auto child : qAsConst(d->children)) {
         MenuItem *candidate = child->descendantForModule(moduleName);
         if (candidate) {
             return candidate;

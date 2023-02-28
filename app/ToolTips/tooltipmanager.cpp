@@ -143,8 +143,8 @@ QWidget *ToolTipManager::createTipContent(QModelIndex item)
     const QSize dialogIconSize = QSize(loader->currentSize(KIconLoader::Dialog), loader->currentSize(KIconLoader::Dialog));
     const QSize toolbarIconSize = QSize(loader->currentSize(KIconLoader::MainToolbar), loader->currentSize(KIconLoader::MainToolbar));
 
-    auto *tipContent = new QWidget();
-    auto *tipLayout = new QGridLayout();
+    auto tipContent = new QWidget();
+    auto tipLayout = new QGridLayout();
     tipLayout->setAlignment(Qt::AlignLeft);
 
     QLayout *primaryLine = generateToolTipLine(&item, tipContent, dialogIconSize, true);
@@ -162,7 +162,7 @@ QWidget *ToolTipManager::createTipContent(QModelIndex item)
     tipContent->setLayout(tipLayout);
 
     if (d->view->model()->rowCount(item) > 0) {
-        auto *separatorLine = new QFrame(tipContent);
+        auto separatorLine = new QFrame(tipContent);
         separatorLine->setFrameStyle(QFrame::HLine);
         tipLayout->addWidget(separatorLine, 1, 0);
     }
@@ -173,7 +173,7 @@ QWidget *ToolTipManager::createTipContent(QModelIndex item)
 QLayout *ToolTipManager::generateToolTipLine(QModelIndex *item, QWidget *toolTip, QSize iconSize, bool comment)
 {
     // Get MenuItem
-    auto *menuItem = d->view->model()->data(*item, Qt::UserRole).value<MenuItem *>();
+    auto menuItem = d->view->model()->data(*item, Qt::UserRole).value<MenuItem *>();
 
     QString text = menuItem->name();
     if (comment) {
@@ -188,7 +188,7 @@ QLayout *ToolTipManager::generateToolTipLine(QModelIndex *item, QWidget *toolTip
             text += i18np("Contains 1 item", "Contains %1 items", childCount);
         }
     }
-    auto *textLabel = new QLabel(toolTip);
+    auto textLabel = new QLabel(toolTip);
     textLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     textLabel->setForegroundRole(QPalette::ToolTipText);
     textLabel->setText(text);
@@ -203,12 +203,12 @@ QLayout *ToolTipManager::generateToolTipLine(QModelIndex *item, QWidget *toolTip
     privateIconLoaderSelf->self.setCustomPalette(pal);
 
     QIcon icon = KDE::icon(menuItem->iconName(), &privateIconLoaderSelf->self);
-    auto *iconLabel = new QLabel(toolTip);
+    auto iconLabel = new QLabel(toolTip);
     iconLabel->setPixmap(icon.pixmap(iconSize));
     iconLabel->setMaximumSize(iconSize);
 
     // Generate layout
-    auto *layout = new QHBoxLayout();
+    auto layout = new QHBoxLayout();
     layout->setSpacing(textLabel->fontMetrics().height() / 3);
     layout->setAlignment(Qt::AlignLeft);
     layout->addWidget(iconLabel, Qt::AlignLeft);

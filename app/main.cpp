@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
-    auto *mainWindow = new SettingsBase(mode);
+    auto mainWindow = new SettingsBase(mode);
 
     QObject::connect(&service, &KDBusService::activateRequested, mainWindow, [mainWindow](const QStringList &arguments, const QString &workingDirectory) {
         Q_UNUSED(workingDirectory);

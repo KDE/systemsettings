@@ -231,7 +231,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
         if (parentCategory == parent->category() ||
             // V2 entries must not be empty if they want to become a proper category.
             (!parentCategory2.isEmpty() && parentCategory2 == parent->category())) {
-            auto *menuItem = new MenuItem(true, parent);
+            auto menuItem = new MenuItem(true, parent);
             menuItem->setCategoryConfig(file);
             if (entry.readEntry("X-KDE-System-Settings-Category") == QLatin1String("lost-and-found")) {
                 lostFound = menuItem;
@@ -262,7 +262,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
         if (!parent->category().isEmpty() && (category == parent->category() || categoryv2 == parent->category())) {
             if (!metaData.isHidden()) {
                 // Add the module info to the menu
-                auto *infoItem = new MenuItem(false, parent);
+                auto infoItem = new MenuItem(false, parent);
                 infoItem->setMetaData(metaData);
                 infoItem->setCategoryOwner(isCategoryOwner);
 
@@ -382,7 +382,7 @@ void SettingsBase::changePlugin()
     if (it != m_loadedViews.cend()) {
         // First the configuration entry
         activeView = *it;
-    } else if (auto *view = loadCurrentView()) {
+    } else if (auto view = loadCurrentView()) {
         activeView = view;
     } else if (!m_loadedViews.empty()) { // Otherwise we activate the failsafe
         qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load" << viewToUse;
@@ -396,7 +396,7 @@ void SettingsBase::changePlugin()
             BaseConfig::setActiveView(QStringLiteral("systemsettings_icon_mode"));
         }
 
-        if (auto *view = loadCurrentView()) {
+        if (auto view = loadCurrentView()) {
             activeView = view;
             activeView->saveState();
         } else {

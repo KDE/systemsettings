@@ -74,7 +74,7 @@ void SystemsettingsRunner::run(const KRunner::RunnerContext &context, const KRun
         // Systemsettings only uses predefined namespaces that kcmshell5/6 also knows about
         job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {data.pluginId()});
     }
-    auto *delegate = new KNotificationJobUiDelegate;
+    auto delegate = new KNotificationJobUiDelegate;
     delegate->setAutoErrorHandlingEnabled(true);
     job->setUiDelegate(delegate);
     job->start();
@@ -87,7 +87,7 @@ QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &mat
     const auto value = match.data().value<KPluginMetaData>();
     if (value.isValid()) {
         if (KService::Ptr ptr = KService::serviceByStorageId(value.pluginId() + QLatin1String(".desktop"))) {
-            auto *data = new QMimeData();
+            auto data = new QMimeData();
             data->setUrls(QList<QUrl>{QUrl::fromLocalFile(ptr->entryPath())});
             return data;
         }
