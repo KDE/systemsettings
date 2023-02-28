@@ -26,7 +26,6 @@
 
 #include <KAboutData>
 #include <KActionCollection>
-#include <KCModuleInfo>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KFileUtils>

@@ -14,7 +14,6 @@
 #include "systemsettingsview_export.h"
 
 class QString;
-class KCModuleInfo;
 class KDesktopFile;
 class KPluginMetaData;
 template<typename T> class QList;

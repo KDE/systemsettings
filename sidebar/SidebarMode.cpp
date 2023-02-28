@@ -20,7 +20,6 @@
 #include <KAboutData>
 #include <KActionCollection>
 #include <KCMUtils/KCModuleLoader>
-#include <KCModuleInfo>
 #include <KConfigGroup>
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>

@@ -10,7 +10,6 @@
 #include "MenuItem.h"
 #include "MenuModel.h"
 
-#include <KCModuleInfo>
 #include <KPluginMetaData>
 
 MenuProxyModel::MenuProxyModel(QObject *parent)

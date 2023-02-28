@@ -8,7 +8,6 @@
 #include "MenuModel.h"
 
 #include "MenuItem.h"
-#include <KCModuleInfo>
 #include <KCategorizedSortFilterProxyModel>
 #include <QIcon>
 

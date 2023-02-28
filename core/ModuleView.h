@@ -14,7 +14,6 @@
 
 #include "systemsettingsview_export.h"
 
-class KCModuleInfo;
 class KCModuleProxy;
 class KPageWidgetItem;
 class KPluginMetaData;

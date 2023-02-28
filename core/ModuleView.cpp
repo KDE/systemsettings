@@ -27,7 +27,6 @@
 #include <KAuth/Action>
 #include <KAuth/ObjectDecorator>
 #include <KAuthorized>
-#include <KCModuleInfo>
 #include <KCModuleProxy>
 #include <KColorScheme>
 #include <KMessageBox>
