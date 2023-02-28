@@ -4,10 +4,10 @@ set(PROJECT_VERSION "5.27.80")
 
 project(systemsettings VERSION ${PROJECT_VERSION})
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.102.0")
+set(KF6_MIN_VERSION "5.102.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} )
 
 include(KDEInstallDirs)
@@ -35,7 +35,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets Quick Qml QuickWidgets
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Auth
     Crash
     ItemViews
@@ -81,7 +81,7 @@ add_subdirectory(app)
 add_subdirectory(categories)
 add_subdirectory(icons)
 add_subdirectory(sidebar)
-if(KF5DocTools_FOUND)
+if(KF6DocTools_FOUND)
     add_subdirectory(doc)
     kdoctools_install(po)
 endif()

@@ -22,16 +22,16 @@ add_library(systemsettingsview ${systemsettingsview_LIB_SRCS})
 generate_export_header(systemsettingsview)
 
 target_link_libraries(systemsettingsview
-    KF5::ItemViews
-    KF5::KCMUtils
-    KF5::I18n
-    KF5::KIOWidgets
-    KF5::Service
-    KF5::IconThemes
-    KF5::Activities
-    KF5::AuthCore
-    KF5::AuthWidgets
-    KF5::Kirigami2
+    KF6::ItemViews
+    KF6::KCMUtils
+    KF6::I18n
+    KF6::KIOWidgets
+    KF6::Service
+    KF6::IconThemes
+    KF6::Activities
+    KF6::AuthCore
+    KF6::AuthWidgets
+    KF6::Kirigami2
 )
 
 set_target_properties(systemsettingsview PROPERTIES SOVERSION 3)

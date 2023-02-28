@@ -19,19 +19,19 @@ target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_V
 
 target_link_libraries(systemsettings
     systemsettingsview
-    KF5::Crash
-    KF5::ItemViews
-    KF5::ItemModels
-    KF5::KCMUtils
-    KF5::I18n
-    KF5::IconThemes
-    KF5::KIOWidgets
-    KF5::Service
-    KF5::WindowSystem
-    KF5::XmlGui
-    KF5::DBusAddons
-    KF5::ConfigGui
-    KF5::GuiAddons # UrlHanlder handles help:/ urls
+    KF6::Crash
+    KF6::ItemViews
+    KF6::ItemModels
+    KF6::KCMUtils
+    KF6::I18n
+    KF6::IconThemes
+    KF6::KIOWidgets
+    KF6::Service
+    KF6::WindowSystem
+    KF6::XmlGui
+    KF6::DBusAddons
+    KF6::ConfigGui
+    KF6::GuiAddons # UrlHanlder handles help:/ urls
     PW::KWorkspace
 )
 
