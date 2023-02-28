@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) 2009, बेन कूक्सली"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -206,12 +206,12 @@ msgstr "%1 पुन्हा प्रक्षेपण करा"
 msgid "Dialog"
 msgstr "संवाद"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "आता केलेले सर्व बदल काढून टाकून पूर्वीची मूल्ये पुन्हस्थापित करा"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -220,7 +220,7 @@ msgstr ""
 "सध्याच्या विभागाच्या संयोजनेत बदल केले गेले आहेत.\n"
 "तुम्हाला बदल साठवायचे आहेत का वगळायचे आहेत?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "संयोजना साठवा"
@@ -257,7 +257,7 @@ msgstr "कळफलक शॉर्टकट : %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

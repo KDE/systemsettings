@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2023-01-13 08:54+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -45,7 +45,7 @@ msgstr "Ikhtisar informasi sistem yang terpusat dan serasi."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -201,12 +201,12 @@ msgstr "Luncurkan Ulang %1"
 msgid "Dialog"
 msgstr "Dialog"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Set ulang semua perubahan saat ini ke nilai sebelumnya"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -215,7 +215,7 @@ msgstr ""
 "Pengesetan dari modul saat ini telah berubah.\n"
 "Anda ingin menerapkan perubahan atau mengabaikannya?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Terapkan Pengaturan"
@@ -252,7 +252,7 @@ msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Temukan modul pengaturan sistem dengan nama atau deskripsi yang cocok :q:"
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
 msgstr "Informasi Sistem"

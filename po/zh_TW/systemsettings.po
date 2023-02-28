@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2023-02-18 00:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -48,7 +48,7 @@ msgstr "集中且便利的系統資訊一覽"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -201,12 +201,12 @@ msgstr "重新啟動 %1"
 msgid "Dialog"
 msgstr "對話框"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "重置所有目前的變更回復之前的值"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -215,7 +215,7 @@ msgstr ""
 "目前模組已被變更。\n"
 "您要套用還是要丟棄這些變更？"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "套用設定"
@@ -251,7 +251,7 @@ msgstr "鍵盤捷徑：%1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "搜尋標題或描述符合 :q: 的系統設定模組"
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
 msgstr "系統資訊"

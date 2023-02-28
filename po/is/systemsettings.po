@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -48,7 +48,7 @@ msgstr "Miðlægt og þægilegt yfirlit yfir kerfisupplýsingar."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -204,12 +204,12 @@ msgstr "Endurræsa %1"
 msgid "Dialog"
 msgstr "Svargluggi"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Endurstilla allar breytingar á fyrri gildi"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -218,7 +218,7 @@ msgstr ""
 "Stillingar í þessari einingu hafa breyst.\n"
 "Viltu virkja þær eða farga þeim?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Virkja stillingar"
@@ -254,7 +254,7 @@ msgstr "Flýtilyklasamsetning: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Finnur stillingaeiningar kerfis þar sem heiti eða lýsing samsvara :q:"
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
 msgstr "Kerfisupplýsingar"

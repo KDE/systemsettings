@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "Phần tổng quan tập trung và tiện lợi về thông tin hệ th�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -198,12 +198,12 @@ msgstr "Khởi chạy lại %1"
 msgid "Dialog"
 msgstr "Hộp thoại"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Đặt lại tất cả các thay đổi hiện tại về giá trị trước"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -212,7 +212,7 @@ msgstr ""
 "Thiết lập cho khối hiện tại đã thay đổi.\n"
 "Bạn muốn áp dụng hay loại bỏ các thay đổi?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Áp dụng thiết lập"
@@ -249,7 +249,7 @@ msgstr "Phím tắt: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Tìm các khối thiết lập hệ thống mà tên hoặc mô tả khớp với :q:"
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
 msgstr "Thông tin hệ thống"

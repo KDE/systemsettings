@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2023-01-03 15:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr "Централізований та зручний огляд усіх �
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© Ben Cooksley, 2009"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -204,12 +204,12 @@ msgstr "Перезапустити %1"
 msgid "Dialog"
 msgstr "Діалогове вікно"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Повернути всім параметрам попередні значення"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -218,7 +218,7 @@ msgstr ""
 "Параметри активного модуля було змінено.\n"
 "Застосувати зміни чи відкинути їх?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Застосувати параметри"
@@ -255,7 +255,7 @@ msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Шукає модулі «Системних параметрів», у назві або описі яких міститься :q:"
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
 msgstr "Дані щодо системи"

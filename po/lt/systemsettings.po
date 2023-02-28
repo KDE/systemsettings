@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2022-11-16 22:43+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr "Patogi ir centralizuota sistemos informacijos apžvalga."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -204,12 +204,12 @@ msgstr "Paleisti %1 iš naujo"
 msgid "Dialog"
 msgstr "Dialogas"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Atstatyti visus dabartinius pakeitimus į ankstesnes reikšmes"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -218,7 +218,7 @@ msgstr ""
 "Šio modulio nuostatos pasikeitė.\n"
 "Ar norite šiuos pakeitimus taikyti, ar juos atmesti?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Pritaikyti nuostatas"
@@ -255,7 +255,7 @@ msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Randa sistemos nuostatų modulius, kurių pavadinimai ar aprašai atitinka :q:"
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
 msgstr "Sistemos informacija"

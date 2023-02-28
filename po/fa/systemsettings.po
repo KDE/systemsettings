@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 01:03+0000\n"
+"POT-Creation-Date: 2023-02-28 01:01+0000\n"
 "PO-Revision-Date: 2015-08-28 11:08+0430\n"
 "Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:189
+#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -200,12 +200,12 @@ msgstr ""
 msgid "Dialog"
 msgstr "محاوره"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "بازگرداندن تنظیمات جاری به مقادیر قبلی"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -214,7 +214,7 @@ msgstr ""
 "تنظیمات ماژول فعلی تغییر پیدا کرده.\n"
 "آیا می‌خواهید تغییرات را اعمال کنید یا دور بریزید؟"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "اعمال تنظیمات"
@@ -251,7 +251,7 @@ msgstr "میانبر صفحه‌کلید: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:187
+#: runner/systemsettingsrunner.cpp:173
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"
