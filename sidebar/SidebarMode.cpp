@@ -75,7 +75,7 @@ QString SubcategoryModel::title() const
     MenuItem *mi = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
 
     if (!mi) {
-        return QString();
+        return {};
     }
 
     return mi->name();
@@ -279,7 +279,7 @@ QString SidebarMode::actionIconName(const QString &name) const
         return a->icon().name();
     }
 
-    return QString();
+    return {};
 }
 
 void SidebarMode::showActionMenu(const QPoint &position)

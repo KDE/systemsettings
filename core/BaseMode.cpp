@@ -166,7 +166,7 @@ KConfigGroup &BaseMode::config() const
 
 QList<QAbstractItemView *> BaseMode::views() const
 {
-    return QList<QAbstractItemView *>();
+    return {};
 }
 
 bool BaseMode::defaultsIndicatorsVisible() const

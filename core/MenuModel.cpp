@@ -67,7 +67,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
 {
     QVariant theData;
     if (!index.isValid()) {
-        return QVariant();
+        return {};
     }
 
     auto mi = static_cast<MenuItem *>(index.internalPointer());
@@ -162,7 +162,7 @@ Qt::ItemFlags MenuModel::flags(const QModelIndex &index) const
 QModelIndex MenuModel::index(int row, int column, const QModelIndex &parent) const
 {
     if (!hasIndex(row, column, parent)) {
-        return QModelIndex();
+        return {};
     }
 
     MenuItem *parentItem;
@@ -176,7 +176,7 @@ QModelIndex MenuModel::index(int row, int column, const QModelIndex &parent) con
     if (childItem) {
         return createIndex(row, column, childItem);
     } else {
-        return QModelIndex();
+        return {};
     }
 }
 
@@ -184,7 +184,7 @@ QModelIndex MenuModel::parent(const QModelIndex &index) const
 {
     MenuItem *childItem = static_cast<MenuItem *>(index.internalPointer());
     if (!childItem) {
-        return QModelIndex();
+        return {};
     }
 
     MenuItem *parent = parentItem(childItem);
@@ -196,7 +196,7 @@ QModelIndex MenuModel::parent(const QModelIndex &index) const
     }
 
     if (parent == d->rootItem) {
-        return QModelIndex();
+        return {};
     }
     return createIndex(childRow, 0, parent);
 }
@@ -227,13 +227,13 @@ QModelIndex MenuModel::indexForItem(MenuItem *item) const
     MenuItem *parent = parentItem(item);
 
     if (!parent) {
-        return QModelIndex();
+        return {};
     }
 
     const int row = childrenList(parent).indexOf(item);
 
     if (row < 0) {
-        return QModelIndex();
+        return {};
     }
 
     return createIndex(row, 0, item);
