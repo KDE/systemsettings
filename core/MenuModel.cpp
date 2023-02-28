@@ -182,7 +182,7 @@ QModelIndex MenuModel::index(int row, int column, const QModelIndex &parent) con
 
 QModelIndex MenuModel::parent(const QModelIndex &index) const
 {
-    MenuItem *childItem = static_cast<MenuItem *>(index.internalPointer());
+    auto childItem = static_cast<MenuItem *>(index.internalPointer());
     if (!childItem) {
         return {};
     }

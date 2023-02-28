@@ -72,7 +72,7 @@ SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, SidebarMode 
 
 QString SubcategoryModel::title() const
 {
-    MenuItem *mi = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
+    auto const *mi = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
 
     if (!mi) {
         return {};
@@ -102,7 +102,7 @@ void SubcategoryModel::setParentIndex(const QModelIndex &activeModule)
 
 void SubcategoryModel::loadParentCategoryModule()
 {
-    MenuItem *menuItem = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
+    auto menuItem = m_activeModuleIndex.data(MenuModel::MenuItemRole).value<MenuItem *>();
     if (menuItem->isLibrary()) {
         m_sidebarMode->loadModule(m_activeModuleIndex);
     }
@@ -284,7 +284,7 @@ QString SidebarMode::actionIconName(const QString &name) const
 
 void SidebarMode::showActionMenu(const QPoint &position)
 {
-    QMenu *menu = new QMenu();
+    auto menu = new QMenu();
     connect(menu, &QMenu::aboutToHide, this, [this]() {
         d->setActionMenuVisible(this, false);
     });
@@ -317,7 +317,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
         return;
     }
 
-    MenuItem *mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
+    auto mi = activeModule.data(MenuModel::MenuItemRole).value<MenuItem *>();
 
     if (!mi) {
         return;
@@ -402,7 +402,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
         // search the corresponding item on the main model
         for (int i = 0; i < d->flatModel->rowCount(); ++i) {
             QModelIndex idx = d->flatModel->index(i, 0);
-            MenuItem *otherMi = idx.data(MenuModel::MenuItemRole).value<MenuItem *>();
+            auto otherMi = idx.data(MenuModel::MenuItemRole).value<MenuItem *>();
 
             if (mi->metaData().isValid() && otherMi->metaData() == mi->metaData()) {
                 flatIndex = idx;
@@ -413,7 +413,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
         if (flatIndex.isValid()) {
             QModelIndex idx = d->categorizedModel->mapFromSource(d->flatModel->mapToSource(flatIndex));
 
-            MenuItem *parentMi = idx.parent().data(MenuModel::MenuItemRole).value<MenuItem *>();
+            auto parentMi = idx.parent().data(MenuModel::MenuItemRole).value<MenuItem *>();
 
             if (idx.isValid()) {
                 if (parentMi && parentMi->menu()) {

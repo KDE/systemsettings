@@ -68,7 +68,7 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
     if (!m_filterHighlightsEntries) {
         // Don't show empty categories
         QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
-        MenuItem *mItem = index.data(Qt::UserRole).value<MenuItem *>();
+        auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
         if (mItem->menu() && mItem->children().isEmpty()) {
             return false;
         }
@@ -80,7 +80,7 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
     }
 
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
-    MenuItem *mItem = index.data(Qt::UserRole).value<MenuItem *>();
+    auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
 
     if (mItem->metaData().pluginId() == QLatin1String("kcm_landingpage")) {
         return false;
