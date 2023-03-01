@@ -21,7 +21,7 @@ Kirigami.BasicListItem {
     }
     leadingPadding: 0
 
-    icon: model.iconName
+    icon.name: model.iconName
     text: model.display
     Accessible.name: model.display
     Accessible.onPressAction: clicked()
