@@ -65,13 +65,12 @@ int MenuModel::rowCount(const QModelIndex &parent) const
 
 QVariant MenuModel::data(const QModelIndex &index, int role) const
 {
-    MenuItem *mi = nullptr;
     QVariant theData;
     if (!index.isValid()) {
         return QVariant();
     }
 
-    mi = static_cast<MenuItem *>(index.internalPointer());
+    auto mi = static_cast<MenuItem *>(index.internalPointer());
     switch (role) {
     case Qt::DisplayRole:
         theData.setValue(mi->name());
