@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 01:01+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "phu.nguyen@kdemail.net,herophuong93@gmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:66
+#: app/main.cpp:61 app/SettingsBase.cpp:65
 #, kde-format
 msgid "Info Center"
 msgstr "Trung tâm thông tin"
@@ -43,7 +43,7 @@ msgstr "Phần tổng quan tập trung và tiện lợi về thông tin hệ th�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:72 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -54,7 +54,7 @@ msgstr "Thiết lập hệ thống"
 msgid "Central configuration center by KDE."
 msgstr "Trung tâm cấu hình trung ương, do KDE."
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -64,12 +64,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Bảo trì viên"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Developer"
 msgstr "Nhà phát triển"
@@ -109,38 +109,38 @@ msgstr "Hiện có các khối sau:"
 msgid "No description available"
 msgstr "Không có mô tả"
 
-#: app/SettingsBase.cpp:60
+#: app/SettingsBase.cpp:59
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: app/SettingsBase.cpp:157
+#: app/SettingsBase.cpp:156
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "Chuyển sang kiểu xem biểu tượng"
 
-#: app/SettingsBase.cpp:164
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "Chuyển sang kiểu xem thanh bên"
 
-#: app/SettingsBase.cpp:173
+#: app/SettingsBase.cpp:172
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Tô sáng thiết lập bị thay đổi"
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:181
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Báo lỗi về trang hiện tại…"
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:208
 #, kde-format
 msgid "Help"
 msgstr "Trợ giúp"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -149,17 +149,17 @@ msgstr ""
 "Thiết lập hệ thống không thể tìm thấy bất kì khung xem nào, và thế nên không "
 "có gì để hiển thị cả."
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid "No views found"
 msgstr "Không tìm thấy khung xem nào."
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:424
 #, kde-format
 msgid "About Active View"
 msgstr "Về kiểu xem đang dùng"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:495
 #, kde-format
 msgid "About %1"
 msgstr "Về %1"
@@ -198,12 +198,12 @@ msgstr "Khởi chạy lại %1"
 msgid "Dialog"
 msgstr "Hộp thoại"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:172
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Đặt lại tất cả các thay đổi hiện tại về giá trị trước"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:318
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -212,7 +212,7 @@ msgstr ""
 "Thiết lập cho khối hiện tại đã thay đổi.\n"
 "Bạn muốn áp dụng hay loại bỏ các thay đổi?"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:320
 #, kde-format
 msgid "Apply Settings"
 msgstr "Áp dụng thiết lập"
@@ -228,8 +228,8 @@ msgid "Provides a categorized icons view of control modules."
 msgstr ""
 "Cung cấp một khung xem biểu tượng được phân nhóm của các khối điều khiển."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
-#: sidebar/SidebarMode.cpp:172
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Author"
 msgstr "Tác giả"
@@ -275,32 +275,32 @@ msgstr "Hiện trình đơn"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:166
+#: sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Sidebar View"
 msgstr "Kiểu xem thanh bên"
 
-#: sidebar/SidebarMode.cpp:168
+#: sidebar/SidebarMode.cpp:167
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "Cung cấp một thanh bên được phân nhóm cho các khối điều khiển."
 
-#: sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:169
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:651
+#: sidebar/SidebarMode.cpp:650
 #, kde-format
 msgid "Sidebar"
 msgstr "Thanh bên"
 
-#: sidebar/SidebarMode.cpp:722
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr "Dùng nhiều nhất"

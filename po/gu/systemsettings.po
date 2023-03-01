@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 01:01+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2009-05-11 10:56+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sweta2782@yahoo.co.in, kartik.mistry@gmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:66
+#: app/main.cpp:61 app/SettingsBase.cpp:65
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -44,7 +44,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ૨૦૦૯, બેન કુસ્લે"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:72 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -56,7 +56,7 @@ msgstr "સિસ્ટમ ગોઠવણીઓ"
 msgid "Central configuration center by KDE."
 msgstr "KDE માટે કેન્દ્રિય રૂપરેખાંકન કેન્દ્ર"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "બેન કુસ્લે"
@@ -66,12 +66,12 @@ msgstr "બેન કુસ્લે"
 msgid "Maintainer"
 msgstr "જાળવનાર"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "મેથ્થિઆસ સોકેન"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Developer"
 msgstr "ડેવલોપર"
@@ -111,39 +111,39 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:60
+#: app/SettingsBase.cpp:59
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "શોધો"
 
-#: app/SettingsBase.cpp:157
+#: app/SettingsBase.cpp:156
 #, fuzzy, kde-format
 #| msgid "Icon View"
 msgid "Switch to Icon View"
 msgstr "ચિહ્ન દેખાવ"
 
-#: app/SettingsBase.cpp:164
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr ""
 
-#: app/SettingsBase.cpp:173
+#: app/SettingsBase.cpp:172
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:181
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:208
 #, kde-format
 msgid "Help"
 msgstr "મદદ"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -151,17 +151,17 @@ msgid ""
 msgstr ""
 "સિસ્ટમ ગોઠવણીઓ કોઈ દેખાવો શોધવામાં અસક્ષમ છે, અને તેથી કંઈ પણ દર્શાવવા માટે પ્રાપ્ત નથી."
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid "No views found"
 msgstr "કોઇ દેખાવ મળ્યા નહી"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:424
 #, kde-format
 msgid "About Active View"
 msgstr "સક્રિય દેખાવ વિશે"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:495
 #, kde-format
 msgid "About %1"
 msgstr "%1 વિશે"
@@ -203,12 +203,12 @@ msgstr "%1 ફરી શરૂ કરો"
 msgid "Dialog"
 msgstr "સંવાદ"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:172
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "બધા વર્તમાન ફેરફારોને તેની પાછલી કિંમતો પર લઈ જાવ"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:318
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -217,7 +217,7 @@ msgstr ""
 "સક્રિય મોડ્યુલની ગોઠવણીઓ બદલાયેલ છે.\n"
 "શુ તમે ફેરફારો લાગુ અથવા રદ કરવા માંગો છો?"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:320
 #, kde-format
 msgid "Apply Settings"
 msgstr "ગોઠવણીઓ લાગુ પાડો"
@@ -232,8 +232,8 @@ msgstr "ચિહ્ન દેખાવ"
 msgid "Provides a categorized icons view of control modules."
 msgstr "નિયંત્રણ મોડ્યુલોનો વર્ગીકૃત ચિહ્ન દેખાવ પૂરો પાડે છે."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
-#: sidebar/SidebarMode.cpp:172
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Author"
 msgstr "લેખક"
@@ -281,33 +281,33 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:166
+#: sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:168
+#: sidebar/SidebarMode.cpp:167
 #, fuzzy, kde-format
 #| msgid "Provides a categorized icons view of control modules."
 msgid "Provides a categorized sidebar for control modules."
 msgstr "નિયંત્રણ મોડ્યુલોનો વર્ગીકૃત ચિહ્ન દેખાવ પૂરો પાડે છે."
 
-#: sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:169
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:651
+#: sidebar/SidebarMode.cpp:650
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:722
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr ""

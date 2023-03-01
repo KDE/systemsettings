@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 01:01+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 "sandeep.shedmake@gmail.com, \n"
 "chetan@kompkin.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:66
+#: app/main.cpp:61 app/SettingsBase.cpp:65
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -48,7 +48,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) 2009, बेन कूक्सली"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:72 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -60,7 +60,7 @@ msgstr "प्रणाली संयोजना"
 msgid "Central configuration center by KDE."
 msgstr "केडीई करिता केंद्रीय संयोजना कार्यक्रम"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "बेन कूक्सली"
@@ -70,12 +70,12 @@ msgstr "बेन कूक्सली"
 msgid "Maintainer"
 msgstr "नियंत्रक"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "माथिआस सोकेन"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Developer"
 msgstr "विकासकर्ता"
@@ -115,56 +115,56 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:60
+#: app/SettingsBase.cpp:59
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "शोध"
 
-#: app/SettingsBase.cpp:157
+#: app/SettingsBase.cpp:156
 #, fuzzy, kde-format
 #| msgid "Icon View"
 msgid "Switch to Icon View"
 msgstr "चिन्ह दृश्य"
 
-#: app/SettingsBase.cpp:164
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr ""
 
-#: app/SettingsBase.cpp:173
+#: app/SettingsBase.cpp:172
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:181
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:208
 #, kde-format
 msgid "Help"
 msgstr "मदत"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "प्रणाली संयोजना कोणतेही दृश्य शोधू शकत नाही व त्यामुळे दर्शविण्याकरिता काही नाही."
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid "No views found"
 msgstr "एकही दृश्य सापडले नाही"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:424
 #, kde-format
 msgid "About Active View"
 msgstr "कार्यशील दृश्या बद्दल"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:495
 #, kde-format
 msgid "About %1"
 msgstr "%1 विषयी"
@@ -206,12 +206,12 @@ msgstr "%1 पुन्हा प्रक्षेपण करा"
 msgid "Dialog"
 msgstr "संवाद"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:172
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "आता केलेले सर्व बदल काढून टाकून पूर्वीची मूल्ये पुन्हस्थापित करा"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:318
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -220,7 +220,7 @@ msgstr ""
 "सध्याच्या विभागाच्या संयोजनेत बदल केले गेले आहेत.\n"
 "तुम्हाला बदल साठवायचे आहेत का वगळायचे आहेत?"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:320
 #, kde-format
 msgid "Apply Settings"
 msgstr "संयोजना साठवा"
@@ -235,8 +235,8 @@ msgstr "चिन्ह दृश्य"
 msgid "Provides a categorized icons view of control modules."
 msgstr "नियंत्रण कक्ष विभागवार चिन्हांच्या रुपात दर्शवितो."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
-#: sidebar/SidebarMode.cpp:172
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Author"
 msgstr "लेखक"
@@ -284,33 +284,33 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:166
+#: sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:168
+#: sidebar/SidebarMode.cpp:167
 #, fuzzy, kde-format
 #| msgid "Provides a categorized icons view of control modules."
 msgid "Provides a categorized sidebar for control modules."
 msgstr "नियंत्रण कक्ष विभागवार चिन्हांच्या रुपात दर्शवितो."
 
-#: sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:169
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:651
+#: sidebar/SidebarMode.cpp:650
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:722
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr ""

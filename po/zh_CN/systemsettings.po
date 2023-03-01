@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 01:01+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2023-02-24 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:66
+#: app/main.cpp:61 app/SettingsBase.cpp:65
 #, kde-format
 msgid "Info Center"
 msgstr "系统信息中心"
@@ -42,7 +42,7 @@ msgstr "系统信息总览。"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:69 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:72 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -53,7 +53,7 @@ msgstr "系统设置"
 msgid "Central configuration center by KDE."
 msgstr "KDE 的配置中心。"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -63,12 +63,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "项目负责人"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
+#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Developer"
 msgstr "开发人员"
@@ -108,55 +108,55 @@ msgstr "下列模块可用："
 msgid "No description available"
 msgstr "无可用描述"
 
-#: app/SettingsBase.cpp:60
+#: app/SettingsBase.cpp:59
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "搜索"
 
-#: app/SettingsBase.cpp:157
+#: app/SettingsBase.cpp:156
 #, kde-format
 msgid "Switch to Icon View"
 msgstr "切换到图标视图"
 
-#: app/SettingsBase.cpp:164
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Switch to Sidebar View"
 msgstr "切换到侧栏视图"
 
-#: app/SettingsBase.cpp:173
+#: app/SettingsBase.cpp:172
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "高亮显示更改过的设置"
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:181
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面中的程序缺陷…"
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:208
 #, kde-format
 msgid "Help"
 msgstr "帮助"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:365
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "系统设置无法找到任何视图模式，因此无法进行显示。"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:366
 #, kde-format
 msgid "No views found"
 msgstr "未找到视图"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:424
 #, kde-format
 msgid "About Active View"
 msgstr "关于活动的视图"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:495
 #, kde-format
 msgid "About %1"
 msgstr "关于 %1"
@@ -195,12 +195,12 @@ msgstr "重新打开%1"
 msgid "Dialog"
 msgstr "对话框"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:172
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "重置所有当前更改为之前的值"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:318
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,7 +209,7 @@ msgstr ""
 "当前模块的设置已经更改。\n"
 "您想要应用更改还是丢弃更改？"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:320
 #, kde-format
 msgid "Apply Settings"
 msgstr "应用设置"
@@ -224,8 +224,8 @@ msgstr "图标视图"
 msgid "Provides a categorized icons view of control modules."
 msgstr "以分类图标视图来显示控制模块。"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
-#: sidebar/SidebarMode.cpp:172
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Author"
 msgstr "开发人员"
@@ -271,32 +271,32 @@ msgstr "显示菜单"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: sidebar/SidebarMode.cpp:166
+#: sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Sidebar View"
 msgstr "侧栏视图"
 
-#: sidebar/SidebarMode.cpp:168
+#: sidebar/SidebarMode.cpp:167
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "以带分类的侧栏来显示控制模块。"
 
-#: sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:169
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Marco Martin"
 
-#: sidebar/SidebarMode.cpp:171
+#: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: sidebar/SidebarMode.cpp:651
+#: sidebar/SidebarMode.cpp:650
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: sidebar/SidebarMode.cpp:722
+#: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
