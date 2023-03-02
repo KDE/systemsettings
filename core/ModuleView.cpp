@@ -12,11 +12,9 @@
 #include <QDesktopServices>
 #include <QDialogButtonBox>
 #include <QKeyEvent>
-#include <QList>
 #include <QLoggingCategory>
 #include <QMap>
 #include <QPainter>
-#include <QProcess>
 #include <QPushButton>
 #include <QScrollArea>
 #include <QStyle>
@@ -50,6 +48,7 @@ public:
     explicit CustomTitle(QWidget *parent = nullptr);
 
 protected:
+    bool event(QEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
     void colorsChanged();
 };
@@ -67,7 +66,14 @@ CustomTitle::CustomTitle(QWidget *parent)
                        style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
 
     colorsChanged();
-    connect(qApp, &QApplication::paletteChanged, this, &CustomTitle::colorsChanged);
+}
+
+bool CustomTitle::event(QEvent *event)
+{
+    if (event->type() == QEvent::ApplicationPaletteChange || event->type() == QEvent::PaletteChange) {
+        this->colorsChanged();
+    }
+    return QWidget::event(event);
 }
 
 void CustomTitle::colorsChanged()
