@@ -368,9 +368,6 @@ void SettingsBase::changePlugin()
         return; // Halt now!
     }
 
-    // Don't let the user wait for nothing until the QML component is loaded.
-    show();
-
     if (activeView) {
         activeView->saveState();
         activeView->leaveModuleView();
@@ -438,6 +435,8 @@ void SettingsBase::changePlugin()
         reportPageSpecificBugAction->setVisible(!moduleView->activeModuleMetadata().bugReportUrl().isEmpty());
         reportGeneralBugAction->setVisible(!reportPageSpecificBugAction->isVisible());
     });
+
+    show();
 }
 
 void SettingsBase::viewChange(bool state)
