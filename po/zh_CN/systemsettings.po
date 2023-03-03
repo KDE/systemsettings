@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-03 02:18+0000\n"
 "PO-Revision-Date: 2023-02-24 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -151,12 +151,12 @@ msgstr "系统设置无法找到任何视图模式，因此无法进行显示。
 msgid "No views found"
 msgstr "未找到视图"
 
-#: app/SettingsBase.cpp:424
+#: app/SettingsBase.cpp:421
 #, kde-format
 msgid "About Active View"
 msgstr "关于活动的视图"
 
-#: app/SettingsBase.cpp:495
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "关于 %1"

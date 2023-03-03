@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-03 02:18+0000\n"
 "PO-Revision-Date: 2023-01-22 17:02+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -153,12 +153,12 @@ msgstr "Nepodarilo sa nájsť žiadne zobrazenie, a preto nie je čo zobraziť."
 msgid "No views found"
 msgstr "Nenájdené žiadne zobrazenie"
 
-#: app/SettingsBase.cpp:424
+#: app/SettingsBase.cpp:421
 #, kde-format
 msgid "About Active View"
 msgstr "O aktívnom zobrazení"
 
-#: app/SettingsBase.cpp:495
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "O %1"

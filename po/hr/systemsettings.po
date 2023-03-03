@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-03 02:18+0000\n"
 "PO-Revision-Date: 2011-07-06 22:09+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -162,12 +162,12 @@ msgstr ""
 msgid "No views found"
 msgstr "Prikazi nisu pronađeni"
 
-#: app/SettingsBase.cpp:424
+#: app/SettingsBase.cpp:421
 #, kde-format
 msgid "About Active View"
 msgstr "O aktivnom prikazu"
 
-#: app/SettingsBase.cpp:495
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "O %1"

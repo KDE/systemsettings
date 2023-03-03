@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-03 02:18+0000\n"
 "PO-Revision-Date: 2023-02-18 00:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -157,12 +157,12 @@ msgstr "系統設定無法找到任何檢視，因此無法顯示任何項目。
 msgid "No views found"
 msgstr "找不到檢視"
 
-#: app/SettingsBase.cpp:424
+#: app/SettingsBase.cpp:421
 #, kde-format
 msgid "About Active View"
 msgstr "關於啟動的模組"
 
-#: app/SettingsBase.cpp:495
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr "關於 %1"

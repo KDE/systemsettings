@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-03 02:18+0000\n"
 "PO-Revision-Date: 2009-01-27 13:48+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -155,13 +155,13 @@ msgstr ""
 msgid "No views found"
 msgstr ""
 
-#: app/SettingsBase.cpp:424
+#: app/SettingsBase.cpp:421
 #, fuzzy, kde-format
 #| msgid "About Current Module"
 msgid "About Active View"
 msgstr "अभी हाल के माड्यूल के बारे में"
 
-#: app/SettingsBase.cpp:495
+#: app/SettingsBase.cpp:494
 #, fuzzy, kde-format
 #| msgctxt "Help menu->about <modulename>"
 #| msgid "About %1"

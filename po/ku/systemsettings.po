@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-03 02:18+0000\n"
 "PO-Revision-Date: 2008-12-23 02:09+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <ubuntu-l10n-kur@lists.ubuntu.com>\n"
@@ -154,13 +154,13 @@ msgstr ""
 msgid "No views found"
 msgstr ""
 
-#: app/SettingsBase.cpp:424
+#: app/SettingsBase.cpp:421
 #, fuzzy, kde-format
 #| msgid "About Current Module"
 msgid "About Active View"
 msgstr "Di Derbarê Modula Derbasdar de"
 
-#: app/SettingsBase.cpp:495
+#: app/SettingsBase.cpp:494
 #, kde-format
 msgid "About %1"
 msgstr ""
