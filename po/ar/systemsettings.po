@@ -56,7 +56,7 @@ msgstr "إعدادات النّظام"
 #: app/main.cpp:74
 #, kde-format
 msgid "Central configuration center by KDE."
-msgstr "المركز الرّئيسيّ لضبط كدي."
+msgstr "المركز الرّئيسيّ لضبط كِيدِي."
 
 #: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
