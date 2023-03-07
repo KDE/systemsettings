@@ -431,11 +431,15 @@ void SettingsBase::changePlugin()
     // Update visibility of the "report a bug on this page" and "report bug in general"
     // actions based on whether the current page has a bug report URL set
     auto reportGeneralBugAction = actionCollection()->action(QStringLiteral("help_report_bug"));
-    reportGeneralBugAction->setVisible(false);
+    if (reportGeneralBugAction) {
+        reportGeneralBugAction->setVisible(false);
+    }
     auto moduleView = activeView->moduleView();
     connect(moduleView, &ModuleView::moduleChanged, this, [=] {
         reportPageSpecificBugAction->setVisible(!moduleView->activeModuleMetadata().bugReportUrl().isEmpty());
-        reportGeneralBugAction->setVisible(!reportPageSpecificBugAction->isVisible());
+        if (reportGeneralBugAction) {
+            reportGeneralBugAction->setVisible(!reportPageSpecificBugAction->isVisible());
+        }
     });
 
     show();
