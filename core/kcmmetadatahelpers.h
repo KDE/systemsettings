@@ -102,27 +102,13 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 inline bool isKinfoCenterKcm(const KPluginMetaData &data)
 {
     // external module or a KCM in the namespace
-    if (data.fileName().contains(QLatin1String("/kinfocenter/"))) {
-        return true;
-    }
-    return false;
+    return data.fileName().contains(QLatin1String("/kinfocenter/"));
 }
 
 inline KCModuleData *loadModuleData(const KPluginMetaData &data)
 {
-    if (!data.isValid()) {
-        return nullptr;
+    if (auto factory = KPluginFactory::loadFactory(data).plugin) {
+        return factory->create<KCModuleData>();
     }
-    KCModuleData *moduleData = nullptr;
-    auto loadFromMetaData = [&moduleData](const KPluginMetaData &data) {
-        if (data.isValid()) {
-            auto factory = KPluginFactory::loadFactory(data).plugin;
-            moduleData = factory ? factory->create<KCModuleData>() : nullptr;
-        }
-    };
-    loadFromMetaData(data);
-    if (!moduleData) {
-        loadFromMetaData(KPluginMetaData(QStringLiteral("kcms/") + data.fileName()));
-    }
-    return moduleData;
+    return nullptr;
 }
