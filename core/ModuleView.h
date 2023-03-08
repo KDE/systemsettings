@@ -123,7 +123,7 @@ public:
     qreal headerHeight() const;
     void setHeaderHeight(qreal height);
 
-    void setActiveModule(const QString &moduleName);
+    void setActiveModule(const QString &pluginId);
 
     /**
      * The active module's KPluginMetaData.

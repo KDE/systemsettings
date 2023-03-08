@@ -174,7 +174,7 @@ void IconMode::changeModuleWithArgs(const QModelIndex &activeModule, const QStri
 
     auto item = activeModule.data(Qt::UserRole).value<MenuItem *>();
     if (item) {
-        d->moduleView->setActiveModule(item->name());
+        d->moduleView->setActiveModule(item->metaData().pluginId());
     }
 }
 

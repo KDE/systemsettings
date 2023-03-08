@@ -234,7 +234,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         return;
     }
 
-    if (KPageWidgetItem *page = d->mPagesPluginIdMap.key(data.name())) {
+    if (KPageWidgetItem *page = d->mPagesPluginIdMap.key(data.pluginId())) {
         activeModuleChanged(page, d->mPageWidget->currentPage());
         return;
     }
@@ -246,7 +246,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
     // Create the page
-    auto page = new KPageWidgetItem(moduleScroll, data.name());
+    auto page = new KPageWidgetItem(moduleScroll, data.pluginId());
     // Provide information to the users
 
     if (item->isExternalAppModule()) {
@@ -262,7 +262,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         d->mPages.insert(page, kcm);
     }
 
-    d->mPagesPluginIdMap.insert(page, data.name());
+    d->mPagesPluginIdMap.insert(page, data.pluginId());
     updatePageIconHeader(page);
     // Add the new page
     d->mPageWidget->addPage(page);
@@ -579,11 +579,11 @@ qreal ModuleView::headerHeight() const
     return d->mCustomHeader->minimumHeight();
 }
 
-void ModuleView::setActiveModule(const QString &moduleName)
+void ModuleView::setActiveModule(const QString &pluginId)
 {
     const auto pageList = d->mPagesPluginIdMap.keys();
     for (const auto page : pageList) {
-        if (d->mPagesPluginIdMap.value(page) == moduleName) {
+        if (d->mPagesPluginIdMap.value(page) == pluginId) {
             d->mPageWidget->setCurrentPage(page);
             break;
         }
