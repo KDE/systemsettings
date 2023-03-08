@@ -14,7 +14,7 @@
 
 #include "systemsettingsview_export.h"
 
-class KCModuleProxy;
+class KCModule;
 class KPageWidgetItem;
 class KPluginMetaData;
 class MenuItem;
@@ -165,9 +165,9 @@ public Q_SLOTS:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    bool resolveChanges(KCModuleProxy *currentProxy);
+    bool resolveChanges(KCModule *currentProxy);
     void addModule(MenuItem *item, const QStringList &args);
-    bool moduleSave(KCModuleProxy *module);
+    bool moduleSave(KCModule *module);
     void updatePageIconHeader(KPageWidgetItem *page);
     void updateButtons();
 

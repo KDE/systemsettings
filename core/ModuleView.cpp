@@ -27,7 +27,8 @@
 #include <KAuth/Action>
 #include <KAuth/ObjectDecorator>
 #include <KAuthorized>
-#include <KCModuleProxy>
+#include <KCModule>
+#include <KCModuleLoader>
 #include <KColorScheme>
 #include <KMessageBox>
 #include <KPageWidget>
@@ -113,7 +114,7 @@ public:
     Private()
     {
     }
-    QMap<KPageWidgetItem *, KCModuleProxy *> mPages;
+    QMap<KPageWidgetItem *, KCModule *> mPages;
     QMap<KPageWidgetItem *, QString> mPagesPluginIdMap;
     KPageWidget *mPageWidget = nullptr;
     CustomTitle *mCustomHeader = nullptr;
@@ -254,11 +255,11 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
         page->setName(QString());
     } else { // It must be a normal module then
-        auto moduleProxy = new KCModuleProxy(data, moduleScroll, args);
-        moduleScroll->setWidget(moduleProxy);
-        moduleProxy->setAutoFillBackground(false);
-        connect(moduleProxy, &KCModuleProxy::changed, this, &ModuleView::stateChanged);
-        d->mPages.insert(page, moduleProxy);
+        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariant::fromValue(args).toList());
+        moduleScroll->setWidget(kcm->widget());
+        kcm->widget()->setAutoFillBackground(false);
+        connect(kcm, &KCModule::needsSaveChanged, this, &ModuleView::stateChanged);
+        d->mPages.insert(page, kcm);
     }
 
     d->mPagesPluginIdMap.insert(page, data.name());
@@ -274,17 +275,17 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
         return;
     }
 
-    KCModuleProxy *moduleProxy = d->mPages.value(page);
-    if (!moduleProxy || !moduleProxy->metaData().isValid()) {
+    KCModule *kcm = d->mPages.value(page);
+    if (!kcm || !kcm->metaData().isValid()) {
         // Seems like we have some form of a race condition going on here...
         return;
     }
 
-    const QString moduleName = moduleProxy->metaData().name();
+    const QString moduleName = kcm->metaData().name();
     page->setHeader(moduleName);
-    page->setIcon(QIcon::fromTheme(moduleProxy->metaData().iconName()));
+    page->setIcon(QIcon::fromTheme(kcm->metaData().iconName()));
 
-    const bool isQml = moduleProxy->realModule() && moduleProxy->realModule()->inherits("KCModuleQml");
+    const bool isQml = kcm->inherits("KCModuleQml");
     const bool isSidebar = faceType() == KPageView::Plain;
 
     // Use the module's header only for QWidgets KCMs on Icons mode
@@ -303,13 +304,13 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
 
 bool ModuleView::resolveChanges()
 {
-    KCModuleProxy *currentProxy = d->mPages.value(d->mPageWidget->currentPage());
-    return resolveChanges(currentProxy);
+    KCModule *kcm = d->mPages.value(d->mPageWidget->currentPage());
+    return resolveChanges(kcm);
 }
 
-bool ModuleView::resolveChanges(KCModuleProxy *currentProxy)
+bool ModuleView::resolveChanges(KCModule *kcm)
 {
-    if (!currentProxy || !currentProxy->isChanged()) {
+    if (!kcm || !kcm->needsSave()) {
         return true;
     }
 
@@ -324,9 +325,9 @@ bool ModuleView::resolveChanges(KCModuleProxy *currentProxy)
 
     switch (queryUser) {
     case KMessageBox::PrimaryAction:
-        return moduleSave(currentProxy);
+        return moduleSave(kcm);
     case KMessageBox::SecondaryAction:
-        currentProxy->load();
+        kcm->load();
         return true;
     case KMessageBox::Cancel:
         return false;
@@ -351,11 +352,11 @@ void ModuleView::closeModules()
 
 bool ModuleView::moduleSave()
 {
-    KCModuleProxy *moduleProxy = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *moduleProxy = d->mPages.value(d->mPageWidget->currentPage());
     return moduleSave(moduleProxy);
 }
 
-bool ModuleView::moduleSave(KCModuleProxy *module)
+bool ModuleView::moduleSave(KCModule *module)
 {
     if (!module) {
         return false;
@@ -368,7 +369,7 @@ bool ModuleView::moduleSave(KCModuleProxy *module)
 
 void ModuleView::moduleLoad()
 {
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (activeModule) {
         activeModule->load();
     }
@@ -376,7 +377,7 @@ void ModuleView::moduleLoad()
 
 void ModuleView::moduleDefaults()
 {
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (activeModule) {
         activeModule->defaults();
     }
@@ -384,7 +385,7 @@ void ModuleView::moduleDefaults()
 
 void ModuleView::moduleHelp()
 {
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (!activeModule) {
         return;
     }
@@ -403,7 +404,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
 {
     d->mPageWidget->blockSignals(true);
     d->mPageWidget->setCurrentPage(previous);
-    KCModuleProxy *previousModule = d->mPages.value(previous);
+    KCModule *previousModule = d->mPages.value(previous);
     if (resolveChanges(previousModule)) {
         d->mPageWidget->setCurrentPage(current);
     }
@@ -415,7 +416,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     // We need to get the state of the now active module
     stateChanged();
 
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (!activeModule) {
         return;
     }
@@ -449,13 +450,13 @@ void ModuleView::stateChanged()
     updatePageIconHeader(d->mPageWidget->currentPage());
     updateButtons();
 
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
-    Q_EMIT moduleChanged(activeModule && activeModule->isChanged());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    Q_EMIT moduleChanged(activeModule && activeModule->needsSave());
 }
 
 void ModuleView::updateButtons()
 {
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     KAuth::Action moduleAction;
     bool change = false;
     bool defaulted = false;
@@ -463,8 +464,8 @@ void ModuleView::updateButtons()
 
     if (activeModule) {
         buttons = activeModule->buttons() & d->mButtonMask;
-        change = activeModule->isChanged();
-        defaulted = activeModule->defaulted();
+        change = activeModule->needsSave();
+        defaulted = activeModule->representsDefaults();
 
         // Do not display Help button if there is no docPath available
         if (activeModule->metaData().value(QStringLiteral("X-DocPath")).isEmpty()) {
@@ -473,12 +474,7 @@ void ModuleView::updateButtons()
 
         disconnect(d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()));
         disconnect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
-        if (activeModule->realModule()->authAction().isValid()) {
-            connect(d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()));
-            moduleAction = activeModule->realModule()->authAction();
-        } else {
-            connect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
-        }
+        connect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
     }
 
     d->mApplyAuthorize->setAuthAction(moduleAction);
@@ -563,7 +559,7 @@ bool ModuleView::isResetVisible() const
 void ModuleView::moduleShowDefaultsIndicators(bool show)
 {
     d->mDefaultsIndicatorsVisible = show;
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (activeModule) {
         activeModule->setDefaultsIndicatorsVisible(show);
     }
@@ -596,7 +592,7 @@ void ModuleView::setActiveModule(const QString &moduleName)
 
 KPluginMetaData ModuleView::activeModuleMetadata() const
 {
-    KCModuleProxy *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
     if (!activeModule) {
         return {};
     }
