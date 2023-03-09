@@ -342,6 +342,8 @@ void ModuleView::closeModules()
     d->pageChangeSupressed = true;
     d->mApplyAuthorize->setAuthAction(KAuth::Action()); // Ensure KAuth knows that authentication is now pointless...
     for (auto page = d->mPagesPluginIdMap.cbegin(); page != d->mPagesPluginIdMap.cend(); ++page) {
+        // Delete the KCM first, because e.g. the KFontInst KCM accesses it's widgets in the destructor
+        delete d->mPages.value(page.key());
         d->mPageWidget->removePage(page.key());
     }
 
