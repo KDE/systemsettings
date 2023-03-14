@@ -174,7 +174,9 @@ void SettingsBase::initToolBar()
     }
 
     reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
-        auto job = new KIO::OpenUrlJob(QUrl(activeView->moduleView()->activeModuleMetadata().bugReportUrl()));
+        const QString bugReportUrlString =
+            activeView->moduleView()->activeModuleMetadata().bugReportUrl() + QStringLiteral("&version=") + QGuiApplication::applicationVersion();
+        auto job = new KIO::OpenUrlJob(QUrl(bugReportUrlString));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
         job->start();
     });
