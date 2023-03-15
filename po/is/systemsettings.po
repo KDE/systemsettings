@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:18+0000\n"
+"POT-Creation-Date: 2023-03-15 02:12+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -135,17 +135,17 @@ msgstr "Skipta í hliðarstikuyfirlit"
 msgid "Highlight Changed Settings"
 msgstr "Áherslulita breyttar stillingar"
 
-#: app/SettingsBase.cpp:181
+#: app/SettingsBase.cpp:183
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Tilkynna um villu á núverandi síðu…"
 
-#: app/SettingsBase.cpp:208
+#: app/SettingsBase.cpp:210
 #, kde-format
 msgid "Help"
 msgstr "Hjálp"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -154,17 +154,17 @@ msgstr ""
 "Kerfisstillingaforritið fann engin yfirlit, og þar með er ekkert sem hægt er "
 "að birta."
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid "No views found"
 msgstr "Engin yfirlit fundust"
 
-#: app/SettingsBase.cpp:421
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "Um virkt yfirlit"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "Um %1"

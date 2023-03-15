@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:18+0000\n"
+"POT-Creation-Date: 2023-03-15 02:12+0000\n"
 "PO-Revision-Date: 2023-03-01 16:00+0100\n"
 "Last-Translator: John Ivar Eriksen <jieriksen@runbox.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -134,17 +134,17 @@ msgstr "Bytt til sidestolpe-visning"
 msgid "Highlight Changed Settings"
 msgstr "Uthev endrede innstillinger"
 
-#: app/SettingsBase.cpp:181
+#: app/SettingsBase.cpp:183
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Rapporter om feil på denne siden…"
 
-#: app/SettingsBase.cpp:208
+#: app/SettingsBase.cpp:210
 #, kde-format
 msgid "Help"
 msgstr "Hjelp"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -153,17 +153,17 @@ msgstr ""
 "Systeminnstillinger klarte ikke å finne noen visning, så det er ingenting å "
 "vise."
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid "No views found"
 msgstr "Fant ingen visninger"
 
-#: app/SettingsBase.cpp:421
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "Om den aktive visninga"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "Om %1"

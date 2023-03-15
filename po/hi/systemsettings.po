@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:18+0000\n"
+"POT-Creation-Date: 2023-03-15 02:12+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -136,17 +136,17 @@ msgstr "बाजूपट्टी दृश्य पर बदलें"
 msgid "Highlight Changed Settings"
 msgstr "परिवर्तित सेटिंग्स को चिन्हांकित करें"
 
-#: app/SettingsBase.cpp:181
+#: app/SettingsBase.cpp:183
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:208
+#: app/SettingsBase.cpp:210
 #, kde-format
 msgid "Help"
 msgstr "सहायता"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -154,17 +154,17 @@ msgid ""
 msgstr ""
 "सिस्टम सेटिंग्स को कोई दृश्य नहीं मिला, और इसलिए प्रदर्शित करने के लिए कुछ भी नहीं है।"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid "No views found"
 msgstr "कोई दृश्य नहीं मिले"
 
-#: app/SettingsBase.cpp:421
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "सक्रिय दृश्य के बारे में"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "%1 के बारे में"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 02:18+0000\n"
+"POT-Creation-Date: 2023-03-15 02:12+0000\n"
 "PO-Revision-Date: 2011-06-22 06:21+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -133,17 +133,17 @@ msgstr ""
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:181
+#: app/SettingsBase.cpp:183
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:208
+#: app/SettingsBase.cpp:210
 #, kde-format
 msgid "Help"
 msgstr "Hülp"
 
-#: app/SettingsBase.cpp:365
+#: app/SettingsBase.cpp:367
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -152,17 +152,17 @@ msgstr ""
 "För de Systeeminstellen laat sik keen Ansichten finnen, un dorüm lett sik ok "
 "nix wiesen."
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid "No views found"
 msgstr "Keen Ansichten funnen"
 
-#: app/SettingsBase.cpp:421
+#: app/SettingsBase.cpp:423
 #, kde-format
 msgid "About Active View"
 msgstr "Vertell wat över de aktive Ansicht"
 
-#: app/SettingsBase.cpp:494
+#: app/SettingsBase.cpp:496
 #, kde-format
 msgid "About %1"
 msgstr "Vertell wat över %1"
