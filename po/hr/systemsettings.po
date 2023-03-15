@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 03:20+0000\n"
+"POT-Creation-Date: 2023-03-15 02:49+0000\n"
 "PO-Revision-Date: 2011-07-06 22:09+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -138,17 +138,17 @@ msgstr ""
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:211
 #, kde-format
 msgid "Help"
 msgstr "Pomoć"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -157,17 +157,17 @@ msgstr ""
 "Postavke sustava nisu u mogućnosti pronaći nijedan prikaz te se stoga nema "
 "što prikazati."
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:369
 #, kde-format
 msgid "No views found"
 msgstr "Prikazi nisu pronađeni"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:427
 #, kde-format
 msgid "About Active View"
 msgstr "O aktivnom prikazu"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:498
 #, kde-format
 msgid "About %1"
 msgstr "O %1"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 03:20+0000\n"
+"POT-Creation-Date: 2023-03-15 02:49+0000\n"
 "PO-Revision-Date: 2023-03-11 04:54\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -129,34 +129,34 @@ msgstr "切换到侧栏视图"
 msgid "Highlight Changed Settings"
 msgstr "高亮显示更改过的设置"
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面中的程序缺陷…"
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:211
 #, kde-format
 msgid "Help"
 msgstr "帮助"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "系统设置无法找到任何视图模式，因此无法进行显示。"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:369
 #, kde-format
 msgid "No views found"
 msgstr "未找到视图"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:427
 #, kde-format
 msgid "About Active View"
 msgstr "关于活动的视图"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:498
 #, kde-format
 msgid "About %1"
 msgstr "关于 %1"

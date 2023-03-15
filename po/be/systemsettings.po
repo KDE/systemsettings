@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 03:20+0000\n"
+"POT-Creation-Date: 2023-03-15 02:49+0000\n"
 "PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -137,34 +137,34 @@ msgstr "Пераключыцца на выгляд бакавой панэлі"
 msgid "Highlight Changed Settings"
 msgstr "Падсвятляць змененыя налады"
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Паведаміць пра хібу на бягучай старонцы…"
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:211
 #, kde-format
 msgid "Help"
 msgstr "Даведка"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "Сістэмныя налады не змаглі знайсці выглядаў, таму няма чаго паказаць."
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:369
 #, kde-format
 msgid "No views found"
 msgstr "Не знойдзена выглядаў"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:427
 #, kde-format
 msgid "About Active View"
 msgstr "Пра актыўны выгляд"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:498
 #, kde-format
 msgid "About %1"
 msgstr "Пра \"%1\""

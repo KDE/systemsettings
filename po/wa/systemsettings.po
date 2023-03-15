@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-27 03:20+0000\n"
+"POT-Creation-Date: 2023-03-15 02:49+0000\n"
 "PO-Revision-Date: 2010-05-11 17:39+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -134,17 +134,17 @@ msgstr ""
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:182
+#: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:209
+#: app/SettingsBase.cpp:211
 #, kde-format
 msgid "Help"
 msgstr "Aidance"
 
-#: app/SettingsBase.cpp:366
+#: app/SettingsBase.cpp:368
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -153,17 +153,17 @@ msgstr ""
 "Apontiaedjes do sistinme n' a nén sepou trover d' vuwe et d' abôrd n' a rén "
 "a håyner."
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:369
 #, kde-format
 msgid "No views found"
 msgstr "Nole vuwe di trovêye"
 
-#: app/SettingsBase.cpp:425
+#: app/SettingsBase.cpp:427
 #, kde-format
 msgid "About Active View"
 msgstr "Åd fwait del vuwe en alaedje"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:498
 #, kde-format
 msgid "About %1"
 msgstr "Åd fwait di %1"
