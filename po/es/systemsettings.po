@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:12+0000\n"
+"POT-Creation-Date: 2023-03-17 02:33+0000\n"
 "PO-Revision-Date: 2023-02-10 17:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -203,12 +203,12 @@ msgstr "Volver a lanzar %1"
 msgid "Dialog"
 msgstr "Diálogo"
 
-#: core/ModuleView.cpp:172
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Reiniciar todos los cambios actuales con sus valores anteriores"
 
-#: core/ModuleView.cpp:318
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -217,7 +217,7 @@ msgstr ""
 "Hay cambios sin guardar en el módulo activo.\n"
 "¿Desea aplicar los cambios o descartarlos?"
 
-#: core/ModuleView.cpp:320
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Aplicar preferencias"

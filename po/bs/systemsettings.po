@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:12+0000\n"
+"POT-Creation-Date: 2023-03-17 02:33+0000\n"
 "PO-Revision-Date: 2013-10-18 20:13+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -209,12 +209,12 @@ msgid "Dialog"
 msgstr "Dijalog"
 
 # rewrite-msgid: /Reset/Revert/
-#: core/ModuleView.cpp:172
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Vratite sve tekuće izmjene na prethodne vrijednosti."
 
-#: core/ModuleView.cpp:318
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -224,7 +224,7 @@ msgstr ""
 "Želite li da primijenite ili odbacite izmjene?"
 
 # >> @title:window
-#: core/ModuleView.cpp:320
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "Primjena postavki"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:12+0000\n"
+"POT-Creation-Date: 2023-03-17 02:33+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -197,12 +197,12 @@ msgstr "%1 என்பதை மறுபடியும் இயக்கு"
 msgid "Dialog"
 msgstr "சாளரம்"
 
-#: core/ModuleView.cpp:172
+#: core/ModuleView.cpp:173
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "தற்போதைய மாற்றங்களை அவற்றின் முந்தைய மதிப்புகளுக்கு மீட்டமை"
 
-#: core/ModuleView.cpp:318
+#: core/ModuleView.cpp:319
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,7 +211,7 @@ msgstr ""
 "தற்போதைய கூறின் அமைப்புகள் மாறியுள்ளன.\n"
 "இந்த மாற்றங்களைக் கைவிடலாமா, அல்லது அவற்றை செயல்படுத்த விரும்புகிறீர்களா?"
 
-#: core/ModuleView.cpp:320
+#: core/ModuleView.cpp:321
 #, kde-format
 msgid "Apply Settings"
 msgstr "மாற்றங்களை செயல்படுத்து"
