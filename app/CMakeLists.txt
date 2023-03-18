@@ -35,11 +35,6 @@ target_link_libraries(systemsettings
     PW::KWorkspace
 )
 
-add_custom_command(TARGET systemsettings POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E create_symlink systemsettings systemsettings5)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/systemsettings5 DESTINATION ${KDE_INSTALL_FULL_BINDIR}/)
-
 install(TARGETS systemsettings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES systemsettings.kcfg DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings)
 install(FILES systemsettingsui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/systemsettings)

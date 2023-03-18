@@ -1,4 +1,4 @@
-#compdef systemsettings systemsettings5 kcmshell5 kinfocenter
+#compdef systemsettings kcmshell5 kinfocenter
 
 # SPDX-FileCopyrightText: 2022 ivan tkachenko <me@ratijas.tk>
 #
