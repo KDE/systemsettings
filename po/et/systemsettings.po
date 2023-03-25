@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 02:33+0000\n"
+"POT-Creation-Date: 2023-03-25 02:10+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -205,12 +205,12 @@ msgstr "Käivita %1 uuesti"
 msgid "Dialog"
 msgstr "Dialoog"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:174
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Kõigi tehtud muudatuste lähtestamine varasematele väärtustele"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -219,7 +219,7 @@ msgstr ""
 "Aktiivse mooduli seadistusi on muudetud.\n"
 "Kas muudatused rakendada või tühistada?"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:330
 #, kde-format
 msgid "Apply Settings"
 msgstr "Rakenda seadistused"

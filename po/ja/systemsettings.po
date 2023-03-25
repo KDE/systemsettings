@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 02:33+0000\n"
+"POT-Creation-Date: 2023-03-25 02:10+0000\n"
 "PO-Revision-Date: 2021-09-18 19:42-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -211,12 +211,12 @@ msgstr "%1 を再起動"
 msgid "Dialog"
 msgstr "ダイアログ"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:174
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "現在のすべての変更を元の値に戻します"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -225,7 +225,7 @@ msgstr ""
 "現在のモジュールの設定が変更されました。\n"
 "変更を適用しますか？それとも破棄しますか？"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:330
 #, kde-format
 msgid "Apply Settings"
 msgstr "設定を適用"

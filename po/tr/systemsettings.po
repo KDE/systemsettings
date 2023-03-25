@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 02:33+0000\n"
+"POT-Creation-Date: 2023-03-25 02:10+0000\n"
 "PO-Revision-Date: 2023-03-06 14:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -200,12 +200,12 @@ msgstr "Yeniden Aç: %1"
 msgid "Dialog"
 msgstr "Pencere"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:174
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Yapılan tüm değişiklikleri önceki değerlere döndür"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -214,7 +214,7 @@ msgstr ""
 "Etkin modülde kaydedilmemiş değişiklikler var.\n"
 "Değişiklikleri kaydetmek mi veya yok saymak mı istiyorsunuz?"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:330
 #, kde-format
 msgid "Apply Settings"
 msgstr "Ayarları Uygula"

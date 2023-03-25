@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 02:33+0000\n"
+"POT-Creation-Date: 2023-03-25 02:10+0000\n"
 "PO-Revision-Date: 2009-05-11 10:56+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -203,12 +203,12 @@ msgstr "%1 ફરી શરૂ કરો"
 msgid "Dialog"
 msgstr "સંવાદ"
 
-#: core/ModuleView.cpp:173
+#: core/ModuleView.cpp:174
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "બધા વર્તમાન ફેરફારોને તેની પાછલી કિંમતો પર લઈ જાવ"
 
-#: core/ModuleView.cpp:319
+#: core/ModuleView.cpp:325
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -217,7 +217,7 @@ msgstr ""
 "સક્રિય મોડ્યુલની ગોઠવણીઓ બદલાયેલ છે.\n"
 "શુ તમે ફેરફારો લાગુ અથવા રદ કરવા માંગો છો?"
 
-#: core/ModuleView.cpp:321
+#: core/ModuleView.cpp:330
 #, kde-format
 msgid "Apply Settings"
 msgstr "ગોઠવણીઓ લાગુ પાડો"
