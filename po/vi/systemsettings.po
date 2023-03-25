@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:49+0000\n"
+"POT-Creation-Date: 2023-03-25 02:44+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -198,12 +198,12 @@ msgstr "Khởi chạy lại %1"
 msgid "Dialog"
 msgstr "Hộp thoại"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:180
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Đặt lại tất cả các thay đổi hiện tại về giá trị trước"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:331
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -212,7 +212,7 @@ msgstr ""
 "Thiết lập cho khối hiện tại đã thay đổi.\n"
 "Bạn muốn áp dụng hay loại bỏ các thay đổi?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:336
 #, kde-format
 msgid "Apply Settings"
 msgstr "Áp dụng thiết lập"

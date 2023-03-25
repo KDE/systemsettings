@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 02:49+0000\n"
+"POT-Creation-Date: 2023-03-25 02:44+0000\n"
 "PO-Revision-Date: 2021-09-20 10:06+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -206,12 +206,12 @@ msgstr "%1 újraindítása"
 msgid "Dialog"
 msgstr "Párbeszédablak"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:180
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Összes jelenlegi változtatás visszaállítása a korábbi értékekre"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:331
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -220,7 +220,7 @@ msgstr ""
 "A jelenlegi modul beállításai megváltoztak.\n"
 "Alkalmazza a változtatásokat vagy eldobja azokat?"
 
-#: core/ModuleView.cpp:327
+#: core/ModuleView.cpp:336
 #, kde-format
 msgid "Apply Settings"
 msgstr "Beállítások alkalmazása"
