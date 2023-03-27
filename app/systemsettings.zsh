@@ -1,4 +1,4 @@
-#compdef systemsettings kcmshell5 kinfocenter
+#compdef systemsettings kcmshell5 kcmshell6 kinfocenter
 
 # SPDX-FileCopyrightText: 2022 ivan tkachenko <me@ratijas.tk>
 #
@@ -9,21 +9,26 @@ local context state state_descr line
 typeset -A opt_args
 
 local ret=1 kcm_line kcm_name kcm_desc quantity
-local -a lines kcm_list kcmshell5
+local -a lines kcm_list kcmshell
 local -A kcm_assoc
 
-if [[ "$service" == "kcmshell5" ]]; then
-  kcmshell5=(
+if [[ "$service" == "kcmshell5" || "$service" == "kcmshell6" ]]; then
+  kcmshell=(
     '--caption=[Use a specific caption for the window]:caption:'
     '--icon=[Use a specific icon for the window]:icon:'
   )
   quantity='*'
+  if [[ "$service" == "kcmshell6" ]]; then
+    kcmshell+=(
+      '--highlight[Show an indicator when settings have changed from their default value]'
+    )
+  fi
 else
   quantity='1'
 fi
 
 _arguments -C \
-  $kcmshell5 \
+  $kcmshell \
   '(- *)--help[Displays help on commandline options.]' \
   '(- *)--list[List all possible modules]' \
   '--args=[Arguments for the module]:arguments:' \
