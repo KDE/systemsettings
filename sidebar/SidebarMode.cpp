@@ -19,7 +19,7 @@
 
 #include <KAboutData>
 #include <KActionCollection>
-#include <KCMUtils/KCModuleLoader>
+#include <KCModuleLoader>
 #include <KConfigGroup>
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
