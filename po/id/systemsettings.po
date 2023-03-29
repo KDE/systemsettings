@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:10+0000\n"
+"POT-Creation-Date: 2023-03-29 02:13+0000\n"
 "PO-Revision-Date: 2023-01-13 08:54+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -161,7 +161,7 @@ msgstr "Tidak ada tampilan yang ditemukan"
 msgid "About Active View"
 msgstr "Tentang Tampilan Aktif"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:500
 #, kde-format
 msgid "About %1"
 msgstr "Tentang %1"

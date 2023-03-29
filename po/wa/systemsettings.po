@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:10+0000\n"
+"POT-Creation-Date: 2023-03-29 02:13+0000\n"
 "PO-Revision-Date: 2010-05-11 17:39+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -163,7 +163,7 @@ msgstr "Nole vuwe di trovêye"
 msgid "About Active View"
 msgstr "Åd fwait del vuwe en alaedje"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:500
 #, kde-format
 msgid "About %1"
 msgstr "Åd fwait di %1"

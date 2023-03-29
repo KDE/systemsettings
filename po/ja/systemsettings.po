@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:10+0000\n"
+"POT-Creation-Date: 2023-03-29 02:13+0000\n"
 "PO-Revision-Date: 2021-09-18 19:42-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -169,7 +169,7 @@ msgstr "ビューが見つかりません"
 msgid "About Active View"
 msgstr "現在のビューについて"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:500
 #, kde-format
 msgid "About %1"
 msgstr "%1 について"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:10+0000\n"
+"POT-Creation-Date: 2023-03-29 02:13+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -164,7 +164,7 @@ msgstr "कोई दृश्य नहीं मिले"
 msgid "About Active View"
 msgstr "सक्रिय दृश्य के बारे में"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:500
 #, kde-format
 msgid "About %1"
 msgstr "%1 के बारे में"

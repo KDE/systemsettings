@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:10+0000\n"
+"POT-Creation-Date: 2023-03-29 02:13+0000\n"
 "PO-Revision-Date: 2021-10-07 17:50-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -161,7 +161,7 @@ msgstr "ਕੋਈ ਝਲਕ ਨਹੀਂ ਲੱਭੀ"
 msgid "About Active View"
 msgstr "ਸਰਗਰਮ ਝਲਕ ਬਾਰੇ"
 
-#: app/SettingsBase.cpp:496
+#: app/SettingsBase.cpp:500
 #, kde-format
 msgid "About %1"
 msgstr "%1 ਬਾਰੇ"
