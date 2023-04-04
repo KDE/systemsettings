@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-25 02:44+0000\n"
-"PO-Revision-Date: 2023-01-18 16:50+0200\n"
+"PO-Revision-Date: 2023-03-14 22:07+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:22:39+0000\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -138,11 +138,7 @@ msgid "Switch to Sidebar View"
 msgstr "Vaihda sivupalkkinäkymään"
 
 #: app/SettingsBase.cpp:173
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to show indicators for settings with custom data. Use as short a "
-#| "translation as is feasible, as horizontal space is limited."
-#| msgid "Highlight Changed Settings"
+#, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Korosta muuttuneet asetukset"
 
