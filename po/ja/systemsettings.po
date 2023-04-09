@@ -4,14 +4,15 @@
 # Taiki Komoda <kom@kde.gr.jp>, 2010.
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # rokuosan <rokuosan.dev@gmail.com>, 2021.
-# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019, 2021.
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2023.
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 02:13+0000\n"
-"PO-Revision-Date: 2021-09-18 19:42-0700\n"
+"PO-Revision-Date: 2023-04-07 23:54-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -21,17 +22,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Yukiko Bando, Rokuo"
+msgstr "Yukiko Bando, Rokuo. Ryuichi Yamada"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ybando@k6.dion.ne.jp, rokuosan.dev@gmail.com"
+msgstr "ybando@k6.dion.ne.jp, rokuosan.dev@gmail.com, ryuichi_ya220@outlook.jp"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:65
 #, kde-format
@@ -55,8 +56,7 @@ msgid "System Settings"
 msgstr "KDE システム設定"
 
 #: app/main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
 msgstr "KDE のシステム設定センター"
 
@@ -122,30 +122,24 @@ msgid "Search"
 msgstr "検索"
 
 #: app/SettingsBase.cpp:156
-#, fuzzy, kde-format
-#| msgid "Icon View"
+#, kde-format
 msgid "Switch to Icon View"
-msgstr "アイコン表示"
+msgstr "アイコン表示に切り替え"
 
 #: app/SettingsBase.cpp:163
-#, fuzzy, kde-format
-#| msgid "Sidebar View"
+#, kde-format
 msgid "Switch to Sidebar View"
-msgstr "サイドバー表示"
+msgstr "サイドバー表示に切り替え"
 
 #: app/SettingsBase.cpp:172
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to show indicators for settings with custom data. Use as short a "
-#| "translation as is feasible, as horizontal space is limited."
-#| msgid "Highlight Changed Settings"
+#, kde-format
 msgid "Highlight Changed Settings"
 msgstr "変更された設定を強調表示"
 
 #: app/SettingsBase.cpp:183
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "現在のページのバグを報告..."
 
 #: app/SettingsBase.cpp:210
 #, kde-format
@@ -187,13 +181,11 @@ msgid "About System Settings"
 msgstr "KDE システム設定について"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "(1 アイテム)"
-msgstr[1] "(%1 アイテム)"
+msgstr[0] "1 アイテムを含む"
+msgstr[1] "%1 アイテムを含む"
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
@@ -262,10 +254,9 @@ msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "名前または説明が :q: に一致するシステム設定モジュールを検索します。"
 
 #: runner/systemsettingsrunner.cpp:173
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "KDE システム設定"
+msgstr "システム情報"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:58
 #, kde-format
@@ -294,20 +285,19 @@ msgid "Sidebar View"
 msgstr "サイドバー表示"
 
 #: sidebar/SidebarMode.cpp:167
-#, fuzzy, kde-format
-#| msgid "Provides a categorized icons view of control modules."
+#, kde-format
 msgid "Provides a categorized sidebar for control modules."
-msgstr "設定モジュールをカテゴリ別にアイコンで表示します。"
+msgstr "設定モジュールのためのカテゴリ別のサイドバーを提供します。"
 
 #: sidebar/SidebarMode.cpp:169
 #, kde-format
 msgid "(c) 2017, Marco Martin"
-msgstr ""
+msgstr "(c) 2017, Marco Martin"
 
 #: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: sidebar/SidebarMode.cpp:650
 #, kde-format
@@ -317,9 +307,4 @@ msgstr "サイドバー"
 #: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
-msgstr "多く使う設定"
-
-#~ msgid "<i>Contains 1 item</i>"
-#~ msgid_plural "<i>Contains %1 items</i>"
-#~ msgstr[0] "(1 アイテム)"
-#~ msgstr[1] "(%1 アイテム)"
+msgstr "頻繁に使う設定"
