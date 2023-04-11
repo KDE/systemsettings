@@ -247,7 +247,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
     // Create the page
-    auto page = new KPageWidgetItem(moduleScroll, data.pluginId());
+    auto page = new KPageWidgetItem(moduleScroll, data.name());
     // Provide information to the users
 
     if (item->isExternalAppModule()) {
