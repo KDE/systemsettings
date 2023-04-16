@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-25 02:44+0000\n"
-"PO-Revision-Date: 2023-01-28 13:27+0300\n"
+"PO-Revision-Date: 2023-04-15 13:15+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -197,7 +197,7 @@ msgstr[3] "Содержит %1 элемент"
 #: core/ExternalAppModule.cpp:27
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 является сторонней программой и была запущена автоматически"
+msgstr "%1 является сторонним приложением, которое было запущена автоматически"
 
 #: core/ExternalAppModule.cpp:28
 #, kde-format
