@@ -259,6 +259,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariant::fromValue(args).toList());
         moduleScroll->setWidget(kcm->widget());
         kcm->widget()->setAutoFillBackground(false);
+        kcm->load();
         connect(kcm, &KCModule::needsSaveChanged, this, &ModuleView::stateChanged);
         d->mPages.insert(page, kcm);
     }
