@@ -205,7 +205,7 @@
 <para
 >Tüm modüllerde bir arama yapmak için <guibutton
 >Tüm Ayarlar</guibutton
-> içerisindeki araç çubuğunun sağındaki arama kutusuna anahtar sözcükler yazmaya başlayın. Yazmaya başladığınızda eşleşen konular gösterilecektir. Bir anahtar sözcük bir seçim yaptığınızda, yalnızca bu sözcük ile ilgili gruplar etkinleştirilecek ve diğerleri gri olacaktır.</para>
+> içindeki araç çubuğunun sağındaki arama kutusuna anahtar sözcükler yazmaya başlayın. Yazmaya başladığınızda eşleşen konular çıkar. Bir anahtar sözcük bir seçim yaptığınızda, yalnızca bu sözcük ile ilgili gruplar etkinleştirilecek ve diğerleri gri olacaktır.</para>
 <para
 >Simge penceresi odağa sahip olduğunda, seçmek için herhangi bir modülün veya modül grubu adının ilk harfini yazabilirsiniz. Bu harf yeniden yazıldığında seçim bir sonraki eşleşmeye geçer. </para>
 <para
@@ -468,7 +468,7 @@
 >kcmshell5 --list</command
 > yazın. </para>
 <para
->Ek olarak KRunner başlatabilir ve anahtar kelime yazabilirsiniz. Yamaya başladığınızda, &systemsettings; ile öneklenmiş eşleşen modül listesi görünecektir. </para>
+>Ek olarak K Çalıştır'ı başlatabilir ve anahtar sözcükler yazmaya başlayabilirsiniz. Yazmaya başladığınızda, &systemsettings; ile öneklenmiş eşleşen modül listesi çıkar. </para>
 </sect1>
 </chapter>
 
