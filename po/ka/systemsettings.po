@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 02:13+0000\n"
+"POT-Creation-Date: 2023-04-23 03:28+0000\n"
 "PO-Revision-Date: 2023-01-03 06:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -203,7 +203,7 @@ msgstr "ფანჯარა"
 msgid "Reset all current changes to previous values"
 msgstr "ყველა მიმდინარე ცვლილების საწყის მნიშვნელობებზე დაბრუნება"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:326
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -212,7 +212,7 @@ msgstr ""
 "მიმდინარე მოდულის პარამეტრები შეიცვალა.\n"
 "გნებავთ გადაატაროთ ეს ცვლილებები თუ მოვაშოროთ ისინი?"
 
-#: core/ModuleView.cpp:330
+#: core/ModuleView.cpp:331
 #, kde-format
 msgid "Apply Settings"
 msgstr "პარამეტრების გადატარება"

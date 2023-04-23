@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 02:13+0000\n"
+"POT-Creation-Date: 2023-04-23 03:28+0000\n"
 "PO-Revision-Date: 2023-01-07 17:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -210,7 +210,7 @@ msgstr "حواريّ"
 msgid "Reset all current changes to previous values"
 msgstr "صفّر كلّ التّعديلات الحاليّة إلى قيمها السّابقة"
 
-#: core/ModuleView.cpp:325
+#: core/ModuleView.cpp:326
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -219,7 +219,7 @@ msgstr ""
 "تغيّرت إعدادات الوحدة الحاليّة.\n"
 "أتريد تطبيق الإعدادات أو رفضها؟"
 
-#: core/ModuleView.cpp:330
+#: core/ModuleView.cpp:331
 #, kde-format
 msgid "Apply Settings"
 msgstr "طبّق الإعدادات"
