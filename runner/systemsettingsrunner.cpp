@@ -37,7 +37,7 @@ SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaDat
     setObjectName(QStringLiteral("SystemsettingsRunner"));
     setPriority(AbstractRunner::HighestPriority);
 
-    addSyntax(KRunner::RunnerSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:")));
+    addSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:"));
     // teardown is called in the main thread when all matches are over
     connect(this, &SystemsettingsRunner::teardown, this, [this]() {
         m_modules.clear();
