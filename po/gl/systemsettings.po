@@ -1,18 +1,18 @@
 # translation of systemsettings.po to Galician
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2008.
 # marce villarino <mvillarino@users.sourceforge.net>, 2009.
 # Marce Villarino <mvillarino@gmail.com>, 2009, 2011.
 # Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-25 02:44+0000\n"
-"PO-Revision-Date: 2019-10-19 21:45+0200\n"
+"PO-Revision-Date: 2023-05-02 11:46+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,12 +35,12 @@ msgstr "mvillarino@users.sourceforge.net"
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "Centro de información"
 
 #: app/main.cpp:63
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "Resumo centralizado e cómodo de información do sistema."
 
 #: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
 #, kde-format
@@ -91,27 +91,27 @@ msgstr "Representación interna dos módulos, modelo interno dos módulos"
 #: app/main.cpp:97
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "Listar todos os módulos posíbeis"
 
 #: app/main.cpp:98 app/main.cpp:161
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "Módulo de configuración para abrir"
 
 #: app/main.cpp:99 app/main.cpp:162
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "Argumentos para o módulo"
 
 #: app/main.cpp:107
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "Están dispoñíbeis os seguintes módulos:"
 
 #: app/main.cpp:125
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "Non hai descrición"
 
 #: app/SettingsBase.cpp:60
 #, kde-format
@@ -120,26 +120,24 @@ msgid "Search"
 msgstr "Buscar"
 
 #: app/SettingsBase.cpp:157
-#, fuzzy, kde-format
-#| msgid "Icon View"
+#, kde-format
 msgid "Switch to Icon View"
-msgstr "Vista con iconas"
+msgstr "Cambiar á vista de iconas"
 
 #: app/SettingsBase.cpp:164
-#, fuzzy, kde-format
-#| msgid "Sidebar View"
+#, kde-format
 msgid "Switch to Sidebar View"
-msgstr "Vista da barra lateral"
+msgstr "Cambiar á vista de barra lateral"
 
 #: app/SettingsBase.cpp:173
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Realzar as opcións cambiadas"
 
 #: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Informar dun fallo nesta páxina…"
 
 #: app/SettingsBase.cpp:211
 #, kde-format
@@ -254,12 +252,13 @@ msgstr "Atallo de teclado: %1"
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
+"Atopa módulos de configuración do sistema cun nome ou descrición que "
+"coincide con :q:"
 
 #: runner/systemsettingsrunner.cpp:186
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "Configuración do sistema"
+msgstr "Información do sistema"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:58
 #, kde-format
