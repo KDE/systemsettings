@@ -47,9 +47,6 @@ int main(int argc, char *argv[])
     KWorkSpace::detectPlatform(argc, argv);
 
     QApplication application(argc, argv);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-#endif
     // The ki18n application domain must be set before we make any i18n() calls.
     KLocalizedString::setApplicationDomain("systemsettings");
 
