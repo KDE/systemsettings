@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Find system settings and system information modules",
         "Description[ar]": "اعثر على معلومات النظام و إعداده",
+        "Description[ast]": "Atopa la configuración del sistema ya los módulos d'información del sistema",
         "Description[az]": "Sistem ayarları və sistem məlumatı modullarını tapın",
         "Description[be]": "Пошук налад сістэмы і модуляў сістэмнай інфармацыі",
         "Description[bg]": "Намиране на модули за системни настройки и информация",
@@ -50,6 +51,7 @@
         "Icon": "systemsettings",
         "Name": "System Settings",
         "Name[ar]": "إعدادات النّظام",
+        "Name[ast]": "Configuración del sistema",
         "Name[az]": "Sistem ayarları",
         "Name[be]": "Налады сістэмы",
         "Name[bg]": "Системни настройки",

@@ -12,6 +12,7 @@ Actions=kcm-lookandfeel;kcm-users;screenlocker;powerdevilprofilesconfig;kcm-kscr
 
 GenericName=System Settings
 GenericName[ar]=إعدادات النّظام
+GenericName[ast]=Configuración del sistema
 GenericName[az]=Sistem ayarları
 GenericName[be]=Налады сістэмы
 GenericName[be@latin]=Systemnyja nałady
