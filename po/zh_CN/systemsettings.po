@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-23 03:28+0000\n"
+"POT-Creation-Date: 2023-05-07 02:16+0000\n"
 "PO-Revision-Date: 2023-02-24 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,83 +27,83 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:65
 #, kde-format
 msgid "Info Center"
 msgstr "系统信息中心"
 
-#: app/main.cpp:63
+#: app/main.cpp:60
 #, kde-format
 msgid "Centralized and convenient overview of system information."
 msgstr "系统信息总览。"
 
-#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
 msgstr "系统设置"
 
-#: app/main.cpp:74
+#: app/main.cpp:71
 #, kde-format
 msgid "Central configuration center by KDE."
 msgstr "KDE 的配置中心。"
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
 
-#: app/main.cpp:87
+#: app/main.cpp:84
 #, kde-format
 msgid "Maintainer"
 msgstr "项目负责人"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Developer"
 msgstr "开发人员"
 
-#: app/main.cpp:89
+#: app/main.cpp:86
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:89
+#: app/main.cpp:86
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "内部模块展现方式，内部模块模型"
 
-#: app/main.cpp:97
+#: app/main.cpp:94
 #, kde-format
 msgid "List all possible modules"
 msgstr "列出所有可用模块"
 
-#: app/main.cpp:98 app/main.cpp:161
+#: app/main.cpp:95 app/main.cpp:158
 #, kde-format
 msgid "Configuration module to open"
 msgstr "要打开的配置模块"
 
-#: app/main.cpp:99 app/main.cpp:162
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Arguments for the module"
 msgstr "模块参数"
 
-#: app/main.cpp:107
+#: app/main.cpp:104
 #, kde-format
 msgid "The following modules are available:"
 msgstr "下列模块可用："
 
-#: app/main.cpp:125
+#: app/main.cpp:122
 #, kde-format
 msgid "No description available"
 msgstr "无可用描述"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-23 03:28+0000\n"
+"POT-Creation-Date: 2023-05-07 02:16+0000\n"
 "PO-Revision-Date: 2008-07-06 19:57+0530\n"
 "Last-Translator: Ria Das <mailtoria@gmail.com>\n"
 "Language-Team: Bengali (India) <discuss@ankur.co.in>\n"
@@ -28,83 +28,83 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mailtoria@gmail.com"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:65
 #, kde-format
 msgid "Info Center"
 msgstr ""
 
-#: app/main.cpp:63
+#: app/main.cpp:60
 #, kde-format
 msgid "Centralized and convenient overview of system information."
 msgstr ""
 
-#: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
-#: app/main.cpp:72 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
 msgstr "সইস্টেমের বৈশিষ্ট"
 
-#: app/main.cpp:74
+#: app/main.cpp:71
 #, kde-format
 msgid "Central configuration center by KDE."
 msgstr ""
 
-#: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Ben Cooksley"
 msgstr ""
 
-#: app/main.cpp:87
+#: app/main.cpp:84
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Mathias Soeken"
 msgstr ""
 
-#: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
 #, kde-format
 msgid "Developer"
 msgstr ""
 
-#: app/main.cpp:89
+#: app/main.cpp:86
 #, kde-format
 msgid "Will Stephenson"
 msgstr ""
 
-#: app/main.cpp:89
+#: app/main.cpp:86
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr ""
 
-#: app/main.cpp:97
+#: app/main.cpp:94
 #, kde-format
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:98 app/main.cpp:161
+#: app/main.cpp:95 app/main.cpp:158
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:99 app/main.cpp:162
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
 
-#: app/main.cpp:107
+#: app/main.cpp:104
 #, kde-format
 msgid "The following modules are available:"
 msgstr ""
 
-#: app/main.cpp:125
+#: app/main.cpp:122
 #, kde-format
 msgid "No description available"
 msgstr ""
