@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-07 02:16+0000\n"
-"PO-Revision-Date: 2023-05-05 22:29+0200\n"
+"PO-Revision-Date: 2023-05-09 23:42+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -137,7 +137,7 @@ msgstr ""
 #: app/SettingsBase.cpp:210
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: app/SettingsBase.cpp:367
 #, kde-format
@@ -177,8 +177,8 @@ msgstr ""
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Contién 1 elementu"
+msgstr[1] "Contién %1 elementos"
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
@@ -194,7 +194,7 @@ msgstr ""
 #: core/externalModule.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Diálogu"
 
 #: core/ModuleView.cpp:174
 #, kde-format
@@ -207,6 +207,8 @@ msgid ""
 "The settings of the current module have changed.\n"
 "Do you want to apply the changes or discard them?"
 msgstr ""
+"La configuración del módulu actual camudó.\n"
+"¿Quies aplicar los cambeos o escartalos?"
 
 #: core/ModuleView.cpp:331
 #, kde-format
@@ -247,7 +249,7 @@ msgstr ""
 #: runner/systemsettingsrunner.cpp:173
 #, kde-format
 msgid "System Information"
-msgstr ""
+msgstr "Información del sistema"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:58
 #, kde-format
@@ -268,7 +270,7 @@ msgstr ""
 #: sidebar/package/contents/ui/introPage.qml:56
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: sidebar/SidebarMode.cpp:165
 #, kde-format
@@ -293,7 +295,7 @@ msgstr "Marco Martin"
 #: sidebar/SidebarMode.cpp:650
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "Barra llateral"
 
 #: sidebar/SidebarMode.cpp:721
 #, kde-format
