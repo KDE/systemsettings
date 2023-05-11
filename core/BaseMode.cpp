@@ -50,19 +50,18 @@ BaseMode::BaseMode(QObject *parent, const QVariantList &args)
     }
 }
 
-BaseMode::~BaseMode()
-{
-    delete d;
-}
-
-void BaseMode::init(const KPluginMetaData &metaData)
+void BaseMode::init()
 {
     d->rootItem = BaseData::instance()->menuItem();
     d->homeItem = BaseData::instance()->homeItem();
-    d->metaData = metaData;
-    d->config = BaseData::instance()->configGroup(metaData.pluginId());
+    d->config = BaseData::instance()->configGroup(QStringLiteral("systemsettings_sidebar_mode"));
     initEvent();
     connect(moduleView(), &ModuleView::moduleChanged, this, &BaseMode::viewChanged);
+}
+
+BaseMode::~BaseMode()
+{
+    delete d;
 }
 
 void BaseMode::initEvent()
@@ -70,11 +69,6 @@ void BaseMode::initEvent()
 }
 
 QWidget *BaseMode::mainWidget()
-{
-    return nullptr;
-}
-
-KAboutData *BaseMode::aboutData()
 {
     return nullptr;
 }
@@ -125,10 +119,6 @@ void BaseMode::searchChanged(const QString &text)
 }
 
 void BaseMode::saveState()
-{
-}
-
-void BaseMode::leaveModuleView()
 {
 }
 

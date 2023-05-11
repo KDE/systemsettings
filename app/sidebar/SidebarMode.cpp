@@ -24,8 +24,6 @@
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KPackage/Package>
-#include <KPackage/PackageLoader>
 #include <KXmlGuiWindow>
 #include <QAction>
 #include <QDebug>
@@ -38,8 +36,6 @@
 #include <QQuickWidget>
 #include <QStandardItemModel>
 #include <QStandardPaths>
-
-K_PLUGIN_CLASS_WITH_JSON(SidebarMode, "settings-sidebar-view.json")
 
 FocusHackWidget::FocusHackWidget(QWidget *parent)
     : QWidget(parent)
@@ -120,13 +116,7 @@ public:
     {
     }
 
-    virtual ~Private()
-    {
-        delete aboutIcon;
-    }
-
     QQuickWidget *quickWidget = nullptr;
-    KPackage::Package package;
     SubcategoryModel *subCategoryModel = nullptr;
     FocusHackWidget *mainWidget = nullptr;
     QQuickWidget *placeHolderWidget = nullptr;
@@ -135,7 +125,6 @@ public:
     MenuProxyModel *categorizedModel = nullptr;
     MenuProxyModel *searchModel = nullptr;
     KDescendantsProxyModel *flatModel = nullptr;
-    KAboutData *aboutIcon = nullptr;
     ModuleView *moduleView = nullptr;
     KActionCollection *collection = nullptr;
     QPersistentModelIndex activeCategoryIndex;
@@ -153,29 +142,15 @@ SidebarMode::SidebarMode(QObject *parent, const QVariantList &args)
     , d(new Private())
 {
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
-    d->aboutIcon = new KAboutData(QStringLiteral("SidebarView"),
-                                  i18n("Sidebar View"),
-                                  QStringLiteral("1.0"),
-                                  i18n("Provides a categorized sidebar for control modules."),
-                                  KAboutLicense::GPL,
-                                  i18n("(c) 2017, Marco Martin"));
-    d->aboutIcon->addAuthor(i18n("Marco Martin"), i18n("Author"), QStringLiteral("mart@kde.org"));
-    d->aboutIcon->addAuthor(i18n("Ben Cooksley"), i18n("Author"), QStringLiteral("bcooksley@kde.org"));
-    d->aboutIcon->addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
-
     qmlRegisterAnonymousType<QAction>("", 1);
     qmlRegisterAnonymousType<QAbstractItemModel>("", 1);
+    init();
 }
 
 SidebarMode::~SidebarMode()
 {
     config().sync();
     delete d;
-}
-
-KAboutData *SidebarMode::aboutData()
-{
-    return d->aboutIcon;
 }
 
 ModuleView *SidebarMode::moduleView() const
@@ -511,7 +486,7 @@ void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
                 loadModule(index);
             } else {
                 d->moduleView->closeModules();
-                d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
+                d->moduleView->loadModule(d->model->indexForItem(homeItem()), QStringList());
                 d->activeCategoryRow = -1;
                 d->activeSubCategoryRow = -1;
                 Q_EMIT activeCategoryRowChanged();
@@ -652,16 +627,17 @@ void SidebarMode::initWidget()
     d->quickWidget = new QQuickWidget(d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    qmlRegisterUncreatableType<SidebarMode>(
-        "org.kde.systemsettings", 1, 0, "SystemSettings", QStringLiteral("Not creatable, use the systemsettings attached property"));
+    qmlRegisterUncreatableType<SidebarMode>("org.kde.systemsettings",
+                                            1,
+                                            0,
+                                            "SystemSettings",
+                                            QStringLiteral("Not creatable, use the systemsettings attached property"));
 
     d->quickWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
-    d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
-    d->package.setPath(QStringLiteral("org.kde.systemsettings.sidebar"));
 
     d->quickWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
 
-    d->quickWidget->setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
+    d->quickWidget->setSource(QUrl(QStringLiteral("qrc:/sidebar/qml/main.qml")));
 
     if (!d->quickWidget->rootObject()) {
         const QList<QQmlError> errors{d->quickWidget->errors()};
@@ -710,7 +686,7 @@ void SidebarMode::initWidget()
         if (index.isValid()) {
             loadModule(index);
         } else {
-            d->moduleView->loadModule( d->model->indexForItem(homeItem()), QStringList() );
+            d->moduleView->loadModule(d->model->indexForItem(homeItem()), QStringList());
         }
     } else {
         initPlaceHolderWidget();
@@ -725,7 +701,7 @@ void SidebarMode::initPlaceHolderWidget()
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
-    d->placeHolderWidget->setSource(QUrl::fromLocalFile(d->package.filePath("ui", QStringLiteral("introPage.qml"))));
+    d->placeHolderWidget->setSource(QUrl(QStringLiteral("qrc:/sidebar/qml/introPage.qml")));
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
     d->placeHolderWidget->installEventFilter(this);

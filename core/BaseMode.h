@@ -58,6 +58,8 @@ public:
     virtual bool defaultsIndicatorsVisible() const;
     virtual void toggleDefaultsIndicatorsVisibility();
 
+    void init();
+
     /**
      * Constructs a BaseMode for use in System Settings.\n
      * Plugin developers should perform all initialisation in initEvent() not here.
@@ -107,15 +109,6 @@ public:
     virtual QWidget *mainWidget();
 
     /**
-     * Provides information about the plugin, which is used in the About dialog of System Settings.\n
-     * This does not need to be implemented, and need only be implemented if the author
-     * wants information about the view displayed in the About dialog.
-     *
-     * @returns The about data of the plugin.
-     */
-    virtual KAboutData *aboutData();
-
-    /**
      * @returns the application mode of this systemsettings process: SystemSettings or InfoCenter
      */
     ApplicationMode applicationMode() const;
@@ -125,14 +118,6 @@ public:
      * to the configuration object when this is called.
      */
     virtual void saveState();
-
-    /**
-     * Causes the view to unload all modules in the module view, and return to their module selection state
-     *
-     * @warning Failure to reimplement will cause modules to not be unloaded when changing views.
-     * This must be implemented.
-     */
-    virtual void leaveModuleView();
 
     /**
      * Used to give focus to the plugin. Plugin should call setFocus() on the appropriate widget

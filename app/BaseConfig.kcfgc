@@ -1,5 +1,0 @@
-File=systemsettings.kcfg
-ClassName=BaseConfig
-Singleton=true
-Mutators=true
-SetUserTexts=true

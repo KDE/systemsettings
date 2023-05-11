@@ -9,7 +9,7 @@
 #include "SettingsBase.h"
 #include "../core/kcmmetadatahelpers.h"
 #include "../systemsettings_app_debug.h"
-#include "BaseConfig.h"
+#include "sidebar/SidebarMode.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -42,14 +42,12 @@
 #include "BaseData.h"
 #include "ModuleView.h"
 
-SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget *parent)
+SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent)
     : KXmlGuiWindow(parent)
     , m_mode(mode)
+    , m_startupModule(startupModule)
+    , m_startupModuleArgs(startupModuleArgs)
 {
-    // Ensure delayed loading doesn't cause a crash
-    activeView = nullptr;
-    aboutDialog = nullptr;
-    lostFound = nullptr;
     // Prepare the view area
     stackedWidget = new QStackedWidget(this);
     setCentralWidget(stackedWidget);
@@ -74,7 +72,7 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, QWidget *parent)
     // Initialise the window so we don't flicker
     initToolBar();
     // We can now launch the delayed loading safely
-    QTimer::singleShot(0, this, &SettingsBase::initApplication);
+    initApplication();
 }
 
 SettingsBase::~SettingsBase()
@@ -117,13 +115,9 @@ void SettingsBase::initApplication()
     // Prepare the Base Data
     BaseData::instance()->setMenuItem(rootModule);
     BaseData::instance()->setHomeItem(homeModule);
-    // Only load the current used view
-    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"), {}, KPluginMetaData::AllowEmptyMetaData);
     loadCurrentView();
-
     searchText->completionObject()->setIgnoreCase(true);
     searchText->completionObject()->setItems(BaseData::instance()->menuItem()->keywords());
-    changePlugin();
 
     // enforce minimum window size
     setMinimumSize(SettingsBase::sizeHint());
@@ -149,24 +143,8 @@ void SettingsBase::initToolBar()
     quitAction = actionCollection()->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
 
     if (m_mode == BaseMode::SystemSettings) {
-        switchToIconAction = actionCollection()->addAction(QStringLiteral("switchto_iconview"), this, [this] {
-            BaseConfig::setActiveView(QStringLiteral("systemsettings_icon_mode"));
-            changePlugin();
-        });
-        switchToIconAction->setText(i18nd("systemsettings", "Switch to Icon View"));
-        switchToIconAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-icons")));
-
-        switchToSidebarAction = actionCollection()->addAction(QStringLiteral("switchto_sidebar"), this, [this] {
-            BaseConfig::setActiveView(QStringLiteral("systemsettings_sidebar_mode"));
-            changePlugin();
-        });
-        switchToSidebarAction->setText(i18nd("systemsettings", "Switch to Sidebar View"));
-        switchToSidebarAction->setIcon(QIcon::fromTheme(QStringLiteral("view-sidetree")));
-
         highlightChangesAction = actionCollection()->addAction(QStringLiteral("highlight_changes"), this, [this] {
-            if (activeView) {
-                activeView->toggleDefaultsIndicatorsVisibility();
-            }
+            view->toggleDefaultsIndicatorsVisibility();
         });
         highlightChangesAction->setCheckable(true);
         highlightChangesAction->setText(i18nd("systemsettings", "Highlight Changed Settings"));
@@ -175,7 +153,7 @@ void SettingsBase::initToolBar()
 
     reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
         const QString bugReportUrlString =
-            activeView->moduleView()->activeModuleMetadata().bugReportUrl() + QStringLiteral("&version=") + QGuiApplication::applicationVersion();
+            view->moduleView()->activeModuleMetadata().bugReportUrl() + QStringLiteral("&version=") + QGuiApplication::applicationVersion();
         auto job = new KIO::OpenUrlJob(QUrl(bugReportUrlString));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
         job->start();
@@ -279,69 +257,30 @@ void SettingsBase::initMenuList(MenuItem *parent)
     parent->sortChildrenByWeight();
 }
 
-BaseMode *SettingsBase::loadCurrentView()
-{
-    const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
-
-    const auto pluginIt = std::find_if(m_plugins.cbegin(), m_plugins.cend(), [&viewToUse](const KPluginMetaData &plugin) {
-        return viewToUse.contains(plugin.pluginId());
-    });
-
-    if (pluginIt == m_plugins.cend()) {
-        return nullptr;
-    }
-
-    const auto controllerResult = KPluginFactory::instantiatePlugin<BaseMode>(*pluginIt, this, {m_mode, m_startupModule, m_startupModuleArgs});
-    if (!controllerResult) {
-        qCWarning(SYSTEMSETTINGS_APP_LOG) << "Error loading plugin" << controllerResult.errorText;
-        return nullptr;
-    }
-
-    const auto controller = controllerResult.plugin;
-    m_loadedViews.insert(viewToUse, controller);
-    controller->init(*pluginIt);
-    connect(controller, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
-    connect(controller, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
-    connect(searchText, &KLineEdit::textChanged, controller, &BaseMode::searchChanged);
-    connect(controller, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
-
-    return controller;
-}
-
 bool SettingsBase::queryClose()
 {
     bool changes = true;
-    if (activeView) {
-        activeView->saveState();
-        changes = activeView->moduleView()->resolveChanges();
-    }
-    BaseConfig::self()->save();
+    view->saveState();
+    changes = view->moduleView()->resolveChanges();
     return changes;
 }
 
 void SettingsBase::setStartupModule(const QString &startupModule)
 {
     m_startupModule = startupModule;
-
-    if (activeView) {
-        activeView->setStartupModule(startupModule);
-    }
+    view->setStartupModule(startupModule);
 }
 
 void SettingsBase::setStartupModuleArgs(const QStringList &startupModuleArgs)
 {
     m_startupModuleArgs = startupModuleArgs;
 
-    if (activeView) {
-        activeView->setStartupModuleArgs(startupModuleArgs);
-    }
+    view->setStartupModuleArgs(startupModuleArgs);
 }
 
 void SettingsBase::reloadStartupModule()
 {
-    if (activeView) {
-        activeView->reloadStartupModule();
-    }
+    view->reloadStartupModule();
 }
 
 void SettingsBase::about()
@@ -349,19 +288,13 @@ void SettingsBase::about()
     delete aboutDialog;
     aboutDialog = nullptr;
 
-    const KAboutData *about = nullptr;
-    if (sender() == aboutViewAction) {
-        about = activeView->aboutData();
-    }
-
-    if (about) {
-        aboutDialog = new KAboutApplicationDialog(*about, nullptr);
-        aboutDialog->show();
-    }
+    aboutDialog = new KAboutApplicationDialog(KAboutData::applicationData(), nullptr);
+    aboutDialog->show();
 }
 
-void SettingsBase::changePlugin()
+void SettingsBase::loadCurrentView()
 {
+    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"), {}, KPluginMetaData::AllowEmptyMetaData);
     if (m_plugins.empty()) { // We should ensure we have a plugin available to choose
         KMessageBox::error(this,
                            i18nd("systemsettings", "System Settings was unable to find any views, and hence has nothing to display."),
@@ -370,63 +303,36 @@ void SettingsBase::changePlugin()
         return; // Halt now!
     }
 
-    if (activeView) {
-        activeView->saveState();
-        activeView->leaveModuleView();
-    }
+    view = new SidebarMode(this, {m_mode, m_startupModule, m_startupModuleArgs});
+    connect(view, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
+    connect(view, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
+    connect(searchText, &KLineEdit::textChanged, view, &BaseMode::searchChanged);
+    connect(view, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
+    view->saveState();
 
-    const QString viewToUse = m_mode == BaseMode::InfoCenter ? QStringLiteral("systemsettings_sidebar_mode") : BaseConfig::activeView();
-    const auto it = m_loadedViews.constFind(viewToUse);
-    if (it != m_loadedViews.cend()) {
-        // First the configuration entry
-        activeView = *it;
-    } else if (auto view = loadCurrentView()) {
-        activeView = view;
-    } else if (!m_loadedViews.empty()) { // Otherwise we activate the failsafe
-        qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load" << viewToUse;
-        activeView = m_loadedViews.cbegin().value();
-    } else {
-        // Current view is missing on startup, try to load alternate view.
-        qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load" << viewToUse;
-        if (viewToUse == QStringLiteral("systemsettings_icon_mode")) {
-            BaseConfig::setActiveView(QStringLiteral("systemsettings_sidebar_mode"));
-        } else if (m_mode != BaseMode::InfoCenter) {
-            BaseConfig::setActiveView(QStringLiteral("systemsettings_icon_mode"));
-        }
-
-        if (auto view = loadCurrentView()) {
-            activeView = view;
-            activeView->saveState();
-        } else {
-            qCWarning(SYSTEMSETTINGS_APP_LOG) << "System Settings was unable to load any views, and hence has nothing to display.";
-            close();
-            return; // Halt now!
-        }
-    }
-
-    if (stackedWidget->indexOf(activeView->mainWidget()) == -1) {
-        stackedWidget->addWidget(activeView->mainWidget());
+    if (stackedWidget->indexOf(view->mainWidget()) == -1) {
+        stackedWidget->addWidget(view->mainWidget());
     }
 
     // Handle the tooltips
     qDeleteAll(tooltipManagers);
     tooltipManagers.clear();
-    const QList<QAbstractItemView *> theViews = activeView->views();
+    const QList<QAbstractItemView *> theViews = view->views();
     for (QAbstractItemView *view : theViews) {
         tooltipManagers << new ToolTipManager(view);
     }
 
     if (highlightChangesAction) {
-        highlightChangesAction->setChecked(activeView->defaultsIndicatorsVisible());
+        highlightChangesAction->setChecked(view->defaultsIndicatorsVisible());
     }
 
-    changeAboutMenu(activeView->aboutData(), aboutViewAction, i18nd("systemsettings", "About Active View"));
+    changeAboutMenu(aboutViewAction, i18nd("systemsettings", "About Active View"));
     viewChange(false);
 
-    stackedWidget->setCurrentWidget(activeView->mainWidget());
+    stackedWidget->setCurrentWidget(view->mainWidget());
     updateViewActions();
 
-    activeView->giveFocus();
+    view->giveFocus();
 
     // Update visibility of the "report a bug on this page" and "report bug in general"
     // actions based on whether the current page has a bug report URL set
@@ -434,7 +340,7 @@ void SettingsBase::changePlugin()
     if (reportGeneralBugAction) {
         reportGeneralBugAction->setVisible(false);
     }
-    auto moduleView = activeView->moduleView();
+    auto moduleView = view->moduleView();
     connect(moduleView, &ModuleView::moduleChanged, this, [=] {
         reportPageSpecificBugAction->setVisible(!moduleView->activeModuleMetadata().bugReportUrl().isEmpty());
         if (reportGeneralBugAction) {
@@ -447,18 +353,18 @@ void SettingsBase::changePlugin()
 
 void SettingsBase::viewChange(bool state)
 {
-    setCaption(activeView->moduleView()->activeModuleName(), state);
+    setCaption(view->moduleView()->activeModuleName(), state);
 }
 
 void SettingsBase::updateViewActions()
 {
     guiFactory()->unplugActionList(this, QStringLiteral("viewActions"));
-    guiFactory()->plugActionList(this, QStringLiteral("viewActions"), activeView->actionsList());
+    guiFactory()->plugActionList(this, QStringLiteral("viewActions"), view->actionsList());
 }
 
 void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
 {
-    if (sender() != activeView) {
+    if (sender() != view) {
         return;
     }
     guiFactory()->unplugActionList(this, QStringLiteral("configure"));
@@ -469,11 +375,6 @@ void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
         searchBarActions << spacerAction << searchAction;
         guiFactory()->plugActionList(this, QStringLiteral("search"), searchBarActions);
         actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL | Qt::Key_F));
-    }
-    if ((BaseMode::Configure & toolbar) && switchToSidebarAction) {
-        QList<QAction *> configureBarActions;
-        configureBarActions << switchToSidebarAction;
-        guiFactory()->plugActionList(this, QStringLiteral("configure"), configureBarActions);
     }
     if (BaseMode::Quit & toolbar) {
         QList<QAction *> quitBarActions;
@@ -487,24 +388,19 @@ void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
         actionCollection()->setDefaultShortcut(searchAction, QKeySequence());
     }
 
-    toolBar()->setVisible(toolbar != BaseMode::NoItems || (activeView && activeView->actionsList().count() > 0));
+    toolBar()->setVisible(toolbar != BaseMode::NoItems || (view->actionsList().count() > 0));
 }
 
-void SettingsBase::changeAboutMenu(const KAboutData *menuAbout, QAction *menuItem, const QString &fallback)
+void SettingsBase::changeAboutMenu(QAction *menuItem, const QString &fallback)
 {
     if (!menuItem) {
         return;
     }
 
-    if (menuAbout) {
-        menuItem->setText(i18nd("systemsettings", "About %1", menuAbout->displayName()));
-        menuItem->setIcon(QGuiApplication::windowIcon());
-        menuItem->setEnabled(true);
-    } else {
-        menuItem->setText(fallback);
-        menuItem->setIcon(QGuiApplication::windowIcon());
-        menuItem->setEnabled(false);
-    }
+    const auto data = KAboutData::applicationData();
+    menuItem->setText(i18nd("systemsettings", "About %1", data.displayName()));
+    menuItem->setIcon(QGuiApplication::windowIcon());
+    menuItem->setEnabled(true);
 }
 
 void SettingsBase::slotGeometryChanged()

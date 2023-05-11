@@ -27,7 +27,7 @@ class SettingsBase : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit SettingsBase(BaseMode::ApplicationMode mode, QWidget *parent = nullptr);
+    explicit SettingsBase(BaseMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent = nullptr);
     ~SettingsBase() override;
     bool queryClose() override;
 
@@ -44,11 +44,10 @@ private Q_SLOTS:
     void initHelpMenu();
     void initMenuList(MenuItem *parent);
     void about();
-    void changePlugin();
     void viewChange(bool state);
     void updateViewActions();
     void changeToolBar(BaseMode::ToolBarItems toolbar);
-    void changeAboutMenu(const KAboutData *menuAbout, QAction *menuItem, const QString &fallback);
+    void changeAboutMenu(QAction *menuItem, const QString &fallback);
 
 private Q_SLOTS:
     /**
@@ -58,27 +57,23 @@ private Q_SLOTS:
 
 private:
     /**
-     * @return the plugin controller if the current view is found in the plugin list and successfully loaded,
-     *         @c nullptr otherwise
+     * Initializes the sidebar plugin
      */
-    BaseMode *loadCurrentView();
+    void loadCurrentView();
 
     // Follow screen resolution
     QScreen *m_screen = nullptr;
 
     // The plugins
     QVector<KPluginMetaData> m_plugins;
-    QMap<QString, BaseMode *> m_loadedViews;
     QList<ToolTipManager *> tooltipManagers;
-    BaseMode *activeView = nullptr;
+    BaseMode *view = nullptr;
     // The search bar
     KLineEdit *searchText = nullptr;
     QWidget *spacerWidget = nullptr;
     // The toolbar
     QWidgetAction *searchAction = nullptr;
     QWidgetAction *spacerAction = nullptr;
-    QAction *switchToIconAction = nullptr;
-    QAction *switchToSidebarAction = nullptr;
     QAction *highlightChangesAction = nullptr;
     QAction *reportPageSpecificBugAction = nullptr;
     QAction *quitAction = nullptr;

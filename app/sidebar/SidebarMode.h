@@ -84,7 +84,6 @@ public:
     QWidget *mainWidget() override;
     void initEvent() override;
     void giveFocus() override;
-    KAboutData *aboutData() override;
     ModuleView *moduleView() const override;
     void reloadStartupModule() override;
 

@@ -1,0 +1,16 @@
+<RCC>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+  <qresource prefix="/">
+    <file>sidebar/qml/CategoriesPage.qml</file>
+    <file>sidebar/qml/CategoryItem.qml</file>
+    <file>sidebar/qml/HamburgerMenuButton.qml</file>
+    <file>sidebar/qml/SideBarItem.qml</file>
+    <file>sidebar/qml/SubCategoryPage.qml</file>
+    <file>sidebar/qml/introPage.qml</file>
+    <file>sidebar/qml/main.qml</file>
+    <file>sidebar/images/plasma-logo.svg</file>
+  </qresource>
+</RCC>

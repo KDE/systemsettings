@@ -82,6 +82,7 @@ int main(int argc, char *argv[])
     }
 
     aboutData.addAuthor(i18n("Ben Cooksley"), i18n("Maintainer"), QStringLiteral("bcooksley@kde.org"));
+    aboutData.addAuthor(i18n("Marco Martin"), i18n("Author"), QStringLiteral("mart@kde.org"));
     aboutData.addAuthor(i18n("Mathias Soeken"), i18n("Developer"), QStringLiteral("msoeken@informatik.uni-bremen.de"));
     aboutData.addAuthor(i18n("Will Stephenson"), i18n("Internal module representation, internal module model"), QStringLiteral("wstephenson@kde.org"));
 
@@ -147,7 +148,7 @@ int main(int argc, char *argv[])
 
     KCrash::initialize();
 
-    auto mainWindow = new SettingsBase(mode);
+    auto mainWindow = new SettingsBase(mode, startupModule, args);
 
     QObject::connect(&service, &KDBusService::activateRequested, mainWindow, [mainWindow](const QStringList &arguments, const QString &workingDirectory) {
         Q_UNUSED(workingDirectory);
@@ -176,11 +177,6 @@ int main(int argc, char *argv[])
         KWindowSystem::updateStartupId(mainWindow->windowHandle());
         KWindowSystem::activateWindow(mainWindow->windowHandle());
     });
-
-    if (!startupModule.isEmpty()) {
-        mainWindow->setStartupModule(startupModule);
-        mainWindow->setStartupModuleArgs(args);
-    }
 
     return application.exec();
 }

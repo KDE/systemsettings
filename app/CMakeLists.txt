@@ -8,9 +8,11 @@ set(systemsettings_SRCS
     SettingsBase.h
     ToolTips/tooltipmanager.cpp
     ToolTips/tooltipmanager.h
+    sidebar/SidebarMode.cpp
+    sidebar/SidebarMode.h
+    resources.qrc
+    ${debug_SRCS}
 )
-
-kconfig_add_kcfg_files(systemsettings_SRCS BaseConfig.kcfgc)
 
 add_executable(systemsettings ${systemsettings_SRCS})
 target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
@@ -31,6 +33,9 @@ target_link_libraries(systemsettings
     KF6::DBusAddons
     KF6::ConfigGui
     KF6::GuiAddons # UrlHanlder handles help:/ urls
+    Qt::QuickWidgets
+    Qt::Qml
+    Qt::Quick
     PW::KWorkspace
 )
 

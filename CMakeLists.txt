@@ -79,8 +79,6 @@ ecm_qt_declare_logging_category(systemsettings_debug
 add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)
-add_subdirectory(icons)
-add_subdirectory(sidebar)
 if(KF6DocTools_FOUND)
     add_subdirectory(doc)
     kdoctools_install(po)
