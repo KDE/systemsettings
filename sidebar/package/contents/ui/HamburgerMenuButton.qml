@@ -13,12 +13,28 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.systemsettings 1.0
 
 QQC2.ToolButton {
+    id: control
+
+    // This is needed because more than one hamburger button can exist in a scene.
+    property bool ownsVisibleActionMenu: false
+
     icon.name: "application-menu"
 
     checkable: true
     checked: systemsettings.actionMenuVisible
     onToggled: if (checked) {
+        ownsVisibleActionMenu = true;
         systemsettings.showActionMenu(mapToGlobal(0, height));
+    }
+
+    Connections {
+        target: systemsettings
+        function onActionMenuVisibleChanged() {
+            if (control.ownsVisibleActionMenu) {
+                ownsVisibleActionMenu = false;
+                control.forceActiveFocus(Qt.PopupFocusReason);
+            }
+        }
     }
 
     Accessible.role: Accessible.ButtonMenu
