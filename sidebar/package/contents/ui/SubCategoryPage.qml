@@ -47,6 +47,7 @@ Kirigami.ScrollablePage {
             // Show a back Button when only one column is visible
             QQC2.ToolButton {
                 id: backButton
+
                 Layout.fillWidth: true
                 visible: !applicationWindow().wideScreen
                 // Uncomment once QQC2.ToolButton can force-left-align its contents
@@ -75,6 +76,13 @@ Kirigami.ScrollablePage {
                         elide: Text.ElideRight
                     }
                 }
+
+                KeyNavigation.right: hamburgerMenuButton
+                KeyNavigation.down: subCategoryView
+                KeyNavigation.tab: KeyNavigation.right
+                Keys.onBacktabPressed: {
+                    root.focusPreviousRequest()
+                }
             }
 
             // Show a non-interactive heading when both columns are visible
@@ -83,7 +91,7 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 // Don't be too short when the back and burger buttons aren't visible
-                Layout.minimumHeight: Math.max(backButton.implicitHeight, burgerButton.implicitHeight)
+                Layout.minimumHeight: Math.max(backButton.implicitHeight, hamburgerMenuButton.implicitHeight)
                 Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
                 level: 3
                 text: subCategoryColumn.title
@@ -92,27 +100,32 @@ Kirigami.ScrollablePage {
             }
 
             HamburgerMenuButton {
-                id: burgerButton
+                id: hamburgerMenuButton
+
                 visible: !applicationWindow().wideScreen
-                Keys.onBacktabPressed: {
-                    root.focusPreviousRequest()
-                }
+
+                KeyNavigation.left: backButton
+                KeyNavigation.down: subCategoryView
+                KeyNavigation.backtab: KeyNavigation.left
+                KeyNavigation.tab: KeyNavigation.down
             }
         }
     }
 
     ListView {
         id: subCategoryView
+
         anchors.fill: parent
         model: systemsettings.subCategoryModel
         currentIndex: systemsettings.activeSubCategoryRow
         activeFocusOnTab: true
         keyNavigationWraps: true
         Accessible.role: Accessible.List
+
+        KeyNavigation.up: backButton
+        KeyNavigation.backtab: hamburgerMenuButton
+
         Keys.onTabPressed: root.focusNextRequest();
-        Keys.onBacktabPressed: {
-            mainColumn.focus = true;
-        }
 
         onCountChanged: {
             if (count > 1 && !root.searchMode) {

@@ -44,11 +44,9 @@ Kirigami.ScrollablePage {
 
             QQC2.ToolButton {
                 id: showIntroPageButton
+
                 enabled: !systemsettings.introPageVisible
                 icon.name: "go-home"
-                Keys.onBacktabPressed: {
-                    root.focusPreviousRequest()
-                }
                 onClicked: {
                     searchField.text = "";
                     systemsettings.introPageVisible = true;
@@ -59,22 +57,42 @@ Kirigami.ScrollablePage {
                 QQC2.ToolTip {
                     text: parent.Accessible.name
                 }
+
+                KeyNavigation.right: searchField
+                KeyNavigation.down: categoryView
+                KeyNavigation.tab: KeyNavigation.right
+                Keys.onBacktabPressed: {
+                    root.focusPreviousRequest()
+                }
             }
 
             Kirigami.SearchField {
                 id: searchField
+
                 focus: !Kirigami.InputMethod.willShowOnActive
                 Layout.fillWidth: true
                 onTextChanged: {
                     systemsettings.searchModel.filterRegExp = text;
                 }
-                KeyNavigation.tab: categoryView
+
+                KeyNavigation.left: showIntroPageButton
+                KeyNavigation.right: hamburgerMenuButton
+
+                KeyNavigation.down: categoryView
+
+                KeyNavigation.backtab: KeyNavigation.left
+                KeyNavigation.tab: KeyNavigation.right
             }
 
             HamburgerMenuButton {
-                Keys.onBacktabPressed: {
-                    root.focusPreviousRequest()
-                }
+                id: hamburgerMenuButton
+
+                KeyNavigation.left: searchField
+
+                KeyNavigation.down: categoryView
+
+                KeyNavigation.backtab: KeyNavigation.left
+                KeyNavigation.tab: KeyNavigation.down
             }
         }
     }
@@ -112,12 +130,16 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: categoryView
+
         anchors.fill: parent
         model: mainColumn.searchMode ? systemsettings.searchModel : systemsettings.categoryModel
 
         activeFocusOnTab: true
         keyNavigationWraps: true
         Accessible.role: Accessible.List
+
+        KeyNavigation.up: searchField
+        KeyNavigation.backtab: hamburgerMenuButton
         Keys.onTabPressed: {
             if (applicationWindow().wideScreen) {
                 subCategoryColumn.focus = true;
