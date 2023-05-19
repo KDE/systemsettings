@@ -36,6 +36,7 @@ Kirigami.ScrollablePage {
             parent: pageHeader
             text: "Placeholder"
             visible: false
+            textFormat: Text.PlainText
         }
 
         contentItem: RowLayout {
@@ -73,6 +74,7 @@ Kirigami.ScrollablePage {
                         text: subCategoryColumn.title
                         verticalAlignment: Text.AlignVCenter
                         elide: Text.ElideRight
+                        textFormat: Text.PlainText
                     }
                 }
             }
@@ -89,6 +91,7 @@ Kirigami.ScrollablePage {
                 text: subCategoryColumn.title
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
+                textFormat: Text.PlainText
             }
 
             HamburgerMenuButton {

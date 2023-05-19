@@ -34,6 +34,7 @@ Kirigami.ScrollablePage {
             parent: pageHeader
             text: "Placeholder"
             visible: false
+            textFormat: Text.PlainText
         }
 
         contentItem: RowLayout {
