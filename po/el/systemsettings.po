@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-07 02:16+0000\n"
+"POT-Creation-Date: 2023-05-21 02:02+0000\n"
 "PO-Revision-Date: 2021-09-19 10:05+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -267,12 +267,12 @@ msgstr ""
 msgid "System Information"
 msgstr "Πληροφορίες συστήματος"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#: sidebar/package/contents/ui/CategoriesPage.qml:59
 #, kde-format
 msgid "Show intro page"
 msgstr "Εμφάνιση εισαγωγικής σελίδας"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:101
+#: sidebar/package/contents/ui/CategoriesPage.qml:102
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-07 02:16+0000\n"
+"POT-Creation-Date: 2023-05-21 02:02+0000\n"
 "PO-Revision-Date: 2008-07-06 19:57+0530\n"
 "Last-Translator: Ria Das <mailtoria@gmail.com>\n"
 "Language-Team: Bengali (India) <discuss@ankur.co.in>\n"
@@ -260,12 +260,12 @@ msgstr ""
 msgid "System Information"
 msgstr "সইস্টেমের বৈশিষ্ট"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#: sidebar/package/contents/ui/CategoriesPage.qml:59
 #, kde-format
 msgid "Show intro page"
 msgstr ""
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:101
+#: sidebar/package/contents/ui/CategoriesPage.qml:102
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
