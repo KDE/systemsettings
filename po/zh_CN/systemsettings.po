@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-21 02:02+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/systemsettings/systemsettings.pot\n"
-"X-Crowdin-File-ID: 4722\n"
+"X-Crowdin-File: /kf6-trunk/messages/systemsettings/systemsettings.pot\n"
+"X-Crowdin-File-ID: 42807\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,7 +35,7 @@ msgstr "系统信息中心"
 #: app/main.cpp:60
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr "系统信息总览。"
+msgstr "KDE 系统信息的集中展示程序。"
 
 #: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
 #, kde-format
@@ -51,7 +51,7 @@ msgstr "系统设置"
 #: app/main.cpp:71
 #, kde-format
 msgid "Central configuration center by KDE."
-msgstr "KDE 的配置中心。"
+msgstr "KDE 系统的集中式配置管理面板。"
 
 #: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
 #, kde-format
