@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 02:02+0000\n"
+"POT-Creation-Date: 2023-05-24 02:08+0000\n"
 "PO-Revision-Date: 2023-03-14 22:07+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -268,12 +268,12 @@ msgstr "Etsii järjestelmäasetusosiota, jonka nimessä tai kuvauksessa on :q:"
 msgid "System Information"
 msgstr "Järjestelmätiedot"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:59
+#: sidebar/package/contents/ui/CategoriesPage.qml:57
 #, kde-format
 msgid "Show intro page"
 msgstr "Näytä johdantosivu"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:102
+#: sidebar/package/contents/ui/CategoriesPage.qml:120
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

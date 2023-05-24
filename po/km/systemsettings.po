@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 02:02+0000\n"
+"POT-Creation-Date: 2023-05-24 02:08+0000\n"
 "PO-Revision-Date: 2009-12-22 09:22+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -257,12 +257,12 @@ msgstr ""
 msgid "System Information"
 msgstr "កា​រកំណត់​ប្រព័ន្ធ"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:59
+#: sidebar/package/contents/ui/CategoriesPage.qml:57
 #, kde-format
 msgid "Show intro page"
 msgstr ""
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:102
+#: sidebar/package/contents/ui/CategoriesPage.qml:120
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
