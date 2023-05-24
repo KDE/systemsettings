@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:44+0000\n"
+"POT-Creation-Date: 2023-05-24 02:43+0000\n"
 "PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -263,12 +263,12 @@ msgstr "Шукае модулі налад сістэмы, чыі назвы а�
 msgid "System Information"
 msgstr "Сістэмная інфармацыя"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#: sidebar/package/contents/ui/CategoriesPage.qml:56
 #, kde-format
 msgid "Show intro page"
 msgstr "Паказаць уводную старонку"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:101
+#: sidebar/package/contents/ui/CategoriesPage.qml:119
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 02:44+0000\n"
+"POT-Creation-Date: 2023-05-24 02:43+0000\n"
 "PO-Revision-Date: 2023-01-05 13:39+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -256,12 +256,12 @@ msgstr "Najde moduly nastavení systému jejichž názvy a popisy odpovídají :
 msgid "System Information"
 msgstr "Systémové informace"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:58
+#: sidebar/package/contents/ui/CategoriesPage.qml:56
 #, kde-format
 msgid "Show intro page"
 msgstr "Zobrazit úvodní stránku"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:101
+#: sidebar/package/contents/ui/CategoriesPage.qml:119
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
