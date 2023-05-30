@@ -19,7 +19,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 22.12.3\n"
@@ -184,8 +184,7 @@ msgstr "KDE システム設定について"
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "1 アイテムを含む"
-msgstr[1] "%1 アイテムを含む"
+msgstr[0] "%1 アイテムを含む"
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
