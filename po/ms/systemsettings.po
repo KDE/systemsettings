@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:08+0000\n"
+"POT-Creation-Date: 2023-06-03 02:04+0000\n"
 "PO-Revision-Date: 2011-01-08 23:40+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -56,7 +56,7 @@ msgstr "Tetapan Sistem"
 msgid "Central configuration center by KDE."
 msgstr "Pusat tetapan setempat untuk KDE."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -66,12 +66,12 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Penyelenggara"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
 #, kde-format
 msgid "Developer"
 msgstr "Pemaju"
@@ -236,8 +236,8 @@ msgstr "Pelihat Ikon"
 msgid "Provides a categorized icons view of control modules."
 msgstr ""
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:170
-#: sidebar/SidebarMode.cpp:171
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
+#: sidebar/SidebarMode.cpp:163
 #, kde-format
 msgid "Author"
 msgstr "Pengarang"
@@ -285,32 +285,32 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:165
+#: sidebar/SidebarMode.cpp:157
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:167
+#: sidebar/SidebarMode.cpp:159
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:169
+#: sidebar/SidebarMode.cpp:161
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:162
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:650
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr ""

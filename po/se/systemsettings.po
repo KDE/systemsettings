@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:08+0000\n"
+"POT-Creation-Date: 2023-06-03 02:04+0000\n"
 "PO-Revision-Date: 2007-12-24 02:12+0100\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -55,7 +55,7 @@ msgstr "Vuogádatheivehus"
 msgid "Central configuration center by KDE."
 msgstr ""
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:171
+#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
 #, kde-format
 msgid "Ben Cooksley"
 msgstr ""
@@ -65,12 +65,12 @@ msgstr ""
 msgid "Maintainer"
 msgstr ""
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
 #, kde-format
 msgid "Mathias Soeken"
 msgstr ""
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:172
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
 #, kde-format
 msgid "Developer"
 msgstr ""
@@ -225,8 +225,8 @@ msgstr ""
 msgid "Provides a categorized icons view of control modules."
 msgstr ""
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:170
-#: sidebar/SidebarMode.cpp:171
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
+#: sidebar/SidebarMode.cpp:163
 #, kde-format
 msgid "Author"
 msgstr "Čálli"
@@ -272,32 +272,32 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:165
+#: sidebar/SidebarMode.cpp:157
 #, kde-format
 msgid "Sidebar View"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:167
+#: sidebar/SidebarMode.cpp:159
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:169
+#: sidebar/SidebarMode.cpp:161
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:170
+#: sidebar/SidebarMode.cpp:162
 #, kde-format
 msgid "Marco Martin"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:650
+#: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: sidebar/SidebarMode.cpp:721
+#: sidebar/SidebarMode.cpp:722
 #, kde-format
 msgid "Most Used"
 msgstr ""
