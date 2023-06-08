@@ -7,17 +7,15 @@ set(systemsettings_SRCS
     SettingsBase.h
     ToolTips/tooltipmanager.cpp
     ToolTips/tooltipmanager.h
-    ${debug_SRCS}
 )
 
-# port it it's in kdelibs4support
-# kde4_add_app_icon(systemsettings_SRCS "${KDE4_ICON_INSTALL_DIR}/oxygen/*/categories/preferences-system.png")
 kconfig_add_kcfg_files(systemsettings_SRCS BaseConfig.kcfgc)
 
 add_executable(systemsettings ${systemsettings_SRCS})
 target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
 target_link_libraries(systemsettings
+    systemsettings_debug
     systemsettingsview
     KF6::Crash
     KF6::ItemViews

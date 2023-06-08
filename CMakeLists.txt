@@ -34,7 +34,7 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII)
 add_definitions(-DQT_NO_CAST_TO_ASCII)
 
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets Quick Qml QuickWidgets
 )
 
@@ -64,20 +64,17 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     QUIET
 )
 
-ecm_find_qmlmodule(org.kde.kcm 1.0)
-
 find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
 
-
-set(debug_SRCS)
-ecm_qt_declare_logging_category(debug_SRCS
+add_library(systemsettings_debug STATIC)
+target_link_libraries(systemsettings_debug Qt::Core)
+ecm_qt_declare_logging_category(systemsettings_debug
     HEADER systemsettings_app_debug.h
     IDENTIFIER SYSTEMSETTINGS_APP_LOG
     CATEGORY_NAME org.kde.systemsettings.app
     DESCRIPTION "systemsettings"
     EXPORT SYSTEMSETTINGS
 )
-
 
 add_subdirectory(core)
 add_subdirectory(app)
