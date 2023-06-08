@@ -16,7 +16,7 @@ class SystemsettingsRunner : public KRunner::AbstractRunner
     Q_OBJECT
 
 public:
-    SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args);
+    explicit SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData);
 
     void match(KRunner::RunnerContext &context) override;
     void run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match) override;

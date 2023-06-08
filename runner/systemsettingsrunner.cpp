@@ -31,11 +31,10 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SystemsettingsRunner, "systemsettingsrunner.json")
 
-SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
-    : KRunner::AbstractRunner(parent, metaData, args)
+SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData)
+    : KRunner::AbstractRunner(parent, metaData)
 {
     setObjectName(QStringLiteral("SystemsettingsRunner"));
-    setPriority(AbstractRunner::HighestPriority);
 
     addSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:"));
     // teardown is called in the main thread when all matches are over
