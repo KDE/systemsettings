@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
+"POT-Creation-Date: 2023-06-09 02:14+0000\n"
 "PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -42,7 +42,7 @@ msgstr "KDE 系统信息的集中展示程序。"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:174
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -240,12 +240,12 @@ msgstr "所有设置"
 msgid "Keyboard Shortcut: %1"
 msgstr "键盘快捷键：%1"
 
-#: runner/systemsettingsrunner.cpp:40
+#: runner/systemsettingsrunner.cpp:39
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 
-#: runner/systemsettingsrunner.cpp:173
+#: runner/systemsettingsrunner.cpp:172
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"

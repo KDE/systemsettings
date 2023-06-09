@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
+"POT-Creation-Date: 2023-06-09 02:14+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -48,7 +48,7 @@ msgstr "Miðlægt og þægilegt yfirlit yfir kerfisupplýsingar."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:174
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -249,12 +249,12 @@ msgstr "Allar stillingar"
 msgid "Keyboard Shortcut: %1"
 msgstr "Flýtilyklasamsetning: %1"
 
-#: runner/systemsettingsrunner.cpp:40
+#: runner/systemsettingsrunner.cpp:39
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Finnur stillingaeiningar kerfis þar sem heiti eða lýsing samsvara :q:"
 
-#: runner/systemsettingsrunner.cpp:173
+#: runner/systemsettingsrunner.cpp:172
 #, kde-format
 msgid "System Information"
 msgstr "Kerfisupplýsingar"

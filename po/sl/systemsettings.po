@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
+"POT-Creation-Date: 2023-06-09 02:14+0000\n"
 "PO-Revision-Date: 2023-04-24 09:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -52,7 +52,7 @@ msgstr "Centraliziran in priročen pregled sistemskih informacij."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:175
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:174
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -255,13 +255,13 @@ msgstr "Vse nastavitve"
 msgid "Keyboard Shortcut: %1"
 msgstr "Tipkovna bližnjica: %1"
 
-#: runner/systemsettingsrunner.cpp:40
+#: runner/systemsettingsrunner.cpp:39
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Najdi module nastavitev sistema kateri imena ali opisi se ujemajo s :q:"
 
-#: runner/systemsettingsrunner.cpp:173
+#: runner/systemsettingsrunner.cpp:172
 #, kde-format
 msgid "System Information"
 msgstr "Informacije o sistemu"
