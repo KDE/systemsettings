@@ -71,7 +71,7 @@ void SystemsettingsRunner::run(const KRunner::RunnerContext &context, const KRun
         job->setDesktopName(QStringLiteral("systemsettings"));
     } else {
         // Systemsettings only uses predefined namespaces that kcmshell5/6 also knows about
-        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), {data.pluginId()});
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), {data.pluginId()});
     }
     auto delegate = new KNotificationJobUiDelegate;
     delegate->setAutoErrorHandlingEnabled(true);
