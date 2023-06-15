@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-24 02:43+0000\n"
-"PO-Revision-Date: 2023-01-03 06:08+0100\n"
+"PO-Revision-Date: 2023-06-14 23:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -189,12 +189,12 @@ msgstr[1] "Conté %1 elements"
 #: core/ExternalAppModule.cpp:27
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 és una aplicació externa i ha estat engegada automàticament"
+msgstr "%1 és una aplicació externa i s'engega automàticament"
 
 #: core/ExternalAppModule.cpp:28
 #, kde-format
 msgid "Relaunch %1"
-msgstr "Torna a engegar %1"
+msgstr "Torna a engegar el %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
 #: core/externalModule.ui:14
