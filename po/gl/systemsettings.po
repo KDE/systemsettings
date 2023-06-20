@@ -151,7 +151,7 @@ msgid ""
 "display."
 msgstr ""
 "A configuración do sistema non puido atopar ningunha vista, polo que non hai "
-"ren que mostrar."
+"ren que amosar."
 
 #: app/SettingsBase.cpp:368
 #, kde-format
@@ -263,7 +263,7 @@ msgstr "Información do sistema"
 #: sidebar/package/contents/ui/CategoriesPage.qml:57
 #, kde-format
 msgid "Show intro page"
-msgstr "Mostrar a páxina de introdución"
+msgstr "Amosar a páxina de introdución"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:120
 #, kde-format
@@ -274,7 +274,7 @@ msgstr "Ningún elemento coincide coa busca."
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr "Mostrar o menú"
+msgstr "Amosar o menú"
 
 #: sidebar/package/contents/ui/introPage.qml:56
 #, kde-format
