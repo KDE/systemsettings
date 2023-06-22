@@ -24,6 +24,6 @@ QQC2.ToolButton {
     Accessible.role: Accessible.ButtonMenu
     Accessible.name: i18n("Show menu")
     QQC2.ToolTip.text: Accessible.name
-    QQC2.ToolTip.visible: hovered && !down
+    QQC2.ToolTip.visible: hovered && !pressed
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 }
