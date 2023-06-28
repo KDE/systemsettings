@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-28 02:10+0000\n"
 "PO-Revision-Date: 2023-04-01 15:08-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ"
 msgid "Central configuration center by KDE."
 msgstr "KDE ਲਈ ਕੇਂਦਰੀ ਸੰਰਚਨਾ ਕੇਂਦਰ ਹੈ।"
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "ਬੇਨ ਕੁੱਕਸਲੇਯ"
@@ -64,12 +64,12 @@ msgstr "ਬੇਨ ਕੁੱਕਸਲੇਯ"
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "ਮੈਥਿਸ ਸੋਈਕੇਨ"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Developer"
 msgstr "ਡਿਵੈਲਪਰ"
@@ -226,8 +226,8 @@ msgstr "ਆਈਕਾਨ ਝਲਕ"
 msgid "Provides a categorized icons view of control modules."
 msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਕੈਟਾਗਰੀ ਆਈਕਾਨ ਝਲਕ ਦਿੰਦਾ ਹੈ।"
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:164
+#: sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Author"
 msgstr "ਲੇਖਕ"
@@ -273,32 +273,32 @@ msgstr "ਮੇਨੂ ਵੇਖੋ"
 msgid "Plasma"
 msgstr "ਪਲਾਜ਼ਮਾ"
 
-#: sidebar/SidebarMode.cpp:157
+#: sidebar/SidebarMode.cpp:159
 #, kde-format
 msgid "Sidebar View"
 msgstr "ਝਲਕ ਬਾਹੀ"
 
-#: sidebar/SidebarMode.cpp:159
+#: sidebar/SidebarMode.cpp:161
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr "ਕੰਟਰੋਲ ਮੋਡੀਊਲ ਦੀ ਕੈਟਾਗਰੀ ਬਾਹੀ ਦਿੰਦਾ ਹੈ।"
 
-#: sidebar/SidebarMode.cpp:161
+#: sidebar/SidebarMode.cpp:163
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) ੨੦੧੭ ਮਾਰਕੋ ਮਾਰਟਿਨ"
 
-#: sidebar/SidebarMode.cpp:162
+#: sidebar/SidebarMode.cpp:164
 #, kde-format
 msgid "Marco Martin"
 msgstr "ਮਾਰਕੋ ਮਾਰਟਿਨ"
 
-#: sidebar/SidebarMode.cpp:651
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr "ਬਾਹੀ"
 
-#: sidebar/SidebarMode.cpp:722
+#: sidebar/SidebarMode.cpp:724
 #, kde-format
 msgid "Most Used"
 msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"

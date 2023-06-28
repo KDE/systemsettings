@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-28 02:10+0000\n"
 "PO-Revision-Date: 2021-09-09 23:38-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -53,7 +53,7 @@ msgstr "Танзимоти низом"
 msgid "Central configuration center by KDE."
 msgstr "Маркази идоракунии низоми KDE."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Бэн Куксли (Ben Cooksley)"
@@ -63,12 +63,12 @@ msgstr "Бэн Куксли (Ben Cooksley)"
 msgid "Maintainer"
 msgstr "Муассис"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Матиас Сойкен (Mathias Soeken)"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:166
 #, kde-format
 msgid "Developer"
 msgstr "Барномасоз"
@@ -231,8 +231,8 @@ msgstr "Намуди нишонаҳо"
 msgid "Provides a categorized icons view of control modules."
 msgstr "Модулҳои идоракуниро дар намуди нишонаҳои мураттабшуда нишон медиҳад."
 
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
+#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:164
+#: sidebar/SidebarMode.cpp:165
 #, kde-format
 msgid "Author"
 msgstr "Муаллиф"
@@ -279,33 +279,33 @@ msgstr "Нишон додани феҳрист"
 msgid "Plasma"
 msgstr "Плазма"
 
-#: sidebar/SidebarMode.cpp:157
+#: sidebar/SidebarMode.cpp:159
 #, kde-format
 msgid "Sidebar View"
 msgstr "Намуди навори ҷонибӣ"
 
-#: sidebar/SidebarMode.cpp:159
+#: sidebar/SidebarMode.cpp:161
 #, kde-format
 msgid "Provides a categorized sidebar for control modules."
 msgstr ""
 "Модулҳои идоракуниро дар намуди навори ҷонибии мураттабшуда нишон медиҳад."
 
-#: sidebar/SidebarMode.cpp:161
+#: sidebar/SidebarMode.cpp:163
 #, kde-format
 msgid "(c) 2017, Marco Martin"
 msgstr "(c) 2017, Марко Мартин (Marco Martin)"
 
-#: sidebar/SidebarMode.cpp:162
+#: sidebar/SidebarMode.cpp:164
 #, kde-format
 msgid "Marco Martin"
 msgstr "Марко Мартин (Marco Martin)"
 
-#: sidebar/SidebarMode.cpp:651
+#: sidebar/SidebarMode.cpp:653
 #, kde-format
 msgid "Sidebar"
 msgstr "Навори ҷонибӣ"
 
-#: sidebar/SidebarMode.cpp:722
+#: sidebar/SidebarMode.cpp:724
 #, kde-format
 msgid "Most Used"
 msgstr "Истифодашавандаи зиёдтарин"
