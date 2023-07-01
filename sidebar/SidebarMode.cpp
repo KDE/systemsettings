@@ -44,8 +44,6 @@ K_PLUGIN_CLASS_WITH_JSON(SidebarMode, "settings-sidebar-view.json")
 FocusHackWidget::FocusHackWidget(QWidget *parent)
     : QWidget(parent)
 {
-    // Workaround for https://bugreports.qt.io/browse/QTBUG-114835 to fix drag everywhere
-    setAttribute(Qt::WA_NoMousePropagation, true);
 }
 
 FocusHackWidget::~FocusHackWidget()
