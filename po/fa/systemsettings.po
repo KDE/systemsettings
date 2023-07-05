@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
 #, kde-format
@@ -183,6 +183,7 @@ msgstr "درباره تنظیمات سامانه"
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "<i>شامل %1 مورد</i>"
+msgstr[1] ""
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
