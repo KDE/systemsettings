@@ -71,7 +71,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        level: 4
+                        level: 2
                         text: subCategoryColumn.title
                         verticalAlignment: Text.AlignVCenter
                         elide: Text.ElideRight
@@ -94,8 +94,8 @@ Kirigami.ScrollablePage {
                 Layout.fillHeight: true
                 // Don't be too short when the back and burger buttons aren't visible
                 Layout.minimumHeight: Math.max(backButton.implicitHeight, hamburgerMenuButton.implicitHeight)
-                Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.smallSpacing
-                level: 3
+                Layout.leftMargin: backIcon.visible ? 0 : Kirigami.Units.gridUnit
+                level: 1
                 text: subCategoryColumn.title
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
