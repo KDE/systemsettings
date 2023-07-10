@@ -124,6 +124,7 @@ private Q_SLOTS:
     void moduleLoaded();
     void updateDefaults();
     void initWidget();
+    void updateWidth();
 
 private:
     void initPlaceHolderWidget();

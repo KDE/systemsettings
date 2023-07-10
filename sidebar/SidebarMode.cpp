@@ -668,20 +668,9 @@ void SidebarMode::initWidget()
         }
         qFatal("Fatal error while loading the sidebar view qml component");
     }
-    const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
-    if (rootImplicitWidth != 0) {
-        d->quickWidget->setFixedWidth(rootImplicitWidth);
-    } else {
-        d->quickWidget->setFixedWidth(240);
-    }
-    connect(d->quickWidget->rootObject(), &QQuickItem::implicitWidthChanged, this, [this]() {
-        const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
-        if (rootImplicitWidth != 0) {
-            d->quickWidget->setFixedWidth(rootImplicitWidth);
-        } else {
-            d->quickWidget->setFixedWidth(240);
-        }
-    });
+
+    updateWidth();
+    connect(d->quickWidget->rootObject(), &QQuickItem::implicitWidthChanged, this, &SidebarMode::updateWidth);
 
     setHeaderHeight(d->quickWidget->rootObject()->property("headerHeight").toReal());
 
@@ -714,6 +703,14 @@ void SidebarMode::initWidget()
         initPlaceHolderWidget();
         d->placeHolderWidget->show();
     }
+}
+
+void SidebarMode::updateWidth()
+{
+    const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
+    // 256 is the default width of the sidebar set in QML (single column mode)
+    d->quickWidget->setFixedWidth(rootImplicitWidth == 0 ? 256 : rootImplicitWidth);
+    qDebug() << d->quickWidget->minimumWidth();
 }
 
 void SidebarMode::initPlaceHolderWidget()
