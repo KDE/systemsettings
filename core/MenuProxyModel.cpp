@@ -142,3 +142,5 @@ void MenuProxyModel::setFilterRegularExpression(const QRegularExpression &regExp
     KCategorizedSortFilterProxyModel::setFilterRegularExpression(regExp);
     Q_EMIT layoutChanged();
 }
+
+#include "moc_MenuProxyModel.cpp"

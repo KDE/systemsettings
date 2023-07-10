@@ -609,3 +609,5 @@ KPluginMetaData ModuleView::activeModuleMetadata() const
     }
     return activeModule->metaData();
 }
+
+#include "moc_ModuleView.cpp"

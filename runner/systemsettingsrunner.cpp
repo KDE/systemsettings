@@ -180,3 +180,5 @@ void SystemsettingsRunner::matchNameKeyword(KRunner::RunnerContext &ctx)
 }
 
 #include "systemsettingsrunner.moc"
+
+#include "moc_systemsettingsrunner.cpp"

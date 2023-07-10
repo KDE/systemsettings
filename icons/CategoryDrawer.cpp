@@ -23,3 +23,5 @@ void CategoryDrawer::drawCategory(const QModelIndex &index, int sortRole, const 
     copy.palette.setBrush(QPalette::Window, option.palette.base());
     KCategoryDrawer::drawCategory(index, sortRole, copy, painter);
 }
+
+#include "moc_CategoryDrawer.cpp"

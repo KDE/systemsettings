@@ -260,3 +260,5 @@ void IconMode::giveFocus()
 }
 
 #include "IconMode.moc"
+
+#include "moc_IconMode.cpp"

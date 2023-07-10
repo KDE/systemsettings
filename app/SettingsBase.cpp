@@ -511,3 +511,5 @@ void SettingsBase::slotGeometryChanged()
 {
     setMinimumSize(SettingsBase::sizeHint());
 }
+
+#include "moc_SettingsBase.cpp"

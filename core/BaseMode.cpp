@@ -177,3 +177,5 @@ bool BaseMode::defaultsIndicatorsVisible() const
 void BaseMode::toggleDefaultsIndicatorsVisibility()
 {
 }
+
+#include "moc_BaseMode.cpp"

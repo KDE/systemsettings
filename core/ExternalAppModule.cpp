@@ -48,3 +48,5 @@ void ExternalAppModule::runExternal()
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }
+
+#include "moc_ExternalAppModule.cpp"

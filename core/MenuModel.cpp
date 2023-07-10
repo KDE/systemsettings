@@ -256,3 +256,5 @@ void MenuModel::removeException(MenuItem *exception)
 {
     d->exceptions.removeAll(exception);
 }
+
+#include "moc_MenuModel.cpp"

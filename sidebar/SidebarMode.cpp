@@ -778,3 +778,5 @@ void SidebarMode::giveFocus()
 }
 
 #include "SidebarMode.moc"
+
+#include "moc_SidebarMode.cpp"
