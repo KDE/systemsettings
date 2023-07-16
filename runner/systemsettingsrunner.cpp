@@ -49,10 +49,6 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
     const QString query = context.query();
     const QStringList queryWords{query.split(QLatin1Char(' '))};
     for (const KPluginMetaData &data : std::as_const(m_modules)) {
-        const QString name = data.name();
-        const QString description = data.description();
-        const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
-
         qreal relevance = -1;
         const auto checkMatchAndRelevance = [&query, &relevance, &queryWords](const QString &value, qreal relevanceValue) {
             if (value.startsWith(query, Qt::CaseInsensitive)) {
@@ -68,8 +64,17 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             return false;
         };
 
+        const QString name = data.name();
+        const QString description = data.description();
+        const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
         // check for matches and set relevance
-        if (checkMatchAndRelevance(name, 0.8)) { // name starts with query or contains any query word
+        if (query.length() < 3) {
+            if (name.startsWith(query, Qt::CaseInsensitive)) {
+                relevance = 0.9;
+            } else {
+                continue;
+            }
+        } else if (checkMatchAndRelevance(name, 0.8)) { // name starts with query or contains any query word
         } else if (checkMatchAndRelevance(description, 0.5)) { // description starts with query or contains any query word
         } else if (std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
                        return keyword.startsWith(query, Qt::CaseInsensitive);
