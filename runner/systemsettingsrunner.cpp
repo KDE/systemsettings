@@ -52,10 +52,7 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         const QString description = data.description();
         const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
 
-        KRunner::QueryMatch match(this);
-        setupMatch(data, match);
         qreal relevance = -1;
-        KRunner::QueryMatch::Type type = KRunner::QueryMatch::CompletionMatch;
 
         auto checkMatchAndRelevance = [query, data, &relevance](const QString &value, qreal relevanceValue) {
             if (value.startsWith(query, Qt::CaseInsensitive)) {
@@ -87,6 +84,7 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             continue; // skip this KCM
         }
 
+        KRunner::QueryMatch::Type type = KRunner::QueryMatch::CompletionMatch;
         // set type
         if (name.compare(query, Qt::CaseInsensitive) == 0) { // name matches exactly
             type = KRunner::QueryMatch::ExactMatch;
@@ -96,6 +94,8 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             type = KRunner::QueryMatch::PossibleMatch;
         }
 
+        KRunner::QueryMatch match(this);
+        setupMatch(data, match);
         match.setRelevance(relevance);
         match.setType(type);
 
