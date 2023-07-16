@@ -47,19 +47,18 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
 {
     QList<KRunner::QueryMatch> matches;
     const QString query = context.query();
+    const QStringList queryWords{query.split(QLatin1Char(' '))};
     for (const KPluginMetaData &data : std::as_const(m_modules)) {
         const QString name = data.name();
         const QString description = data.description();
         const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
 
         qreal relevance = -1;
-
-        auto checkMatchAndRelevance = [query, data, &relevance](const QString &value, qreal relevanceValue) {
+        const auto checkMatchAndRelevance = [&query, &relevance, &queryWords](const QString &value, qreal relevanceValue) {
             if (value.startsWith(query, Qt::CaseInsensitive)) {
                 relevance = relevanceValue + 0.1;
                 return true;
             }
-            const QStringList queryWords{query.split(QLatin1Char(' '))};
             for (const QString &queryWord : queryWords) {
                 if (relevance == -1 && queryWord.length() > 3 && value.contains(queryWord, Qt::CaseInsensitive)) {
                     relevance = relevanceValue;
