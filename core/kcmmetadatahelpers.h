@@ -84,7 +84,7 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
     }
     for (const auto &m : qAsConst(metaDataList)) {
         // We check both since porting a module to loading view KPluginMetaData drops ".desktop" from the pluginId()
-        if (!KAuthorized::authorizeControlModule(m.pluginId()) || !KAuthorized::authorizeControlModule(m.pluginId().append(QStringLiteral(".desktop")))) {
+        if (!KAuthorized::authorizeControlModule(m.pluginId())) {
             continue;
         }
         modules << m;
