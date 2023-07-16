@@ -34,10 +34,10 @@ K_PLUGIN_CLASS_WITH_JSON(SystemsettingsRunner, "systemsettingsrunner.json")
 SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaData &metaData)
     : KRunner::AbstractRunner(parent, metaData)
 {
-    setObjectName(QStringLiteral("SystemsettingsRunner"));
-
     addSyntax(QStringLiteral(":q:"), i18n("Finds system settings modules whose names or descriptions match :q:"));
-    // teardown is called in the main thread when all matches are over
+    connect(this, &SystemsettingsRunner::prepare, this, [this]() {
+        m_modules = findKCMsMetaData(MetaDataSource::All);
+    });
     connect(this, &SystemsettingsRunner::teardown, this, [this]() {
         m_modules.clear();
     });
@@ -45,78 +45,9 @@ SystemsettingsRunner::SystemsettingsRunner(QObject *parent, const KPluginMetaDat
 
 void SystemsettingsRunner::match(KRunner::RunnerContext &context)
 {
-    {
-        // The match method is called multithreaded, to make sure we do not start multiple plugin searches or
-        // write to the list in different threads the lock is used
-        QMutexLocker lock(&m_mutex);
-        if (m_modules.isEmpty()) {
-            m_modules = findKCMsMetaData(MetaDataSource::All);
-        }
-    }
-    matchNameKeyword(context);
-}
-
-void SystemsettingsRunner::run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match)
-{
-    Q_UNUSED(context)
-
-    const auto data = match.data().value<KPluginMetaData>();
-
-    KIO::CommandLauncherJob *job = nullptr;
-    if (isKinfoCenterKcm(data)) {
-        job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), {data.pluginId()});
-        job->setDesktopName(QStringLiteral("org.kde.kinfocenter"));
-    } else if (!data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()) {
-        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings"), {data.pluginId()});
-        job->setDesktopName(QStringLiteral("systemsettings"));
-    } else {
-        // Systemsettings only uses predefined namespaces that kcmshell5/6 also knows about
-        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), {data.pluginId()});
-    }
-    auto delegate = new KNotificationJobUiDelegate;
-    delegate->setAutoErrorHandlingEnabled(true);
-    job->setUiDelegate(delegate);
-    job->start();
-
-    KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("systemsettings:") + data.pluginId()), QStringLiteral("org.kde.krunner"));
-}
-
-QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &match)
-{
-    const auto value = match.data().value<KPluginMetaData>();
-    if (value.isValid()) {
-        if (KService::Ptr ptr = KService::serviceByStorageId(value.pluginId() + QLatin1String(".desktop"))) {
-            auto data = new QMimeData();
-            data->setUrls(QList<QUrl>{QUrl::fromLocalFile(ptr->entryPath())});
-            return data;
-        }
-    }
-    return nullptr;
-}
-
-void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match)
-{
-    const QString name = data.name();
-
-    match.setText(name);
-    QUrl url(data.pluginId());
-    url.setScheme(QStringLiteral("applications"));
-    match.setUrls({url});
-    match.setSubtext(data.description());
-
-    if (!data.iconName().isEmpty()) {
-        match.setIconName(data.iconName());
-    }
-    match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
-    match.setData(QVariant::fromValue(data));
-}
-
-void SystemsettingsRunner::matchNameKeyword(KRunner::RunnerContext &ctx)
-{
     QList<KRunner::QueryMatch> matches;
-    const QString query = ctx.query();
-
-    for (const KPluginMetaData &data : qAsConst(m_modules)) {
+    const QString query = context.query();
+    for (const KPluginMetaData &data : std::as_const(m_modules)) {
         const QString name = data.name();
         const QString description = data.description();
         const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
@@ -176,7 +107,60 @@ void SystemsettingsRunner::matchNameKeyword(KRunner::RunnerContext &ctx)
 
         matches << match;
     }
-    ctx.addMatches(matches);
+    context.addMatches(matches);
+}
+
+void SystemsettingsRunner::run(const KRunner::RunnerContext & /*context*/, const KRunner::QueryMatch &match)
+{
+    const auto data = match.data().value<KPluginMetaData>();
+
+    KIO::CommandLauncherJob *job = nullptr;
+    if (isKinfoCenterKcm(data)) {
+        job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), {data.pluginId()});
+        job->setDesktopName(QStringLiteral("org.kde.kinfocenter"));
+    } else if (!data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()) {
+        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings"), {data.pluginId()});
+        job->setDesktopName(QStringLiteral("systemsettings"));
+    } else {
+        // Systemsettings only uses predefined namespaces that kcmshell5/6 also knows about
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), {data.pluginId()});
+    }
+    auto delegate = new KNotificationJobUiDelegate;
+    delegate->setAutoErrorHandlingEnabled(true);
+    job->setUiDelegate(delegate);
+    job->start();
+
+    KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("systemsettings:") + data.pluginId()), QStringLiteral("org.kde.krunner"));
+}
+
+QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &match)
+{
+    const auto value = match.data().value<KPluginMetaData>();
+    if (value.isValid()) {
+        if (KService::Ptr ptr = KService::serviceByStorageId(value.pluginId() + QLatin1String(".desktop"))) {
+            auto data = new QMimeData();
+            data->setUrls(QList<QUrl>{QUrl::fromLocalFile(ptr->entryPath())});
+            return data;
+        }
+    }
+    return nullptr;
+}
+
+void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match)
+{
+    const QString name = data.name();
+
+    match.setText(name);
+    QUrl url(data.pluginId());
+    url.setScheme(QStringLiteral("applications"));
+    match.setUrls({url});
+    match.setSubtext(data.description());
+
+    if (!data.iconName().isEmpty()) {
+        match.setIconName(data.iconName());
+    }
+    match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
+    match.setData(QVariant::fromValue(data));
 }
 
 #include "systemsettingsrunner.moc"

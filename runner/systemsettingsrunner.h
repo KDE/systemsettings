@@ -9,7 +9,6 @@
 #define SYSTEMSETTINGSRUNNER_H
 
 #include <KRunner/AbstractRunner>
-#include <QMutex>
 
 class SystemsettingsRunner : public KRunner::AbstractRunner
 {
@@ -26,8 +25,6 @@ protected Q_SLOTS:
 
 private:
     void setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match);
-    void matchNameKeyword(KRunner::RunnerContext &ctx);
-    QMutex m_mutex;
     QList<KPluginMetaData> m_modules;
 };
 
