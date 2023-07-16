@@ -19,8 +19,6 @@ public:
 
     void match(KRunner::RunnerContext &context) override;
     void run(const KRunner::RunnerContext &context, const KRunner::QueryMatch &match) override;
-
-protected Q_SLOTS:
     QMimeData *mimeDataForMatch(const KRunner::QueryMatch &match) override;
 
 private:
