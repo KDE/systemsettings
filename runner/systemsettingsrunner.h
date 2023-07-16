@@ -5,8 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#ifndef SYSTEMSETTINGSRUNNER_H
-#define SYSTEMSETTINGSRUNNER_H
+#pragma once
 
 #include <KRunner/AbstractRunner>
 
@@ -24,5 +23,3 @@ public:
 private:
     QList<KPluginMetaData> m_modules;
 };
-
-#endif
