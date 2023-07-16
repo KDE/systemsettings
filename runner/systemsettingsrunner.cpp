@@ -85,7 +85,6 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         }
 
         KRunner::QueryMatch::Type type = KRunner::QueryMatch::CompletionMatch;
-        // set type
         if (name.compare(query, Qt::CaseInsensitive) == 0) { // name matches exactly
             type = KRunner::QueryMatch::ExactMatch;
         } else if (name.startsWith(query, Qt::CaseInsensitive) || description.startsWith(query, Qt::CaseInsensitive)) { // name or description matches as start
@@ -98,10 +97,7 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         match.setText(name);
         match.setUrls({QUrl(QLatin1String("applications://") + data.pluginId())});
         match.setSubtext(description);
-
-        if (!data.iconName().isEmpty()) {
-            match.setIconName(data.iconName());
-        }
+        match.setIconName(data.iconName()); // If it is not set, KRunner will fall back to the runner's icon
         match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
         match.setData(QVariant::fromValue(data));
         match.setRelevance(relevance);
