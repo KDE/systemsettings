@@ -95,7 +95,15 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         }
 
         KRunner::QueryMatch match(this);
-        setupMatch(data, match);
+        match.setText(name);
+        match.setUrls({QUrl(QLatin1String("applications://") + data.pluginId())});
+        match.setSubtext(description);
+
+        if (!data.iconName().isEmpty()) {
+            match.setIconName(data.iconName());
+        }
+        match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
+        match.setData(QVariant::fromValue(data));
         match.setRelevance(relevance);
         match.setType(type);
 
@@ -144,23 +152,6 @@ QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &mat
         }
     }
     return nullptr;
-}
-
-void SystemsettingsRunner::setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match)
-{
-    const QString name = data.name();
-
-    match.setText(name);
-    QUrl url(data.pluginId());
-    url.setScheme(QStringLiteral("applications"));
-    match.setUrls({url});
-    match.setSubtext(data.description());
-
-    if (!data.iconName().isEmpty()) {
-        match.setIconName(data.iconName());
-    }
-    match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
-    match.setData(QVariant::fromValue(data));
 }
 
 #include "systemsettingsrunner.moc"

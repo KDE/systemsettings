@@ -24,7 +24,6 @@ protected Q_SLOTS:
     QMimeData *mimeDataForMatch(const KRunner::QueryMatch &match) override;
 
 private:
-    void setupMatch(const KPluginMetaData &data, KRunner::QueryMatch &match);
     QList<KPluginMetaData> m_modules;
 };
 
