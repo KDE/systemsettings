@@ -125,6 +125,8 @@ public:
 
     void setActiveModule(const QString &pluginId);
 
+    void requestActivation(const QVariantList &args);
+
     /**
      * The active module's KPluginMetaData.
      */

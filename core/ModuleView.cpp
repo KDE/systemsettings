@@ -601,6 +601,14 @@ void ModuleView::setActiveModule(const QString &pluginId)
     }
 }
 
+void ModuleView::requestActivation(const QVariantList &args)
+{
+    KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
+    if (activeModule) {
+        Q_EMIT activeModule->activationRequested(args);
+    }
+}
+
 KPluginMetaData ModuleView::activeModuleMetadata() const
 {
     KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());

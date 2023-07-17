@@ -317,6 +317,8 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
 
     // If we are trying to load a module already open
     if (mi->name() == d->moduleView->activeModuleName()) {
+        const QVariantList variantArgs(args.cbegin(), args.cend());
+        d->moduleView->requestActivation(variantArgs);
         return;
     }
 
