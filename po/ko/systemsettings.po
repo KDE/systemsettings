@@ -182,7 +182,7 @@ msgstr[0] "항목 %1개 포함"
 #: core/ExternalAppModule.cpp:27
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1은(는) 외부 프로그램이며 자동으로 실행되었습니다"
+msgstr "%1은(는) 외부 앱이며 자동으로 실행되었습니다"
 
 #: core/ExternalAppModule.cpp:28
 #, kde-format
