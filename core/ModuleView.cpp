@@ -296,10 +296,10 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
     // Use the custom header only for QWidgets KCMs on Sidebar mode
     // Only affect visibility if it's the current page
     if (d->mPageWidget->currentPage() == page) {
-        d->mCustomHeader->setVisible(!isQml && isSidebar);
-        // KTitleWidget->setText() would set the titlebar visible again
-        if (d->mCustomHeader->isVisible()) {
-            d->mCustomHeader->setText(moduleName);
+        if (!isQml && isSidebar) {
+            d->mCustomHeader->setText(moduleName); // also includes show()
+        } else {
+            d->mCustomHeader->hide();
         }
     }
 }
