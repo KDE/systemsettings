@@ -2,6 +2,7 @@
 include_directories(ToolTips)
 
 set(systemsettings_SRCS
+    systemsettings.qrc
     main.cpp
     SettingsBase.cpp
     SettingsBase.h
@@ -35,7 +36,6 @@ target_link_libraries(systemsettings
 
 install(TARGETS systemsettings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES systemsettings.kcfg DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings)
-install(FILES systemsettingsui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/systemsettings)
 install(PROGRAMS kdesystemsettings.desktop systemsettings.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(DIRECTORY DESTINATION "${KDE_INSTALL_FULL_DATAROOTDIR}/kglobalaccel")
 install(
