@@ -25,7 +25,7 @@
 
 #include <KAboutData>
 #include <KAuth/Action>
-#include <KAuth/ObjectDecorator>
+#include <KAuth/ExecuteJob>
 #include <KAuthorized>
 #include <KCModule>
 #include <KCModuleLoader>
@@ -120,16 +120,17 @@ public:
     CustomTitle *mCustomHeader = nullptr;
     QVBoxLayout *mLayout = nullptr;
     QDialogButtonBox *mButtons = nullptr;
-    KAuth::ObjectDecorator *mApplyAuthorize = nullptr;
     QPushButton *mApply = nullptr;
     QPushButton *mReset = nullptr;
     QPushButton *mDefault = nullptr;
     QPushButton *mHelp = nullptr;
+    QIcon mApplyIcon;
     KMessageDialog *mResolvingChangesDialog = nullptr;
     bool pageChangeSupressed = false;
     bool mSaveStatistics = true;
     bool mDefaultsIndicatorsVisible = false;
     KCModule::Buttons mButtonMask = ~KCModule::Buttons(KCModule::NoAdditionalButton);
+    KAuth::Action authAction;
 };
 
 ModuleView::ModuleView(QWidget *parent)
@@ -163,6 +164,7 @@ ModuleView::ModuleView(QWidget *parent)
 
     // Create the buttons in it
     d->mApply = d->mButtons->addButton(QDialogButtonBox::Apply);
+    d->mApplyIcon = d->mApply->icon();
     KGuiItem::assign(d->mApply, KStandardGuiItem::apply());
     d->mDefault = d->mButtons->addButton(QDialogButtonBox::RestoreDefaults);
     KGuiItem::assign(d->mDefault, KStandardGuiItem::defaults());
@@ -191,8 +193,15 @@ ModuleView::ModuleView(QWidget *parent)
     connect(d->mPageWidget, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
              this, SLOT(activeModuleChanged(KPageWidgetItem*,KPageWidgetItem*)));
     // clang-format on
-    d->mApplyAuthorize = new KAuth::ObjectDecorator(d->mApply);
-    d->mApplyAuthorize->setAuthAction(KAuth::Action());
+
+    connect(d->mApply, &QPushButton::clicked, this, [this] {
+        if (d->authAction.isValid()) {
+            KAuth::ExecuteJob *job = d->authAction.execute(KAuth::Action::AuthorizeOnlyMode);
+            connect(job, &KAuth::ExecuteJob::statusChanged, this, [this](KAuth::Action::AuthStatus status) {
+                authStatusChanged(status);
+            });
+        }
+    });
 }
 
 ModuleView::~ModuleView()
@@ -349,7 +358,7 @@ bool ModuleView::resolveChanges(KCModule *kcm)
 void ModuleView::closeModules()
 {
     d->pageChangeSupressed = true;
-    d->mApplyAuthorize->setAuthAction(KAuth::Action()); // Ensure KAuth knows that authentication is now pointless...
+    d->authAction = KAuth::Action();
     for (auto page = d->mPagesPluginIdMap.cbegin(); page != d->mPagesPluginIdMap.cend(); ++page) {
         // Delete the KCM first, because e.g. the KFontInst KCM accesses it's widgets in the destructor
         delete d->mPages.value(page.key());
@@ -468,7 +477,6 @@ void ModuleView::stateChanged()
 void ModuleView::updateButtons()
 {
     KCModule *activeModule = d->mPages.value(d->mPageWidget->currentPage());
-    KAuth::Action moduleAction;
     bool change = false;
     bool defaulted = false;
     KCModule::Buttons buttons = KCModule::NoAdditionalButton;
@@ -477,19 +485,24 @@ void ModuleView::updateButtons()
         buttons = activeModule->buttons() & d->mButtonMask;
         change = activeModule->needsSave();
         defaulted = activeModule->representsDefaults();
-        moduleAction = KAuth::Action(activeModule->authActionName());
+
+        d->authAction = KAuth::Action(activeModule->authActionName());
+
+        if (d->authAction.isValid()) {
+            authStatusChanged(d->authAction.status());
+        }
 
         // Do not display Help button if there is no docPath available
         if (activeModule->metaData().value(QStringLiteral("X-DocPath")).isEmpty()) {
             buttons &= ~KCModule::Help;
         }
 
-        disconnect(d->mApplyAuthorize, SIGNAL(authorized(KAuth::Action)), this, SLOT(moduleSave()));
         disconnect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
         connect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
+    } else {
+        d->authAction = KAuth::Action();
     }
 
-    d->mApplyAuthorize->setAuthAction(moduleAction);
     d->mDefault->setEnabled(!defaulted);
     d->mDefault->setVisible(buttons & KCModule::Default);
     d->mApply->setEnabled(change);
@@ -617,6 +630,23 @@ KPluginMetaData ModuleView::activeModuleMetadata() const
         return {};
     }
     return activeModule->metaData();
+}
+
+void ModuleView::authStatusChanged(KAuth::Action::AuthStatus status)
+{
+    switch (status) {
+    case KAuth::Action::AuthorizedStatus:
+        d->mApply->setEnabled(true);
+        d->mApply->setIcon(d->mApplyIcon);
+        break;
+    case KAuth::Action::AuthRequiredStatus:
+        d->mApply->setEnabled(true);
+        d->mApply->setIcon(QIcon::fromTheme(QStringLiteral("dialog-password")));
+        break;
+    default:
+        d->mApply->setEnabled(false);
+        d->mApply->setIcon(d->mApplyIcon);
+    }
 }
 
 #include "moc_ModuleView.cpp"

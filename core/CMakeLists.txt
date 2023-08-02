@@ -30,7 +30,6 @@ target_link_libraries(systemsettingsview
     KF6::IconThemes
     KF6::Activities
     KF6::AuthCore
-    KF6::AuthWidgets
     KF6::Kirigami2
 )
 

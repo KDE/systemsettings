@@ -8,7 +8,9 @@
 #ifndef MODULE_VIEW_H
 #define MODULE_VIEW_H
 
+#include <KAuth/Action>
 #include <KPageView>
+
 #include <QModelIndex>
 #include <QWidget>
 
@@ -176,6 +178,7 @@ private:
 private Q_SLOTS:
     void activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *previous);
     void stateChanged();
+    void authStatusChanged(KAuth::Action::AuthStatus status);
 
 Q_SIGNALS:
     /**
