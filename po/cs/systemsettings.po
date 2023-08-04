@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 02:10+0000\n"
+"POT-Creation-Date: 2023-08-04 02:00+0000\n"
 "PO-Revision-Date: 2023-01-05 13:39+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -201,12 +201,12 @@ msgstr "Znovu spustit %1"
 msgid "Dialog"
 msgstr "Dialog"
 
-#: core/ModuleView.cpp:174
+#: core/ModuleView.cpp:176
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Vrátit všechny změny na původní hodnoty"
 
-#: core/ModuleView.cpp:326
+#: core/ModuleView.cpp:335
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -215,7 +215,7 @@ msgstr ""
 "V aktivním modulu jsou neuložené změny.\n"
 "Přejete si změny aplikovat, nebo zahodit?"
 
-#: core/ModuleView.cpp:331
+#: core/ModuleView.cpp:340
 #, kde-format
 msgid "Apply Settings"
 msgstr "Provést nastavení"
