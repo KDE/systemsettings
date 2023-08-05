@@ -92,6 +92,8 @@ QStringList MenuItem::keywords(bool doesRemoveDuplicates) const
     for (MenuItem *child : qAsConst(d->children)) {
         listOfKeywords << child->keywords(false);
     }
+    // Remove any soft hyphens (used in long words in some languages)
+    listOfKeywords.replaceInStrings(QStringLiteral("\u00AD"), QString());
     // Only remove duplicate keywords in the end
     if (doesRemoveDuplicates) {
         listOfKeywords.removeDuplicates();
