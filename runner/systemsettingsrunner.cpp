@@ -108,9 +108,9 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         match.setType(type);
 
         if (isKinfoCenterKcm(data)) {
-            match.setMatchCategory(i18n("System Information"));
+            match.setMatchCategory(i18nd("systemsettings", "System Information"));
         } else {
-            match.setMatchCategory(i18n("System Settings"));
+            match.setMatchCategory(i18nd("systemsettings", "System Settings"));
         }
 
         matches << match;
