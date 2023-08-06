@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 02:00+0000\n"
+"POT-Creation-Date: 2023-08-06 02:04+0000\n"
 "PO-Revision-Date: 2023-01-03 06:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "ცენტრალიზებული და მოხერხე�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:174
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
 #: sidebar/package/contents/ui/introPage.qml:63
 #, kde-format
 msgid "System Settings"
@@ -243,12 +243,12 @@ msgstr "ყველა პარამეტრი"
 msgid "Keyboard Shortcut: %1"
 msgstr "მალსახმობი %1 ქმედებისთვის %1"
 
-#: runner/systemsettingsrunner.cpp:39
+#: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "სისტემის პარამეტრების მოდულების პოვნა, რომლის სახელის ემთხვევა :q:"
 
-#: runner/systemsettingsrunner.cpp:172
+#: runner/systemsettingsrunner.cpp:103
 #, kde-format
 msgid "System Information"
 msgstr "ინფორმაცის სისტემის შესახებ"
