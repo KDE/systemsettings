@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-12 02:01+0000\n"
 "PO-Revision-Date: 2023-03-14 22:07+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -56,7 +56,7 @@ msgstr "© 2009 Ben Cooksley"
 # pmap: =:elat=Järjestelmäasetuksista:
 # pmap: =:yleisnimi=kyllä:
 #: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
-#: sidebar/package/contents/ui/introPage.qml:63
+#: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
 msgstr "Järjestelmäasetukset"
@@ -284,7 +284,7 @@ msgstr "Ei hakuasi vastaavia tietueita"
 msgid "Show menu"
 msgstr "Näytä valikko"
 
-#: sidebar/package/contents/ui/introPage.qml:56
+#: sidebar/package/contents/ui/introPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"

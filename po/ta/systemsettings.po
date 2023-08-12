@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-12 02:01+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
 #: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
-#: sidebar/package/contents/ui/introPage.qml:63
+#: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
 msgstr "கணினி அமைப்புகள்"
@@ -268,7 +268,7 @@ msgstr "உங்கள் தேடலுக்கு பொருத்தம�
 msgid "Show menu"
 msgstr "பட்டியைக் காட்டு"
 
-#: sidebar/package/contents/ui/introPage.qml:56
+#: sidebar/package/contents/ui/introPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "பிளாஸ்மா"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-12 02:01+0000\n"
 "PO-Revision-Date: 2022-12-29 17:23+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -46,7 +46,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
-#: sidebar/package/contents/ui/introPage.qml:63
+#: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
 msgstr "Configurări de sistem"
@@ -280,7 +280,7 @@ msgstr "Niciun element nu se potrivește căutării"
 msgid "Show menu"
 msgstr "Arată meniul"
 
-#: sidebar/package/contents/ui/introPage.qml:56
+#: sidebar/package/contents/ui/introPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"

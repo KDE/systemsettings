@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-12 02:01+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -46,7 +46,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन कूक्सले"
 
 #: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
-#: sidebar/package/contents/ui/introPage.qml:63
+#: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
 msgstr "तंत्र विन्यास"
@@ -275,7 +275,7 @@ msgstr "आपकी खोज से मेल खाने वाली को
 msgid "Show menu"
 msgstr "मेन्यू दिखाएँ"
 
-#: sidebar/package/contents/ui/introPage.qml:56
+#: sidebar/package/contents/ui/introPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "प्लाज़्मा"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-12 02:01+0000\n"
 "PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -47,7 +47,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
-#: sidebar/package/contents/ui/introPage.qml:63
+#: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
 msgstr "Налады сістэмы"
@@ -279,7 +279,7 @@ msgstr "Няма элементаў, якія адпавядаюць пошук�
 msgid "Show menu"
 msgstr "Паказваць меню"
 
-#: sidebar/package/contents/ui/introPage.qml:56
+#: sidebar/package/contents/ui/introPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"
