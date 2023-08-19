@@ -57,7 +57,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Activities
     GuiAddons # UrlHanlder handles help:/ urls
     Kirigami2
-    Notifications
+    JobWidgets
     Runner
     OPTIONAL_COMPONENTS
     DocTools
