@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-12 02:01+0000\n"
+"POT-Creation-Date: 2023-08-20 01:59+0000\n"
 "PO-Revision-Date: 2023-01-05 13:39+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -45,7 +45,7 @@ msgstr "Centralizovaný a pohodlný přehled informací o systému."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
 #: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
@@ -251,7 +251,7 @@ msgstr "Klávesová zkratka: %1"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Najde moduly nastavení systému jejichž názvy a popisy odpovídají :q:"
 
-#: runner/systemsettingsrunner.cpp:103
+#: runner/systemsettingsrunner.cpp:111
 #, kde-format
 msgid "System Information"
 msgstr "Systémové informace"

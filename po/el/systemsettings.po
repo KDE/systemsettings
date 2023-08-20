@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-12 02:01+0000\n"
+"POT-Creation-Date: 2023-08-20 01:59+0000\n"
 "PO-Revision-Date: 2021-09-19 10:05+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr "Συγκεντρωτική και βολική επισκόπηση τω
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:105
+#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
 #: sidebar/package/contents/ui/introPage.qml:62
 #, kde-format
 msgid "System Settings"
@@ -262,7 +262,7 @@ msgstr ""
 "Βρίσκει αρθρώματα ρυθμίσεων του συστήματος τα ονόματα των οποίων ή οι "
 "περιγραφές ταιριάζουν με :q:"
 
-#: runner/systemsettingsrunner.cpp:103
+#: runner/systemsettingsrunner.cpp:111
 #, kde-format
 msgid "System Information"
 msgstr "Πληροφορίες συστήματος"
