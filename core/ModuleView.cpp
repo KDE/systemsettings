@@ -338,6 +338,7 @@ bool ModuleView::resolveChanges(KCModule *kcm)
     d->mResolvingChangesDialog->setAttribute(Qt::WA_DeleteOnClose);
     d->mResolvingChangesDialog->setButtons(KStandardGuiItem::apply(), KStandardGuiItem::discard(), KStandardGuiItem::cancel());
     d->mResolvingChangesDialog->setCaption(i18n("Apply Settings"));
+    d->mResolvingChangesDialog->setIcon(QIcon()); // Use default message box warning icon.
     int result = d->mResolvingChangesDialog->exec();
     d->mResolvingChangesDialog = nullptr;
 
