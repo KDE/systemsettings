@@ -227,7 +227,7 @@
 ></listitem>
 <listitem
 ><para
->Tipus de lletra (Tipus de lletra, Gestió dels tipus de lletra) </para
+>Lletra (Lletra, Gestió de les lletres, Fonts) </para
 ></listitem>
 <listitem
 ><para
@@ -503,9 +503,9 @@
 >Aplica</term>
 <listitem>
 <para
->Fent clic en aquest botó es desaran totes les modificacions. Si heu canviat quelcom, fent clic a <guibutton
+>Fent clic en aquest botó es desaran totes les modificacions. Si heu canviat alguna cosa, fent clic a <guibutton
 >Aplica</guibutton
-> es causarà que els canvis tinguin efecte. </para>
+> farà que els canvis tinguin efecte. </para>
 </listitem>
 </varlistentry>
 </variablelist>
