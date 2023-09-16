@@ -65,7 +65,6 @@ private:
     QScreen *m_screen = nullptr;
 
     // The plugins
-    QVector<KPluginMetaData> m_plugins;
     QList<ToolTipManager *> tooltipManagers;
     BaseMode *view = nullptr;
     // The search bar

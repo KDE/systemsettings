@@ -33,7 +33,6 @@
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KPluginMetaData>
 #include <KStandardAction>
 #include <KToolBar>
 #include <KWindowConfig>
@@ -294,15 +293,6 @@ void SettingsBase::about()
 
 void SettingsBase::loadCurrentView()
 {
-    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("systemsettingsview/"), {}, KPluginMetaData::AllowEmptyMetaData);
-    if (m_plugins.empty()) { // We should ensure we have a plugin available to choose
-        KMessageBox::error(this,
-                           i18nd("systemsettings", "System Settings was unable to find any views, and hence has nothing to display."),
-                           i18nd("systemsettings", "No views found"));
-        close();
-        return; // Halt now!
-    }
-
     view = new SidebarMode(this, {m_mode, m_startupModule, m_startupModuleArgs});
     connect(view, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
     connect(view, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
