@@ -488,10 +488,7 @@ void ModuleView::updateButtons()
         defaulted = activeModule->representsDefaults();
 
         d->authAction = KAuth::Action(activeModule->authActionName());
-
-        if (d->authAction.isValid()) {
-            authStatusChanged(d->authAction.status());
-        }
+        authStatusChanged(d->authAction.status());
 
         // Do not display Help button if there is no docPath available
         if (activeModule->metaData().value(QStringLiteral("X-DocPath")).isEmpty()) {
