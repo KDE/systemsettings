@@ -150,9 +150,7 @@ int main(int argc, char *argv[])
 
     auto mainWindow = new SettingsBase(mode, startupModule, args);
 
-    QObject::connect(&service, &KDBusService::activateRequested, mainWindow, [mainWindow](const QStringList &arguments, const QString &workingDirectory) {
-        Q_UNUSED(workingDirectory);
-
+    QObject::connect(&service, &KDBusService::activateRequested, mainWindow, [mainWindow](const QStringList &arguments) {
         // We can't use startupModule and args from above since they come from the existing instance, so we need to parse arguments.
         // We don't need to do the error checking again though.
         QCommandLineParser parser;

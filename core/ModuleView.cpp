@@ -260,7 +260,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     // Provide information to the users
 
     if (item->isExternalAppModule()) {
-        auto externalWidget = new ExternalAppModule(this, KService::Ptr(new KService(item->metaData().fileName())));
+        auto externalWidget = new ExternalAppModule(KService::Ptr(new KService(item->metaData().fileName())));
         moduleScroll->setWidget(externalWidget);
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
         page->setName(QString());

@@ -46,9 +46,8 @@ QHash<int, QByteArray> MenuModel::roleNames() const
     return names;
 }
 
-int MenuModel::columnCount(const QModelIndex &parent) const
+int MenuModel::columnCount(const QModelIndex & /*parent*/) const
 {
-    Q_UNUSED(parent);
     return 1;
 }
 
@@ -107,7 +106,7 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         theData.setValue(mi->keywords().join(QString()));
         break;
     case MenuModel::UserSortRole:
-        //Category owners are always before everything else, regardless of weight
+        // Category owners are always before everything else, regardless of weight
         if (mi->isCategoryOwner()) {
             theData.setValue(QStringLiteral("%1").arg(QString::number(mi->weight()), 5, QLatin1Char('0')));
         } else {

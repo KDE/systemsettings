@@ -113,9 +113,8 @@ QStringList BaseMode::startupModuleArgs() const
     return d->startupModuleArgs;
 }
 
-void BaseMode::searchChanged(const QString &text)
+void BaseMode::searchChanged(const QString & /*text*/)
 {
-    Q_UNUSED(text);
 }
 
 void BaseMode::saveState()
@@ -126,9 +125,8 @@ void BaseMode::giveFocus()
 {
 }
 
-void BaseMode::addConfiguration(KConfigDialog *config)
+void BaseMode::addConfiguration(KConfigDialog * /*config**/)
 {
-    Q_UNUSED(config);
 }
 
 void BaseMode::loadConfiguration()

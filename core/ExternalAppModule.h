@@ -19,7 +19,7 @@ class ExternalAppModule : public QWidget
     Q_OBJECT
 
 public:
-    explicit ExternalAppModule(QWidget *parent, const KService::Ptr &module);
+    explicit ExternalAppModule(const KService::Ptr &module);
     ~ExternalAppModule() override;
 
 protected:

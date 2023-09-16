@@ -10,11 +10,9 @@
 #include <KIO/JobUiDelegateFactory>
 #include <QDebug>
 
-ExternalAppModule::ExternalAppModule(QWidget *parent, const KService::Ptr &module)
+ExternalAppModule::ExternalAppModule(const KService::Ptr &module)
     : module(module)
 {
-    Q_UNUSED(parent)
-
     firstShow = true;
     externalModule.setupUi(this);
     QString moduleName = module->name();
