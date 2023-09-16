@@ -217,8 +217,11 @@ void MenuItem::setCategoryOwner(bool owner)
 
 void MenuItem::updateDefaultIndicator()
 {
-    std::unique_ptr<KCModuleData> moduleData(loadModuleData(d->metaData));
-    d->showDefaultIndicator = moduleData && !moduleData->isDefaults();
+    d->showDefaultIndicator = false;
+    if (isLibrary()) {
+        std::unique_ptr<KCModuleData> moduleData(loadModuleData(d->metaData));
+        d->showDefaultIndicator = moduleData && !moduleData->isDefaults();
+    }
 
     if (menu()) {
         for (auto child : qAsConst(children())) {
