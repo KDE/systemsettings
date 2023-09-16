@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2023-02-26 19:50+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "malcolm.hunter@gmx.co.uk"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr "Info Centre"
@@ -40,13 +40,13 @@ msgstr "Info Centre"
 msgid "Centralized and convenient overview of system information."
 msgstr "Centralised and convenient overview of system information."
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "System Settings"
@@ -56,7 +56,7 @@ msgstr "System Settings"
 msgid "Central configuration center by KDE."
 msgstr "Central configuration centre by KDE."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -66,83 +66,83 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Maintainer"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: app/main.cpp:85
+#, kde-format
+msgid "Author"
+msgstr "Author"
+
+#: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:86
 #, kde-format
 msgid "Developer"
 msgstr "Developer"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "Internal module representation, internal module model"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr "List all possible modules"
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Configuration module to open"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Arguments for the module"
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr "The following modules are available:"
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr "No description available"
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Search"
 
-#: app/SettingsBase.cpp:156
-#, kde-format
-msgid "Switch to Icon View"
-msgstr "Switch to Icon View"
-
-#: app/SettingsBase.cpp:163
-#, kde-format
-msgid "Switch to Sidebar View"
-msgstr "Switch to Sidebar View"
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Highlight Changed Settings"
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Report a Bug in the Current Page…"
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "Help"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -151,20 +151,51 @@ msgstr ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "No views found"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "About Active View"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "About %1"
+
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr "Show intro page"
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "No items matching your search"
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Show menu"
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr "Most Used"
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -220,32 +251,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Apply Settings"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "Icon View"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "Provides a categorised icons view of control modules."
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "Author"
-
-#: icons/IconMode.cpp:63
-#, kde-format
-msgid "All Settings"
-msgstr "All Settings"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "Keyboard Shortcut: %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -256,56 +261,32 @@ msgstr "Finds system settings modules whose names or descriptions match :q:"
 msgid "System Information"
 msgstr "System Information"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr "Show intro page"
+#~ msgid "Switch to Icon View"
+#~ msgstr "Switch to Icon View"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "No items matching your search"
+#~ msgid "Switch to Sidebar View"
+#~ msgstr "Switch to Sidebar View"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "Show menu"
+#~ msgid "Icon View"
+#~ msgstr "Icon View"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr "Provides a categorised icons view of control modules."
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr "Sidebar View"
+#~ msgid "All Settings"
+#~ msgstr "All Settings"
 
-#: sidebar/SidebarMode.cpp:159
-#, kde-format
-msgid "Provides a categorized sidebar for control modules."
-msgstr "Provides a categorised sidebar for control modules."
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "Keyboard Shortcut: %1"
 
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr "(c) 2017, Marco Martin"
+#~ msgid "Sidebar View"
+#~ msgstr "Sidebar View"
 
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr "Marco Martin"
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr "Provides a categorised sidebar for control modules."
 
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr "Sidebar"
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr "Most Used"
+#~ msgid "(c) 2017, Marco Martin"
+#~ msgstr "(c) 2017, Marco Martin"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

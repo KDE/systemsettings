@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2023-01-09 09:55+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-doc@kde.org>\n"
@@ -24,7 +24,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com,morais@kde.org"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr "Centro de Informações"
@@ -34,13 +34,13 @@ msgstr "Centro de Informações"
 msgid "Centralized and convenient overview of system information."
 msgstr "Visão geral centralizada e conveniente das informações do sistema."
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "Configuração do Sistema"
@@ -50,7 +50,7 @@ msgstr "Configuração do Sistema"
 msgid "Central configuration center by KDE."
 msgstr "Centro de configuração central do KDE."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -60,83 +60,83 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Manutenção"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: app/main.cpp:85
+#, kde-format
+msgid "Author"
+msgstr "Autoria"
+
+#: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:86
 #, kde-format
 msgid "Developer"
 msgstr "Desenvolvimento"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "Representação interna dos módulos, modelo interno dos módulos"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr "Listar todos os módulos disponíveis."
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Módulo de configuração a abrir"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argumentos do módulo"
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr "Estão disponíveis os seguintes módulos:"
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr "A descrição não está disponível"
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Procurar"
 
-#: app/SettingsBase.cpp:156
-#, kde-format
-msgid "Switch to Icon View"
-msgstr "Mudar para a Vista por Ícones"
-
-#: app/SettingsBase.cpp:163
-#, kde-format
-msgid "Switch to Sidebar View"
-msgstr "Mudar para a Vista da Barra Lateral"
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Realçar as Configurações Modificadas"
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Comunicar um Erro na Página Actual…"
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "Ajuda"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -145,20 +145,51 @@ msgstr ""
 "A Configuração do Sistema não conseguiu encontrar nenhumas janelas; como "
 "tal, não consegue apresentar nada de facto."
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "Não foram encontradas janelas"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "Acerca da Janela Activa"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "Acerca do %1"
+
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr "Mostrar a página introdutória"
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "Sem itens correspondentes à sua pesquisa"
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Mostrar o menu"
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr "Mais Usados"
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -214,32 +245,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Aplicar a Configuração"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "Vista por Ícones"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "Oferece uma vista por categorias dos ícones dos módulos de controlo."
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "Autoria"
-
-#: icons/IconMode.cpp:63
-#, kde-format
-msgid "All Settings"
-msgstr "Toda a Configuração"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "Atalho de Teclado: %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -252,55 +257,32 @@ msgstr ""
 msgid "System Information"
 msgstr "Informações do Sistema"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr "Mostrar a página introdutória"
+#~ msgid "Switch to Icon View"
+#~ msgstr "Mudar para a Vista por Ícones"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "Sem itens correspondentes à sua pesquisa"
+#~ msgid "Switch to Sidebar View"
+#~ msgstr "Mudar para a Vista da Barra Lateral"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "Mostrar o menu"
+#~ msgid "Icon View"
+#~ msgstr "Vista por Ícones"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr ""
+#~ "Oferece uma vista por categorias dos ícones dos módulos de controlo."
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr "Vista da Barra Lateral"
+#~ msgid "All Settings"
+#~ msgstr "Toda a Configuração"
 
-#: sidebar/SidebarMode.cpp:159
-#, kde-format
-msgid "Provides a categorized sidebar for control modules."
-msgstr ""
-"Oferece uma barra lateral dividida por categorias para os módulos de "
-"controlo."
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "Atalho de Teclado: %1"
 
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr "(c) 2017, Marco Martin"
+#~ msgid "Sidebar View"
+#~ msgstr "Vista da Barra Lateral"
 
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr "Marco Martin"
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr ""
+#~ "Oferece uma barra lateral dividida por categorias para os módulos de "
+#~ "controlo."
 
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr "Barra lateral"
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr "Mais Usados"
+#~ msgid "(c) 2017, Marco Martin"
+#~ msgstr "(c) 2017, Marco Martin"

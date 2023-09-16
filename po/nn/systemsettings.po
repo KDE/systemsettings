@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2023-02-19 21:31+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr "Informasjonssenter"
@@ -41,13 +41,13 @@ msgstr "Informasjonssenter"
 msgid "Centralized and convenient overview of system information."
 msgstr "Sentralisert og praktisk oversikt over systeminformasjon."
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009 Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "Systemoppsett"
@@ -57,7 +57,7 @@ msgstr "Systemoppsett"
 msgid "Central configuration center by KDE."
 msgstr "Sentralt oppsettsenter frå KDE."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -67,103 +67,135 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Vedlikehaldar"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: app/main.cpp:85
+#, kde-format
+msgid "Author"
+msgstr "Opphavsperson"
+
+#: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:86
 #, kde-format
 msgid "Developer"
 msgstr "Utviklar"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "Intern modulrepresentasjon, intern modulmodell"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr "List ut alle moglege modular"
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Oppsettsmodul som skal opnast"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argument for modulen"
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr "Desse modulane er tilgjengelege:"
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr "Inga skildring tilgjengeleg"
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Søk"
 
-#: app/SettingsBase.cpp:156
-#, kde-format
-msgid "Switch to Icon View"
-msgstr "Byt til ikonvising"
-
-#: app/SettingsBase.cpp:163
-#, kde-format
-msgid "Switch to Sidebar View"
-msgstr "Byt til sidestolpe-vising"
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Marker endra innstillingar"
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Meld frå om feil på denne sida …"
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "Hjelp"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "Systemoppsettet fann ingen utformingar, og kan derfor ikkje visa noko."
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "Fann ingen utformingar"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "Om utforminga"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "Om %1"
+
+# Tittelen på sida er «snøgginnstillingar».
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr "Vis snøgginnstillingar"
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "Fann ingen søkjetreff"
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Vis menylinje"
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr "Sidestolpe"
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr "Mest brukte"
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -219,32 +251,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Bruk innstillingane"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "Ikonvising"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "Ei kategoribasert ikonvising av kontrollmodulane."
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "Opphavsperson"
-
-#: icons/IconMode.cpp:63
-#, kde-format
-msgid "All Settings"
-msgstr "Alle innstillingar"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "Tastatursnarveg: %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -255,54 +261,29 @@ msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 msgid "System Information"
 msgstr "Systeminformasjon"
 
-# Tittelen på sida er «snøgginnstillingar».
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr "Vis snøgginnstillingar"
+#~ msgid "Switch to Icon View"
+#~ msgstr "Byt til ikonvising"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "Fann ingen søkjetreff"
+#~ msgid "Switch to Sidebar View"
+#~ msgstr "Byt til sidestolpe-vising"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "Vis menylinje"
+#~ msgid "Icon View"
+#~ msgstr "Ikonvising"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr "Ei kategoribasert ikonvising av kontrollmodulane."
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr "Sidestolpe-vising"
+#~ msgid "All Settings"
+#~ msgstr "Alle innstillingar"
 
-#: sidebar/SidebarMode.cpp:159
-#, kde-format
-msgid "Provides a categorized sidebar for control modules."
-msgstr "Ein kategoribasert sidestolpe med kontrollmodular."
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "Tastatursnarveg: %1"
 
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr "© 2017 Marco Martin"
+#~ msgid "Sidebar View"
+#~ msgstr "Sidestolpe-vising"
 
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr "Marco Martin"
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr "Ein kategoribasert sidestolpe med kontrollmodular."
 
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr "Sidestolpe"
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr "Mest brukte"
+#~ msgid "(c) 2017, Marco Martin"
+#~ msgstr "© 2017 Marco Martin"

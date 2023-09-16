@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2021-09-20 10:06+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kiszel.kristof@gmail.com,tszanto@interware.hu"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr "Rendszerinformáció"
@@ -41,13 +41,13 @@ msgstr "Rendszerinformáció"
 msgid "Centralized and convenient overview of system information."
 msgstr "A rendszerjellemzők központosított és kényelmes áttekintése."
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) Ben Cooksley, 2009."
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "Rendszerbeállítások"
@@ -57,7 +57,7 @@ msgstr "Rendszerbeállítások"
 msgid "Central configuration center by KDE."
 msgstr "Központi beállítóközpont a KDE-hez."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -67,68 +67,68 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "Karbantartó"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: app/main.cpp:85
+#, kde-format
+msgid "Author"
+msgstr "Szerző"
+
+#: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:86
 #, kde-format
 msgid "Developer"
 msgstr "Fejlesztő"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "Belső modulok reprezentációja, belső modulmodell"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr "Az összes lehetséges modul listázása"
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr "A megnyitandó beállítómodul"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr "A modul argumentumai"
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr "A következő modulok érhetők el:"
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr "Nem érhető el leírás"
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Keresés"
 
-#: app/SettingsBase.cpp:156
-#, kde-format
-msgid "Switch to Icon View"
-msgstr "Váltás ikonnézetre"
-
-#: app/SettingsBase.cpp:163
-#, kde-format
-msgid "Switch to Sidebar View"
-msgstr "Váltás oldalsáv nézetre"
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -137,17 +137,17 @@ msgstr "Váltás oldalsáv nézetre"
 msgid "Highlight Changed Settings"
 msgstr "Módosított beállítások kiemelése"
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "Súgó"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -156,20 +156,51 @@ msgstr ""
 "A Rendszerbeállítások nem talált egyetlen nézetet sem, ebből következően "
 "semmi sem jeleníthető meg."
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "Nem találhatók nézetek"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "Névjegy: Aktív nézet"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "Névjegy: %1"
+
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr "Kezdőlap megjelenítése"
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "Nincs találat a keresésre"
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Menü megjelenítése"
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr "Oldalsáv"
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr "Leggyakrabban használt"
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -225,32 +256,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Beállítások alkalmazása"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "Ikonnézet"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "Kategorizált ikonnézet a vezérlőmodulokhoz."
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "Szerző"
-
-#: icons/IconMode.cpp:63
-#, kde-format
-msgid "All Settings"
-msgstr "Minden beállítás"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "Gyorsbillentyű: %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -263,56 +268,32 @@ msgstr ""
 msgid "System Information"
 msgstr "Rendszerjellemzők"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr "Kezdőlap megjelenítése"
+#~ msgid "Switch to Icon View"
+#~ msgstr "Váltás ikonnézetre"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "Nincs találat a keresésre"
+#~ msgid "Switch to Sidebar View"
+#~ msgstr "Váltás oldalsáv nézetre"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "Menü megjelenítése"
+#~ msgid "Icon View"
+#~ msgstr "Ikonnézet"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr "Kategorizált ikonnézet a vezérlőmodulokhoz."
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr "Oldalsáv nézet"
+#~ msgid "All Settings"
+#~ msgstr "Minden beállítás"
 
-#: sidebar/SidebarMode.cpp:159
-#, kde-format
-msgid "Provides a categorized sidebar for control modules."
-msgstr "Kategorizált oldalsáv a vezérlőmodulokhoz."
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "Gyorsbillentyű: %1"
 
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr "© Marco Martin, 2017."
+#~ msgid "Sidebar View"
+#~ msgstr "Oldalsáv nézet"
 
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr "Marco Martin"
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr "Kategorizált oldalsáv a vezérlőmodulokhoz."
 
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr "Oldalsáv"
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr "Leggyakrabban használt"
+#~ msgid "(c) 2017, Marco Martin"
+#~ msgstr "© Marco Martin, 2017."
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

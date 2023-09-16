@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -25,7 +25,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pravi.a@gmail.com,mail@subinsb.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr "വിവര കേന്ദ്രം"
@@ -35,13 +35,13 @@ msgstr "വിവര കേന്ദ്രം"
 msgid "Centralized and convenient overview of system information."
 msgstr "കേന്ദ്രീകൃതവും, സൗകര്യപ്രദവുമായ സിസ്റ്റം വിവരണത്തിന്റെ ആമുഖം."
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, ബെന്‍ കുക്ക്സ്ലി"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "സിസ്റ്റത്തിലെ സജ്ജീകരണങ്ങള്‍"
@@ -51,7 +51,7 @@ msgstr "സിസ്റ്റത്തിലെ സജ്ജീകരണങ്�
 msgid "Central configuration center by KDE."
 msgstr "കെ‌ഡി‌ഇയുടെ കേന്ദ്ര ക്രമീകരണ കേന്ദ്രം."
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "ബെന്‍ കുക്ക്സ്ലി"
@@ -61,70 +61,68 @@ msgstr "ബെന്‍ കുക്ക്സ്ലി"
 msgid "Maintainer"
 msgstr "പരിപാലകന്‍"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
 #, kde-format
-msgid "Mathias Soeken"
-msgstr "മത്തിയാസ് സോക്കെന്‍"
+msgid "Marco Martin"
+msgstr "മാർക്കോ മാർട്ടിൻ"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
 #, kde-format
-msgid "Developer"
+msgid "Author"
 msgstr "രചയിതാവു്"
 
 #: app/main.cpp:86
 #, kde-format
+msgid "Mathias Soeken"
+msgstr "മത്തിയാസ് സോക്കെന്‍"
+
+#: app/main.cpp:86
+#, kde-format
+msgid "Developer"
+msgstr "രചയിതാവു്"
+
+#: app/main.cpp:87
+#, kde-format
 msgid "Will Stephenson"
 msgstr "വില്‍ സ്റ്റീഫന്‍സന്‍"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "ആന്തരിക മൊഡ്യൂള്‍ പ്രതിനിധീകരണം, ആന്തരിക മൊഡ്യൂള്‍ മാതൃക"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr "പറ്റാവുന്ന മൊഡ്യൂളുകൾ പട്ടികപ്പെടുത്തുക"
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr "തുറക്കേണ്ട ക്രമീകരണ മൊഡ്യൂൾ"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr "മൊഡ്യൂളിനുള്ള ആർഗ്യുമെന്റുകൾ"
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr "ഈ മൊഡ്യൂളുകൾ ലഭ്യമാണ്:"
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr "വിവരണം ലഭ്യമല്ല"
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "തെരയുക"
 
-#: app/SettingsBase.cpp:156
-#, fuzzy, kde-format
-#| msgid "Icon View"
-msgid "Switch to Icon View"
-msgstr "ചിഹ്നങ്ങളായി കാണുക"
-
-#: app/SettingsBase.cpp:163
-#, fuzzy, kde-format
-#| msgid "Sidebar View"
-msgid "Switch to Sidebar View"
-msgstr "സൈഡ്‌ബാർ കാഴ്ച"
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -133,17 +131,17 @@ msgstr "സൈഡ്‌ബാർ കാഴ്ച"
 msgid "Highlight Changed Settings"
 msgstr "മാറ്റങ്ങൾ വരുത്തിയവ തെളിക്കുക"
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "സഹായം"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -152,20 +150,51 @@ msgstr ""
 "സിസ്റ്റം സജ്ജീകരണങ്ങള്‍ക്കു് അവതരണരീതികളൊന്നും കണ്ടുപിടിയ്ക്കാന്‍ സാധിച്ചില്ല, അതുകൊണ്ടു് തന്നെ "
 "കാണിയ്ക്കാന്‍ ഒന്നുമില്ല."
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "പ്രദര്‍ശനരീതികളൊന്നും കണ്ടില്ല"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറിച്ചു്"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "%1 ന്റെ അണിയറ വിശേഷം"
+
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr "സ്വാഗത താൾ കാണിക്കുക"
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന ഇനങ്ങളൊന്നുമില്ല"
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "മെനു കാണിക്കുക"
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr "പ്ലാസ്മ"
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr "സൈഡ്‌ബാർ"
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -221,33 +250,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "സജ്ജീകരണങ്ങള്‍ നടപ്പിലാക്കുക"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "ചിഹ്നങ്ങളായി കാണുക"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "നിയന്ത്രണ മൊഡ്യൂളുകളുടെ ചിഹ്നങ്ങള്‍ തരംതിരിച്ചു് കാണിയ്ക്കന്നു."
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "രചയിതാവു്"
-
-# എല്ലാ സജ്ജീകരണങ്ങളും
-#: icons/IconMode.cpp:63
-#, kde-format
-msgid "All Settings"
-msgstr "സജ്ജീകരണങ്ങള്‍ നടപ്പിലാക്കുക"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "കീബോര്‍ഡ് കുറുക്കുവഴി: %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -258,56 +260,37 @@ msgstr "സജ്ജീകരണങ്ങളിൽ പേരോ വിവരണ�
 msgid "System Information"
 msgstr "സിസ്റ്റത്തെ കുറിച്ച്"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr "സ്വാഗത താൾ കാണിക്കുക"
+#, fuzzy
+#~| msgid "Icon View"
+#~ msgid "Switch to Icon View"
+#~ msgstr "ചിഹ്നങ്ങളായി കാണുക"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന ഇനങ്ങളൊന്നുമില്ല"
+#, fuzzy
+#~| msgid "Sidebar View"
+#~ msgid "Switch to Sidebar View"
+#~ msgstr "സൈഡ്‌ബാർ കാഴ്ച"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "മെനു കാണിക്കുക"
+#~ msgid "Icon View"
+#~ msgstr "ചിഹ്നങ്ങളായി കാണുക"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr "പ്ലാസ്മ"
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr "നിയന്ത്രണ മൊഡ്യൂളുകളുടെ ചിഹ്നങ്ങള്‍ തരംതിരിച്ചു് കാണിയ്ക്കന്നു."
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr "സൈഡ്‌ബാർ കാഴ്ച"
+# എല്ലാ സജ്ജീകരണങ്ങളും
+#~ msgid "All Settings"
+#~ msgstr "സജ്ജീകരണങ്ങള്‍ നടപ്പിലാക്കുക"
 
-#: sidebar/SidebarMode.cpp:159
-#, kde-format
-msgid "Provides a categorized sidebar for control modules."
-msgstr "നിയന്ത്രണ മൊഡ്യൂളുകൾക്കായി ഒരു വർഗ്ഗീകരിച്ച സൈഡ്‌ബാർ നൽകുന്നു."
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "കീബോര്‍ഡ് കുറുക്കുവഴി: %1"
 
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr "(c) 2017, മാർക്കോ മാർട്ടിൻ"
+#~ msgid "Sidebar View"
+#~ msgstr "സൈഡ്‌ബാർ കാഴ്ച"
 
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr "മാർക്കോ മാർട്ടിൻ"
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr "നിയന്ത്രണ മൊഡ്യൂളുകൾക്കായി ഒരു വർഗ്ഗീകരിച്ച സൈഡ്‌ബാർ നൽകുന്നു."
 
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr "സൈഡ്‌ബാർ"
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
+#~ msgid "(c) 2017, Marco Martin"
+#~ msgstr "(c) 2017, മാർക്കോ മാർട്ടിൻ"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

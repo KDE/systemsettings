@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2009-12-22 09:22+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "khoemsokhem@khmeros.info,​​evannak@khmeros.info,piseth_dv@khmeros.info"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -38,13 +38,13 @@ msgstr ""
 msgid "Centralized and convenient overview of system information."
 msgstr ""
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៩ ដោយ Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "កា​រកំណត់​ប្រព័ន្ធ"
@@ -55,7 +55,7 @@ msgstr "កា​រកំណត់​ប្រព័ន្ធ"
 msgid "Central configuration center by KDE."
 msgstr "មញ្ឈមណ្ឌល​កំណត់​រចនាសម្ព័ន្ធ​កណ្ដាល​សម្រាប់ KDE ។"
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
@@ -65,104 +65,134 @@ msgstr "Ben Cooksley"
 msgid "Maintainer"
 msgstr "អ្នកថែរក្សា"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
+#, kde-format
+msgid "Marco Martin"
+msgstr ""
+
+#: app/main.cpp:85
+#, kde-format
+msgid "Author"
+msgstr "អ្នក​និពន្ធ"
+
+#: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:86
 #, kde-format
 msgid "Developer"
 msgstr "អ្នក​អភិវឌ្ឍន៍"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "ការ​បង្ហាញ​ម៉ូឌុល​ខាង​ក្នុង ម៉ូដែល​ម៉ូឌុល​ខាង​ក្នុង"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr ""
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "ស្វែងរក"
 
-#: app/SettingsBase.cpp:156
-#, fuzzy, kde-format
-#| msgid "Icon View"
-msgid "Switch to Icon View"
-msgstr "ទិដ្ឋភាព​រូបតំណាង​មជ្ឈមណ្ឌល​បញ្ជា"
-
-#: app/SettingsBase.cpp:163
-#, kde-format
-msgid "Switch to Sidebar View"
-msgstr ""
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "អំពី"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
 "display."
 msgstr "កា​រកំណត់​ប្រព័ន្ធ​មិនអាច​រក​ទិដ្ឋភាព​ណាមួយ​បានទេ ហើយ​ដូច្នេះ​គ្មាន​អ្វី​ត្រូវ​បង្ហាញ​ទេ ។"
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "រក​មិនឃើញ​ទិដ្ឋភាព"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "អំពី​ទិដ្ឋភាព​សកម្ម"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "អំពី %1"
+
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr ""
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr ""
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr ""
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr ""
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr ""
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr ""
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -219,33 +249,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "អនុវត្ត​ការ​កំណត់"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "ទិដ្ឋភាព​រូបតំណាង​មជ្ឈមណ្ឌល​បញ្ជា"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "ផ្ដល់​នូវ​ទិដ្ឋភាព​រូបតំណាង​ដែល​បាន​ដាក់​ជា​ប្រភេទ​របស់​ម៉ូឌុល​បញ្ជា ។"
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "អ្នក​និពន្ធ"
-
-#: icons/IconMode.cpp:63
-#, fuzzy, kde-format
-#| msgid "Apply Settings"
-msgid "All Settings"
-msgstr "អនុវត្ត​ការ​កំណត់"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "ផ្លូវកាត់​ក្ដារចុច ៖ %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -257,57 +260,29 @@ msgstr ""
 msgid "System Information"
 msgstr "កា​រកំណត់​ប្រព័ន្ធ"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr ""
+#, fuzzy
+#~| msgid "Icon View"
+#~ msgid "Switch to Icon View"
+#~ msgstr "ទិដ្ឋភាព​រូបតំណាង​មជ្ឈមណ្ឌល​បញ្ជា"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr ""
+#~ msgid "Icon View"
+#~ msgstr "ទិដ្ឋភាព​រូបតំណាង​មជ្ឈមណ្ឌល​បញ្ជា"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr ""
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr "ផ្ដល់​នូវ​ទិដ្ឋភាព​រូបតំណាង​ដែល​បាន​ដាក់​ជា​ប្រភេទ​របស់​ម៉ូឌុល​បញ្ជា ។"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr ""
+#, fuzzy
+#~| msgid "Apply Settings"
+#~ msgid "All Settings"
+#~ msgstr "អនុវត្ត​ការ​កំណត់"
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr ""
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "ផ្លូវកាត់​ក្ដារចុច ៖ %1"
 
-#: sidebar/SidebarMode.cpp:159
-#, fuzzy, kde-format
-#| msgid "Provides a categorized icons view of control modules."
-msgid "Provides a categorized sidebar for control modules."
-msgstr "ផ្ដល់​នូវ​ទិដ្ឋភាព​រូបតំណាង​ដែល​បាន​ដាក់​ជា​ប្រភេទ​របស់​ម៉ូឌុល​បញ្ជា ។"
-
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr ""
-
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr ""
-
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr ""
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr ""
+#, fuzzy
+#~| msgid "Provides a categorized icons view of control modules."
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr "ផ្ដល់​នូវ​ទិដ្ឋភាព​រូបតំណាង​ដែល​បាន​ដាក់​ជា​ប្រភេទ​របស់​ម៉ូឌុល​បញ្ជា ។"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

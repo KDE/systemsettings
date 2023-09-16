@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 01:59+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ubuntu-l10n-tam@lists.ubuntu.com, kde-l10n-ta@kde.org"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:65
+#: app/main.cpp:58 app/SettingsBase.cpp:63
 #, kde-format
 msgid "Info Center"
 msgstr "விவர மையம்"
@@ -37,13 +37,13 @@ msgstr "விவர மையம்"
 msgid "Centralized and convenient overview of system information."
 msgstr "கணினியின் விவரங்களை வசதியாக ஒரே இடத்தில் காட்டும்."
 
-#: app/main.cpp:62 app/main.cpp:73 icons/IconMode.cpp:58
+#: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:68 runner/systemsettingsrunner.cpp:113
-#: sidebar/package/contents/ui/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "கணினி அமைப்புகள்"
@@ -53,7 +53,7 @@ msgstr "கணினி அமைப்புகள்"
 msgid "Central configuration center by KDE."
 msgstr "கே.டீ.யீ.யின் ஒருங்கிணைந்த விருப்பத்தேர்வு மையம்"
 
-#: app/main.cpp:84 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:163
+#: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "பென் குக்குஸ்லி"
@@ -63,83 +63,83 @@ msgstr "பென் குக்குஸ்லி"
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:85
+#, kde-format
+msgid "Marco Martin"
+msgstr "மார்க்கோ மார்ட்டின்"
+
+#: app/main.cpp:85
+#, kde-format
+msgid "Author"
+msgstr "இயற்றியவர்"
+
+#: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "மத்தியாசு ஸொய்க்கன்"
 
-#: app/main.cpp:85 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:164
+#: app/main.cpp:86
 #, kde-format
 msgid "Developer"
 msgstr "நிரலாளர்"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
 msgstr "வில் சுடீஃபன்ஸன்"
 
-#: app/main.cpp:86
+#: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "உள்ளக‍க் கூறு குறிமுறை, உள்ளக‍க் கூறு மாதிரி"
 
-#: app/main.cpp:94
+#: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
 msgstr "சாத்தியமான அனைத்து கூறுகளையும் பட்டியலிடும்"
 
-#: app/main.cpp:95 app/main.cpp:158
+#: app/main.cpp:96 app/main.cpp:159
 #, kde-format
 msgid "Configuration module to open"
 msgstr "திறக்க வேண்டிய அமைப்புக் கூறு"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:97 app/main.cpp:160
 #, kde-format
 msgid "Arguments for the module"
 msgstr "கூறுக்கான தருமதிப்புகள்"
 
-#: app/main.cpp:104
+#: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
 msgstr "கீழ்காணும் கூறுகள் உள்ளன:"
 
-#: app/main.cpp:122
+#: app/main.cpp:123
 #, kde-format
 msgid "No description available"
 msgstr "விவரணம் இல்லை"
 
-#: app/SettingsBase.cpp:59
+#: app/SettingsBase.cpp:57
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "தேடு"
 
-#: app/SettingsBase.cpp:156
-#, kde-format
-msgid "Switch to Icon View"
-msgstr "சின்னங்களை கொண்ட காட்சிமுறையை பயன்படுத்து"
-
-#: app/SettingsBase.cpp:163
-#, kde-format
-msgid "Switch to Sidebar View"
-msgstr "பக்கப்பட்டை காட்சிமுறையை பயன்படுத்து"
-
-#: app/SettingsBase.cpp:172
+#: app/SettingsBase.cpp:150
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
 
-#: app/SettingsBase.cpp:183
+#: app/SettingsBase.cpp:161
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SettingsBase.cpp:210
+#: app/SettingsBase.cpp:188
 #, kde-format
 msgid "Help"
 msgstr "உதவி"
 
-#: app/SettingsBase.cpp:367
+#: app/SettingsBase.cpp:300
 #, kde-format
 msgid ""
 "System Settings was unable to find any views, and hence has nothing to "
@@ -147,20 +147,51 @@ msgid ""
 msgstr ""
 "கணினி அமைப்புகள் எந்த காட்சிமுறையையும் கண்டுபிடிக்காததால், காட்டுவதற்கு எதுவும் இல்லை."
 
-#: app/SettingsBase.cpp:368
+#: app/SettingsBase.cpp:301
 #, kde-format
 msgid "No views found"
 msgstr "எந்தக் காட்சிமுறையும் கண்டுபிடிக்கப்படவில்லை"
 
-#: app/SettingsBase.cpp:423
+#: app/SettingsBase.cpp:329
 #, kde-format
 msgid "About Active View"
 msgstr "செயலில் உள்ள காட்சிமுறையைப் பற்றி"
 
-#: app/SettingsBase.cpp:500
+#: app/SettingsBase.cpp:401
 #, kde-format
 msgid "About %1"
 msgstr "%1-ஐ பற்றி"
+
+#: app/sidebar/qml/CategoriesPage.qml:57
+#, kde-format
+msgid "Show intro page"
+msgstr "அறிமுகப் பக்கத்தைக் காட்டு"
+
+#: app/sidebar/qml/CategoriesPage.qml:120
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "உங்கள் தேடலுக்கு பொருத்தமானவை ஏதுமில்லை"
+
+#: app/sidebar/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "பட்டியைக் காட்டு"
+
+#: app/sidebar/qml/introPage.qml:55
+#, kde-format
+msgid "Plasma"
+msgstr "பிளாஸ்மா"
+
+#: app/sidebar/SidebarMode.cpp:628
+#, kde-format
+msgid "Sidebar"
+msgstr "பக்கப்பட்டை"
+
+#: app/sidebar/SidebarMode.cpp:700
+#, kde-format
+msgid "Most Used"
+msgstr "அதிகம் பயன்படுவது"
 
 #. i18n: ectx: label, entry (ActiveView), group (Main)
 #: app/systemsettings.kcfg:9
@@ -216,32 +247,6 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "மாற்றங்களை செயல்படுத்து"
 
-#: icons/IconMode.cpp:54
-#, kde-format
-msgid "Icon View"
-msgstr "சின்னங்களைக் கொண்ட காட்சிமுறை"
-
-#: icons/IconMode.cpp:56
-#, kde-format
-msgid "Provides a categorized icons view of control modules."
-msgstr "கட்டுப்பாடு கூறுகளின் வகைப்படுத்தப்பட்ட, சின்னங்களைக் கொண்ட காட்சிமுறை"
-
-#: icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:162
-#: sidebar/SidebarMode.cpp:163
-#, kde-format
-msgid "Author"
-msgstr "இயற்றியவர்"
-
-#: icons/IconMode.cpp:63
-#, kde-format
-msgid "All Settings"
-msgstr "அனைத்து அமைப்புகள்"
-
-#: icons/IconMode.cpp:64
-#, kde-format
-msgid "Keyboard Shortcut: %1"
-msgstr "விசைப்பலகை சுருக்குவழி: %1"
-
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
@@ -252,56 +257,32 @@ msgstr ":q: என்பதற்கு பொருந்தும் கணி
 msgid "System Information"
 msgstr "கணினி விவரங்கள்"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:57
-#, kde-format
-msgid "Show intro page"
-msgstr "அறிமுகப் பக்கத்தைக் காட்டு"
+#~ msgid "Switch to Icon View"
+#~ msgstr "சின்னங்களை கொண்ட காட்சிமுறையை பயன்படுத்து"
 
-#: sidebar/package/contents/ui/CategoriesPage.qml:120
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "உங்கள் தேடலுக்கு பொருத்தமானவை ஏதுமில்லை"
+#~ msgid "Switch to Sidebar View"
+#~ msgstr "பக்கப்பட்டை காட்சிமுறையை பயன்படுத்து"
 
-#: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "பட்டியைக் காட்டு"
+#~ msgid "Icon View"
+#~ msgstr "சின்னங்களைக் கொண்ட காட்சிமுறை"
 
-#: sidebar/package/contents/ui/introPage.qml:55
-#, kde-format
-msgid "Plasma"
-msgstr "பிளாஸ்மா"
+#~ msgid "Provides a categorized icons view of control modules."
+#~ msgstr "கட்டுப்பாடு கூறுகளின் வகைப்படுத்தப்பட்ட, சின்னங்களைக் கொண்ட காட்சிமுறை"
 
-#: sidebar/SidebarMode.cpp:157
-#, kde-format
-msgid "Sidebar View"
-msgstr "பக்கப்பட்டை காட்சிமுறை"
+#~ msgid "All Settings"
+#~ msgstr "அனைத்து அமைப்புகள்"
 
-#: sidebar/SidebarMode.cpp:159
-#, kde-format
-msgid "Provides a categorized sidebar for control modules."
-msgstr "கட்டுப்பாடு கூறுகளை வகைப்படுத்திக் காட்டும் ஒரு பக்கப்பட்டையை வழங்கும்."
+#~ msgid "Keyboard Shortcut: %1"
+#~ msgstr "விசைப்பலகை சுருக்குவழி: %1"
 
-#: sidebar/SidebarMode.cpp:161
-#, kde-format
-msgid "(c) 2017, Marco Martin"
-msgstr "(c) 2017, மார்க்கோ மார்ட்டின்"
+#~ msgid "Sidebar View"
+#~ msgstr "பக்கப்பட்டை காட்சிமுறை"
 
-#: sidebar/SidebarMode.cpp:162
-#, kde-format
-msgid "Marco Martin"
-msgstr "மார்க்கோ மார்ட்டின்"
+#~ msgid "Provides a categorized sidebar for control modules."
+#~ msgstr "கட்டுப்பாடு கூறுகளை வகைப்படுத்திக் காட்டும் ஒரு பக்கப்பட்டையை வழங்கும்."
 
-#: sidebar/SidebarMode.cpp:653
-#, kde-format
-msgid "Sidebar"
-msgstr "பக்கப்பட்டை"
-
-#: sidebar/SidebarMode.cpp:724
-#, kde-format
-msgid "Most Used"
-msgstr "அதிகம் பயன்படுவது"
+#~ msgid "(c) 2017, Marco Martin"
+#~ msgstr "(c) 2017, மார்க்கோ மார்ட்டின்"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"
