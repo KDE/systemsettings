@@ -10,14 +10,14 @@
 #include <KIO/JobUiDelegateFactory>
 #include <QDebug>
 
-ExternalAppModule::ExternalAppModule(const KService::Ptr &module)
-    : module(module)
+ExternalAppModule::ExternalAppModule(const KService::Ptr &service)
+    : moduleService(service)
 {
     firstShow = true;
     externalModule.setupUi(this);
-    QString moduleName = module->name();
+    QString moduleName = moduleService->name();
     if (moduleName.isEmpty()) {
-        moduleName = module->property(QStringLiteral("X-KDE-PluginInfo-Name"), QMetaType::QString).toString();
+        moduleName = moduleService->property(QStringLiteral("X-KDE-PluginInfo-Name"), QMetaType::QString).toString();
         if (!moduleName.isEmpty()) {
             qWarning() << "Reading deprecated X-KDE-PluginInfo-Name property from ExternalAppModule, use Name property instead";
         }
@@ -42,7 +42,7 @@ void ExternalAppModule::showEvent(QShowEvent *event)
 
 void ExternalAppModule::runExternal()
 {
-    auto job = new KIO::ApplicationLauncherJob(module);
+    auto job = new KIO::ApplicationLauncherJob(moduleService);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
     job->start();
 }

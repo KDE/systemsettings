@@ -19,7 +19,7 @@ class ExternalAppModule : public QWidget
     Q_OBJECT
 
 public:
-    explicit ExternalAppModule(const KService::Ptr &module);
+    explicit ExternalAppModule(const KService::Ptr &service);
     ~ExternalAppModule() override;
 
 protected:
@@ -29,7 +29,7 @@ private Q_SLOTS:
     void runExternal();
 
 private:
-    const KService::Ptr module;
+    const KService::Ptr moduleService;
     Ui::ExternalModule externalModule;
     bool firstShow;
 };
