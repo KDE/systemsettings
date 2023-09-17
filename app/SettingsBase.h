@@ -47,7 +47,6 @@ private Q_SLOTS:
     void viewChange(bool state);
     void updateViewActions();
     void changeToolBar(BaseMode::ToolBarItems toolbar);
-    void changeAboutMenu(QAction *menuItem, const QString &fallback);
 
 private Q_SLOTS:
     /**

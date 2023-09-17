@@ -316,7 +316,6 @@ void SettingsBase::loadCurrentView()
         highlightChangesAction->setChecked(view->defaultsIndicatorsVisible());
     }
 
-    changeAboutMenu(aboutViewAction, i18nd("systemsettings", "About Active View"));
     viewChange(false);
 
     stackedWidget->setCurrentWidget(view->mainWidget());
@@ -379,18 +378,6 @@ void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
     }
 
     toolBar()->setVisible(toolbar != BaseMode::NoItems || (view->actionsList().count() > 0));
-}
-
-void SettingsBase::changeAboutMenu(QAction *menuItem, const QString &fallback)
-{
-    if (!menuItem) {
-        return;
-    }
-
-    const auto data = KAboutData::applicationData();
-    menuItem->setText(i18nd("systemsettings", "About %1", data.displayName()));
-    menuItem->setIcon(QGuiApplication::windowIcon());
-    menuItem->setEnabled(true);
 }
 
 void SettingsBase::slotGeometryChanged()
