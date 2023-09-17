@@ -265,7 +265,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
         page->setName(QString());
     } else { // It must be a normal module then
-        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariant::fromValue(args).toList());
+        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariantList(args.begin(), args.end()));
         moduleScroll->setWidget(kcm->widget());
         kcm->widget()->setAutoFillBackground(false);
         kcm->load();
