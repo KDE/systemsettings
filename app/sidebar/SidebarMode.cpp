@@ -755,6 +755,4 @@ void SidebarMode::giveFocus()
     d->quickWidget->setFocus();
 }
 
-#include "SidebarMode.moc"
-
 #include "moc_SidebarMode.cpp"
