@@ -89,7 +89,7 @@ QStringList MenuItem::keywords(bool doesRemoveDuplicates) const
     }
     listOfKeywords << KJsonUtils::readTranslatedString(rawData, QStringLiteral("X-KDE-Keywords")).split(QStringLiteral(","));
     listOfKeywords << d->name;
-    for (MenuItem *child : qAsConst(d->children)) {
+    for (MenuItem *child : std::as_const(d->children)) {
         listOfKeywords << child->keywords(false);
     }
     // Remove any soft hyphens (used in long words in some languages)
@@ -224,7 +224,7 @@ void MenuItem::updateDefaultIndicator()
     }
 
     if (menu()) {
-        for (auto child : qAsConst(children())) {
+        for (auto child : std::as_const(children())) {
             d->showDefaultIndicator |= child->showDefaultIndicator();
         }
     }
@@ -237,7 +237,7 @@ void MenuItem::setDefaultIndicator(bool defaultIndicator)
 {
     d->showDefaultIndicator = defaultIndicator;
     if (menu()) {
-        for (auto child : qAsConst(children())) {
+        for (auto child : std::as_const(children())) {
             d->showDefaultIndicator |= child->showDefaultIndicator();
         }
     }
@@ -258,7 +258,7 @@ MenuItem *MenuItem::descendantForModule(const QString &moduleName)
         return this;
     }
 
-    for (auto child : qAsConst(d->children)) {
+    for (auto child : std::as_const(d->children)) {
         MenuItem *candidate = child->descendantForModule(moduleName);
         if (candidate) {
             return candidate;

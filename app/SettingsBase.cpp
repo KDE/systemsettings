@@ -104,7 +104,7 @@ void SettingsBase::initApplication()
 
     // Handle lost+found modules...
     if (lostFound) {
-        for (const auto &metaData : qAsConst(pluginModules)) {
+        for (const auto &metaData : std::as_const(pluginModules)) {
             auto infoItem = new MenuItem(false, lostFound);
             infoItem->setMetaData(metaData);
             qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << metaData.pluginId();
@@ -194,7 +194,7 @@ void SettingsBase::initHelpMenu()
 void SettingsBase::initMenuList(MenuItem *parent)
 {
     // look for any categories inside this level, and recurse into them
-    for (const QString &category : qAsConst(categories)) {
+    for (const QString &category : std::as_const(categories)) {
         const KDesktopFile file(category);
         const KConfigGroup entry = file.desktopGroup();
         QString parentCategory;
@@ -220,7 +220,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
     }
 
     // scan for any modules at this level and add them
-    for (const auto &metaData : qAsConst(pluginModules)) {
+    for (const auto &metaData : std::as_const(pluginModules)) {
         QString category;
         QString categoryv2;
         if (m_mode == BaseMode::InfoCenter) {
