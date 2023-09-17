@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-03-01 01:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "정보 센터"
@@ -42,7 +42,7 @@ msgstr "시스템 정보를 한 눈에 보기."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -118,45 +118,33 @@ msgstr "다음 모듈을 사용할 수 있습니다:"
 msgid "No description available"
 msgstr "설명 없음"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "찾기"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "변경된 설정 강조"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "현재 페이지의 버그 보고…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "도움말"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr "시스템 설정에서 보기를 찾을 수 없으며, 아무것도 보여줄 수 없습니다."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "보기 찾을 수 없음"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "활성화된 보기 정보"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "%1 정보"
@@ -191,12 +179,6 @@ msgstr "사이드바"
 #, kde-format
 msgid "Most Used"
 msgstr "자주 사용됨"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "보기에서 사용하는 내부 이름"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -254,6 +236,17 @@ msgstr "이름이나 설명이 :q:와 일치하는 시스템 설정 모듈 찾�
 #, kde-format
 msgid "System Information"
 msgstr "시스템 정보"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr "시스템 설정에서 보기를 찾을 수 없으며, 아무것도 보여줄 수 없습니다."
+
+#~ msgid "No views found"
+#~ msgstr "보기 찾을 수 없음"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "보기에서 사용하는 내부 이름"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "아이콘 보기로 전환"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-01-18 19:57+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "cfmckee@gmail.com,okellogg@users.sourceforge.net"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Informcentro"
@@ -45,7 +45,7 @@ msgstr "Centrigita kaj konvena superrigardo de sisteminformoj."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -121,47 +121,33 @@ msgstr "La sekvantaj moduloj haveblas:"
 msgid "No description available"
 msgstr "Priskribo ne disponebla"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Serĉi"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Reliefigi Ŝanĝitajn Metojn"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Raporti Cimon en la Aktuala Paĝo…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Helpo"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"Sistemagordo estis malebla trovi iujn vidojn kaj tial havas nenion por "
-"montri."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Neniu vido trovita"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Pri aktiva rigardo"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "Pri %1"
@@ -196,12 +182,6 @@ msgstr "Flankbreto"
 #, kde-format
 msgid "Most Used"
 msgstr "Plej Uzata"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Interna nomo de la uzata vido"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -260,6 +240,19 @@ msgstr "Trovas sistemmetajn modulojn kies nomo aŭ priskribo kongruas al :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Sisteminformoj"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Sistemagordo estis malebla trovi iujn vidojn kaj tial havas nenion por "
+#~ "montri."
+
+#~ msgid "No views found"
+#~ msgstr "Neniu vido trovita"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Interna nomo de la uzata vido"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Ŝalti al Piktograma vido"

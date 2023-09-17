@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -25,7 +25,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pravi.a@gmail.com,mail@subinsb.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "വിവര കേന്ദ്രം"
@@ -40,7 +40,7 @@ msgstr "കേന്ദ്രീകൃതവും, സൗകര്യപ്ര�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, ബെന്‍ കുക്ക്സ്ലി"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -116,13 +116,13 @@ msgstr "ഈ മൊഡ്യൂളുകൾ ലഭ്യമാണ്:"
 msgid "No description available"
 msgstr "വിവരണം ലഭ്യമല്ല"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "തെരയുക"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -131,36 +131,22 @@ msgstr "തെരയുക"
 msgid "Highlight Changed Settings"
 msgstr "മാറ്റങ്ങൾ വരുത്തിയവ തെളിക്കുക"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "സഹായം"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"സിസ്റ്റം സജ്ജീകരണങ്ങള്‍ക്കു് അവതരണരീതികളൊന്നും കണ്ടുപിടിയ്ക്കാന്‍ സാധിച്ചില്ല, അതുകൊണ്ടു് തന്നെ "
-"കാണിയ്ക്കാന്‍ ഒന്നുമില്ല."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "പ്രദര്‍ശനരീതികളൊന്നും കണ്ടില്ല"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറിച്ചു്"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "%1 ന്റെ അണിയറ വിശേഷം"
@@ -195,12 +181,6 @@ msgstr "സൈഡ്‌ബാർ"
 #, kde-format
 msgid "Most Used"
 msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "ഉപയോഗിച്ച അവതരണരീതിയുടെ ആന്തരിക പേരു്"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -259,6 +239,19 @@ msgstr "സജ്ജീകരണങ്ങളിൽ പേരോ വിവരണ�
 #, kde-format
 msgid "System Information"
 msgstr "സിസ്റ്റത്തെ കുറിച്ച്"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "സിസ്റ്റം സജ്ജീകരണങ്ങള്‍ക്കു് അവതരണരീതികളൊന്നും കണ്ടുപിടിയ്ക്കാന്‍ സാധിച്ചില്ല, അതുകൊണ്ടു് തന്നെ "
+#~ "കാണിയ്ക്കാന്‍ ഒന്നുമില്ല."
+
+#~ msgid "No views found"
+#~ msgstr "പ്രദര്‍ശനരീതികളൊന്നും കണ്ടില്ല"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "ഉപയോഗിച്ച അവതരണരീതിയുടെ ആന്തരിക പേരു്"
 
 #, fuzzy
 #~| msgid "Icon View"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-02-19 21:31+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Informasjonssenter"
@@ -46,7 +46,7 @@ msgstr "Sentralisert og praktisk oversikt over systeminformasjon."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009 Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -122,45 +122,33 @@ msgstr "Desse modulane er tilgjengelege:"
 msgid "No description available"
 msgstr "Inga skildring tilgjengeleg"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Søk"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Marker endra innstillingar"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Meld frå om feil på denne sida …"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Hjelp"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr "Systemoppsettet fann ingen utformingar, og kan derfor ikkje visa noko."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Fann ingen utformingar"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Om utforminga"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "Om %1"
@@ -196,12 +184,6 @@ msgstr "Sidestolpe"
 #, kde-format
 msgid "Most Used"
 msgstr "Mest brukte"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Internnamn på visinga som er bruk"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -261,29 +243,14 @@ msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 msgid "System Information"
 msgstr "Systeminformasjon"
 
-#~ msgid "Switch to Icon View"
-#~ msgstr "Byt til ikonvising"
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Systemoppsettet fann ingen utformingar, og kan derfor ikkje visa noko."
 
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "Byt til sidestolpe-vising"
+#~ msgid "No views found"
+#~ msgstr "Fann ingen utformingar"
 
-#~ msgid "Icon View"
-#~ msgstr "Ikonvising"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr "Ei kategoribasert ikonvising av kontrollmodulane."
-
-#~ msgid "All Settings"
-#~ msgstr "Alle innstillingar"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "Tastatursnarveg: %1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "Sidestolpe-vising"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr "Ein kategoribasert sidestolpe med kontrollmodular."
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "© 2017 Marco Martin"
+#~ msgid "Internal name for the view used"
+#~ msgstr "Internnamn på visinga som er bruk"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "komzpa@licei2.com, nashtlumach@gmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Інфармацыйны цэнтр"
@@ -46,7 +46,7 @@ msgstr "Цэнтралізаваны і зручны агляд сістэмна
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -122,13 +122,13 @@ msgstr "Даступны наступныя модулі:"
 msgid "No description available"
 msgstr "Няма даступнага апісання"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Пошук"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -137,34 +137,22 @@ msgstr "Пошук"
 msgid "Highlight Changed Settings"
 msgstr "Падсвятляць змененыя налады"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Паведаміць пра хібу на бягучай старонцы…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Даведка"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr "Сістэмныя налады не змаглі знайсці выглядаў, таму няма чаго паказаць."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Не знойдзена выглядаў"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Пра актыўны выгляд"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "Пра \"%1\""
@@ -199,12 +187,6 @@ msgstr "Бакавая панэль"
 #, kde-format
 msgid "Most Used"
 msgstr "Найбольш часта выкарыстоўваюцца"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Унутраная назва для выгляду, які выкарыстоўваецца"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -265,6 +247,18 @@ msgstr "Шукае модулі налад сістэмы, чыі назвы а�
 #, kde-format
 msgid "System Information"
 msgstr "Сістэмная інфармацыя"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Сістэмныя налады не змаглі знайсці выглядаў, таму няма чаго паказаць."
+
+#~ msgid "No views found"
+#~ msgstr "Не знойдзена выглядаў"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Унутраная назва для выгляду, які выкарыстоўваецца"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Пераключыцца на выгляд значкоў"

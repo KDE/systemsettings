@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-02-10 17:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -32,7 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net,jaime@kde.org,cronopios@gmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Centro de información"
@@ -47,7 +47,7 @@ msgstr "Resumen centralizado y práctico de información del sistema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -123,47 +123,33 @@ msgstr "Están disponibles los siguientes módulos:"
 msgid "No description available"
 msgstr "Descripción no disponible"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Buscar"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Resaltar las preferencias modificadas"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Informar de errores en la página actual..."
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Ayuda"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"El sistema de configuración no ha podido encontrar ninguna vista, por lo que "
-"no hay nada que mostrar."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "No se han encontrado vistas"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Acerca de la vista activa"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "Acerca de %1"
@@ -198,12 +184,6 @@ msgstr "Barra lateral"
 #, kde-format
 msgid "Most Used"
 msgstr "Más usados"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Nombre usado internamente para la vista"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -264,6 +244,19 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Información del sistema"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "El sistema de configuración no ha podido encontrar ninguna vista, por lo "
+#~ "que no hay nada que mostrar."
+
+#~ msgid "No views found"
+#~ msgstr "No se han encontrado vistas"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Nombre usado internamente para la vista"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Cambiar a la vista de iconos"

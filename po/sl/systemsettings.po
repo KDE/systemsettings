@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-04-24 09:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -37,7 +37,7 @@ msgstr ""
 "andrej.vernekar@moj.net,andrej.znidarsic@ubuntu.com,andrejm@ubuntu.si,matjaz."
 "jeran@amis.net"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Info center"
@@ -52,7 +52,7 @@ msgstr "Centraliziran in priročen pregled sistemskih informacij."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -128,47 +128,33 @@ msgstr "Na voljo so naslednji moduli:"
 msgid "No description available"
 msgstr "Ni na voljo opisa"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Poišči"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Osvetli spremenjene nastavitve"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Poročaj o napaki na trenutni strani…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Pomoč"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"Program Nastavitve sistema ni našel nobenih pogledov, zato ni mogoče ničesar "
-"prikazati."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Ni najdenih pogledov"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "O dejavnem pogledu"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "O %1"
@@ -203,12 +189,6 @@ msgstr "Stranska vrstica"
 #, kde-format
 msgid "Most Used"
 msgstr "Najbolj uporabljeni"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Notranje ime uporabljenega pogleda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -270,6 +250,19 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informacije o sistemu"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Program Nastavitve sistema ni našel nobenih pogledov, zato ni mogoče "
+#~ "ničesar prikazati."
+
+#~ msgid "No views found"
+#~ msgstr "Ni najdenih pogledov"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Notranje ime uporabljenega pogleda"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Preklopi na ikonski pogled"

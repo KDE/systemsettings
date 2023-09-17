@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -33,7 +33,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ra@ra.is, sv1@fellsnet.is, gudmundure@gmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Upplýsingaborð"
@@ -48,7 +48,7 @@ msgstr "Miðlægt og þægilegt yfirlit yfir kerfisupplýsingar."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -124,47 +124,33 @@ msgstr "Eftirfarandi einingar eru í boði:"
 msgid "No description available"
 msgstr "Engin lýsing tiltæk"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Leita"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Áherslulita breyttar stillingar"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Tilkynna um villu á núverandi síðu…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Hjálp"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"Kerfisstillingaforritið fann engin yfirlit, og þar með er ekkert sem hægt er "
-"að birta."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Engin yfirlit fundust"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Um virkt yfirlit"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "Um %1"
@@ -199,12 +185,6 @@ msgstr "Hliðarstika"
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Innra heiti á yfirlitinu sem er í notkun"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -263,6 +243,19 @@ msgstr "Finnur stillingaeiningar kerfis þar sem heiti eða lýsing samsvara :q:
 #, kde-format
 msgid "System Information"
 msgstr "Kerfisupplýsingar"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Kerfisstillingaforritið fann engin yfirlit, og þar með er ekkert sem hægt "
+#~ "er að birta."
+
+#~ msgid "No views found"
+#~ msgstr "Engin yfirlit fundust"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Innra heiti á yfirlitinu sem er í notkun"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Skipta í táknayfirlit"

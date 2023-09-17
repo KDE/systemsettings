@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lw1nzayar@yandex.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "အချက်အလက်စင်တာ"
@@ -43,7 +43,7 @@ msgstr "စစ်စတမ်ဆိုင်ရာအချက်အလက်မ
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ၂၀၁၉၊ ဘန်ကွတ်စလေ"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -119,13 +119,13 @@ msgstr "အောက်ပါမော်ဂျူးများရရှိန
 msgid "No description available"
 msgstr "ဖော်ပြချက်မရရှိနိုင်ပါ"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "ရှာမည်"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -134,34 +134,22 @@ msgstr "ရှာမည်"
 msgid "Highlight Changed Settings"
 msgstr "ပြောင်းသွားသောဆက်တင်များ အလင်းတင်ပြမည်"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "အကူအညီ"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr "စစ်စတမ်ဆက်တင်များသည် မည်သည်မြင်ကွင်းမှ ရှာမတွေ့ပါ။ ထို့ကြောင် ဘာမှ ပြစရာမရှိပါ။"
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "မြင်ကွင်းများမတွေ့ပါ"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "သက်ဝင်မြင်ကွင်းအကြောင်း"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "%1 အကြောင်း"
@@ -196,12 +184,6 @@ msgstr "ဘေးတန်း"
 #, kde-format
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "အသုံးပြုထားသော မြင်ကွင်း၏အတွင်းပိုင်းအမည်"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -259,6 +241,17 @@ msgstr ":q: နှင့် အမည် သို့မဟုတ် ဖော�
 #, kde-format
 msgid "System Information"
 msgstr "စစ်စတမ်ဆိုင်ရာ အချက်အလက်"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr "စစ်စတမ်ဆက်တင်များသည် မည်သည်မြင်ကွင်းမှ ရှာမတွေ့ပါ။ ထို့ကြောင် ဘာမှ ပြစရာမရှိပါ။"
+
+#~ msgid "No views found"
+#~ msgstr "မြင်ကွင်းများမတွေ့ပါ"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "အသုံးပြုထားသော မြင်ကွင်း၏အတွင်းပိုင်းအမည်"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "အိုင်ကွန်ပြမြင်ကွင်းသို့ပြောင်းမည်"

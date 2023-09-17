@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2007-10-31 15:57+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "nabin@mpp.org.np"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -44,7 +44,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -121,47 +121,35 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, fuzzy, kde-format
 #| msgid "S&earch:"
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "खोजी:"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr ""
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr ""
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, fuzzy, kde-format
 #| msgid "About Current Module"
 msgid "About Active View"
 msgstr "हालको मोड्युलका बारेमा"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, fuzzy, kde-format
 #| msgctxt "Help menu->about <modulename>"
 #| msgid "About %1"
@@ -197,12 +185,6 @@ msgstr ""
 #: app/sidebar/SidebarMode.cpp:700
 #, kde-format
 msgid "Most Used"
-msgstr ""
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)

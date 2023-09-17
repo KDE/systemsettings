@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-02-18 20:47+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Məlumat Mərkəzi"
@@ -42,7 +42,7 @@ msgstr "Sistem haqqında məlumatlara rahat və mərkəzləşmiş qaydada baxı�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -118,47 +118,33 @@ msgstr "Aşağıdakı modullar mövcuddur:"
 msgid "No description available"
 msgstr "Təfərrüatı göstərilməyib"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Axtarış"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Dəyişdirilmiş ayarları işarələmək"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Cari səhifədə xəta haqqında xəbər verin..."
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Kömək"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"Sistem ayarları heç bir görünüş tapa bilmədi və buna görə də göstəriləcək "
-"heç nə yoxdur."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Görünüş tapılmadı"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Aktiv Görünüş haqqında"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "%1 haqqında"
@@ -193,12 +179,6 @@ msgstr "Yan Panel"
 #, kde-format
 msgid "Most Used"
 msgstr "Daha çox istifadə olunanlar"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "İstifadə olunan görünüş üçün daxili ad"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -257,6 +237,19 @@ msgstr "Adları bununla uyğun sistem ayarları modulunu tapır:q:"
 #, kde-format
 msgid "System Information"
 msgstr "Sistem məlumatı"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Sistem ayarları heç bir görünüş tapa bilmədi və buna görə də göstəriləcək "
+#~ "heç nə yoxdur."
+
+#~ msgid "No views found"
+#~ msgstr "Görünüş tapılmadı"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "İstifadə olunan görünüş üçün daxili ad"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Nişan görünüşünə keçid"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ubuntu-l10n-tam@lists.ubuntu.com, kde-l10n-ta@kde.org"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "விவர மையம்"
@@ -42,7 +42,7 @@ msgstr "கணினியின் விவரங்களை வசதிய�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -118,46 +118,33 @@ msgstr "கீழ்காணும் கூறுகள் உள்ளன:"
 msgid "No description available"
 msgstr "விவரணம் இல்லை"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "தேடு"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "உதவி"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"கணினி அமைப்புகள் எந்த காட்சிமுறையையும் கண்டுபிடிக்காததால், காட்டுவதற்கு எதுவும் இல்லை."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "எந்தக் காட்சிமுறையும் கண்டுபிடிக்கப்படவில்லை"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "செயலில் உள்ள காட்சிமுறையைப் பற்றி"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "%1-ஐ பற்றி"
@@ -192,12 +179,6 @@ msgstr "பக்கப்பட்டை"
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "பயன்படுத்தப்படும் காட்சிமுறையின் உள்ளமைப் பெயர்"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -256,6 +237,18 @@ msgstr ":q: என்பதற்கு பொருந்தும் கணி
 #, kde-format
 msgid "System Information"
 msgstr "கணினி விவரங்கள்"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "கணினி அமைப்புகள் எந்த காட்சிமுறையையும் கண்டுபிடிக்காததால், காட்டுவதற்கு எதுவும் இல்லை."
+
+#~ msgid "No views found"
+#~ msgstr "எந்தக் காட்சிமுறையும் கண்டுபிடிக்கப்படவில்லை"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "பயன்படுத்தப்படும் காட்சிமுறையின் உள்ளமைப் பெயர்"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "சின்னங்களை கொண்ட காட்சிமுறையை பயன்படுத்து"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-01-03 06:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "საინფორმაციო ცენტრი"
@@ -43,7 +43,7 @@ msgstr "ცენტრალიზებული და მოხერხე�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -119,46 +119,33 @@ msgstr "ხელმისაწვდომია მოდულები:"
 msgid "No description available"
 msgstr "აღწერის გარეშე"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "ძებნა"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "შეცვლილი პარამეტრების გამოკვეთა"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "დახმარება"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"სისტემის მორგებამ ვერცერთი ხედი ვერ იპოვა. ამიტომ არც საჩვენებელია რამე."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "ხედები ნაპოვნი არაა"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "აქტიური ხედის შესახებ"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "%1-ის შესახებ"
@@ -193,12 +180,6 @@ msgstr "გვერდითი ზოლი"
 #, kde-format
 msgid "Most Used"
 msgstr "ხშირად გამოყენებული"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "გამოყენებული ხედის შიდა სახელი"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -257,6 +238,18 @@ msgstr "სისტემის პარამეტრების მოდ�
 #, kde-format
 msgid "System Information"
 msgstr "ინფორმაცის სისტემის შესახებ"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "სისტემის მორგებამ ვერცერთი ხედი ვერ იპოვა. ამიტომ არც საჩვენებელია რამე."
+
+#~ msgid "No views found"
+#~ msgstr "ხედები ნაპოვნი არაა"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "გამოყენებული ხედის შიდა სახელი"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "ხატულების ხედზე გადართვა"

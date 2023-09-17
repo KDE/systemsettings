@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2022-12-29 17:23+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sergiu@cip.md"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:63
+#: app/main.cpp:58 app/SettingsBase.cpp:62
 #, kde-format
 msgid "Info Center"
 msgstr "Centru de informații"
@@ -45,7 +45,7 @@ msgstr "Vizualizare centralizată și convenabilă a informațiilor despre siste
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:66 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -121,13 +121,13 @@ msgstr "Sunt disponibile următoarele module:"
 msgid "No description available"
 msgstr "Nicio descriere disponibilă"
 
-#: app/SettingsBase.cpp:57
+#: app/SettingsBase.cpp:56
 #, kde-format
 msgctxt "Search through a list of control modules"
 msgid "Search"
 msgstr "Caută"
 
-#: app/SettingsBase.cpp:150
+#: app/SettingsBase.cpp:149
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -136,36 +136,22 @@ msgstr "Caută"
 msgid "Highlight Changed Settings"
 msgstr "Evidențiază configurări modificate"
 
-#: app/SettingsBase.cpp:161
+#: app/SettingsBase.cpp:160
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Raportează defect în pagina actuală…"
 
-#: app/SettingsBase.cpp:188
+#: app/SettingsBase.cpp:187
 #, kde-format
 msgid "Help"
 msgstr "Ajutor"
 
-#: app/SettingsBase.cpp:300
-#, kde-format
-msgid ""
-"System Settings was unable to find any views, and hence has nothing to "
-"display."
-msgstr ""
-"Configurări de sistem nu a putut găsi nicio vizualizare, de aceea nu are "
-"nimic de afișat."
-
-#: app/SettingsBase.cpp:301
-#, kde-format
-msgid "No views found"
-msgstr "Nicio vizualizare găsită"
-
-#: app/SettingsBase.cpp:329
+#: app/SettingsBase.cpp:319
 #, kde-format
 msgid "About Active View"
 msgstr "Despre vizualizarea activă"
 
-#: app/SettingsBase.cpp:401
+#: app/SettingsBase.cpp:391
 #, kde-format
 msgid "About %1"
 msgstr "Despre %1"
@@ -200,12 +186,6 @@ msgstr "Bara laterală"
 #, kde-format
 msgid "Most Used"
 msgstr "Cele mai folosite"
-
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Denumirea internă pentru vizualizarea utilizată"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -267,6 +247,19 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informații despre sistem"
+
+#~ msgid ""
+#~ "System Settings was unable to find any views, and hence has nothing to "
+#~ "display."
+#~ msgstr ""
+#~ "Configurări de sistem nu a putut găsi nicio vizualizare, de aceea nu are "
+#~ "nimic de afișat."
+
+#~ msgid "No views found"
+#~ msgstr "Nicio vizualizare găsită"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Denumirea internă pentru vizualizarea utilizată"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "Comută la vizualizare pictograme"
