@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-02-19 21:31+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -102,12 +102,12 @@ msgstr "Intern modulrepresentasjon, intern modulmodell"
 msgid "List all possible modules"
 msgstr "List ut alle moglege modular"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Oppsettsmodul som skal opnast"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argument for modulen"
@@ -142,16 +142,6 @@ msgstr "Meld frå om feil på denne sida …"
 #, kde-format
 msgid "Help"
 msgstr "Hjelp"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Om utforminga"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Om %1"
 
 # Tittelen på sida er «snøgginnstillingar».
 #: app/sidebar/qml/CategoriesPage.qml:57
@@ -198,12 +188,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Inneheld 1 element"
 msgstr[1] "Inneheld %1 element"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 er eit eksternt program og vart starta automatisk"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Start om att %1"
@@ -242,6 +232,12 @@ msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
+
+#~ msgid "About Active View"
+#~ msgstr "Om utforminga"
+
+#~ msgid "About %1"
+#~ msgstr "Om %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

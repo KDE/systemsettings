@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -96,12 +96,12 @@ msgstr "ആന്തരിക മൊഡ്യൂള്‍ പ്രതിനി�
 msgid "List all possible modules"
 msgstr "പറ്റാവുന്ന മൊഡ്യൂളുകൾ പട്ടികപ്പെടുത്തുക"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "തുറക്കേണ്ട ക്രമീകരണ മൊഡ്യൂൾ"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "മൊഡ്യൂളിനുള്ള ആർഗ്യുമെന്റുകൾ"
@@ -140,16 +140,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "സഹായം"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറിച്ചു്"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1 ന്റെ അണിയറ വിശേഷം"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -195,12 +185,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "<i>1 ഇനം ഉള്‍ക്കൊള്ളുന്നു</i>"
 msgstr[1] "<i> %1 ഇനങ്ങള്‍ ഉള്‍ക്കൊള്ളുന്നു</i>"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 പുറമെയുള്ളൊരു പ്രയോഗമാണു്, അതു് സ്വയം തുടങ്ങിയിട്ടുണ്ടു്"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 വീണ്ടും തുടങ്ങുക"
@@ -239,6 +229,12 @@ msgstr "സജ്ജീകരണങ്ങളിൽ പേരോ വിവരണ�
 #, kde-format
 msgid "System Information"
 msgstr "സിസ്റ്റത്തെ കുറിച്ച്"
+
+#~ msgid "About Active View"
+#~ msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറിച്ചു്"
+
+#~ msgid "About %1"
+#~ msgstr "%1 ന്റെ അണിയറ വിശേഷം"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

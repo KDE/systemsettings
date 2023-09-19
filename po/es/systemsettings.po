@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-02-10 17:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -103,12 +103,12 @@ msgstr "Representación de módulos internos, modelo de módulos internos"
 msgid "List all possible modules"
 msgstr "Listar todos los módulos posibles"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Módulo de configuración a abrir"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argumentos para el módulo"
@@ -143,16 +143,6 @@ msgstr "Informar de errores en la página actual..."
 #, kde-format
 msgid "Help"
 msgstr "Ayuda"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Acerca de la vista activa"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Acerca de %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -198,12 +188,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Contiene 1 elemento"
 msgstr[1] "Contiene %1 elementos"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 es una aplicación externa y se ha lanzado automáticamente"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Volver a lanzar %1"
@@ -244,6 +234,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Información del sistema"
+
+#~ msgid "About Active View"
+#~ msgstr "Acerca de la vista activa"
+
+#~ msgid "About %1"
+#~ msgstr "Acerca de %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

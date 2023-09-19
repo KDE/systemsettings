@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-04-24 09:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -108,12 +108,12 @@ msgstr "Predstavitev notranjih modulov, model notranjih modulov"
 msgid "List all possible modules"
 msgstr "Izpiši vse možne module"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Nastavitveni modul za odpiranje"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argumenti modula"
@@ -148,16 +148,6 @@ msgstr "Poročaj o napaki na trenutni strani…"
 #, kde-format
 msgid "Help"
 msgstr "Pomoč"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "O dejavnem pogledu"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "O %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -205,12 +195,12 @@ msgstr[1] "Vsebuje %1 predmeta"
 msgstr[2] "Vsebuje %1 predmete"
 msgstr[3] "Vsebuje %1 predmetov"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 je zunanji program in je bil samodejno zagnan"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Znova zaženi %1"
@@ -250,6 +240,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informacije o sistemu"
+
+#~ msgid "About Active View"
+#~ msgstr "O dejavnem pogledu"
+
+#~ msgid "About %1"
+#~ msgstr "O %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

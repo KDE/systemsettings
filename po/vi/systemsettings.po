@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -99,12 +99,12 @@ msgstr "Biểu diễn khối nội bộ, mẫu khối nội bộ"
 msgid "List all possible modules"
 msgstr "Liệt kê tất cả các khối có thể"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Khối cấu hình để mở"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Đối số cho khối"
@@ -139,16 +139,6 @@ msgstr "Báo lỗi về trang hiện tại…"
 #, kde-format
 msgid "Help"
 msgstr "Trợ giúp"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Về kiểu xem đang dùng"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Về %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -193,12 +183,12 @@ msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "Chứa %1 mục"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 là một ứng dụng ngoài và đã được khởi chạy tự động"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Khởi chạy lại %1"
@@ -237,6 +227,12 @@ msgstr "Tìm các khối thiết lập hệ thống mà tên hoặc mô tả kh�
 #, kde-format
 msgid "System Information"
 msgstr "Thông tin hệ thống"
+
+#~ msgid "About Active View"
+#~ msgstr "Về kiểu xem đang dùng"
+
+#~ msgid "About %1"
+#~ msgstr "Về %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

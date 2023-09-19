@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -99,12 +99,12 @@ msgstr "မော်ဂျူးအတွင်းပိုင်းပုံဖ
 msgid "List all possible modules"
 msgstr "ဖြစ်နိုင်သော မော်ဂျူးအကုန်ပြပါ"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "ဖွင့်ရမည့် ပြင်ဆင်ရေးမော်ဂျူး"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "မော်ဂျူးအတွက်ပေးချက်များ"
@@ -143,16 +143,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "အကူအညီ"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "သက်ဝင်မြင်ကွင်းအကြောင်း"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1 အကြောင်း"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -197,12 +187,12 @@ msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "အိုင်တမ် %1ခု ပါဝင်သည်"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 သည် ပြင်ပအပ္ပလီကေးရှင်းတစ်ခုဖြစ်ပြီး ယင်းကို အလိုအလျောက်လွှင့်တင်ထားခြင်းဖြစ်သည်"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 ပြန်လွှင့်တင်မည်"
@@ -241,6 +231,12 @@ msgstr ":q: နှင့် အမည် သို့မဟုတ် ဖော�
 #, kde-format
 msgid "System Information"
 msgstr "စစ်စတမ်ဆိုင်ရာ အချက်အလက်"
+
+#~ msgid "About Active View"
+#~ msgstr "သက်ဝင်မြင်ကွင်းအကြောင်း"
+
+#~ msgid "About %1"
+#~ msgstr "%1 အကြောင်း"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-09-16 10:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -98,12 +98,12 @@ msgstr "内部模块展现方式，内部模块模型"
 msgid "List all possible modules"
 msgstr "列出所有可用模块"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "要打开的配置模块"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "模块参数"
@@ -138,16 +138,6 @@ msgstr "报告当前页面中的程序缺陷…"
 #, kde-format
 msgid "Help"
 msgstr "帮助"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "关于活动的视图"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "关于 %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -192,12 +182,12 @@ msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "包含 %1 个项目"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1是外部应用程序，它已经自动启动"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "重新打开%1"
@@ -236,6 +226,12 @@ msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"
+
+#~ msgid "About Active View"
+#~ msgstr "关于活动的视图"
+
+#~ msgid "About %1"
+#~ msgstr "关于 %1"
 
 #~ msgid "Switch to Icon View"
 #~ msgstr "切换到图标视图"

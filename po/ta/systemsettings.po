@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -98,12 +98,12 @@ msgstr "உள்ளக‍க் கூறு குறிமுறை, உள�
 msgid "List all possible modules"
 msgstr "சாத்தியமான அனைத்து கூறுகளையும் பட்டியலிடும்"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "திறக்க வேண்டிய அமைப்புக் கூறு"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "கூறுக்கான தருமதிப்புகள்"
@@ -138,16 +138,6 @@ msgstr "தற்போதைய பக்கத்தில் பிழைய�
 #, kde-format
 msgid "Help"
 msgstr "உதவி"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "செயலில் உள்ள காட்சிமுறையைப் பற்றி"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1-ஐ பற்றி"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -193,12 +183,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "1 உருப்படியைக் கொண்டது"
 msgstr[1] "%1 உருப்படிகளைக் கொண்டது"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 ஒரு வெளி செயலி ஆகும்; அது தானாக இயக்கப்பட்டுள்ளது"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 என்பதை மறுபடியும் இயக்கு"
@@ -237,6 +227,12 @@ msgstr ":q: என்பதற்கு பொருந்தும் கணி
 #, kde-format
 msgid "System Information"
 msgstr "கணினி விவரங்கள்"
+
+#~ msgid "About Active View"
+#~ msgstr "செயலில் உள்ள காட்சிமுறையைப் பற்றி"
+
+#~ msgid "About %1"
+#~ msgstr "%1-ஐ பற்றி"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

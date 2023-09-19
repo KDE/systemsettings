@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -105,12 +105,12 @@ msgstr "अंतर्गत विभाग प्रतिनिधीत्�
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
@@ -145,16 +145,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "मदत"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "कार्यशील दृश्या बद्दल"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1 विषयी"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -202,12 +192,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "<i>1 घटक समाविष्ट आहे</i>"
 msgstr[1] "<i>%1 घटक समाविष्ट आहेत</i>"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 हा प्रणाली संयोजना बाहेरचा अनुप्रयोग स्वयंचलितरित्या प्रक्षेपित केलेला आहे"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 पुन्हा प्रक्षेपण करा"
@@ -247,6 +237,12 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "प्रणाली संयोजना"
+
+#~ msgid "About Active View"
+#~ msgstr "कार्यशील दृश्या बद्दल"
+
+#~ msgid "About %1"
+#~ msgstr "%1 विषयी"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

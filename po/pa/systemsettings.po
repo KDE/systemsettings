@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-04-01 15:08-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -99,12 +99,12 @@ msgstr "ਅੰਦਰੂਨੀ ਮੋਡੀਊਲ ਪਰਦਰਸ਼ਨ, ਅੰ�
 msgid "List all possible modules"
 msgstr "ਸਾਰੇ ਸੰਭਵ ਮੋਡੀਊਲ ਸੂਚੀਬੱਧ ਕਰੋ"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "ਖੋਲ੍ਹਣ ਲਈ ਸੰਰਚਨਾ ਮੋਡੀਊਲ"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "ਮੋਡੀਊਲ ਲਈ ਆਰਗੂਮੈਂਟ"
@@ -139,16 +139,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "ਮਦਦ"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "ਸਰਗਰਮ ਝਲਕ ਬਾਰੇ"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1 ਬਾਰੇ"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -194,12 +184,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "੧ ਆਈਟਮ ਰੱਖਦਾ ਹੈ"
 msgstr[1] "%1 ਆਈਟਮਾਂ ਰੱਖਦਾ ਹੈ"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 ਬਾਹਰੀ  ਐਪਲੀਕੇਸ਼ਨ ਹੈ ਅਤੇ ਆਟੋਮੈਟਿਕ ਚਲਾਈ ਜਾ ਚੁੱਕੀ ਹੈ।"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 ਮੁੜ-ਚਲਾਓ"
@@ -238,6 +228,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ"
+
+#~ msgid "About Active View"
+#~ msgstr "ਸਰਗਰਮ ਝਲਕ ਬਾਰੇ"
+
+#~ msgid "About %1"
+#~ msgstr "%1 ਬਾਰੇ"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

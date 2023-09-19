@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2009-01-27 13:48+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -100,12 +100,12 @@ msgstr ""
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, fuzzy, kde-format
 #| msgid "About Current Module"
 msgid "Arguments for the module"
@@ -142,19 +142,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr ""
-
-#: app/SettingsBase.cpp:319
-#, fuzzy, kde-format
-#| msgid "About Current Module"
-msgid "About Active View"
-msgstr "अभी हाल के माड्यूल के बारे में"
-
-#: app/SettingsBase.cpp:391
-#, fuzzy, kde-format
-#| msgctxt "Help menu->about <modulename>"
-#| msgid "About %1"
-msgid "About %1"
-msgstr "%1 के बारे में"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -201,12 +188,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr ""
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr ""
@@ -250,6 +237,17 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "तंत्र सेटिंग"
+
+#, fuzzy
+#~| msgid "About Current Module"
+#~ msgid "About Active View"
+#~ msgstr "अभी हाल के माड्यूल के बारे में"
+
+#, fuzzy
+#~| msgctxt "Help menu->about <modulename>"
+#~| msgid "About %1"
+#~ msgid "About %1"
+#~ msgstr "%1 के बारे में"
 
 #, fuzzy
 #~| msgid "System Settings"

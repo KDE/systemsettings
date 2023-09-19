@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-07-12 22:14+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -100,12 +100,12 @@ msgstr "Представяне на вътрешни модули, модел н
 msgid "List all possible modules"
 msgstr "Списък на всички възможни модули"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Конфигурационен модул за отваряне"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Аргументи за модула"
@@ -140,16 +140,6 @@ msgstr "Докладване на грешка в текущата страни�
 #, kde-format
 msgid "Help"
 msgstr "Помощ"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Относно активния изглед"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Относно %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -195,12 +185,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Съдържа 1 елемент"
 msgstr[1] "Съдържа %1 елемента"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 е външна програма и беше автоматично презаредена"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Презареждане на %1"
@@ -239,6 +229,12 @@ msgstr "Намира уиджети за Plasma, чието име или опи
 #, kde-format
 msgid "System Information"
 msgstr "Системна информация"
+
+#~ msgid "About Active View"
+#~ msgstr "Относно активния изглед"
+
+#~ msgid "About %1"
+#~ msgstr "Относно %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

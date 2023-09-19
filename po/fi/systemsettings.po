@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-03-14 22:07+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -111,12 +111,12 @@ msgstr "Sisäinen moduuliesitys, sisäinen moduulimalli"
 msgid "List all possible modules"
 msgstr "Luettele kaikki mahdolliset moduulit"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Avattava asetusmoduuli"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Moduulin parametrit"
@@ -151,16 +151,6 @@ msgstr "Ilmoita virheestä tällä sivulla…"
 #, kde-format
 msgid "Help"
 msgstr "Ohje"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Tietoa nykyisestä näkymästä"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Tietoa osiosta %1|/|Tietoa $[yleisnimi_pienellä $[elat %1] ]"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -206,12 +196,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Sisältää 1 tietueen"
 msgstr[1] "Sisältää %1 tietuetta"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 on ulkoinen sovellus ja se käynnistetään automaattisesti"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Käynnistä uudelleen %1"
@@ -250,6 +240,12 @@ msgstr "Etsii järjestelmäasetusosiota, jonka nimessä tai kuvauksessa on :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Järjestelmätiedot"
+
+#~ msgid "About Active View"
+#~ msgstr "Tietoa nykyisestä näkymästä"
+
+#~ msgid "About %1"
+#~ msgstr "Tietoa osiosta %1|/|Tietoa $[yleisnimi_pienellä $[elat %1] ]"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

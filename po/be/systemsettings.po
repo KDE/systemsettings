@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -102,12 +102,12 @@ msgstr "Вобраз унутранага модуля, мадэль унутр�
 msgid "List all possible modules"
 msgstr "Спіс магчымых модуляў"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Модуль канфігурацыі для адкрыцця"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Аргументы для модуля"
@@ -146,16 +146,6 @@ msgstr "Паведаміць пра хібу на бягучай старонц�
 #, kde-format
 msgid "Help"
 msgstr "Даведка"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Пра актыўны выгляд"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Пра \"%1\""
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -203,12 +193,12 @@ msgstr[1] "Змяшчае %1 элементы"
 msgstr[2] "Змяшчае %1 элементаў"
 msgstr[3] "Змяшчае %1 элементы"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 - вонкавая праграма, яна была запушчаная аўтаматычна"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Перазапусціць %1"
@@ -247,6 +237,12 @@ msgstr "Шукае модулі налад сістэмы, чыі назвы а�
 #, kde-format
 msgid "System Information"
 msgstr "Сістэмная інфармацыя"
+
+#~ msgid "About Active View"
+#~ msgstr "Пра актыўны выгляд"
+
+#~ msgid "About %1"
+#~ msgstr "Пра \"%1\""
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

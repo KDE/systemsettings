@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-18 19:57+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -101,12 +101,12 @@ msgstr "Interna modulreprezento, interna modulmodelo"
 msgid "List all possible modules"
 msgstr "Listigi ĉiujn eblajn modulojn"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Agordmodulo malfermenda"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argumentoj por la modulo"
@@ -141,16 +141,6 @@ msgstr "Raporti Cimon en la Aktuala Paĝo…"
 #, kde-format
 msgid "Help"
 msgstr "Helpo"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Pri aktiva rigardo"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Pri %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -196,12 +186,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Enhavas 1 eron"
 msgstr[1] "Enhavas %1 erojn"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 estas ekstera aplikaĵo kaj estis aŭtomate lanĉita"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Relanĉi %1"
@@ -240,6 +230,12 @@ msgstr "Trovas sistemmetajn modulojn kies nomo aŭ priskribo kongruas al :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Sisteminformoj"
+
+#~ msgid "About Active View"
+#~ msgstr "Pri aktiva rigardo"
+
+#~ msgid "About %1"
+#~ msgstr "Pri %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2017-05-22 04:54-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -104,12 +104,12 @@ msgstr "תצוגה פנימית של מודולים, מודל פנימי של מ
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
@@ -144,16 +144,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "עזרה"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "אודות המודול הנוכחי"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "אודות %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -202,12 +192,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "<i>מכיל פריט אחד</i>"
 msgstr[1] "<i>מכיל %1 פריטים</i>"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 הוא יישום חיצוני ששוגר באופן אוטומטי"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "שגר מחדש את %1"
@@ -247,6 +237,12 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "הגדרות מערכת"
+
+#~ msgid "About Active View"
+#~ msgstr "אודות המודול הנוכחי"
+
+#~ msgid "About %1"
+#~ msgstr "אודות %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

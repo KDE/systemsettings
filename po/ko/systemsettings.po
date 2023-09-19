@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-03-01 01:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -98,12 +98,12 @@ msgstr "내부 모듈 표현 및 모델"
 msgid "List all possible modules"
 msgstr "가능한 모든 모듈 목록 표시"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "열 설정 모듈"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "모듈의 인자"
@@ -138,16 +138,6 @@ msgstr "현재 페이지의 버그 보고…"
 #, kde-format
 msgid "Help"
 msgstr "도움말"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "활성화된 보기 정보"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1 정보"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -192,12 +182,12 @@ msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "항목 %1개 포함"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1은(는) 외부 앱이며 자동으로 실행되었습니다"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 다시 실행"
@@ -236,6 +226,12 @@ msgstr "이름이나 설명이 :q:와 일치하는 시스템 설정 모듈 찾�
 #, kde-format
 msgid "System Information"
 msgstr "시스템 정보"
+
+#~ msgid "About Active View"
+#~ msgstr "활성화된 보기 정보"
+
+#~ msgid "About %1"
+#~ msgstr "%1 정보"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

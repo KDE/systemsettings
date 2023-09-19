@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -104,12 +104,12 @@ msgstr "Framsetning innri eininga, hönnun innri eininga"
 msgid "List all possible modules"
 msgstr "Birta allar mögulegar einingar"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Stillingaeining sem á að opna"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Viðföng fyrir eininguna"
@@ -144,16 +144,6 @@ msgstr "Tilkynna um villu á núverandi síðu…"
 #, kde-format
 msgid "Help"
 msgstr "Hjálp"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Um virkt yfirlit"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Um %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -199,12 +189,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Inniheldur 1 atriði"
 msgstr[1] "Inniheldur %1 atriði"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 er ytra forrit og hefur verið ræst sjálfvirkt"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Endurræsa %1"
@@ -243,6 +233,12 @@ msgstr "Finnur stillingaeiningar kerfis þar sem heiti eða lýsing samsvara :q:
 #, kde-format
 msgid "System Information"
 msgstr "Kerfisupplýsingar"
+
+#~ msgid "About Active View"
+#~ msgstr "Um virkt yfirlit"
+
+#~ msgid "About %1"
+#~ msgstr "Um %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

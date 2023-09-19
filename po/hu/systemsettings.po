@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2021-09-20 10:06+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -102,12 +102,12 @@ msgstr "Belső modulok reprezentációja, belső modulmodell"
 msgid "List all possible modules"
 msgstr "Az összes lehetséges modul listázása"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "A megnyitandó beállítómodul"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "A modul argumentumai"
@@ -146,16 +146,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "Súgó"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Névjegy: Aktív nézet"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Névjegy: %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -201,12 +191,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Egy elemet tartalmaz"
 msgstr[1] "%1 elemet tartalmaz"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "A(z) %1 egy külső alkalmazás, és automatikusan került elindításra"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 újraindítása"
@@ -247,6 +237,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Rendszerjellemzők"
+
+#~ msgid "About Active View"
+#~ msgstr "Névjegy: Aktív nézet"
+
+#~ msgid "About %1"
+#~ msgstr "Névjegy: %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

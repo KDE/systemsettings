@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2009-12-22 09:22+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -100,12 +100,12 @@ msgstr "ការ​បង្ហាញ​ម៉ូឌុល​ខាង​ក្
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
@@ -140,16 +140,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "អំពី"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "អំពី​ទិដ្ឋភាព​សកម្ម"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "អំពី %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -196,12 +186,12 @@ msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "<i>មាន​ធាតុ %1</i>"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 គឺ​ជា​កម្មវិធី​ខាងក្រៅ ហើយ​ត្រូវ​បាន​ចាប់ផ្ដើម​ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "ចាប់ផ្ដើម​ឡើង​វិញ %1"
@@ -241,6 +231,12 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "កា​រកំណត់​ប្រព័ន្ធ"
+
+#~ msgid "About Active View"
+#~ msgstr "អំពី​ទិដ្ឋភាព​សកម្ម"
+
+#~ msgid "About %1"
+#~ msgstr "អំពី %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

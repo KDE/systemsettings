@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-24 15:59+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -98,12 +98,12 @@ msgstr "Representation del modulo interne, modello del modulo interne"
 msgid "List all possible modules"
 msgstr "Lista omne possibile modulos"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Modulo de configuration a aperir"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Argumentos pro le modulo"
@@ -138,16 +138,6 @@ msgstr "Reporta un bug in le Pguna Currente..."
 #, kde-format
 msgid "Help"
 msgstr "Adjuta"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "A proposito del vista active"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "A proposito de %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -193,12 +183,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Il contine 1 elemento"
 msgstr[1] "Il contine %1 elementos"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 es un application externe e ha essite lanceate automaticamente"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Il re-lancea %1"
@@ -239,6 +229,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Information de Systema"
+
+#~ msgid "About Active View"
+#~ msgstr "A proposito del vista active"
+
+#~ msgid "About %1"
+#~ msgstr "A proposito de %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

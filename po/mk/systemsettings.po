@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2010-02-01 00:06+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -105,12 +105,12 @@ msgstr ""
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
@@ -145,16 +145,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "Помош"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr ""
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "За %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -203,12 +193,12 @@ msgstr[0] "<i>Содржи %1 елемент</i>"
 msgstr[1] "<i>Содржи %1 елементи</i>"
 msgstr[2] "<i>Содржи %1 елементи</i>"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 е надворешна апликација и беше автоматски стартувана"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr ""
@@ -248,6 +238,9 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "Системски поставувања"
+
+#~ msgid "About %1"
+#~ msgstr "За %1"
 
 #, fuzzy
 #~| msgid "Icon View"

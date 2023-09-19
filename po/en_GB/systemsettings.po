@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-02-26 19:50+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -101,12 +101,12 @@ msgstr "Internal module representation, internal module model"
 msgid "List all possible modules"
 msgstr "List all possible modules"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Configuration module to open"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Arguments for the module"
@@ -141,16 +141,6 @@ msgstr "Report a Bug in the Current Page…"
 #, kde-format
 msgid "Help"
 msgstr "Help"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "About Active View"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "About %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -196,12 +186,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Contains 1 item"
 msgstr[1] "Contains %1 items"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 is an external application and has been automatically launched"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Relaunch %1"
@@ -240,6 +230,12 @@ msgstr "Finds system settings modules whose names or descriptions match :q:"
 #, kde-format
 msgid "System Information"
 msgstr "System Information"
+
+#~ msgid "About Active View"
+#~ msgstr "About Active View"
+
+#~ msgid "About %1"
+#~ msgstr "About %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-03 15:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -102,12 +102,12 @@ msgstr "Внутрішнє представлення модулів, внутр
 msgid "List all possible modules"
 msgstr "Вивести перелік усіх можливих модулів"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Модуль налаштування, який слід відкрити"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Аргументи для модуля налаштувань"
@@ -142,16 +142,6 @@ msgstr "Повідомити про ваду на поточній сторін�
 #, kde-format
 msgid "Help"
 msgstr "Довідка"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Про активний перегляд"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Про %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -199,12 +189,12 @@ msgstr[1] "Містить %1 елементи"
 msgstr[2] "Містить %1 елементів"
 msgstr[3] "Містить %1 елемент"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 є зовнішньою програмою, яку буде запущено у автоматичному режимі"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Перезапустити %1"
@@ -244,6 +234,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Дані щодо системи"
+
+#~ msgid "About Active View"
+#~ msgstr "Про активний перегляд"
+
+#~ msgid "About %1"
+#~ msgstr "Про %1"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-03-06 14:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -100,12 +100,12 @@ msgstr "İç modül temsili, iç modül modeli"
 msgid "List all possible modules"
 msgstr "Kullanılabilir tüm modülleri listele"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Açılacak yapılandırma modülü"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Modül argümanları"
@@ -140,16 +140,6 @@ msgstr "Geçerli Sayfada Bir Hata Bildir…"
 #, kde-format
 msgid "Help"
 msgstr "Yardım"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Etkin Görünüm Hakkında"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1 Hakkında"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -195,14 +185,14 @@ msgid_plural "Contains %1 items"
 msgstr[0] "1 öge içerir"
 msgstr[1] "%1 öge içerir"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr ""
 "%1, bir dış uygulamadır ve otomatik olarak açılır. Bir sorun durumunda "
 "aşağıdaki düğmeyi kullanarak yeniden açabilirsiniz"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Yeniden Aç: %1"
@@ -242,6 +232,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Sistem Bilgisi"
+
+#~ msgid "About Active View"
+#~ msgstr "Etkin Görünüm Hakkında"
+
+#~ msgid "About %1"
+#~ msgstr "%1 Hakkında"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

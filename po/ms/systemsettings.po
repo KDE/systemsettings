@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2011-01-08 23:40+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -101,12 +101,12 @@ msgstr ""
 msgid "List all possible modules"
 msgstr ""
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr ""
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr ""
@@ -141,16 +141,6 @@ msgstr ""
 #, kde-format
 msgid "Help"
 msgstr "Bantuan"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr ""
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "Perihal %1"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -199,12 +189,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "<i>Mengandungi 1 item</i>"
 msgstr[1] "<i>Mengandungi %1 items</i>"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr ""
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr ""
@@ -248,6 +238,9 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "Tetapan Sistem"
+
+#~ msgid "About %1"
+#~ msgstr "Perihal %1"
 
 #, fuzzy
 #~| msgid "Icon View"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-09-19 01:56+0000\n"
 "PO-Revision-Date: 2023-01-03 08:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -102,12 +102,12 @@ msgstr "Barneko modulu-errepresentazioa, barneko modulu-eredua"
 msgid "List all possible modules"
 msgstr "Zerrendatu izan daitezkeen modulu guztiak"
 
-#: app/main.cpp:96 app/main.cpp:159
+#: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Ireki beharreko konfiguratzeko modulua"
 
-#: app/main.cpp:97 app/main.cpp:160
+#: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Moduluarentzako argumentuak"
@@ -142,16 +142,6 @@ msgstr "Uneko orrian dagoen akats baten berri ematea..."
 #, kde-format
 msgid "Help"
 msgstr "Laguntza"
-
-#: app/SettingsBase.cpp:319
-#, kde-format
-msgid "About Active View"
-msgstr "Jarduneko ikuspegiari buruz"
-
-#: app/SettingsBase.cpp:391
-#, kde-format
-msgid "About %1"
-msgstr "%1-eri buruz"
 
 #: app/sidebar/qml/CategoriesPage.qml:57
 #, kde-format
@@ -197,12 +187,12 @@ msgid_plural "Contains %1 items"
 msgstr[0] "Elementu 1 du"
 msgstr[1] "%1 elementu ditu"
 
-#: core/ExternalAppModule.cpp:27
+#: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
 msgstr "%1 kanpoko aplikazio bat eta automatikoki abiarazi da"
 
-#: core/ExternalAppModule.cpp:28
+#: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Berrabiarazi %1"
@@ -243,6 +233,12 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Sistemaren informazioa"
+
+#~ msgid "About Active View"
+#~ msgstr "Jarduneko ikuspegiari buruz"
+
+#~ msgid "About %1"
+#~ msgstr "%1-eri buruz"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "
