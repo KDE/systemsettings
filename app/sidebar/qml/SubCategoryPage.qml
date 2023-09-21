@@ -41,10 +41,16 @@ Kirigami.ScrollablePage {
         }
 
         contentItem: RowLayout {
+            id: rowLayout
             // FIXME: left and right anchors shouldn't be needed here, but if
             // they're removed, the layout doesn't span the full width
             anchors.fill: parent
             spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
+
+            Keys.onDownPressed: event => {
+                subCategoryView.currentIndex = 0;
+                event.accepted = false; // Pass to KeyNavigation.down
+            }
 
             // Show a back Button when only one column is visible
             QQC2.ToolButton {
@@ -86,6 +92,7 @@ Kirigami.ScrollablePage {
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
+                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
             }
 
             // Show a non-interactive heading when both columns are visible
@@ -112,6 +119,8 @@ Kirigami.ScrollablePage {
                 KeyNavigation.down: subCategoryView
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.down
+
+                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
             }
         }
     }
@@ -129,6 +138,12 @@ Kirigami.ScrollablePage {
         KeyNavigation.up: backButton
         KeyNavigation.backtab: hamburgerMenuButton
 
+        Keys.onUpPressed: event => {
+            if (subCategoryView.currentIndex === 0) {
+                subCategoryView.currentIndex = -1;
+            }
+            event.accepted = false; // Pass to KeyNavigation.up
+        }
         Keys.onTabPressed: root.focusNextRequest();
 
         onCountChanged: {

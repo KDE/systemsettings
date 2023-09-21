@@ -38,10 +38,16 @@ Kirigami.ScrollablePage {
         }
 
         contentItem: RowLayout {
+            id: rowLayout
             // FIXME: left and right anchors shouldn't be needed here, but if
             // they're removed, the layout doesn't span the full width
             anchors.fill: parent
             spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
+
+            Keys.onDownPressed: event => {
+                categoryView.currentIndex = 0;
+                event.accepted = false; // Pass to KeyNavigation.down
+            }
 
             QQC2.ToolButton {
                 id: showIntroPageButton
@@ -65,6 +71,7 @@ Kirigami.ScrollablePage {
                 Keys.onBacktabPressed: {
                     root.focusPreviousRequest()
                 }
+                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
             }
 
             Kirigami.SearchField {
@@ -83,6 +90,8 @@ Kirigami.ScrollablePage {
 
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.right
+
+                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
             }
 
             HamburgerMenuButton {
@@ -94,6 +103,8 @@ Kirigami.ScrollablePage {
 
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.down
+
+                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
             }
         }
     }
@@ -140,6 +151,12 @@ Kirigami.ScrollablePage {
 
         KeyNavigation.up: searchField
         KeyNavigation.backtab: hamburgerMenuButton
+        Keys.onUpPressed: event => {
+            if (categoryView.currentIndex === 0) {
+                categoryView.currentIndex = -1;
+            }
+            event.accepted = false; // Pass to KeyNavigation.up
+        }
         Keys.onTabPressed: {
             if (applicationWindow().wideScreen) {
                 subCategoryColumn.focus = true;
@@ -147,6 +164,7 @@ Kirigami.ScrollablePage {
                 root.focusNextRequest();
             }
         }
+
         section {
             property: "categoryDisplayRole"
             delegate: Kirigami.ListSectionHeader {
