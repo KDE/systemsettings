@@ -12,7 +12,6 @@ import org.kde.systemsettings
 
 Kirigami.ScrollablePage {
     id: mainColumn
-    Component.onCompleted: searchField.forceActiveFocus()
     readonly property bool searchMode: searchField.text.length > 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
