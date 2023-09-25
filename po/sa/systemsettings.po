@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 01:56+0000\n"
-"PO-Revision-Date: 2023-09-19 12:16+0530\n"
+"PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -132,10 +132,9 @@ msgid "Highlight Changed Settings"
 msgstr "परिवर्तित समायोजनानि प्रकटय"
 
 #: app/SettingsBase.cpp:160
-#, fuzzy, kde-format
-#| msgid "Report a Bug in the Current Page..."
+#, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr "वर्तमान पृष्ठे दोषस्य सूचनां ददातु..."
+msgstr "वर्तमान पृष्ठे दोषस्य सूचनां ददातु…"
 
 #: app/SettingsBase.cpp:187
 #, kde-format
