@@ -10,7 +10,7 @@ import QtQuick.Controls 2.15 as QQC2
 
 import org.kde.kirigami 2.20 as Kirigami
 
-import org.kde.systemsettings 1.0
+import org.kde.systemsettings
 
 QQC2.ToolButton {
     icon.name: "application-menu"

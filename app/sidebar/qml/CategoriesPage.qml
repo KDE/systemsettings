@@ -8,7 +8,7 @@ import QtQuick 2.5
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.systemsettings 1.0
+import org.kde.systemsettings
 
 Kirigami.ScrollablePage {
     id: mainColumn

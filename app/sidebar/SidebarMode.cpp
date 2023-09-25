@@ -627,17 +627,12 @@ void SidebarMode::initWidget()
     d->quickWidget = new QQuickWidget(d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    qmlRegisterUncreatableType<SidebarMode>("org.kde.systemsettings",
-                                            1,
-                                            0,
-                                            "SystemSettings",
-                                            QStringLiteral("Not creatable, use the systemsettings attached property"));
 
     d->quickWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
 
     d->quickWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
 
-    d->quickWidget->setSource(QUrl(QStringLiteral("qrc:/sidebar/qml/main.qml")));
+    d->quickWidget->setSource(QUrl(QStringLiteral("qrc:/qt/qml/org/kde/systemsettings/Main.qml")));
 
     if (!d->quickWidget->rootObject()) {
         const QList<QQmlError> errors{d->quickWidget->errors()};
@@ -701,7 +696,7 @@ void SidebarMode::initPlaceHolderWidget()
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
-    d->placeHolderWidget->setSource(QUrl(QStringLiteral("qrc:/sidebar/qml/introPage.qml")));
+    d->placeHolderWidget->setSource(QUrl(QStringLiteral("qrc:/qt/qml/org/kde/systemsettings/IntroPage.qml")));
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
     connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
     d->placeHolderWidget->installEventFilter(this);

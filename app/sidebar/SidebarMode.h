@@ -11,6 +11,7 @@
 #include <KSelectionProxyModel>
 #include <QIcon>
 #include <QWidget>
+#include <qqmlregistration.h>
 
 class ModuleView;
 class KAboutData;
@@ -65,6 +66,8 @@ private:
 class SidebarMode : public BaseMode
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable, use the systemsettings attached property")
 
     Q_PROPERTY(QAbstractItemModel *categoryModel READ categoryModel CONSTANT)
     Q_PROPERTY(QAbstractItemModel *searchModel READ searchModel CONSTANT)

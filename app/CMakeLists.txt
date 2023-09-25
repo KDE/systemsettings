@@ -1,8 +1,8 @@
 
-include_directories(ToolTips)
+add_executable(systemsettings)
+ecm_add_qml_module(systemsettings URI org.kde.systemsettings GENERATE_PLUGIN_SOURCE)
 
-set(systemsettings_SRCS
-    systemsettings.qrc
+target_sources(systemsettings PRIVATE
     main.cpp
     SettingsBase.cpp
     SettingsBase.h
@@ -10,14 +10,27 @@ set(systemsettings_SRCS
     ToolTips/tooltipmanager.h
     sidebar/SidebarMode.cpp
     sidebar/SidebarMode.h
-    resources.qrc
     ${debug_SRCS}
 )
 
-add_executable(systemsettings ${systemsettings_SRCS})
-target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+ecm_target_qml_sources(systemsettings SOURCES
+    sidebar/qml/CategoriesPage.qml
+    sidebar/qml/CategoryItem.qml
+    sidebar/qml/HamburgerMenuButton.qml
+    sidebar/qml/IntroPage.qml
+    sidebar/qml/Main.qml
+    sidebar/qml/SideBarItem.qml
+    sidebar/qml/SubCategoryPage.qml
+    RESOURCES
+    sidebar/images/plasma-logo.svg
+)
 
-target_link_libraries(systemsettings
+qt_target_qml_sources(systemsettings RESOURCES systemsettingsui.rc PREFIX /kxmlgui5/systemsettings)
+
+target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
+target_include_directories(systemsettings PRIVATE ToolTips sidebar)
+
+target_link_libraries(systemsettings PRIVATE
     systemsettings_debug
     systemsettingsview
     KF6::Crash
@@ -47,3 +60,5 @@ install(
 )
 install(FILES org.kde.systemsettings.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES systemsettings.zsh RENAME _systemsettings DESTINATION ${KDE_INSTALL_ZSHAUTOCOMPLETEDIR})
+
+ecm_finalize_qml_module(systemsettings)
