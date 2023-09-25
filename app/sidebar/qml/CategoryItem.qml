@@ -3,53 +3,57 @@
  *
  *   SPDX-License-Identifier: LGPL-2.0-only
  */
-import QtQuick 2.5
-import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.13 as Kirigami
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 
-Kirigami.BasicListItem {
+ItemDelegate {
     id: delegate
 
     property bool showArrow: false
     property bool selected: delegate.highlighted || delegate.pressed
     property bool isSearching: false
+    property bool showDefaultIndicator: model.showDefaultIndicator && systemsettings.defaultsIndicatorsVisible
+    property real leadingPadding: 0
 
-    // Dummy item to make leadingPadding value manipulable by clients
-    leading: Item {
-        width: 0
-    }
-    leadingPadding: 0
+    width: ListView.view?.width ?? 0
 
     icon.name: model.iconName
     text: model.display
     Accessible.name: model.display
     Accessible.onPressAction: clicked()
 
-    trailing: RowLayout {
+    contentItem: RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+
+        Kirigami.IconTitleSubtitle {
+            Layout.fillWidth: true
+            Layout.leftMargin: delegate.leadingPadding
+            icon: icon.fromControlsIcon(delegate.icon)
+            title: delegate.text
+            selected: delegate.selected
+        }
+
         Rectangle {
-            id: defaultIndicator
+            Layout.alignment: Qt.AlignVCenter
+            Layout.preferredWidth: Kirigami.Units.largeSpacing
+            Layout.preferredHeight: Kirigami.Units.largeSpacing
+
             radius: width * 0.5
-            implicitWidth: Kirigami.Units.largeSpacing
-            implicitHeight: Kirigami.Units.largeSpacing
-            visible: model.showDefaultIndicator && systemsettings.defaultsIndicatorsVisible
+            visible: delegate.showDefaultIndicator
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             color: Kirigami.Theme.neutralTextColor
         }
 
-        // Extra wrapper to make the defaultIndicator line up vertically for all items
-        Item {
+        Kirigami.Icon {
             Layout.alignment: Qt.AlignVCenter
             Layout.preferredWidth: Kirigami.Units.iconSizes.small
             Layout.preferredHeight: Kirigami.Units.iconSizes.small
 
-            Kirigami.Icon {
-                id: arrow
-                anchors.fill: parent
-                opacity: 0.7
-                source: LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic"
-                visible: delegate.showArrow
-                selected: delegate.selected
-            }
+            opacity: delegate.showArrow ? 0.7 : 0.0
+            source: LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic"
+            selected: delegate.selected
         }
     }
 }

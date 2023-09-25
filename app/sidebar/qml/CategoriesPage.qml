@@ -171,6 +171,8 @@ Kirigami.ScrollablePage {
             hoverEnabled: !model.IsCategoryRole || !mainColumn.searchMode
             enabled: !model.IsCategoryRole || !mainColumn.searchMode
 
+            highlighted: ListView.isCurrentItem
+
             onClicked: {
 
                 if (model.IsKCMRole || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
