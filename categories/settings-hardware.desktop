@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=hardware
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=200
+X-KDE-Weight=50
 Icon=preferences-desktop-peripherals
 
-Name=Hardware
+Name=Connected Devices
 Name[ar]=العتاد
 Name[az]=Avadanlıq
 Name[be]=Абсталяванне

@@ -2,9 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=removable-storage
 X-KDE-System-Settings-Parent-Category=hardware
-Icon=drive-removable-media
+X-KDE-Weight=30
+Icon=drive-harddisk
 
-Name=Removable Storage
+Name=Disks & Cameras
 Name[ar]=التّخزين المنفصل
 Name[az]=Çıxarılabiən yaddaş
 Name[be]=Рухомы назапашвальнік

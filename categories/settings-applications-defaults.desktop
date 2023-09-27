@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-System-Settings-Category=applications-defaults
+X-KDE-System-Settings-Parent-Category=applications
+X-KDE-Weight=10
+Icon=preferences-desktop-default-applications
+
+Name=Default Applications

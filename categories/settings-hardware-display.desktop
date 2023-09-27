@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=display
-X-KDE-System-Settings-Parent-Category=hardware
-X-KDE-Weight=50
+X-KDE-System-Settings-Parent-Category=input-devices
+X-KDE-Weight=210
 Icon=preferences-desktop-display
 
-Name=Display and Monitor
+Name=Display & Monitor
 Name[ar]=العرض والشّاشة
 Name[az]=Ekran və Monitor
 Name[be]=Дысплэй і мантіор

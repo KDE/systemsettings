@@ -2,9 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=network
 X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=30
 Icon=preferences-system-network-connection
 
-Name=Network
+Name=Internet
 Name[ar]=الشّبكة
 Name[az]=Şəbəkə
 Name[be]=Сетка

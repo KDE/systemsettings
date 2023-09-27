@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=audio-and-video
-X-KDE-System-Settings-Parent-Category=hardware
+X-KDE-System-Settings-Parent-Category=input-devices
 X-KDE-Weight=60
 Icon=applications-multimedia
 

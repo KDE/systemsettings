@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Service
-X-KDE-System-Settings-Category=color
+X-KDE-System-Settings-Category=themes
 X-KDE-System-Settings-Parent-Category=appearance
-X-KDE-Weight=60
-Icon=preferences-desktop-color
+X-KDE-Weight=10
+Icon=preferences-desktop-theme-global
 
-Name=Colors
+Name=Colors & Themes
 Name[ar]=الألوان
 Name[az]=Rənglər
 Name[be]=Колеры

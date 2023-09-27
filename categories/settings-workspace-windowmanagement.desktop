@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=windowmanagement
-X-KDE-System-Settings-Parent-Category=workspace
-X-KDE-Weight=50
+X-KDE-System-Settings-Parent-Category=applications
+X-KDE-Weight=30
 Icon=preferences-system-windows
 
 Name=Window Management

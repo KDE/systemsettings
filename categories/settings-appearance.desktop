@@ -1,11 +1,9 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=appearance
-X-KDE-System-Settings-Parent-Category=rootcategory
-X-KDE-System-Settings-Category-Module=kcm_lookandfeel
-X-KDE-Weight=1
+X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=90
 Icon=preferences-desktop-theme-global
-
 
 Name=Appearance
 Name[ar]=المظهر

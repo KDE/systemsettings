@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=font
 X-KDE-System-Settings-Parent-Category=appearance
-X-KDE-Weight=50
+X-KDE-Weight=20
 Icon=preferences-desktop-font
 
-Name=Fonts
+Name=Text & Fonts
 Name[ar]=الخطوط
 Name[az]=Şriftlər
 Name[be]=Шрыфты

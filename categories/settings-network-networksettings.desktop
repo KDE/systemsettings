@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=networksettings
 X-KDE-System-Settings-Parent-Category=network
-X-KDE-Weight=40
+X-KDE-Weight=10
 Icon=preferences-system-network
 
-Name=Settings
+Name=Wi-Fi & Networking
 Name[ar]=الإعدادات
 Name[az]=Ayarlar
 Name[be]=Налады

@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=system-administration
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=200
+X-KDE-Weight=100
 Icon=preferences-system
 
-Name=System Administration
+Name=System
 Name[ar]=إدارة النّظام
 Name[az]=Sistemin idarə edilməsi
 Name[be]=Сістэмнае адміністраванне

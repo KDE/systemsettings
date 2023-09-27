@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=session
-X-KDE-System-Settings-Parent-Category=workspace
+X-KDE-System-Settings-Parent-Category=system-administration
 X-KDE-Weight=70
 Icon=preferences-system-login
 
-Name=Startup and Shutdown
+Name=Session
 Name[ar]=البدء والإطفاء
 Name[az]=Başlatma və Söndürmə
 Name[be]=Запуск і выключэнне

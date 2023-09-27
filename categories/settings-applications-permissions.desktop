@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-System-Settings-Category=applications-permissions
+X-KDE-System-Settings-Parent-Category=security-privacy
+X-KDE-Weight=20
+Icon=preferences-security
+
+Name=Application Permissions

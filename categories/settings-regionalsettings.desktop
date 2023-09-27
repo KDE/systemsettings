@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=regionalsettings
-X-KDE-System-Settings-Parent-Category=personalization
-X-KDE-Weight=50
+X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=20
 Icon=preferences-desktop-locale
 
 Name=Regional Settings

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-System-Settings-Category=accounts
+X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=10
+Icon=preferences-system-users
+
+Name=Accounts
+

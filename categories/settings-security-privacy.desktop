@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-System-Settings-Category=security-privacy
+X-KDE-System-Settings-Parent-Category=
+X-KDE-Weight=60
+Icon=security-high
+
+Name=Security & Privacy
