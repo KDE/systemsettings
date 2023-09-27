@@ -67,10 +67,8 @@ private:
     QList<ToolTipManager *> tooltipManagers;
     BaseMode *view = nullptr;
     // The search bar
-    KLineEdit *searchText = nullptr;
     QWidget *spacerWidget = nullptr;
     // The toolbar
-    QWidgetAction *searchAction = nullptr;
     QWidgetAction *spacerAction = nullptr;
     QAction *highlightChangesAction = nullptr;
     QAction *reportPageSpecificBugAction = nullptr;

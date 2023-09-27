@@ -50,11 +50,6 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, const QString &startu
     // Prepare the view area
     stackedWidget = new QStackedWidget(this);
     setCentralWidget(stackedWidget);
-    // Initialise search
-    searchText = new KLineEdit(this);
-    searchText->setClearButtonEnabled(true);
-    searchText->setPlaceholderText(i18nc("Search through a list of control modules", "Search"));
-    searchText->setCompletionMode(KCompletion::CompletionPopup);
 
     setProperty("_breeze_no_separator", true);
 
@@ -115,8 +110,6 @@ void SettingsBase::initApplication()
     BaseData::instance()->setMenuItem(rootModule);
     BaseData::instance()->setHomeItem(homeModule);
     loadCurrentView();
-    searchText->completionObject()->setIgnoreCase(true);
-    searchText->completionObject()->setItems(BaseData::instance()->menuItem()->keywords());
 
     // enforce minimum window size
     setMinimumSize(SettingsBase::sizeHint());
@@ -167,11 +160,6 @@ void SettingsBase::initToolBar()
     spacerAction = new QWidgetAction(this);
     spacerAction->setDefaultWidget(spacerWidget);
     actionCollection()->addAction(QStringLiteral("spacer"), spacerAction);
-    // Finally the search line-edit
-    searchAction = new QWidgetAction(this);
-    searchAction->setDefaultWidget(searchText);
-    connect(searchAction, &QAction::triggered, searchText, QOverload<>::of(&KLineEdit::setFocus));
-    actionCollection()->addAction(QStringLiteral("searchText"), searchAction);
     // Initialise the Window
     setupGUI(Save | Create, QString());
     menuBar()->hide();
@@ -296,7 +284,6 @@ void SettingsBase::loadCurrentView()
     view = new SidebarMode(this, {m_mode, m_startupModule, m_startupModuleArgs});
     connect(view, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
     connect(view, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
-    connect(searchText, &KLineEdit::textChanged, view, &BaseMode::searchChanged);
     connect(view, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
     view->saveState();
 
@@ -361,20 +348,13 @@ void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
     guiFactory()->unplugActionList(this, QStringLiteral("quit"));
     if (BaseMode::Search & toolbar) {
         QList<QAction *> searchBarActions;
-        searchBarActions << spacerAction << searchAction;
+        searchBarActions << spacerAction;
         guiFactory()->plugActionList(this, QStringLiteral("search"), searchBarActions);
-        actionCollection()->setDefaultShortcut(searchAction, QKeySequence(Qt::CTRL | Qt::Key_F));
     }
     if (BaseMode::Quit & toolbar) {
         QList<QAction *> quitBarActions;
         quitBarActions << quitAction;
         guiFactory()->plugActionList(this, QStringLiteral("quit"), quitBarActions);
-    }
-    if (BaseMode::NoItems & toolbar) {
-        // Remove search shortcut when there's no toolbar so it doesn't
-        // interfere with the built-in shortcut for the search field in the QML
-        // sidebar view
-        actionCollection()->setDefaultShortcut(searchAction, QKeySequence());
     }
 
     toolBar()->setVisible(toolbar != BaseMode::NoItems || (view->actionsList().count() > 0));
