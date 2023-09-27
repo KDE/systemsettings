@@ -21,9 +21,6 @@ Kirigami.ApplicationItem {
     property alias searchMode: mainColumn.searchMode
     readonly property real headerHeight: mainColumn.header.height
 
-    signal focusNextRequest()
-    signal focusPreviousRequest()
-
     function focusFirstChild() {
         mainColumn.focus = true;
     }

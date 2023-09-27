@@ -14,9 +14,6 @@ Rectangle {
     color: Kirigami.Theme.backgroundColor
     property int verticalMargin: Kirigami.Units.gridUnit * 3
 
-    signal focusNextRequest()
-    signal focusPreviousRequest()
-
     function focusFirstChild() {
         iconsRow.children[0].focus = true;
     }

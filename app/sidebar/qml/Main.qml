@@ -16,9 +16,6 @@ Item {
 
     readonly property real headerHeight: sideBar.headerHeight
 
-    signal focusNextRequest()
-    signal focusPreviousRequest()
-
     function focusFirstChild() {
         sideBar.focusFirstChild();
     }
@@ -38,9 +35,6 @@ Item {
 
         anchors.fill: parent
         anchors.rightMargin: separator.width
-
-        onFocusNextRequest: root.focusNextRequest()
-        onFocusPreviousRequest: root.focusPreviousRequest()
     }
 
     Kirigami.Separator {

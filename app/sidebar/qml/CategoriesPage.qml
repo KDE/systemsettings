@@ -68,7 +68,7 @@ Kirigami.ScrollablePage {
                 KeyNavigation.down: categoryView
                 KeyNavigation.tab: KeyNavigation.right
                 Keys.onBacktabPressed: {
-                    root.focusPreviousRequest()
+                    systemsettings.focusPrevious()
                 }
                 Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
             }
@@ -157,11 +157,7 @@ Kirigami.ScrollablePage {
             event.accepted = false; // Pass to KeyNavigation.up
         }
         Keys.onTabPressed: {
-            if (applicationWindow().wideScreen) {
-                subCategoryColumn.focus = true;
-            } else {
-                root.focusNextRequest();
-            }
+            systemsettings.focusNext();
         }
 
         section {

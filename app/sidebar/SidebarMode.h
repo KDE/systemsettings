@@ -118,6 +118,12 @@ public:
 
     Q_INVOKABLE void loadModule(const QModelIndex &activeModule, const QStringList &args = QStringList());
 
+    /**
+     * Helper function to move focus to the next/previous QQuickWidget
+     */
+    Q_INVOKABLE void focusNext();
+    Q_INVOKABLE void focusPrevious();
+
 protected:
     QList<QAbstractItemView *> views() const override;
     bool eventFilter(QObject *watched, QEvent *event) override;

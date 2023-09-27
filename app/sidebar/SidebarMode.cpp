@@ -53,7 +53,7 @@ void FocusHackWidget::focusNext()
 
 void FocusHackWidget::focusPrevious()
 {
-    focusNextPrevChild(false);
+    focusPreviousChild();
 }
 
 SubcategoryModel::SubcategoryModel(QAbstractItemModel *parentModel, SidebarMode *parent)
@@ -403,6 +403,16 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
     }
 }
 
+void SidebarMode::focusNext()
+{
+    d->mainWidget->focusNext();
+}
+
+void SidebarMode::focusPrevious()
+{
+    d->mainWidget->focusPrevious();
+}
+
 void SidebarMode::moduleLoaded()
 {
     if (d->placeHolderWidget) {
@@ -658,9 +668,6 @@ void SidebarMode::initWidget()
 
     setHeaderHeight(d->quickWidget->rootObject()->property("headerHeight").toReal());
 
-    connect(d->quickWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
-    connect(d->quickWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
-
     d->quickWidget->installEventFilter(this);
 
     d->mainLayout->addWidget(d->quickWidget);
@@ -697,8 +704,6 @@ void SidebarMode::initPlaceHolderWidget()
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
     d->placeHolderWidget->setSource(QUrl(QStringLiteral("qrc:/qt/qml/org/kde/systemsettings/IntroPage.qml")));
-    connect(d->placeHolderWidget->rootObject(), SIGNAL(focusNextRequest()), d->mainWidget, SLOT(focusNext()));
-    connect(d->placeHolderWidget->rootObject(), SIGNAL(focusPreviousRequest()), d->mainWidget, SLOT(focusPrevious()));
     d->placeHolderWidget->installEventFilter(this);
 
     d->mainLayout->addWidget(d->placeHolderWidget);
@@ -716,8 +721,13 @@ void SidebarMode::reloadStartupModule()
 
 bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
 {
+    if (watched != d->quickWidget && watched != d->placeHolderWidget) {
+        return BaseMode::eventFilter(watched, event);
+    }
+
     // FIXME: those are all workarounds around the QQuickWidget brokenness
-    if ((watched == d->quickWidget || watched == d->placeHolderWidget) && event->type() == QEvent::KeyPress) {
+    switch (event->type()) {
+    case QEvent::KeyPress: {
         // allow tab navigation inside the qquickwidget
         QKeyEvent *ke = static_cast<QKeyEvent *>(event);
         QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
@@ -725,7 +735,10 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
             QCoreApplication::sendEvent(qqw->quickWindow(), event);
             return true;
         }
-    } else if ((watched == d->quickWidget || watched == d->placeHolderWidget) && event->type() == QEvent::FocusIn) {
+        break;
+    }
+
+    case QEvent::FocusIn: {
         QFocusEvent *fe = static_cast<QFocusEvent *>(event);
         QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
         if (qqw && qqw->rootObject()) {
@@ -735,13 +748,33 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
                 QMetaObject::invokeMethod(qqw->rootObject(), "focusLastChild");
             }
         }
-    } else if (watched == d->quickWidget && event->type() == QEvent::Leave) {
-        QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
-    } else if (watched == d->mainWidget && event->type() == QEvent::Resize) {
-        Q_EMIT widthChanged();
-    } else if (watched == d->mainWidget && event->type() == QEvent::Show) {
-        Q_EMIT changeToolBarItems(BaseMode::NoItems);
     }
+
+    case QEvent::Leave: {
+        if (watched == d->quickWidget) {
+            QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);
+        }
+        break;
+    }
+
+    case QEvent::Resize: {
+        if (watched == d->mainWidget) {
+            Q_EMIT widthChanged();
+        }
+        break;
+    }
+
+    case QEvent::Show: {
+        if (watched == d->mainWidget) {
+            Q_EMIT changeToolBarItems(BaseMode::NoItems);
+        }
+        break;
+    }
+
+    default:
+        break;
+    }
+
     return BaseMode::eventFilter(watched, event);
 }
 
