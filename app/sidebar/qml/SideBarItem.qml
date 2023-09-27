@@ -21,14 +21,6 @@ Kirigami.ApplicationItem {
     property alias searchMode: mainColumn.searchMode
     readonly property real headerHeight: mainColumn.header.height
 
-    function focusFirstChild() {
-        mainColumn.focus = true;
-    }
-
-    function focusLastChild() {
-        subCategoryColumn.focus = true;
-    }
-
     CategoriesPage {
         id: mainColumn
         focus: true

@@ -738,18 +738,6 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
         break;
     }
 
-    case QEvent::FocusIn: {
-        QFocusEvent *fe = static_cast<QFocusEvent *>(event);
-        QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
-        if (qqw && qqw->rootObject()) {
-            if (fe->reason() == Qt::TabFocusReason) {
-                QMetaObject::invokeMethod(qqw->rootObject(), "focusFirstChild");
-            } else if (fe->reason() == Qt::BacktabFocusReason) {
-                QMetaObject::invokeMethod(qqw->rootObject(), "focusLastChild");
-            }
-        }
-    }
-
     case QEvent::Leave: {
         if (watched == d->quickWidget) {
             QCoreApplication::sendEvent(d->quickWidget->quickWindow(), event);

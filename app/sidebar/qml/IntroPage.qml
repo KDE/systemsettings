@@ -14,14 +14,6 @@ Rectangle {
     color: Kirigami.Theme.backgroundColor
     property int verticalMargin: Kirigami.Units.gridUnit * 3
 
-    function focusFirstChild() {
-        iconsRow.children[0].focus = true;
-    }
-
-    function focusLastChild() {
-        iconsRow.children[iconsRow.children.length-1].focus = true;
-    }
-
     RowLayout {
         anchors {
             bottom: parent.verticalCenter

@@ -16,14 +16,6 @@ Item {
 
     readonly property real headerHeight: sideBar.headerHeight
 
-    function focusFirstChild() {
-        sideBar.focusFirstChild();
-    }
-
-    function focusLastChild() {
-        sideBar.focusLastChild();
-    }
-
     implicitHeight: sideBar.implicitHeight
     implicitWidth: sideBar.implicitWidth + separator.implicitWidth
 
