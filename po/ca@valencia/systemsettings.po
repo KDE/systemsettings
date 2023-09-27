@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 01:56+0000\n"
+"POT-Creation-Date: 2023-09-27 01:42+0000\n"
 "PO-Revision-Date: 2023-06-14 23:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr "Resum centralitzat i pràctic de la informació del sistema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -143,12 +143,12 @@ msgstr "Informeu d'un error en la pàgina actual…"
 msgid "Help"
 msgstr "Ajuda"
 
-#: app/sidebar/qml/CategoriesPage.qml:57
+#: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
 msgstr "Mostra la pàgina d'introducció"
 
-#: app/sidebar/qml/CategoriesPage.qml:120
+#: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -159,7 +159,7 @@ msgstr "No hi ha cap element que coincidisca amb la busca"
 msgid "Show menu"
 msgstr "Mostra el menú"
 
-#: app/sidebar/qml/introPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"
@@ -169,7 +169,7 @@ msgstr "Plasma"
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/sidebar/SidebarMode.cpp:700
+#: app/sidebar/SidebarMode.cpp:695
 #, kde-format
 msgid "Most Used"
 msgstr "Més utilitzat"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 01:56+0000\n"
+"POT-Creation-Date: 2023-09-27 01:42+0000\n"
 "PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr "प्रणालीसूचनायाः केन्द्री�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन् कुक्स्ले"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -141,12 +141,12 @@ msgstr "वर्तमान पृष्ठे दोषस्य सूचन
 msgid "Help"
 msgstr "साहाय्यम्‌"
 
-#: app/sidebar/qml/CategoriesPage.qml:57
+#: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
 msgstr "परिचय पृष्ठं दर्शयतु"
 
-#: app/sidebar/qml/CategoriesPage.qml:120
+#: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -157,7 +157,7 @@ msgstr "भवतः अन्वेषणेन सह सङ्गताः �
 msgid "Show menu"
 msgstr "विकल्पसूचि दर्शयतु"
 
-#: app/sidebar/qml/introPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "प्लाज्मा"
@@ -167,7 +167,7 @@ msgstr "प्लाज्मा"
 msgid "Sidebar"
 msgstr "पार्श्वपट्टिका"
 
-#: app/sidebar/SidebarMode.cpp:700
+#: app/sidebar/SidebarMode.cpp:695
 #, kde-format
 msgid "Most Used"
 msgstr "अधिकांशतः प्रयुक्तः"

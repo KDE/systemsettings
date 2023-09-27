@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 01:56+0000\n"
+"POT-Creation-Date: 2023-09-27 01:42+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -40,7 +40,7 @@ msgstr "കേന്ദ്രീകൃതവും, സൗകര്യപ്ര�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, ബെന്‍ കുക്ക്സ്ലി"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -141,12 +141,12 @@ msgstr ""
 msgid "Help"
 msgstr "സഹായം"
 
-#: app/sidebar/qml/CategoriesPage.qml:57
+#: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
 msgstr "സ്വാഗത താൾ കാണിക്കുക"
 
-#: app/sidebar/qml/CategoriesPage.qml:120
+#: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -157,7 +157,7 @@ msgstr "നിങ്ങളുടെ തിരയലുമായി പൊരു�
 msgid "Show menu"
 msgstr "മെനു കാണിക്കുക"
 
-#: app/sidebar/qml/introPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "പ്ലാസ്മ"
@@ -167,7 +167,7 @@ msgstr "പ്ലാസ്മ"
 msgid "Sidebar"
 msgstr "സൈഡ്‌ബാർ"
 
-#: app/sidebar/SidebarMode.cpp:700
+#: app/sidebar/SidebarMode.cpp:695
 #, kde-format
 msgid "Most Used"
 msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"

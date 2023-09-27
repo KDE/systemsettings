@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 01:56+0000\n"
+"POT-Creation-Date: 2023-09-27 01:42+0000\n"
 "PO-Revision-Date: 2023-04-01 15:08-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ ਦੀ ਕੇਂਦਰੀ ਅਤ�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ੨੦੦੯, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/introPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -140,12 +140,12 @@ msgstr ""
 msgid "Help"
 msgstr "ਮਦਦ"
 
-#: app/sidebar/qml/CategoriesPage.qml:57
+#: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
 msgstr "ਜਾਣ-ਪਛਾਣ ਸਫ਼ਾ ਵੇਖੋ"
 
-#: app/sidebar/qml/CategoriesPage.qml:120
+#: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -156,7 +156,7 @@ msgstr "ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਕੋਈ ਚੀਜਾਂ ਨਹ�
 msgid "Show menu"
 msgstr "ਮੇਨੂ ਵੇਖੋ"
 
-#: app/sidebar/qml/introPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:55
 #, kde-format
 msgid "Plasma"
 msgstr "ਪਲਾਜ਼ਮਾ"
@@ -166,7 +166,7 @@ msgstr "ਪਲਾਜ਼ਮਾ"
 msgid "Sidebar"
 msgstr "ਬਾਹੀ"
 
-#: app/sidebar/SidebarMode.cpp:700
+#: app/sidebar/SidebarMode.cpp:695
 #, kde-format
 msgid "Most Used"
 msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"
