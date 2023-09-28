@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:42+0000\n"
+"POT-Creation-Date: 2023-09-28 01:41+0000\n"
 "PO-Revision-Date: 2023-01-24 15:59+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:62
+#: app/main.cpp:58 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
 msgstr "Centro de Information"
@@ -42,7 +42,7 @@ msgstr "Centralisate e conveniente supervision del information de systema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -118,23 +118,17 @@ msgstr "Le sequente modulos es disponibile:"
 msgid "No description available"
 msgstr "Nulle description disponibile"
 
-#: app/SettingsBase.cpp:56
-#, kde-format
-msgctxt "Search through a list of control modules"
-msgid "Search"
-msgstr "Cerca"
-
-#: app/SettingsBase.cpp:149
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Evidentia preferentias cambiate"
 
-#: app/SettingsBase.cpp:160
+#: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Reporta un bug in le Pguna Currente..."
 
-#: app/SettingsBase.cpp:187
+#: app/SettingsBase.cpp:175
 #, kde-format
 msgid "Help"
 msgstr "Adjuta"
@@ -155,17 +149,17 @@ msgstr "Necun elemento incontra tu cerca"
 msgid "Show menu"
 msgstr "Monstra menu"
 
-#: app/sidebar/qml/IntroPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:628
+#: app/sidebar/SidebarMode.cpp:638
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/sidebar/SidebarMode.cpp:695
+#: app/sidebar/SidebarMode.cpp:702
 #, kde-format
 msgid "Most Used"
 msgstr "Le plus usate"
@@ -229,6 +223,10 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Information de Systema"
+
+#~ msgctxt "Search through a list of control modules"
+#~ msgid "Search"
+#~ msgstr "Cerca"
 
 #~ msgid "About Active View"
 #~ msgstr "A proposito del vista active"

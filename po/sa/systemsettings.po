@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:42+0000\n"
+"POT-Creation-Date: 2023-09-28 01:41+0000\n"
 "PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:62
+#: app/main.cpp:58 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
 msgstr "सूचना केन्द्रम्"
@@ -44,7 +44,7 @@ msgstr "प्रणालीसूचनायाः केन्द्री�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन् कुक्स्ले"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -120,23 +120,17 @@ msgstr "निम्नलिखितविभागाः उपलभ्य�
 msgid "No description available"
 msgstr "वर्णनम् नास्ति"
 
-#: app/SettingsBase.cpp:56
-#, kde-format
-msgctxt "Search through a list of control modules"
-msgid "Search"
-msgstr "अन्वेषण"
-
-#: app/SettingsBase.cpp:149
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "परिवर्तित समायोजनानि प्रकटय"
 
-#: app/SettingsBase.cpp:160
+#: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "वर्तमान पृष्ठे दोषस्य सूचनां ददातु…"
 
-#: app/SettingsBase.cpp:187
+#: app/SettingsBase.cpp:175
 #, kde-format
 msgid "Help"
 msgstr "साहाय्यम्‌"
@@ -157,17 +151,17 @@ msgstr "भवतः अन्वेषणेन सह सङ्गताः �
 msgid "Show menu"
 msgstr "विकल्पसूचि दर्शयतु"
 
-#: app/sidebar/qml/IntroPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
 msgstr "प्लाज्मा"
 
-#: app/sidebar/SidebarMode.cpp:628
+#: app/sidebar/SidebarMode.cpp:638
 #, kde-format
 msgid "Sidebar"
 msgstr "पार्श्वपट्टिका"
 
-#: app/sidebar/SidebarMode.cpp:695
+#: app/sidebar/SidebarMode.cpp:702
 #, kde-format
 msgid "Most Used"
 msgstr "अधिकांशतः प्रयुक्तः"
@@ -229,6 +223,10 @@ msgstr ":q: समानानां सङ्गणकतन्त्रस्�
 #, kde-format
 msgid "System Information"
 msgstr "सङ्गणकतन्त्रस्य वर्णन"
+
+#~ msgctxt "Search through a list of control modules"
+#~ msgid "Search"
+#~ msgstr "अन्वेषण"
 
 #~ msgid ""
 #~ "System Settings was unable to find any views, and hence has nothing to "

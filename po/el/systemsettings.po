@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:42+0000\n"
+"POT-Creation-Date: 2023-09-28 01:41+0000\n"
 "PO-Revision-Date: 2023-08-15 01:20+0300\n"
 "Last-Translator: George Stefanakis <george.stefanakis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
@@ -35,7 +35,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sngeorgaras@otenet.gr,manolis@koppermind.homelinux.org"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:62
+#: app/main.cpp:58 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
 msgstr "Κέντρο πληροφοριών"
@@ -50,7 +50,7 @@ msgstr "Συγκεντρωτική και βολική επισκόπηση τω
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -126,23 +126,17 @@ msgstr "Τα ακόλουθα αρθρώματα είναι διαθέσιμα:"
 msgid "No description available"
 msgstr "Δεν υπάρχει διαθέσιμη περιγραφή"
 
-#: app/SettingsBase.cpp:56
-#, kde-format
-msgctxt "Search through a list of control modules"
-msgid "Search"
-msgstr "Αναζήτηση"
-
-#: app/SettingsBase.cpp:149
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Τονισμός αλλαγμένων ρυθμίσεων"
 
-#: app/SettingsBase.cpp:160
+#: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Αναφορά σφάλματος στην τρέχουσα σελίδα..."
 
-#: app/SettingsBase.cpp:187
+#: app/SettingsBase.cpp:175
 #, kde-format
 msgid "Help"
 msgstr "Βοήθεια"
@@ -163,17 +157,17 @@ msgstr "Κανένα αντικείμενο δεν ταιριάζει στην �
 msgid "Show menu"
 msgstr "Εμφάνιση μενού"
 
-#: app/sidebar/qml/IntroPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:628
+#: app/sidebar/SidebarMode.cpp:638
 #, kde-format
 msgid "Sidebar"
 msgstr "Πλευρική μπάρα"
 
-#: app/sidebar/SidebarMode.cpp:695
+#: app/sidebar/SidebarMode.cpp:702
 #, kde-format
 msgid "Most Used"
 msgstr "Περισσότερο χρησιμοποιημένο"
@@ -237,6 +231,10 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Πληροφορίες συστήματος"
+
+#~ msgctxt "Search through a list of control modules"
+#~ msgid "Search"
+#~ msgstr "Αναζήτηση"
 
 #~ msgid "About Active View"
 #~ msgstr "Σχετικά με την ενεργή προβολή"

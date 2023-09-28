@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:42+0000\n"
+"POT-Creation-Date: 2023-09-28 01:41+0000\n"
 "PO-Revision-Date: 2023-01-13 08:54+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andhika.padmawan@gmail.com,wantoyek@gmail.com,linerly@protonmail.com"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:62
+#: app/main.cpp:58 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
 msgstr "Pusat Info"
@@ -45,7 +45,7 @@ msgstr "Ikhtisar informasi sistem yang terpusat dan serasi."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:65 app/sidebar/qml/IntroPage.qml:62
+#: app/main.cpp:69 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
@@ -121,23 +121,17 @@ msgstr "Modul berikut yang tersedia:"
 msgid "No description available"
 msgstr "Tidak ada deskripsi yang tersedia"
 
-#: app/SettingsBase.cpp:56
-#, kde-format
-msgctxt "Search through a list of control modules"
-msgid "Search"
-msgstr "Cari"
-
-#: app/SettingsBase.cpp:149
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Sorot Pengaturan Yang Diubah"
 
-#: app/SettingsBase.cpp:160
+#: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Laporkan Kutu di Halaman Saat Ini..."
 
-#: app/SettingsBase.cpp:187
+#: app/SettingsBase.cpp:175
 #, kde-format
 msgid "Help"
 msgstr "Bantuan"
@@ -158,17 +152,17 @@ msgstr "Tidak ada butir yang cocok atas pencarian Anda"
 msgid "Show menu"
 msgstr "Tampilkan menu"
 
-#: app/sidebar/qml/IntroPage.qml:55
+#: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:628
+#: app/sidebar/SidebarMode.cpp:638
 #, kde-format
 msgid "Sidebar"
 msgstr "Bilah Sisi"
 
-#: app/sidebar/SidebarMode.cpp:695
+#: app/sidebar/SidebarMode.cpp:702
 #, kde-format
 msgid "Most Used"
 msgstr "Paling Banyak Digunakan"
@@ -231,6 +225,10 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informasi Sistem"
+
+#~ msgctxt "Search through a list of control modules"
+#~ msgid "Search"
+#~ msgstr "Cari"
 
 #~ msgid "About Active View"
 #~ msgstr "Tentang Tampilan Aktif"
