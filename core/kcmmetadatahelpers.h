@@ -41,9 +41,9 @@ inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
 
             QJsonObject root;
             root.insert(QLatin1String("KPlugin"), kplugin);
-            root.insert(QLatin1String("X-KDE-Weight"), service.property(QStringLiteral("X-KDE-Weight")).toInt());
-            root.insert(QLatin1String("X-KDE-KInfoCenter-Category"), service.property(QStringLiteral("X-KDE-KInfoCenter-Category")).toString());
-            root.insert(QLatin1String("X-KDE-System-Settings-Category"), service.property(QStringLiteral("X-KDE-System-Settings-Category")).toString());
+            root.insert(QLatin1String("X-KDE-Weight"), service.property<int>(QStringLiteral("X-KDE-Weight")));
+            root.insert(QLatin1String("X-KDE-KInfoCenter-Category"), service.property<QString>(QStringLiteral("X-KDE-KInfoCenter-Category")));
+            root.insert(QLatin1String("X-KDE-System-Settings-Category"), service.property<QString>(QStringLiteral("X-KDE-System-Settings-Category")));
             root.insert(QLatin1String("IsExternalApp"), true);
 
             metaDataList << KPluginMetaData(root, file);
