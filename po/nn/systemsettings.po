@@ -226,25 +226,3 @@ msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Søk"
-
-#~ msgid "About Active View"
-#~ msgstr "Om utforminga"
-
-#~ msgid "About %1"
-#~ msgstr "Om %1"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "Systemoppsettet fann ingen utformingar, og kan derfor ikkje visa noko."
-
-#~ msgid "No views found"
-#~ msgstr "Fann ingen utformingar"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Internnamn på visinga som er bruk"

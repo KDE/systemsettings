@@ -228,26 +228,3 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Søk"
-
-#~ msgid "About Active View"
-#~ msgstr "Om den aktive visninga"
-
-#~ msgid "About %1"
-#~ msgstr "Om %1"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "Systeminnstillinger klarte ikke å finne noen visning, så det er ingenting "
-#~ "å vise."
-
-#~ msgid "No views found"
-#~ msgstr "Fant ingen visninger"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Internt navn for den brukte visningen"
