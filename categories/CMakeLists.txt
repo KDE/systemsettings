@@ -1,15 +1,12 @@
 install(FILES
     settings-root-category.desktop
 
-    settings-accounts.desktop
+    settings-network.desktop
+    settings-network-networksettings.desktop
+    settings-network-connectivity.desktop
 
     settings-regionalsettings.desktop
     settings-regionalsettings-formats.desktop
-
-    settings-network.desktop
-
-    settings-network-networksettings.desktop
-    settings-network-connectivity.desktop
 
     settings-hardware-input.desktop
     settings-hardware-input-touchscreen.desktop
@@ -20,8 +17,9 @@ install(FILES
     settings-hardware-keyboard.desktop
     settings-hardware-removable-storage.desktop
 
-    settings-security-privacy.desktop
-    settings-applications-permissions.desktop
+    settings-appearance.desktop
+    settings-appearance-themes.desktop
+    settings-appearance-font.desktop
 
     settings-applications.desktop
     settings-applications-defaults.desktop
@@ -33,10 +31,8 @@ install(FILES
     settings-workspace-search.desktop
     settings-workspace-shortcuts.desktop
 
-    settings-appearance.desktop
-    settings-appearance-themes.desktop
-    settings-appearance-font.desktop
-
+    settings-security-privacy.desktop
+    settings-applications-permissions.desktop
 
     settings-system-administration.desktop
     settings-hardware-powermanagement.desktop

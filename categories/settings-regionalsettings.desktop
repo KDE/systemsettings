@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=regionalsettings
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=20
+X-KDE-Weight=10
 Icon=preferences-desktop-locale
 
-Name=Regional Settings
+Name=Personal Settings
 Name[ar]=الإعدادات الإقليميّة
 Name[az]=Bölgə ayarları
 Name[be]=Рэгіянальныя налады

@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=desktopbehavior
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=80
+X-KDE-Weight=70
 Icon=preferences-desktop
 
 Name=Workspace Behavior

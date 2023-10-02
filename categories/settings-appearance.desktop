@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=appearance
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=90
+X-KDE-Weight=50
 Icon=preferences-desktop-theme-global
 
 Name=Appearance & Style
