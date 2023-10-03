@@ -8,20 +8,21 @@
 # kde4, 2009.
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-28 01:41+0000\n"
-"PO-Revision-Date: 2017-05-22 04:54-0400\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-10-02 11:14+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,17 +37,17 @@ msgstr "kde-l10n-he@kde.org"
 #: app/main.cpp:58 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "מרכז המידע"
 
 #: app/main.cpp:60
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "סקירה מרכזית ונוחה של פרטי המערכת."
 
 #: app/main.cpp:62 app/main.cpp:73
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
-msgstr "(c) 2009, Ben Cooksley"
+msgstr "(c) 2009, בן קוקסלי"
 
 #: app/main.cpp:69 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:113
@@ -57,12 +58,12 @@ msgstr "הגדרות מערכת"
 #: app/main.cpp:71
 #, kde-format
 msgid "Central configuration center by KDE."
-msgstr "מרכז התצורה המרכזי של KDE."
+msgstr "מרכז התצורה המרכזי מבית KDE."
 
 #: app/main.cpp:84
 #, kde-format
 msgid "Ben Cooksley"
-msgstr "Ben Cooksley"
+msgstr "בן קוקסלי"
 
 #: app/main.cpp:84
 #, kde-format
@@ -72,17 +73,17 @@ msgstr "מתחזק"
 #: app/main.cpp:85
 #, kde-format
 msgid "Marco Martin"
-msgstr "Marco Martin"
+msgstr "מרקו מרטין"
 
 #: app/main.cpp:85
 #, kde-format
 msgid "Author"
-msgstr "כותב"
+msgstr "יוצר"
 
 #: app/main.cpp:86
 #, kde-format
 msgid "Mathias Soeken"
-msgstr "Mathias Soeken"
+msgstr "מתיאס זוקן"
 
 #: app/main.cpp:86
 #, kde-format
@@ -92,47 +93,47 @@ msgstr "מפתח"
 #: app/main.cpp:87
 #, kde-format
 msgid "Will Stephenson"
-msgstr "Will Stephenson"
+msgstr "ויל סטפנסון"
 
 #: app/main.cpp:87
 #, kde-format
 msgid "Internal module representation, internal module model"
-msgstr "תצוגה פנימית של מודולים, מודל פנימי של מודולים"
+msgstr "ייצוג פנימי של מודולים, דגם פנימי של מודולים"
 
 #: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "הצגת כל המודולים האפשריים"
 
 #: app/main.cpp:96 app/main.cpp:157
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "מודול הגדרות לפתיחה"
 
 #: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "ארגומנטים למודול"
 
 #: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "המודולים הבאים זמינים:"
 
 #: app/main.cpp:123
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "אין תיאור זמין"
 
 #: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "הדגשת ההגדרות שנערכו"
 
 #: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "דיווח על תקלה בעמוד הנוכחי…"
 
 #: app/SettingsBase.cpp:175
 #, kde-format
@@ -142,70 +143,67 @@ msgstr "עזרה"
 #: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
-msgstr ""
+msgstr "הצגת עמוד ההקדמה"
 
 #: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "אין פריטים שעונים לחיפוש שלך"
 
 #: app/sidebar/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "הצגת תפריט"
 
 #: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "פלזמה"
 
 #: app/sidebar/SidebarMode.cpp:638
-#, fuzzy, kde-format
-#| msgid "Sidebar View"
+#, kde-format
 msgid "Sidebar"
-msgstr "תצוגת סרגל צדדי"
+msgstr "סרגל צד"
 
 #: app/sidebar/SidebarMode.cpp:702
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "הכי בשימוש"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
 #, kde-format
 msgid "About System Settings"
-msgstr "אודות הגדרות המערכת"
+msgstr "על הגדרות המערכת"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "<i>מכיל פריט אחד</i>"
-msgstr[1] "<i>מכיל %1 פריטים</i>"
+msgstr[0] "מכיל פריט"
+msgstr[1] "מכיל %1 פריטים"
 
 #: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 הוא יישום חיצוני ששוגר באופן אוטומטי"
+msgstr "%1 הוא יישום חיצוני שהופעל אוטומטית"
 
 #: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
-msgstr "שגר מחדש את %1"
+msgstr "הפעלת %1 מחדש"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
 #: core/externalModule.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "דו-שיח"
+msgstr "חלונית"
 
 #: core/ModuleView.cpp:176
 #, kde-format
 msgid "Reset all current changes to previous values"
-msgstr "שחזר שינויים להגדרות הקודמות"
+msgstr "איפוס כל השינויים הנוכחיים לערכים הקודמים"
 
 #: core/ModuleView.cpp:335
 #, kde-format
@@ -213,24 +211,23 @@ msgid ""
 "The settings of the current module have changed.\n"
 "Do you want to apply the changes or discard them?"
 msgstr ""
-"המודול הפעיל מכיל שינויים שלא נשמרו.\n"
-"האם ברצונך להחיל את השינויים או לבטל אותם?"
+"נערכו הגדרות במודול הנוכחי.\n"
+"להחיל או להתעלם מהן?"
 
 #: core/ModuleView.cpp:340
 #, kde-format
 msgid "Apply Settings"
-msgstr "החל הגדרות "
+msgstr "החל ההגדרות"
 
 #: runner/systemsettingsrunner.cpp:37
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr ""
+msgstr "חיפוש מודולים של הגדרות מערכת שהשמות או התיאורים שלהם עונים על :q:"
 
 #: runner/systemsettingsrunner.cpp:111
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "הגדרות מערכת"
+msgstr "פרטי מערכת"
 
 #~ msgctxt "Search through a list of control modules"
 #~ msgid "Search"
