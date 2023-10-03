@@ -3,6 +3,6 @@ Type=Service
 X-KDE-System-Settings-Category=removable-storage
 X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-Weight=30
-Icon=drive-harddisk
+Icon=preferences-system-disks
 
 Name=Disks & Cameras
