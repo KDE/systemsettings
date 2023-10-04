@@ -6,3 +6,14 @@ X-KDE-Weight=40
 Icon=preferences-desktop-peripherals
 
 Name=Connected Devices
+Name[bg]=Свързани устройства
+Name[ca]=Dispositius connectats
+Name[ca@valencia]=Dispositius connectats
+Name[es]=Dispositivos conectados
+Name[ia]=Dispositivos connectite
+Name[nl]=Verbonden apparaten
+Name[sa]=संयोजितयन्त्राणि
+Name[sl]=Povezane naprave
+Name[tr]=Bağlı Aygıtlar
+Name[uk]=З’єднані пристрої
+Name[x-test]=xxConnected Devicesxx

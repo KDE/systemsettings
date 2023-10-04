@@ -6,3 +6,14 @@ X-KDE-Weight=70
 Icon=preferences-system-login
 
 Name=Session
+Name[bg]=Сесия
+Name[ca]=Sessió
+Name[ca@valencia]=Sessió
+Name[es]=Sesión
+Name[ia]=Session
+Name[nl]=Sessie
+Name[sa]=सत्रम्
+Name[sl]=Seja
+Name[tr]=Oturum
+Name[uk]=Сеанс
+Name[x-test]=xxSessionxx

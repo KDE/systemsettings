@@ -6,3 +6,14 @@ X-KDE-Weight=10
 Icon=preferences-system-network-connection
 
 Name=Internet
+Name[bg]=Интернет
+Name[ca]=Internet
+Name[ca@valencia]=Internet
+Name[es]=Internet
+Name[ia]=Internet
+Name[nl]=Internet
+Name[sa]=अन्तर्जालम्
+Name[sl]=Internet
+Name[tr]=İnternet
+Name[uk]=Інтернет
+Name[x-test]=xxInternetxx

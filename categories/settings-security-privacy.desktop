@@ -6,3 +6,14 @@ X-KDE-Weight=80
 Icon=security-high
 
 Name=Security & Privacy
+Name[bg]=Сигурност и лични данни
+Name[ca]=Seguretat i privadesa
+Name[ca@valencia]=Seguretat i privadesa
+Name[es]=Seguridad y privacidad
+Name[ia]=Securitate & Confidentialitate
+Name[nl]=Beveiliging & privacy
+Name[sa]=सुरक्षा एवं गोपनीयता
+Name[sl]=Varnost in zasebnost
+Name[tr]=Güvenlik ve Gizlilik
+Name[uk]=Безпека і конфіденційність
+Name[x-test]=xxSecurity & Privacyxx

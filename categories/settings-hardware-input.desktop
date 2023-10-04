@@ -6,3 +6,14 @@ X-KDE-Weight=30
 Icon=preferences-desktop-mouse
 
 Name=Input & Output
+Name[bg]=Входни и изходни устройства
+Name[ca]=Entrada i sortida
+Name[ca@valencia]=Entrada i eixida
+Name[es]=Entrada y salida
+Name[ia]=Ingresso & Egresso
+Name[nl]=Invoer & uitvoer
+Name[sa]=निवेशः च निर्गमः
+Name[sl]=Vhod in izhod
+Name[tr]=Girdi ve Çıktı
+Name[uk]=Введення-виведення
+Name[x-test]=xxInput & Outputxx
