@@ -6,3 +6,15 @@ X-KDE-Weight=10
 Icon=preferences-desktop-locale
 
 Name=Personal Settings
+Name[ca]=Configuració personal
+Name[ca@valencia]=Configuració personal
+Name[es]=Preferencias personales
+Name[eu]=Norbanakoen ezarpenak
+Name[ia]=Preferentias personal
+Name[ka]=პირადი პარამეტრები
+Name[nl]=Persoonlijke instellingen
+Name[sa]=व्यक्तिगत समायोजनानि
+Name[sl]=Osebne nastavitve
+Name[tr]=Kişisel Ayarlar
+Name[uk]=Особисті параметри
+Name[x-test]=xxPersonal Settingsxx
