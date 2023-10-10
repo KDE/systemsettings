@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=themes
+X-KDE-System-Settings-Category-Module=kcm_lookandfeel
 X-KDE-System-Settings-Parent-Category=appearance
 X-KDE-Weight=10
 Icon=preferences-desktop-theme-global
