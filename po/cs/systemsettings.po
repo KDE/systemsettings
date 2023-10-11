@@ -225,7 +225,3 @@ msgstr "Najde moduly nastavení systému jejichž názvy a popisy odpovídají :
 #, kde-format
 msgid "System Information"
 msgstr "Systémové informace"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Hledat"

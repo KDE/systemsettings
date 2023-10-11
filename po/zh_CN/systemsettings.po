@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-28 01:41+0000\n"
-"PO-Revision-Date: 2023-09-16 10:06\n"
+"PO-Revision-Date: 2023-10-10 14:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -220,51 +220,3 @@ msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "搜索"
-
-#~ msgid "About Active View"
-#~ msgstr "关于活动的视图"
-
-#~ msgid "About %1"
-#~ msgstr "关于 %1"
-
-#~ msgid "Switch to Icon View"
-#~ msgstr "切换到图标视图"
-
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "切换到侧栏视图"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr "系统设置无法找到任何视图模式，因此无法进行显示。"
-
-#~ msgid "No views found"
-#~ msgstr "未找到视图"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "所用视图的内部名称"
-
-#~ msgid "Icon View"
-#~ msgstr "图标视图"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr "以分类图标视图来显示控制模块。"
-
-#~ msgid "All Settings"
-#~ msgstr "所有设置"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "键盘快捷键：%1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "侧栏视图"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr "以带分类的侧栏来显示控制模块。"
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "(c) 2017, Marco Martin"
