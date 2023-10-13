@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=pointing-devices
 X-KDE-System-Settings-Parent-Category=input-devices
-X-KDE-Weight=20
+X-KDE-Weight=10
 # FIXME: need a better icon that has both a mouse and a touchpad in it
 # See https://bugs.kde.org/show_bug.cgi?id=475576
 Icon=preferences-desktop-mouse

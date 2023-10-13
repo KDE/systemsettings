@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=keyboard
 X-KDE-System-Settings-Parent-Category=input-devices
-X-KDE-Weight=10
+X-KDE-Weight=20
 Icon=preferences-desktop-keyboard
 
 Name=Keyboard
