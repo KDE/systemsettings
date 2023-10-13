@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=regionalsettings
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=10
+X-KDE-Weight=80
 Icon=preferences-desktop-locale
 
-Name=Personal Settings
+Name=Language & Time
 Name[bg]=Лични настройки
 Name[ca]=Configuració personal
 Name[ca@valencia]=Configuració personal

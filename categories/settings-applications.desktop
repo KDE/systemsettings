@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=applications
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=60
+X-KDE-Weight=50
 Icon=applications-all
 
 Name=Apps & Windows

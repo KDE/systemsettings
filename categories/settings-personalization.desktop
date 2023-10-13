@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=personalization
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=75
+X-KDE-Weight=65
 Icon=preferences-desktop-user
 
 Name=Personalization

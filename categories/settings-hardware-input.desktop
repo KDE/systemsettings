@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-System-Settings-Category=input-devices
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=30
+X-KDE-Weight=20
 Icon=preferences-desktop-mouse
 
 Name=Input & Output
