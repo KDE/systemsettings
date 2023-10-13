@@ -2,8 +2,8 @@
 Type=Service
 X-KDE-System-Settings-Category=workspace
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=65
-Icon=preferences-desktop-theme
+X-KDE-Weight=60
+Icon=preferences-desktop
 
 Name=Workspace
 Name[ar]=مساحة العمل

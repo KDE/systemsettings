@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=search
-X-KDE-System-Settings-Parent-Category=desktopbehavior
+X-KDE-System-Settings-Parent-Category=workspace
 X-KDE-Weight=20
 Icon=preferences-desktop-search
 

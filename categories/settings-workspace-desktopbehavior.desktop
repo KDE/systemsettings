@@ -2,10 +2,10 @@
 Type=Service
 X-KDE-System-Settings-Category=desktopbehavior
 X-KDE-System-Settings-Parent-Category=
-X-KDE-Weight=60
+X-KDE-Weight=65
 Icon=preferences-desktop
 
-Name=Workspace
+Name=Behavior
 Name[ar]=سلوك مساحة العمل
 Name[az]=İş sahəsi davranışı
 Name[be]=Паводзіны працоўных прастораў

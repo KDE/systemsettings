@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Service
 X-KDE-System-Settings-Category=shortcuts
-X-KDE-System-Settings-Parent-Category=desktopbehavior
+X-KDE-System-Settings-Parent-Category=workspace
 X-KDE-Weight=30
 Icon=preferences-desktop-keyboard-shortcut
 
