@@ -6,6 +6,7 @@ X-KDE-Weight=65
 Icon=preferences-desktop
 
 Name=Behavior
+Name[bg]=Поведение
 Name[ca]=Comportament
 Name[ca@valencia]=Comportament
 Name[eo]=Konduto
