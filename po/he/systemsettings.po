@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-28 01:41+0000\n"
-"PO-Revision-Date: 2023-10-02 11:14+0300\n"
+"PO-Revision-Date: 2023-10-21 15:53+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -179,13 +179,13 @@ msgid "About System Settings"
 msgstr "על הגדרות המערכת"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
 msgstr[0] "מכיל פריט"
-msgstr[1] "מכיל %1 פריטים"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "מכיל שני פריטים"
+msgstr[2] "מכיל %1 פריטים"
+msgstr[3] "מכיל %1 פריטים"
 
 #: core/ExternalAppModule.cpp:25
 #, kde-format
