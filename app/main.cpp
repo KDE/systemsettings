@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
     QApplication application(argc, argv);
     // The ki18n application domain must be set before we make any i18n() calls.
-    KLocalizedString::setApplicationDomain("systemsettings");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("systemsettings"));
 
     KAboutData aboutData;
 
