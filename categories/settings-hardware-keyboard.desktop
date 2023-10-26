@@ -6,6 +6,7 @@ X-KDE-Weight=20
 Icon=preferences-desktop-keyboard
 
 Name=Keyboard
+Name[ast]=Tecláu
 Name[bg]=Клавиатура
 Name[ca]=Teclat
 Name[ca@valencia]=Teclat

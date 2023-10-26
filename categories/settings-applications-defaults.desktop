@@ -6,6 +6,7 @@ X-KDE-Weight=10
 Icon=preferences-desktop-default-applications
 
 Name=Default Applications
+Name[ast]=Aplicaciones predeterminaes
 Name[bg]=Стандартни приложения
 Name[ca]=Aplicacions predeterminades
 Name[ca@valencia]=Aplicacions predeterminades

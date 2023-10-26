@@ -6,6 +6,7 @@ X-KDE-Weight=20
 Icon=preferences-desktop-mouse
 
 Name=Input & Output
+Name[ast]=Entrada ya salida
 Name[bg]=Входни и изходни устройства
 Name[ca]=Entrada i sortida
 Name[ca@valencia]=Entrada i eixida

@@ -6,6 +6,7 @@ X-KDE-Weight=40
 Icon=input-touchscreen
 
 Name=Touchscreen
+Name[ast]=Pantalla táctil
 Name[bg]=Сензорен екран 
 Name[ca]=Pantalla tàctil
 Name[ca@valencia]=Pantalla tàctil
