@@ -35,7 +35,6 @@
 #include <KSharedConfig>
 #include <KStandardGuiItem>
 #include <KTitleWidget>
-#include <Kirigami/Units>
 
 #include <KActivities/ResourceInstance>
 
@@ -57,12 +56,6 @@ protected:
 CustomTitle::CustomTitle(QWidget *parent)
     : KTitleWidget(parent)
 {
-    // Use the same left margin as QML titles for consistency (Kirigami/AbstractPageHeader.qml)
-    setContentsMargins(Kirigami::Units().gridUnit(),
-                       style()->pixelMetric(QStyle::PM_LayoutTopMargin),
-                       style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                       style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
-
     colorsChanged();
     connect(qApp, &QApplication::paletteChanged, this, &CustomTitle::colorsChanged);
 }
@@ -455,12 +448,6 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
                                     style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                     style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
     d->mPageWidget->layout()->setSpacing(0);
-    if (auto titleWidget = qobject_cast<KTitleWidget *>(d->mPageWidget->pageHeader())) {
-        titleWidget->layout()->setContentsMargins(Kirigami::Units().gridUnit(),
-                                                  style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                                                  style()->pixelMetric(QStyle::PM_LayoutRightMargin),
-                                                  style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
-    }
 
     updatePageIconHeader(current);
     moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
