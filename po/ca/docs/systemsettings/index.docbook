@@ -492,9 +492,7 @@
 >Inicialitza</term>
 <listitem>
 <para
->Aquest botó <quote
->Restableix</quote
-> el mòdul a les opcions anteriors. </para>
+>Aquest botó «Restableix» el mòdul a les opcions anteriors. </para>
 </listitem>
 </varlistentry>
 
@@ -512,11 +510,7 @@
 
 <note>
 <para
->Haureu de fer <quote
->Inicialitza</quote
-> o <quote
->Aplica</quote
-> els canvis abans de canviar a un altre mòdul. </para>
+>Haureu de fer «Inicialitza» o «Aplica» els canvis abans de canviar a un altre mòdul. </para>
 <para
 >Si voleu canviar sense desar o restablir les opcions, se us demanarà si voleu desar els canvis o descartar-los. </para>
 </note>
