@@ -30,7 +30,6 @@ target_link_libraries(systemsettingsview
     KF6::IconThemes
     KF6::Activities
     KF6::AuthCore
-    KF6::Kirigami2
 )
 
 set_target_properties(systemsettingsview PROPERTIES SOVERSION 3)

@@ -35,7 +35,6 @@
 #include <KSharedConfig>
 #include <KStandardGuiItem>
 #include <KTitleWidget>
-#include <Kirigami/Units>
 
 #include <KActivities/ResourceInstance>
 
@@ -58,7 +57,10 @@ CustomTitle::CustomTitle(QWidget *parent)
     : KTitleWidget(parent)
 {
     // Use the same left margin as QML titles for consistency (Kirigami/AbstractPageHeader.qml)
-    setContentsMargins(Kirigami::Units().gridUnit(),
+    // 18px is Standard Kirigami gridUnit for 10pt Noto Sans.
+    // TODO: make this use a real gridUnit so it will adjust to the user's font,
+    // once we have a QmlEngine object such that  using it won't risk crashes!
+    setContentsMargins(18,
                        style()->pixelMetric(QStyle::PM_LayoutTopMargin),
                        style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                        style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
@@ -456,7 +458,10 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
                                     style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
     d->mPageWidget->layout()->setSpacing(0);
     if (auto titleWidget = qobject_cast<KTitleWidget *>(d->mPageWidget->pageHeader())) {
-        titleWidget->layout()->setContentsMargins(Kirigami::Units().gridUnit(),
+        // 18px is Standard Kirigami gridUnit for 10pt Noto Sans.
+        // TODO: make this use a real gridUnit so it will adjust to the user's font,
+        // once we have a QmlEngine object such that  using it won't risk crashes!
+        titleWidget->layout()->setContentsMargins(18,
                                                   style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                                   style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                                   style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
