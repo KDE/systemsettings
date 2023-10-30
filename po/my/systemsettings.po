@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:41+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -197,12 +197,12 @@ msgstr "%1 ပြန်လွှင့်တင်မည်"
 msgid "Dialog"
 msgstr "ဒိုင်ယာလော့"
 
-#: core/ModuleView.cpp:176
+#: core/ModuleView.cpp:178
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "လက်ရှိပြောင်းလဲမှုများအကုန်လုံးကို ယခင်တန်ဖိုးများကို ပြန်ပြောင်းမည်"
 
-#: core/ModuleView.cpp:335
+#: core/ModuleView.cpp:337
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,7 +211,7 @@ msgstr ""
 "လက်ရှိမော်ဂျူး၏ဆက်တင်များ ပြောင်းလဲသွားပြီ။\n"
 "ပြောင်းလဲမှုများကို သုံးမှာလား၊ စွန့်ပစ်မှာလား။"
 
-#: core/ModuleView.cpp:340
+#: core/ModuleView.cpp:342
 #, kde-format
 msgid "Apply Settings"
 msgstr "ဆက်တင်များသက်ရောက်စေမည်"
