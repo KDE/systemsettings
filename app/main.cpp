@@ -18,7 +18,6 @@
 #include <KPluginMetaData>
 #include <KWindowSystem>
 #include <iostream>
-#include <kworkspace.h>
 
 #include "../core/kcmmetadatahelpers.h"
 #include "SettingsBase.h"
@@ -42,9 +41,6 @@ int main(int argc, char *argv[])
     // exec is systemsettings, but we need the QPT to use the right config from the qApp constructor
     // which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(binaryName);
-
-    // This has to be before the QApplication is created.
-    KWorkSpace::detectPlatform(argc, argv);
 
     QApplication application(argc, argv);
     // The ki18n application domain must be set before we make any i18n() calls.

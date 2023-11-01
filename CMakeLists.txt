@@ -65,8 +65,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     QUIET
 )
 
-find_package(LibKWorkspace ${PROJECT_VERSION} CONFIG REQUIRED)
-
 add_library(systemsettings_debug STATIC)
 target_link_libraries(systemsettings_debug Qt::Core)
 ecm_qt_declare_logging_category(systemsettings_debug

@@ -49,7 +49,6 @@ target_link_libraries(systemsettings PRIVATE
     Qt::QuickWidgets
     Qt::Qml
     Qt::Quick
-    PW::KWorkspace
 )
 
 install(TARGETS systemsettings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
