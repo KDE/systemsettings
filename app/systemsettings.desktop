@@ -190,6 +190,7 @@ Name[zh_TW]=系統設定
 
 Comment=Configuration tools for your computer
 Comment[ar]=أدوات ضبط لجهازك
+Comment[ast]=Ferramientes de configuración pal ordenador
 Comment[az]=Kompyuteriniz üçün tənzimləmə alətləri
 Comment[be]=Інструменты для наладжвання вашага камп'ютара
 Comment[bg]=Конфигурационни инструменти за компютъра
@@ -307,6 +308,7 @@ Exec=systemsettings kcm_lookandfeel
 [Desktop Action kcm-users]
 Name=Users
 Name[ar]=المستخدمين
+Name[ast]=Usuarios
 Name[az]=İstifadəçilər
 Name[be]=Карыстальнікі
 Name[bg]=Потребители
@@ -364,6 +366,7 @@ Exec=systemsettings kcm_users
 [Desktop Action screenlocker]
 Name=Screen Locking
 Name[ar]=قفل الشاشة
+Name[ast]=Bloquéu de la pantalla
 Name[az]=Ekran kilidlənməsi
 Name[be]=Блакаванне экрана
 Name[bg]=Заключване на екрана
@@ -476,6 +479,7 @@ Exec=systemsettings powerdevilprofilesconfig
 [Desktop Action kcm-kscreen]
 Name=Display Configuration
 Name[ar]=إعدادات الشاشة
+Name[ast]=Configuración de pantalles
 Name[az]=Ekran ayarları
 Name[be]=Канфігурацыя дысплэя
 Name[bg]=Конфигурация на екрана

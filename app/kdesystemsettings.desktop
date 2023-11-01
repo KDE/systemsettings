@@ -8,6 +8,7 @@ NotShowIn=KDE;
 
 GenericName=KDE System Settings
 GenericName[ar]=إعدادات نظام كِيدِي
+GenericName[ast]=Configuración del sistema de KDE
 GenericName[az]=KDE sistem ayarları
 GenericName[be]=Сістэмныя налады KDE
 GenericName[bg]=Системни настройки на KDE
@@ -73,6 +74,7 @@ GenericName[zh_TW]=KDE 系統設定
 
 Name=KDE System Settings
 Name[ar]=إعدادات نظام كِيدِي
+Name[ast]=Configuración del sistema de KDE
 Name[az]=KDE sistem ayarları
 Name[be]=Сістэмныя налады KDE
 Name[bg]=Системни настройки на KDE
@@ -139,6 +141,7 @@ Name[zh_TW]=KDE 系統設定
 
 Comment=Configuration tools for your computer
 Comment[ar]=أدوات ضبط لجهازك
+Comment[ast]=Ferramientes de configuración pal ordenador
 Comment[az]=Kompyuteriniz üçün tənzimləmə alətləri
 Comment[be]=Інструменты для наладжвання вашага камп'ютара
 Comment[bg]=Конфигурационни инструменти за компютъра

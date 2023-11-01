@@ -6,6 +6,7 @@ X-KDE-Weight=30
 Icon=preferences-desktop-peripherals
 
 Name=Connected Devices
+Name[ast]=Preseos conectaos
 Name[bg]=Свързани устройства
 Name[ca]=Dispositius connectats
 Name[ca@valencia]=Dispositius connectats
