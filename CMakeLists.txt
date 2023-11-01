@@ -54,7 +54,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
     DBusAddons
     Config
-    Package
     Activities
     GuiAddons # UrlHanlder handles help:/ urls
     Kirigami2

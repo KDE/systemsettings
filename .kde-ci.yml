@@ -18,7 +18,6 @@ Dependencies:
     'frameworks/kxmlgui': '@latest-kf6'
     'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/kconfig': '@latest-kf6'
-    'frameworks/kpackage': '@latest-kf6'
     'frameworks/kactivities': '@latest-kf6'
     'frameworks/kguiaddons': '@latest-kf6'
     'frameworks/kirigami': '@latest-kf6'
