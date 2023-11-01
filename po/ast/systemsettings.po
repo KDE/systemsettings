@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the systemsettings package.
 #
-# Enol P. <enolp@softastur.org>, 2023.
+# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-30 01:42+0000\n"
-"PO-Revision-Date: 2023-05-09 23:42+0200\n"
+"PO-Revision-Date: 2023-10-31 20:02+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,7 +96,7 @@ msgstr ""
 #: app/main.cpp:95
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "Llista tolos módulos posibles"
 
 #: app/main.cpp:96 app/main.cpp:157
 #, kde-format
@@ -106,27 +106,27 @@ msgstr ""
 #: app/main.cpp:97 app/main.cpp:158
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "Argumentos pal módulu"
 
 #: app/main.cpp:105
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "Tán disponibles los módulos siguientes:"
 
 #: app/main.cpp:123
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "Nun hai nenguna descripción disponible"
 
 #: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Rescamplar les opciones cambiaes"
 
 #: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Informar d'un fallu na páxina actual…"
 
 #: app/SettingsBase.cpp:175
 #, kde-format
@@ -136,18 +136,18 @@ msgstr "Ayuda"
 #: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
-msgstr ""
+msgstr "Amosar la páxina d'introdución"
 
 #: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "Nun hai nengún elementu que concase cola busca"
 
 #: app/sidebar/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "Amosar el menú"
 
 #: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
@@ -162,7 +162,7 @@ msgstr "Barra llateral"
 #: app/sidebar/SidebarMode.cpp:702
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "Lo más usao"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -180,12 +180,12 @@ msgstr[1] "Contién %1 elementos"
 #: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr ""
+msgstr "«%1» ye una aplicación esterna ya llanzóse automáticamente"
 
 #: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
-msgstr ""
+msgstr "Volver llanzar «%1»"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
 #: core/externalModule.ui:14
