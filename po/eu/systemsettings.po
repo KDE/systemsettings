@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:42+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-01-03 08:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -31,93 +31,93 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: app/main.cpp:58 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
 msgstr "Informazio gunea"
 
-#: app/main.cpp:60
+#: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
 msgstr "Sistemako informazioaren ikuspegi zentralizatu eta komenigarria."
 
-#: app/main.cpp:62 app/main.cpp:73
+#: app/main.cpp:58 app/main.cpp:69
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:69 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:113
 #, kde-format
 msgid "System Settings"
 msgstr "Sistemaren ezarpenak"
 
-#: app/main.cpp:71
+#: app/main.cpp:67
 #, kde-format
 msgid "Central configuration center by KDE."
 msgstr "Konfiguratzeko gune nagusia, KDEk egina."
 
-#: app/main.cpp:84
+#: app/main.cpp:80
 #, kde-format
 msgid "Ben Cooksley"
 msgstr "Ben Cooksley"
 
-#: app/main.cpp:84
+#: app/main.cpp:80
 #, kde-format
 msgid "Maintainer"
 msgstr "Arduraduna"
 
-#: app/main.cpp:85
+#: app/main.cpp:81
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: app/main.cpp:85
+#: app/main.cpp:81
 #, kde-format
 msgid "Author"
 msgstr "Egilea"
 
-#: app/main.cpp:86
+#: app/main.cpp:82
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: app/main.cpp:86
+#: app/main.cpp:82
 #, kde-format
 msgid "Developer"
 msgstr "Garatzailea"
 
-#: app/main.cpp:87
+#: app/main.cpp:83
 #, kde-format
 msgid "Will Stephenson"
 msgstr "Will Stephenson"
 
-#: app/main.cpp:87
+#: app/main.cpp:83
 #, kde-format
 msgid "Internal module representation, internal module model"
 msgstr "Barneko modulu-errepresentazioa, barneko modulu-eredua"
 
-#: app/main.cpp:95
+#: app/main.cpp:91
 #, kde-format
 msgid "List all possible modules"
 msgstr "Zerrendatu izan daitezkeen modulu guztiak"
 
-#: app/main.cpp:96 app/main.cpp:157
+#: app/main.cpp:92 app/main.cpp:153
 #, kde-format
 msgid "Configuration module to open"
 msgstr "Ireki beharreko konfiguratzeko modulua"
 
-#: app/main.cpp:97 app/main.cpp:158
+#: app/main.cpp:93 app/main.cpp:154
 #, kde-format
 msgid "Arguments for the module"
 msgstr "Moduluarentzako argumentuak"
 
-#: app/main.cpp:105
+#: app/main.cpp:101
 #, kde-format
 msgid "The following modules are available:"
 msgstr "Ondoko moduluak erabilgarri daude:"
 
-#: app/main.cpp:123
+#: app/main.cpp:119
 #, kde-format
 msgid "No description available"
 msgstr "Ez dago azalpen erabilgarririk"
