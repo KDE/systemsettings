@@ -88,13 +88,13 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             continue; // skip this KCM
         }
 
-        KRunner::QueryMatch::Type type = KRunner::QueryMatch::CompletionMatch;
+        KRunner::QueryMatch::CategoryRelevance categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Low;
         if (name.compare(query, Qt::CaseInsensitive) == 0) { // name matches exactly
-            type = KRunner::QueryMatch::ExactMatch;
+            categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Highest;
         } else if (name.startsWith(query, Qt::CaseInsensitive) || description.startsWith(query, Qt::CaseInsensitive)) { // name or description matches as start
-            type = KRunner::QueryMatch::PossibleMatch;
+            categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Moderate;
         } else if (keywords.contains(query, Qt::CaseInsensitive)) { // any of the keywords matches exactly
-            type = KRunner::QueryMatch::PossibleMatch;
+            categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Moderate;
         }
 
         KRunner::QueryMatch match(this);
@@ -105,7 +105,7 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
         match.setData(QVariant::fromValue(data));
         match.setRelevance(relevance);
-        match.setType(type);
+        match.setCategoryRelevance(categoryRelevance);
 
         if (isKinfoCenterKcm(data)) {
             match.setMatchCategory(i18nd("systemsettings", "System Information"));
