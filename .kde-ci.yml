@@ -19,12 +19,13 @@ Dependencies:
     'frameworks/kdbusaddons': '@latest'
     'frameworks/kconfig': '@latest'
     'frameworks/kpackage': '@latest'
-    'frameworks/kactivities': '@latest'
     'frameworks/kguiaddons': '@latest'
     'frameworks/kirigami': '@latest'
     'frameworks/knotifications': '@latest'
     'frameworks/krunner': '@latest'
     'frameworks/kdoctools': '@latest'
     'plasma/plasma-workspace': '@same'
+    'plasma/kactivities': '@latest' # Different branch scheme due to formerly being a Framework
+
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
