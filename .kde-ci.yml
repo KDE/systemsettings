@@ -18,11 +18,12 @@ Dependencies:
     'frameworks/kxmlgui': '@latest-kf6'
     'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/kconfig': '@latest-kf6'
-    'frameworks/kactivities': '@latest-kf6'
     'frameworks/kguiaddons': '@latest-kf6'
     'frameworks/kirigami': '@latest-kf6'
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/krunner': '@latest-kf6'
     'frameworks/kdoctools': '@latest-kf6'
+    'plasma/kactivities': '@latest-kf6'
+
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
