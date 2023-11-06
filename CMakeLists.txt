@@ -54,7 +54,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
     DBusAddons
     Config
-    Activities
     GuiAddons # UrlHanlder handles help:/ urls
     Kirigami2
     JobWidgets
@@ -63,6 +62,8 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     DocTools
     QUIET
 )
+
+find_package(KF6Activities ${PROJECT_VERSION} REQUIRED)
 
 add_library(systemsettings_debug STATIC)
 target_link_libraries(systemsettings_debug Qt::Core)
