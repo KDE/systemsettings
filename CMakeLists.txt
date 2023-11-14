@@ -55,7 +55,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     Config
     GuiAddons # UrlHanlder handles help:/ urls
-    Kirigami2
+    Kirigami
     JobWidgets
     Runner
     OPTIONAL_COMPONENTS
