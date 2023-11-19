@@ -642,22 +642,30 @@ void SidebarMode::initWidget()
 
     d->quickWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
 
-    d->quickWidget->setSource(QUrl(QStringLiteral("qrc:/qt/qml/org/kde/systemsettings/Main.qml")));
-
-    if (!d->quickWidget->rootObject()) {
-        const QList<QQmlError> errors{d->quickWidget->errors()};
-        for (const auto &err : errors) {
+    // Breaking change in Qt6: https://github.com/qt/qtdeclarative/commit/0d80dbd8c2cfc2a7d2a4d970b7acfc7fb5fb97a0
+    // Use setContent to prevent the root item from being destroyed: https://github.com/qt/qtdeclarative/commit/69d61fecf2deee7510f5f2448614174683744d82
+    QQmlComponent component(d->quickWidget->engine(),
+                            QUrl(QStringLiteral("qrc:/qt/qml/org/kde/systemsettings/Main.qml")),
+                            QQmlComponent::PreferSynchronous,
+                            this);
+    QQuickItem *item = qobject_cast<QQuickItem *>(component.create(d->quickWidget->rootContext()));
+    if (!item) {
+        for (const QList<QQmlError> errors = component.errors(); const auto &err : errors) {
             qWarning() << err.toString();
         }
         qFatal("Fatal error while loading the sidebar view qml component");
     }
-    const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
+    const int rootImplicitWidth = item->implicitWidth();
     if (rootImplicitWidth != 0) {
         d->quickWidget->setFixedWidth(rootImplicitWidth);
     } else {
         d->quickWidget->setFixedWidth(240);
     }
-    connect(d->quickWidget->rootObject(), &QQuickItem::implicitWidthChanged, this, [this]() {
+
+    setHeaderHeight(item->property("headerHeight").toReal());
+
+    d->quickWidget->setContent(QUrl(), nullptr, item);
+    connect(item, &QQuickItem::implicitWidthChanged, this, [this]() {
         const int rootImplicitWidth = d->quickWidget->rootObject()->property("implicitWidth").toInt();
         if (rootImplicitWidth != 0) {
             d->quickWidget->setFixedWidth(rootImplicitWidth);
@@ -665,8 +673,6 @@ void SidebarMode::initWidget()
             d->quickWidget->setFixedWidth(240);
         }
     });
-
-    setHeaderHeight(d->quickWidget->rootObject()->property("headerHeight").toReal());
 
     d->quickWidget->installEventFilter(this);
 
@@ -721,7 +727,7 @@ void SidebarMode::reloadStartupModule()
 
 bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
 {
-    if (watched != d->quickWidget && watched != d->placeHolderWidget) {
+    if (watched != d->quickWidget && watched != d->mainWidget) {
         return BaseMode::eventFilter(watched, event);
     }
 
