@@ -28,8 +28,8 @@ target_link_libraries(systemsettingsview
     KF6::KIOWidgets
     KF6::Service
     KF6::IconThemes
-    KF6::Activities
     KF6::AuthCore
+    Plasma::Activities
 )
 
 set_target_properties(systemsettingsview PROPERTIES SOVERSION 3)

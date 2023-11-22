@@ -63,7 +63,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     QUIET
 )
 
-find_package(KF6Activities ${PROJECT_VERSION} REQUIRED)
+find_package(PlasmaActivities ${PROJECT_VERSION} REQUIRED)
 
 add_library(systemsettings_debug STATIC)
 target_link_libraries(systemsettings_debug Qt::Core)

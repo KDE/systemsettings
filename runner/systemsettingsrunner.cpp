@@ -21,7 +21,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-#include <KActivities/ResourceInstance>
+#include <PlasmaActivities/ResourceInstance>
 #include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
 #include <KNotificationJobUiDelegate>

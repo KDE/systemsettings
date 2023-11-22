@@ -10,6 +10,6 @@ target_link_libraries(krunner_systemsettings
     KF6::JobWidgets
     KF6::Runner
     KF6::Service
-    KF6::Activities
     KF6::KCMUtils
+    Plasma::Activities
 )

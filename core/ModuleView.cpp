@@ -36,7 +36,7 @@
 #include <KStandardGuiItem>
 #include <KTitleWidget>
 
-#include <KActivities/ResourceInstance>
+#include <PlasmaActivities/ResourceInstance>
 
 #include <cmath>
 #include <kpluginmetadata.h>
