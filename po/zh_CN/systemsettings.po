@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-22 01:36+0000\n"
 "PO-Revision-Date: 2023-11-19 03:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -159,7 +159,7 @@ msgstr "Plasma"
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/sidebar/SidebarMode.cpp:702
+#: app/sidebar/SidebarMode.cpp:708
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
