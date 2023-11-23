@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"POT-Creation-Date: 2023-11-23 01:39+0000\n"
 "PO-Revision-Date: 2011-01-08 23:40+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -204,7 +204,7 @@ msgstr "Dialog"
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: core/ModuleView.cpp:337
+#: core/ModuleView.cpp:343
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are unsaved changes in the active module.\n"
@@ -216,7 +216,7 @@ msgstr ""
 "Terdapat perubahan belum disimpan dalam modul aktif.\n"
 "Adakah anda hendak menerapkan perubahan atau membuangnya?"
 
-#: core/ModuleView.cpp:342
+#: core/ModuleView.cpp:348
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"

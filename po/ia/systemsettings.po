@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"POT-Creation-Date: 2023-11-23 01:39+0000\n"
 "PO-Revision-Date: 2023-01-24 15:59+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -198,7 +198,7 @@ msgstr "Dialogo"
 msgid "Reset all current changes to previous values"
 msgstr "Il reporta tote le currente variationes al valores previe"
 
-#: core/ModuleView.cpp:337
+#: core/ModuleView.cpp:343
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -207,7 +207,7 @@ msgstr ""
 "Le preferentias del modulo currente ha cambiate.\n"
 "Tu vole applicar le variationes o rejectar los?"
 
-#: core/ModuleView.cpp:342
+#: core/ModuleView.cpp:348
 #, kde-format
 msgid "Apply Settings"
 msgstr "Applica Preferentias"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"POT-Creation-Date: 2023-11-23 01:39+0000\n"
 "PO-Revision-Date: 2023-01-04 20:45+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -203,7 +203,7 @@ msgstr "Okno"
 msgid "Reset all current changes to previous values"
 msgstr "Wycofaj wszystkie zmiany"
 
-#: core/ModuleView.cpp:337
+#: core/ModuleView.cpp:343
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -213,7 +213,7 @@ msgstr ""
 "Zastosować czy porzucić zmiany?"
 
 # Lepiej brzmi w tytule okna
-#: core/ModuleView.cpp:342
+#: core/ModuleView.cpp:348
 #, kde-format
 msgid "Apply Settings"
 msgstr "Wprowadzanie zmian"

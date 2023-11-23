@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-22 01:36+0000\n"
+"POT-Creation-Date: 2023-11-23 01:39+0000\n"
 "PO-Revision-Date: 2009-11-20 18:15+0200\n"
 "Last-Translator: Viesturs Zariņš <viesturs.zarins@mii.lu.lv>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -206,7 +206,7 @@ msgstr "Dialogs"
 msgid "Reset all current changes to previous values"
 msgstr "Atstatīt viektās izmaiņas uz sākotnējām vērtībām"
 
-#: core/ModuleView.cpp:337
+#: core/ModuleView.cpp:343
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -215,7 +215,7 @@ msgstr ""
 "Aktīvajā modulī ir nesaglabātas izmaiņas.\n"
 "Vai vēlaties pielietot šīs izmaiņas vai izmest tās?"
 
-#: core/ModuleView.cpp:342
+#: core/ModuleView.cpp:348
 #, kde-format
 msgid "Apply Settings"
 msgstr "Pielietot izmaiņas"
