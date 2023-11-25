@@ -25,7 +25,7 @@ Dependencies:
     'frameworks/krunner': '@latest'
     'frameworks/kdoctools': '@latest'
     'plasma/plasma-workspace': '@same'
-    'plasma/kactivities': '@latest' # Different branch scheme due to formerly being a Framework
+    'plasma/plasma-activities': '@latest' # Different branch scheme due to formerly being a Framework
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
