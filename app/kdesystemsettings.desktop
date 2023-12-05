@@ -202,3 +202,4 @@ X-DBUS-ServiceName=org.kde.systemsettings
 # ships two .desktop files
 X-AppStream-Ignore=true
 Categories=Qt;KDE;Settings;
+Keywords=systemsettings

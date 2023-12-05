@@ -248,6 +248,7 @@ Comment[zh_TW]=提供給您電腦的配置工具
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.systemsettings
 Categories=Qt;KDE;Settings;
+Keywords=systemsettings
 
 [Desktop Action kcm-lookandfeel]
 Name=Global Theme
