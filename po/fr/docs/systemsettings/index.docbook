@@ -159,7 +159,7 @@
 ></keycombo
 > fera apparaître la boîte de dialogue de &krunner;. Saisissez <command
 >systemsettings</command
-> et appuyez sur &Enter;. </para>
+> et appuyez sur la touche « &Enter; ». </para>
 </listitem>
 <listitem>
 <para
@@ -264,11 +264,11 @@
 ></listitem>
 <listitem
 ><para
->Démarrage et arrêt (Écran de connexion (SDDM), démarrage automatique, services en arrière-pla, session de bureau, écran de démarrage) </para
+>Démarrage et arrêt (Écran de connexion (SDDM), démarrage automatique, services en arrière-plan, session de bureau, écran de démarrage) </para
 ></listitem>
 <listitem
 ><para
->Recherche (Recherche de fichiers, Krunner, Mots-clés de recherche Internet) </para
+>Recherche (Recherche de fichiers, KRunner, Mots-clés de recherche Internet) </para
 ></listitem>
 </itemizedlist
 ></para>
