@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-23 01:39+0000\n"
+"POT-Creation-Date: 2023-12-08 01:36+0000\n"
 "PO-Revision-Date: 2023-06-14 23:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -158,12 +158,12 @@ msgstr "Mostra el menú"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:638
+#: app/sidebar/SidebarMode.cpp:639
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/sidebar/SidebarMode.cpp:708
+#: app/sidebar/SidebarMode.cpp:709
 #, kde-format
 msgid "Most Used"
 msgstr "Més utilitzat"
@@ -227,56 +227,3 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informació del sistema"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Busca"
-
-#~ msgid "About Active View"
-#~ msgstr "Quant a la vista activa"
-
-#~ msgid "About %1"
-#~ msgstr "Quant a %1"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "Configuració del sistema no ha pogut trobar cap vista, i per tant, no hi "
-#~ "ha res disponible per a visualitzar."
-
-#~ msgid "No views found"
-#~ msgstr "No s'ha trobat cap vista"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Nom intern per a la vista utilitzada"
-
-#~ msgid "Switch to Icon View"
-#~ msgstr "Canvia a la vista d'icones"
-
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "Canvia a la vista de barra lateral"
-
-#~ msgid "Icon View"
-#~ msgstr "Vista d'icones"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr ""
-#~ "Proporciona una vista categoritzada d'icones dels mòduls de control."
-
-#~ msgid "All Settings"
-#~ msgstr "Tot la configuració"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "Drecera de teclat: %1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "Vista de barra lateral"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr ""
-#~ "Proporciona una vista categoritzada de la barra lateral dels mòduls de "
-#~ "control."
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "(c) 2017, Marco Martin"

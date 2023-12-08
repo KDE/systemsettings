@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-23 01:39+0000\n"
+"POT-Creation-Date: 2023-12-08 01:36+0000\n"
 "PO-Revision-Date: 2023-02-18 20:47+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -154,12 +154,12 @@ msgstr "Menyunu göstərmək"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:638
+#: app/sidebar/SidebarMode.cpp:639
 #, kde-format
 msgid "Sidebar"
 msgstr "Yan Panel"
 
-#: app/sidebar/SidebarMode.cpp:708
+#: app/sidebar/SidebarMode.cpp:709
 #, kde-format
 msgid "Most Used"
 msgstr "Daha çox istifadə olunanlar"

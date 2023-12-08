@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-23 01:39+0000\n"
+"POT-Creation-Date: 2023-12-08 01:36+0000\n"
 "PO-Revision-Date: 2009-12-12 12:21+0100\n"
 "Last-Translator: Mark Kwidzińśczi <mark@linuxcsb.org>\n"
 "Language-Team: Kaszëbsczi <i18n-csb@linuxcsb.org>\n"
@@ -159,12 +159,12 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:638
+#: app/sidebar/SidebarMode.cpp:639
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:708
+#: app/sidebar/SidebarMode.cpp:709
 #, kde-format
 msgid "Most Used"
 msgstr ""

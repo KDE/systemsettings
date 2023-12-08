@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-23 01:39+0000\n"
+"POT-Creation-Date: 2023-12-08 01:36+0000\n"
 "PO-Revision-Date: 2023-04-24 09:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -164,12 +164,12 @@ msgstr "Prikaži meni"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:638
+#: app/sidebar/SidebarMode.cpp:639
 #, kde-format
 msgid "Sidebar"
 msgstr "Stranska vrstica"
 
-#: app/sidebar/SidebarMode.cpp:708
+#: app/sidebar/SidebarMode.cpp:709
 #, kde-format
 msgid "Most Used"
 msgstr "Najbolj uporabljeni"
