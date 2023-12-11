@@ -159,7 +159,7 @@
 ></keycombo
 > fera apparaître la boîte de dialogue de &krunner;. Saisissez <command
 >systemsettings</command
-> et appuyez sur &Enter;. </para>
+> et appuyez sur la touche « &Enter; ». </para>
 </listitem>
 <listitem>
 <para
@@ -178,7 +178,7 @@
 >L'écran de la &systemsettings;</title>
 
 <para
->Lorsque vous démarrez  &systemsettings;, une fenêtre apparaît divisée en trois parties de fonctions. </para>
+>Lorsque vous démarrez &systemsettings;, une fenêtre apparaît divisée en trois parties de fonctions. </para>
 
 <para
 >Sur toute la partie supérieure se trouve une barre d'outils fournissant à l'utilisateur la capacité de revenir dans la fenêtre principale depuis l'intérieur d'un module en utilisant le bouton <guibutton
@@ -264,11 +264,11 @@
 ></listitem>
 <listitem
 ><para
->Démarrage et arrêt (Écran de connexion (SDDM), démarrage automatique, services en arrière-pla, session de bureau, écran de démarrage) </para
+>Démarrage et arrêt (Écran de connexion (SDDM), démarrage automatique, services en arrière-plan, session de bureau, écran de démarrage) </para
 ></listitem>
 <listitem
 ><para
->Recherche (Recherche de fichiers, Krunner, Mots-clés de recherche Internet) </para
+>Recherche (Recherche de fichiers, KRunner, Mots-clés de recherche Internet) </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -341,7 +341,7 @@
 ><itemizedlist>
 <listitem
 ><para
->Périphériques d'entrée (Clavier, souris, manette de jeux, tablette graphique, pavé tactile) </para
+>Périphériques d'entrée (Clavier, souris, contrôleur de jeux, tablette graphique, pavé tactile) </para
 ></listitem>
 <listitem
 ><para
@@ -446,7 +446,7 @@
 >Exécution de modules individuels de &systemsettings;</title>
 
 <para
->Les modules individuels peuvent être exécutés sans lancer &systemsettings;  à l'aide de la commande <command
+>Les modules individuels peuvent être exécutés sans lancer &systemsettings; à l'aide de la commande <command
 >kcmshell5</command
 > en ligne de commandes. Saisissez <command
 >kcmshell5 --list</command
@@ -494,7 +494,7 @@
 <para
 >Ce bouton <quote
 >réinitialisera</quote
->; le module vers ses paramètres précédents. </para>
+> le module vers ses paramètres précédents. </para>
 </listitem>
 </varlistentry>
 
@@ -581,7 +581,7 @@
 >Documentation sous copyright &copy; 2008 &Richard.Johnson; &Richard.Johnson.mail; </para>
 
 <para
->Traduction française par &JoelleCornavin;,  &LudovicGrossard; et &XavierBesnard;</para
+>Traduction française par &JoelleCornavin;, &LudovicGrossard; et &XavierBesnard;</para
 > &underFDL; &underGPL; </chapter>
 
 &documentation.index;
