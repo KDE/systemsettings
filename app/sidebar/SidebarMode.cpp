@@ -256,6 +256,10 @@ void SidebarMode::showActionMenu(const QPoint &position)
         setActionMenuVisible(false);
     });
     menu->setAttribute(Qt::WA_DeleteOnClose);
+    // Breeze and Oxygen have rounded corners on menus. They set this attribute in polish()
+    // but at that time the underlying surface has already been created where setting this
+    // flag makes no difference anymore (Bug 385311)
+    menu->setAttribute(Qt::WA_TranslucentBackground);
 
     const QStringList actionList{QStringLiteral("switchto_iconview"),
                                  QStringLiteral("highlight_changes"),
