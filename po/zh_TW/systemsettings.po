@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:36+0000\n"
+"POT-Creation-Date: 2023-12-15 01:37+0000\n"
 "PO-Revision-Date: 2023-02-18 00:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -160,12 +160,12 @@ msgstr "顯示選單"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:639
+#: app/sidebar/SidebarMode.cpp:643
 #, kde-format
 msgid "Sidebar"
 msgstr "側邊欄"
 
-#: app/sidebar/SidebarMode.cpp:709
+#: app/sidebar/SidebarMode.cpp:713
 #, kde-format
 msgid "Most Used"
 msgstr "最常使用"

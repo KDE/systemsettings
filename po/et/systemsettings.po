@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:36+0000\n"
+"POT-Creation-Date: 2023-12-15 01:37+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -161,12 +161,12 @@ msgstr "Menüü näitamine"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:639
+#: app/sidebar/SidebarMode.cpp:643
 #, kde-format
 msgid "Sidebar"
 msgstr "Külgriba"
 
-#: app/sidebar/SidebarMode.cpp:709
+#: app/sidebar/SidebarMode.cpp:713
 #, kde-format
 msgid "Most Used"
 msgstr "Enim tarvitatud"

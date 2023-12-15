@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:36+0000\n"
+"POT-Creation-Date: 2023-12-15 01:37+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -161,12 +161,12 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:639
+#: app/sidebar/SidebarMode.cpp:643
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:709
+#: app/sidebar/SidebarMode.cpp:713
 #, kde-format
 msgid "Most Used"
 msgstr ""

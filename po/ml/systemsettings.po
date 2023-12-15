@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-08 01:36+0000\n"
+"POT-Creation-Date: 2023-12-15 01:37+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -156,12 +156,12 @@ msgstr "മെനു കാണിക്കുക"
 msgid "Plasma"
 msgstr "പ്ലാസ്മ"
 
-#: app/sidebar/SidebarMode.cpp:639
+#: app/sidebar/SidebarMode.cpp:643
 #, kde-format
 msgid "Sidebar"
 msgstr "സൈഡ്‌ബാർ"
 
-#: app/sidebar/SidebarMode.cpp:709
+#: app/sidebar/SidebarMode.cpp:713
 #, kde-format
 msgid "Most Used"
 msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
