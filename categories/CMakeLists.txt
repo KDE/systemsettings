@@ -3,7 +3,6 @@ install(FILES
 
     settings-network.desktop
     settings-network-networksettings.desktop
-    settings-network-connectivity.desktop
 
     settings-hardware-input.desktop
     settings-hardware-input-pointing-devices.desktop
@@ -25,9 +24,7 @@ install(FILES
 
     settings-personalization.desktop
     settings-workspace.desktop
-    settings-workspace-desktopbehavior.desktop
     settings-workspace-search.desktop
-    settings-workspace-shortcuts.desktop
 
     settings-security-privacy.desktop
     settings-applications-permissions.desktop
@@ -35,7 +32,6 @@ install(FILES
     settings-regionalsettings.desktop
 
     settings-system-administration.desktop
-    settings-hardware-powermanagement.desktop
     settings-workspace-session.desktop
 
     DESTINATION ${KDE_INSTALL_DATADIR}/systemsettings/categories
