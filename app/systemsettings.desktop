@@ -8,7 +8,7 @@ X-KDE-StartupNotify=true
 X-KDE-Shortcuts=Tools
 
 OnlyShowIn=KDE;
-Actions=kcm-lookandfeel;kcm-users;screenlocker;powerdevilprofilesconfig;kcm-kscreen;
+Actions=kcm-lookandfeel;kcm-users;kcm-screenlocker;kcm-powerdevilprofilesconfig;kcm-kscreen;
 
 GenericName=System Settings
 GenericName[ar]=إعدادات النّظام
@@ -383,7 +383,7 @@ Name[zh_TW]=使用者
 Icon=preferences-system-users
 Exec=systemsettings kcm_users
 
-[Desktop Action screenlocker]
+[Desktop Action kcm-screenlocker]
 Name=Screen Locking
 Name[ar]=قفل الشاشة
 Name[ast]=Bloquéu de la pantalla
@@ -438,9 +438,9 @@ Name[x-test]=xxScreen Lockingxx
 Name[zh_CN]=锁屏
 Name[zh_TW]=螢幕鎖定
 Icon=preferences-desktop-user-password
-Exec=systemsettings screenlocker
+Exec=systemsettings kcm_screenlocker
 
-[Desktop Action powerdevilprofilesconfig]
+[Desktop Action kcm-powerdevilprofilesconfig]
 Name=Energy Saving
 Name[ar]=حفظ الطاقة
 Name[ast]=Aforru d'enerxía
@@ -494,7 +494,7 @@ Name[x-test]=xxEnergy Savingxx
 Name[zh_CN]=省电功能
 Name[zh_TW]=節能選項
 Icon=preferences-system-power-management
-Exec=systemsettings powerdevilprofilesconfig
+Exec=systemsettings kcm_powerdevilprofilesconfig
 
 [Desktop Action kcm-kscreen]
 Name=Display Configuration
