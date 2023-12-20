@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-15 01:37+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2021-09-09 23:38-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -200,7 +200,7 @@ msgstr "Равзанаи гуфтугӯ"
 msgid "Reset all current changes to previous values"
 msgstr "Бозсозӣ кардани ҳамаи тағйироти ҷорӣ ба қиматҳои пешин"
 
-#: core/ModuleView.cpp:343
+#: core/ModuleView.cpp:353
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,7 +209,7 @@ msgstr ""
 "Танзимоти модули ҷорӣ тағйир ёфт.\n"
 "Шумо мехоҳед, ки тағйиротро татбиқ ё рад кунед?"
 
-#: core/ModuleView.cpp:348
+#: core/ModuleView.cpp:358
 #, kde-format
 msgid "Apply Settings"
 msgstr "Татбиқ кардани танзимот"
