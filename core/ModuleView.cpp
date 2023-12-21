@@ -41,6 +41,7 @@
 #include <cmath>
 #include <kpluginmetadata.h>
 
+#include "BaseData.h"
 #include "MenuItem.h"
 
 class CustomTitle : public KTitleWidget
@@ -267,7 +268,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
         page->setName(QString());
     } else { // It must be a normal module then
-        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariantList(args.begin(), args.end()));
+        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariantList(args.begin(), args.end()), BaseData::instance()->qmlEngine());
         moduleScroll->setWidget(kcm->widget());
         kcm->widget()->setAutoFillBackground(false);
         kcm->load();

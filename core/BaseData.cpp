@@ -11,6 +11,8 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#include <QQmlEngine>
+
 class DataHelper
 {
 public:
@@ -66,6 +68,14 @@ void BaseData::setHomeItem(MenuItem *item)
 KConfigGroup BaseData::configGroup(const QString &pluginName)
 {
     return KSharedConfig::openConfig()->group(pluginName);
+}
+
+std::shared_ptr<QQmlEngine> BaseData::qmlEngine()
+{
+    if (!m_engine) {
+        m_engine.reset(new QQmlEngine(this));
+    }
+    return m_engine;
 }
 
 #include "moc_BaseData.cpp"

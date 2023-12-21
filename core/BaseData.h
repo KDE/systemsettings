@@ -11,6 +11,7 @@
 
 #include "systemsettingsview_export.h"
 
+class QQmlEngine;
 class QString;
 class MenuItem;
 class KConfigGroup;
@@ -83,9 +84,12 @@ public:
      */
     KConfigGroup configGroup(const QString &pluginName);
 
+    std::shared_ptr<QQmlEngine> qmlEngine();
+
 private:
     MenuItem *rootMenu;
     MenuItem *m_homeItem;
+    std::shared_ptr<QQmlEngine> m_engine;
 };
 
 #endif

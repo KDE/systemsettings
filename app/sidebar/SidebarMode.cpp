@@ -128,6 +128,7 @@ public:
     ModuleView *moduleView = nullptr;
     KActionCollection *collection = nullptr;
     QPersistentModelIndex activeCategoryIndex;
+    std::shared_ptr<QQmlEngine> engine;
     int activeCategoryRow = -1;
     int activeSubCategoryRow = -1;
     int activeSearchRow = -1;
@@ -638,14 +639,14 @@ void SidebarMode::initWidget()
             d->collection = mainWindow->actionCollection();
         }
     }
-
-    d->quickWidget = new QQuickWidget(d->mainWidget);
+    d->engine = BaseData::instance()->qmlEngine();
+    d->quickWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-    d->quickWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
+    d->quickWidget->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
 
-    d->quickWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
+    d->quickWidget->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
 
     // Breaking change in Qt6: https://github.com/qt/qtdeclarative/commit/0d80dbd8c2cfc2a7d2a4d970b7acfc7fb5fb97a0
     // Use setContent to prevent the root item from being destroyed: https://github.com/qt/qtdeclarative/commit/69d61fecf2deee7510f5f2448614174683744d82
@@ -709,7 +710,7 @@ void SidebarMode::initWidget()
 
 void SidebarMode::initPlaceHolderWidget()
 {
-    d->placeHolderWidget = new QQuickWidget(d->mainWidget);
+    d->placeHolderWidget = new QQuickWidget(BaseData::instance()->qmlEngine().get(), d->mainWidget);
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
