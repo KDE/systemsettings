@@ -5,13 +5,13 @@
 # Laszlo Papp <djszapi@archlinux.us>, 2010.
 # Kiszel Kristóf <ulysses@kubuntu.org>, 2010, 2017.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2019.
-# Kristof Kiszel <kiszel.kristof@gmail.com>, 2018, 2020, 2021.
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2021-09-20 10:06+0200\n"
+"PO-Revision-Date: 2024-01-02 12:05+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -19,17 +19,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.03.80\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kiszel Kristóf,Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kiszel.kristof@gmail.com,tszanto@interware.hu"
+msgstr "ulysses@fsf.hu"
 
 #: app/main.cpp:54 app/SettingsBase.cpp:57
 #, kde-format
@@ -123,18 +123,14 @@ msgid "No description available"
 msgstr "Nem érhető el leírás"
 
 #: app/SettingsBase.cpp:142
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to show indicators for settings with custom data. Use as short a "
-#| "translation as is feasible, as horizontal space is limited."
-#| msgid "Highlight Changed Settings"
+#, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Módosított beállítások kiemelése"
 
 #: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Hiba jelentése az aktuális oldalban…"
 
 #: app/SettingsBase.cpp:175
 #, kde-format
