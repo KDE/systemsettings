@@ -70,7 +70,7 @@ Kirigami.ScrollablePage {
                 Keys.onBacktabPressed: {
                     systemsettings.focusPrevious()
                 }
-                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
+                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
             }
 
             Kirigami.SearchField {
@@ -90,7 +90,7 @@ Kirigami.ScrollablePage {
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.right
 
-                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
+                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
             }
 
             HamburgerMenuButton {
@@ -103,7 +103,7 @@ Kirigami.ScrollablePage {
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.down
 
-                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
+                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
             }
         }
     }

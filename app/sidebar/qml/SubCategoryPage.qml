@@ -92,7 +92,7 @@ Kirigami.ScrollablePage {
                 Keys.onBacktabPressed: {
                     systemsettings.focusPrevious()
                 }
-                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
+                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
             }
 
             // Show a non-interactive heading when both columns are visible
@@ -120,7 +120,7 @@ Kirigami.ScrollablePage {
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.down
 
-                Keys.onDownPressed: event => rowLayout.Keys.onDownPressed(event)
+                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
             }
         }
     }
