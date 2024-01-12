@@ -469,9 +469,10 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     d->mLayout->setContentsMargins(0, 0, 0, 0);
     d->mLayout->setSpacing(0);
     d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
-                                    0, // Remove extra space between KCM content and bottom buttons
+                                    style()->pixelMetric(QStyle::PM_LayoutTopMargin),
                                     style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                     style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
+    d->mButtons->setProperty("_breeze_force_frame", true);
     d->mPageWidget->layout()->setSpacing(0);
     if (auto titleWidget = qobject_cast<KTitleWidget *>(d->mPageWidget->pageHeader())) {
         // 18px is Standard Kirigami gridUnit for 10pt Noto Sans.
