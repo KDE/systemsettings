@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 set(PROJECT_VERSION "6.0.80")
 
 project(systemsettings VERSION ${PROJECT_VERSION})
+set(PROJECT_DEP_VERSION "6.0.80")
 set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
@@ -63,7 +64,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     QUIET
 )
 
-find_package(PlasmaActivities ${PROJECT_VERSION} REQUIRED)
+find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
 
 add_library(systemsettings_debug STATIC)
 target_link_libraries(systemsettings_debug Qt::Core)
