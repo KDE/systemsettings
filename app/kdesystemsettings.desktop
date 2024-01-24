@@ -3,7 +3,7 @@ Exec=systemsettings
 Icon=preferences-system
 Type=Application
 SingleMainWindow=true
-X-KDE-StartupNotify=true
+StartupNotify=true
 NotShowIn=KDE;
 
 GenericName=KDE System Settings
