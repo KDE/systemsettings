@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-25 00:38+0000\n"
 "PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -156,12 +156,12 @@ msgstr "विकल्पसूचि दर्शयतु"
 msgid "Plasma"
 msgstr "प्लाज्मा"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr "पार्श्वपट्टिका"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr "अधिकांशतः प्रयुक्तः"
@@ -195,12 +195,12 @@ msgstr "%1 पुनः प्रारम्भय"
 msgid "Dialog"
 msgstr "संवादः"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "सर्वान् वर्तमान् परिवर्तनान् पूर्वनियतान् पुनः स्थापय"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:354
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,7 +209,7 @@ msgstr ""
 "वर्तमान विभागस्य संवादितानि सम्प्रियाणि च विद्यते।\n"
 " किं आप परिवर्तनान् प्रयुञ्जीते वा त्यजीते?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid "Apply Settings"
 msgstr "समायोजनानि प्रयोजयन्तु"

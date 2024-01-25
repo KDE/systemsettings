@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-25 00:38+0000\n"
 "PO-Revision-Date: 2023-12-20 09:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -171,12 +171,12 @@ msgstr "Afficher le menu"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr "Panneau latéral"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr "Les plus utilisés"
@@ -210,12 +210,12 @@ msgstr "Relancer %1"
 msgid "Dialog"
 msgstr "Boîte de dialogue"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Réinitialiser toutes les modifications avec les valeurs précédentes"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:354
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -224,7 +224,7 @@ msgstr ""
 "Les paramètres du module courant ont changé.\n"
 "Voulez-vous appliquer ces modifications ou les annuler ?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid "Apply Settings"
 msgstr "Appliquer les paramètres"

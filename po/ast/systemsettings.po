@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-25 00:38+0000\n"
 "PO-Revision-Date: 2023-10-31 20:02+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -154,12 +154,12 @@ msgstr "Amosar el menú"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra llateral"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr "Lo más usao"
@@ -193,12 +193,12 @@ msgstr "Volver llanzar «%1»"
 msgid "Dialog"
 msgstr "Diálogu"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:354
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -207,7 +207,7 @@ msgstr ""
 "La configuración del módulu actual camudó.\n"
 "¿Quies aplicar los cambeos o escartalos?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid "Apply Settings"
 msgstr ""

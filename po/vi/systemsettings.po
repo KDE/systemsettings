@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-25 00:38+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -155,12 +155,12 @@ msgstr "Hiện trình đơn"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr "Thanh bên"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr "Dùng nhiều nhất"
@@ -193,12 +193,12 @@ msgstr "Khởi chạy lại %1"
 msgid "Dialog"
 msgstr "Hộp thoại"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Đặt lại tất cả các thay đổi hiện tại về giá trị trước"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:354
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -207,7 +207,7 @@ msgstr ""
 "Thiết lập cho khối hiện tại đã thay đổi.\n"
 "Bạn muốn áp dụng hay loại bỏ các thay đổi?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid "Apply Settings"
 msgstr "Áp dụng thiết lập"
