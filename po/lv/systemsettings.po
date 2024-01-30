@@ -5,26 +5,27 @@
 # Maris Nartiss <maris.kde@gmail.com>, 2007.
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2009-11-20 18:15+0200\n"
-"Last-Translator: Viesturs Zariņš <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-01-28 11:33+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Māris Nartišs, Viesturs Zariņš"
+msgstr "Māris Nartišs, Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -34,12 +35,12 @@ msgstr "maris.kde@gmail.com, viesturs.zarins@mii.lu.lv"
 #: app/main.cpp:54 app/SettingsBase.cpp:57
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "Informācijas centrs"
 
 #: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "Centralizēts un ērts sistēmas informācijas pārskats"
 
 #: app/main.cpp:58 app/main.cpp:69
 #, kde-format
@@ -53,8 +54,7 @@ msgid "System Settings"
 msgstr "Sistēmas iestatījumi"
 
 #: app/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
 msgstr "KDE centrālais konfigurācijas centrs."
 
@@ -71,7 +71,7 @@ msgstr "Uzturētājs"
 #: app/main.cpp:81
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: app/main.cpp:81
 #, kde-format
@@ -101,37 +101,37 @@ msgstr "Iekšējā moduļu reprezentācija, iekšējais moduļu modelis"
 #: app/main.cpp:91
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "Uzskaitīt visus iespējamos moduļus"
 
 #: app/main.cpp:92 app/main.cpp:153
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "Konfigurēt atveramo moduli"
 
 #: app/main.cpp:93 app/main.cpp:154
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "Moduļa argumenti"
 
 #: app/main.cpp:101
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "Pieejami ir šie moduļi:"
 
 #: app/main.cpp:119
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "Apraksts nav pieejams"
 
 #: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Iekrāsot izmainītos iestatījumus"
 
 #: app/SettingsBase.cpp:153
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Ziņot par kļūdu šajā lapā..."
 
 #: app/SettingsBase.cpp:175
 #, kde-format
@@ -141,33 +141,33 @@ msgstr "Palīdzība"
 #: app/sidebar/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
-msgstr ""
+msgstr "Rādīt ievada lapu"
 
 #: app/sidebar/qml/CategoriesPage.qml:130
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "Meklēšana neatrada nevienu vienumu"
 
 #: app/sidebar/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "Rādīt izvēlni"
 
 #: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: app/sidebar/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "Sānu josla"
 
 #: app/sidebar/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "Visbiežāk izmantots"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: app/systemsettingsui.rc:15
@@ -176,35 +176,33 @@ msgid "About System Settings"
 msgstr "Par Sistēmas iestatījumiem"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "<i>Satur %1 vienību</i>"
-msgstr[1] "<i>Satur %1 vienības</i>"
-msgstr[2] "<i>Satur %1 vienības</i>"
+msgstr[0] "Satur %1 vienību"
+msgstr[1] "Satur %1 vienības"
+msgstr[2] "Satur %1 vienību"
 
 #: core/ExternalAppModule.cpp:25
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 ir ārēja programma un tā tika automātiski palaista"
+msgstr "„%1“ ir ārēja programma, kas ir automātiski palaista"
 
 #: core/ExternalAppModule.cpp:26
 #, kde-format
 msgid "Relaunch %1"
-msgstr "Pārlaist %1"
+msgstr "Palaist no jauna „%1“"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
 #: core/externalModule.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Dialogs"
+msgstr "Dialoglodziņš"
 
 #: core/ModuleView.cpp:179
 #, kde-format
 msgid "Reset all current changes to previous values"
-msgstr "Atstatīt viektās izmaiņas uz sākotnējām vērtībām"
+msgstr "Atstatīt pašreizējās izmaiņas uz sākotnējām vērtībām"
 
 #: core/ModuleView.cpp:354
 #, kde-format
@@ -213,7 +211,7 @@ msgid ""
 "Do you want to apply the changes or discard them?"
 msgstr ""
 "Aktīvajā modulī ir nesaglabātas izmaiņas.\n"
-"Vai vēlaties pielietot šīs izmaiņas vai izmest tās?"
+"Vai vēlaties pielietot šīs izmaiņas vai tās izmest?"
 
 #: core/ModuleView.cpp:359
 #, kde-format
@@ -224,10 +222,10 @@ msgstr "Pielietot izmaiņas"
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
+"Atrod sistēmas izmaiņu moduļus, kuru nosaukumi vai apraksti atbilst :q:"
 
 #: runner/systemsettingsrunner.cpp:111
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
 msgstr "Sistēmas iestatījumi"
 
