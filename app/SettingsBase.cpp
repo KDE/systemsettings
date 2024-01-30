@@ -8,20 +8,16 @@
 
 #include "SettingsBase.h"
 #include "../core/kcmmetadatahelpers.h"
-#include "../systemsettings_app_debug.h"
 #include "sidebar/SidebarMode.h"
 
-#include <QDir>
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QGuiApplication>
 #include <QLoggingCategory>
 #include <QMenu>
 #include <QMenuBar>
-#include <QRadioButton>
 #include <QScreen>
 #include <QTimer>
-#include <QVariantList>
 #include <QtGlobal>
 
 #include <KAboutData>
@@ -32,10 +28,8 @@
 #include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KStandardAction>
 #include <KToolBar>
-#include <KWindowConfig>
 #include <KXMLGUIFactory>
 
 #include "BaseData.h"
