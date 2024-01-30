@@ -740,8 +740,8 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
     switch (event->type()) {
     case QEvent::KeyPress: {
         // allow tab navigation inside the qquickwidget
-        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
-        QQuickWidget *qqw = static_cast<QQuickWidget *>(watched);
+        auto ke = static_cast<QKeyEvent *>(event);
+        auto qqw = qobject_cast<QQuickWidget *>(watched);
         if (ke->key() == Qt::Key_Tab || ke->key() == Qt::Key_Backtab) {
             QCoreApplication::sendEvent(qqw->quickWindow(), event);
             return true;
