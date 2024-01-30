@@ -12,12 +12,7 @@
 
 #include <algorithm>
 
-#include <QDebug>
-#include <QDir>
-#include <QIcon>
 #include <QMimeData>
-#include <QMutexLocker>
-#include <QStandardPaths>
 #include <QUrl>
 #include <QUrlQuery>
 

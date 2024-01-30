@@ -26,7 +26,6 @@
 #include <KLocalizedString>
 #include <KXmlGuiWindow>
 #include <QAction>
-#include <QDebug>
 #include <QGraphicsOpacityEffect>
 #include <QLabel>
 #include <QMenu>
@@ -34,7 +33,6 @@
 #include <QQmlEngine>
 #include <QQuickItem>
 #include <QQuickWidget>
-#include <QStandardItemModel>
 #include <QStandardPaths>
 
 FocusHackWidget::FocusHackWidget(QWidget *parent)

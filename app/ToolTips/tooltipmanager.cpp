@@ -17,7 +17,6 @@
 #include <QStyle>
 #include <QTimer>
 
-#include <KColorScheme>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KToolTipWidget>
