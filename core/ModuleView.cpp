@@ -162,7 +162,7 @@ ModuleView::ModuleView(QWidget *parent)
     d->mPageWidget->layout()->setContentsMargins(0, 0, 0, 0);
 
     // Zero out only the horizontal spacing (the vertical spacing is fine)
-    auto gridLayout = static_cast<QGridLayout *>(d->mPageWidget->layout());
+    auto gridLayout = qobject_cast<QGridLayout *>(d->mPageWidget->layout());
 
     gridLayout->setHorizontalSpacing(0);
 
