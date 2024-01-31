@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-31 02:38+0000\n"
 "PO-Revision-Date: 2011-03-04 03:50+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sairan@computer.org"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -42,8 +42,8 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "Жүйе параметрлері"
@@ -119,17 +119,17 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "Анықтама"
@@ -155,12 +155,12 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:711
 #, kde-format
 msgid "Most Used"
 msgstr ""
@@ -171,7 +171,7 @@ msgstr ""
 msgid "About System Settings"
 msgstr "'Жүйе параметрлері' туралы"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
 #| msgid_plural "<i>Contains %1 items</i>"
@@ -195,12 +195,12 @@ msgstr "%1 дегенді қайта жегу"
 msgid "Dialog"
 msgstr "Диалог"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Бүкіл енгізілген өзгерістерді ысырып тастап, алдыңғы күйлеріне қайтару"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,17 +209,17 @@ msgstr ""
 "Белсенді модулінде сақталмаған өзгерістер бар.\n"
 "Олар іске асырылсын ба, әлде ысырып тасталсын ба?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Баптауларын іске асыру"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

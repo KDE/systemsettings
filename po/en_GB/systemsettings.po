@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-31 02:38+0000\n"
 "PO-Revision-Date: 2023-02-26 19:50+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "malcolm.hunter@gmx.co.uk"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Info Centre"
@@ -45,8 +45,8 @@ msgstr "Centralised and convenient overview of system information."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "System Settings"
@@ -121,17 +121,17 @@ msgstr "The following modules are available:"
 msgid "No description available"
 msgstr "No description available"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Highlight Changed Settings"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Report a Bug in the Current Page…"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "Help"
@@ -157,12 +157,12 @@ msgstr "Show menu"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
 msgstr "Sidebar"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:711
 #, kde-format
 msgid "Most Used"
 msgstr "Most Used"
@@ -173,7 +173,7 @@ msgstr "Most Used"
 msgid "About System Settings"
 msgstr "About System Settings"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -196,12 +196,12 @@ msgstr "Relaunch %1"
 msgid "Dialog"
 msgstr "Dialogue"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Reset all current changes to previous values"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -210,17 +210,17 @@ msgstr ""
 "The settings of the current module have changed.\n"
 "Do you want to apply the changes or discard them?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Apply Settings"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Finds system settings modules whose names or descriptions match :q:"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "System Information"

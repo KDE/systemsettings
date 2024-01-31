@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-31 02:38+0000\n"
 "PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "सूचना केन्द्रम्"
@@ -44,8 +44,8 @@ msgstr "प्रणालीसूचनायाः केन्द्री�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन् कुक्स्ले"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "सङ्गणकतन्त्रस्य समायोजनानि"
@@ -120,17 +120,17 @@ msgstr "निम्नलिखितविभागाः उपलभ्य�
 msgid "No description available"
 msgstr "वर्णनम् नास्ति"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "परिवर्तित समायोजनानि प्रकटय"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "वर्तमान पृष्ठे दोषस्य सूचनां ददातु…"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "साहाय्यम्‌"
@@ -156,12 +156,12 @@ msgstr "विकल्पसूचि दर्शयतु"
 msgid "Plasma"
 msgstr "प्लाज्मा"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
 msgstr "पार्श्वपट्टिका"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:711
 #, kde-format
 msgid "Most Used"
 msgstr "अधिकांशतः प्रयुक्तः"
@@ -172,7 +172,7 @@ msgstr "अधिकांशतः प्रयुक्तः"
 msgid "About System Settings"
 msgstr "सङ्गणकतन्त्रस्य समायोजनानि विषये"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -195,12 +195,12 @@ msgstr "%1 पुनः प्रारम्भय"
 msgid "Dialog"
 msgstr "संवादः"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "सर्वान् वर्तमान् परिवर्तनान् पूर्वनियतान् पुनः स्थापय"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,17 +209,17 @@ msgstr ""
 "वर्तमान विभागस्य संवादितानि सम्प्रियाणि च विद्यते।\n"
 " किं आप परिवर्तनान् प्रयुञ्जीते वा त्यजीते?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "समायोजनानि प्रयोजयन्तु"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: समानानां सङ्गणकतन्त्रस्य समायोजनानि विभागनां नामानि वा वर्णनानि याति:"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "सङ्गणकतन्त्रस्य वर्णन"

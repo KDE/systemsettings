@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-31 02:38+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 "sandeep.shedmake@gmail.com, \n"
 "chetan@kompkin.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -48,8 +48,8 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) 2009, बेन कूक्सली"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "प्रणाली संयोजना"
@@ -125,17 +125,17 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "मदत"
@@ -161,12 +161,12 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:711
 #, kde-format
 msgid "Most Used"
 msgstr ""
@@ -177,7 +177,7 @@ msgstr ""
 msgid "About System Settings"
 msgstr "प्रणाली संयोजने बद्दल"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
 #| msgid_plural "<i>Contains %1 items</i>"
@@ -202,12 +202,12 @@ msgstr "%1 पुन्हा प्रक्षेपण करा"
 msgid "Dialog"
 msgstr "संवाद"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "आता केलेले सर्व बदल काढून टाकून पूर्वीची मूल्ये पुन्हस्थापित करा"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -216,17 +216,17 @@ msgstr ""
 "सध्याच्या विभागाच्या संयोजनेत बदल केले गेले आहेत.\n"
 "तुम्हाला बदल साठवायचे आहेत का वगळायचे आहेत?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "संयोजना साठवा"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

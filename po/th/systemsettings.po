@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-31 02:38+0000\n"
 "PO-Revision-Date: 2010-02-10 14:29+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "drrider@gmail.com, donga.nb@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -44,8 +44,8 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "สงวนลิขสิทธิ์ (c) 2552, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "ตั้งค่าระบบ"
@@ -122,17 +122,17 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "ช่วยเหลือ"
@@ -158,12 +158,12 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:711
 #, kde-format
 msgid "Most Used"
 msgstr ""
@@ -174,7 +174,7 @@ msgstr ""
 msgid "About System Settings"
 msgstr "เกี่ยวกับ ตั้งค่าระบบ"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
 #| msgid_plural "<i>Contains %1 items</i>"
@@ -198,12 +198,12 @@ msgstr "เรียกให้ %1 ทำงานใหม่"
 msgid "Dialog"
 msgstr "กล่องโต้ตอบ"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "ปรับค่าต่าง ๆ ที่เปลี่ยนแปลงไปให้กลับคืนสู่ค่าก่อนหน้า"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -212,17 +212,17 @@ msgstr ""
 "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึกในมอดูลที่ใช้งานอยู่\n"
 "คุณต้องการที่จะนำการเปลี่ยนแปลงไปใช้งาน หรือทิ้งไป ?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "ปรับใช้ค่าที่ตั้งไว้"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

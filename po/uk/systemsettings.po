@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-31 02:38+0000\n"
 "PO-Revision-Date: 2023-01-03 15:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ivanpetrouchtchak@yahoo.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Центр інформації"
@@ -46,8 +46,8 @@ msgstr "Централізований та зручний огляд усіх �
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© Ben Cooksley, 2009"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "Системні параметри"
@@ -122,17 +122,17 @@ msgstr "Наявні наступні модулі:"
 msgid "No description available"
 msgstr "Немає опису"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Підсвічувати змінені параметри"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Повідомити про ваду на поточній сторінці…"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "Довідка"
@@ -158,12 +158,12 @@ msgstr "Показати меню"
 msgid "Plasma"
 msgstr "Плазма"
 
-#: app/sidebar/SidebarMode.cpp:643
+#: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
 msgstr "Бічна панель"
 
-#: app/sidebar/SidebarMode.cpp:713
+#: app/sidebar/SidebarMode.cpp:711
 #, kde-format
 msgid "Most Used"
 msgstr "Найвживаніші"
@@ -174,7 +174,7 @@ msgstr "Найвживаніші"
 msgid "About System Settings"
 msgstr "Про «Системні параметри»"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -199,12 +199,12 @@ msgstr "Перезапустити %1"
 msgid "Dialog"
 msgstr "Діалогове вікно"
 
-#: core/ModuleView.cpp:178
+#: core/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Повернути всім параметрам попередні значення"
 
-#: core/ModuleView.cpp:353
+#: core/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -213,18 +213,18 @@ msgstr ""
 "Параметри активного модуля було змінено.\n"
 "Застосувати зміни чи відкинути їх?"
 
-#: core/ModuleView.cpp:358
+#: core/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Застосувати параметри"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Шукає модулі «Системних параметрів», у назві або описі яких міститься :q:"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "Дані щодо системи"
