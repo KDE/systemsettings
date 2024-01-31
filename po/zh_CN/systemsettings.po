@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-01-31 00:39+0000\n"
 "PO-Revision-Date: 2024-01-21 14:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "系统信息中心"
@@ -42,8 +42,8 @@ msgstr "系统信息的一站式简易概览"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "系统设置"
@@ -118,17 +118,17 @@ msgstr "下列模块可用："
 msgid "No description available"
 msgstr "无可用描述"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "高亮显示更改过的设置"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面中的程序缺陷…"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "帮助"
@@ -154,12 +154,12 @@ msgstr "显示菜单"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:644
+#: app/sidebar/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/sidebar/SidebarMode.cpp:714
+#: app/sidebar/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
@@ -170,7 +170,7 @@ msgstr "常用项目"
 msgid "About System Settings"
 msgstr "关于系统设置"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -192,12 +192,12 @@ msgstr "重新打开%1"
 msgid "Dialog"
 msgstr "对话框"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "重置所有当前更改为之前的值"
 
-#: core/ModuleView.cpp:354
+#: core/ModuleView.cpp:360
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -206,17 +206,17 @@ msgstr ""
 "当前模块的设置已经更改。\n"
 "您想要应用更改还是丢弃更改？"
 
-#: core/ModuleView.cpp:359
+#: core/ModuleView.cpp:365
 #, kde-format
 msgid "Apply Settings"
 msgstr "应用设置"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"

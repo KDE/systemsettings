@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-01-31 00:39+0000\n"
 "PO-Revision-Date: 2023-06-14 23:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Centre d'informació"
@@ -46,8 +46,8 @@ msgstr "Resum centralitzat i pràctic de la informació del sistema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "Arranjament del sistema"
@@ -122,17 +122,17 @@ msgstr "Estan disponibles els mòduls següents:"
 msgid "No description available"
 msgstr "No hi ha disponible cap descripció"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Ressaltat dels paràmetres canviats"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Informa d'un error a la pàgina actual…"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "Ajuda"
@@ -158,12 +158,12 @@ msgstr "Mostra el menú"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:644
+#: app/sidebar/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/sidebar/SidebarMode.cpp:714
+#: app/sidebar/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "Més usat"
@@ -174,7 +174,7 @@ msgstr "Més usat"
 msgid "About System Settings"
 msgstr "Quant a l'Arranjament del sistema"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -197,12 +197,12 @@ msgstr "Torna a engegar el %1"
 msgid "Dialog"
 msgstr "Diàleg"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Restaura tots els canvis actuals als valors anteriors"
 
-#: core/ModuleView.cpp:354
+#: core/ModuleView.cpp:360
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,19 +211,19 @@ msgstr ""
 "L'arranjament del mòdul actual ha canviat.\n"
 "Voleu aplicar els canvis o descartar-los?"
 
-#: core/ModuleView.cpp:359
+#: core/ModuleView.cpp:365
 #, kde-format
 msgid "Apply Settings"
 msgstr "Aplica l'arranjament"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Cerca mòduls de l'arranjament del sistema en què els noms o les descripcions "
 "coincideixen amb :q:"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "Informació del sistema"

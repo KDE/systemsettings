@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-01-31 00:39+0000\n"
 "PO-Revision-Date: 2023-04-22 22:04-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -34,7 +34,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ybando@k6.dion.ne.jp, rokuosan.dev@gmail.com, ryuichi_ya220@outlook.jp"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "情報センター"
@@ -49,8 +49,8 @@ msgstr "システム情報の概要"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "KDE システム設定"
@@ -125,17 +125,17 @@ msgstr "以下のモジュールが用意されています:"
 msgid "No description available"
 msgstr "利用可能な説明はありません"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "変更された設定を強調表示"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "現在のページのバグを報告..."
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "ヘルプ"
@@ -161,12 +161,12 @@ msgstr "メニューの表示"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:644
+#: app/sidebar/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: app/sidebar/SidebarMode.cpp:714
+#: app/sidebar/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "頻繁に使う設定"
@@ -177,7 +177,7 @@ msgstr "頻繁に使う設定"
 msgid "About System Settings"
 msgstr "KDE システム設定について"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -199,12 +199,12 @@ msgstr "%1 を再起動"
 msgid "Dialog"
 msgstr "ダイアログ"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "現在のすべての変更を元の値に戻します"
 
-#: core/ModuleView.cpp:354
+#: core/ModuleView.cpp:360
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -213,17 +213,17 @@ msgstr ""
 "現在のモジュールの設定が変更されました。\n"
 "変更を適用しますか？それとも破棄しますか？"
 
-#: core/ModuleView.cpp:359
+#: core/ModuleView.cpp:365
 #, kde-format
 msgid "Apply Settings"
 msgstr "設定を適用"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "名前または説明が :q: に一致するシステム設定モジュールを検索します。"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "システム情報"

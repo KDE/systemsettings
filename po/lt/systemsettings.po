@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-01-31 00:39+0000\n"
 "PO-Revision-Date: 2024-01-11 15:37+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andrius@stikonas.eu, <>"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Informacinis centras"
@@ -44,8 +44,8 @@ msgstr "Patogi ir centralizuota sistemos informacijos apžvalga."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "Sistemos nuostatos"
@@ -120,17 +120,17 @@ msgstr "Yra prieinami šie moduliai:"
 msgid "No description available"
 msgstr "Nėra prieinamo aprašo"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Paryškinti pakeistas nuostatas"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Pranešti apie klaidą esamame puslapyje…"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "Pagalba"
@@ -156,12 +156,12 @@ msgstr "Rodyti meniu"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/sidebar/SidebarMode.cpp:644
+#: app/sidebar/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "Šoninė juosta"
 
-#: app/sidebar/SidebarMode.cpp:714
+#: app/sidebar/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "Labiausiai naudojami"
@@ -172,7 +172,7 @@ msgstr "Labiausiai naudojami"
 msgid "About System Settings"
 msgstr "Apie sistemos nuostatas"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -197,12 +197,12 @@ msgstr "Paleisti %1 iš naujo"
 msgid "Dialog"
 msgstr "Dialogas"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Atstatyti visus dabartinius pakeitimus į ankstesnes reikšmes"
 
-#: core/ModuleView.cpp:354
+#: core/ModuleView.cpp:360
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,18 +211,18 @@ msgstr ""
 "Šio modulio nuostatos pasikeitė.\n"
 "Ar norite šiuos pakeitimus taikyti, ar juos atmesti?"
 
-#: core/ModuleView.cpp:359
+#: core/ModuleView.cpp:365
 #, kde-format
 msgid "Apply Settings"
 msgstr "Pritaikyti nuostatas"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Randa sistemos nuostatų modulius, kurių pavadinimai ar aprašai atitinka :q:"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "Sistemos informacija"

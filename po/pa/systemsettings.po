@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-01-31 00:39+0000\n"
 "PO-Revision-Date: 2024-01-01 08:00-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@punlinux.org"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:57
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "ਜਾਣਕਾਰੀ ਕੇਂਦਰ"
@@ -43,8 +43,8 @@ msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ ਦੀ ਕੇਂਦਰੀ ਅਤ�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ੨੦੦੯, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:60 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:113
+#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: runner/systemsettingsrunner.cpp:108
 #, kde-format
 msgid "System Settings"
 msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ"
@@ -119,17 +119,17 @@ msgstr "ਅੱਗੇ ਦਿੱਤੇ ਮੋਡੀਊਲ ਮੌਜੂਦ ਹਨ:"
 msgid "No description available"
 msgstr "ਕੋਈ ਵੇਰਵਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "ਤਬਦੀਲ ਕੀਤੀਆਂ ਸੈਟਿੰਗਾਂ ਉਘਾੜੋ"
 
-#: app/SettingsBase.cpp:153
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "…ਮੌਜੂਦਾ ਸਫ਼ੇ ਵਿੱਚ ਬੱਗ ਬਾਰੇ ਜਾਣਕਾਰੀ ਦਿਓ"
 
-#: app/SettingsBase.cpp:175
+#: app/SettingsBase.cpp:169
 #, kde-format
 msgid "Help"
 msgstr "ਮਦਦ"
@@ -155,12 +155,12 @@ msgstr "ਮੇਨੂ ਵੇਖੋ"
 msgid "Plasma"
 msgstr "ਪਲਾਜ਼ਮਾ"
 
-#: app/sidebar/SidebarMode.cpp:644
+#: app/sidebar/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "ਬਾਹੀ"
 
-#: app/sidebar/SidebarMode.cpp:714
+#: app/sidebar/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"
@@ -171,7 +171,7 @@ msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"
 msgid "About System Settings"
 msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਦੇ ਬਾਰੇ"
 
-#: app/ToolTips/tooltipmanager.cpp:188
+#: app/ToolTips/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -194,12 +194,12 @@ msgstr "%1 ਮੁੜ-ਚਲਾਓ"
 msgid "Dialog"
 msgstr "ਡਾਈਲਾਗ"
 
-#: core/ModuleView.cpp:179
+#: core/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਨੂੰ ਪਿਛਲੇ ਮੁੱਲ ਲਈ ਸੈੱਟ ਕਰੋ"
 
-#: core/ModuleView.cpp:354
+#: core/ModuleView.cpp:360
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -208,17 +208,17 @@ msgstr ""
 "ਮੌਜੂਦਾ ਮੋਡੀਊਲ ਵਿੱਚ ਕੁਝ ਅਣ-ਸੰਭਾਲੇ ਬਦਲਾਅ ਹਨ।\n"
 "ਕੀ ਤੁਸੀਂ ਇੰਨ੍ਹਾਂ ਨੂੰ ਲਾਗੂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਅਣਡਿੱਠਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: core/ModuleView.cpp:359
+#: core/ModuleView.cpp:365
 #, kde-format
 msgid "Apply Settings"
 msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਲਾਗੂ ਕਰੋ"
 
-#: runner/systemsettingsrunner.cpp:37
+#: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਦੇ ਮੋਡੀਊਲ ਲੱਭੋ, ਜਿੰਨ੍ਹਾਂ ਦੇ ਨਾਂ ਜਾਂ ਵਰਣਨ ਮਿਲਦੇ ਹਨ :q:"
 
-#: runner/systemsettingsrunner.cpp:111
+#: runner/systemsettingsrunner.cpp:106
 #, kde-format
 msgid "System Information"
 msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ"
