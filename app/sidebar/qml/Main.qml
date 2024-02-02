@@ -37,5 +37,7 @@ Item {
             right: parent.right
             bottom: parent.bottom
         }
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.Header
     }
 }
