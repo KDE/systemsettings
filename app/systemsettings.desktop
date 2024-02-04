@@ -455,7 +455,7 @@ Icon=preferences-desktop-user-password
 Exec=systemsettings kcm_screenlocker
 
 [Desktop Action kcm-powerdevilprofilesconfig]
-Name=Energy Saving
+Name=Power Management
 Name[ar]=حفظ الطاقة
 Name[ast]=Aforru d'enerxía
 Name[az]=Enerjiyə qənaət
