@@ -740,6 +740,13 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
         // allow tab navigation inside the qquickwidget
         auto ke = static_cast<QKeyEvent *>(event);
         auto qqw = qobject_cast<QQuickWidget *>(watched);
+        // Do nothing if qqw is nullptr, otherwise this would crash
+        // This can happen if user has pressed ALT or other modifier key
+        // to enable the quick shortcuts and there is a Widget on the same page.
+        // BUG: 480006
+        if (qqw == nullptr) {
+            return false;
+        }
         if (ke->key() == Qt::Key_Tab || ke->key() == Qt::Key_Backtab) {
             QCoreApplication::sendEvent(qqw->quickWindow(), event);
             return true;
