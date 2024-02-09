@@ -72,7 +72,7 @@ QSize SettingsBase::sizeHint() const
 {
     // Take the font size into account for the window size, as we do for UI elements
     const float fontSize = QFontDatabase::systemFont(QFontDatabase::GeneralFont).pointSizeF();
-    const QSize targetSize = QSize(qRound(93 * fontSize), qRound(65 * fontSize));
+    const QSize targetSize = QSize(qRound(93 * fontSize), qRound(20 * fontSize));
 
     // on smaller or portrait-rotated screens, do not max out height and/or width
     const QSize screenSize = (QGuiApplication::primaryScreen()->availableSize() * 0.9);

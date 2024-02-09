@@ -127,6 +127,8 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: subCategoryView
+        topMargin: Kirigami.Units.smallSpacing / 2
+        bottomMargin: Kirigami.Units.smallSpacing / 2
 
         anchors.fill: parent
         model: systemsettings.subCategoryModel
