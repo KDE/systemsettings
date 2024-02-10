@@ -367,7 +367,7 @@
 ></listitem>
 <listitem
 ><para
->Çoklu Ortam (Ses CD'leri, CDDB Alımı) </para
+>Çoklu Ortam (Ses CD’leri, CDDB Alımı) </para
 ></listitem>
 <listitem
 ><para
@@ -468,7 +468,7 @@
 >kcmshell5 --list</command
 > yazın. </para>
 <para
->Ek olarak K Çalıştır'ı başlatabilir ve anahtar sözcükler yazmaya başlayabilirsiniz. Yazmaya başladığınızda, &systemsettings; ile öneklenmiş eşleşen modül listesi çıkar. </para>
+>Ek olarak K Çalıştır’ı başlatabilir ve anahtar sözcükler yazmaya başlayabilirsiniz. Yazmaya başladığınızda, &systemsettings; ile öneklenmiş eşleşen modül listesi çıkar. </para>
 </sect1>
 </chapter>
 
