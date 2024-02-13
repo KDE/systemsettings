@@ -30,7 +30,8 @@ msgstr "Māris Nartišs, Viesturs Zariņš, Toms Trasūns"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "maris.kde@gmail.com, viesturs.zarins@mii.lu.lv"
+msgstr ""
+"maris.kde@gmail.com, viesturs.zarins@mii.lu.lv, toms.trasuns@posteo.net"
 
 #: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
