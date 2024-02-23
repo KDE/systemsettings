@@ -6,6 +6,7 @@ X-KDE-Weight=10
 Icon=preferences-desktop-mouse
 
 Name=Input & Output
+Name[ar]=وحدات الإدخال والإخراج
 Name[ast]=Entrada ya salida
 Name[bg]=Входни и изходни устройства
 Name[ca]=Entrada i sortida

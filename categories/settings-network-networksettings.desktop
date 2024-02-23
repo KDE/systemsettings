@@ -6,6 +6,7 @@ X-KDE-Weight=10
 Icon=preferences-system-network
 
 Name=Wi-Fi & Networking
+Name[ar]=واي فاي و الشبكات
 Name[ast]=Redes
 Name[bg]=Wi-Fi и мрежа
 Name[ca]=Wi-Fi i xarxes
