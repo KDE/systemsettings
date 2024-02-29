@@ -16,6 +16,8 @@
 
 #include "systemsettingsview_export.h"
 
+class QQmlEngine;
+
 class KCModule;
 class KPageWidgetItem;
 class KPluginMetaData;
@@ -45,7 +47,7 @@ public:
     /**
      * Constructs a ModuleView, with the parent specified.
      */
-    explicit ModuleView(QWidget *parent = nullptr);
+    explicit ModuleView(const std::shared_ptr<QQmlEngine> &engine, QWidget *parent = nullptr);
 
     /**
      * Destroys the module view, along with all modules loaded, and any changes present in them.

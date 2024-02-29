@@ -133,6 +133,7 @@ public:
     QPushButton *mReset = nullptr;
     QPushButton *mDefault = nullptr;
     QPushButton *mHelp = nullptr;
+    std::shared_ptr<QQmlEngine> engine;
     QIcon mApplyIcon;
     KMessageDialog *mResolvingChangesDialog = nullptr;
     bool pageChangeSupressed = false;
@@ -142,7 +143,7 @@ public:
     KAuth::Action authAction;
 };
 
-ModuleView::ModuleView(QWidget *parent)
+ModuleView::ModuleView(const std::shared_ptr<QQmlEngine> &engine, QWidget *parent)
     : QWidget(parent)
     , d(new Private())
 {
@@ -211,6 +212,8 @@ ModuleView::ModuleView(QWidget *parent)
             });
         }
     });
+
+    d->engine = engine;
 }
 
 ModuleView::~ModuleView()
@@ -274,7 +277,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         d->mCustomHeader->setText(item->metaData().name()); // We have to set this manually, BUG: 448672
         page->setName(QString());
     } else { // It must be a normal module then
-        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariantList(args.begin(), args.end()), BaseData::instance()->qmlEngine());
+        auto kcm = KCModuleLoader::loadModule(data, moduleScroll, QVariantList(args.begin(), args.end()), d->engine);
         moduleScroll->setWidget(kcm->widget());
         kcm->widget()->setAutoFillBackground(false);
         kcm->load();

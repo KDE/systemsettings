@@ -84,12 +84,9 @@ public:
      */
     KConfigGroup configGroup(const QString &pluginName);
 
-    std::shared_ptr<QQmlEngine> qmlEngine();
-
 private:
     MenuItem *rootMenu;
     MenuItem *m_homeItem;
-    std::shared_ptr<QQmlEngine> m_engine;
 };
 
 #endif

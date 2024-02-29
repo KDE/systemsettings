@@ -214,7 +214,7 @@ void SidebarMode::initEvent()
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->mainLayout->setSpacing(0);
-    d->moduleView = new ModuleView(d->mainWidget);
+    d->moduleView = new ModuleView(d->engine, d->mainWidget);
     connect(d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded);
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
     d->quickWidget = nullptr;
@@ -637,7 +637,7 @@ void SidebarMode::initWidget()
             d->collection = mainWindow->actionCollection();
         }
     }
-    d->engine = BaseData::instance()->qmlEngine();
+    d->engine = std::make_shared<QQmlEngine>();
     d->quickWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
@@ -708,7 +708,7 @@ void SidebarMode::initWidget()
 
 void SidebarMode::initPlaceHolderWidget()
 {
-    d->placeHolderWidget = new QQuickWidget(BaseData::instance()->qmlEngine().get(), d->mainWidget);
+    d->placeHolderWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
