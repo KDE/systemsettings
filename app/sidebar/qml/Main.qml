@@ -39,5 +39,23 @@ Item {
         }
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Header
+
+        // These two rectangles on top of the separator are here because we're mimicking
+        // the standard Kirigami appearance that can't be inherited automatically due to
+        // System Settings' current hybrid QtWidgets/QtQuick infrastructure.
+        Rectangle {
+            id: topOverlay
+            color: Kirigami.Theme.backgroundColor
+            height: Kirigami.Units.largeSpacing
+            width: 1
+        }
+
+        Rectangle {
+            id: bottomOverlay
+            y: sideBar.pageStack.currentItem?.header.height - Kirigami.Units.largeSpacing
+            color: Kirigami.Theme.backgroundColor
+            height: Kirigami.Units.largeSpacing - 1
+            width: 1
+        }
     }
 }
