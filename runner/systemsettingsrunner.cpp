@@ -16,11 +16,11 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-#include <PlasmaActivities/ResourceInstance>
 #include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
 #include <KNotificationJobUiDelegate>
 #include <KSycoca>
+#include <PlasmaActivities/ResourceInstance>
 
 #include "../core/kcmmetadatahelpers.h"
 
@@ -69,6 +69,8 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             } else {
                 continue;
             }
+        } else if (name.compare(query, Qt::CaseInsensitive) == 0) {
+            relevance = 1;
         } else if (checkMatchAndRelevance(name, 0.8)) { // name starts with query or contains any query word
         } else if (checkMatchAndRelevance(description, 0.5)) { // description starts with query or contains any query word
         } else if (std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
@@ -86,7 +88,9 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         KRunner::QueryMatch::CategoryRelevance categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Low;
         if (name.compare(query, Qt::CaseInsensitive) == 0) { // name matches exactly
             categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Highest;
-        } else if (name.startsWith(query, Qt::CaseInsensitive) || description.startsWith(query, Qt::CaseInsensitive)) { // name or description matches as start
+        } else if (name.startsWith(query, Qt::CaseInsensitive)) {
+            categoryRelevance = KRunner::QueryMatch::CategoryRelevance::High;
+        } else if (description.startsWith(query, Qt::CaseInsensitive)) {
             categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Moderate;
         } else if (keywords.contains(query, Qt::CaseInsensitive)) { // any of the keywords matches exactly
             categoryRelevance = KRunner::QueryMatch::CategoryRelevance::Moderate;
