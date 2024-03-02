@@ -89,7 +89,7 @@ public:
 private:
     MenuItem *rootMenu;
     MenuItem *m_homeItem;
-    std::shared_ptr<QQmlEngine> m_engine;
+    std::weak_ptr<QQmlEngine> m_engine;
 };
 
 #endif

@@ -72,10 +72,12 @@ KConfigGroup BaseData::configGroup(const QString &pluginName)
 
 std::shared_ptr<QQmlEngine> BaseData::qmlEngine()
 {
-    if (!m_engine) {
-        m_engine.reset(new QQmlEngine(this));
+    auto engine = m_engine.lock();
+    if (!engine) {
+        engine = std::make_shared<QQmlEngine>();
+        m_engine = engine;
     }
-    return m_engine;
+    return engine;
 }
 
 #include "moc_BaseData.cpp"
