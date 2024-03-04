@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 02:38+0000\n"
+"POT-Creation-Date: 2024-03-04 02:21+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "கணினி அமைப்புகள்"
@@ -217,7 +217,7 @@ msgstr "மாற்றங்களை செயல்படுத்து"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: என்பதற்கு பொருந்தும் கணினி அமைப்பு கூறுகளை கண்டுபிடிக்கும்"
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, kde-format
 msgid "System Information"
 msgstr "கணினி விவரங்கள்"

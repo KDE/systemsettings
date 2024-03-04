@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 02:38+0000\n"
+"POT-Creation-Date: 2024-03-04 02:21+0000\n"
 "PO-Revision-Date: 2023-03-14 22:07+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -56,7 +56,7 @@ msgstr "© 2009 Ben Cooksley"
 # pmap: =:elat=Järjestelmäasetuksista:
 # pmap: =:yleisnimi=kyllä:
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "Järjestelmäasetukset"
@@ -230,7 +230,7 @@ msgstr "Hyväksy asetukset"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "Etsii järjestelmäasetusosiota, jonka nimessä tai kuvauksessa on :q:"
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, kde-format
 msgid "System Information"
 msgstr "Järjestelmätiedot"
