@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 00:39+0000\n"
+"POT-Creation-Date: 2024-03-04 00:39+0000\n"
 "PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -45,7 +45,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन् कुक्स्ले"
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "सङ्गणकतन्त्रस्य समायोजनानि"
@@ -195,12 +195,12 @@ msgstr "%1 पुनः प्रारम्भय"
 msgid "Dialog"
 msgstr "संवादः"
 
-#: core/ModuleView.cpp:185
+#: core/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "सर्वान् वर्तमान् परिवर्तनान् पूर्वनियतान् पुनः स्थापय"
 
-#: core/ModuleView.cpp:360
+#: core/ModuleView.cpp:363
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -209,7 +209,7 @@ msgstr ""
 "वर्तमान विभागस्य संवादितानि सम्प्रियाणि च विद्यते।\n"
 " किं आप परिवर्तनान् प्रयुञ्जीते वा त्यजीते?"
 
-#: core/ModuleView.cpp:365
+#: core/ModuleView.cpp:368
 #, kde-format
 msgid "Apply Settings"
 msgstr "समायोजनानि प्रयोजयन्तु"
@@ -219,7 +219,7 @@ msgstr "समायोजनानि प्रयोजयन्तु"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: समानानां सङ्गणकतन्त्रस्य समायोजनानि विभागनां नामानि वा वर्णनानि याति:"
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, kde-format
 msgid "System Information"
 msgstr "सङ्गणकतन्त्रस्य वर्णन"

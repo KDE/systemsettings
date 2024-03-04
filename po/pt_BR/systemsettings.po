@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 00:39+0000\n"
+"POT-Creation-Date: 2024-03-04 00:39+0000\n"
 "PO-Revision-Date: 2023-01-16 22:58-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -47,7 +47,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "Configurações do sistema"
@@ -197,12 +197,12 @@ msgstr "Executar novamente %1"
 msgid "Dialog"
 msgstr "Diálogo"
 
-#: core/ModuleView.cpp:185
+#: core/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Restaurar os valores anteriores para todas as alterações efetuadas"
 
-#: core/ModuleView.cpp:360
+#: core/ModuleView.cpp:363
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,7 +211,7 @@ msgstr ""
 "As configurações do módulo atual foram alteradas.\n"
 "Deseja aplicar as alterações ou descartá-las?"
 
-#: core/ModuleView.cpp:365
+#: core/ModuleView.cpp:368
 #, kde-format
 msgid "Apply Settings"
 msgstr "Aplicar configurações"
@@ -223,7 +223,7 @@ msgstr ""
 "Encontre módulos de configuração do sistema cujos nomes ou descrições "
 "correspondam a :q:"
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, kde-format
 msgid "System Information"
 msgstr "Informações do sistema"

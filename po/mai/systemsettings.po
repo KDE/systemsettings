@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 00:39+0000\n"
+"POT-Creation-Date: 2024-03-04 00:39+0000\n"
 "PO-Revision-Date: 2010-01-29 16:36+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -51,7 +51,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "तंत्र विन्यास"
@@ -202,12 +202,12 @@ msgstr ""
 msgid "Dialog"
 msgstr "समाद"
 
-#: core/ModuleView.cpp:185
+#: core/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: core/ModuleView.cpp:360
+#: core/ModuleView.cpp:363
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are unsaved changes in the active module.\n"
@@ -219,7 +219,7 @@ msgstr ""
 "सक्रिय मोड्यूलमे बिनु सहेजल गेल परिवर्तन अछि.\n"
 "की अहाँ परिवर्तनसभकेँ लागू कएनाइ चाहैत छी अथवा ओकरा छोड़ू?"
 
-#: core/ModuleView.cpp:365
+#: core/ModuleView.cpp:368
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"
@@ -230,7 +230,7 @@ msgstr "तंत्र विन्यास"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

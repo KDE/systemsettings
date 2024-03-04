@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 00:39+0000\n"
+"POT-Creation-Date: 2024-03-04 00:39+0000\n"
 "PO-Revision-Date: 2023-01-07 17:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -48,7 +48,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "إعدادات النّظام"
@@ -202,12 +202,12 @@ msgstr "أعد إطلاق %1"
 msgid "Dialog"
 msgstr "حواريّ"
 
-#: core/ModuleView.cpp:185
+#: core/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "صفّر كلّ التّعديلات الحاليّة إلى قيمها السّابقة"
 
-#: core/ModuleView.cpp:360
+#: core/ModuleView.cpp:363
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -216,7 +216,7 @@ msgstr ""
 "تغيّرت إعدادات الوحدة الحاليّة.\n"
 "أتريد تطبيق الإعدادات أو رفضها؟"
 
-#: core/ModuleView.cpp:365
+#: core/ModuleView.cpp:368
 #, kde-format
 msgid "Apply Settings"
 msgstr "طبّق الإعدادات"
@@ -226,7 +226,7 @@ msgstr "طبّق الإعدادات"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "يعثر على وحدات إعداد النظام التي يتطابق اسمها أو وصفها مع :q:"
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, kde-format
 msgid "System Information"
 msgstr "معلومات النظام"

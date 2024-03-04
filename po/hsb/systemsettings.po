@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 00:39+0000\n"
+"POT-Creation-Date: 2024-03-04 00:39+0000\n"
 "PO-Revision-Date: 2008-11-15 21:44+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -43,7 +43,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "Systemowe připrawjenja"
@@ -196,12 +196,12 @@ msgstr ""
 msgid "Dialog"
 msgstr ""
 
-#: core/ModuleView.cpp:185
+#: core/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: core/ModuleView.cpp:360
+#: core/ModuleView.cpp:363
 #, fuzzy, kde-format
 #| msgid ""
 #| "The document \"%1\" has been modified.\n"
@@ -213,7 +213,7 @@ msgstr ""
 "Dokument \"%1\" je so změnił.\n"
 "Chceće jón zawěsćić abo změny zaćisnyć?"
 
-#: core/ModuleView.cpp:365
+#: core/ModuleView.cpp:368
 #, fuzzy, kde-format
 #| msgctxt "Comment"
 #| msgid "Display Settings"
@@ -225,7 +225,7 @@ msgstr "Nastajenja za wobrazowku"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

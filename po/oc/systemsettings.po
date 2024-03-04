@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-31 00:39+0000\n"
+"POT-Creation-Date: 2024-03-04 00:39+0000\n"
 "PO-Revision-Date: 2008-08-06 00:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: Occitan <oc@li.org>\n"
@@ -44,7 +44,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
-#: runner/systemsettingsrunner.cpp:108
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
 msgstr "Configuracion del sistèma"
@@ -195,19 +195,19 @@ msgstr ""
 msgid "Dialog"
 msgstr ""
 
-#: core/ModuleView.cpp:185
+#: core/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: core/ModuleView.cpp:360
+#: core/ModuleView.cpp:363
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
 "Do you want to apply the changes or discard them?"
 msgstr ""
 
-#: core/ModuleView.cpp:365
+#: core/ModuleView.cpp:368
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"
@@ -218,7 +218,7 @@ msgstr "Configuracion del sistèma"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:106
+#: runner/systemsettingsrunner.cpp:110
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"
