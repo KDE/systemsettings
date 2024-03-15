@@ -5,7 +5,6 @@ install(FILES
     settings-network-networksettings.desktop
 
     settings-hardware-input.desktop
-    settings-hardware-input-pointing-devices.desktop
     settings-hardware-keyboard.desktop
     settings-hardware-input-touchscreen.desktop
     settings-hardware-multimedia.desktop
