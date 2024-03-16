@@ -463,6 +463,7 @@ Exec=systemsettings kcm_screenlocker
 [Desktop Action kcm-powerdevilprofilesconfig]
 Name=Power Management
 Name[ar]=إدارة الطّاقة
+Name[ast]=Xestión d'enerxía
 Name[az]=Enerji idarəetməsi
 Name[be]=Кіраванне сілкаваннем
 Name[be@latin]=Kiravańnie enerhijaj
