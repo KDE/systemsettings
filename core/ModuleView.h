@@ -78,10 +78,6 @@ public:
      */
     void closeModules();
 
-    void setFaceType(KPageView::FaceType type);
-
-    KPageView::FaceType faceType() const;
-
     /**
      * Sets whether Systemsettings should save statisctics about
      * most used modules using KActivities::Stats

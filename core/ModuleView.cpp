@@ -311,7 +311,6 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
     }
 
     const bool isQml = kcm->inherits("KCModuleQml");
-    const bool isSidebar = faceType() == KPageView::Plain;
 
     if (!kcm->metaData().isValid()) {
         // KCModule was (incorrectly) created with a constructor that didn't store metadata
@@ -327,13 +326,12 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
     page->setHeader(moduleName);
     page->setIcon(QIcon::fromTheme(kcm->metaData().iconName()));
 
-    // Use the module's header only for QWidgets KCMs on Icons mode
-    page->setHeaderVisible(!isQml && !isSidebar);
+    page->setHeaderVisible(false);
 
     // Use the custom header only for QWidgets KCMs on Sidebar mode
     // Only affect visibility if it's the current page
     if (d->mPageWidget->currentPage() == page) {
-        if (!isQml && isSidebar) {
+        if (!isQml) {
             d->mCustomHeader->setText(moduleName); // also includes show()
         } else {
             d->mCustomHeader->hide();
@@ -562,16 +560,6 @@ void ModuleView::keyPressEvent(QKeyEvent *event)
     }
 
     QWidget::keyPressEvent(event);
-}
-
-void ModuleView::setFaceType(KPageView::FaceType type)
-{
-    d->mPageWidget->setFaceType(type);
-}
-
-KPageView::FaceType ModuleView::faceType() const
-{
-    return d->mPageWidget->faceType();
 }
 
 void ModuleView::setSaveStatistics(bool save)
