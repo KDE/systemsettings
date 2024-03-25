@@ -29,7 +29,6 @@
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KStandardAction>
-#include <KToolBar>
 #include <KXMLGUIFactory>
 
 #include "BaseData.h"
@@ -160,8 +159,6 @@ void SettingsBase::initToolBar()
 
     // Toolbar & Configuration
     helpActionMenu->setMenu(dynamic_cast<QMenu *>(factory()->container(QStringLiteral("help"), this)));
-    toolBar()->setMovable(false); // We don't allow any changes
-    changeToolBar(SidebarMode::Search | SidebarMode::Configure);
 }
 
 void SettingsBase::initHelpMenu()
@@ -275,8 +272,6 @@ void SettingsBase::about()
 void SettingsBase::loadCurrentView()
 {
     view = new SidebarMode(this, {m_mode, m_startupModule, m_startupModuleArgs});
-    connect(view, &SidebarMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
-    connect(view, &SidebarMode::actionsChanged, this, &SettingsBase::updateViewActions);
     connect(view, &SidebarMode::viewChanged, this, &SettingsBase::viewChange);
 
     if (stackedWidget->indexOf(view->mainWidget()) == -1) {
@@ -298,7 +293,6 @@ void SettingsBase::loadCurrentView()
     viewChange(false);
 
     stackedWidget->setCurrentWidget(view->mainWidget());
-    updateViewActions();
 
     view->giveFocus();
 
@@ -322,34 +316,6 @@ void SettingsBase::loadCurrentView()
 void SettingsBase::viewChange(bool state)
 {
     setCaption(view->moduleView()->activeModuleName(), state);
-}
-
-void SettingsBase::updateViewActions()
-{
-    guiFactory()->unplugActionList(this, QStringLiteral("viewActions"));
-    guiFactory()->plugActionList(this, QStringLiteral("viewActions"), view->actionsList());
-}
-
-void SettingsBase::changeToolBar(SidebarMode::ToolBarItems toolbar)
-{
-    if (sender() != view) {
-        return;
-    }
-    guiFactory()->unplugActionList(this, QStringLiteral("configure"));
-    guiFactory()->unplugActionList(this, QStringLiteral("search"));
-    guiFactory()->unplugActionList(this, QStringLiteral("quit"));
-    if (SidebarMode::Search & toolbar) {
-        QList<QAction *> searchBarActions;
-        searchBarActions << spacerAction;
-        guiFactory()->plugActionList(this, QStringLiteral("search"), searchBarActions);
-    }
-    if (SidebarMode::Quit & toolbar) {
-        QList<QAction *> quitBarActions;
-        quitBarActions << quitAction;
-        guiFactory()->plugActionList(this, QStringLiteral("quit"), quitBarActions);
-    }
-
-    toolBar()->setVisible(toolbar != SidebarMode::NoItems || (view->actionsList().count() > 0));
 }
 
 void SettingsBase::slotGeometryChanged()

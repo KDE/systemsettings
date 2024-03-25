@@ -87,14 +87,6 @@ public:
     };
     Q_ENUM(ApplicationMode)
 
-    enum ToolBarItemsFlags {
-        NoItems = 0x1, /**< The Toolbar will not have any items added by System Settings */
-        Search = 0x2, /**< The Toolbar will have the search bar added by System Settings */
-        Configure = 0x4, /**< The Toolbar will have configure added by System Settings */
-        Quit = 0x8, /**< The toolbar will have exit added by System Settings */
-    };
-    Q_DECLARE_FLAGS(ToolBarItems, ToolBarItemsFlags)
-
     SidebarMode(QObject *parent, const QVariantList &args);
     ~SidebarMode() override;
     QWidget *mainWidget();
@@ -102,7 +94,6 @@ public:
     void giveFocus();
     ModuleView *moduleView() const;
     void reloadStartupModule();
-    QList<QAction *> &actionsList() const;
 
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *searchModel() const;
@@ -172,15 +163,11 @@ Q_SIGNALS:
     void introPageVisibleChanged();
     void headerHeightChanged();
     void defaultsIndicatorsVisibleChanged();
-    void actionsChanged();
     void viewChanged(bool state);
-    void changeToolBarItems(ToolBarItems items);
 
 private:
     class Private;
     Private *const d;
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(SidebarMode::ToolBarItems)
 
 #endif
