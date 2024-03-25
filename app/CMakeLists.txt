@@ -6,29 +6,28 @@ target_sources(systemsettings PRIVATE
     main.cpp
     SettingsBase.cpp
     SettingsBase.h
-    ToolTips/tooltipmanager.cpp
-    ToolTips/tooltipmanager.h
-    sidebar/SidebarMode.cpp
-    sidebar/SidebarMode.h
+    tooltipmanager.cpp
+    tooltipmanager.h
+    SidebarMode.cpp
+    SidebarMode.h
     ${debug_SRCS}
 )
 
 ecm_target_qml_sources(systemsettings SOURCES
-    sidebar/qml/CategoriesPage.qml
-    sidebar/qml/CategoryItem.qml
-    sidebar/qml/HamburgerMenuButton.qml
-    sidebar/qml/IntroPage.qml
-    sidebar/qml/Main.qml
-    sidebar/qml/SideBarItem.qml
-    sidebar/qml/SubCategoryPage.qml
+    qml/CategoriesPage.qml
+    qml/CategoryItem.qml
+    qml/HamburgerMenuButton.qml
+    qml/IntroPage.qml
+    qml/Main.qml
+    qml/SideBarItem.qml
+    qml/SubCategoryPage.qml
     RESOURCES
-    sidebar/images/plasma-logo.svg
+    images/plasma-logo.svg
 )
 
 qt_target_qml_sources(systemsettings RESOURCES systemsettingsui.rc PREFIX /kxmlgui5/systemsettings)
 
 target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-target_include_directories(systemsettings PRIVATE ToolTips sidebar)
 
 target_link_libraries(systemsettings PRIVATE
     systemsettings_debug

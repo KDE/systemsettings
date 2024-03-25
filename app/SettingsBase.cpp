@@ -8,7 +8,7 @@
 
 #include "SettingsBase.h"
 #include "../core/kcmmetadatahelpers.h"
-#include "sidebar/SidebarMode.h"
+#include "SidebarMode.h"
 
 #include <QFileInfo>
 #include <QFontDatabase>
