@@ -32,10 +32,10 @@ int main(int argc, char *argv[])
     // Anything else will just be considered as "systemsettings"
     const QString executableName = QString::fromUtf8(argv[0]);
     QString binaryName = QStringLiteral("systemsettings");
-    BaseMode::ApplicationMode mode = BaseMode::SystemSettings;
+    SidebarMode::ApplicationMode mode = SidebarMode::SystemSettings;
     if (executableName.endsWith(QLatin1String("kinfocenter"))) {
         binaryName = QStringLiteral("kinfocenter");
-        mode = BaseMode::InfoCenter;
+        mode = SidebarMode::InfoCenter;
     }
 
     // exec is systemsettings, but we need the QPT to use the right config from the qApp constructor
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
     KAboutData aboutData;
 
-    if (mode == BaseMode::InfoCenter) {
+    if (mode == SidebarMode::InfoCenter) {
         // About data
         aboutData = KAboutData(QStringLiteral("kinfocenter"),
                                i18n("Info Center"),
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     if (parser.isSet(QStringLiteral("list"))) {
         std::cout << i18n("The following modules are available:").toLocal8Bit().data() << std::endl;
 
-        auto source = mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
+        auto source = mode == SidebarMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
         const auto modules = findKCMsMetaData(source) << findExternalKCMModules(source);
 
         int maxLen = 0;

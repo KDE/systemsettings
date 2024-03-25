@@ -7,8 +7,8 @@
 #ifndef SETTINGS_BASE_H
 #define SETTINGS_BASE_H
 
-#include "BaseMode.h"
 #include "MenuItem.h"
+#include "SidebarMode.h"
 #include "tooltipmanager.h"
 #include <QButtonGroup>
 #include <QMap>
@@ -27,7 +27,7 @@ class SettingsBase : public KXmlGuiWindow
     Q_OBJECT
 
 public:
-    explicit SettingsBase(BaseMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent = nullptr);
+    explicit SettingsBase(SidebarMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent = nullptr);
     ~SettingsBase() override;
     bool queryClose() override;
 
@@ -46,7 +46,7 @@ private Q_SLOTS:
     void about();
     void viewChange(bool state);
     void updateViewActions();
-    void changeToolBar(BaseMode::ToolBarItems toolbar);
+    void changeToolBar(SidebarMode::ToolBarItems toolbar);
 
 private Q_SLOTS:
     /**
@@ -65,7 +65,7 @@ private:
 
     // The plugins
     QList<ToolTipManager *> tooltipManagers;
-    BaseMode *view = nullptr;
+    SidebarMode *view = nullptr;
     // The search bar
     QWidget *spacerWidget = nullptr;
     // The toolbar
@@ -86,7 +86,7 @@ private:
     QList<KPluginMetaData> pluginModules;
     // The about dialog
     KAboutApplicationDialog *aboutDialog = nullptr;
-    BaseMode::ApplicationMode m_mode = BaseMode::SystemSettings;
+    SidebarMode::ApplicationMode m_mode = SidebarMode::SystemSettings;
     QString m_startupModule;
     QStringList m_startupModuleArgs;
 };

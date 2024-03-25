@@ -1,8 +1,6 @@
 set(systemsettingsview_LIB_SRCS
     BaseData.cpp
     BaseData.h
-    BaseMode.cpp
-    BaseMode.h
     ExternalAppModule.cpp
     ExternalAppModule.h
     kcmmetadatahelpers.h
