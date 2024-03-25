@@ -45,8 +45,6 @@ private Q_SLOTS:
     void initMenuList(MenuItem *parent);
     void about();
     void viewChange(bool state);
-    void updateViewActions();
-    void changeToolBar(SidebarMode::ToolBarItems toolbar);
 
 private Q_SLOTS:
     /**

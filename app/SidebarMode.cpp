@@ -137,7 +137,6 @@ public:
     KConfigGroup config;
     MenuItem *rootItem = nullptr;
     MenuItem *homeItem = nullptr;
-    QList<QAction *> actionsList;
     KPluginMetaData metaData;
     QString startupModule;
     QStringList startupModuleArgs;
@@ -708,7 +707,6 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget(d->quickWidget);
     d->moduleView->hide();
     d->mainLayout->addWidget(d->moduleView);
-    Q_EMIT changeToolBarItems(NoItems);
 
     if (!startupModule().isEmpty()) {
         initPlaceHolderWidget();
@@ -794,13 +792,6 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
         break;
     }
 
-    case QEvent::Show: {
-        if (watched == d->mainWidget) {
-            Q_EMIT changeToolBarItems(NoItems);
-        }
-        break;
-    }
-
     default:
         break;
     }
@@ -841,11 +832,6 @@ void SidebarMode::setStartupModuleArgs(const QStringList &startupModuleArgs)
 QStringList SidebarMode::startupModuleArgs() const
 {
     return d->startupModuleArgs;
-}
-
-QList<QAction *> &SidebarMode::actionsList() const
-{
-    return d->actionsList;
 }
 
 #include "moc_SidebarMode.cpp"
