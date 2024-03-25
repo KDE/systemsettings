@@ -7,7 +7,6 @@
 #ifndef SIDEBARMODE_H
 #define SIDEBARMODE_H
 
-#include "BaseMode.h"
 #include <KSelectionProxyModel>
 #include <QIcon>
 #include <QWidget>
@@ -63,7 +62,7 @@ private:
     QPersistentModelIndex m_activeModuleIndex;
 };
 
-class SidebarMode : public BaseMode
+class SidebarMode : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
@@ -82,13 +81,28 @@ class SidebarMode : public BaseMode
     Q_PROPERTY(qreal headerHeight READ headerHeight WRITE setHeaderHeight NOTIFY headerHeightChanged)
 
 public:
+    enum ApplicationMode {
+        SystemSettings = 0,
+        InfoCenter,
+    };
+    Q_ENUM(ApplicationMode)
+
+    enum ToolBarItemsFlags {
+        NoItems = 0x1, /**< The Toolbar will not have any items added by System Settings */
+        Search = 0x2, /**< The Toolbar will have the search bar added by System Settings */
+        Configure = 0x4, /**< The Toolbar will have configure added by System Settings */
+        Quit = 0x8, /**< The toolbar will have exit added by System Settings */
+    };
+    Q_DECLARE_FLAGS(ToolBarItems, ToolBarItemsFlags)
+
     SidebarMode(QObject *parent, const QVariantList &args);
     ~SidebarMode() override;
-    QWidget *mainWidget() override;
-    void initEvent() override;
-    void giveFocus() override;
-    ModuleView *moduleView() const override;
-    void reloadStartupModule() override;
+    QWidget *mainWidget();
+    void initEvent();
+    void giveFocus();
+    ModuleView *moduleView() const;
+    void reloadStartupModule();
+    QList<QAction *> &actionsList() const;
 
     QAbstractItemModel *categoryModel() const;
     QAbstractItemModel *searchModel() const;
@@ -108,8 +122,8 @@ public:
     qreal headerHeight() const;
     void setHeaderHeight(qreal height);
 
-    bool defaultsIndicatorsVisible() const override;
-    void toggleDefaultsIndicatorsVisibility() override;
+    bool defaultsIndicatorsVisible() const;
+    void toggleDefaultsIndicatorsVisibility();
 
     Q_INVOKABLE QAction *action(const QString &name) const;
     // QML doesn't understand QIcon, otherwise we could get it from the QAction itself
@@ -124,8 +138,15 @@ public:
     Q_INVOKABLE void focusNext();
     Q_INVOKABLE void focusPrevious();
 
+    QList<QAbstractItemView *> views() const;
+
+    void setStartupModule(const QString &startupModule);
+    QString startupModule() const;
+
+    void setStartupModuleArgs(const QStringList &startupModuleArgs);
+    QStringList startupModuleArgs() const;
+
 protected:
-    QList<QAbstractItemView *> views() const override;
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private Q_SLOTS:
@@ -139,6 +160,8 @@ private:
     void updateCategoryModel(const QModelIndex &categoryIdx);
     void refreshDefaults();
     void setActionMenuVisible(bool visible);
+    MenuItem *rootItem() const;
+    MenuItem *homeItem() const;
 
 Q_SIGNALS:
     void activeCategoryRowChanged();
@@ -149,10 +172,15 @@ Q_SIGNALS:
     void introPageVisibleChanged();
     void headerHeightChanged();
     void defaultsIndicatorsVisibleChanged();
+    void actionsChanged();
+    void viewChanged(bool state);
+    void changeToolBarItems(ToolBarItems items);
 
 private:
     class Private;
     Private *const d;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(SidebarMode::ToolBarItems)
 
 #endif

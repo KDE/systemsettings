@@ -35,7 +35,7 @@
 #include "BaseData.h"
 #include "ModuleView.h"
 
-SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent)
+SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent)
     : KXmlGuiWindow(parent)
     , m_mode(mode)
     , m_startupModule(startupModule)
@@ -47,7 +47,7 @@ SettingsBase::SettingsBase(BaseMode::ApplicationMode mode, const QString &startu
 
     setProperty("_breeze_no_separator", true);
 
-    if (m_mode == BaseMode::InfoCenter) {
+    if (m_mode == SidebarMode::InfoCenter) {
         setWindowTitle(i18nd("systemsettings", "Info Center"));
         setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
     } else {
@@ -82,7 +82,7 @@ QSize SettingsBase::sizeHint() const
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
-    auto source = m_mode == BaseMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
+    auto source = m_mode == SidebarMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
     pluginModules = findKCMsMetaData(source) << findExternalKCMModules(source);
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("categories"), QStandardPaths::LocateDirectory);
@@ -128,7 +128,7 @@ void SettingsBase::initToolBar()
     // Exit is the very last action
     quitAction = actionCollection()->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
 
-    if (m_mode == BaseMode::SystemSettings) {
+    if (m_mode == SidebarMode::SystemSettings) {
         highlightChangesAction = actionCollection()->addAction(QStringLiteral("highlight_changes"), this, [this] {
             view->toggleDefaultsIndicatorsVisibility();
         });
@@ -161,7 +161,7 @@ void SettingsBase::initToolBar()
     // Toolbar & Configuration
     helpActionMenu->setMenu(dynamic_cast<QMenu *>(factory()->container(QStringLiteral("help"), this)));
     toolBar()->setMovable(false); // We don't allow any changes
-    changeToolBar(BaseMode::Search | BaseMode::Configure);
+    changeToolBar(SidebarMode::Search | SidebarMode::Configure);
 }
 
 void SettingsBase::initHelpMenu()
@@ -181,7 +181,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
         const KConfigGroup entry = file.desktopGroup();
         QString parentCategory;
         QString parentCategory2;
-        if (m_mode == BaseMode::InfoCenter) {
+        if (m_mode == SidebarMode::InfoCenter) {
             parentCategory = entry.readEntry("X-KDE-KInfoCenter-Parent-Category");
         } else {
             parentCategory = entry.readEntry("X-KDE-System-Settings-Parent-Category");
@@ -205,7 +205,7 @@ void SettingsBase::initMenuList(MenuItem *parent)
     for (const auto &metaData : std::as_const(pluginModules)) {
         QString category;
         QString categoryv2;
-        if (m_mode == BaseMode::InfoCenter) {
+        if (m_mode == SidebarMode::InfoCenter) {
             category = metaData.value(QStringLiteral("X-KDE-KInfoCenter-Category"));
         } else {
             category = metaData.value(QStringLiteral("X-KDE-System-Settings-Parent-Category"));
@@ -226,9 +226,9 @@ void SettingsBase::initMenuList(MenuItem *parent)
                 infoItem->setMetaData(metaData);
                 infoItem->setCategoryOwner(isCategoryOwner);
 
-                if (m_mode == BaseMode::InfoCenter && metaData.pluginId() == QStringLiteral("kcm_about-distro")) {
+                if (m_mode == SidebarMode::InfoCenter && metaData.pluginId() == QStringLiteral("kcm_about-distro")) {
                     homeModule = infoItem;
-                } else if (m_mode == BaseMode::SystemSettings && metaData.pluginId() == QStringLiteral("kcm_landingpage")) {
+                } else if (m_mode == SidebarMode::SystemSettings && metaData.pluginId() == QStringLiteral("kcm_landingpage")) {
                     homeModule = infoItem;
                 }
             }
@@ -241,7 +241,6 @@ void SettingsBase::initMenuList(MenuItem *parent)
 bool SettingsBase::queryClose()
 {
     bool changes = true;
-    view->saveState();
     changes = view->moduleView()->resolveChanges();
     return changes;
 }
@@ -276,10 +275,9 @@ void SettingsBase::about()
 void SettingsBase::loadCurrentView()
 {
     view = new SidebarMode(this, {m_mode, m_startupModule, m_startupModuleArgs});
-    connect(view, &BaseMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
-    connect(view, &BaseMode::actionsChanged, this, &SettingsBase::updateViewActions);
-    connect(view, &BaseMode::viewChanged, this, &SettingsBase::viewChange);
-    view->saveState();
+    connect(view, &SidebarMode::changeToolBarItems, this, &SettingsBase::changeToolBar);
+    connect(view, &SidebarMode::actionsChanged, this, &SettingsBase::updateViewActions);
+    connect(view, &SidebarMode::viewChanged, this, &SettingsBase::viewChange);
 
     if (stackedWidget->indexOf(view->mainWidget()) == -1) {
         stackedWidget->addWidget(view->mainWidget());
@@ -332,7 +330,7 @@ void SettingsBase::updateViewActions()
     guiFactory()->plugActionList(this, QStringLiteral("viewActions"), view->actionsList());
 }
 
-void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
+void SettingsBase::changeToolBar(SidebarMode::ToolBarItems toolbar)
 {
     if (sender() != view) {
         return;
@@ -340,18 +338,18 @@ void SettingsBase::changeToolBar(BaseMode::ToolBarItems toolbar)
     guiFactory()->unplugActionList(this, QStringLiteral("configure"));
     guiFactory()->unplugActionList(this, QStringLiteral("search"));
     guiFactory()->unplugActionList(this, QStringLiteral("quit"));
-    if (BaseMode::Search & toolbar) {
+    if (SidebarMode::Search & toolbar) {
         QList<QAction *> searchBarActions;
         searchBarActions << spacerAction;
         guiFactory()->plugActionList(this, QStringLiteral("search"), searchBarActions);
     }
-    if (BaseMode::Quit & toolbar) {
+    if (SidebarMode::Quit & toolbar) {
         QList<QAction *> quitBarActions;
         quitBarActions << quitAction;
         guiFactory()->plugActionList(this, QStringLiteral("quit"), quitBarActions);
     }
 
-    toolBar()->setVisible(toolbar != BaseMode::NoItems || (view->actionsList().count() > 0));
+    toolBar()->setVisible(toolbar != SidebarMode::NoItems || (view->actionsList().count() > 0));
 }
 
 void SettingsBase::slotGeometryChanged()

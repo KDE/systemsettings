@@ -134,21 +134,44 @@ public:
     bool actionMenuVisible = false;
     bool m_introPageVisible = true;
     bool m_defaultsIndicatorsVisible = false;
+    KConfigGroup config;
+    MenuItem *rootItem = nullptr;
+    MenuItem *homeItem = nullptr;
+    QList<QAction *> actionsList;
+    KPluginMetaData metaData;
+    QString startupModule;
+    QStringList startupModuleArgs;
+    bool showToolTips = true;
+    ApplicationMode applicationMode = SystemSettings;
 };
 
 SidebarMode::SidebarMode(QObject *parent, const QVariantList &args)
-    : BaseMode(parent, args)
+    : QObject(parent)
     , d(new Private())
 {
+    if (args.count() >= 1 && args.first().canConvert<ApplicationMode>()) {
+        d->applicationMode = args.first().value<ApplicationMode>();
+    }
+    if (args.count() >= 2 && args[1].canConvert<QString>()) {
+        d->startupModule = args[1].toString();
+    }
+    if (args.count() >= 3 && args[2].canConvert<QStringList>()) {
+        d->startupModuleArgs = args[2].toStringList();
+    }
+
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
     qmlRegisterAnonymousType<QAction>("", 1);
     qmlRegisterAnonymousType<QAbstractItemModel>("", 1);
-    init();
+    d->rootItem = BaseData::instance()->menuItem();
+    d->homeItem = BaseData::instance()->homeItem();
+    d->config = BaseData::instance()->configGroup(QStringLiteral("systemsettings_sidebar_mode"));
+    initEvent();
+    connect(moduleView(), &ModuleView::moduleChanged, this, &SidebarMode::viewChanged);
 }
 
 SidebarMode::~SidebarMode()
 {
-    config().sync();
+    d->config.sync();
     delete d;
 }
 
@@ -220,13 +243,13 @@ void SidebarMode::initEvent()
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
-    if (applicationMode() == BaseMode::InfoCenter) {
+    if (d->applicationMode == InfoCenter) {
         d->moduleView->setSaveStatistics(false);
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
     }
 
-    if (config().readEntry("HighlightNonDefaultSettings", false)) {
+    if (d->config.readEntry("HighlightNonDefaultSettings", false)) {
         toggleDefaultsIndicatorsVisibility();
     }
 }
@@ -424,7 +447,7 @@ void SidebarMode::moduleLoaded()
         d->placeHolderWidget->hide();
     }
     d->moduleView->show();
-    if (applicationMode() == BaseMode::InfoCenter) {
+    if (d->applicationMode == InfoCenter) {
         d->moduleView->setSaveStatistics(false);
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
@@ -574,7 +597,7 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
     d->m_defaultsIndicatorsVisible = !d->m_defaultsIndicatorsVisible;
     d->moduleView->moduleShowDefaultsIndicators(d->m_defaultsIndicatorsVisible);
     refreshDefaults();
-    config().writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
+    d->config.writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
     Q_EMIT defaultsIndicatorsVisibleChanged();
 }
 
@@ -685,7 +708,7 @@ void SidebarMode::initWidget()
     d->mainLayout->addWidget(d->quickWidget);
     d->moduleView->hide();
     d->mainLayout->addWidget(d->moduleView);
-    Q_EMIT changeToolBarItems(BaseMode::NoItems);
+    Q_EMIT changeToolBarItems(NoItems);
 
     if (!startupModule().isEmpty()) {
         initPlaceHolderWidget();
@@ -734,7 +757,7 @@ void SidebarMode::reloadStartupModule()
 bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched != d->quickWidget && watched != d->mainWidget) {
-        return BaseMode::eventFilter(watched, event);
+        return QObject::eventFilter(watched, event);
     }
 
     // FIXME: those are all workarounds around the QQuickWidget brokenness
@@ -773,7 +796,7 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
 
     case QEvent::Show: {
         if (watched == d->mainWidget) {
-            Q_EMIT changeToolBarItems(BaseMode::NoItems);
+            Q_EMIT changeToolBarItems(NoItems);
         }
         break;
     }
@@ -782,12 +805,47 @@ bool SidebarMode::eventFilter(QObject *watched, QEvent *event)
         break;
     }
 
-    return BaseMode::eventFilter(watched, event);
+    return QObject::eventFilter(watched, event);
 }
 
 void SidebarMode::giveFocus()
 {
     d->quickWidget->setFocus();
+}
+
+MenuItem *SidebarMode::rootItem() const
+{
+    return d->rootItem;
+}
+
+MenuItem *SidebarMode::homeItem() const
+{
+    return d->homeItem;
+}
+
+void SidebarMode::setStartupModule(const QString &startupModule)
+{
+    d->startupModule = startupModule;
+}
+
+QString SidebarMode::startupModule() const
+{
+    return d->startupModule;
+}
+
+void SidebarMode::setStartupModuleArgs(const QStringList &startupModuleArgs)
+{
+    d->startupModuleArgs = startupModuleArgs;
+}
+
+QStringList SidebarMode::startupModuleArgs() const
+{
+    return d->startupModuleArgs;
+}
+
+QList<QAction *> &SidebarMode::actionsList() const
+{
+    return d->actionsList;
 }
 
 #include "moc_SidebarMode.cpp"
