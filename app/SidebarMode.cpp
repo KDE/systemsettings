@@ -218,6 +218,7 @@ void SidebarMode::initEvent()
     connect(d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded);
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
     d->quickWidget = nullptr;
+    moduleView()->setFaceType(KPageView::Plain);
     if (applicationMode() == BaseMode::InfoCenter) {
         d->moduleView->setSaveStatistics(false);
         d->moduleView->setApplyVisible(false);

@@ -562,6 +562,11 @@ void ModuleView::keyPressEvent(QKeyEvent *event)
     QWidget::keyPressEvent(event);
 }
 
+void ModuleView::setFaceType(KPageView::FaceType type)
+{
+    d->mPageWidget->setFaceType(type);
+}
+
 void ModuleView::setSaveStatistics(bool save)
 {
     d->mSaveStatistics = save;
