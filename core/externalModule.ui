@@ -63,6 +63,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="icon">
+        <iconset theme="system-run-symbolic"/>
+       </property>
       </widget>
      </item>
      <item>
