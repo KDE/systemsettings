@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:39+0000\n"
 "PO-Revision-Date: 2023-06-14 23:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr "Resum centralitzat i pràctic de la informació del sistema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -122,6 +122,27 @@ msgstr "Estan disponibles els mòduls següents:"
 msgid "No description available"
 msgstr "No hi ha disponible cap descripció"
 
+#: app/qml/CategoriesPage.qml:62
+#, kde-format
+msgid "Show intro page"
+msgstr "Mostra la pàgina d'introducció"
+
+#: app/qml/CategoriesPage.qml:130
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "No hi ha cap element que coincideixi amb la cerca"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Mostra el menú"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
 #: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -137,33 +158,12 @@ msgstr "Informa d'un error a la pàgina actual…"
 msgid "Help"
 msgstr "Ajuda"
 
-#: app/sidebar/qml/CategoriesPage.qml:62
-#, kde-format
-msgid "Show intro page"
-msgstr "Mostra la pàgina d'introducció"
-
-#: app/sidebar/qml/CategoriesPage.qml:130
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "No hi ha cap element que coincideixi amb la cerca"
-
-#: app/sidebar/qml/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "Mostra el menú"
-
-#: app/sidebar/qml/IntroPage.qml:44
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
-
-#: app/sidebar/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/sidebar/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "Més usat"
@@ -174,7 +174,7 @@ msgstr "Més usat"
 msgid "About System Settings"
 msgstr "Quant a l'Arranjament del sistema"
 
-#: app/ToolTips/tooltipmanager.cpp:187
+#: app/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -202,7 +202,7 @@ msgstr "Diàleg"
 msgid "Reset all current changes to previous values"
 msgstr "Restaura tots els canvis actuals als valors anteriors"
 
-#: core/ModuleView.cpp:363
+#: core/ModuleView.cpp:361
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,7 +211,7 @@ msgstr ""
 "L'arranjament del mòdul actual ha canviat.\n"
 "Voleu aplicar els canvis o descartar-los?"
 
-#: core/ModuleView.cpp:368
+#: core/ModuleView.cpp:366
 #, kde-format
 msgid "Apply Settings"
 msgstr "Aplica l'arranjament"

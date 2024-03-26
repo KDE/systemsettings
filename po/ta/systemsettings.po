@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:39+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr "கணினியின் விவரங்களை வசதிய�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -118,6 +118,27 @@ msgstr "கீழ்காணும் கூறுகள் உள்ளன:"
 msgid "No description available"
 msgstr "விவரணம் இல்லை"
 
+#: app/qml/CategoriesPage.qml:62
+#, kde-format
+msgid "Show intro page"
+msgstr "அறிமுகப் பக்கத்தைக் காட்டு"
+
+#: app/qml/CategoriesPage.qml:130
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "உங்கள் தேடலுக்கு பொருத்தமானவை ஏதுமில்லை"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "பட்டியைக் காட்டு"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "பிளாஸ்மா"
+
 #: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -133,33 +154,12 @@ msgstr "தற்போதைய பக்கத்தில் பிழைய�
 msgid "Help"
 msgstr "உதவி"
 
-#: app/sidebar/qml/CategoriesPage.qml:62
-#, kde-format
-msgid "Show intro page"
-msgstr "அறிமுகப் பக்கத்தைக் காட்டு"
-
-#: app/sidebar/qml/CategoriesPage.qml:130
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "உங்கள் தேடலுக்கு பொருத்தமானவை ஏதுமில்லை"
-
-#: app/sidebar/qml/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "பட்டியைக் காட்டு"
-
-#: app/sidebar/qml/IntroPage.qml:44
-#, kde-format
-msgid "Plasma"
-msgstr "பிளாஸ்மா"
-
-#: app/sidebar/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: app/sidebar/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"
@@ -170,7 +170,7 @@ msgstr "அதிகம் பயன்படுவது"
 msgid "About System Settings"
 msgstr "கணினி அமைப்புகளைப் பற்றி"
 
-#: app/ToolTips/tooltipmanager.cpp:187
+#: app/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -198,7 +198,7 @@ msgstr "சாளரம்"
 msgid "Reset all current changes to previous values"
 msgstr "தற்போதைய மாற்றங்களை அவற்றின் முந்தைய மதிப்புகளுக்கு மீட்டமை"
 
-#: core/ModuleView.cpp:363
+#: core/ModuleView.cpp:361
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -207,7 +207,7 @@ msgstr ""
 "தற்போதைய கூறின் அமைப்புகள் மாறியுள்ளன.\n"
 "இந்த மாற்றங்களைக் கைவிடலாமா, அல்லது அவற்றை செயல்படுத்த விரும்புகிறீர்களா?"
 
-#: core/ModuleView.cpp:368
+#: core/ModuleView.cpp:366
 #, kde-format
 msgid "Apply Settings"
 msgstr "மாற்றங்களை செயல்படுத்து"

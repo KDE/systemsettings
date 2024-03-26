@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:39+0000\n"
-"PO-Revision-Date: 2024-03-24 18:59\n"
+"POT-Creation-Date: 2024-03-26 00:39+0000\n"
+"PO-Revision-Date: 2024-03-25 19:39\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -42,7 +42,7 @@ msgstr "系统信息的一站式简易概览"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -118,6 +118,27 @@ msgstr "下列模块可用："
 msgid "No description available"
 msgstr "无可用描述"
 
+#: app/qml/CategoriesPage.qml:62
+#, kde-format
+msgid "Show intro page"
+msgstr "显示介绍页面"
+
+#: app/qml/CategoriesPage.qml:130
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "未找到匹配该搜索条件的项目"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "显示菜单"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
 #: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -133,33 +154,12 @@ msgstr "报告当前页面中的程序缺陷…"
 msgid "Help"
 msgstr "帮助"
 
-#: app/sidebar/qml/CategoriesPage.qml:62
-#, kde-format
-msgid "Show intro page"
-msgstr "显示介绍页面"
-
-#: app/sidebar/qml/CategoriesPage.qml:130
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "未找到匹配该搜索条件的项目"
-
-#: app/sidebar/qml/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "显示菜单"
-
-#: app/sidebar/qml/IntroPage.qml:44
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
-
-#: app/sidebar/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/sidebar/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
@@ -170,7 +170,7 @@ msgstr "常用项目"
 msgid "About System Settings"
 msgstr "关于系统设置"
 
-#: app/ToolTips/tooltipmanager.cpp:187
+#: app/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -197,7 +197,7 @@ msgstr "对话框"
 msgid "Reset all current changes to previous values"
 msgstr "重置所有当前更改为之前的值"
 
-#: core/ModuleView.cpp:363
+#: core/ModuleView.cpp:361
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -206,7 +206,7 @@ msgstr ""
 "当前模块的设置已经更改。\n"
 "您想要应用更改还是丢弃更改？"
 
-#: core/ModuleView.cpp:368
+#: core/ModuleView.cpp:366
 #, kde-format
 msgid "Apply Settings"
 msgstr "应用设置"

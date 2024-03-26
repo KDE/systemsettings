@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:39+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "စစ်စတမ်ဆိုင်ရာအချက်အလက်မ
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ၂၀၁၉၊ ဘန်ကွတ်စလေ"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -119,6 +119,27 @@ msgstr "အောက်ပါမော်ဂျူးများရရှိန
 msgid "No description available"
 msgstr "ဖော်ပြချက်မရရှိနိုင်ပါ"
 
+#: app/qml/CategoriesPage.qml:62
+#, kde-format
+msgid "Show intro page"
+msgstr "မိတ်ဆက်စာမျက်နှာပြမည်"
+
+#: app/qml/CategoriesPage.qml:130
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "သင်၏ရှာဖွေမှုနှင့်ကိုက်ညီသော အိုင်တမ်များမတွေ့ပါ"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "မီနူးပြမည်"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "ပလက်စမာ"
+
 #: app/SettingsBase.cpp:136
 #, fuzzy, kde-format
 #| msgctxt ""
@@ -138,33 +159,12 @@ msgstr ""
 msgid "Help"
 msgstr "အကူအညီ"
 
-#: app/sidebar/qml/CategoriesPage.qml:62
-#, kde-format
-msgid "Show intro page"
-msgstr "မိတ်ဆက်စာမျက်နှာပြမည်"
-
-#: app/sidebar/qml/CategoriesPage.qml:130
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "သင်၏ရှာဖွေမှုနှင့်ကိုက်ညီသော အိုင်တမ်များမတွေ့ပါ"
-
-#: app/sidebar/qml/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "မီနူးပြမည်"
-
-#: app/sidebar/qml/IntroPage.qml:44
-#, kde-format
-msgid "Plasma"
-msgstr "ပလက်စမာ"
-
-#: app/sidebar/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "ဘေးတန်း"
 
-#: app/sidebar/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"
@@ -175,7 +175,7 @@ msgstr "အသုံးများဆုံး"
 msgid "About System Settings"
 msgstr "စစ်စတမ်ဆက်တင်များအကြောင်း"
 
-#: app/ToolTips/tooltipmanager.cpp:187
+#: app/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -202,7 +202,7 @@ msgstr "ဒိုင်ယာလော့"
 msgid "Reset all current changes to previous values"
 msgstr "လက်ရှိပြောင်းလဲမှုများအကုန်လုံးကို ယခင်တန်ဖိုးများကို ပြန်ပြောင်းမည်"
 
-#: core/ModuleView.cpp:363
+#: core/ModuleView.cpp:361
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -211,7 +211,7 @@ msgstr ""
 "လက်ရှိမော်ဂျူး၏ဆက်တင်များ ပြောင်းလဲသွားပြီ။\n"
 "ပြောင်းလဲမှုများကို သုံးမှာလား၊ စွန့်ပစ်မှာလား။"
 
-#: core/ModuleView.cpp:368
+#: core/ModuleView.cpp:366
 #, kde-format
 msgid "Apply Settings"
 msgstr "ဆက်တင်များသက်ရောက်စေမည်"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:39+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -45,7 +45,7 @@ msgstr "तंत्र की जानकारी का केंद्र�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन कूक्सले"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -121,6 +121,27 @@ msgstr "निम्न मॉड्यूल उपलब्ध हैं:"
 msgid "No description available"
 msgstr "कोई वर्णन उपलब्ध नहीं"
 
+#: app/qml/CategoriesPage.qml:62
+#, kde-format
+msgid "Show intro page"
+msgstr "परिचय पृष्ठ दिखाएं"
+
+#: app/qml/CategoriesPage.qml:130
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "आपकी खोज से मेल खाने वाली कोई वस्तु नहीं"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "मेन्यू दिखाएँ"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "प्लाज़्मा"
+
 #: app/SettingsBase.cpp:136
 #, fuzzy, kde-format
 #| msgctxt ""
@@ -140,33 +161,12 @@ msgstr ""
 msgid "Help"
 msgstr "सहायता"
 
-#: app/sidebar/qml/CategoriesPage.qml:62
-#, kde-format
-msgid "Show intro page"
-msgstr "परिचय पृष्ठ दिखाएं"
-
-#: app/sidebar/qml/CategoriesPage.qml:130
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "आपकी खोज से मेल खाने वाली कोई वस्तु नहीं"
-
-#: app/sidebar/qml/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "मेन्यू दिखाएँ"
-
-#: app/sidebar/qml/IntroPage.qml:44
-#, kde-format
-msgid "Plasma"
-msgstr "प्लाज़्मा"
-
-#: app/sidebar/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "बाजूपट्टी"
 
-#: app/sidebar/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "सर्वाधिक उपयोग किया गया"
@@ -177,7 +177,7 @@ msgstr "सर्वाधिक उपयोग किया गया"
 msgid "About System Settings"
 msgstr "तंत्र विन्यास के बारे में"
 
-#: app/ToolTips/tooltipmanager.cpp:187
+#: app/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -205,7 +205,7 @@ msgstr "संवाद"
 msgid "Reset all current changes to previous values"
 msgstr "सभी मौजूदा परिवर्तनों को पिछले मानों पर रीसेट करें"
 
-#: core/ModuleView.cpp:363
+#: core/ModuleView.cpp:361
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -214,7 +214,7 @@ msgstr ""
 "वर्तमान मॉड्यूल की सेटिंग्स बदल गई हैं।\n"
 "क्या आप परिवर्तनों को लागू करना चाहते हैं या उन्हें त्यागना चाहते हैं?"
 
-#: core/ModuleView.cpp:368
+#: core/ModuleView.cpp:366
 #, kde-format
 msgid "Apply Settings"
 msgstr "विन्यास लागु करें"

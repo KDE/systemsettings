@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:39+0000\n"
+"POT-Creation-Date: 2024-03-26 00:39+0000\n"
 "PO-Revision-Date: 2023-08-15 01:20+0300\n"
 "Last-Translator: George Stefanakis <george.stefanakis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr "Συγκεντρωτική και βολική επισκόπηση τω
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -126,6 +126,27 @@ msgstr "Τα ακόλουθα αρθρώματα είναι διαθέσιμα:"
 msgid "No description available"
 msgstr "Δεν υπάρχει διαθέσιμη περιγραφή"
 
+#: app/qml/CategoriesPage.qml:62
+#, kde-format
+msgid "Show intro page"
+msgstr "Εμφάνιση εισαγωγικής σελίδας"
+
+#: app/qml/CategoriesPage.qml:130
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "Κανένα αντικείμενο δεν ταιριάζει στην αναζήτησή σας"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Εμφάνιση μενού"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
 #: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -141,33 +162,12 @@ msgstr "Αναφορά σφάλματος στην τρέχουσα σελίδα
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: app/sidebar/qml/CategoriesPage.qml:62
-#, kde-format
-msgid "Show intro page"
-msgstr "Εμφάνιση εισαγωγικής σελίδας"
-
-#: app/sidebar/qml/CategoriesPage.qml:130
-#, kde-format
-msgctxt "A search yielded no results"
-msgid "No items matching your search"
-msgstr "Κανένα αντικείμενο δεν ταιριάζει στην αναζήτησή σας"
-
-#: app/sidebar/qml/HamburgerMenuButton.qml:25
-#, kde-format
-msgid "Show menu"
-msgstr "Εμφάνιση μενού"
-
-#: app/sidebar/qml/IntroPage.qml:44
-#, kde-format
-msgid "Plasma"
-msgstr "Plasma"
-
-#: app/sidebar/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:642
 #, kde-format
 msgid "Sidebar"
 msgstr "Πλευρική μπάρα"
 
-#: app/sidebar/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:712
 #, kde-format
 msgid "Most Used"
 msgstr "Περισσότερο χρησιμοποιημένο"
@@ -178,7 +178,7 @@ msgstr "Περισσότερο χρησιμοποιημένο"
 msgid "About System Settings"
 msgstr "Περί ρυθμίσεων συστήματος"
 
-#: app/ToolTips/tooltipmanager.cpp:187
+#: app/tooltipmanager.cpp:187
 #, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
@@ -206,7 +206,7 @@ msgstr "Διάλογος"
 msgid "Reset all current changes to previous values"
 msgstr "Επαναφορά όλων των τρέχοντων αλλαγών στις προηγούμενες τιμές"
 
-#: core/ModuleView.cpp:363
+#: core/ModuleView.cpp:361
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -215,7 +215,7 @@ msgstr ""
 "Οι ρυθμίσεις του τρέχοντος αρθρώματος τροποποιήθηκαν.\n"
 "Επιθυμείτε την εφαρμογή των τροποποιήσεων ή την απόρριψή τους;"
 
-#: core/ModuleView.cpp:368
+#: core/ModuleView.cpp:366
 #, kde-format
 msgid "Apply Settings"
 msgstr "Εφαρμογή ρυθμίσεων"
