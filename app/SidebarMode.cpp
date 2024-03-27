@@ -214,6 +214,7 @@ void SidebarMode::initEvent()
     d->mainLayout = new QHBoxLayout(d->mainWidget);
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->mainLayout->setSpacing(0);
+    d->engine = std::make_shared<QQmlEngine>();
     d->moduleView = new ModuleView(d->engine, d->mainWidget);
     connect(d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded);
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
@@ -637,7 +638,8 @@ void SidebarMode::initWidget()
             d->collection = mainWindow->actionCollection();
         }
     }
-    d->engine = std::make_shared<QQmlEngine>();
+    // SidebarMode and ModuleView have the reference
+    Q_ASSERT_X(d->engine.use_count() == 2, Q_FUNC_INFO, qUtf8Printable(QString::number(d->engine.use_count())));
     d->quickWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
