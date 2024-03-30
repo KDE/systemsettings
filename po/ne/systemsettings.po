@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2007-10-31 15:57+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -157,12 +157,12 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: app/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr ""

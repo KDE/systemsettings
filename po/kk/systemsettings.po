@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2011-03-04 03:50+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -155,12 +155,12 @@ msgstr ""
 msgid "Help"
 msgstr "Анықтама"
 
-#: app/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr ""

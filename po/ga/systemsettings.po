@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/systemsettings.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2007-06-27 10:27-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -155,12 +155,12 @@ msgstr ""
 msgid "Help"
 msgstr "Cabhair"
 
-#: app/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr ""

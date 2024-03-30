@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2024-03-18 10:47+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -162,12 +162,12 @@ msgstr "דיווח על תקלה בעמוד הנוכחי…"
 msgid "Help"
 msgstr "עזרה"
 
-#: app/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr "סרגל צד"
 
-#: app/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr "הכי בשימוש"

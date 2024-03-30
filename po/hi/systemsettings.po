@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-26 00:39+0000\n"
+"POT-Creation-Date: 2024-03-30 00:39+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -161,12 +161,12 @@ msgstr ""
 msgid "Help"
 msgstr "सहायता"
 
-#: app/SidebarMode.cpp:642
+#: app/SidebarMode.cpp:644
 #, kde-format
 msgid "Sidebar"
 msgstr "बाजूपट्टी"
 
-#: app/SidebarMode.cpp:712
+#: app/SidebarMode.cpp:714
 #, kde-format
 msgid "Most Used"
 msgstr "सर्वाधिक उपयोग किया गया"
