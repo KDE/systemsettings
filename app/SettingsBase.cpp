@@ -7,6 +7,8 @@
  */
 
 #include "SettingsBase.h"
+#include "BaseData.h"
+#include "ModuleView.h"
 #include "SidebarMode.h"
 #include "kcmmetadatahelpers.h"
 
@@ -31,9 +33,6 @@
 #include <KLocalizedString>
 #include <KStandardAction>
 #include <KXMLGUIFactory>
-
-#include "BaseData.h"
-#include "ModuleView.h"
 
 SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent)
     : KMainWindow(parent)

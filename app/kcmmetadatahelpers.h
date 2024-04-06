@@ -11,6 +11,7 @@
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <KService>
+
 #include <QGuiApplication>
 #include <QStandardPaths>
 

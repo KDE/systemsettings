@@ -14,9 +14,6 @@
 #include "ModuleView.h"
 #include "kcmmetadatahelpers.h"
 
-#include <QGuiApplication>
-#include <QHBoxLayout>
-
 #include <KAboutData>
 #include <KActionCollection>
 #include <KCModuleLoader>
@@ -24,8 +21,11 @@
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+
 #include <QAction>
 #include <QGraphicsOpacityEffect>
+#include <QGuiApplication>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QMenu>
 #include <QQmlContext>

@@ -8,6 +8,7 @@
 
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegateFactory>
+
 #include <QDebug>
 
 ExternalAppModule::ExternalAppModule(const KService::Ptr &service)

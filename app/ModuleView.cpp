@@ -7,7 +7,9 @@
  */
 
 #include "ModuleView.h"
+#include "BaseData.h"
 #include "ExternalAppModule.h"
+#include "MenuItem.h"
 
 #include <QDesktopServices>
 #include <QDialogButtonBox>
@@ -30,17 +32,13 @@
 #include <KColorScheme>
 #include <KMessageDialog>
 #include <KPageWidget>
+#include <KPluginMetaData>
 #include <KSharedConfig>
 #include <KStandardGuiItem>
 #include <KTitleWidget>
-
 #include <PlasmaActivities/ResourceInstance>
 
 #include <cmath>
-#include <kpluginmetadata.h>
-
-#include "BaseData.h"
-#include "MenuItem.h"
 
 class CustomTitle : public KTitleWidget
 {

@@ -8,7 +8,9 @@
 #include "MenuModel.h"
 
 #include "MenuItem.h"
+
 #include <KCategorizedSortFilterProxyModel>
+
 #include <QIcon>
 
 class MenuModel::Private

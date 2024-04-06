@@ -8,6 +8,7 @@
 #define SIDEBARMODE_H
 
 #include <KSelectionProxyModel>
+
 #include <QIcon>
 #include <QWidget>
 #include <qqmlregistration.h>

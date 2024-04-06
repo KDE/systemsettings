@@ -9,6 +9,7 @@
 
 #include "MenuItem.h"
 #include "SidebarMode.h"
+
 #include <QButtonGroup>
 #include <QMap>
 #include <QStackedWidget>
