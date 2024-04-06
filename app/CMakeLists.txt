@@ -2,12 +2,27 @@
 add_executable(systemsettings)
 ecm_add_qml_module(systemsettings URI org.kde.systemsettings GENERATE_PLUGIN_SOURCE)
 
+ki18n_wrap_ui(systemsettings externalModule.ui)
+
 target_sources(systemsettings PRIVATE
     main.cpp
     SettingsBase.cpp
     SettingsBase.h
     SidebarMode.cpp
     SidebarMode.h
+    BaseData.cpp
+    BaseData.h
+    ExternalAppModule.cpp
+    ExternalAppModule.h
+    kcmmetadatahelpers.h
+    MenuItem.cpp
+    MenuItem.h
+    MenuModel.cpp
+    MenuModel.h
+    MenuProxyModel.cpp
+    MenuProxyModel.h
+    ModuleView.cpp
+    ModuleView.h
     ${debug_SRCS}
 )
 
@@ -29,7 +44,6 @@ target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_V
 
 target_link_libraries(systemsettings PRIVATE
     systemsettings_debug
-    systemsettingsview
     KF6::Crash
     KF6::ItemViews
     KF6::ItemModels
@@ -43,6 +57,8 @@ target_link_libraries(systemsettings PRIVATE
     KF6::DBusAddons
     KF6::ConfigGui
     KF6::GuiAddons # UrlHanlder handles help:/ urls
+    KF6::AuthCore
+    Plasma::Activities
     Qt::QuickWidgets
     Qt::Qml
     Qt::Quick

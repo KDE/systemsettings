@@ -10,8 +10,6 @@
 
 #include <KCategorizedSortFilterProxyModel>
 
-#include "systemsettingsview_export.h"
-
 /**
  * @brief Provides a filter model for MenuModel
  *
@@ -24,7 +22,7 @@
  * @author Will Stephenson <wstephenson@kde.org>
  * @author Ben Cooksley <bcooksley@kde.org>
  */
-class SYSTEMSETTINGSVIEW_EXPORT MenuProxyModel : public KCategorizedSortFilterProxyModel
+class MenuProxyModel : public KCategorizedSortFilterProxyModel
 {
     Q_OBJECT
 

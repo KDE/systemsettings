@@ -76,7 +76,6 @@ ecm_qt_declare_logging_category(systemsettings_debug
     EXPORT SYSTEMSETTINGS
 )
 
-add_subdirectory(core)
 add_subdirectory(app)
 add_subdirectory(categories)
 if(KF6DocTools_FOUND)

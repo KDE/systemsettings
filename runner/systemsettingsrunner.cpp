@@ -22,7 +22,7 @@
 #include <KSycoca>
 #include <PlasmaActivities/ResourceInstance>
 
-#include "../core/kcmmetadatahelpers.h"
+#include "../app/kcmmetadatahelpers.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SystemsettingsRunner, "systemsettingsrunner.json")
 

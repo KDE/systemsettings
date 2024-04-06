@@ -14,8 +14,6 @@
 #include <QModelIndex>
 #include <QWidget>
 
-#include "systemsettingsview_export.h"
-
 class QQmlEngine;
 
 class KCModule;
@@ -39,7 +37,7 @@ class MenuItem;
  * @author Mathias Soeken <msoeken@informatik.uni-bremen.de>
  * @author Ben Cooksley <bcooksley@kde.org>
  */
-class SYSTEMSETTINGSVIEW_EXPORT ModuleView : public QWidget
+class ModuleView : public QWidget
 {
     Q_OBJECT
 

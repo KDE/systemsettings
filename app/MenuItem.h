@@ -11,12 +11,11 @@
 
 #include <KService>
 
-#include "systemsettingsview_export.h"
-
 class QString;
 class KDesktopFile;
 class KPluginMetaData;
-template<typename T> class QList;
+template<typename T>
+class QList;
 
 /**
  * @brief Provides a specific item in the list of modules or categories
@@ -35,7 +34,7 @@ template<typename T> class QList;
  * @author Ben Cooksley <bcooksley@kde.org>
  * @author Will Stephenson <wstephenson@kde.org>
  */
-class SYSTEMSETTINGSVIEW_EXPORT MenuItem
+class MenuItem
 {
 public:
     /**
@@ -164,7 +163,7 @@ public:
     void updateDefaultIndicator();
 
     void setDefaultIndicator(bool defaultIndicator);
-    
+
     /**
      * If true this is the main module of this category and should appear in a more prominent way compared to the others
      */

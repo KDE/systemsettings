@@ -19,8 +19,8 @@
 #include <KWindowSystem>
 #include <iostream>
 
-#include "../core/kcmmetadatahelpers.h"
 #include "SettingsBase.h"
+#include "kcmmetadatahelpers.h"
 
 int main(int argc, char *argv[])
 {
