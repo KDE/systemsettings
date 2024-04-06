@@ -6,8 +6,6 @@ target_sources(systemsettings PRIVATE
     main.cpp
     SettingsBase.cpp
     SettingsBase.h
-    tooltipmanager.cpp
-    tooltipmanager.h
     SidebarMode.cpp
     SidebarMode.h
     ${debug_SRCS}

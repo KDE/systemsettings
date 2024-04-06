@@ -278,10 +278,6 @@ void SettingsBase::loadCurrentView()
         stackedWidget->addWidget(view->mainWidget());
     }
 
-    // Handle the tooltips
-    qDeleteAll(tooltipManagers);
-    tooltipManagers.clear();
-
     if (highlightChangesAction) {
         highlightChangesAction->setChecked(view->defaultsIndicatorsVisible());
     }

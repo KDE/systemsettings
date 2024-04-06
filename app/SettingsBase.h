@@ -9,7 +9,6 @@
 
 #include "MenuItem.h"
 #include "SidebarMode.h"
-#include "tooltipmanager.h"
 #include <QButtonGroup>
 #include <QMap>
 #include <QStackedWidget>
@@ -62,7 +61,6 @@ private:
     QScreen *m_screen = nullptr;
 
     // The plugins
-    QList<ToolTipManager *> tooltipManagers;
     SidebarMode *view = nullptr;
     // The search bar
     QWidget *spacerWidget = nullptr;
