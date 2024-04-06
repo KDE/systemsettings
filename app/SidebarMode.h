@@ -87,7 +87,7 @@ public:
     };
     Q_ENUM(ApplicationMode)
 
-    SidebarMode(QObject *parent, const QVariantList &args);
+    SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs);
     ~SidebarMode() override;
     QWidget *mainWidget();
     void initEvent();

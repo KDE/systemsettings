@@ -144,19 +144,13 @@ public:
     ApplicationMode applicationMode = SystemSettings;
 };
 
-SidebarMode::SidebarMode(QObject *parent, const QVariantList &args)
+SidebarMode::SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs)
     : QObject(parent)
     , d(new Private())
 {
-    if (args.count() >= 1 && args.first().canConvert<ApplicationMode>()) {
-        d->applicationMode = args.first().value<ApplicationMode>();
-    }
-    if (args.count() >= 2 && args[1].canConvert<QString>()) {
-        d->startupModule = args[1].toString();
-    }
-    if (args.count() >= 3 && args[2].canConvert<QStringList>()) {
-        d->startupModuleArgs = args[2].toStringList();
-    }
+    d->applicationMode = mode;
+    d->startupModule = startupModule;
+    d->startupModuleArgs = startupModuleArgs;
 
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
     qmlRegisterAnonymousType<QAction>("", 1);
