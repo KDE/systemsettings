@@ -17,11 +17,12 @@
 #include <KActionMenu>
 #include <KConfigDialog>
 #include <KLineEdit>
-#include <KXmlGuiWindow>
+#include <KMainWindow>
 
 class QScreen;
+class KHelpMenu;
 
-class SettingsBase : public KXmlGuiWindow
+class SettingsBase : public KMainWindow
 {
     Q_OBJECT
 
@@ -82,5 +83,7 @@ private:
     SidebarMode::ApplicationMode m_mode = SidebarMode::SystemSettings;
     QString m_startupModule;
     QStringList m_startupModuleArgs;
+    KActionCollection *m_actionCollection;
+    KHelpMenu *m_helpMenu;
 };
 #endif

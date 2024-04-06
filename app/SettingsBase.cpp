@@ -25,6 +25,7 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KFileUtils>
+#include <KHelpMenu>
 #include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
@@ -35,10 +36,12 @@
 #include "ModuleView.h"
 
 SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent)
-    : KXmlGuiWindow(parent)
+    : KMainWindow(parent)
     , m_mode(mode)
     , m_startupModule(startupModule)
     , m_startupModuleArgs(startupModuleArgs)
+    , m_actionCollection(new KActionCollection(this))
+    , m_helpMenu(new KHelpMenu(this))
 {
     // Prepare the view area
     stackedWidget = new QStackedWidget(this);
@@ -123,10 +126,10 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    quitAction = actionCollection()->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
+    quitAction = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
 
     if (m_mode == SidebarMode::SystemSettings) {
-        highlightChangesAction = actionCollection()->addAction(QStringLiteral("highlight_changes"), this, [this] {
+        highlightChangesAction = m_actionCollection->addAction(QStringLiteral("highlight_changes"), this, [this] {
             view->toggleDefaultsIndicatorsVisibility();
         });
         highlightChangesAction->setCheckable(true);
@@ -134,7 +137,7 @@ void SettingsBase::initToolBar()
         highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
     }
 
-    reportPageSpecificBugAction = actionCollection()->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
+    reportPageSpecificBugAction = m_actionCollection->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
         const QString bugReportUrlString =
             view->moduleView()->activeModuleMetadata().bugReportUrl() + QStringLiteral("&version=") + QGuiApplication::applicationVersion();
         auto job = new KIO::OpenUrlJob(QUrl(bugReportUrlString));
@@ -144,8 +147,10 @@ void SettingsBase::initToolBar()
     reportPageSpecificBugAction->setText(i18nd("systemsettings", "Report a Bug in the Current Page…"));
     reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
 
-    setupGUI(Save | Create, QString());
-    menuBar()->hide();
+    m_actionCollection->addAction(QStringLiteral("help_report_bug"), m_helpMenu->action(KHelpMenu::menuReportBug));
+    m_actionCollection->addAction(QStringLiteral("help_contents"), m_helpMenu->action(KHelpMenu::menuHelpContents));
+    m_actionCollection->addAction(QStringLiteral("help_about_app"), m_helpMenu->action(KHelpMenu::menuAboutApp));
+    m_actionCollection->addAction(QStringLiteral("help_about_kde"), m_helpMenu->action(KHelpMenu::menuAboutKDE));
 }
 
 void SettingsBase::initMenuList(MenuItem *parent)
@@ -249,7 +254,7 @@ void SettingsBase::about()
 
 void SettingsBase::loadCurrentView()
 {
-    view = new SidebarMode(this, m_mode, m_startupModule, m_startupModuleArgs, actionCollection());
+    view = new SidebarMode(this, m_mode, m_startupModule, m_startupModuleArgs, m_actionCollection);
     connect(view, &SidebarMode::viewChanged, this, &SettingsBase::viewChange);
 
     if (stackedWidget->indexOf(view->mainWidget()) == -1) {
@@ -268,7 +273,7 @@ void SettingsBase::loadCurrentView()
 
     // Update visibility of the "report a bug on this page" and "report bug in general"
     // actions based on whether the current page has a bug report URL set
-    auto reportGeneralBugAction = actionCollection()->action(QStringLiteral("help_report_bug"));
+    auto reportGeneralBugAction = m_actionCollection->action(QStringLiteral("help_report_bug"));
     if (reportGeneralBugAction) {
         reportGeneralBugAction->setVisible(false);
     }

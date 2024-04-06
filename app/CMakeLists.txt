@@ -38,8 +38,6 @@ ecm_target_qml_sources(systemsettings SOURCES
     images/plasma-logo.svg
 )
 
-qt_target_qml_sources(systemsettings RESOURCES systemsettingsui.rc PREFIX /kxmlgui5/systemsettings)
-
 target_compile_definitions(systemsettings PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
 target_link_libraries(systemsettings PRIVATE
