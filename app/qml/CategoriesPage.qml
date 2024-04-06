@@ -172,23 +172,23 @@ Kirigami.ScrollablePage {
             id: delegate
 
             showArrow: {
-                if (!model.IsCategoryRole) {
+                if (!model.isCategory) {
                     return false;
                 }
                 const modelIndex = delegate.ListView.view.model.index(index, 0)
                 return delegate.ListView.view.model.rowCount(modelIndex) > 1
             }
             // Only indent subcategory icons in the search view
-            leadingPadding: (model.DepthRole > 1 && searchField.text.length > 0) ? (( model.DepthRole - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
+            leadingPadding: (model.depth > 1 && searchField.text.length > 0) ? (( model.depth - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
-            hoverEnabled: !model.IsCategoryRole || !mainColumn.searchMode
-            enabled: !model.IsCategoryRole || !mainColumn.searchMode
+            hoverEnabled: !model.isCategory || !mainColumn.searchMode
+            enabled: !model.isCategory || !mainColumn.searchMode
 
             highlighted: ListView.isCurrentItem
 
             onClicked: {
 
-                if (model.IsKCMRole || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
+                if (model.isKCM || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
                     systemsettings.loadModule(categoryView.model.index(index, 0));
                 }
                 if (!mainColumn.searchMode && root.pageStack.depth > 1) {
@@ -196,7 +196,7 @@ Kirigami.ScrollablePage {
                 }
             }
             onFocusChanged: {
-                if (model.IsCategoryRole && mainColumn.searchMode) {
+                if (model.isCategory && mainColumn.searchMode) {
                     return;
                 }
                 if (focus) {

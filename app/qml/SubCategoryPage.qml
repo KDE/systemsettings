@@ -189,7 +189,7 @@ Kirigami.ScrollablePage {
             id: delegate
 
             // Indent items that are children of other KCMs within the same group
-            leadingPadding: model.DepthRole > 2 ? (( model.DepthRole - 2 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
+            leadingPadding: model.depth > 2 ? (( model.depth - 2 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
             highlighted: ListView.isCurrentItem
 

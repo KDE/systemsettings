@@ -38,9 +38,9 @@ MenuModel::~MenuModel()
 QHash<int, QByteArray> MenuModel::roleNames() const
 {
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
-    names[DepthRole] = "DepthRole";
-    names[IsCategoryRole] = "IsCategoryRole";
-    names[IsKCMRole] = "IsKCMRole";
+    names[DepthRole] = "depth";
+    names[IsCategoryRole] = "isCategory";
+    names[IsKCMRole] = "isKCM";
     names[DefaultIndicatorRole] = "showDefaultIndicator";
     names[IconNameRole] = "iconName";
     return names;
