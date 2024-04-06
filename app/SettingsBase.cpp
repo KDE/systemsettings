@@ -281,10 +281,6 @@ void SettingsBase::loadCurrentView()
     // Handle the tooltips
     qDeleteAll(tooltipManagers);
     tooltipManagers.clear();
-    const QList<QAbstractItemView *> theViews = view->views();
-    for (QAbstractItemView *view : theViews) {
-        tooltipManagers << new ToolTipManager(view);
-    }
 
     if (highlightChangesAction) {
         highlightChangesAction->setChecked(view->defaultsIndicatorsVisible());

@@ -202,13 +202,6 @@ QAbstractItemModel *SidebarMode::subCategoryModel() const
     return d->subCategoryModel;
 }
 
-QList<QAbstractItemView *> SidebarMode::views() const
-{
-    QList<QAbstractItemView *> list;
-    // list.append( d->categoryView );
-    return list;
-}
-
 void SidebarMode::initEvent()
 {
     d->model = new MenuModel(rootItem(), this);

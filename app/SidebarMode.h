@@ -129,8 +129,6 @@ public:
     Q_INVOKABLE void focusNext();
     Q_INVOKABLE void focusPrevious();
 
-    QList<QAbstractItemView *> views() const;
-
     void setStartupModule(const QString &startupModule);
     QString startupModule() const;
 
