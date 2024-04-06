@@ -74,14 +74,6 @@ public:
      */
     void setHomeItem(MenuItem *item);
 
-    /**
-     * Returns the configuration group by the name provided in the current applications configuration file.
-     *
-     * @param pluginName the name of the group that is required.
-     * @returns The configuration group that is required.
-     */
-    KConfigGroup configGroup(const QString &pluginName);
-
 private:
     MenuItem *rootMenu;
     MenuItem *m_homeItem;

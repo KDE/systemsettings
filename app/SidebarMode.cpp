@@ -21,6 +21,7 @@
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QAction>
 #include <QGraphicsOpacityEffect>
@@ -157,7 +158,7 @@ SidebarMode::SidebarMode(QObject *parent, ApplicationMode mode, const QString &s
     qmlRegisterAnonymousType<QAbstractItemModel>("", 1);
     d->rootItem = BaseData::instance()->menuItem();
     d->homeItem = BaseData::instance()->homeItem();
-    d->config = BaseData::instance()->configGroup(QStringLiteral("systemsettings_sidebar_mode"));
+    d->config = KSharedConfig::openConfig()->group(QStringLiteral("systemsettings_sidebar_mode"));
     initEvent();
     connect(moduleView(), &ModuleView::moduleChanged, this, &SidebarMode::viewChanged);
 }

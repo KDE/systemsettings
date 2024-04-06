@@ -65,9 +65,4 @@ void BaseData::setHomeItem(MenuItem *item)
     m_homeItem = item;
 }
 
-KConfigGroup BaseData::configGroup(const QString &pluginName)
-{
-    return KSharedConfig::openConfig()->group(pluginName);
-}
-
 #include "moc_BaseData.cpp"
