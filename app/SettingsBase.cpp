@@ -54,8 +54,6 @@ SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &sta
         setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     }
 
-    spacerWidget = new QWidget(this);
-    spacerWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
     // Initialise the window so we don't flicker
     initToolBar();
     // We can now launch the delayed loading safely
@@ -146,11 +144,6 @@ void SettingsBase::initToolBar()
     reportPageSpecificBugAction->setText(i18nd("systemsettings", "Report a Bug in the Current Page…"));
     reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
 
-    // Then a spacer so the search line-edit is kept separate
-    spacerAction = new QWidgetAction(this);
-    spacerAction->setDefaultWidget(spacerWidget);
-    actionCollection()->addAction(QStringLiteral("spacer"), spacerAction);
-    // Initialise the Window
     setupGUI(Save | Create, QString());
     menuBar()->hide();
 }

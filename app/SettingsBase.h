@@ -61,8 +61,6 @@ private:
 
     // The plugins
     SidebarMode *view = nullptr;
-    // The search bar
-    QWidget *spacerWidget = nullptr;
     // The toolbar
     QWidgetAction *spacerAction = nullptr;
     QAction *highlightChangesAction = nullptr;
