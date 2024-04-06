@@ -276,9 +276,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     // flag makes no difference anymore (Bug 385311)
     menu->setAttribute(Qt::WA_TranslucentBackground);
 
-    const QStringList actionList{QStringLiteral("switchto_iconview"),
-                                 QStringLiteral("highlight_changes"),
-                                 QStringLiteral("configure"),
+    const QStringList actionList{QStringLiteral("highlight_changes"),
                                  QStringLiteral("report_bug_in_current_module"),
                                  QStringLiteral("help_report_bug"),
                                  QStringLiteral("help_contents"),
