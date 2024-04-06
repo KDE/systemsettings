@@ -10,8 +10,6 @@ target_sources(systemsettings PRIVATE
     SettingsBase.h
     SidebarMode.cpp
     SidebarMode.h
-    BaseData.cpp
-    BaseData.h
     ExternalAppModule.cpp
     ExternalAppModule.h
     kcmmetadatahelpers.h

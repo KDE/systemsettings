@@ -89,7 +89,13 @@ public:
     };
     Q_ENUM(ApplicationMode)
 
-    SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, KActionCollection *actions);
+    SidebarMode(QObject *parent,
+                ApplicationMode mode,
+                const QString &startupModule,
+                const QStringList &startupModuleArgs,
+                KActionCollection *actions,
+                MenuItem *homeItem,
+                MenuItem *rootItem);
     ~SidebarMode() override;
     QWidget *mainWidget();
     void initEvent();

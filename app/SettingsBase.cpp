@@ -7,7 +7,6 @@
  */
 
 #include "SettingsBase.h"
-#include "BaseData.h"
 #include "ModuleView.h"
 #include "SidebarMode.h"
 #include "kcmmetadatahelpers.h"
@@ -99,9 +98,6 @@ void SettingsBase::initApplication()
         }
     }
 
-    // Prepare the Base Data
-    BaseData::instance()->setMenuItem(rootModule);
-    BaseData::instance()->setHomeItem(homeModule);
     loadCurrentView();
 
     // enforce minimum window size
@@ -253,7 +249,7 @@ void SettingsBase::about()
 
 void SettingsBase::loadCurrentView()
 {
-    view = new SidebarMode(this, m_mode, m_startupModule, m_startupModuleArgs, m_actionCollection);
+    view = new SidebarMode(this, m_mode, m_startupModule, m_startupModuleArgs, m_actionCollection, homeModule, rootModule);
     connect(view, &SidebarMode::viewChanged, this, &SettingsBase::viewChange);
 
     if (stackedWidget->indexOf(view->mainWidget()) == -1) {

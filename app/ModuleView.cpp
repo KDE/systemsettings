@@ -7,7 +7,6 @@
  */
 
 #include "ModuleView.h"
-#include "BaseData.h"
 #include "ExternalAppModule.h"
 #include "MenuItem.h"
 

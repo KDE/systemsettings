@@ -7,7 +7,6 @@
 
 #include "SidebarMode.h"
 
-#include "BaseData.h"
 #include "MenuItem.h"
 #include "MenuModel.h"
 #include "MenuProxyModel.h"
@@ -144,7 +143,13 @@ public:
     ApplicationMode applicationMode = SystemSettings;
 };
 
-SidebarMode::SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, KActionCollection *actions)
+SidebarMode::SidebarMode(QObject *parent,
+                         ApplicationMode mode,
+                         const QString &startupModule,
+                         const QStringList &startupModuleArgs,
+                         KActionCollection *actions,
+                         MenuItem *homeItem,
+                         MenuItem *rootItem)
     : QObject(parent)
     , d(new Private())
 {
@@ -152,12 +157,12 @@ SidebarMode::SidebarMode(QObject *parent, ApplicationMode mode, const QString &s
     d->startupModule = startupModule;
     d->startupModuleArgs = startupModuleArgs;
     d->collection = actions;
+    d->homeItem = homeItem;
+    d->rootItem = rootItem;
 
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
     qmlRegisterAnonymousType<QAction>("", 1);
     qmlRegisterAnonymousType<QAbstractItemModel>("", 1);
-    d->rootItem = BaseData::instance()->menuItem();
-    d->homeItem = BaseData::instance()->homeItem();
     d->config = KSharedConfig::openConfig()->group(QStringLiteral("systemsettings_sidebar_mode"));
     initEvent();
     connect(moduleView(), &ModuleView::moduleChanged, this, &SidebarMode::viewChanged);
