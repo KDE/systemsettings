@@ -146,9 +146,6 @@ void SettingsBase::initToolBar()
     reportPageSpecificBugAction->setText(i18nd("systemsettings", "Report a Bug in the Current Page…"));
     reportPageSpecificBugAction->setIcon(QIcon::fromTheme(QStringLiteral("tools-report-bug")));
 
-    // Help after it
-    initHelpMenu();
-
     // Then a spacer so the search line-edit is kept separate
     spacerAction = new QWidgetAction(this);
     spacerAction->setDefaultWidget(spacerWidget);
@@ -156,18 +153,6 @@ void SettingsBase::initToolBar()
     // Initialise the Window
     setupGUI(Save | Create, QString());
     menuBar()->hide();
-
-    // Toolbar & Configuration
-    helpActionMenu->setMenu(dynamic_cast<QMenu *>(factory()->container(QStringLiteral("help"), this)));
-}
-
-void SettingsBase::initHelpMenu()
-{
-    helpActionMenu = new KActionMenu(QIcon::fromTheme(QStringLiteral("help-contents")), i18nd("systemsettings", "Help"), this);
-    helpActionMenu->setPopupMode(QToolButton::InstantPopup);
-    actionCollection()->addAction(QStringLiteral("help_toolbar_menu"), helpActionMenu);
-    // Add the custom actions
-    aboutViewAction = actionCollection()->addAction(KStandardAction::AboutApp, QStringLiteral("help_about_view"), this, &SettingsBase::about);
 }
 
 void SettingsBase::initMenuList(MenuItem *parent)

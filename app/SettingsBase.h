@@ -40,7 +40,6 @@ protected:
 private Q_SLOTS:
     void initApplication();
     void initToolBar();
-    void initHelpMenu();
     void initMenuList(MenuItem *parent);
     void about();
     void viewChange(bool state);
