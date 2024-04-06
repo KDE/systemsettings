@@ -20,6 +20,7 @@ class QAbstractItemModel;
 class QAction;
 class SidebarMode;
 class MenuItem;
+class KActionCollection;
 
 class FocusHackWidget : public QWidget
 {
@@ -87,7 +88,7 @@ public:
     };
     Q_ENUM(ApplicationMode)
 
-    SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs);
+    SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, KActionCollection *actions);
     ~SidebarMode() override;
     QWidget *mainWidget();
     void initEvent();

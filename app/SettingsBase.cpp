@@ -271,7 +271,7 @@ void SettingsBase::about()
 
 void SettingsBase::loadCurrentView()
 {
-    view = new SidebarMode(this, m_mode, m_startupModule, m_startupModuleArgs);
+    view = new SidebarMode(this, m_mode, m_startupModule, m_startupModuleArgs, actionCollection());
     connect(view, &SidebarMode::viewChanged, this, &SettingsBase::viewChange);
 
     if (stackedWidget->indexOf(view->mainWidget()) == -1) {

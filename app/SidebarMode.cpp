@@ -24,7 +24,6 @@
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KXmlGuiWindow>
 #include <QAction>
 #include <QGraphicsOpacityEffect>
 #include <QLabel>
@@ -144,13 +143,14 @@ public:
     ApplicationMode applicationMode = SystemSettings;
 };
 
-SidebarMode::SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs)
+SidebarMode::SidebarMode(QObject *parent, ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, KActionCollection *actions)
     : QObject(parent)
     , d(new Private())
 {
     d->applicationMode = mode;
     d->startupModule = startupModule;
     d->startupModuleArgs = startupModuleArgs;
+    d->collection = actions;
 
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
     qmlRegisterAnonymousType<QAction>("", 1);
@@ -242,10 +242,6 @@ void SidebarMode::initEvent()
 
 QAction *SidebarMode::action(const QString &name) const
 {
-    if (!d->collection) {
-        return nullptr;
-    }
-
     return d->collection->action(name);
 }
 
@@ -638,13 +634,6 @@ bool SidebarMode::defaultsIndicatorsVisible() const
 void SidebarMode::initWidget()
 {
     // Create the widgets
-
-    if (!KMainWindow::memberList().isEmpty()) {
-        KXmlGuiWindow const *mainWindow = qobject_cast<KXmlGuiWindow *>(KMainWindow::memberList().constFirst());
-        if (mainWindow) {
-            d->collection = mainWindow->actionCollection();
-        }
-    }
     // SidebarMode and ModuleView have the reference
     Q_ASSERT_X(d->engine.use_count() == 2, Q_FUNC_INFO, qUtf8Printable(QString::number(d->engine.use_count())));
     d->quickWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
