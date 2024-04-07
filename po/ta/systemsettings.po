@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-04-07 00:40+0000\n"
 "PO-Revision-Date: 2023-01-03 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ubuntu-l10n-tam@lists.ubuntu.com, kde-l10n-ta@kde.org"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:50
 #, kde-format
 msgid "Info Center"
 msgstr "விவர மையம்"
@@ -42,7 +42,7 @@ msgstr "கணினியின் விவரங்களை வசதிய�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -139,27 +139,27 @@ msgstr "பட்டியைக் காட்டு"
 msgid "Plasma"
 msgstr "பிளாஸ்மா"
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
 
-#: app/SettingsBase.cpp:147
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SettingsBase.cpp:169
+#: app/SettingsBase.cpp:166
 #, kde-format
 msgid "Help"
 msgstr "உதவி"
 
-#: app/SidebarMode.cpp:644
+#: app/SidebarMode.cpp:666
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: app/SidebarMode.cpp:714
+#: app/SidebarMode.cpp:735
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"

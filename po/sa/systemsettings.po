@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-04-07 00:40+0000\n"
 "PO-Revision-Date: 2023-09-24 20:49+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:50
 #, kde-format
 msgid "Info Center"
 msgstr "सूचना केन्द्रम्"
@@ -44,7 +44,7 @@ msgstr "प्रणालीसूचनायाः केन्द्री�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन् कुक्स्ले"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -141,27 +141,27 @@ msgstr "विकल्पसूचि दर्शयतु"
 msgid "Plasma"
 msgstr "प्लाज्मा"
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "परिवर्तित समायोजनानि प्रकटय"
 
-#: app/SettingsBase.cpp:147
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "वर्तमान पृष्ठे दोषस्य सूचनां ददातु…"
 
-#: app/SettingsBase.cpp:169
+#: app/SettingsBase.cpp:166
 #, kde-format
 msgid "Help"
 msgstr "साहाय्यम्‌"
 
-#: app/SidebarMode.cpp:644
+#: app/SidebarMode.cpp:666
 #, kde-format
 msgid "Sidebar"
 msgstr "पार्श्वपट्टिका"
 
-#: app/SidebarMode.cpp:714
+#: app/SidebarMode.cpp:735
 #, kde-format
 msgid "Most Used"
 msgstr "अधिकांशतः प्रयुक्तः"

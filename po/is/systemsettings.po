@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-04-07 00:40+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -33,7 +33,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ra@ra.is, sv1@fellsnet.is, gudmundure@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:50
 #, kde-format
 msgid "Info Center"
 msgstr "Upplýsingaborð"
@@ -48,7 +48,7 @@ msgstr "Miðlægt og þægilegt yfirlit yfir kerfisupplýsingar."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -145,27 +145,27 @@ msgstr "Sýna valmynd"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Áherslulita breyttar stillingar"
 
-#: app/SettingsBase.cpp:147
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Tilkynna um villu á núverandi síðu…"
 
-#: app/SettingsBase.cpp:169
+#: app/SettingsBase.cpp:166
 #, kde-format
 msgid "Help"
 msgstr "Hjálp"
 
-#: app/SidebarMode.cpp:644
+#: app/SidebarMode.cpp:666
 #, kde-format
 msgid "Sidebar"
 msgstr "Hliðarstika"
 
-#: app/SidebarMode.cpp:714
+#: app/SidebarMode.cpp:735
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"

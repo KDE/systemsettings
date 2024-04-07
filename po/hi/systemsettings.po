@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:39+0000\n"
+"POT-Creation-Date: 2024-04-07 00:40+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karunakar@indlinux.org, raghu@raghukamath.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:50
 #, kde-format
 msgid "Info Center"
 msgstr "जानकारी केंद्र"
@@ -45,7 +45,7 @@ msgstr "तंत्र की जानकारी का केंद्र�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) २००९, बेन कूक्सले"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -142,7 +142,7 @@ msgstr "मेन्यू दिखाएँ"
 msgid "Plasma"
 msgstr "प्लाज़्मा"
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:135
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -151,22 +151,22 @@ msgstr "प्लाज़्मा"
 msgid "Highlight Changed Settings"
 msgstr "परिवर्तित सेटिंग्स को चिन्हांकित करें"
 
-#: app/SettingsBase.cpp:147
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:169
+#: app/SettingsBase.cpp:166
 #, kde-format
 msgid "Help"
 msgstr "सहायता"
 
-#: app/SidebarMode.cpp:644
+#: app/SidebarMode.cpp:666
 #, kde-format
 msgid "Sidebar"
 msgstr "बाजूपट्टी"
 
-#: app/SidebarMode.cpp:714
+#: app/SidebarMode.cpp:735
 #, kde-format
 msgid "Most Used"
 msgstr "सर्वाधिक उपयोग किया गया"
