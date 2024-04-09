@@ -1,46 +1,46 @@
 # translation of systemsettings.po to Persian
 # Saied Taghavi <s.taghavi@gmail.com>, 2008.
 # Mohamad Reza Mirdamadi <mohi@linuxshop.ir>, 2010, 2011.
-# Mohi Mirdamadi <mohi@ubuntu.ir>, 2015.
+# SPDX-FileCopyrightText: 2015, 2024 Mohi Mirdamadi <mohi@ubuntu.ir>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-04 02:21+0000\n"
-"PO-Revision-Date: 2015-08-28 11:08+0430\n"
-"Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
-"Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
+"PO-Revision-Date: 2024-04-09 00:22+0330\n"
+"Last-Translator: Mohi Mirdamadi <mohi.pub@gmail.com>\n"
+"Language-Team: fa\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "محمدرضا میردامادی , محمد ابراهیم محمدی‌پناه"
+msgstr "محمدرضا (موهی) میردامادی"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "mohi@linuxshop.ir , mebrahim@gmail.com"
+msgstr "mohi.pub@gmail.com"
 
 #: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "مرکز اطلاعات"
 
 #: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "نمایی مرکزی و راحت از اطلاعات سامانه"
 
 #: app/main.cpp:58 app/main.cpp:69
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
-msgstr ""
+msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:65 app/SettingsBase.cpp:54 app/sidebar/qml/IntroPage.qml:51
 #: runner/systemsettingsrunner.cpp:112
@@ -49,10 +49,9 @@ msgid "System Settings"
 msgstr "تنظیمات سامانه"
 
 #: app/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
-msgstr "سامانه تنظیمات مرکزی برای KDE"
+msgstr "مرکز تنظیمات مرکزی از کی‌دی‌ای"
 
 #: app/main.cpp:80
 #, kde-format
@@ -67,12 +66,12 @@ msgstr "نگه‌دارنده"
 #: app/main.cpp:81
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: app/main.cpp:81
 #, kde-format
 msgid "Author"
-msgstr "مولف"
+msgstr "مؤلف"
 
 #: app/main.cpp:82
 #, kde-format
@@ -154,12 +153,12 @@ msgstr ""
 #: app/sidebar/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "پلاسما"
 
 #: app/sidebar/SidebarMode.cpp:641
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "نوار کناری"
 
 #: app/sidebar/SidebarMode.cpp:711
 #, kde-format
@@ -173,13 +172,11 @@ msgid "About System Settings"
 msgstr "درباره تنظیمات سامانه"
 
 #: app/ToolTips/tooltipmanager.cpp:187
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "<i>شامل %1 مورد</i>"
-msgstr[1] ""
+msgstr[0] "شامل %1 مورد"
+msgstr[1] "شامل %1 مورد"
 
 #: core/ExternalAppModule.cpp:25
 #, kde-format
