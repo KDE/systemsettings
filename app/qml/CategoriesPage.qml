@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-only
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -171,24 +173,34 @@ Kirigami.ScrollablePage {
         delegate: CategoryItem {
             id: delegate
 
+            required property int index
+            required property var model
+            required property bool isCategory
+            required property int depth
+            required property bool isKCM
+            required property string iconName
+
+            text: model.display
+            icon.name: iconName
+
             showArrow: {
-                if (!model.isCategory) {
+                if (!isCategory) {
                     return false;
                 }
                 const modelIndex = delegate.ListView.view.model.index(index, 0)
                 return delegate.ListView.view.model.rowCount(modelIndex) > 1
             }
             // Only indent subcategory icons in the search view
-            leadingPadding: (model.depth > 1 && searchField.text.length > 0) ? (( model.depth - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
+            leadingPadding: (depth > 1 && searchField.text.length > 0) ? (( depth - 1 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
-            hoverEnabled: !model.isCategory || !mainColumn.searchMode
-            enabled: !model.isCategory || !mainColumn.searchMode
+            hoverEnabled: !isCategory || !mainColumn.searchMode
+            enabled: !isCategory || !mainColumn.searchMode
 
             highlighted: ListView.isCurrentItem
 
             onClicked: {
 
-                if (model.isKCM || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
+                if (isKCM || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
                     systemsettings.loadModule(categoryView.model.index(index, 0));
                 }
                 if (!mainColumn.searchMode && root.pageStack.depth > 1) {
@@ -196,7 +208,7 @@ Kirigami.ScrollablePage {
                 }
             }
             onFocusChanged: {
-                if (model.isCategory && mainColumn.searchMode) {
+                if (isCategory && mainColumn.searchMode) {
                     return;
                 }
                 if (focus) {

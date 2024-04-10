@@ -14,14 +14,12 @@ ItemDelegate {
     property bool showArrow: false
     property bool selected: delegate.highlighted || delegate.pressed
     property bool isSearching: false
-    property bool showDefaultIndicator: model.showDefaultIndicator && systemsettings.defaultsIndicatorsVisible
     property real leadingPadding: 0
+    required property bool showDefaultIndicator
 
     width: ListView.view?.width ?? 0
 
-    icon.name: model.iconName
-    text: model.display
-    Accessible.name: model.display
+    Accessible.name: text
     Accessible.onPressAction: clicked()
 
     contentItem: RowLayout {
@@ -41,7 +39,7 @@ ItemDelegate {
             Layout.preferredHeight: Kirigami.Units.largeSpacing
 
             radius: width * 0.5
-            visible: delegate.showDefaultIndicator
+            visible: delegate.showDefaultIndicator && systemsettings.defaultsIndicatorsVisible
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             color: Kirigami.Theme.neutralTextColor
         }

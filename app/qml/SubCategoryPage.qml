@@ -4,6 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-only
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick 2.15
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
@@ -188,8 +190,16 @@ Kirigami.ScrollablePage {
         delegate: CategoryItem {
             id: delegate
 
+            required property int index
+            required property var model
+            required property int depth
+            required property string iconName
+
+            text: model.display
+            icon.name: model.iconName
+
             // Indent items that are children of other KCMs within the same group
-            leadingPadding: model.depth > 2 ? (( model.depth - 2 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
+            leadingPadding: depth > 2 ? (( depth - 2 ) * Kirigami.Units.iconSizes.smallMedium) + Kirigami.Units.largeSpacing : 0
 
             highlighted: ListView.isCurrentItem
 
