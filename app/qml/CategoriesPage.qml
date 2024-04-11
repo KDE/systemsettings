@@ -165,6 +165,9 @@ Kirigami.ScrollablePage {
         section {
             property: "categoryDisplayRole"
             delegate: Kirigami.ListSectionHeader {
+
+                required property string section
+
                 width: ListView.view.width
                 label: section
             }
