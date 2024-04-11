@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2023-01-03 06:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 წარმოადგენს გარე აპლიკაციას, რომელიც ავტომატურად გაეშვა"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "%1-ის თავიდან გაშვება"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "ფანჯარა"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "საინფორმაციო ცენტრი"
@@ -43,7 +59,7 @@ msgstr "ცენტრალიზებული და მოხერხე�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -119,6 +135,25 @@ msgstr "ხელმისაწვდომია მოდულები:"
 msgid "No description available"
 msgstr "აღწერის გარეშე"
 
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "ყველა მიმდინარე ცვლილების საწყის მნიშვნელობებზე დაბრუნება"
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"მიმდინარე მოდულის პარამეტრები შეიცვალა.\n"
+"გნებავთ გადაატაროთ ეს ცვლილებები თუ მოვაშოროთ ისინი?"
+
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "პარამეტრების გადატარება"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -140,78 +175,25 @@ msgstr "მენიუს ჩვენება"
 msgid "Plasma"
 msgstr "პლაზმა"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "შეცვლილი პარამეტრების გამოკვეთა"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "დახმარება"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr "გვერდითი ზოლი"
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr "ხშირად გამოყენებული"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "სისტემური პარამეტრების შესახებ"
-
-#: app/tooltipmanager.cpp:187
-#, kde-format
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "შეიცავს 1 ელემენტს"
-msgstr[1] "შეიცავს %1 ელემენტს"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 წარმოადგენს გარე აპლიკაციას, რომელიც ავტომატურად გაეშვა"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "%1-ის თავიდან გაშვება"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "ფანჯარა"
-
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "ყველა მიმდინარე ცვლილების საწყის მნიშვნელობებზე დაბრუნება"
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"მიმდინარე მოდულის პარამეტრები შეიცვალა.\n"
-"გნებავთ გადაატაროთ ეს ცვლილებები თუ მოვაშოროთ ისინი?"
-
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "პარამეტრების გადატარება"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -222,6 +204,17 @@ msgstr "სისტემის პარამეტრების მოდ�
 #, kde-format
 msgid "System Information"
 msgstr "ინფორმაცის სისტემის შესახებ"
+
+#~ msgid "Help"
+#~ msgstr "დახმარება"
+
+#~ msgid "About System Settings"
+#~ msgstr "სისტემური პარამეტრების შესახებ"
+
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "შეიცავს 1 ელემენტს"
+#~ msgstr[1] "შეიცავს %1 ელემენტს"
 
 #~ msgctxt "Search through a list of control modules"
 #~ msgid "Search"

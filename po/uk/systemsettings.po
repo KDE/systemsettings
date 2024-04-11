@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2023-01-03 15:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -31,7 +31,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ivanpetrouchtchak@yahoo.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 є зовнішньою програмою, яку буде запущено у автоматичному режимі"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Перезапустити %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Діалогове вікно"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Центр інформації"
@@ -46,7 +62,7 @@ msgstr "Централізований та зручний огляд усіх �
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© Ben Cooksley, 2009"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -122,6 +138,25 @@ msgstr "Наявні наступні модулі:"
 msgid "No description available"
 msgstr "Немає опису"
 
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Повернути всім параметрам попередні значення"
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Параметри активного модуля було змінено.\n"
+"Застосувати зміни чи відкинути їх?"
+
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "Застосувати параметри"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -143,80 +178,25 @@ msgstr "Показати меню"
 msgid "Plasma"
 msgstr "Плазма"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Підсвічувати змінені параметри"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Повідомити про ваду на поточній сторінці…"
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "Довідка"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr "Бічна панель"
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr "Найвживаніші"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Про «Системні параметри»"
-
-#: app/tooltipmanager.cpp:187
-#, kde-format
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "Містить %1 елемент"
-msgstr[1] "Містить %1 елементи"
-msgstr[2] "Містить %1 елементів"
-msgstr[3] "Містить %1 елемент"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 є зовнішньою програмою, яку буде запущено у автоматичному режимі"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "Перезапустити %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Діалогове вікно"
-
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "Повернути всім параметрам попередні значення"
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"Параметри активного модуля було змінено.\n"
-"Застосувати зміни чи відкинути їх?"
-
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "Застосувати параметри"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -228,6 +208,19 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Дані щодо системи"
+
+#~ msgid "Help"
+#~ msgstr "Довідка"
+
+#~ msgid "About System Settings"
+#~ msgstr "Про «Системні параметри»"
+
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "Містить %1 елемент"
+#~ msgstr[1] "Містить %1 елементи"
+#~ msgstr[2] "Містить %1 елементів"
+#~ msgstr[3] "Містить %1 елемент"
 
 #~ msgctxt "Search through a list of control modules"
 #~ msgid "Search"

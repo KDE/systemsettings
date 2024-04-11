@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2023-06-14 23:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,7 +31,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 és una aplicació externa i s'inicia automàticament"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Torna a iniciar %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Diàleg"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Centre d'informació"
@@ -46,7 +62,7 @@ msgstr "Resum centralitzat i pràctic de la informació del sistema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -122,6 +138,25 @@ msgstr "Estan disponibles els mòduls següents:"
 msgid "No description available"
 msgstr "No hi ha disponible cap descripció"
 
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Restaura tots els canvis actuals als valors anteriors"
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"La configuració del mòdul actual ha canviat.\n"
+"Voleu aplicar els canvis o descartar-los?"
+
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "Aplica la configuració"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -143,78 +178,25 @@ msgstr "Mostra el menú"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Ressaltat dels paràmetres canviats"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Informeu d'un error en la pàgina actual…"
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "Ajuda"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr "Més utilitzat"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Quant a Configuració del sistema"
-
-#: app/tooltipmanager.cpp:187
-#, kde-format
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "Conté 1 element"
-msgstr[1] "Conté %1 elements"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 és una aplicació externa i s'inicia automàticament"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "Torna a iniciar %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Diàleg"
-
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "Restaura tots els canvis actuals als valors anteriors"
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"La configuració del mòdul actual ha canviat.\n"
-"Voleu aplicar els canvis o descartar-los?"
-
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "Aplica la configuració"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -227,3 +209,14 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informació del sistema"
+
+#~ msgid "Help"
+#~ msgstr "Ajuda"
+
+#~ msgid "About System Settings"
+#~ msgstr "Quant a Configuració del sistema"
+
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "Conté 1 element"
+#~ msgstr[1] "Conté %1 elements"

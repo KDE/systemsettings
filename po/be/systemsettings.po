@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2023-01-06 07:31\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -31,7 +31,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "komzpa@licei2.com, nashtlumach@gmail.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 - вонкавая праграма, яна была запушчаная аўтаматычна"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Перазапусціць %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Дыялогавае акно"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "Інфармацыйны цэнтр"
@@ -46,7 +62,7 @@ msgstr "Цэнтралізаваны і зручны агляд сістэмна
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -122,6 +138,25 @@ msgstr "Даступны наступныя модулі:"
 msgid "No description available"
 msgstr "Няма даступнага апісання"
 
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Скінуць усе бягучыя змены да папярэдніх значэнняў"
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Налады бягучага модуля змяніліся.\n"
+"Хочаце ўжыць змены ці адкінуць іх?"
+
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "Ужыць налады"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -143,7 +178,7 @@ msgstr "Паказваць меню"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -152,75 +187,20 @@ msgstr "Plasma"
 msgid "Highlight Changed Settings"
 msgstr "Падсвятляць змененыя налады"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Паведаміць пра хібу на бягучай старонцы…"
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "Даведка"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr "Бакавая панэль"
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr "Найбольш часта выкарыстоўваюцца"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Пра сістэмныя налады"
-
-#: app/tooltipmanager.cpp:187
-#, kde-format
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "Змяшчае %1 элемент"
-msgstr[1] "Змяшчае %1 элементы"
-msgstr[2] "Змяшчае %1 элементаў"
-msgstr[3] "Змяшчае %1 элементы"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 - вонкавая праграма, яна была запушчаная аўтаматычна"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "Перазапусціць %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Дыялогавае акно"
-
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "Скінуць усе бягучыя змены да папярэдніх значэнняў"
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"Налады бягучага модуля змяніліся.\n"
-"Хочаце ўжыць змены ці адкінуць іх?"
-
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "Ужыць налады"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -231,6 +211,19 @@ msgstr "Шукае модулі налад сістэмы, чыі назвы а�
 #, kde-format
 msgid "System Information"
 msgstr "Сістэмная інфармацыя"
+
+#~ msgid "Help"
+#~ msgstr "Даведка"
+
+#~ msgid "About System Settings"
+#~ msgstr "Пра сістэмныя налады"
+
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "Змяшчае %1 элемент"
+#~ msgstr[1] "Змяшчае %1 элементы"
+#~ msgstr[2] "Змяшчае %1 элементаў"
+#~ msgstr[3] "Змяшчае %1 элементы"
 
 #~ msgctxt "Search through a list of control modules"
 #~ msgid "Search"

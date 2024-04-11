@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2024-04-07 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1是外部应用程序，它已经自动启动"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "重新打开%1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "对话框"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr "系统信息中心"
@@ -42,7 +58,7 @@ msgstr "系统信息的一站式简易概览"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -118,6 +134,25 @@ msgstr "下列模块可用："
 msgid "No description available"
 msgstr "无可用描述"
 
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "重置所有当前更改为之前的值"
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"当前模块的设置已经更改。\n"
+"您想要应用更改还是丢弃更改？"
+
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "应用设置"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -139,77 +174,25 @@ msgstr "显示菜单"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "高亮显示更改过的设置"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面中的程序缺陷…"
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "帮助"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "关于系统设置"
-
-#: app/tooltipmanager.cpp:187
-#, kde-format
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "包含 %1 个项目"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1是外部应用程序，它已经自动启动"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "重新打开%1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "对话框"
-
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "重置所有当前更改为之前的值"
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"当前模块的设置已经更改。\n"
-"您想要应用更改还是丢弃更改？"
-
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "应用设置"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -220,3 +203,13 @@ msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"
+
+#~ msgid "Help"
+#~ msgstr "帮助"
+
+#~ msgid "About System Settings"
+#~ msgstr "关于系统设置"
+
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "包含 %1 个项目"

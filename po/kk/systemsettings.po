@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2011-03-04 03:50+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sairan@computer.org"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 деген автоматты түрде жегілген сыртқы бағдарлама"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "%1 дегенді қайта жегу"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Диалог"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -42,7 +58,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -119,6 +135,25 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Бүкіл енгізілген өзгерістерді ысырып тастап, алдыңғы күйлеріне қайтару"
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Белсенді модулінде сақталмаған өзгерістер бар.\n"
+"Олар іске асырылсын ба, әлде ысырып тасталсын ба?"
+
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "Баптауларын іске асыру"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -140,79 +175,25 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "Анықтама"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "'Жүйе параметрлері' туралы"
-
-#: app/tooltipmanager.cpp:187
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "<i>%1 нысаны бар</i>"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 деген автоматты түрде жегілген сыртқы бағдарлама"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "%1 дегенді қайта жегу"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Диалог"
-
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "Бүкіл енгізілген өзгерістерді ысырып тастап, алдыңғы күйлеріне қайтару"
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"Белсенді модулінде сақталмаған өзгерістер бар.\n"
-"Олар іске асырылсын ба, әлде ысырып тасталсын ба?"
-
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "Баптауларын іске асыру"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -224,6 +205,19 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "Жүйе параметрлері"
+
+#~ msgid "Help"
+#~ msgstr "Анықтама"
+
+#~ msgid "About System Settings"
+#~ msgstr "'Жүйе параметрлері' туралы"
+
+#, fuzzy
+#~| msgid "<i>Contains 1 item</i>"
+#~| msgid_plural "<i>Contains %1 items</i>"
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "<i>%1 нысаны бар</i>"
 
 #~ msgctxt "Search through a list of control modules"
 #~ msgid "Search"

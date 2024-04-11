@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-07 00:40+0000\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
 "PO-Revision-Date: 2013-10-18 20:13+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -31,7 +31,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Mirza@etf.ba,samir.ribic@etf.unsa.ba"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:50
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 je spoljašnji program i automatski je pokrenut"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Pokreni ponovo %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dijalog"
+
+#: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -46,7 +62,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:53
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -123,6 +139,27 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
+# rewrite-msgid: /Reset/Revert/
+#: app/ModuleView.cpp:183
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr "Vratite sve tekuće izmjene na prethodne vrijednosti."
+
+#: app/ModuleView.cpp:358
+#, kde-format
+msgid ""
+"The settings of the current module have changed.\n"
+"Do you want to apply the changes or discard them?"
+msgstr ""
+"Postavke tekućeg modula su izmijenjene.\n"
+"Želite li da primijenite ili odbacite izmjene?"
+
+# >> @title:window
+#: app/ModuleView.cpp:363
+#, kde-format
+msgid "Apply Settings"
+msgstr "Primjena postavki"
+
 #: app/qml/CategoriesPage.qml:62
 #, kde-format
 msgid "Show intro page"
@@ -144,83 +181,25 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:131
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:142
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SettingsBase.cpp:166
-#, kde-format
-msgid "Help"
-msgstr "Pomoć"
-
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:646
 #, kde-format
 msgid "Sidebar"
 msgstr ""
 
-#: app/SidebarMode.cpp:735
+#: app/SidebarMode.cpp:715
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "O Sistemskim postavkama"
-
-#: app/tooltipmanager.cpp:187
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
-msgid "Contains 1 item"
-msgid_plural "Contains %1 items"
-msgstr[0] "<i>Sadrži %1 stavku</i>"
-msgstr[1] "<i>Sadrži %1 stavke</i>"
-msgstr[2] "<i>Sadrži %1 stavki</i>"
-
-#: core/ExternalAppModule.cpp:25
-#, kde-format
-msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 je spoljašnji program i automatski je pokrenut"
-
-#: core/ExternalAppModule.cpp:26
-#, kde-format
-msgid "Relaunch %1"
-msgstr "Pokreni ponovo %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dijalog"
-
-# rewrite-msgid: /Reset/Revert/
-#: core/ModuleView.cpp:186
-#, kde-format
-msgid "Reset all current changes to previous values"
-msgstr "Vratite sve tekuće izmjene na prethodne vrijednosti."
-
-#: core/ModuleView.cpp:361
-#, kde-format
-msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
-msgstr ""
-"Postavke tekućeg modula su izmijenjene.\n"
-"Želite li da primijenite ili odbacite izmjene?"
-
-# >> @title:window
-#: core/ModuleView.cpp:366
-#, kde-format
-msgid "Apply Settings"
-msgstr "Primjena postavki"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
@@ -232,6 +211,21 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "Sistemske postavke"
+
+#~ msgid "Help"
+#~ msgstr "Pomoć"
+
+#~ msgid "About System Settings"
+#~ msgstr "O Sistemskim postavkama"
+
+#, fuzzy
+#~| msgid "<i>Contains 1 item</i>"
+#~| msgid_plural "<i>Contains %1 items</i>"
+#~ msgid "Contains 1 item"
+#~ msgid_plural "Contains %1 items"
+#~ msgstr[0] "<i>Sadrži %1 stavku</i>"
+#~ msgstr[1] "<i>Sadrži %1 stavke</i>"
+#~ msgstr[2] "<i>Sadrži %1 stavki</i>"
 
 # >> @label
 #~ msgctxt "Search through a list of control modules"
