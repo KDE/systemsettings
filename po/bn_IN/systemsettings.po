@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2008-07-06 19:57+0530\n"
 "Last-Translator: Ria Das <mailtoria@gmail.com>\n"
 "Language-Team: Bengali (India) <discuss@ankur.co.in>\n"
@@ -158,12 +158,12 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "সইস্টেমের বৈশিষ্ট"
 
-#: app/qml/CategoriesPage.qml:62
+#: app/qml/CategoriesPage.qml:64
 #, kde-format
 msgid "Show intro page"
 msgstr ""
 
-#: app/qml/CategoriesPage.qml:130
+#: app/qml/CategoriesPage.qml:132
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2023-01-16 22:58-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -157,12 +157,12 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Aplicar configurações"
 
-#: app/qml/CategoriesPage.qml:62
+#: app/qml/CategoriesPage.qml:64
 #, kde-format
 msgid "Show intro page"
 msgstr "Mostrar página de introdução"
 
-#: app/qml/CategoriesPage.qml:130
+#: app/qml/CategoriesPage.qml:132
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

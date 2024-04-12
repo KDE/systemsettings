@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -156,12 +156,12 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "विन्यास लागु करें"
 
-#: app/qml/CategoriesPage.qml:62
+#: app/qml/CategoriesPage.qml:64
 #, kde-format
 msgid "Show intro page"
 msgstr "परिचय पृष्ठ दिखाएं"
 
-#: app/qml/CategoriesPage.qml:130
+#: app/qml/CategoriesPage.qml:132
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
