@@ -6,11 +6,15 @@ X-KDE-Weight=10
 Icon=preferences-system-network
 
 Name=Wi-Fi & Internet
+Name[bg]=Wi-Fi и Интернет
 Name[ca]=Wi-Fi i Internet
 Name[es]=Wifi e internet
+Name[he]=רשת אלחוטית ואינטרנט
+Name[ia]=Wi-Fi & Internet
 Name[ka]=Wi-Fi & ინტერნეტი
 Name[nl]=Wi-Fi & internet
 Name[sl]=Wi-Fi in internet
 Name[tr]=Wi-Fi ve İnternet
 Name[uk]=Wi-Fi та інтернет
 Name[x-test]=xxWi-Fi & Internetxx
+Name[zh_CN]=Wi-Fi 和互联网
