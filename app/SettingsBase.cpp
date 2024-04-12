@@ -45,6 +45,8 @@ SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &sta
     stackedWidget = new QStackedWidget(this);
     setCentralWidget(stackedWidget);
 
+    m_actionCollection->addAssociatedWidget(this);
+
     setProperty("_breeze_no_separator", true);
 
     if (m_mode == SidebarMode::InfoCenter) {
