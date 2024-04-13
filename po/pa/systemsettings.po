@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:39+0000\n"
+"POT-Creation-Date: 2024-04-13 00:40+0000\n"
 "PO-Revision-Date: 2024-01-01 08:00-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr "%1 ਮੁੜ-ਚਲਾਓ"
 msgid "Dialog"
 msgstr "ਡਾਈਲਾਗ"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:55
 #, kde-format
 msgid "Info Center"
 msgstr "ਜਾਣਕਾਰੀ ਕੇਂਦਰ"
@@ -59,7 +59,7 @@ msgstr "ਸਿਸਟਮ ਜਾਣਕਾਰੀ ਦੀ ਕੇਂਦਰੀ ਅਤ�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ੨੦੦੯, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -175,12 +175,12 @@ msgstr "ਮੇਨੂ ਵੇਖੋ"
 msgid "Plasma"
 msgstr "ਪਲਾਜ਼ਮਾ"
 
-#: app/SettingsBase.cpp:131
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "ਤਬਦੀਲ ਕੀਤੀਆਂ ਸੈਟਿੰਗਾਂ ਉਘਾੜੋ"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "…ਮੌਜੂਦਾ ਸਫ਼ੇ ਵਿੱਚ ਬੱਗ ਬਾਰੇ ਜਾਣਕਾਰੀ ਦਿਓ"

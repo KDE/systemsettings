@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:39+0000\n"
+"POT-Creation-Date: 2024-04-13 00:40+0000\n"
 "PO-Revision-Date: 2023-02-18 20:47+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "%1 yenidən başlatmaq"
 msgid "Dialog"
 msgstr "Dialoq"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:55
 #, kde-format
 msgid "Info Center"
 msgstr "Məlumat Mərkəzi"
@@ -58,7 +58,7 @@ msgstr "Sistem haqqında məlumatlara rahat və mərkəzləşmiş qaydada baxı�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -174,12 +174,12 @@ msgstr "Menyunu göstərmək"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:131
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Dəyişdirilmiş ayarları işarələmək"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Cari səhifədə xəta haqqında xəbər verin..."

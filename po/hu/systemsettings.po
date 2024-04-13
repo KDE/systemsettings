@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:39+0000\n"
+"POT-Creation-Date: 2024-04-13 00:40+0000\n"
 "PO-Revision-Date: 2024-01-02 12:05+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr "%1 újraindítása"
 msgid "Dialog"
 msgstr "Párbeszédablak"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:55
 #, kde-format
 msgid "Info Center"
 msgstr "Rendszerinformáció"
@@ -62,7 +62,7 @@ msgstr "A rendszerjellemzők központosított és kényelmes áttekintése."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) Ben Cooksley, 2009."
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -178,12 +178,12 @@ msgstr "Menü megjelenítése"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:131
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Módosított beállítások kiemelése"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Hiba jelentése az aktuális oldalban…"

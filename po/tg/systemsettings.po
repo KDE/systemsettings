@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:39+0000\n"
+"POT-Creation-Date: 2024-04-13 00:40+0000\n"
 "PO-Revision-Date: 2021-09-09 23:38-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -43,7 +43,7 @@ msgstr "Аз нав ба кор даровардани %1"
 msgid "Dialog"
 msgstr "Равзанаи гуфтугӯ"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:55
 #, kde-format
 msgid "Info Center"
 msgstr "Маркази иттилоотӣ"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Бэн Куксли (Ben Cooksley)"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -174,14 +174,14 @@ msgstr "Нишон додани феҳрист"
 msgid "Plasma"
 msgstr "Плазма"
 
-#: app/SettingsBase.cpp:131
+#: app/SettingsBase.cpp:135
 #, fuzzy, kde-format
 #| msgctxt "Action to show indicators for settings with custom data"
 #| msgid "Highlight Changed Settings"
 msgid "Highlight Changed Settings"
 msgstr "Намоиши танзимоти тағйирёфта"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""

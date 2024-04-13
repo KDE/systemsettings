@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:39+0000\n"
+"POT-Creation-Date: 2024-04-13 00:40+0000\n"
 "PO-Revision-Date: 2023-02-19 21:31+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -47,7 +47,7 @@ msgstr "Start om att %1"
 msgid "Dialog"
 msgstr "Dialog"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:51
+#: app/main.cpp:54 app/SettingsBase.cpp:55
 #, kde-format
 msgid "Info Center"
 msgstr "Informasjonssenter"
@@ -62,7 +62,7 @@ msgstr "Sentralisert og praktisk oversikt over systeminformasjon."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "© 2009 Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:54
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
@@ -179,12 +179,12 @@ msgstr "Vis menylinje"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:131
+#: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Marker endra innstillingar"
 
-#: app/SettingsBase.cpp:142
+#: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Meld frå om feil på denne sida …"
@@ -208,14 +208,3 @@ msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
-
-#~ msgid "Help"
-#~ msgstr "Hjelp"
-
-#~ msgid "About System Settings"
-#~ msgstr "Om systemoppsettet"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Inneheld 1 element"
-#~ msgstr[1] "Inneheld %1 element"
