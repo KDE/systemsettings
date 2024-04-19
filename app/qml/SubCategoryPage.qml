@@ -63,7 +63,9 @@ Kirigami.ScrollablePage {
                 // Uncomment once QQC2.ToolButton can force-left-align its contents
                 // text: subCategoryColumn.title
                 // icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
-                onClicked: { root.pageStack.currentIndex = 0; }
+                onClicked: {
+                    root.pageStack.currentIndex = 0;
+                }
 
                 // Need a custom content item to left-align everything, because
                 // ToolButtons center everything when you force the width to be
@@ -91,10 +93,12 @@ Kirigami.ScrollablePage {
                 KeyNavigation.right: hamburgerMenuButton
                 KeyNavigation.down: subCategoryView
                 KeyNavigation.tab: KeyNavigation.right
-                Keys.onBacktabPressed: {
-                    systemsettings.focusPrevious()
+                Keys.onBacktabPressed: event => {
+                    systemsettings.focusPrevious();
                 }
-                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
+                Keys.onDownPressed: event => {
+                    rowLayout.Keys.downPressed(event);
+                }
             }
 
             // Show a non-interactive heading when both columns are visible
@@ -122,7 +126,9 @@ Kirigami.ScrollablePage {
                 KeyNavigation.backtab: KeyNavigation.left
                 KeyNavigation.tab: KeyNavigation.down
 
-                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
+                Keys.onDownPressed: event => {
+                    rowLayout.Keys.downPressed(event);
+                }
             }
         }
     }
@@ -146,7 +152,9 @@ Kirigami.ScrollablePage {
             }
             event.accepted = false; // Pass to KeyNavigation.up
         }
-        Keys.onTabPressed: systemsettings.focusNext();
+        Keys.onTabPressed: event => {
+            systemsettings.focusNext();
+        }
 
         onCountChanged: {
             if (count > 1 && !root.searchMode) {
