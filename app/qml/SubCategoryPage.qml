@@ -58,8 +58,11 @@ Kirigami.ScrollablePage {
             QQC2.ToolButton {
                 id: backButton
 
-                Layout.fillWidth: true
                 visible: !applicationWindow().wideScreen
+
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
                 // Uncomment once QQC2.ToolButton can force-left-align its contents
                 // text: subCategoryColumn.title
                 // icon.name: LayoutMirroring.enabled ? "go-previous-symbolic-rtl" : "go-previous-symbolic"
@@ -120,6 +123,8 @@ Kirigami.ScrollablePage {
                 id: hamburgerMenuButton
 
                 visible: !applicationWindow().wideScreen
+
+                Layout.fillHeight: true
 
                 KeyNavigation.left: backButton
                 KeyNavigation.down: subCategoryView
