@@ -206,15 +206,3 @@ msgstr "Najde moduly nastavení systému jejichž názvy a popisy odpovídají :
 #, kde-format
 msgid "System Information"
 msgstr "Systémové informace"
-
-#~ msgid "Help"
-#~ msgstr "Nápověda"
-
-#~ msgid "About System Settings"
-#~ msgstr "O nastavení systému"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Obsahuje 1 položku"
-#~ msgstr[1] "Obsahuje %1 položky"
-#~ msgstr[2] "Obsahuje %1 položek"
