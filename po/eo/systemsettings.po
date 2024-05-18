@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the systemsettings package.
 # Cindy McKee <cfmckee@gmail.com>, 2007.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-04 02:21+0000\n"
 "PO-Revision-Date: 2023-01-18 19:57+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Cindy McKee,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "cfmckee@gmail.com,okellogg@users.sourceforge.net"
+msgstr "cfmckee@gmail.com,olivermkellogg@gmail.com"
 
 #: app/main.cpp:54 app/SettingsBase.cpp:51
 #, kde-format
@@ -224,53 +224,3 @@ msgstr "Trovas sistemmetajn modulojn kies nomo aŭ priskribo kongruas al :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Sisteminformoj"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Serĉi"
-
-#~ msgid "About Active View"
-#~ msgstr "Pri aktiva rigardo"
-
-#~ msgid "About %1"
-#~ msgstr "Pri %1"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "Sistemagordo estis malebla trovi iujn vidojn kaj tial havas nenion por "
-#~ "montri."
-
-#~ msgid "No views found"
-#~ msgstr "Neniu vido trovita"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Interna nomo de la uzata vido"
-
-#~ msgid "Switch to Icon View"
-#~ msgstr "Ŝalti al Piktograma vido"
-
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "Ŝalti al Flankbreta vido"
-
-#~ msgid "Icon View"
-#~ msgstr "Piktograma vido"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr "Provizas kategoriigatan piktogramvidon de stirmoduloj."
-
-#~ msgid "All Settings"
-#~ msgstr "Apliki Agordojn"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "Fulmoklavo: %1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "Flankbreta Vido"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr "Provizas kategoriigatan flankbreton por stirmoduloj."
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "(c) 2017, Marco Martin"
