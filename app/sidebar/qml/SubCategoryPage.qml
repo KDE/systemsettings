@@ -157,16 +157,6 @@ Kirigami.ScrollablePage {
         }
 
         Connections {
-            target: root
-            function onSearchModeChanged() {
-                if (root.searchMode) {
-                    root.pageStack.pop(mainColumn);
-                } else if (subCategoryView.count > 1) {
-                    root.pageStack.push(subCategoryColumn);
-                }
-            }
-        }
-        Connections {
             target: systemsettings
             function onActiveSubCategoryRowChanged() {
                 subCategoryView.currentIndex = systemsettings.activeSubCategoryRow
