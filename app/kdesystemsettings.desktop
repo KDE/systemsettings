@@ -205,6 +205,7 @@ X-AppStream-Ignore=true
 Categories=Qt;KDE;Settings;
 Keywords=systemsettings
 Keywords[ar]=إعدادات النّظام
+Keywords[be]=налады сістэмы
 Keywords[bg]=системни настройки
 Keywords[ca]=arranjament del sistema;configuració;systemsettings
 Keywords[ca@valencia]=configuració del sistema;configuració
