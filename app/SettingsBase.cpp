@@ -30,7 +30,7 @@
 #include <KIO/JobUiDelegateFactory>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
-#include <KStandardAction>
+#include <KStandardActions>
 #include <KXMLGUIFactory>
 
 SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &startupModule, const QStringList &startupModuleArgs, QWidget *parent)
@@ -125,7 +125,7 @@ void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
     // Exit is the very last action
-    quitAction = m_actionCollection->addAction(KStandardAction::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
+    quitAction = m_actionCollection->addAction(KStandardActions::Quit, QStringLiteral("quit_action"), this, &QWidget::close);
 
     if (m_mode == SidebarMode::SystemSettings) {
         highlightChangesAction = m_actionCollection->addAction(QStringLiteral("highlight_changes"), this, [this] {
