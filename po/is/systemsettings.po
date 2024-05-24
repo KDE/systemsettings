@@ -5,13 +5,13 @@
 #
 # Richard Allen <ra@ra.is>, 2007.
 # Sveinn í Felli <sv1@fellsnet.is>, 2009, 2010, 2016, 2022.
-# Guðmundur Erlingsson <gudmundure@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-24 02:43+0000\n"
-"PO-Revision-Date: 2022-10-31 22:35+0000\n"
+"PO-Revision-Date: 2024-05-13 11:34+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -21,12 +21,12 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Richard Allen, Sveinn í Felli,Guðmundur Erlingsson"
+msgstr "Richard Allen, Sveinn í Felli, Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -36,7 +36,7 @@ msgstr "ra@ra.is, sv1@fellsnet.is, gudmundure@gmail.com"
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
-msgstr "Upplýsingaborð"
+msgstr "Upplýsingamiðstöð"
 
 #: app/main.cpp:63
 #, kde-format
@@ -92,7 +92,7 @@ msgstr "Framsetning innri eininga, hönnun innri eininga"
 #: app/main.cpp:97
 #, kde-format
 msgid "List all possible modules"
-msgstr "Birta allar mögulegar einingar"
+msgstr "Sýna allar mögulegar einingar"
 
 #: app/main.cpp:98 app/main.cpp:161
 #, kde-format
@@ -131,18 +131,14 @@ msgid "Switch to Sidebar View"
 msgstr "Skipta í hliðarstikuyfirlit"
 
 #: app/SettingsBase.cpp:173
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to show indicators for settings with custom data. Use as short a "
-#| "translation as is feasible, as horizontal space is limited."
-#| msgid "Highlight Changed Settings"
+#, kde-format
 msgid "Highlight Changed Settings"
-msgstr "Merkja breyttar stillingar"
+msgstr "Áherslulita breyttar stillingar"
 
 #: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Tilkynna villu á núverandi síðu..."
 
 #: app/SettingsBase.cpp:211
 #, kde-format
@@ -195,7 +191,7 @@ msgstr[1] "Inniheldur %1 atriði"
 #: core/ExternalAppModule.cpp:27
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 er ytra forrit og hefur verið ræst sjálfvirkt"
+msgstr "%1 er ytra forrit og hefur verið ræst sjálfkrafa"
 
 #: core/ExternalAppModule.cpp:28
 #, kde-format
@@ -220,7 +216,7 @@ msgid ""
 "Do you want to apply the changes or discard them?"
 msgstr ""
 "Stillingar í þessari einingu hafa breyst.\n"
-"Viltu virkja þær eða farga þeim?"
+"Viltu virkja þær eða henda þeim?"
 
 #: core/ModuleView.cpp:336
 #, kde-format
@@ -251,12 +247,12 @@ msgstr "Allar stillingar"
 #: icons/IconMode.cpp:64
 #, kde-format
 msgid "Keyboard Shortcut: %1"
-msgstr "Flýtilyklasamsetning: %1"
+msgstr "Flýtilykill: %1"
 
 #: runner/systemsettingsrunner.cpp:40
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr "Finnur stillingaeiningar kerfis þar sem heiti eða lýsing samsvara :q:"
+msgstr "Finnur kerfisstillingaeiningar þar sem heiti eða lýsing samsvara :q:"
 
 #: runner/systemsettingsrunner.cpp:186
 #, kde-format
