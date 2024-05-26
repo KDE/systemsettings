@@ -33,7 +33,6 @@
   <name xml:lang="es">Preferencias del sistema</name>
   <name xml:lang="et">Süsteemi seadistused</name>
   <name xml:lang="eu">Sistemaren Ezarpenak</name>
-  <name xml:lang="fa">تنظیمات سیستم</name>
   <name xml:lang="fi">Järjestelmäasetukset</name>
   <name xml:lang="fr">Configuration du système</name>
   <name xml:lang="gl">Configuración do sistema</name>
@@ -48,6 +47,7 @@
   <name xml:lang="ka">სისტემის მორგება</name>
   <name xml:lang="ko">시스템 설정</name>
   <name xml:lang="lt">Sistemos nuostatos</name>
+  <name xml:lang="lv">Sistēmas iestatījumi</name>
   <name xml:lang="ml">സിസ്റ്റം സജ്ജീകരണങ്ങൾ</name>
   <name xml:lang="my">စစ်စတမ်ဆက်တင်များ</name>
   <name xml:lang="nb">Systeminnstillinger</name>
@@ -73,6 +73,7 @@
   <name xml:lang="zh-TW">系統設定</name>
   <summary>Configuration tools for your computer</summary>
   <summary xml:lang="ar">أدوات لضبط حاسبك</summary>
+  <summary xml:lang="ast">Ferramientes de configuración pal ordenador</summary>
   <summary xml:lang="az">Kompyuteriniz üçün tənzimləmə alətləri</summary>
   <summary xml:lang="be">Інструменты для наладжвання вашага камп'ютара</summary>
   <summary xml:lang="bg">Конфигурационни инструменти за вашия компютър</summary>
@@ -87,7 +88,6 @@
   <summary xml:lang="es">Herramientas de configuración para su equipo</summary>
   <summary xml:lang="et">Oma arvuti tööriistade seadistamine</summary>
   <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
-  <summary xml:lang="fa">ابزارهای پیکربندی برای رایانه شما</summary>
   <summary xml:lang="fi">Tietokoneen ylläpitotyökalut</summary>
   <summary xml:lang="fr">Outils de configuration pour votre ordinateur</summary>
   <summary xml:lang="gl">Ferramentas de configuración para o computador.</summary>
@@ -102,6 +102,7 @@
   <summary xml:lang="ka">თქვენი კომპიუტერის თქვენზე მორგების ხელსაწყოები</summary>
   <summary xml:lang="ko">컴퓨터 설정 도구</summary>
   <summary xml:lang="lt">Jūsų kompiuterio konfigūravimo įrankiai</summary>
+  <summary xml:lang="lv">Konfigurācijas rīki jūsu datoram</summary>
   <summary xml:lang="ml">നിങ്ങളുടെ കമ്പ്യൂട്ടറിനുള്ള ക്രമീകരണങ്ങൾ</summary>
   <summary xml:lang="my">သင့်ကွန်ပြူတာအတွက် ပြင်ဆင်ရေးကိရိယာများ</summary>
   <summary xml:lang="nb">Oppsettsverktøy for datamaskinen</summary>
@@ -143,7 +144,6 @@
     <p xml:lang="es">Las preferencias del sistema le permiten configurar y afinar el escritorio Plasma para que se ajuste a sus necesidades.</p>
     <p xml:lang="et">Süsteemi seadistused võimaldavad seadistada ja täppishäälestada KDE Plasma töölauda, et see vastaks just sinu vajadustele.</p>
     <p xml:lang="eu">Sistemaren Ezarpenek zure KDE Plasma mahaigaina zure beharretara hobeto egokitzeko konfiguratzen eta doitzen uzten dizute.</p>
-    <p xml:lang="fa">تنظیمات سیستم به شما اجازه می‌دهد که رومیزی پلاسمای کی‌دی‌ای خودتان را برای رفع بهتر نیازهای خودتان پیکربندی و آچارکشی کنید.</p>
     <p xml:lang="fi">Järjestelmäasetuksilla voit asettaa ja säätää KDE Plasma -työpöytääsi vastaamaan paremmin tarpeitasi.</p>
     <p xml:lang="fr">La configuration du système vous permet de configurer et d'ajuster votre environnement de bureau KDE Plasma pour l'adapter à vos besoins.</p>
     <p xml:lang="gl">A configuración do sistema permítelle configurar o escritorio KDE Plasma para adaptalo ás súas necesidades.</p>
@@ -158,6 +158,7 @@
     <p xml:lang="ka">სისტემის პარამეტრებში თქვენ შეგიძლიათ მოირგოთ KDE-ის Plasma სამუშაო მაგიდა ისე, რომ ის თქვენთვის უფრო მოსახერხებელი გახდეს.</p>
     <p xml:lang="ko">시스템 설정에서 KDE Plasma 데스크톱을 설정할 수 있습니다.</p>
     <p xml:lang="lt">Sistemos nuostatos leidžia jums konfigūruoti ir derinti savo KDE Plasma darbalaukį taip, kad jis geriau atitiktų jūsų poreikius.</p>
+    <p xml:lang="lv">Sistēmas iestatījumi ļauj konfigurēt un pielāgot jūsu KDE „Plasma“ darbvirsmu, lai tā labāk atbilstu jūsu vajadzībām.</p>
     <p xml:lang="ml">നിങ്ങളുടെ പ്ലാസ്മ ഡെസ്ക്ടോപ് നിങ്ങളുടെ ഇഷ്ടങ്ങൾക്കനുസരിച്ച് ക്രമീകരിക്കാൻ സിസ്റ്റം സജ്ജീകരണങ്ങൾ സഹായിക്കുന്നു.</p>
     <p xml:lang="nb">Med systeminnstillingene kan du sette opp og skreddersy KDE Plasma-skrivebordet etter egne ønsker og behov.</p>
     <p xml:lang="nl">Systeeminstellingen biedt u het configureren en aanpassen van uw KDE Plasma bureaublad om het aan uw behoeften aan te passen.</p>
