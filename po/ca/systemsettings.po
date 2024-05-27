@@ -209,14 +209,3 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informació del sistema"
-
-#~ msgid "Help"
-#~ msgstr "Ajuda"
-
-#~ msgid "About System Settings"
-#~ msgstr "Quant a l'Arranjament del sistema"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Conté 1 element"
-#~ msgstr[1] "Conté %1 elements"
