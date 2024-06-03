@@ -13,6 +13,8 @@
 
 #include <QIcon>
 
+using namespace Qt::StringLiterals;
+
 class MenuModel::Private
 {
 public:
@@ -105,7 +107,10 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         theData.setValue(mi);
         break;
     case MenuModel::UserFilterRole:
-        theData.setValue(mi->keywords().join(QString()));
+        // We join by ZERO WIDTH SPACE to avoid awkward word merging in search terms
+        // e.g. ['keys', 'slow'] should match 'keys' and 'slow' but not 'ssl'.
+        // https://bugs.kde.org/show_bug.cgi?id=487855
+        theData.setValue(mi->keywords().join(u"\u200B"_s));
         break;
     case MenuModel::UserSortRole:
         // Category owners are always before everything else, regardless of weight
