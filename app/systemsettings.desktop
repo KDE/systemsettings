@@ -251,6 +251,7 @@ X-DBUS-ServiceName=org.kde.systemsettings
 Categories=Qt;KDE;Settings;
 Keywords=systemsettings
 Keywords[ar]=إعدادات النّظام
+Keywords[az]=Sistem ayarları
 Keywords[be]=налады сістэмы
 Keywords[bg]=системни настройки
 Keywords[ca]=arranjament del sistema;configuració;systemsettings
