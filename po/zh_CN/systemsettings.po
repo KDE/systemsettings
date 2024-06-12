@@ -132,7 +132,7 @@ msgstr "下列模块可用："
 #: app/main.cpp:119
 #, kde-format
 msgid "No description available"
-msgstr "无可用描述"
+msgstr "没有可用的描述"
 
 #: app/ModuleView.cpp:183
 #, kde-format
