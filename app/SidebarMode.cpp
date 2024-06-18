@@ -131,7 +131,6 @@ public:
     int activeSearchRow = -1;
     qreal headerHeight = 0;
     bool actionMenuVisible = false;
-    bool m_introPageVisible = true;
     bool m_defaultsIndicatorsVisible = false;
     KConfigGroup config;
     MenuItem *rootItem = nullptr;
@@ -317,13 +316,6 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
 
     d->moduleView->closeModules();
 
-    if (homeItem()) {
-        d->m_introPageVisible = activeModule == d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
-        Q_EMIT introPageVisibleChanged();
-    } else {
-        setIntroPageVisible(false);
-    }
-
     d->moduleView->loadModule(activeModule, args);
 
     if (activeModule.model() == d->categorizedModel) {
@@ -492,55 +484,6 @@ int SidebarMode::activeCategoryRow() const
     return d->activeCategoryRow;
 }
 
-void SidebarMode::setIntroPageVisible(const bool &introPageVisible)
-{
-    if (d->m_introPageVisible == introPageVisible) {
-        return;
-    }
-
-    // TODO: Make the intro page of SystemSettings a KCM as well
-    if (homeItem()) {
-        if (d->placeHolderWidget) {
-            d->placeHolderWidget->hide();
-        }
-        d->moduleView->show();
-        if (introPageVisible) {
-            QModelIndex index = d->categorizedModel->mapFromSource(d->model->indexForItem(homeItem()));
-            if (index.isValid()) {
-                loadModule(index);
-            } else {
-                d->moduleView->closeModules();
-                d->moduleView->loadModule(d->model->indexForItem(homeItem()), QStringList());
-                d->activeCategoryRow = -1;
-                d->activeSubCategoryRow = -1;
-                Q_EMIT activeCategoryRowChanged();
-                Q_EMIT activeSubCategoryRowChanged();
-            }
-        }
-    } else {
-        if (introPageVisible) {
-            d->subCategoryModel->setParentIndex(QModelIndex());
-            d->activeCategoryRow = -1;
-            Q_EMIT activeCategoryRowChanged();
-            d->activeSubCategoryRow = -1;
-            Q_EMIT activeSubCategoryRowChanged();
-            if (!d->placeHolderWidget) {
-                initPlaceHolderWidget();
-            }
-            d->placeHolderWidget->show();
-            d->moduleView->hide();
-        } else {
-            if (d->placeHolderWidget) {
-                d->placeHolderWidget->hide();
-            }
-            d->moduleView->show();
-        }
-    }
-
-    d->m_introPageVisible = introPageVisible;
-    Q_EMIT introPageVisibleChanged();
-}
-
 void SidebarMode::setHeaderHeight(qreal height)
 {
     if (height == d->moduleView->headerHeight()) {
@@ -625,11 +568,6 @@ void SidebarMode::setActionMenuVisible(bool visible)
 int SidebarMode::activeSubCategoryRow() const
 {
     return d->activeSubCategoryRow;
-}
-
-bool SidebarMode::introPageVisible() const
-{
-    return (d->m_introPageVisible);
 }
 
 bool SidebarMode::defaultsIndicatorsVisible() const

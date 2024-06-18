@@ -183,11 +183,6 @@ Kirigami.ScrollablePage {
                     subCategoryView.forceActiveFocus();
                 }
             }
-            function onIntroPageVisibleChanged() {
-                if (systemsettings.introPageVisible) {
-                    root.pageStack.pop(mainColumn)
-                }
-            }
         }
 
         delegate: CategoryItem {

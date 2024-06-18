@@ -50,31 +50,6 @@ Kirigami.ScrollablePage {
                 event.accepted = false; // Pass to KeyNavigation.down
             }
 
-            QQC2.ToolButton {
-                id: showIntroPageButton
-
-                enabled: !systemsettings.introPageVisible
-                icon.name: "go-home"
-                onClicked: {
-                    searchField.text = "";
-                    systemsettings.introPageVisible = true;
-                }
-
-                Accessible.role: Accessible.Button
-                Accessible.name: i18n("Show intro page")
-                QQC2.ToolTip {
-                    text: parent.Accessible.name
-                }
-
-                KeyNavigation.right: searchField
-                KeyNavigation.down: categoryView
-                KeyNavigation.tab: KeyNavigation.right
-                Keys.onBacktabPressed: {
-                    systemsettings.focusPrevious()
-                }
-                Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
-            }
-
             Kirigami.SearchField {
                 id: searchField
 

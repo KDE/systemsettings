@@ -78,7 +78,6 @@ class SidebarMode : public QObject
     Q_PROPERTY(int activeSubCategoryRow READ activeSubCategoryRow NOTIFY activeSubCategoryRowChanged)
     Q_PROPERTY(int width READ width NOTIFY widthChanged)
     Q_PROPERTY(bool actionMenuVisible READ actionMenuVisible NOTIFY actionMenuVisibleChanged)
-    Q_PROPERTY(bool introPageVisible READ introPageVisible WRITE setIntroPageVisible NOTIFY introPageVisibleChanged)
     Q_PROPERTY(bool defaultsIndicatorsVisible READ defaultsIndicatorsVisible NOTIFY defaultsIndicatorsVisibleChanged)
     Q_PROPERTY(qreal headerHeight READ headerHeight WRITE setHeaderHeight NOTIFY headerHeightChanged)
 
@@ -114,9 +113,6 @@ public:
     int width() const;
 
     bool actionMenuVisible() const;
-
-    bool introPageVisible() const;
-    void setIntroPageVisible(const bool &introPageVisible);
 
     qreal headerHeight() const;
     void setHeaderHeight(qreal height);
@@ -166,7 +162,6 @@ Q_SIGNALS:
     void activeSearchRowChanged();
     void widthChanged();
     void actionMenuVisibleChanged();
-    void introPageVisibleChanged();
     void headerHeightChanged();
     void defaultsIndicatorsVisibleChanged();
     void viewChanged(bool state);
