@@ -51,12 +51,12 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
                 return true;
             }
             for (const QString &queryWord : queryWords) {
-                if (relevance == -1 && queryWord.length() > 3 && value.contains(queryWord, Qt::CaseInsensitive)) {
-                    relevance = relevanceValue;
-                    return true;
+                if (!value.contains(queryWord, Qt::CaseInsensitive)) {
+                    return false;
                 }
             }
-            return false;
+            relevance = relevanceValue;
+            return true;
         };
 
         const QString name = data.name();
@@ -71,8 +71,8 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             }
         } else if (name.compare(query, Qt::CaseInsensitive) == 0) {
             relevance = 1;
-        } else if (checkMatchAndRelevance(name, 0.8)) { // name starts with query or contains any query word
-        } else if (checkMatchAndRelevance(description, 0.5)) { // description starts with query or contains any query word
+        } else if (checkMatchAndRelevance(name, 0.8)) { // name starts with query or contains all query words
+        } else if (checkMatchAndRelevance(description, 0.5)) { // description starts with query or contains all query words
         } else if (std::any_of(keywords.begin(), keywords.end(), [&query](const QString &keyword) {
                        return keyword.startsWith(query, Qt::CaseInsensitive);
                    })) {
