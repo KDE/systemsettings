@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2023-01-03 08:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -157,12 +157,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Ezarri ezarpenak"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "Erakutsi sarrerako orria"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -188,12 +183,12 @@ msgstr "Nabarmendu aldatutako ezarpenak"
 msgid "Report a Bug in the Current Page…"
 msgstr "Uneko orrian dagoen akats baten berri ematea..."
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "Alboko-barra"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "Gehien erabiliak"
@@ -209,6 +204,9 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Sistemaren informazioa"
+
+#~ msgid "Show intro page"
+#~ msgstr "Erakutsi sarrerako orria"
 
 #~ msgid "Help"
 #~ msgstr "Laguntza"

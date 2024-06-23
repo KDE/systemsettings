@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2024-03-18 10:47+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -161,12 +161,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "החלת ההגדרות"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "הצגת עמוד ההקדמה"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -192,12 +187,12 @@ msgstr "הדגשת ההגדרות שנערכו"
 msgid "Report a Bug in the Current Page…"
 msgstr "דיווח על תקלה בעמוד הנוכחי…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "סרגל צד"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "הכי בשימוש"
@@ -211,6 +206,9 @@ msgstr "חיפוש מודולים של הגדרות מערכת שהשמות או
 #, kde-format
 msgid "System Information"
 msgstr "פרטי מערכת"
+
+#~ msgid "Show intro page"
+#~ msgstr "הצגת עמוד ההקדמה"
 
 #~ msgid "Help"
 #~ msgstr "עזרה"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -153,12 +153,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "应用设置"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "显示介绍页面"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -184,12 +179,12 @@ msgstr "高亮显示更改过的设置"
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面中的程序缺陷…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
@@ -203,3 +198,6 @@ msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"
+
+#~ msgid "Show intro page"
+#~ msgstr "显示介绍页面"

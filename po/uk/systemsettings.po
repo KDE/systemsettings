@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2023-01-03 15:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -157,12 +157,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Застосувати параметри"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "Показати вступну сторінку"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -188,12 +183,12 @@ msgstr "Підсвічувати змінені параметри"
 msgid "Report a Bug in the Current Page…"
 msgstr "Повідомити про ваду на поточній сторінці…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "Бічна панель"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "Найвживаніші"
@@ -208,6 +203,9 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Дані щодо системи"
+
+#~ msgid "Show intro page"
+#~ msgstr "Показати вступну сторінку"
 
 #~ msgid "Help"
 #~ msgstr "Довідка"

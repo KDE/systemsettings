@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2023-01-03 06:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -154,12 +154,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "პარამეტრების გადატარება"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "შესავალი გვერდის ჩვენება"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -185,12 +180,12 @@ msgstr "შეცვლილი პარამეტრების გამ�
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "გვერდითი ზოლი"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "ხშირად გამოყენებული"
@@ -204,6 +199,9 @@ msgstr "სისტემის პარამეტრების მოდ�
 #, kde-format
 msgid "System Information"
 msgstr "ინფორმაცის სისტემის შესახებ"
+
+#~ msgid "Show intro page"
+#~ msgstr "შესავალი გვერდის ჩვენება"
 
 #~ msgid "Help"
 #~ msgstr "დახმარება"

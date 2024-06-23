@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2024-05-19 21:16\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -158,12 +158,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Ужыць налады"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "Паказаць уводную старонку"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -189,12 +184,12 @@ msgstr "Падсвятляць змененыя налады"
 msgid "Report a Bug in the Current Page…"
 msgstr "Паведаміць пра хібу на бягучай старонцы…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "Бакавая панэль"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "Найбольш часта выкарыстоўваюцца"
@@ -208,6 +203,9 @@ msgstr "Шукае модулі налад сістэмы, чыі назвы а�
 #, kde-format
 msgid "System Information"
 msgstr "Сістэмная інфармацыя"
+
+#~ msgid "Show intro page"
+#~ msgstr "Паказаць уводную старонку"
 
 #~ msgid "Help"
 #~ msgstr "Даведка"

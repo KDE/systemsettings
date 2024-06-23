@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -156,12 +156,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "विन्यास लागु करें"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "परिचय पृष्ठ दिखाएं"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -191,12 +186,12 @@ msgstr "परिवर्तित सेटिंग्स को चिन्
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "बाजूपट्टी"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "सर्वाधिक उपयोग किया गया"
@@ -210,6 +205,9 @@ msgstr "तंत्र विन्यास मॉड्यूल ढूंढ
 #, kde-format
 msgid "System Information"
 msgstr "तंत्र की जानकारी"
+
+#~ msgid "Show intro page"
+#~ msgstr "परिचय पृष्ठ दिखाएं"
 
 #~ msgid "Help"
 #~ msgstr "सहायता"

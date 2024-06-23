@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2023-02-10 17:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -158,12 +158,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Aplicar preferencias"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "Mostrar la página de introducción"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -189,12 +184,12 @@ msgstr "Resaltar las preferencias modificadas"
 msgid "Report a Bug in the Current Page…"
 msgstr "Informar de errores en la página actual..."
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "Más usados"
@@ -210,6 +205,9 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Información del sistema"
+
+#~ msgid "Show intro page"
+#~ msgstr "Mostrar la página de introducción"
 
 #~ msgid "Help"
 #~ msgstr "Ayuda"

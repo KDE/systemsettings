@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2023-02-02 14:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -159,12 +159,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Virkja stillingar"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "Birta kynningarsíðu"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -190,12 +185,12 @@ msgstr "Áherslulita breyttar stillingar"
 msgid "Report a Bug in the Current Page…"
 msgstr "Tilkynna um villu á núverandi síðu…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "Hliðarstika"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"
@@ -209,6 +204,9 @@ msgstr "Finnur stillingaeiningar kerfis þar sem heiti eða lýsing samsvara :q:
 #, kde-format
 msgid "System Information"
 msgstr "Kerfisupplýsingar"
+
+#~ msgid "Show intro page"
+#~ msgstr "Birta kynningarsíðu"
 
 #~ msgid "Help"
 #~ msgstr "Hjálp"

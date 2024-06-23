@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-23 00:40+0000\n"
 "PO-Revision-Date: 2021-09-09 23:38-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -153,12 +153,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Татбиқ кардани танзимот"
 
-#: app/qml/CategoriesPage.qml:64
-#, kde-format
-msgid "Show intro page"
-msgstr "Нишон додани саҳифаи муқаддимавӣ"
-
-#: app/qml/CategoriesPage.qml:132
+#: app/qml/CategoriesPage.qml:107
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -186,12 +181,12 @@ msgstr "Намоиши танзимоти тағйирёфта"
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:584
 #, kde-format
 msgid "Sidebar"
 msgstr "Навори ҷонибӣ"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:653
 #, kde-format
 msgid "Most Used"
 msgstr "Истифодашавандаи зиёдтарин"
@@ -206,6 +201,9 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "Танзимоти низом"
+
+#~ msgid "Show intro page"
+#~ msgstr "Нишон додани саҳифаи муқаддимавӣ"
 
 #~ msgid "Help"
 #~ msgstr "Кумак"
