@@ -201,6 +201,3 @@ msgstr "Najde moduly nastavení systému jejichž názvy a popisy odpovídají :
 #, kde-format
 msgid "System Information"
 msgstr "Systémové informace"
-
-#~ msgid "Show intro page"
-#~ msgstr "Zobrazit úvodní stránku"
