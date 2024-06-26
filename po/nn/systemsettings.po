@@ -202,7 +202,3 @@ msgstr "Finn systemoppsettmodular med namn eller skildringar med teksten :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
-
-# Tittelen på sida er «snøgginnstillingar».
-#~ msgid "Show intro page"
-#~ msgstr "Vis snøgginnstillingar"

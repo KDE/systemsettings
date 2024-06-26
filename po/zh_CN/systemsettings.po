@@ -198,6 +198,3 @@ msgstr "查找名称或描述匹配 :q: 的系统设置模块"
 #, kde-format
 msgid "System Information"
 msgstr "系统信息"
-
-#~ msgid "Show intro page"
-#~ msgstr "显示介绍页面"

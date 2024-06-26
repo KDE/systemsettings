@@ -204,7 +204,3 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformasjon"
-
-# Context: Front ("Home") page of System Settings.
-#~ msgid "Show intro page"
-#~ msgstr "Vis hurtiginnstillinger"
