@@ -181,6 +181,11 @@ Kirigami.ScrollablePage {
                     }
                     root.pageStack.currentIndex = 1;
                     subCategoryView.forceActiveFocus();
+                } else if (root.pageStack.currentIndex > 0) {
+                    root.pageStack.currentIndex = 0;
+                    if (root.pageStack.depth > 1) {
+                        root.pageStack.pop();
+                    }
                 }
             }
             function onIntroPageVisibleChanged() {
