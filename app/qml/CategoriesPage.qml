@@ -59,7 +59,6 @@ Kirigami.ScrollablePage {
                     systemsettings.searchModel.filterRegExp = text;
                 }
 
-                KeyNavigation.left: showIntroPageButton
                 KeyNavigation.right: hamburgerMenuButton
 
                 KeyNavigation.down: categoryView
