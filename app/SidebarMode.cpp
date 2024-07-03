@@ -229,6 +229,7 @@ void SidebarMode::initEvent()
     d->mainLayout->setContentsMargins(0, 0, 0, 0);
     d->mainLayout->setSpacing(0);
     d->engine = std::make_shared<QQmlEngine>();
+    qApp->setProperty("__qmlEngine", QVariant::fromValue(d->engine.get()));
     d->moduleView = new ModuleView(d->engine, d->mainWidget);
     connect(d->moduleView, &ModuleView::moduleChanged, this, &SidebarMode::moduleLoaded);
     connect(d->moduleView, &ModuleView::moduleSaved, this, &SidebarMode::updateDefaults);
