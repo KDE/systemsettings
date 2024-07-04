@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-07-04 02:28+0000\n"
 "PO-Revision-Date: 2024-04-14 13:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -191,12 +191,12 @@ msgstr "変更された設定を強調表示"
 msgid "Report a Bug in the Current Page…"
 msgstr "現在のページのバグを報告..."
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:647
 #, kde-format
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:716
 #, kde-format
 msgid "Most Used"
 msgstr "よく使う設定"

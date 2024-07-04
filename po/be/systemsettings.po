@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:40+0000\n"
+"POT-Creation-Date: 2024-07-04 02:28+0000\n"
 "PO-Revision-Date: 2024-05-18 09:10\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -189,12 +189,12 @@ msgstr "Падсвятляць змененыя налады"
 msgid "Report a Bug in the Current Page…"
 msgstr "Паведаміць пра хібу на бягучай старонцы…"
 
-#: app/SidebarMode.cpp:646
+#: app/SidebarMode.cpp:647
 #, kde-format
 msgid "Sidebar"
 msgstr "Бакавая панэль"
 
-#: app/SidebarMode.cpp:715
+#: app/SidebarMode.cpp:716
 #, kde-format
 msgid "Most Used"
 msgstr "Найбольш часта выкарыстоўваюцца"
