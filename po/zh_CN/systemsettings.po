@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 00:40+0000\n"
+"POT-Creation-Date: 2024-07-04 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -179,12 +179,12 @@ msgstr "高亮显示更改过的设置"
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面中的程序缺陷…"
 
-#: app/SidebarMode.cpp:584
+#: app/SidebarMode.cpp:585
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/SidebarMode.cpp:653
+#: app/SidebarMode.cpp:654
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"

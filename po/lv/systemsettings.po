@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 00:40+0000\n"
+"POT-Creation-Date: 2024-07-04 00:40+0000\n"
 "PO-Revision-Date: 2024-01-28 11:33+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -185,12 +185,12 @@ msgstr "Iekrāsot izmainītos iestatījumus"
 msgid "Report a Bug in the Current Page…"
 msgstr "Ziņot par kļūdu šajā lapā..."
 
-#: app/SidebarMode.cpp:584
+#: app/SidebarMode.cpp:585
 #, kde-format
 msgid "Sidebar"
 msgstr "Sānu josla"
 
-#: app/SidebarMode.cpp:653
+#: app/SidebarMode.cpp:654
 #, kde-format
 msgid "Most Used"
 msgstr "Visbiežāk izmantots"

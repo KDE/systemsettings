@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-27 00:40+0000\n"
+"POT-Creation-Date: 2024-07-04 00:40+0000\n"
 "PO-Revision-Date: 2023-02-18 20:47+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -179,12 +179,12 @@ msgstr "Dəyişdirilmiş ayarları işarələmək"
 msgid "Report a Bug in the Current Page…"
 msgstr "Cari səhifədə xəta haqqında xəbər verin..."
 
-#: app/SidebarMode.cpp:584
+#: app/SidebarMode.cpp:585
 #, kde-format
 msgid "Sidebar"
 msgstr "Yan Panel"
 
-#: app/SidebarMode.cpp:653
+#: app/SidebarMode.cpp:654
 #, kde-format
 msgid "Most Used"
 msgstr "Daha çox istifadə olunanlar"
