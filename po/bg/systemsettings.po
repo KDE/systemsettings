@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-04 00:40+0000\n"
-"PO-Revision-Date: 2024-05-30 19:26+0200\n"
+"PO-Revision-Date: 2024-07-05 15:58+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -179,7 +179,7 @@ msgstr "Осветяване на променени настройки"
 #: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr "Докладване на грешка в текущата страница..."
+msgstr "Докладване на грешка в текущата страница…"
 
 #: app/SidebarMode.cpp:585
 #, kde-format
