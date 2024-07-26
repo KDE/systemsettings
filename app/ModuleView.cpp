@@ -207,6 +207,7 @@ ModuleView::ModuleView(const std::shared_ptr<QQmlEngine> &engine, QWidget *paren
             connect(job, &KAuth::ExecuteJob::statusChanged, this, [this](KAuth::Action::AuthStatus status) {
                 authStatusChanged(status);
             });
+            job->start();
         }
     });
 
