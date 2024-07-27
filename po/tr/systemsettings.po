@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 02:28+0000\n"
+"POT-Creation-Date: 2024-07-27 02:35+0000\n"
 "PO-Revision-Date: 2023-11-11 23:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -143,7 +143,7 @@ msgstr "Kullanılabilir açıklama yok"
 msgid "Reset all current changes to previous values"
 msgstr "Yapılan tüm değişiklikleri önceki değerlere döndür"
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -152,7 +152,7 @@ msgstr ""
 "Etkin modülde kaydedilmemiş değişiklikler var.\n"
 "Değişiklikleri kaydetmek mi veya yok saymak mı istiyorsunuz?"
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Ayarları Uygula"

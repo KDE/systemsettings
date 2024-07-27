@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 02:28+0000\n"
+"POT-Creation-Date: 2024-07-27 02:35+0000\n"
 "PO-Revision-Date: 2008-12-23 02:09+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <ubuntu-l10n-kur@lists.ubuntu.com>\n"
@@ -141,7 +141,7 @@ msgstr ""
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are unsaved changes in the active module.\n"
@@ -153,7 +153,7 @@ msgstr ""
 "Di modulên çalak de guhertinên netomarkirî hene.\n"
 "Dixwazî guhertinan bisepînî an jî derbas bibî?"
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"

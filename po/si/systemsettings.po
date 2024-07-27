@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 02:28+0000\n"
+"POT-Creation-Date: 2024-07-27 02:35+0000\n"
 "PO-Revision-Date: 2009-02-22 09:55+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhalese <danishka@gmail.com>\n"
@@ -139,14 +139,14 @@ msgstr ""
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
 "Do you want to apply the changes or discard them?"
 msgstr ""
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"

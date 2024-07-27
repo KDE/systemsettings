@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 02:28+0000\n"
+"POT-Creation-Date: 2024-07-27 02:35+0000\n"
 "PO-Revision-Date: 2024-02-27 20:47+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -142,7 +142,7 @@ msgstr "Nicio descriere disponibilă"
 msgid "Reset all current changes to previous values"
 msgstr "Reinițializează toate modificările actuale la valorile precedente"
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -151,7 +151,7 @@ msgstr ""
 "Configurările modulului actual s-au modificat.\n"
 "Doriți să aplicați modificările sau să le aruncați?"
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Aplică configurările"
