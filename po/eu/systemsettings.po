@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:43+0000\n"
 "PO-Revision-Date: 2023-01-03 08:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -143,7 +143,7 @@ msgstr "Ez dago azalpen erabilgarririk"
 msgid "Reset all current changes to previous values"
 msgstr "Berrezarri uneko aldaketa guztiak aurreko balioetara"
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -152,7 +152,7 @@ msgstr ""
 "Jarduneko moduluaren ezarpenak aldatu egin dira.\n"
 "Aldaketak ezarri edo baztertu nahi dituzu?"
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Ezarri ezarpenak"

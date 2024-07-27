@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:43+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -140,7 +140,7 @@ msgstr "Không có mô tả"
 msgid "Reset all current changes to previous values"
 msgstr "Đặt lại tất cả các thay đổi hiện tại về giá trị trước"
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, kde-format
 msgid ""
 "The settings of the current module have changed.\n"
@@ -149,7 +149,7 @@ msgstr ""
 "Thiết lập cho khối hiện tại đã thay đổi.\n"
 "Bạn muốn áp dụng hay loại bỏ các thay đổi?"
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, kde-format
 msgid "Apply Settings"
 msgstr "Áp dụng thiết lập"

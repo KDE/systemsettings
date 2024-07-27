@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-04 00:40+0000\n"
+"POT-Creation-Date: 2024-07-27 00:43+0000\n"
 "PO-Revision-Date: 2007-10-31 15:57+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -142,7 +142,7 @@ msgstr ""
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: app/ModuleView.cpp:358
+#: app/ModuleView.cpp:359
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are unsaved changes in the active module.\n"
@@ -154,7 +154,7 @@ msgstr ""
 "सक्रिया मोड्युलमा बचत नगरिएका परिवर्तन छन् ।\n"
 "तपाईँले परिवर्तन लागू गर्न वा छोड्न चाहनुहुन्छ ?"
 
-#: app/ModuleView.cpp:363
+#: app/ModuleView.cpp:364
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"
