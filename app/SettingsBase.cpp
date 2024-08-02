@@ -136,7 +136,7 @@ void SettingsBase::initToolBar()
         highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
     }
 
-    reportPageSpecificBugAction = m_actionCollection->addAction(QStringLiteral("report_bug_in_current_module"), this, [=] {
+    reportPageSpecificBugAction = m_actionCollection->addAction(QStringLiteral("report_bug_in_current_module"), this, [this] {
         const QString bugReportUrlString =
             view->moduleView()->activeModuleMetadata().bugReportUrl() + QStringLiteral("&version=") + QGuiApplication::applicationVersion();
         auto job = new KIO::OpenUrlJob(QUrl(bugReportUrlString));
@@ -277,7 +277,7 @@ void SettingsBase::loadCurrentView()
         reportGeneralBugAction->setVisible(false);
     }
     auto moduleView = view->moduleView();
-    connect(moduleView, &ModuleView::moduleChanged, this, [=] {
+    connect(moduleView, &ModuleView::moduleChanged, this, [this, moduleView, reportGeneralBugAction] {
         reportPageSpecificBugAction->setVisible(!moduleView->activeModuleMetadata().bugReportUrl().isEmpty());
         if (reportGeneralBugAction) {
             reportGeneralBugAction->setVisible(!reportPageSpecificBugAction->isVisible());
