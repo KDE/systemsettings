@@ -26,8 +26,8 @@ include(ECMDeprecationSettings)
 include(KDEGitCommitHooks)
 
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.4
-    KF 5.103.0
+    QT 6.7
+    KF 6.4.0
 )
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
