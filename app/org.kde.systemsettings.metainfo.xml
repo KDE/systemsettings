@@ -41,6 +41,7 @@
   <name xml:lang="hu">Rendszerbeállítások</name>
   <name xml:lang="ia">Preferentias de systema</name>
   <name xml:lang="id">System Settings</name>
+  <name xml:lang="ie">Parametres del sistema</name>
   <name xml:lang="is">Kerfisstillingar</name>
   <name xml:lang="it">Impostazioni di sistema</name>
   <name xml:lang="ja">システム設定</name>
@@ -96,6 +97,7 @@
   <summary xml:lang="hu">Beállítóeszközök számítógépéhez</summary>
   <summary xml:lang="ia">Instrumentos de configuration per tu computator</summary>
   <summary xml:lang="id">Peralatan konfigurasi untuk komputermu</summary>
+  <summary xml:lang="ie">Utensiles de configuration por vor computator</summary>
   <summary xml:lang="is">Grunnstillingaverkfæri fyrir tölvuna þína</summary>
   <summary xml:lang="it">Strumenti di configurazione per il tuo computer</summary>
   <summary xml:lang="ja">コンピュータ設定ツール</summary>
@@ -152,6 +154,7 @@
     <p xml:lang="hu">A Rendszerbeállítások lehetővé teszi a KDE Plasma beállítását és finomhangolását, hogy jobban illeszkedjen az igényeihez.</p>
     <p xml:lang="ia">Preferentias de systema  te pemitte configurar e pinciar tu scriptorio de Plasma KDE pro facer que illo incontra meliormente tu necessitates.</p>
     <p xml:lang="id">System Settings memungkinkan kamu untuk mengkonfigurasi dan menguprek desktop KDE Plasma kamu untuk membuatnya lebih baik sesuai kebutuhanmu.</p>
+    <p xml:lang="ie">Parametres del sistema permisse vos configurar e adjustar vor ambientie KDE Plasma por far it plu convenent.</p>
     <p xml:lang="is">Kerfisstillingar gera þér kleift að stilla og aðlaga KDE Plasma skjáborðið að þínum þörfum.</p>
     <p xml:lang="it">Impostazioni di sistema ti permette di configurare e di regolare il tuo desktop KDE Plasma, in modo che possa soddisfare meglio le tue esigenze.</p>
     <p xml:lang="ja">システム設定では、KDE Plasma デスクトップをよりニーズに合ったものにするために、設定や調整を行うことができます。</p>
