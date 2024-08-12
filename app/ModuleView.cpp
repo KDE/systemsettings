@@ -356,8 +356,8 @@ bool ModuleView::resolveChanges(KCModule *kcm)
 
     // Let the user decide
     d->mResolvingChangesDialog = new KMessageDialog(KMessageDialog::WarningTwoActionsCancel,
-                                                    i18n("The settings of the current module have changed.\n"
-                                                         "Do you want to apply the changes or discard them?"),
+                                                    i18n("The current page has unsaved changes.\n"
+                                                         "Apply the changes or discard them?"),
                                                     this);
     d->mResolvingChangesDialog->setAttribute(Qt::WA_DeleteOnClose);
     d->mResolvingChangesDialog->setButtons(KStandardGuiItem::apply(), KStandardGuiItem::discard(), KStandardGuiItem::cancel());
