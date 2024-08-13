@@ -3,7 +3,7 @@ Type=Service
 X-KDE-System-Settings-Category=hardware-input-touchscreen
 X-KDE-System-Settings-Parent-Category=input-devices
 X-KDE-Weight=40
-Icon=input-touchscreen
+Icon=preferences-desktop-touchscreen
 
 Name=Touchscreen
 Name[ar]=شاشة لمس

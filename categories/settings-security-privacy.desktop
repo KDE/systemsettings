@@ -3,7 +3,7 @@ Type=Service
 X-KDE-System-Settings-Category=security-privacy
 X-KDE-System-Settings-Parent-Category=
 X-KDE-Weight=70
-Icon=security-high
+Icon=preferences-security
 
 Name=Security & Privacy
 Name[ar]=الأمن والخصوصيّة
