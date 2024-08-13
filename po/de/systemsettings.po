@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:43+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2024-06-02 13:51+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -142,12 +142,15 @@ msgid "Reset all current changes to previous values"
 msgstr "Alle aktuellen Änderungen auf vorherige Werte zurücksetzen"
 
 #: app/ModuleView.cpp:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are unsaved changes in the active module.\n"
+#| "Do you want to apply the changes or discard them?"
 msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
+"The current page has unsaved changes.\n"
+"Apply the changes or discard them?"
 msgstr ""
-"Die Einstellungen im aktuellen Modul wurden geändert.\n"
+"Es gibt ungespeicherte Änderungen im aktiven Modul.\n"
 "Möchten Sie die Änderungen anwenden oder verwerfen?"
 
 #: app/ModuleView.cpp:364
@@ -202,6 +205,13 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Systeminformation"
+
+#~ msgid ""
+#~ "The settings of the current module have changed.\n"
+#~ "Do you want to apply the changes or discard them?"
+#~ msgstr ""
+#~ "Die Einstellungen im aktuellen Modul wurden geändert.\n"
+#~ "Möchten Sie die Änderungen anwenden oder verwerfen?"
 
 #~ msgid "Show intro page"
 #~ msgstr "Startseite anzeigen"
@@ -372,17 +382,6 @@ msgstr "Systeminformation"
 
 #~ msgid "Control Center Tree View"
 #~ msgstr "Baumansicht"
-
-#, fuzzy
-#~| msgid ""
-#~| "There are unsaved changes in the active module.\n"
-#~| "Do you want to apply the changes or discard them?"
-#~ msgid ""
-#~ "The current page has been modified.\n"
-#~ "Do you want to apply the changes or discard them?"
-#~ msgstr ""
-#~ "Es gibt ungespeicherte Änderungen im aktiven Modul.\n"
-#~ "Möchten Sie die Änderungen anwenden oder verwerfen?"
 
 #~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
 #~ msgstr "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"

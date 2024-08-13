@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:43+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2023-02-26 19:50+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -143,12 +143,15 @@ msgid "Reset all current changes to previous values"
 msgstr "Reset all current changes to previous values"
 
 #: app/ModuleView.cpp:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The current page has been modified.\n"
+#| "Do you want to apply the changes or discard them?"
 msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
+"The current page has unsaved changes.\n"
+"Apply the changes or discard them?"
 msgstr ""
-"The settings of the current module have changed.\n"
+"The current page has been modified.\n"
 "Do you want to apply the changes or discard them?"
 
 #: app/ModuleView.cpp:364
@@ -201,6 +204,13 @@ msgstr "Finds system settings modules whose names or descriptions match :q:"
 #, kde-format
 msgid "System Information"
 msgstr "System Information"
+
+#~ msgid ""
+#~ "The settings of the current module have changed.\n"
+#~ "Do you want to apply the changes or discard them?"
+#~ msgstr ""
+#~ "The settings of the current module have changed.\n"
+#~ "Do you want to apply the changes or discard them?"
 
 #~ msgid "Show intro page"
 #~ msgstr "Show intro page"
@@ -364,13 +374,6 @@ msgstr "System Information"
 
 #~ msgid "Control Center Tree View"
 #~ msgstr "Control Centre Tree View"
-
-#~ msgid ""
-#~ "The current page has been modified.\n"
-#~ "Do you want to apply the changes or discard them?"
-#~ msgstr ""
-#~ "The current page has been modified.\n"
-#~ "Do you want to apply the changes or discard them?"
 
 #~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
 #~ msgstr "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"

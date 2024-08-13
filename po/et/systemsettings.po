@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:43+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -143,13 +143,16 @@ msgid "Reset all current changes to previous values"
 msgstr "Kõigi tehtud muudatuste lähtestamine varasematele väärtustele"
 
 #: app/ModuleView.cpp:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The current page has been modified.\n"
+#| "Do you want to apply the changes or discard them?"
 msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
+"The current page has unsaved changes.\n"
+"Apply the changes or discard them?"
 msgstr ""
-"Aktiivse mooduli seadistusi on muudetud.\n"
-"Kas muudatused rakendada või tühistada?"
+"Aktiivset kaarti on muudetud.\n"
+"Kas soovid muudatused rakendada või unustada need?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
@@ -205,6 +208,13 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Süsteemi teave"
+
+#~ msgid ""
+#~ "The settings of the current module have changed.\n"
+#~ "Do you want to apply the changes or discard them?"
+#~ msgstr ""
+#~ "Aktiivse mooduli seadistusi on muudetud.\n"
+#~ "Kas muudatused rakendada või tühistada?"
 
 #~ msgid "Show intro page"
 #~ msgstr "Sissejuhatava lehekülje näitamine"
@@ -370,13 +380,6 @@ msgstr "Süsteemi teave"
 
 #~ msgid "Control Center Tree View"
 #~ msgstr "Juhtimiskeskuse puuvaade"
-
-#~ msgid ""
-#~ "The current page has been modified.\n"
-#~ "Do you want to apply the changes or discard them?"
-#~ msgstr ""
-#~ "Aktiivset kaarti on muudetud.\n"
-#~ "Kas soovid muudatused rakendada või unustada need?"
 
 #~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
 #~ msgstr "(c) 2005: Benjamin C. Meyer; (c) 2007: Canonical Ltd"

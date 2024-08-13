@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:43+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2011-06-22 06:21+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -143,12 +143,15 @@ msgid "Reset all current changes to previous values"
 msgstr "All Ännern op lest Weerten torüchsetten"
 
 #: app/ModuleView.cpp:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The current page has been modified.\n"
+#| "Do you want to apply the changes or discard them?"
 msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
+"The current page has unsaved changes.\n"
+"Apply the changes or discard them?"
 msgstr ""
-"De Instellen binnen dat aktive Moduul wöörn ännert.\n"
+"Du hest op de aktuelle Siet wat ännert.\n"
 "Wullt Du de Ännern bruken oder wegsmieten?"
 
 #: app/ModuleView.cpp:364
@@ -202,6 +205,13 @@ msgstr ""
 #| msgid "System Settings"
 msgid "System Information"
 msgstr "Systeeminstellen"
+
+#~ msgid ""
+#~ "The settings of the current module have changed.\n"
+#~ "Do you want to apply the changes or discard them?"
+#~ msgstr ""
+#~ "De Instellen binnen dat aktive Moduul wöörn ännert.\n"
+#~ "Wullt Du de Ännern bruken oder wegsmieten?"
 
 #~ msgid "Help"
 #~ msgstr "Hülp"
@@ -345,13 +355,6 @@ msgstr "Systeeminstellen"
 
 #~ msgid "Control Center Tree View"
 #~ msgstr "Kuntrullzentrum-Boomansicht"
-
-#~ msgid ""
-#~ "The current page has been modified.\n"
-#~ "Do you want to apply the changes or discard them?"
-#~ msgstr ""
-#~ "Du hest op de aktuelle Siet wat ännert.\n"
-#~ "Wullt Du de Ännern bruken oder wegsmieten?"
 
 #~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
 #~ msgstr "(c) 2005 Benjamin C. Meyer; (c) 2007 Canonical Ltd."

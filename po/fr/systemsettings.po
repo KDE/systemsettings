@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-27 00:43+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2023-12-20 09:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -156,14 +156,19 @@ msgstr "Aucune description disponible"
 msgid "Reset all current changes to previous values"
 msgstr "Réinitialiser toutes les modifications avec les valeurs précédentes"
 
+# unreviewed-context
 #: app/ModuleView.cpp:359
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "There are unsaved changes in the active module.\n"
+#| "Do you want to apply the changes or discard them?"
 msgid ""
-"The settings of the current module have changed.\n"
-"Do you want to apply the changes or discard them?"
+"The current page has unsaved changes.\n"
+"Apply the changes or discard them?"
 msgstr ""
-"Les paramètres du module courant ont changé.\n"
-"Voulez-vous appliquer ces modifications ou les annuler ?"
+"Certaines modifications effectuées dans le module courant n'ont pas été "
+"enregistrées.\n"
+"Voulez-vous appliquer les changements ou les abandonner ?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
@@ -217,6 +222,13 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informations sur le système"
+
+#~ msgid ""
+#~ "The settings of the current module have changed.\n"
+#~ "Do you want to apply the changes or discard them?"
+#~ msgstr ""
+#~ "Les paramètres du module courant ont changé.\n"
+#~ "Voulez-vous appliquer ces modifications ou les annuler ?"
 
 #~ msgid "Show intro page"
 #~ msgstr "Afficher la page d'intro"
@@ -383,19 +395,6 @@ msgstr "Informations sur le système"
 
 #~ msgid "Control Center Tree View"
 #~ msgstr "Affichage de l'arborescence du Centre de Contrôle"
-
-# unreviewed-context
-#, fuzzy
-#~| msgid ""
-#~| "There are unsaved changes in the active module.\n"
-#~| "Do you want to apply the changes or discard them?"
-#~ msgid ""
-#~ "The current page has been modified.\n"
-#~ "Do you want to apply the changes or discard them?"
-#~ msgstr ""
-#~ "Certaines modifications effectuées dans le module courant n'ont pas été "
-#~ "enregistrées.\n"
-#~ "Voulez-vous appliquer les changements ou les abandonner ?"
 
 # unreviewed-context
 #~ msgid "(c) 2005, Benjamin C. Meyer; (c) 2007, Canonical Ltd"
