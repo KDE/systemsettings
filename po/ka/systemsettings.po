@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2023-01-03 06:36+0100\n"
+"PO-Revision-Date: 2024-08-13 05:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -141,15 +141,12 @@ msgid "Reset all current changes to previous values"
 msgstr "ყველა მიმდინარე ცვლილების საწყის მნიშვნელობებზე დაბრუნება"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"მიმდინარე მოდულის პარამეტრები შეიცვალა.\n"
+"მიმდინარე გვერდზე აღმოჩენილია შეუნახავი ცვლილებები.\n"
 "გნებავთ გადაატაროთ ეს ცვლილებები თუ მოვაშოროთ ისინი?"
 
 #: app/ModuleView.cpp:364

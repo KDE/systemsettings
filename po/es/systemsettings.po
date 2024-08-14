@@ -5,13 +5,13 @@
 #
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
 # Jaime Robles <jaime@kde.org>, 2007, 2008, 2009.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2009, 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2023-02-10 17:32+0100\n"
+"PO-Revision-Date: 2024-08-13 12:24+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "com>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -145,16 +145,13 @@ msgid "Reset all current changes to previous values"
 msgstr "Reiniciar todos los cambios actuales con sus valores anteriores"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"Hay cambios sin guardar en el módulo activo.\n"
-"¿Desea aplicar los cambios o descartarlos?"
+"La página actual tiene cambios sin guardar.\n"
+"¿Quiere aplicar los cambios o descartarlos?"
 
 #: app/ModuleView.cpp:364
 #, kde-format

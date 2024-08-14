@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2024-06-19 17:26+0200\n"
+"PO-Revision-Date: 2024-08-13 08:18+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -140,16 +140,13 @@ msgid "Reset all current changes to previous values"
 msgstr "Återställ alla nuvarande ändringar till föregående värden"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"Inställningarna i nuvarande modul har ändrats.\n"
-"Vill du verkställa ändringarna eller kasta dem?"
+"Den nuvarande sidan har osparade ändringar.\n"
+"Verkställ ändringarna eller kasta dem?"
 
 #: app/ModuleView.cpp:364
 #, kde-format

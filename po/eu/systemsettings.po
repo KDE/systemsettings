@@ -1,17 +1,17 @@
 # Translation for systemsettings.po to Euskara/Basque (eu).
-# Copyright (C) 2007-2023 This file is copyright:
+# Copyright (C) 2007-2024 This file is copyright:
 # This file is distributed under the same license as the systemsettings package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # marcos <marcos@euskalgnu.org>, 2007.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2008, 2009, 2014, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2008, 2009, 2014, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2023-01-03 08:24+0100\n"
+"PO-Revision-Date: 2024-08-13 13:04+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -144,16 +144,13 @@ msgid "Reset all current changes to previous values"
 msgstr "Berrezarri uneko aldaketa guztiak aurreko balioetara"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"Jarduneko moduluaren ezarpenak aldatu egin dira.\n"
-"Aldaketak ezarri edo baztertu nahi dituzu?"
+"Uneko orriak gorde gabeko aldaketak ditu.\n"
+"Aldaketak erabili edo baztertu nahi dituzu?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
