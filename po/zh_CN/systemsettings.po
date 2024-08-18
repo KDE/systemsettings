@@ -145,6 +145,8 @@ msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
+"当前页面包含尚未保存的更改。\n"
+"您想要应用还是放弃这些更改？"
 
 #: app/ModuleView.cpp:364
 #, kde-format
