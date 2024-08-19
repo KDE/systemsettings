@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Kishore G <kishore96@gmail.com>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2023-01-03 21:36+0530\n"
+"PO-Revision-Date: 2024-08-18 17:09+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -140,16 +140,13 @@ msgid "Reset all current changes to previous values"
 msgstr "தற்போதைய மாற்றங்களை அவற்றின் முந்தைய மதிப்புகளுக்கு மீட்டமை"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"தற்போதைய கூறின் அமைப்புகள் மாறியுள்ளன.\n"
-"இந்த மாற்றங்களைக் கைவிடலாமா, அல்லது அவற்றை செயல்படுத்த விரும்புகிறீர்களா?"
+"தற்போதைய பக்கத்தில் சேமிக்கப்படா மாற்றங்கள் உள்ளன.\n"
+"அவற்றை செயல்படுத்த வேண்டுமா, அல்லது கைவிடலாமா?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
