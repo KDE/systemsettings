@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2023-01-18 19:57+0100\n"
+"PO-Revision-Date: 2024-08-22 17:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -143,16 +143,13 @@ msgid "Reset all current changes to previous values"
 msgstr "Restarigi ĉiujn aktualajn metojn al antaŭaj valoroj"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"La agordoj de la aktuala modulo ŝanĝiĝis.\n"
-"Ĉu vi volas apliki la ŝanĝojn aŭ forlasi ilin?"
+"La aktuala paĝo havas nekonservitajn ŝanĝojn.\n"
+"Ĉu apliki la ŝanĝojn aŭ forĵeti ilin?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
@@ -204,67 +201,3 @@ msgstr "Trovas sistemmetajn modulojn kies nomo aŭ priskribo kongruas al :q:"
 #, kde-format
 msgid "System Information"
 msgstr "Sisteminformoj"
-
-#~ msgid "Show intro page"
-#~ msgstr "Montri enkondukpaĝon"
-
-#~ msgid "Help"
-#~ msgstr "Helpo"
-
-#~ msgid "About System Settings"
-#~ msgstr "Pri Sistema agordo"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Enhavas 1 eron"
-#~ msgstr[1] "Enhavas %1 erojn"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Serĉi"
-
-#~ msgid "About Active View"
-#~ msgstr "Pri aktiva rigardo"
-
-#~ msgid "About %1"
-#~ msgstr "Pri %1"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "Sistemagordo estis malebla trovi iujn vidojn kaj tial havas nenion por "
-#~ "montri."
-
-#~ msgid "No views found"
-#~ msgstr "Neniu vido trovita"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Interna nomo de la uzata vido"
-
-#~ msgid "Switch to Icon View"
-#~ msgstr "Ŝalti al Piktograma vido"
-
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "Ŝalti al Flankbreta vido"
-
-#~ msgid "Icon View"
-#~ msgstr "Piktograma vido"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr "Provizas kategoriigatan piktogramvidon de stirmoduloj."
-
-#~ msgid "All Settings"
-#~ msgstr "Apliki Agordojn"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "Fulmoklavo: %1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "Flankbreta Vido"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr "Provizas kategoriigatan flankbreton por stirmoduloj."
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "(c) 2017, Marco Martin"
