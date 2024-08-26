@@ -146,9 +146,6 @@ msgstr "Tilbakestill alle nåværende endringer til forrige verdier"
 
 #: app/ModuleView.cpp:359
 #, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
