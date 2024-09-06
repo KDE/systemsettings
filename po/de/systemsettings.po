@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024 Alois Spitzbart <spitz234@hotmail.com>
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2007, 2008, 2009.
 # Burkhard Lück <lueck@hube-lueck.de>, 2009, 2015, 2017, 2018, 2019, 2020, 2021.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2009.
+# SPDX-FileCopyrightText: 2009, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2009, 2010, 2011, 2020, 2022, 2023.
 # Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
 msgid ""
@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-13 00:41+0000\n"
-"PO-Revision-Date: 2024-06-02 13:51+0200\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"PO-Revision-Date: 2024-09-03 22:47+0200\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -142,16 +142,13 @@ msgid "Reset all current changes to previous values"
 msgstr "Alle aktuellen Änderungen auf vorherige Werte zurücksetzen"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "There are unsaved changes in the active module.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"Es gibt ungespeicherte Änderungen im aktiven Modul.\n"
-"Möchten Sie die Änderungen anwenden oder verwerfen?"
+"Die aktuelle Seite enthält ungespeicherte Änderungen.\n"
+"Möchten Sie diese Änderungen übernehmen oder verwerfen?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
