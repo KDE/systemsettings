@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-27 02:35+0000\n"
-"PO-Revision-Date: 2024-08-14 00:22+0330\n"
+"PO-Revision-Date: 2024-09-06 22:43+0330\n"
 "Last-Translator: Mohi Mirdamadi <mohi.pub@gmail.com>\n"
 "Language-Team: fa\n"
 "Language: fa\n"
@@ -30,12 +30,12 @@ msgstr "mohi.pub@gmail.com , mebrahim@gmail.com"
 #: app/ExternalAppModule.cpp:26
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr ""
+msgstr "%1 یک برنامه خارجی است و به صورت خودکار اجرا شده"
 
 #: app/ExternalAppModule.cpp:27
 #, kde-format
 msgid "Relaunch %1"
-msgstr ""
+msgstr "بازکردن مجدد %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
 #: app/externalModule.ui:14
@@ -46,17 +46,17 @@ msgstr "محاوره"
 #: app/main.cpp:54 app/SettingsBase.cpp:55
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "مرکز اطلاعات"
 
 #: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "نمای مرکزی و راحت از اطلاعات سامانه"
 
 #: app/main.cpp:58 app/main.cpp:69
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
-msgstr ""
+msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
 #: runner/systemsettingsrunner.cpp:112
@@ -65,10 +65,9 @@ msgid "System Settings"
 msgstr "تنظیمات سامانه"
 
 #: app/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
-msgstr "سامانه تنظیمات مرکزی برای KDE"
+msgstr "سامانه تنظیمات مرکزی برای کی‌دی‌ای"
 
 #: app/main.cpp:80
 #, kde-format
@@ -83,7 +82,7 @@ msgstr "نگه‌دارنده"
 #: app/main.cpp:81
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: app/main.cpp:81
 #, kde-format
@@ -108,33 +107,32 @@ msgstr "Will Stephenson"
 #: app/main.cpp:83
 #, kde-format
 msgid "Internal module representation, internal module model"
-msgstr ""
+msgstr "نمایش پیمانه (ماژول) داخلی، مدل پیمانه داخلی"
 
 #: app/main.cpp:91
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "فهرست همه پیمانه‌های ممکن"
 
 #: app/main.cpp:92 app/main.cpp:153
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "پیمانه پیکربندی برای بازکردن"
 
 #: app/main.cpp:93 app/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "About Current Module"
+#, kde-format
 msgid "Arguments for the module"
-msgstr "دربارهٔ پیمانهٔ جاری"
+msgstr "نشانوندها برای پیمانه"
 
 #: app/main.cpp:101
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "پیمانه‌های زیر در دسترس هستند:"
 
 #: app/main.cpp:119
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "توصیفی وجود ندارد"
 
 #: app/ModuleView.cpp:183
 #, kde-format
@@ -158,54 +156,54 @@ msgstr "اعمال تنظیمات"
 #: app/qml/CategoriesPage.qml:64
 #, kde-format
 msgid "Show intro page"
-msgstr ""
+msgstr "نشان دادن صفحه اول"
 
 #: app/qml/CategoriesPage.qml:132
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "هیچ موردی با جستجوی شما منطبق نبود"
 
 #: app/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "نشان دادن منو"
 
 #: app/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "پلاسما"
 
 #: app/SettingsBase.cpp:135
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "مشخص کردن تنظیمات تغییریافته"
 
 #: app/SettingsBase.cpp:146
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "گزارش اشکال در صفحه جاری..."
 
 #: app/SidebarMode.cpp:647
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "میله جانبی"
 
 #: app/SidebarMode.cpp:716
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "بیشتر استفاده شده"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
+"پیداکردن پیمانه‌های تنظیمات سامانه که نام یا توصیف آنها معادل است با :q:"
 
 #: runner/systemsettingsrunner.cpp:110
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "تنظیمات سامانه"
+msgstr "اطلاعات سامانه"
 
 #~ msgid "Help"
 #~ msgstr "کمک"
