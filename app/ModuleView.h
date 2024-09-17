@@ -154,7 +154,7 @@ public Q_SLOTS:
     /**
      * Causes the active module to save its configuration, applying all changes.
      */
-    void moduleSave();
+    void saveActiveModule();
 
     /**
      * Causes the active module to revert all changes to the configuration, and return to defaults.

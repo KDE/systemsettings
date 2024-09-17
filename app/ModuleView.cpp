@@ -192,7 +192,7 @@ ModuleView::ModuleView(const std::shared_ptr<QQmlEngine> &engine, QWidget *paren
     d->mReset->setEnabled(false);
     d->mHelp->setEnabled(false);
     // Connect up the buttons
-    connect(d->mApply, &QPushButton::clicked, this, qOverload<>(&ModuleView::moduleSave));
+    connect(d->mApply, &QPushButton::clicked, this, &ModuleView::saveActiveModule);
     connect(d->mReset, &QAbstractButton::clicked, this, &ModuleView::moduleLoad);
     connect(d->mHelp, &QAbstractButton::clicked, this, &ModuleView::moduleHelp);
     connect(d->mDefault, &QAbstractButton::clicked, this, &ModuleView::moduleDefaults);
@@ -396,7 +396,7 @@ void ModuleView::closeModules()
     d->pageChangeSupressed = false;
 }
 
-void ModuleView::moduleSave()
+void ModuleView::saveActiveModule()
 {
     KCModule *moduleProxy = d->mPages.value(d->mPageWidget->currentPage());
     Q_ASSERT(moduleProxy);
@@ -520,8 +520,8 @@ void ModuleView::updateButtons()
             buttons &= ~KCModule::Help;
         }
 
-        disconnect(d->mApply, &QPushButton::clicked, this, qOverload<>(&ModuleView::moduleSave));
-        connect(d->mApply, &QPushButton::clicked, this, qOverload<>(&ModuleView::moduleSave));
+        disconnect(d->mApply, &QPushButton::clicked, this, &ModuleView::saveActiveModule);
+        connect(d->mApply, &QPushButton::clicked, this, &ModuleView::saveActiveModule);
     } else {
         d->authAction = KAuth::Action();
     }
