@@ -49,8 +49,6 @@ SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &sta
 
     setProperty("_breeze_no_separator", true);
 
-    setAutoSaveSettings();
-
     if (m_mode == SidebarMode::InfoCenter) {
         setWindowTitle(i18nd("systemsettings", "Info Center"));
         setWindowIcon(QIcon::fromTheme(QStringLiteral("hwinfo")));
@@ -63,6 +61,8 @@ SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &sta
     initToolBar();
     // We can now launch the delayed loading safely
     initApplication();
+    // Restore window size and position
+    setAutoSaveSettings();
 }
 
 SettingsBase::~SettingsBase()
