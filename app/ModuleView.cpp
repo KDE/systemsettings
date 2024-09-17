@@ -519,9 +519,6 @@ void ModuleView::updateButtons()
         if (activeModule->metaData().value(QStringLiteral("X-DocPath")).isEmpty()) {
             buttons &= ~KCModule::Help;
         }
-
-        disconnect(d->mApply, &QPushButton::clicked, this, &ModuleView::saveActiveModule);
-        connect(d->mApply, &QPushButton::clicked, this, &ModuleView::saveActiveModule);
     } else {
         d->authAction = KAuth::Action();
     }
