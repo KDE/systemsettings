@@ -368,7 +368,8 @@ bool ModuleView::resolveChanges(KCModule *kcm)
 
     switch (result) {
     case KMessageDialog::PrimaryAction:
-        return moduleSave(kcm);
+        moduleSave(kcm);
+        return true;
     case KMessageDialog::SecondaryAction:
         kcm->load();
         return true;
@@ -395,21 +396,17 @@ void ModuleView::closeModules()
     d->pageChangeSupressed = false;
 }
 
-bool ModuleView::moduleSave()
+void ModuleView::moduleSave()
 {
     KCModule *moduleProxy = d->mPages.value(d->mPageWidget->currentPage());
-    return moduleSave(moduleProxy);
+    Q_ASSERT(moduleProxy);
+    moduleSave(moduleProxy);
 }
 
-bool ModuleView::moduleSave(KCModule *module)
+void ModuleView::moduleSave(KCModule *module)
 {
-    if (!module) {
-        return false;
-    }
-
     module->save();
     Q_EMIT moduleSaved();
-    return true;
 }
 
 void ModuleView::moduleLoad()

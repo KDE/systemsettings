@@ -154,7 +154,7 @@ public Q_SLOTS:
     /**
      * Causes the active module to save its configuration, applying all changes.
      */
-    bool moduleSave();
+    void moduleSave();
 
     /**
      * Causes the active module to revert all changes to the configuration, and return to defaults.
@@ -169,7 +169,7 @@ public Q_SLOTS:
 private:
     bool resolveChanges(KCModule *currentProxy);
     void addModule(MenuItem *item, const QStringList &args);
-    bool moduleSave(KCModule *module);
+    void moduleSave(KCModule *module);
     void updatePageIconHeader(KPageWidgetItem *page);
     void updateButtons();
 
