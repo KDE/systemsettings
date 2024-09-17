@@ -192,7 +192,7 @@ ModuleView::ModuleView(const std::shared_ptr<QQmlEngine> &engine, QWidget *paren
     d->mReset->setEnabled(false);
     d->mHelp->setEnabled(false);
     // Connect up the buttons
-    connect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
+    connect(d->mApply, &QPushButton::clicked, this, qOverload<>(&ModuleView::moduleSave));
     connect(d->mReset, &QAbstractButton::clicked, this, &ModuleView::moduleLoad);
     connect(d->mHelp, &QAbstractButton::clicked, this, &ModuleView::moduleHelp);
     connect(d->mDefault, &QAbstractButton::clicked, this, &ModuleView::moduleDefaults);
@@ -523,8 +523,8 @@ void ModuleView::updateButtons()
             buttons &= ~KCModule::Help;
         }
 
-        disconnect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
-        connect(d->mApply, SIGNAL(clicked()), this, SLOT(moduleSave()));
+        disconnect(d->mApply, &QPushButton::clicked, this, qOverload<>(&ModuleView::moduleSave));
+        connect(d->mApply, &QPushButton::clicked, this, qOverload<>(&ModuleView::moduleSave));
     } else {
         d->authAction = KAuth::Action();
     }
