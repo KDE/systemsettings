@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-09-18 02:38+0000\n"
 "PO-Revision-Date: 2008-12-23 02:09+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <ubuntu-l10n-kur@lists.ubuntu.com>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Dialog"
 msgstr ""
 
-#: app/main.cpp:54 app/SettingsBase.cpp:55
+#: app/main.cpp:54 app/SettingsBase.cpp:53
 #, kde-format
 msgid "Info Center"
 msgstr ""
@@ -59,7 +59,7 @@ msgstr ""
 msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"

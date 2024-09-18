@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-09-18 02:38+0000\n"
 "PO-Revision-Date: 2024-08-20 00:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "%1 다시 실행"
 msgid "Dialog"
 msgstr "대화 상자"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:55
+#: app/main.cpp:54 app/SettingsBase.cpp:53
 #, kde-format
 msgid "Info Center"
 msgstr "정보 센터"
@@ -58,7 +58,7 @@ msgstr "시스템 정보를 한 눈에 보기."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"

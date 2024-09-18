@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-09-18 02:38+0000\n"
 "PO-Revision-Date: 2024-08-15 05:44+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -49,7 +49,7 @@ msgstr "重新啟動 %1"
 msgid "Dialog"
 msgstr "對話框"
 
-#: app/main.cpp:54 app/SettingsBase.cpp:55
+#: app/main.cpp:54 app/SettingsBase.cpp:53
 #, kde-format
 msgid "Info Center"
 msgstr "資訊中心"
@@ -64,7 +64,7 @@ msgstr "集中且便利的系統資訊一覽"
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:58
+#: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
