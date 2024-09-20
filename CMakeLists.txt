@@ -83,6 +83,7 @@ if(KF6DocTools_FOUND)
     kdoctools_install(po)
 endif()
 add_subdirectory(runner)
+add_subdirectory(appiumtests)
 
 ecm_qt_install_logging_categories(EXPORT SYSTEMSETTINGS FILE systemsettings.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
