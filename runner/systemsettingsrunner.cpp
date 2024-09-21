@@ -44,6 +44,13 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
     const QString query = context.query();
     const QStringList queryWords{query.split(QLatin1Char(' '))};
     for (const KPluginMetaData &data : std::as_const(m_modules)) {
+        // Don't show hidden KCMs
+        if (data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category")).isEmpty()
+            && data.value(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")).isEmpty()
+            && data.value(QStringLiteral("X-KDE-KInfoCenter-Category")).isEmpty()) {
+            continue;
+        }
+
         qreal relevance = -1;
         const auto checkMatchAndRelevance = [&query, &relevance, &queryWords](const QString &value, qreal relevanceValue) {
             if (value.startsWith(query, Qt::CaseInsensitive)) {
