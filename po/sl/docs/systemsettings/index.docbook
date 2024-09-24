@@ -1,0 +1,619 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE">
+]>
+<book id="systemsettings" lang="&language;">
+
+<bookinfo>
+<title
+>&systemsettings; Priročnik</title>
+
+<authorgroup>
+<author
+>&Richard.Johnson; &Richard.Johnson.mail; </author>
+<othercredit role="translator"
+><firstname
+>Jan</firstname
+><surname
+>Napast</surname
+><affiliation
+><address
+><email
+>jan.napast153@gmail.com</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>&Richard.Johnson;</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>11.04.2021</date>
+<releaseinfo
+>Plasma 5.20</releaseinfo>
+
+<abstract>
+<para
+>Ta dokumentacija opisuje sistemsko konfiguracijo in skrbniški center za vaše namizje. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Sistem</keyword>
+<keyword
+>Nastavitve</keyword>
+<keyword
+>konfiguracija</keyword>
+<keyword
+>administracija</keyword>
+<keyword
+>config</keyword>
+<keyword
+>admin</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&systemsettings; uporabniku ponuja centraliziran in priročen način za konfiguriranje vseh nastavitev za vaše namizje. </para>
+
+<para
+>&systemsettings; je sestavljen iz več modulov. Vsak modul je ločena aplikacija, vendar &systemsettings; organizira vse te aplikacije na enem mestu. </para>
+
+<tip>
+<para
+>Vsak &systemsettings; modul se lahko izvede posamično </para>
+<para
+>Glejte razdelek z naslovom <link linkend="run-modules-individually"
+>Izvajanje posameznih &systemsettings; moduli</link
+> za več informacij. </para>
+</tip>
+
+<para
+>&systemsettings; združuje vse konfiguracijske module v več kategorij: <itemizedlist>
+<listitem
+><para
+><link linkend="appearance"
+>Videz</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="workspace"
+>Delovni prostor</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="personalization"
+>Prilagajanje</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="network"
+>Omrežje</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="hardware"
+>Strojna oprema</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="system_administration"
+>Sistemsko skrbništvo</link
+></para
+></listitem>
+</itemizedlist>
+</para>
+
+<para
+>Moduli, ki sestavljajo &systemsettings; spadajo v eno od zgornjih kategorij, kar olajša iskanje pravilnega konfiguracijskega modula. </para>
+
+</chapter>
+
+<chapter id="using-kapp">
+<title
+>Uporaba &systemsettings;</title>
+
+<para
+>Ta razdelek podrobno opisuje uporabo &systemsettings; sama. Za informacije o vsakem posameznem modulu si oglejte <link linkend="modules"
+>&systemsettings; Moduli</link
+>. </para>
+
+<sect1 id="starting">
+<title
+>Zagon &systemsettings;</title>
+
+<para
+>&systemsettings; lahko začnete na enega od treh načinov: </para>
+
+<orderedlist>
+<listitem>
+<para
+>Z izbiro <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guimenuitem
+>Sistemske nastavitve</guimenuitem
+></menuchoice
+> v <guilabel
+>meniju aplikacij</guilabel
+>. </para>
+</listitem>
+<listitem>
+<para
+>S pritiskom <keycombo
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> ali <keycombo
+>&Alt;<keycap
+>Preslednica</keycap
+></keycombo
+>. To bo prikazalo &krunner; dialog. Vnesite <command
+>systemsettings</command
+> in pritisnite &Enter;. </para>
+</listitem>
+<listitem>
+<para
+>V poljuben ukazni poziv vnesite <command
+>systemsettings &amp;</command
+>. </para>
+</listitem>
+</orderedlist>
+
+<para
+>Vse te tri metode so enakovredne in dajejo enak rezultat. </para>
+</sect1>
+
+<sect1 id="screen">
+<title
+>&systemsettings; zaslon</title>
+
+<para
+>Ko zaženete &systemsettings;, se vam prikaže okno, ki je razdeljeno na dva funkcionalna dela. </para>
+
+<para
+>Na vrhu je orodna vrstica. Orodna vrstica omogoča uporabniku, da se vrne v glavni pogled znotraj modula z uporabo <guibutton
+>Vse nastavitve</guibutton
+>. Najdete lahko tudi meni <guimenu
+>Pomoč</guimenu
+> in gumb <guibutton
+>Konfiguriraj</guibutton
+>, ki vam ponudi pogovorno okno z alternativnimi nastavitvami pogleda. </para>
+<para
+>Če želite poiskati nekaj znotraj vseh modulov, začnite vnašati ključne besede v iskalno polje na desni strani orodne vrstice v pogledu <guibutton
+>Vse nastavitve</guibutton
+>. Ko začnete tipkati, se prikaže seznam ujemajočih se tem. Izberite eno in omogočene bodo samo skupine z nastavitvami za to ključno besedo, druge so zatemnjene.</para>
+<para
+>Ko je okno z ikonami v fokusu, lahko vnesete prvo črko imena katerega koli modula ali skupine modulov, da ga izberete. Če ponovno vnesete to črko, se izbor premakne na naslednje ujemanje. </para>
+<para
+>Pod orodno vrstico je pogled ikon posameznih modulov ali skupin modulov, ki sestavljajo &systemsettings; razvrščeni po različnih kategorijah. Če se miška nekaj sekund zadrži nad ikono, se privzeto prikaže opis orodja, ki pojasnjuje namen modula ali prikazuje module v tej skupini. </para>
+</sect1>
+
+<sect1 id="general">
+<title
+>&systemsettings; Kategorije in moduli</title>
+<para
+>Kratek pregled vseh kategorij in njihovih modulov:</para>
+
+<variablelist>
+<varlistentry id="appearance">
+<term
+>Videz</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Globalna tema </para
+></listitem>
+<listitem
+><para
+>Slog plazme </para
+></listitem>
+<listitem
+><para
+>Slog aplikacije (slog aplikacije, okraski oken) </para
+></listitem>
+<listitem
+><para
+>Barve </para
+></listitem>
+<listitem
+><para
+>Pisava (pisave, upravljanje pisav) </para
+></listitem>
+<listitem
+><para
+>Ikone </para
+></listitem>
+<listitem
+><para
+>Kazalke </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="workspace">
+<term
+>Delovni prostor</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Vedenje delovnega prostora (splošno vedenje, učinki na namizju, robovi zaslona, zaslon na dotik, zaklepanje zaslona, navidezna namizja, dejavnosti) </para
+></listitem>
+<listitem
+><para
+>Upravljanje oken (vedenje oken, preklopnik opravil, skripti KWin, pravila oken) </para
+></listitem>
+<listitem
+><para
+>Bližnjice (Bližnjice, Bližnjice po meri) </para
+></listitem>
+<listitem
+><para
+>Zagon in zaustavitev (zaslon za prijavo (SDDM), samodejni zagon, storitve v ozadju, seja namizja, začetni zaslon) </para
+></listitem>
+<listitem
+><para
+>Iskanje (iskanje datotek, Krunner, ključne besede spletnega iskanja) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="personalization">
+<term
+>Prilagajanje</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Obvestila </para
+></listitem>
+<listitem
+><para
+>Uporabniki </para
+></listitem>
+<listitem
+><para
+>Regionalne nastavitve (jezik, formati, preverjanje črkovanja, datum &amp; čas) </para
+></listitem>
+<listitem
+><para
+>Dostopnost </para
+></listitem>
+<listitem
+><para
+>Aplikacije (privzete aplikacije, povezave datotek, lokacije, povratne informacije o zagonu) </para
+></listitem>
+<listitem
+><para
+>Denarnica KDE </para
+></listitem>
+<listitem
+><para
+>Spletni računi </para
+></listitem>
+<listitem
+><para
+>Povratne informacije uporabnikov </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="network">
+<term
+>Omrežje</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Nastavitve (proxy, nastavitve povezave, nastavitve SSL, predpomnilnik, piškotki, identifikacija brskalnika, skupne rabe sistema Windows) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="hardware">
+<term
+>Strojna oprema</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Vnosne naprave (tipkovnica, miška, igralni krmilnik, grafična tablica, sledilna ploščica) </para
+></listitem>
+<listitem
+><para
+>Zaslon in monitor (konfiguracija zaslona, sestavljalnik, gama, nočna barva) </para
+></listitem>
+<listitem
+><para
+>Avdio </para
+></listitem>
+<listitem
+><para
+>Multimedija (zvočni CD-ji, pridobivanje CDDB) </para
+></listitem>
+<listitem
+><para
+>Upravljanje porabe (varčevanje z energijo, nastavitve dejavnosti, napredne nastavitve) </para
+></listitem>
+<listitem
+><para
+>Bluetooth </para
+></listitem>
+<listitem
+><para
+>Odstranljivi pomnilnik (dejanja naprave, digitalni fotoaparat, odstranljive naprave) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="system_administration">
+<term
+>Upravljanje sistema</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Sistemska informacija </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<tip
+><para
+>Uporabite iskalno polje zgoraj desno v pogledu <guibutton
+>Vse nastavitve</guibutton
+>, da poiščete vse ujemajoče se module za določeno ključno besedo. Če začnete vnašati ključno besedo, se odpre seznam ključnih besed in omogočeni so samo ujemajoči se moduli.</para
+></tip>
+</sect1>
+<sect1 id="exiting">
+<title
+>Izhod iz &systemsettings;</title>
+
+<para
+>&systemsettings; lahko izstopite na enega od dveh načinov: </para>
+
+<orderedlist>
+<listitem>
+<para
+>Pritisnite <keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> na tipkovnici. </para>
+</listitem>
+<listitem>
+<para
+>Kliknite gumb <guibutton
+>Zapri</guibutton
+> v orodni vrstici. </para>
+</listitem>
+</orderedlist>
+</sect1>
+
+<sect1 id="configuring">
+<title
+>Konfiguriranje &systemsettings;</title>
+
+<para
+>Ikona <guiicon
+>Konfiguriraj</guiicon
+> v orodni vrstici vam omogoča spreminjanje nekaterih &systemsettings; parametri. Iz <guilabel
+>Pogleda ikon</guilabel
+> (privzeti pogled) lahko spremenite v <guilabel
+>Pogled stranske vrstice</guilabel
+>. V načinu <guilabel
+>Pogled stranske vrstice</guilabel
+> pozdravna stran prikazuje pogosto uporabljene module za hiter dostop. </para>
+
+<para
+>Podrobne namige lahko tudi izklopite tako, da počistite polje <guilabel
+>Pokaži podrobne namige</guilabel
+>. Nato boste prejeli samo običajne namige za orodja in ne vsebine skupine modulov. </para>
+
+</sect1>
+
+<sect1 id="run-modules-individually">
+<title
+>Zagon posameznih &systemsettings; Moduli</title>
+
+<para
+>Posamezne module je mogoče zagnati brez zagona &systemsettings; z uporabo ukaza <command
+>kcmshell5</command
+> iz ukazne vrstice. Vnesite <command
+>kcmshell5 --list</command
+> za ogled seznama razpoložljivih &systemsettings; moduli. </para>
+<para
+>Poleg tega lahko zaženete KRunner in začnete vnašati ključne besede. Ko začnete tipkati, se prikaže seznam ujemajočih se modulov s predpono &systemsettings; se bo pojavilo. </para>
+</sect1>
+</chapter>
+
+<chapter id="modules">
+<title
+>&systemsettings; Moduli</title>
+
+<para
+>Da bi bilo čim lažje, &systemsettings; ima organizirane možnosti v šest kategorij. Pod vsako kategorijo so ikone združene v podkategorije. Vsaka ikona se imenuje modul. Ko dvakrat kliknete ikono modula, se vam v glavnem oknu prikažejo možnosti modula. </para>
+
+<para
+>Vsak modul bo imel nekaj ali vse naslednje gumbe: </para>
+
+<variablelist>
+<varlistentry>
+<term
+>Pomoč</term>
+<listitem>
+<para
+>Ta gumb bo zagotovil pomoč, specifično za trenutni modul. S klikom na gumb se odpre &khelpcenter; v novem oknu s podrobnimi informacijami o modulu. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Privzete nastavitve</term>
+<listitem>
+<para
+>Če kliknete ta gumb, boste ta modul obnovili na privzete vrednosti. Za shranjevanje možnosti morate klikniti <guibutton
+>Uporabi</guibutton
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Ponastaviti</term>
+<listitem>
+<para
+>Ta gumb bo <quote
+>Ponastavil</quote
+> modul na prejšnje nastavitve. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>Prijavite se</term>
+<listitem>
+<para
+>S klikom na ta gumb se shranijo vse spremembe. Če ste karkoli spremenili, boste s klikom na <guibutton
+>Uporabi</guibutton
+> spremembe stopile v veljavo. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<note>
+<para
+>Spremembe morate <quote
+>Ponastaviti</quote
+> ali <quote
+>Uporabiti</quote
+>, preden preklopite na drug modul. </para>
+<para
+>Če poskušate spremeniti, ne da bi shranili ali ponastavili svoje možnosti, boste pozvani, ali želite shraniti spremembe ali jih zavreči. </para>
+</note>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Zasluge in licenca</title>
+
+<para
+>&systemsettings; </para>
+<para
+>Avtorske pravice za program 2007 Benjamin C. Meyer. </para>
+<para
+>Avtorske pravice za program 2009 Ben Cooksley. </para>
+<para
+>Sodelavci: <itemizedlist>
+<listitem>
+<para
+>Will Stephenson <email
+>wstepheson@kde.org</email
+> </para>
+</listitem>
+<listitem>
+<para
+>Michael D. Stemle, Jr. <email
+>manchicken@notsosoft.net</email
+> </para>
+</listitem>
+<listitem>
+<para
+>Matthias Kretz <email
+>kretz@kde.org</email
+> </para>
+</listitem>
+<listitem>
+<para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail; </para>
+</listitem>
+<listitem>
+<para
+>&Matthias.Elter; &Matthias.Elter.mail; </para>
+</listitem>
+<listitem>
+<para
+>Frans Englich <email
+>englich@kde.org</email
+> </para>
+</listitem>
+<listitem>
+<para
+>Michael Jansen <email
+>kde@michael-jansen.biz</email
+> </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>Dokumentacija Copyright &copy; 2008 &Richard.Johnson; &Richard.Johnson.mail; </para>
+
+<para
+>Prevod: Jan Napast <email
+>jan.napast153@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
