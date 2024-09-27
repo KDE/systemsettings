@@ -200,6 +200,3 @@ msgstr "Намира уиджети за Plasma, чието име или опи
 #, kde-format
 msgid "System Information"
 msgstr "Системна информация"
-
-#~ msgid "Show intro page"
-#~ msgstr "Показване на встъпителната страница"
