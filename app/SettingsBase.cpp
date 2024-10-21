@@ -67,6 +67,7 @@ SettingsBase::SettingsBase(SidebarMode::ApplicationMode mode, const QString &sta
 
 SettingsBase::~SettingsBase()
 {
+    setSettingsDirty();
     delete rootModule;
 }
 
@@ -295,6 +296,7 @@ void SettingsBase::viewChange(bool state)
 void SettingsBase::slotGeometryChanged()
 {
     setMinimumSize(SettingsBase::sizeHint());
+    setSettingsDirty();
 }
 
 #include "moc_SettingsBase.cpp"
