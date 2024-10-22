@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 02:38+0000\n"
+"POT-Creation-Date: 2024-10-22 02:31+0000\n"
 "PO-Revision-Date: 2021-09-17 20:11+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -175,7 +175,7 @@ msgstr "मेन्यू दिखाएँ"
 msgid "Plasma"
 msgstr "प्लाज़्मा"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:136
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -184,7 +184,7 @@ msgstr "प्लाज़्मा"
 msgid "Highlight Changed Settings"
 msgstr "परिवर्तित सेटिंग्स को चिन्हांकित करें"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""

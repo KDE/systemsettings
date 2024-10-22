@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 02:38+0000\n"
+"POT-Creation-Date: 2024-10-22 02:31+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -170,7 +170,7 @@ msgstr "മെനു കാണിക്കുക"
 msgid "Plasma"
 msgstr "പ്ലാസ്മ"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:136
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -179,7 +179,7 @@ msgstr "പ്ലാസ്മ"
 msgid "Highlight Changed Settings"
 msgstr "മാറ്റങ്ങൾ വരുത്തിയവ തെളിക്കുക"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""
