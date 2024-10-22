@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:41+0000\n"
+"POT-Creation-Date: 2024-10-22 00:41+0000\n"
 "PO-Revision-Date: 2024-08-13 05:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -170,12 +170,12 @@ msgstr "მენიუს ჩვენება"
 msgid "Plasma"
 msgstr "პლაზმა"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "შეცვლილი პარამეტრების გამოკვეთა"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-18 00:41+0000\n"
+"POT-Creation-Date: 2024-10-22 00:41+0000\n"
 "PO-Revision-Date: 2024-09-19 16:11+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -180,12 +180,12 @@ msgstr "Εμφάνιση μενού"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:135
+#: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Τονισμός αλλαγμένων ρυθμίσεων"
 
-#: app/SettingsBase.cpp:146
+#: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Αναφορά σφάλματος στην τρέχουσα σελίδα..."
