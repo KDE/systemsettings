@@ -6,30 +6,33 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2008, 2009, 2010, 2014, 2015, 2020.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Thiago Masato Costa Sueto <herzenschein@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2024 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-22 02:31+0000\n"
-"PO-Revision-Date: 2023-01-16 22:58-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2024-11-15 23:42-0300\n"
+"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Diniz Bortolotto, André Marcelo Alvarenga"
+msgstr "Diniz Bortolotto, André Marcelo Alvarenga, Geraldo Simião"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "diniz.bortolotto@gmail.com, alvarenga@kde.org"
+msgstr ""
+"diniz.bortolotto@gmail.com, alvarenga@kde.org, geraldosimiao@fedoraproject."
+"org"
 
 #: app/ExternalAppModule.cpp:26
 #, kde-format
@@ -144,15 +147,12 @@ msgid "Reset all current changes to previous values"
 msgstr "Restaurar os valores anteriores para todas as alterações efetuadas"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"As configurações do módulo atual foram alteradas.\n"
+"A página atual possui alterações que não foram salvas.\n"
 "Deseja aplicar as alterações ou descartá-las?"
 
 #: app/ModuleView.cpp:364
