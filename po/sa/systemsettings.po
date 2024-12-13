@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-22 00:41+0000\n"
-"PO-Revision-Date: 2023-09-24 20:49+0530\n"
+"PO-Revision-Date: 2024-12-12 13:07+0530\n"
 "Last-Translator: Shreekant Kalwar\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, kde-format
@@ -142,16 +142,13 @@ msgid "Reset all current changes to previous values"
 msgstr "सर्वान् वर्तमान् परिवर्तनान् पूर्वनियतान् पुनः स्थापय"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
 "वर्तमान विभागस्य संवादितानि सम्प्रियाणि च विद्यते।\n"
-" किं आप परिवर्तनान् प्रयुञ्जीते वा त्यजीते?"
+"किं आप परिवर्तनान् प्रयुञ्जीते वा त्यजीते?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
