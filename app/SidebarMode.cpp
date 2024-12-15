@@ -22,6 +22,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 
+#include <KLocalizedQmlContext>
 #include <QAction>
 #include <QGraphicsOpacityEffect>
 #include <QGuiApplication>
@@ -587,7 +588,7 @@ void SidebarMode::initWidget()
 
     d->quickWidget->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
 
-    d->quickWidget->rootContext()->setContextObject(new KLocalizedContext(d->quickWidget));
+    d->quickWidget->rootContext()->setContextObject(new KLocalizedQmlContext(d->quickWidget));
 
     // Breaking change in Qt6: https://github.com/qt/qtdeclarative/commit/0d80dbd8c2cfc2a7d2a4d970b7acfc7fb5fb97a0
     // Use setContent to prevent the root item from being destroyed: https://github.com/qt/qtdeclarative/commit/69d61fecf2deee7510f5f2448614174683744d82
@@ -653,7 +654,7 @@ void SidebarMode::initPlaceHolderWidget()
     d->placeHolderWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
     d->placeHolderWidget->quickWindow()->setTitle(i18n("Most Used"));
     d->placeHolderWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedContext(d->placeHolderWidget));
+    d->placeHolderWidget->engine()->rootContext()->setContextObject(new KLocalizedQmlContext(d->placeHolderWidget));
     d->placeHolderWidget->engine()->rootContext()->setContextProperty(QStringLiteral("systemsettings"), this);
     d->placeHolderWidget->setSource(QUrl(QStringLiteral("qrc:/qt/qml/org/kde/systemsettings/IntroPage.qml")));
     d->placeHolderWidget->installEventFilter(this);
