@@ -91,7 +91,7 @@ Kirigami.ScrollablePage {
         parent: mainColumn
         anchors.centerIn: parent
         width: parent.width - (Kirigami.Units.gridUnit * 4)
-        opacity: categoryView.count == 0 ? 1 : 0
+        opacity: categoryView.count === 0 ? 1 : 0
         active: opacity > 0
         visible: active
         Behavior on opacity {
