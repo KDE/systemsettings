@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:41+0000\n"
+"POT-Creation-Date: 2024-12-18 00:42+0000\n"
 "PO-Revision-Date: 2024-09-03 22:47+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -181,12 +181,12 @@ msgstr "Geänderte Einstellungen hervorheben"
 msgid "Report a Bug in the Current Page…"
 msgstr "Ein Problem auf der aktuellen Seite berichten ..."
 
-#: app/SidebarMode.cpp:585
+#: app/SidebarMode.cpp:586
 #, kde-format
 msgid "Sidebar"
 msgstr "Seitenleiste"
 
-#: app/SidebarMode.cpp:654
+#: app/SidebarMode.cpp:655
 #, kde-format
 msgid "Most Used"
 msgstr "Am meisten Verwendet"

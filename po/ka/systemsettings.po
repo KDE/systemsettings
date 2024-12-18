@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:41+0000\n"
+"POT-Creation-Date: 2024-12-18 00:42+0000\n"
 "PO-Revision-Date: 2024-08-13 05:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -180,12 +180,12 @@ msgstr "შეცვლილი პარამეტრების გამ�
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"
 
-#: app/SidebarMode.cpp:585
+#: app/SidebarMode.cpp:586
 #, kde-format
 msgid "Sidebar"
 msgstr "გვერდითი ზოლი"
 
-#: app/SidebarMode.cpp:654
+#: app/SidebarMode.cpp:655
 #, kde-format
 msgid "Most Used"
 msgstr "ხშირად გამოყენებული"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-22 00:41+0000\n"
+"POT-Creation-Date: 2024-12-18 00:42+0000\n"
 "PO-Revision-Date: 2024-09-16 21:33+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -183,12 +183,12 @@ msgstr "Módosított beállítások kiemelése"
 msgid "Report a Bug in the Current Page…"
 msgstr "Hiba jelentése az aktuális oldalban…"
 
-#: app/SidebarMode.cpp:585
+#: app/SidebarMode.cpp:586
 #, kde-format
 msgid "Sidebar"
 msgstr "Oldalsáv"
 
-#: app/SidebarMode.cpp:654
+#: app/SidebarMode.cpp:655
 #, kde-format
 msgid "Most Used"
 msgstr "Leggyakrabban használt"
