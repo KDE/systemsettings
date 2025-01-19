@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:42+0000\n"
-"PO-Revision-Date: 2024-07-06 23:49\n"
+"PO-Revision-Date: 2025-01-10 10:25\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -18,9 +18,8 @@ msgstr ""
 "X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
 "X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/systemsettings/"
-"systemsettings.po\n"
-"X-Crowdin-File-ID: 10958\n"
+"X-Crowdin-File: /main/KDE6/be/messages/systemsettings/systemsettings.po\n"
+"X-Crowdin-File-ID: 20141\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -145,16 +144,13 @@ msgid "Reset all current changes to previous values"
 msgstr "Скінуць усе бягучыя змены да папярэдніх значэнняў"
 
 #: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"Налады бягучага модуля змяніліся.\n"
-"Хочаце ўжыць змены ці адкінуць іх?"
+"На бягучай старонцы ёсць незахаваныя змены.\n"
+" Ужыць змены ці адкінуць іх?"
 
 #: app/ModuleView.cpp:364
 #, kde-format
