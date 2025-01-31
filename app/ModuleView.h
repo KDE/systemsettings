@@ -172,6 +172,8 @@ private:
     void moduleSave(KCModule *module);
     void updatePageIconHeader(KPageWidgetItem *page);
     void updateButtons();
+    bool eventFilter(QObject *watched, QEvent *event) override;
+    void updateScrollAreaFocusPolicy();
 
 private Q_SLOTS:
     void activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *previous);

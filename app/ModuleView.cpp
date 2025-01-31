@@ -18,6 +18,7 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QScrollArea>
+#include <QScrollBar>
 #include <QStyle>
 #include <QVBoxLayout>
 #include <QWhatsThis>
@@ -265,6 +266,8 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     moduleScroll->setWidgetResizable(true);
     moduleScroll->setFrameStyle(QFrame::NoFrame);
     moduleScroll->viewport()->setAutoFillBackground(false);
+    moduleScroll->horizontalScrollBar()->installEventFilter(this);
+    moduleScroll->verticalScrollBar()->installEventFilter(this);
     // Create the page
     auto page = new KPageWidgetItem(moduleScroll, data.name());
     // Provide information to the users
@@ -488,6 +491,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     }
 
     updatePageIconHeader(current);
+    updateScrollAreaFocusPolicy();
     moduleShowDefaultsIndicators(d->mDefaultsIndicatorsVisible);
 }
 
@@ -662,6 +666,30 @@ void ModuleView::authStatusChanged(KAuth::Action::AuthStatus status)
         d->mApply->setEnabled(false);
         d->mApply->setIcon(d->mApplyIcon);
     }
+}
+
+void ModuleView::updateScrollAreaFocusPolicy()
+{
+    KPageWidgetItem *item = d->mPageWidget->currentPage();
+    if (!item) {
+        return;
+    }
+    QScrollArea *moduleScroll = qobject_cast<QScrollArea *>(item->widget());
+    if (moduleScroll) {
+        bool scrollbarVisible = moduleScroll->horizontalScrollBar()->isVisible() || moduleScroll->verticalScrollBar()->isVisible();
+        moduleScroll->setFocusPolicy(scrollbarVisible ? Qt::FocusPolicy::StrongFocus : Qt::FocusPolicy::NoFocus);
+    }
+}
+
+bool ModuleView::eventFilter(QObject *watched, QEvent *event)
+{
+    if ((event->type() == QEvent::Show || event->type() == QEvent::Hide) && d->mPageWidget->currentPage()) {
+        QScrollArea *moduleScroll = qobject_cast<QScrollArea *>(d->mPageWidget->currentPage()->widget());
+        if (moduleScroll && (watched == moduleScroll->horizontalScrollBar() || watched == moduleScroll->verticalScrollBar())) {
+            updateScrollAreaFocusPolicy();
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }
 
 #include "moc_ModuleView.cpp"
