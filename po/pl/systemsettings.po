@@ -1,17 +1,18 @@
 # translation of systemsettings.po to
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2007, 2009.
 # Maciej Wikło <maciej.wiklo@wp.pl>, 2010.
 # SPDX-FileCopyrightText: 2014, 2015, 2017, 2019, 2020, 2021, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcel Mrówka <micro.mail88@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-24 02:43+0000\n"
-"PO-Revision-Date: 2024-01-07 13:17+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"PO-Revision-Date: 2025-01-27 17:20+0100\n"
+"Last-Translator: Marcel Mrówka <micro.mail88@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -19,17 +20,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Marta Rybczyńska, Łukasz Wojniłowicz"
+msgstr "Marta Rybczyńska, Łukasz Wojniłowicz, Marcel Mrówka"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-i18n@rybczynska.net, lukasz.wojnilowicz@gmail.com"
+msgstr ""
+"kde-i18n@rybczynska.net, lukasz.wojnilowicz@gmail.com, micro.mail88@gmail.com"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
@@ -131,7 +133,7 @@ msgstr "Przestaw na widok paska bocznego"
 #: app/SettingsBase.cpp:173
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr "Podświetl zmiany w ustawieniach"
+msgstr "Podświetl zmienione ustawienia"
 
 #: app/SettingsBase.cpp:184
 #, kde-format
@@ -204,7 +206,7 @@ msgstr "Okno"
 #: core/ModuleView.cpp:180
 #, kde-format
 msgid "Reset all current changes to previous values"
-msgstr "Wycofaj wszystkie zmiany"
+msgstr "Wycofaj wszystkie zmiany do wartości domyślnych"
 
 #: core/ModuleView.cpp:331
 #, kde-format
@@ -219,7 +221,7 @@ msgstr ""
 #: core/ModuleView.cpp:336
 #, kde-format
 msgid "Apply Settings"
-msgstr "Wprowadzanie zmian"
+msgstr "Zastosuj zmiany"
 
 #: icons/IconMode.cpp:54
 #, kde-format
