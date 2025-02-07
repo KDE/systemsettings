@@ -10,6 +10,7 @@
 #include <KFileUtils>
 #include <KPluginFactory>
 #include <KPluginMetaData>
+#include <KRuntimePlatform>
 #include <KService>
 
 #include <QGuiApplication>
@@ -75,7 +76,28 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 
     auto filter = [](const KPluginMetaData &data) {
         const auto supportedPlatforms = data.value(QStringLiteral("X-KDE-OnlyShowOnQtPlatforms"), QStringList());
-        return supportedPlatforms.isEmpty() || supportedPlatforms.contains(qGuiApp->platformName());
+        if (!supportedPlatforms.isEmpty() && !supportedPlatforms.contains(qGuiApp->platformName())) {
+            return false;
+        }
+
+        auto kRuntimePlatforms = KRuntimePlatform::runtimePlatform();
+
+        // HACK: currently on desktop no form factors are specified
+        if (kRuntimePlatforms.empty()) {
+            kRuntimePlatforms.append(QStringLiteral("desktop"));
+        }
+
+        // Filter out if the form factor does not match the current runtime platform.
+        // If the KCM defines "all" or has no defined form factor, don't filter.
+        for (const auto &formFactor : data.formFactors()) {
+            if (formFactor == QStringLiteral("all")) {
+                return true;
+            }
+            if (kRuntimePlatforms.contains(formFactor)) {
+                return true;
+            }
+        }
+        return data.formFactors().empty();
     };
 
     // We need the exist calls because otherwise the trader language aborts if the property doesn't exist and the second part of the or is not evaluated
