@@ -28,5 +28,6 @@ Kirigami.ApplicationItem {
 
     SubCategoryPage {
         id: subCategoryColumn
+        enabled: pageStack.visibleItems.includes(subCategoryColumn)
     }
 }
