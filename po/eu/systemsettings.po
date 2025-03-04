@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2024-08-13 13:04+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -138,12 +138,12 @@ msgstr "Ondoko moduluak erabilgarri daude:"
 msgid "No description available"
 msgstr "Ez dago azalpen erabilgarririk"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Berrezarri uneko aldaketa guztiak aurreko balioetara"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -152,7 +152,7 @@ msgstr ""
 "Uneko orriak gorde gabeko aldaketak ditu.\n"
 "Aldaketak erabili edo baztertu nahi dituzu?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "Ezarri ezarpenak"

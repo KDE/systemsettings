@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2024-08-13 13:09+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -137,12 +137,12 @@ msgstr "De volgende modules zijn beschikbaar:"
 msgid "No description available"
 msgstr "Geen beschrijving beschikbaar"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Alle huidige instellingen naar de voorgaande waarden herstellen"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -151,7 +151,7 @@ msgstr ""
 "De huidige pagina heeft niet opgeslagen wijzigingen.\n"
 "De wijzigingen toepassen of ze verwerpen?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "Instellingen toepassen"

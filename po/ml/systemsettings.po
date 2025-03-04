@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -132,12 +132,12 @@ msgstr "ഈ മൊഡ്യൂളുകൾ ലഭ്യമാണ്:"
 msgid "No description available"
 msgstr "വിവരണം ലഭ്യമല്ല"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "ഇപ്പോള്‍ വരുത്തിയ എല്ലാ മാറ്റങ്ങളും മുമ്പുണ്ടായിരുന്ന വിലകളിലേയ്ക്കു് മാറ്റുക"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -149,7 +149,7 @@ msgstr ""
 "ഇപ്പോള്‍ സജീവമായ മൊഡ്യൂളിന്റെ സജ്ജീകരണങ്ങള്‍ മാറിയിട്ടുണ്ടു്.\n"
 "മാറ്റങ്ങള്‍ നടപ്പിലാക്കണോ അതോ കളയണോ?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "സജ്ജീകരണങ്ങള്‍ നടപ്പിലാക്കുക"

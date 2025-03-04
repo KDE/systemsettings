@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2023-01-13 08:54+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -137,12 +137,12 @@ msgstr "Modul berikut yang tersedia:"
 msgid "No description available"
 msgstr "Tidak ada deskripsi yang tersedia"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Set ulang semua perubahan saat ini ke nilai sebelumnya"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -154,7 +154,7 @@ msgstr ""
 "Pengesetan dari modul saat ini telah berubah.\n"
 "Anda ingin menerapkan perubahan atau mengabaikannya?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "Terapkan Pengaturan"

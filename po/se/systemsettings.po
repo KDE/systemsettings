@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2007-12-24 02:12+0100\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -136,19 +136,19 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr ""

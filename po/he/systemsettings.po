@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2024-08-13 08:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -142,12 +142,12 @@ msgstr "המודולים הבאים זמינים:"
 msgid "No description available"
 msgstr "אין תיאור זמין"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "איפוס כל השינויים הנוכחיים לערכים הקודמים"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -156,7 +156,7 @@ msgstr ""
 "נערכו שינויים בעמוד הנוכחי.\n"
 "להחיל או להתעלם מהן?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "החלת ההגדרות"

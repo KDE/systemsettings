@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2024-09-16 21:33+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -138,12 +138,12 @@ msgstr "A következő modulok érhetők el:"
 msgid "No description available"
 msgstr "Nem érhető el leírás"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Összes jelenlegi változtatás visszaállítása a korábbi értékekre"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -152,7 +152,7 @@ msgstr ""
 "A jelenlegi oldal beállításai megváltoztak.\n"
 "Alkalmazza a változtatásokat, vagy elveti azokat?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "Beállítások alkalmazása"

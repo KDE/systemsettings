@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2024-08-13 16:06+0400\n"
 "Last-Translator: Khayyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -135,12 +135,12 @@ msgstr "Aşağıdakı modullar mövcuddur:"
 msgid "No description available"
 msgstr "Təfərrüatı göstərilməyib"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Bütün cari dəyişiklikləri əvvəlki dəyərinə qaytarmaq"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -149,7 +149,7 @@ msgstr ""
 "C ari səhifədə saxlanılmamış dəyişikliklər var.\n"
 "Dəyişiklikləri tətbiq edək yoxsa onları ləğv edək?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "Ayarları tətbiq etmək"

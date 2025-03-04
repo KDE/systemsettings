@@ -4,30 +4,31 @@
 #
 # Sahachart Anukulkitch <drrider@gmail.com>, 2007.
 # Thanomsub Noppaburana <donga.nb@gmail.com>, 2008, 2010.
+# SPDX-FileCopyrightText: 2025 Pongsakorn S. <kde@xerusion.me>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
-"PO-Revision-Date: 2010-02-10 14:29+0700\n"
-"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
-"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
+"PO-Revision-Date: 2025-03-03 20:19+0700\n"
+"Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
+"Language-Team: Thai\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "สหชาติ อนุกูลกิจ, ถนอมทรัพย์ นพบูรณ์"
+msgstr "สหชาติ อนุกูลกิจ, ถนอมทรัพย์ นพบูรณ์, Pongsakorn S."
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "drrider@gmail.com, donga.nb@gmail.com"
+msgstr "drrider@gmail.com, donga.nb@gmail.com, kde@xerusion.me"
 
 #: app/ExternalAppModule.cpp:26
 #, kde-format
@@ -48,12 +49,12 @@ msgstr "กล่องโต้ตอบ"
 #: app/main.cpp:54 app/SettingsBase.cpp:53
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "ศูนย์ข้อมูล"
 
 #: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "ศูนย์รวมข้อมูลระบบที่สะดวก"
 
 #: app/main.cpp:58 app/main.cpp:69
 #, kde-format
@@ -67,10 +68,9 @@ msgid "System Settings"
 msgstr "ตั้งค่าระบบ"
 
 #: app/main.cpp:67
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
-msgstr "ศูนย์กลางการปรับแต่งค่าของ KDE"
+msgstr "ศูนย์รวมการกำหนดค่าโดย KDE"
 
 #: app/main.cpp:80
 #, kde-format
@@ -85,7 +85,7 @@ msgstr "ผู้ดูแล"
 #: app/main.cpp:81
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: app/main.cpp:81
 #, kde-format
@@ -115,47 +115,43 @@ msgstr "ตัวแทนของมอดูลภายใน, โมเด�
 #: app/main.cpp:91
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "รายชื่อโมดูลที่เป็นไปได้ทั้งหมด"
 
 #: app/main.cpp:92 app/main.cpp:153
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "ปรับแต่งมอดูลที่จะเปิด"
 
 #: app/main.cpp:93 app/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "About Current Module"
+#, kde-format
 msgid "Arguments for the module"
-msgstr "เกี่ยวกับโมดูลปัจจุบัน"
+msgstr "อาร์กิวเมนต์สำหรับโมดูล"
 
 #: app/main.cpp:101
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "มีโมดูลต่อไปนี้:"
 
 #: app/main.cpp:119
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "ไม่มีคําอธิบาย"
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "ปรับค่าต่าง ๆ ที่เปลี่ยนแปลงไปให้กลับคืนสู่ค่าก่อนหน้า"
 
-#: app/ModuleView.cpp:359
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#: app/ModuleView.cpp:362
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึกในมอดูลที่ใช้งานอยู่\n"
-"คุณต้องการที่จะนำการเปลี่ยนแปลงไปใช้งาน หรือทิ้งไป ?"
+"หน้าปัจจุบันมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก \n"
+"ใช้การเปลี่ยนแปลงนั้นหรือยกเลิกการเปลี่ยนแปลงนั้น?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "ปรับใช้ค่าที่ตั้งไว้"
@@ -164,48 +160,47 @@ msgstr "ปรับใช้ค่าที่ตั้งไว้"
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "ไม่มีรายการที่ตรงกับการค้นหาของคุณ"
 
 #: app/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "แสดงเมนู"
 
 #: app/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: app/SettingsBase.cpp:136
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "ไฮไลท์การตั้งค่าที่เปลี่ยนไป"
 
 #: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "รายงานข้อบกพร่องในหน้าปัจจุบัน..."
 
 #: app/SidebarMode.cpp:586
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "แถบข้าง"
 
 #: app/SidebarMode.cpp:655
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "ใช้มากที่สุด"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr ""
+msgstr "ค้นหาโมดูลการตั้งค่าระบบที่มีชื่อหรือคําอธิบายตรงกับ :q:"
 
 #: runner/systemsettingsrunner.cpp:110
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "ตั้งค่าระบบ"
+msgstr "ข้อมูลระบบ"
 
 #~ msgid "Help"
 #~ msgstr "ช่วยเหลือ"

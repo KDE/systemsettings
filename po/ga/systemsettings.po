@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/systemsettings.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-03-04 00:42+0000\n"
 "PO-Revision-Date: 2007-06-27 10:27-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -135,12 +135,12 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/ModuleView.cpp:183
+#: app/ModuleView.cpp:184
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Fill ar na luachanna roimhe seo"
 
-#: app/ModuleView.cpp:359
+#: app/ModuleView.cpp:362
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -152,7 +152,7 @@ msgstr ""
 "Athraíodh socruithe an mhodúil reatha.\n"
 "An bhfuil fonn ort na hathruithe a chur i bhfeidhm?"
 
-#: app/ModuleView.cpp:364
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid "Apply Settings"
 msgstr "Cuir na Socruithe i bhFeidhm"
