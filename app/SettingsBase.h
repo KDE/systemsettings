@@ -41,6 +41,7 @@ protected:
 
 private Q_SLOTS:
     void initApplication();
+    void initPluginModules();
     void initToolBar();
     void initMenuList(MenuItem *parent);
     void about();
@@ -66,6 +67,7 @@ private:
     // The toolbar
     QWidgetAction *spacerAction = nullptr;
     QAction *highlightChangesAction = nullptr;
+    QAction *showAllKcmsAction = nullptr;
     QAction *reportPageSpecificBugAction = nullptr;
     QAction *quitAction = nullptr;
     // The help menu
@@ -86,5 +88,8 @@ private:
     QStringList m_startupModuleArgs;
     KActionCollection *m_actionCollection;
     KHelpMenu *m_helpMenu;
+
+    // Whether to ignore the current runtime platform for the KCM list
+    bool m_ignoreRuntimePlatform{false};
 };
 #endif

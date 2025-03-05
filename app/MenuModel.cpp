@@ -245,6 +245,18 @@ QModelIndex MenuModel::indexForItem(MenuItem *item) const
     return createIndex(row, 0, item);
 }
 
+void MenuModel::reset(MenuItem *menuRoot)
+{
+    beginResetModel();
+    d->rootItem = menuRoot;
+
+    // Add exceptions for top level units
+    foreach (MenuItem *child, menuRoot->children()) {
+        addException(child);
+    }
+    endResetModel();
+}
+
 MenuItem *MenuModel::rootItem() const
 {
     return d->rootItem;

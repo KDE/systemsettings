@@ -139,6 +139,8 @@ public:
     void setStartupModuleArgs(const QStringList &startupModuleArgs);
     QStringList startupModuleArgs() const;
 
+    void changeRootMenuItem(MenuItem *rootMenu, MenuItem *homeMenu);
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 

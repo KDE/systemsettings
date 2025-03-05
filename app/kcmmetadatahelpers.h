@@ -69,15 +69,19 @@ inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
     return metaDataList;
 }
 
-inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
+inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source, bool ignoreRuntimePlatform = false)
 {
     QList<KPluginMetaData> modules;
     std::set<QString> uniquePluginIds;
 
-    auto filter = [](const KPluginMetaData &data) {
+    auto filter = [ignoreRuntimePlatform](const KPluginMetaData &data) {
         const auto supportedPlatforms = data.value(QStringLiteral("X-KDE-OnlyShowOnQtPlatforms"), QStringList());
         if (!supportedPlatforms.isEmpty() && !supportedPlatforms.contains(qGuiApp->platformName())) {
             return false;
+        }
+
+        if (ignoreRuntimePlatform) {
+            return true;
         }
 
         auto kRuntimePlatforms = KRuntimePlatform::runtimePlatform();

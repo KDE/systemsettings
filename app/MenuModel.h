@@ -144,6 +144,13 @@ public:
 
     QModelIndex indexForItem(MenuItem *item) const;
 
+    /**
+     * Reset the model with a new menu root.
+     *
+     * @param menuRoot The new root MenuItem.
+     */
+    void reset(MenuItem *menuRoot);
+
 protected:
     /**
      * Provides the MenuItem which is used internally to provide information.

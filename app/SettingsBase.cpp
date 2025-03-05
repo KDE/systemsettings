@@ -84,24 +84,13 @@ QSize SettingsBase::sizeHint() const
 
 void SettingsBase::initApplication()
 {
-    // Prepare the menu of all modules
-    auto source = m_mode == SidebarMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
-    pluginModules = findKCMsMetaData(source) << findExternalKCMModules(source);
+    initPluginModules();
 
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("categories"), QStandardPaths::LocateDirectory);
     categories = KFileUtils::findAllUniqueFiles(dirs, QStringList(QStringLiteral("*.desktop")));
 
     rootModule = new MenuItem(true, nullptr);
     initMenuList(rootModule);
-
-    // Handle lost+found modules...
-    if (lostFound) {
-        for (const auto &metaData : std::as_const(pluginModules)) {
-            auto infoItem = new MenuItem(false, lostFound);
-            infoItem->setMetaData(metaData);
-            qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << metaData.pluginId();
-        }
-    }
 
     loadCurrentView();
 
@@ -122,6 +111,22 @@ void SettingsBase::initApplication()
     connect(m_screen, &QScreen::geometryChanged, this, &SettingsBase::slotGeometryChanged);
 }
 
+void SettingsBase::initPluginModules()
+{
+    // Prepare the menu of all modules
+    auto source = m_mode == SidebarMode::InfoCenter ? MetaDataSource::KInfoCenter : MetaDataSource::SystemSettings;
+    pluginModules = findKCMsMetaData(source, m_ignoreRuntimePlatform) << findExternalKCMModules(source);
+
+    // Handle lost+found modules...
+    if (lostFound) {
+        for (const auto &metaData : std::as_const(pluginModules)) {
+            auto infoItem = new MenuItem(false, lostFound);
+            infoItem->setMetaData(metaData);
+            qCDebug(SYSTEMSETTINGS_APP_LOG) << "Added " << metaData.pluginId();
+        }
+    }
+}
+
 void SettingsBase::initToolBar()
 {
     // Fill the toolbar with default actions
@@ -136,6 +141,23 @@ void SettingsBase::initToolBar()
         highlightChangesAction->setText(i18nd("systemsettings", "Highlight Changed Settings"));
         highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
     }
+
+    showAllKcmsAction = m_actionCollection->addAction(QStringLiteral("show_all_kcms"), this, [this] {
+        m_ignoreRuntimePlatform = !m_ignoreRuntimePlatform;
+        initPluginModules();
+
+        // Replace old MenuItem with newly generated MenuItem
+        MenuItem *oldRootModule = rootModule;
+        rootModule = new MenuItem(true, nullptr);
+        initMenuList(rootModule);
+
+        view->changeRootMenuItem(rootModule, homeModule);
+
+        delete oldRootModule;
+    });
+    showAllKcmsAction->setCheckable(true);
+    showAllKcmsAction->setText(i18nd("systemsettings", "Show Modules for All Platforms"));
+    showAllKcmsAction->setIcon(QIcon::fromTheme(QStringLiteral("show-all-effects")));
 
     reportPageSpecificBugAction = m_actionCollection->addAction(QStringLiteral("report_bug_in_current_module"), this, [this] {
         const QString bugReportUrlString =

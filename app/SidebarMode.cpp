@@ -274,6 +274,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     menu->setAttribute(Qt::WA_TranslucentBackground);
 
     const QStringList actionList{QStringLiteral("highlight_changes"),
+                                 QStringLiteral("show_all_kcms"),
                                  QStringLiteral("report_bug_in_current_module"),
                                  QStringLiteral("help_report_bug"),
                                  QStringLiteral("help_contents"),
@@ -752,6 +753,13 @@ void SidebarMode::setStartupModuleArgs(const QStringList &startupModuleArgs)
 QStringList SidebarMode::startupModuleArgs() const
 {
     return d->startupModuleArgs;
+}
+
+void SidebarMode::changeRootMenuItem(MenuItem *rootMenu, MenuItem *homeMenu)
+{
+    d->rootItem = rootMenu;
+    d->homeItem = homeMenu;
+    d->model->reset(rootItem());
 }
 
 #include "moc_SidebarMode.cpp"
