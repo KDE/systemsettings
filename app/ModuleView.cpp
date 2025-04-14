@@ -485,7 +485,7 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
         // TODO: make this use a real gridUnit so it will adjust to the user's font,
         // once we have a QmlEngine object such that  using it won't risk crashes!
         titleWidget->layout()->setContentsMargins(18,
-                                                  style()->pixelMetric(QStyle::PM_LayoutRightMargin),
+                                                  style()->pixelMetric(QStyle::PM_LayoutTopMargin),
                                                   style()->pixelMetric(QStyle::PM_LayoutRightMargin),
                                                   style()->pixelMetric(QStyle::PM_LayoutBottomMargin));
     }
