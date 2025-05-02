@@ -55,6 +55,7 @@ target_link_libraries(systemsettings PRIVATE
     KF6::GuiAddons # UrlHanlder handles help:/ urls
     KF6::AuthCore
     KF6::I18nQml
+    KF6::ColorScheme
     Plasma::Activities
     Qt::QuickWidgets
     Qt::Qml

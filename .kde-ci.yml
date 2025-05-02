@@ -23,6 +23,7 @@ Dependencies:
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/krunner': '@latest-kf6'
     'frameworks/kdoctools': '@latest-kf6'
+    'frameworks/kcolorscheme': '@latest-kf6'
     'plasma/plasma-activities': '@latest-kf6'
 
 RuntimeDependencies:
