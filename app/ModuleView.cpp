@@ -272,6 +272,9 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
     auto page = new KPageWidgetItem(moduleScroll, data.name());
     // Provide information to the users
 
+    // set accessible name, or screen reader users will have a cryptic "LayeredPane" tabstop
+    moduleScroll->setAccessibleName(i18ndc("systemsettings", "@info:whatsthis", "Scrollable area"));
+
     if (item->isExternalAppModule()) {
         auto externalWidget = new ExternalAppModule(KService::Ptr(new KService(item->metaData().fileName())));
         moduleScroll->setWidget(externalWidget);
