@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:42+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2008-10-06 22:27+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <i18n@mova.org>\n"
@@ -142,7 +142,13 @@ msgstr ""
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: app/ModuleView.cpp:362
+#: app/ModuleView.cpp:276
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Scrollable area"
+msgstr ""
+
+#: app/ModuleView.cpp:365
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are unsaved changes in the active module.\n"
@@ -154,7 +160,7 @@ msgstr ""
 "U dziejnym moduli jość niezapisanyja źmieny.\n"
 "Ci chočaš ich prymianić albo anulavać?"
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:370
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"

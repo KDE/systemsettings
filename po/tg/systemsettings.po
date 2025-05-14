@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:42+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2021-09-09 23:38-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -139,7 +139,13 @@ msgstr "Ягон тавсиф нест"
 msgid "Reset all current changes to previous values"
 msgstr "Бозсозӣ кардани ҳамаи тағйироти ҷорӣ ба қиматҳои пешин"
 
-#: app/ModuleView.cpp:362
+#: app/ModuleView.cpp:276
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Scrollable area"
+msgstr ""
+
+#: app/ModuleView.cpp:365
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -151,7 +157,7 @@ msgstr ""
 "Танзимоти модули ҷорӣ тағйир ёфт.\n"
 "Шумо мехоҳед, ки тағйиротро татбиқ ё рад кунед?"
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:370
 #, kde-format
 msgid "Apply Settings"
 msgstr "Татбиқ кардани танзимот"

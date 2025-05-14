@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-04 00:42+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2024-09-13 20:56+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -141,7 +141,13 @@ msgstr "Няма налично описание"
 msgid "Reset all current changes to previous values"
 msgstr "Връщане на всички промени към предишните им стойности"
 
-#: app/ModuleView.cpp:362
+#: app/ModuleView.cpp:276
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Scrollable area"
+msgstr ""
+
+#: app/ModuleView.cpp:365
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -150,7 +156,7 @@ msgstr ""
 "Текущата страница има незапазени променени.\n"
 "Да се приложат ли или да се отхвърлят?"
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:370
 #, kde-format
 msgid "Apply Settings"
 msgstr "Прилагане на настройките"
