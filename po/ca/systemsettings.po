@@ -1,16 +1,16 @@
 # Translation of systemsettings.po to Catalan
-# Copyright (C) 2007-2024 This_file_is_part_of_KDE
+# Copyright (C) 2007-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2012, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2017, 2019, 2020.
+# Josep M. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2012, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2024-08-13 10:19+0200\n"
+"PO-Revision-Date: 2025-05-14 09:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -147,7 +147,7 @@ msgstr "Restaura tots els canvis actuals als valors anteriors"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Àrea que es pot desplaçar"
 
 #: app/ModuleView.cpp:365
 #, kde-format
@@ -210,17 +210,3 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Informació del sistema"
-
-#~ msgid "Show intro page"
-#~ msgstr "Mostra la pàgina d'introducció"
-
-#~ msgid "Help"
-#~ msgstr "Ajuda"
-
-#~ msgid "About System Settings"
-#~ msgstr "Quant a l'Arranjament del sistema"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Conté 1 element"
-#~ msgstr[1] "Conté %1 elements"
