@@ -1,26 +1,24 @@
-# translation of systemsettings.po to Spanish
-# Translation of systemsettings to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for systemsettings.po package.
+# Copyright (C) 2007-2025 This file is copyright:
+# This file is distributed under the same license as the systemsettings package.
 #
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# Jaime Robles <jaime@kde.org>, 2007, 2008, 2009.
-# SPDX-FileCopyrightText: 2009, 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2007, 2008, 2009 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2009, 2014, 2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2024-08-13 12:24+0200\n"
+"PO-Revision-Date: 2025-05-15 17:59+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"com>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -148,7 +146,7 @@ msgstr "Reiniciar todos los cambios actuales con sus valores anteriores"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Área desplazable"
 
 #: app/ModuleView.cpp:365
 #, kde-format
@@ -188,7 +186,7 @@ msgstr "Resaltar las preferencias modificadas"
 #: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr "Informar de errores en la página actual..."
+msgstr "Informar de errores en la página actual…"
 
 #: app/SidebarMode.cpp:586
 #, kde-format
@@ -211,151 +209,3 @@ msgstr ""
 #, kde-format
 msgid "System Information"
 msgstr "Información del sistema"
-
-#~ msgid "Show intro page"
-#~ msgstr "Mostrar la página de introducción"
-
-#~ msgid "Help"
-#~ msgstr "Ayuda"
-
-#~ msgid "About System Settings"
-#~ msgstr "Acerca de las preferencias del sistema"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Contiene 1 elemento"
-#~ msgstr[1] "Contiene %1 elementos"
-
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgid "About Active View"
-#~ msgstr "Acerca de la vista activa"
-
-#~ msgid "About %1"
-#~ msgstr "Acerca de %1"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "El sistema de configuración no ha podido encontrar ninguna vista, por lo "
-#~ "que no hay nada que mostrar."
-
-#~ msgid "No views found"
-#~ msgstr "No se han encontrado vistas"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Nombre usado internamente para la vista"
-
-#~ msgid "Switch to Icon View"
-#~ msgstr "Cambiar a la vista de iconos"
-
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "Cambiar a la vista de barra lateral"
-
-#~ msgid "Icon View"
-#~ msgstr "Vista de iconos"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr ""
-#~ "Proporciona una vista de iconos por categorías de los módulos de control."
-
-#~ msgid "All Settings"
-#~ msgstr "Todas las preferencias"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "Acceso rápido de teclado: %1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "Vista de barra lateral"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr ""
-#~ "Proporciona una barra lateral con categorías para módulos de control."
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "© 2017, Marco Martin"
-
-#~ msgid "<i>Contains 1 item</i>"
-#~ msgid_plural "<i>Contains %1 items</i>"
-#~ msgstr[0] "<i>Contiene 1 elemento</i>"
-#~ msgstr[1] "<i>Contiene %1 elementos</i>"
-
-#~ msgid "Most used module number %1"
-#~ msgstr "Módulo número %1 más usado"
-
-#~ msgid "Frequently Used"
-#~ msgstr "Usadas frecuentemente"
-
-#~ msgid "Go back"
-#~ msgstr "Volver"
-
-#~ msgid "View Style"
-#~ msgstr "Estilo de la vista"
-
-#~ msgid "Show detailed tooltips"
-#~ msgstr "Mostrar consejos detallados"
-
-#~ msgid "Configure…"
-#~ msgstr "Configurar..."
-
-#~ msgctxt "General config for System Settings"
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence nothing is "
-#~ "available to configure."
-#~ msgstr ""
-#~ "El sistema de configuración no ha podido encontrar ninguna vista, por lo "
-#~ "que no hay nada disponible para configurar."
-
-#~ msgid "Determines whether detailed tooltips should be used"
-#~ msgstr "Determina si se deben usar consejos detallados"
-
-#~ msgctxt "Action to show indicators for settings with custom data"
-#~ msgid "Highlight Changed Settings"
-#~ msgstr "Resaltar las preferencias modificadas"
-
-#~ msgid "About Active Module"
-#~ msgstr "Acerca del módulo activo"
-
-#~ msgid "Back"
-#~ msgstr "Volver"
-
-#~ msgid "Configure your system"
-#~ msgstr "Configurar el sistema"
-
-#~ msgid ""
-#~ "Welcome to \"System Settings\", a central place to configure your "
-#~ "computer system."
-#~ msgstr ""
-#~ "Bienvenido a las «Preferencias del sistema», un lugar donde podrá "
-#~ "configurar su equipo informático."
-
-#~ msgid "Tree View"
-#~ msgstr "Vista de árbol"
-
-#~ msgid "Provides a classic tree-based view of control modules."
-#~ msgstr "Proporciona una vista de árbol clásica de los módulos de control."
-
-#~ msgid "Expand the first level automatically"
-#~ msgstr "Expandir el primer nivel automáticamente"
-
-#~ msgid "Search..."
-#~ msgstr "Buscar..."
-
-#~ msgid "System Settings Handbook"
-#~ msgstr "Manual de las preferencias del sistema"
-
-#~ msgid "About KDE"
-#~ msgstr "Acerca de KDE"
-
-#~ msgid "Select an item from the list to see the available options"
-#~ msgstr ""
-#~ "Seleccione un elemento de la lista para ver las opciones disponibles"
-
-#~ msgid "Overview"
-#~ msgstr "Vista general"
