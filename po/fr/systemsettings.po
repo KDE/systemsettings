@@ -5,7 +5,7 @@
 # Amine Say <aminesay@yahoo.fr>, 2007.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2007, 2008.
 # Guillaume Pujol <guill.p@gmail.com>, 2010.
-# SPDX-FileCopyrightText: 2013, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2013, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Sebastien Renard <renard@kde.org>, 2015.
 # Johan Claude-Breuninger <johan.claudebreuninger@gmail.com>, 2017.
 # Vincent Pinon <vpinon@kde.org>, 2017.
@@ -27,9 +27,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 25.04.1\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
