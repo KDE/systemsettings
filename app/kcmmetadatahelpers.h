@@ -16,6 +16,7 @@
 #include <QGuiApplication>
 #include <QStandardPaths>
 
+#include <ranges>
 #include <set>
 
 #include "../systemsettings_app_debug.h"
@@ -76,7 +77,10 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
 
     auto filter = [](const KPluginMetaData &data) {
         const auto supportedPlatforms = data.value(QStringLiteral("X-KDE-OnlyShowOnQtPlatforms"), QStringList());
-        if (!supportedPlatforms.isEmpty() && !supportedPlatforms.contains(qGuiApp->platformName())) {
+        const auto qtPlatformStartsWith = [](const auto &platform) {
+            return qGuiApp->platformName().startsWith(platform);
+        };
+        if (!supportedPlatforms.isEmpty() && !std::ranges::any_of(supportedPlatforms, qtPlatformStartsWith)) {
             return false;
         }
 
