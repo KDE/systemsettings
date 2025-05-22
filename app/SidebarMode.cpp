@@ -398,11 +398,13 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
                     d->activeCategoryRow = idx.parent().row();
                     d->activeSubCategoryRow = idx.row();
                 } else {
+                    d->activeCategoryRow = idx.row();
                     if (d->categorizedModel->rowCount(idx) > 0) {
                         d->subCategoryModel->setParentIndex(idx);
+                        d->activeSubCategoryRow = 0;
+                    } else {
+                        d->activeSubCategoryRow = -1;
                     }
-                    d->activeCategoryRow = idx.row();
-                    d->activeSubCategoryRow = -1;
                 }
                 Q_EMIT activeCategoryRowChanged();
                 Q_EMIT activeSubCategoryRowChanged();
