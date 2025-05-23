@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-05-23 02:40+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -189,12 +189,12 @@ msgstr "Tô sáng thiết lập bị thay đổi"
 msgid "Report a Bug in the Current Page…"
 msgstr "Báo lỗi về trang hiện tại…"
 
-#: app/SidebarMode.cpp:586
+#: app/SidebarMode.cpp:588
 #, kde-format
 msgid "Sidebar"
 msgstr "Thanh bên"
 
-#: app/SidebarMode.cpp:655
+#: app/SidebarMode.cpp:657
 #, kde-format
 msgid "Most Used"
 msgstr "Dùng nhiều nhất"

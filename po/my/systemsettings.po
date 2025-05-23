@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-05-23 02:40+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -193,12 +193,12 @@ msgstr "ပြောင်းသွားသောဆက်တင်များ
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SidebarMode.cpp:586
+#: app/SidebarMode.cpp:588
 #, kde-format
 msgid "Sidebar"
 msgstr "ဘေးတန်း"
 
-#: app/SidebarMode.cpp:655
+#: app/SidebarMode.cpp:657
 #, kde-format
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"

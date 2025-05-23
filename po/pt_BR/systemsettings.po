@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-05-23 02:40+0000\n"
 "PO-Revision-Date: 2024-11-15 23:42-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -192,12 +192,12 @@ msgstr "Realçar configurações alteradas"
 msgid "Report a Bug in the Current Page…"
 msgstr "Reportar um erro na página atual..."
 
-#: app/SidebarMode.cpp:586
+#: app/SidebarMode.cpp:588
 #, kde-format
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: app/SidebarMode.cpp:655
+#: app/SidebarMode.cpp:657
 #, kde-format
 msgid "Most Used"
 msgstr "Mais usado"
