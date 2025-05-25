@@ -147,11 +147,14 @@ Comment=Configure KDE Plasma’s behavior and appearance
 Comment[ca]=Configura el comportament i l'aparença del Plasma de KDE
 Comment[ca@valencia]=Configura el comportament i l'aparença de Plasma de KDE
 Comment[es]=Configurar el comportamiento y el aspecto de KDE Plasma
+Comment[it]=Configura il comportamento e l'aspetto di KDE Plasma
 Comment[ka]=მოირგეთ KDE Plasma-ის ქცევა და გარეგნობა
 Comment[nl]=Het gedrag en uiterlijk van KDE Plasma configureren
 Comment[sl]=Konfigurirajte vedenje in videz KDE Plasma
+Comment[tr]=KDE Plasma davranışını ve görünüşünü yapılandırın
 Comment[uk]=Налаштовування поведінки і вигляду Плазми KDE
 Comment[x-test]=xxConfigure KDE Plasma’s behavior and appearancexx
+Comment[zh_TW]=設定 KDE Plasma 的外觀與行為
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.systemsettings
 # Otherwise AppStream generators create two entries because System Settings
