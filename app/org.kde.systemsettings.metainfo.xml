@@ -77,11 +77,14 @@
   <summary xml:lang="ca">Configura el comportament i l'aparença del sistema</summary>
   <summary xml:lang="ca-valencia">Configura el comportament i l'aparença del sistema</summary>
   <summary xml:lang="es">Configurar el comportamiento y el aspecto del sistema</summary>
+  <summary xml:lang="it">Configura il comportamento e l'aspetto del sistema</summary>
   <summary xml:lang="ka">მოირგეთ სისტემის ქცევა და გარეგნობა</summary>
   <summary xml:lang="nl">Het gedrag en uiterlijk van het systeem configureren</summary>
   <summary xml:lang="sl">Konfigurirajte delovanje in videz sistema</summary>
+  <summary xml:lang="tr">Sistem davranışını ve görünüşünü yapılandırın</summary>
   <summary xml:lang="uk">Налаштовування поведінки і вигляду системи</summary>
   <summary xml:lang="x-test">xxConfigure the system’s behavior and appearancexx</summary>
+  <summary xml:lang="zh-TW">設定系統的外觀與行為</summary>
   <icon type="stock">systemsettings</icon>
   <description>
     <p>System Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.</p>
