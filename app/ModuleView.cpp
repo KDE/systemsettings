@@ -81,7 +81,7 @@ void CustomTitle::colorsChanged()
     auto inactive = KColorScheme(QPalette::Inactive, KColorScheme::Header, config);
     auto disabled = KColorScheme(QPalette::Disabled, KColorScheme::Header, config);
 
-    QPalette palette = KColorScheme::createApplicationPalette(config);
+    QPalette palette = QWidget::palette();
 
     palette.setBrush(QPalette::Active, QPalette::Window, active.background());
     palette.setBrush(QPalette::Active, QPalette::WindowText, active.foreground());
