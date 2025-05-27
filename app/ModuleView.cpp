@@ -42,11 +42,12 @@
 
 class CustomTitle : public KTitleWidget
 {
+    Q_OBJECT
 public:
     explicit CustomTitle(QWidget *parent = nullptr);
 
 protected:
-    bool event(QEvent *event) override;
+    void changeEvent(QEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
     void colorsChanged();
 };
@@ -66,12 +67,13 @@ CustomTitle::CustomTitle(QWidget *parent)
     colorsChanged();
 }
 
-bool CustomTitle::event(QEvent *event)
+void CustomTitle::changeEvent(QEvent *event)
 {
-    if (event->type() == QEvent::ApplicationPaletteChange || event->type() == QEvent::PaletteChange) {
-        this->colorsChanged();
+    if (event->type() == QEvent::PaletteChange) {
+        colorsChanged();
+        return; // deliberately intercept
     }
-    return QWidget::event(event);
+    return KTitleWidget::changeEvent(event);
 }
 
 void CustomTitle::colorsChanged()
@@ -696,3 +698,5 @@ bool ModuleView::eventFilter(QObject *watched, QEvent *event)
 }
 
 #include "moc_ModuleView.cpp"
+#include "ModuleView.moc"
+
