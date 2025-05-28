@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:44+0000\n"
+"POT-Creation-Date: 2025-05-28 00:44+0000\n"
 "PO-Revision-Date: 2025-05-16 16:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -140,18 +140,18 @@ msgstr "以下模組可供使用："
 msgid "No description available"
 msgstr "無描述"
 
-#: app/ModuleView.cpp:184
+#: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "重設所有目前的變更並回復先前的值"
 
-#: app/ModuleView.cpp:276
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "可捲動區域"
 
-#: app/ModuleView.cpp:365
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -160,7 +160,7 @@ msgstr ""
 "目前頁面有尚未儲存的變更。\n"
 "您要套用還是要捨棄這些變更？"
 
-#: app/ModuleView.cpp:370
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "套用設定"

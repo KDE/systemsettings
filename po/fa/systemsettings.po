@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:44+0000\n"
+"POT-Creation-Date: 2025-05-28 00:44+0000\n"
 "PO-Revision-Date: 2015-08-28 11:08+0430\n"
 "Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -136,18 +136,18 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/ModuleView.cpp:184
+#: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "بازگرداندن تنظیمات جاری به مقادیر قبلی"
 
-#: app/ModuleView.cpp:276
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:365
+#: app/ModuleView.cpp:367
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -159,7 +159,7 @@ msgstr ""
 "تنظیمات ماژول فعلی تغییر پیدا کرده.\n"
 "آیا می‌خواهید تغییرات را اعمال کنید یا دور بریزید؟"
 
-#: app/ModuleView.cpp:370
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "اعمال تنظیمات"

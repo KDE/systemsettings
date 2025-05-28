@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:44+0000\n"
+"POT-Creation-Date: 2025-05-28 00:44+0000\n"
 "PO-Revision-Date: 2024-10-22 13:53+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -146,18 +146,18 @@ msgstr "Seuraavat moduulit ovat käytettävissä:"
 msgid "No description available"
 msgstr "Kuvausta ei ole saatavilla"
 
-#: app/ModuleView.cpp:184
+#: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Palauta kaikki muutokset aikaisempiin arvoihinsa"
 
-#: app/ModuleView.cpp:276
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:365
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -166,7 +166,7 @@ msgstr ""
 "Nykyisellä sivulla on muutoksia tallentamatta.\n"
 "Otetaanko ne käyttöön vai hylätäänkö?"
 
-#: app/ModuleView.cpp:370
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "Hyväksy asetukset"

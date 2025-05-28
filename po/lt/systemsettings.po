@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:44+0000\n"
+"POT-Creation-Date: 2025-05-28 00:44+0000\n"
 "PO-Revision-Date: 2024-08-17 22:02+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -136,18 +136,18 @@ msgstr "Yra prieinami šie moduliai:"
 msgid "No description available"
 msgstr "Nėra prieinamo aprašo"
 
-#: app/ModuleView.cpp:184
+#: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Atstatyti visus dabartinius pakeitimus į ankstesnes reikšmes"
 
-#: app/ModuleView.cpp:276
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:365
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -156,7 +156,7 @@ msgstr ""
 "Šiame puslapyje yra neįrašytų pakeitimų.\n"
 "Ar norite šiuos pakeitimus taikyti, ar juos atmesti?"
 
-#: app/ModuleView.cpp:370
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "Pritaikyti nuostatas"

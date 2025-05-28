@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-23 00:44+0000\n"
+"POT-Creation-Date: 2025-05-28 00:44+0000\n"
 "PO-Revision-Date: 2024-10-21 11:43+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -137,18 +137,18 @@ msgstr "Følgende moduler er tilgængelige:"
 msgid "No description available"
 msgstr "Ingen beskrivelse tilgængelig"
 
-#: app/ModuleView.cpp:184
+#: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Nulstil alle nuværende ændringer til tidligere værdier"
 
-#: app/ModuleView.cpp:276
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:365
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -157,7 +157,7 @@ msgstr ""
 "Den nuværende side har ikke-gemte ændringer.\n"
 "Anvend ændringerne eller forkast dem?"
 
-#: app/ModuleView.cpp:370
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "Anvend indstillinger"
