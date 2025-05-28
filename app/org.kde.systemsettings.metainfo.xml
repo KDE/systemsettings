@@ -74,6 +74,7 @@
   <name xml:lang="zh-CN">系统设置</name>
   <name xml:lang="zh-TW">系統設定</name>
   <summary>Configure the system’s behavior and appearance</summary>
+  <summary xml:lang="ar">اضبط  سلوك النظام ومظهره</summary>
   <summary xml:lang="ca">Configura el comportament i l'aparença del sistema</summary>
   <summary xml:lang="ca-valencia">Configura el comportament i l'aparença del sistema</summary>
   <summary xml:lang="es">Configurar el comportamiento y el aspecto del sistema</summary>
