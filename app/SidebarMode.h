@@ -98,7 +98,7 @@ public:
     ~SidebarMode() override;
     QWidget *mainWidget();
     void initEvent();
-    void giveFocus();
+    Q_INVOKABLE void giveFocus();
     ModuleView *moduleView() const;
     void reloadStartupModule();
 
