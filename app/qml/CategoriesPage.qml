@@ -67,6 +67,11 @@ Kirigami.ScrollablePage {
                 KeyNavigation.tab: KeyNavigation.right
 
                 Keys.onDownPressed: event => rowLayout.Keys.downPressed(event)
+                onActiveFocusChanged: {
+                    if (activeFocus) {
+                        systemsettings.giveFocus();
+                    }
+                }
             }
 
             HamburgerMenuButton {
