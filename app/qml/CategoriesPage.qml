@@ -176,7 +176,7 @@ Kirigami.ScrollablePage {
             highlighted: ListView.isCurrentItem
 
             onClicked: {
-
+                if (!enabled) { return; }
                 if (isKCM || mainColumn.searchMode || systemsettings.activeCategoryRow !== index) {
                     systemsettings.loadModule(categoryView.model.index(index, 0));
                 }
