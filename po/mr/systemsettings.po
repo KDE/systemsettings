@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:44+0000\n"
+"POT-Creation-Date: 2025-06-05 00:44+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "संयोजना साठवा"
 
-#: app/qml/CategoriesPage.qml:106
+#: app/qml/CategoriesPage.qml:111
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

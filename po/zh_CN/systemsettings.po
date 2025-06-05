@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-28 00:44+0000\n"
+"POT-Creation-Date: 2025-06-05 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "应用设置"
 
-#: app/qml/CategoriesPage.qml:106
+#: app/qml/CategoriesPage.qml:111
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
