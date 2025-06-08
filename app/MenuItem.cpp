@@ -21,6 +21,8 @@
 #include <KJsonUtils>
 #include <QFileInfo>
 
+#include <KCModuleData>
+
 static bool childIsLessThan(MenuItem *left, MenuItem *right)
 {
     return left->weight() < right->weight();
@@ -49,6 +51,7 @@ public:
     bool isSystemsettingsRootCategory = false;
     bool isExternalAppModule = false;
     KPluginMetaData metaData;
+    std::unique_ptr<KCModuleData> moduleData;
 };
 
 MenuItem::MenuItem(bool isMenu, MenuItem *itsParent)
@@ -193,11 +196,20 @@ void MenuItem::setMetaData(const KPluginMetaData &data)
     d->iconName = data.iconName();
     d->systemsettingsCategoryModule = data.value(QStringLiteral("X-KDE-System-Settings-Category-Module"));
     d->isExternalAppModule = data.value(QStringLiteral("IsExternalApp"), false);
+
+    if (data.value(QStringLiteral("X-KDE-System-Settings-Uses-ModuleData"), false)) {
+        d->moduleData.reset(loadModuleData(data));
+    }
 }
 
 KPluginMetaData MenuItem::metaData()
 {
     return d->metaData;
+}
+
+KCModuleData *MenuItem::moduleData() const
+{
+    return d->moduleData.get();
 }
 
 bool MenuItem::showDefaultIndicator() const
@@ -219,8 +231,10 @@ void MenuItem::updateDefaultIndicator()
 {
     d->showDefaultIndicator = false;
     if (isLibrary()) {
-        std::unique_ptr<KCModuleData> moduleData(loadModuleData(d->metaData));
-        d->showDefaultIndicator = moduleData && !moduleData->isDefaults();
+        if (!d->moduleData) {
+            d->moduleData.reset(loadModuleData(d->metaData));
+        }
+        d->showDefaultIndicator = d->moduleData && !d->moduleData->isDefaults();
     }
 
     if (menu()) {

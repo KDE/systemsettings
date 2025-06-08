@@ -66,6 +66,7 @@ private:
     // The toolbar
     QWidgetAction *spacerAction = nullptr;
     QAction *highlightChangesAction = nullptr;
+    QAction *showIrrelevantAction = nullptr;
     QAction *reportPageSpecificBugAction = nullptr;
     QAction *quitAction = nullptr;
     // The help menu

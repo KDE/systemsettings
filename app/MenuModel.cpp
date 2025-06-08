@@ -11,26 +11,57 @@
 
 #include <KCategorizedSortFilterProxyModel>
 
+#include <QAction>
 #include <QIcon>
+
+#include <KCModuleData>
 
 using namespace Qt::StringLiterals;
 
 class MenuModel::Private
 {
 public:
-    Private()
+    Private(MenuModel *q)
+        : q(q)
     {
     }
 
+    void connectSignals(MenuItem *item);
+
+    MenuModel *const q;
     MenuItem *rootItem = nullptr;
     QList<MenuItem *> exceptions;
 };
 
+void MenuModel::Private::connectSignals(MenuItem *item)
+{
+    if (item->menu()) {
+        const auto children = item->children();
+        for (auto *child : children) {
+            connectSignals(child);
+        }
+    } else {
+        if (auto *moduleData = item->moduleData()) {
+            QObject::connect(moduleData, &KCModuleData::relevantChanged, q, [this, item] {
+                if (QModelIndex index = q->indexForItem(item); index.isValid()) {
+                    Q_EMIT q->dataChanged(index, index, {MenuModel::IsRelevantRole});
+                }
+            });
+            QObject::connect(moduleData, &KCModuleData::auxiliaryActionChanged, q, [this, item] {
+                if (QModelIndex index = q->indexForItem(item); index.isValid()) {
+                    Q_EMIT q->dataChanged(index, index, {MenuModel::AuxiliaryActionRole});
+                }
+            });
+        }
+    }
+}
+
 MenuModel::MenuModel(MenuItem *menuRoot, QObject *parent)
     : QAbstractItemModel(parent)
-    , d(new Private())
+    , d(new Private(this))
 {
     d->rootItem = menuRoot;
+    d->connectSignals(menuRoot);
 }
 
 MenuModel::~MenuModel()
@@ -47,6 +78,8 @@ QHash<int, QByteArray> MenuModel::roleNames() const
     names[IsKCMRole] = "isKCM";
     names[DefaultIndicatorRole] = "showDefaultIndicator";
     names[IconNameRole] = "iconName";
+    names[IsRelevantRole] = "isRelevant";
+    names[AuxiliaryActionRole] = "auxiliaryAction";
     return names;
 }
 
@@ -149,6 +182,15 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
         break;
     case MenuModel::IconNameRole:
         theData.setValue(mi->iconName());
+        break;
+
+    case MenuModel::IsRelevantRole:
+        theData.setValue(!mi->moduleData() || mi->moduleData()->isRelevant());
+        break;
+    case MenuModel::AuxiliaryActionRole:
+        if (mi->moduleData()) {
+            theData.setValue(QVariant::fromValue(mi->moduleData()->auxiliaryAction()));
+        }
         break;
     default:
         break;
