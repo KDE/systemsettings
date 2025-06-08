@@ -15,6 +15,7 @@
 MenuProxyModel::MenuProxyModel(QObject *parent)
     : KCategorizedSortFilterProxyModel(parent)
     , m_filterHighlightsEntries(true)
+    , m_showIrrelevantModules(false)
 {
     setSortRole(MenuModel::UserSortRole);
     setFilterRole(MenuModel::UserFilterRole);
@@ -65,9 +66,18 @@ bool MenuProxyModel::subSortLessThan(const QModelIndex &left, const QModelIndex 
 
 bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
+    const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
+
+    if (!m_showIrrelevantModules) {
+        // Still find irrelevant modules when searching.
+        const QRegularExpression filterRegExp = KCategorizedSortFilterProxyModel::filterRegularExpression();
+        if (filterRegExp.pattern().isEmpty() && !index.data(MenuModel::IsRelevantRole).toBool()) {
+            return false;
+        }
+    }
+
     if (!m_filterHighlightsEntries) {
         // Don't show empty categories
-        QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
         auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
         if (mItem->menu() && mItem->children().isEmpty()) {
             return false;
@@ -76,7 +86,6 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
         return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
 
-    QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
     auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
 
     // accept only systemsettings categories that have children
@@ -95,6 +104,21 @@ void MenuProxyModel::setFilterHighlightsEntries(bool highlight)
 bool MenuProxyModel::filterHighlightsEntries() const
 {
     return m_filterHighlightsEntries;
+}
+
+void MenuProxyModel::setShowIrrelevantModules(bool show)
+{
+    if (m_showIrrelevantModules == show) {
+        return;
+    }
+    beginFilterChange(); // Qt 6.9 API
+    m_showIrrelevantModules = show;
+    invalidateRowsFilter();
+}
+
+bool MenuProxyModel::showIrrelevantModules() const
+{
+    return m_showIrrelevantModules;
 }
 
 Qt::ItemFlags MenuProxyModel::flags(const QModelIndex &index) const

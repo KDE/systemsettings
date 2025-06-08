@@ -49,6 +49,10 @@ public:
         DefaultIndicatorRole,
 
         IconNameRole,
+
+        IsRelevantRole,
+
+        AuxiliaryActionRole,
     };
 
     /**
