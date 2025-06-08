@@ -101,11 +101,22 @@ public:
      */
     bool filterHighlightsEntries() const;
 
+    /**
+     * makes the filter show irrelevant modules (KCModuleData::isRelevant), default false
+     */
+    void setShowIrrelevantModules(bool show);
+
+    /**
+     * @returns whether the filter shows irrelevant modules.
+     */
+    bool showIrrelevantModules() const;
+
 Q_SIGNALS:
     void filterRegularExpressionChanged();
 
 private:
     bool m_filterHighlightsEntries : 1;
+    bool m_showIrrelevantModules : 1;
 };
 
 #endif

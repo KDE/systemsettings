@@ -254,11 +254,12 @@ QAction *SidebarMode::action(const QString &name) const
 
 QString SidebarMode::actionIconName(const QString &name) const
 {
-    if (QAction *a = action(name)) {
-        return a->icon().name();
-    }
+    return actionIconName(action(name));
+}
 
-    return {};
+QString SidebarMode::actionIconName(const QAction *action) const
+{
+    return action ? action->icon().name() : QString();
 }
 
 void SidebarMode::showActionMenu(const QPoint &position)
@@ -274,6 +275,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     menu->setAttribute(Qt::WA_TranslucentBackground);
 
     const QStringList actionList{QStringLiteral("highlight_changes"),
+                                 QStringLiteral("show_irrelevant_modules"),
                                  QStringLiteral("report_bug_in_current_module"),
                                  QStringLiteral("help_report_bug"),
                                  QStringLiteral("help_contents"),
@@ -532,6 +534,11 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
     refreshDefaults();
     d->config.writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
     Q_EMIT defaultsIndicatorsVisibleChanged();
+}
+
+void SidebarMode::toggleShowIrrelevantModules()
+{
+    d->categorizedModel->setShowIrrelevantModules(!d->categorizedModel->showIrrelevantModules());
 }
 
 void SidebarMode::updateModelMenuItem(MenuItem *item)
