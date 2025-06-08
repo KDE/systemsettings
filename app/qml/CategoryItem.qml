@@ -16,6 +16,7 @@ ItemDelegate {
     property bool isSearching: false
     property real leadingPadding: 0
     required property bool showDefaultIndicator
+    required property QtObject /*QAction*/ helpfulAction
 
     width: ListView.view?.width ?? 0
 
@@ -44,6 +45,36 @@ ItemDelegate {
             color: Kirigami.Theme.neutralTextColor
         }
 
+        // FIXME makes the delegate taller, don't do that.
+        ToolButton {
+            display: AbstractButton.IconOnly
+            text: delegate.helpfulAction?.text ?? ""
+            // FIXME cannot use QIcon in QML ........
+            //icon.name: auxiliaryAction?.icon.name ?? ""
+            enabled: delegate.helpfulAction?.enabled ?? false
+            visible: (delegate.helpfulAction?.visible && !delegate.helpfulAction?.checkable) ?? false
+            onClicked: {
+                delegate.helpfulAction.trigger();
+            }
+
+            ToolTip.text: delegate.helpfulAction?.tooltip ?? ""
+        }
+
+        Switch {
+            id: kcmSwitch
+            Accessible.name: delegate.helpfulAction?.text ?? ""
+            checked: delegate.helpfulAction?.checked ?? false
+            enabled: delegate.helpfulAction?.enabled ?? false
+            visible: (delegate.helpfulAction?.visible && delegate.helpfulAction?.checkable) ?? false
+            onToggled: {
+                delegate.helpfulAction.trigger();
+            }
+
+            ToolTip.text: (delegate.helpfulAction?.tooltip || delegate.helpfulAction?.text) ?? ""
+            ToolTip.delay: Kirigami.Units.toolTipDelay
+            ToolTip.visible: kcmSwitch.hovered
+        }
+
         Kirigami.Icon {
             Layout.alignment: Qt.AlignVCenter
             Layout.preferredWidth: Kirigami.Units.iconSizes.small
@@ -52,6 +83,7 @@ ItemDelegate {
             opacity: delegate.showArrow ? 0.7 : 0.0
             source: LayoutMirroring.enabled ? "go-next-symbolic-rtl" : "go-next-symbolic"
             selected: delegate.selected
+            visible: !delegate.helpfulAction?.visible ?? true
         }
     }
 }

@@ -209,6 +209,22 @@ void SidebarMode::initEvent()
         d->model->addException(child);
     }
 
+    // Connect signals lol
+    // FIXME FIXME FIXME
+    for (auto *item : rootItem()->children()) {
+        for (auto *chld : item->children()) {
+            if (auto *moduleData = chld->moduleData()) {
+                // Do we need to update on KCModuleData::loaded?
+                connect(moduleData, &KCModuleData::relevantChanged, this, [this, chld] {
+                    d->model->emitItemChanged(chld, {MenuModel::IsRelevantRole});
+                });
+                connect(moduleData, &KCModuleData::helpfulActionChanged, this, [this, chld] {
+                    d->model->emitItemChanged(chld, {MenuModel::HelpfulActionRole});
+                });
+            }
+        }
+    }
+
     d->categorizedModel = new MenuProxyModel(this);
     d->categorizedModel->setCategorizedModel(true);
     d->categorizedModel->setSourceModel(d->model);
@@ -274,6 +290,7 @@ void SidebarMode::showActionMenu(const QPoint &position)
     menu->setAttribute(Qt::WA_TranslucentBackground);
 
     const QStringList actionList{QStringLiteral("highlight_changes"),
+                                 QStringLiteral("show_irrelevant_modules"),
                                  QStringLiteral("report_bug_in_current_module"),
                                  QStringLiteral("help_report_bug"),
                                  QStringLiteral("help_contents"),
@@ -532,6 +549,11 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
     refreshDefaults();
     d->config.writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
     Q_EMIT defaultsIndicatorsVisibleChanged();
+}
+
+void SidebarMode::toggleShowIrrelevantModules()
+{
+    d->categorizedModel->setShowIrrelevantModules(!d->categorizedModel->showIrrelevantModules());
 }
 
 void SidebarMode::updateModelMenuItem(MenuItem *item)

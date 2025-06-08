@@ -101,11 +101,16 @@ public:
      */
     bool filterHighlightsEntries() const;
 
+    void setShowIrrelevantModules(bool show);
+
+    bool showIrrelevantModules() const;
+
 Q_SIGNALS:
     void filterRegularExpressionChanged();
 
 private:
     bool m_filterHighlightsEntries : 1;
+    bool m_showIrrelevantModules : 1;
 };
 
 #endif

@@ -11,7 +11,10 @@
 
 #include <KCategorizedSortFilterProxyModel>
 
+#include <QAction>
 #include <QIcon>
+
+#include <KCModuleData>
 
 using namespace Qt::StringLiterals;
 
@@ -47,6 +50,8 @@ QHash<int, QByteArray> MenuModel::roleNames() const
     names[IsKCMRole] = "isKCM";
     names[DefaultIndicatorRole] = "showDefaultIndicator";
     names[IconNameRole] = "iconName";
+    names[IsRelevantRole] = "isRelevant";
+    names[HelpfulActionRole] = "helpfulAction";
     return names;
 }
 
@@ -150,6 +155,15 @@ QVariant MenuModel::data(const QModelIndex &index, int role) const
     case MenuModel::IconNameRole:
         theData.setValue(mi->iconName());
         break;
+
+    case MenuModel::IsRelevantRole:
+        theData.setValue(!mi->moduleData() || mi->moduleData()->isRelevant());
+        break;
+    case MenuModel::HelpfulActionRole:
+        if (mi->moduleData()) {
+            theData.setValue(QVariant::fromValue(mi->moduleData()->helpfulAction()));
+        }
+        break;
     default:
         break;
     }
@@ -243,6 +257,13 @@ QModelIndex MenuModel::indexForItem(MenuItem *item) const
     }
 
     return createIndex(row, 0, item);
+}
+
+void MenuModel::emitItemChanged(MenuItem *item, const QList<int> &roles)
+{
+    if (QModelIndex index = indexForItem(item); index.isValid()) {
+        Q_EMIT dataChanged(index, index, roles);
+    }
 }
 
 MenuItem *MenuModel::rootItem() const

@@ -197,6 +197,7 @@ Kirigami.ScrollablePage {
                     categoryView.positionViewAtIndex(index, ListView.Contain);
                 }
             }
+
             Keys.onEnterPressed: clicked();
             Keys.onReturnPressed: clicked();
 

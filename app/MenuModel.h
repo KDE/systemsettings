@@ -49,6 +49,10 @@ public:
         DefaultIndicatorRole,
 
         IconNameRole,
+
+        IsRelevantRole,
+
+        HelpfulActionRole,
     };
 
     /**
@@ -143,6 +147,8 @@ public:
     void removeException(MenuItem *exception);
 
     QModelIndex indexForItem(MenuItem *item) const;
+
+    void emitItemChanged(MenuItem *item, const QList<int> &roles = {});
 
 protected:
     /**
