@@ -14,6 +14,7 @@
 class QString;
 class KDesktopFile;
 class KPluginMetaData;
+class KCModuleData;
 template<typename T>
 class QList;
 
@@ -155,6 +156,8 @@ public:
     void setMetaData(const KPluginMetaData &data);
 
     KPluginMetaData metaData();
+
+    KCModuleData *moduleData() const;
 
     MenuItem *descendantForModule(const QString &moduleName);
 

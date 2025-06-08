@@ -135,6 +135,14 @@ void SettingsBase::initToolBar()
         highlightChangesAction->setCheckable(true);
         highlightChangesAction->setText(i18nd("systemsettings", "Highlight Changed Settings"));
         highlightChangesAction->setIcon(QIcon::fromTheme(QStringLiteral("draw-highlight")));
+
+        showIrrelevantAction = m_actionCollection->addAction(QStringLiteral("show_irrelevant_modules"), this, [this] {
+            view->toggleShowIrrelevantModules();
+        });
+        showIrrelevantAction->setCheckable(true);
+        showIrrelevantAction->setText(
+            i18ndc("systemsettings", "@option:check the pages being referred to here are System Settings KCMs", "Show Inapplicable Pages"));
+        showIrrelevantAction->setIcon(QIcon::fromTheme(QStringLiteral("view-hidden")));
     }
 
     reportPageSpecificBugAction = m_actionCollection->addAction(QStringLiteral("report_bug_in_current_module"), this, [this] {
