@@ -51,7 +51,7 @@ msgstr "系统信息中心"
 #: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr "系统信息的一站式简易概览"
+msgstr "系统信息的简易概览"
 
 #: app/main.cpp:58 app/main.cpp:69
 #, kde-format
