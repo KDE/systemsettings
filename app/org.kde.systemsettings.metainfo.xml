@@ -128,7 +128,7 @@
   <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
   <summary xml:lang="vi">Các công cụ cấu hình cho máy tính của bạn</summary>
   <summary xml:lang="x-test">xxConfiguration tools for your computerxx</summary>
-  <summary xml:lang="zh-CN">您的计算机的配置工具</summary>
+  <summary xml:lang="zh-CN">本机系统的配置工具</summary>
   <summary xml:lang="zh-TW">適用於您電腦的設定工具</summary>
   <icon type="stock">systemsettings</icon>
   <description>
