@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-07-24 11:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -163,18 +163,6 @@ msgstr "Om aktiv vy"
 msgid "About %1"
 msgstr "Om %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Internt namn på använd vy"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Om systeminställningar"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -191,12 +179,6 @@ msgstr "%1 är ett externt program och har startats automatiskt"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Starta om %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialogruta"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -305,6 +287,15 @@ msgstr "Sidorad"
 #, kde-format
 msgid "Most Used"
 msgstr "Oftast använda"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Internt namn på använd vy"
+
+#~ msgid "About System Settings"
+#~ msgstr "Om systeminställningar"
+
+#~ msgid "Dialog"
+#~ msgstr "Dialogruta"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

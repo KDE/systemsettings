@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-02-18 01:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -167,18 +167,6 @@ msgstr "關於啟動的模組"
 msgid "About %1"
 msgstr "關於 %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "使用的檢視的內部名稱"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "關於系統設定"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -194,12 +182,6 @@ msgstr "%1 是外部應用程式，已經被自動啟動"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "重新啟動 %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "對話框"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -306,6 +288,15 @@ msgstr "側邊欄"
 #, kde-format
 msgid "Most Used"
 msgstr "最常使用"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "使用的檢視的內部名稱"
+
+#~ msgid "About System Settings"
+#~ msgstr "關於系統設定"
+
+#~ msgid "Dialog"
+#~ msgstr "對話框"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

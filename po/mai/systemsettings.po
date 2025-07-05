@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2010-01-29 16:36+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -170,19 +170,6 @@ msgstr ""
 msgid "About %1"
 msgstr "%1 केर संबंध में"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr ""
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, fuzzy, kde-format
-#| msgid "System Settings"
-msgid "About System Settings"
-msgstr "तंत्र विन्यास"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -199,12 +186,6 @@ msgstr ""
 #, kde-format
 msgid "Relaunch %1"
 msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "समाद"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -317,6 +298,14 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
+
+#, fuzzy
+#~| msgid "System Settings"
+#~ msgid "About System Settings"
+#~ msgstr "तंत्र विन्यास"
+
+#~ msgid "Dialog"
+#~ msgstr "समाद"
 
 #, fuzzy
 #~| msgid "Configure"

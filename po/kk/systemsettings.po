@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2011-03-04 03:50+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -165,18 +165,6 @@ msgstr "Белсенді көрініс туралы"
 msgid "About %1"
 msgstr "%1 туралы"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Қолданыстағы көріністің ішкі атауы"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "'Жүйе параметрлері' туралы"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -194,12 +182,6 @@ msgstr "%1 деген автоматты түрде жегілген сыртқ�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 дегенді қайта жегу"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Диалог"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -309,6 +291,15 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Қолданыстағы көріністің ішкі атауы"
+
+#~ msgid "About System Settings"
+#~ msgstr "'Жүйе параметрлері' туралы"
+
+#~ msgid "Dialog"
+#~ msgstr "Диалог"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

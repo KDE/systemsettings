@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2024-04-14 13:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -168,18 +168,6 @@ msgstr "現在のビューについて"
 msgid "About %1"
 msgstr "%1 について"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "使用されるビューの内部名"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "KDE システム設定について"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -195,12 +183,6 @@ msgstr "外部アプリケーション %1 を自動的に起動しました"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 を再起動"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "ダイアログ"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -307,3 +289,12 @@ msgstr "サイドバー"
 #, kde-format
 msgid "Most Used"
 msgstr "よく使う設定"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "使用されるビューの内部名"
+
+#~ msgid "About System Settings"
+#~ msgstr "KDE システム設定について"
+
+#~ msgid "Dialog"
+#~ msgstr "ダイアログ"

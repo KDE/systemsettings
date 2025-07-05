@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-03-06 14:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -163,18 +163,6 @@ msgstr "Etkin Görünüm Hakkında"
 msgid "About %1"
 msgstr "%1 Hakkında"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Kullanılan görünümün iç adı"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Sistem Ayarları Hakkında"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -193,12 +181,6 @@ msgstr ""
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Yeniden Aç: %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Pencere"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -306,6 +288,15 @@ msgstr "Kenar Çubuğu"
 #, kde-format
 msgid "Most Used"
 msgstr "En Çok Kullanılan"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Kullanılan görünümün iç adı"
+
+#~ msgid "About System Settings"
+#~ msgstr "Sistem Ayarları Hakkında"
+
+#~ msgid "Dialog"
+#~ msgstr "Pencere"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

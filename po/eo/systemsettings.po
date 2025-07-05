@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-01-18 19:57+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -166,18 +166,6 @@ msgstr "Pri aktiva rigardo"
 msgid "About %1"
 msgstr "Pri %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Interna nomo de la uzata vido"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Pri Sistema agordo"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -194,12 +182,6 @@ msgstr "%1 estas ekstera aplikaĵo kaj estis aŭtomate lanĉita"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Relanĉi %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialogo"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -306,3 +288,12 @@ msgstr "Flankbreto"
 #, kde-format
 msgid "Most Used"
 msgstr "Plej Uzata"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Interna nomo de la uzata vido"
+
+#~ msgid "About System Settings"
+#~ msgstr "Pri Sistema agordo"
+
+#~ msgid "Dialog"
+#~ msgstr "Dialogo"

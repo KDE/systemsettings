@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2024-05-13 11:34+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -169,18 +169,6 @@ msgstr "Um virkt yfirlit"
 msgid "About %1"
 msgstr "Um %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Innra heiti á yfirlitinu sem er í notkun"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Um Kerfisstillingar"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -197,12 +185,6 @@ msgstr "%1 er ytra forrit og hefur verið ræst sjálfkrafa"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Endurræsa %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Svargluggi"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -309,6 +291,15 @@ msgstr "Hliðarstika"
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Innra heiti á yfirlitinu sem er í notkun"
+
+#~ msgid "About System Settings"
+#~ msgstr "Um Kerfisstillingar"
+
+#~ msgid "Dialog"
+#~ msgstr "Svargluggi"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

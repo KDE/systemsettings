@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-01-03 13:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -166,18 +166,6 @@ msgstr "Info over de actieve weergave"
 msgid "About %1"
 msgstr "Info over %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Interne naam voor de gebruikte weergave"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Info over systeeminstellingen"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -194,12 +182,6 @@ msgstr "%1 is een extern programma en is automatisch opgestart"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 opnieuw opstarten"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialoog"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -308,6 +290,15 @@ msgstr "Zijbalk"
 #, kde-format
 msgid "Most Used"
 msgstr "Meest gebruikt"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Interne naam voor de gebruikte weergave"
+
+#~ msgid "About System Settings"
+#~ msgstr "Info over systeeminstellingen"
+
+#~ msgid "Dialog"
+#~ msgstr "Dialoog"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

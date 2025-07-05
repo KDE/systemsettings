@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -167,18 +167,6 @@ msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറി�
 msgid "About %1"
 msgstr "%1 ന്റെ അണിയറ വിശേഷം"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "ഉപയോഗിച്ച അവതരണരീതിയുടെ ആന്തരിക പേരു്"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "സിസ്റ്റത്തിലെ സജ്ജീകരണങ്ങളെക്കുറിച്ചു്"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -195,12 +183,6 @@ msgstr "%1 പുറമെയുള്ളൊരു പ്രയോഗമാണ�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 വീണ്ടും തുടങ്ങുക"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "ഡയലോഗ്"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -308,6 +290,15 @@ msgstr "സൈഡ്‌ബാർ"
 #, kde-format
 msgid "Most Used"
 msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "ഉപയോഗിച്ച അവതരണരീതിയുടെ ആന്തരിക പേരു്"
+
+#~ msgid "About System Settings"
+#~ msgstr "സിസ്റ്റത്തിലെ സജ്ജീകരണങ്ങളെക്കുറിച്ചു്"
+
+#~ msgid "Dialog"
+#~ msgstr "ഡയലോഗ്"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

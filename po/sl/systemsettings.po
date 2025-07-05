@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-03-01 06:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -173,18 +173,6 @@ msgstr "O dejavnem pogledu"
 msgid "About %1"
 msgstr "O %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Notranje ime uporabljenega pogleda"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "O Sistemske nastavitve"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -203,12 +191,6 @@ msgstr "%1 je zunanji program in je bil samodejno zagnan"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Znova zaženi %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Pogovorno okno"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -316,6 +298,15 @@ msgstr "Stranska vrstica"
 #, kde-format
 msgid "Most Used"
 msgstr "Najbolj uporabljeni"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Notranje ime uporabljenega pogleda"
+
+#~ msgid "About System Settings"
+#~ msgstr "O Sistemske nastavitve"
+
+#~ msgid "Dialog"
+#~ msgstr "Pogovorno okno"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

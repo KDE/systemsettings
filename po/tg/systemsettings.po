@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2021-09-09 23:38-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -167,18 +167,6 @@ msgstr "Дар бораи намуди фаъол"
 msgid "About %1"
 msgstr "Дар бораи %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Номи дохилӣ барои намуди истифодашаванда"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Дар бораи танзимоти низом"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -195,12 +183,6 @@ msgstr "%1 барномаи берунӣ аст ва ба таври худко�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Аз нав ба кор даровардани %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Равзанаи гуфтугӯ"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -309,6 +291,15 @@ msgstr "Навори ҷонибӣ"
 #, kde-format
 msgid "Most Used"
 msgstr "Истифодашавандаи зиёдтарин"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Номи дохилӣ барои намуди истифодашаванда"
+
+#~ msgid "About System Settings"
+#~ msgstr "Дар бораи танзимоти низом"
+
+#~ msgid "Dialog"
+#~ msgstr "Равзанаи гуфтугӯ"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

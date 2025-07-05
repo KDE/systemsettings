@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2024-07-05 19:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -167,18 +167,6 @@ msgstr "Quant a la vista activa"
 msgid "About %1"
 msgstr "Quant a %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Nom intern per a la vista utilitzada"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Quant a Configuració del sistema"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -195,12 +183,6 @@ msgstr "%1 és una aplicació externa i s'inicia automàticament"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Torna a iniciar %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Diàleg"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -311,3 +293,12 @@ msgstr "Barra lateral"
 #, kde-format
 msgid "Most Used"
 msgstr "Més utilitzat"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Nom intern per a la vista utilitzada"
+
+#~ msgid "About System Settings"
+#~ msgstr "Quant a Configuració del sistema"
+
+#~ msgid "Dialog"
+#~ msgstr "Diàleg"

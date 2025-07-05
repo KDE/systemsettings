@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2015-08-28 11:08+0430\n"
 "Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -164,18 +164,6 @@ msgstr "درباره‌ی نمای جاری"
 msgid "About %1"
 msgstr "درباره‌ی %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr ""
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "درباره تنظیمات سامانه"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -194,12 +182,6 @@ msgstr ""
 #, kde-format
 msgid "Relaunch %1"
 msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "محاوره"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -308,6 +290,12 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
+
+#~ msgid "About System Settings"
+#~ msgstr "درباره تنظیمات سامانه"
+
+#~ msgid "Dialog"
+#~ msgstr "محاوره"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

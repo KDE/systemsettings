@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2009-05-11 10:56+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -166,18 +166,6 @@ msgstr "સક્રિય દેખાવ વિશે"
 msgid "About %1"
 msgstr "%1 વિશે"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "દેખાવ માટે આંતરિક નામ વાપરેલ છે"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "સિસ્ટમ ગોઠવણીઓ વિશે"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -196,12 +184,6 @@ msgstr "%1 એ બાહ્ય કાર્યક્રમ છે અને ત�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 ફરી શરૂ કરો"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "સંવાદ"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -311,6 +293,15 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "દેખાવ માટે આંતરિક નામ વાપરેલ છે"
+
+#~ msgid "About System Settings"
+#~ msgstr "સિસ્ટમ ગોઠવણીઓ વિશે"
+
+#~ msgid "Dialog"
+#~ msgstr "સંવાદ"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

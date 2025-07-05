@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2022-08-08 17:48+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -169,18 +169,6 @@ msgstr "Om denne visning"
 msgid "About %1"
 msgstr "Om %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Internt navn for den brugte visning"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "Om Systemindstillinger"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -197,12 +185,6 @@ msgstr "%1 er et eksternt program og er blevet startet automatisk"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Start %1 igen"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialog"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -310,6 +292,15 @@ msgstr "Sidepanel"
 #, kde-format
 msgid "Most Used"
 msgstr "Mest brugte"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Internt navn for den brugte visning"
+
+#~ msgid "About System Settings"
+#~ msgstr "Om Systemindstillinger"
+
+#~ msgid "Dialog"
+#~ msgstr "Dialog"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

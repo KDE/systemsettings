@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2023-12-20 09:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -180,18 +180,6 @@ msgstr "À propos de l'affichage courant"
 msgid "About %1"
 msgstr "À propos de %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "Nom interne pour l'affichage utilisé"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "À propos de la configuration du système"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -208,12 +196,6 @@ msgstr "%1 est une application externe lancée automatiquement"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Relancer %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Boîte de dialogue"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -322,6 +304,15 @@ msgstr "Panneau latéral"
 #, kde-format
 msgid "Most Used"
 msgstr "Les plus utilisés"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "Nom interne pour l'affichage utilisé"
+
+#~ msgid "About System Settings"
+#~ msgstr "À propos de la configuration du système"
+
+#~ msgid "Dialog"
+#~ msgstr "Boîte de dialogue"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

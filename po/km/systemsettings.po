@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2009-12-22 09:22+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -164,18 +164,6 @@ msgstr "អំពី​ទិដ្ឋភាព​សកម្ម"
 msgid "About %1"
 msgstr "អំពី %1"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "ឈ្មោះ​ខាង​ក្នុង​សម្រាប់​ទិដ្ឋភាព​ដែលបានប្រើ"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "អំពី​ការ​កំណត់​រចនាសម្ព័ន្ធ"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -193,12 +181,6 @@ msgstr "%1 គឺ​ជា​កម្មវិធី​ខាងក្រៅ �
 #, kde-format
 msgid "Relaunch %1"
 msgstr "ចាប់ផ្ដើម​ឡើង​វិញ %1"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "ប្រអប់"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -308,6 +290,15 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "ឈ្មោះ​ខាង​ក្នុង​សម្រាប់​ទិដ្ឋភាព​ដែលបានប្រើ"
+
+#~ msgid "About System Settings"
+#~ msgstr "អំពី​ការ​កំណត់​រចនាសម្ព័ន្ធ"
+
+#~ msgid "Dialog"
+#~ msgstr "ប្រអប់"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-24 02:43+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -166,18 +166,6 @@ msgstr "သက်ဝင်မြင်ကွင်းအကြောင်း"
 msgid "About %1"
 msgstr "%1 အကြောင်း"
 
-#. i18n: ectx: label, entry (ActiveView), group (Main)
-#: app/systemsettings.kcfg:9
-#, kde-format
-msgid "Internal name for the view used"
-msgstr "အသုံးပြုထားသော မြင်ကွင်း၏အတွင်းပိုင်းအမည်"
-
-#. i18n: ectx: ToolBar (mainToolBar)
-#: app/systemsettingsui.rc:15
-#, kde-format
-msgid "About System Settings"
-msgstr "စစ်စတမ်ဆက်တင်များအကြောင်း"
-
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -193,12 +181,6 @@ msgstr "%1 သည် ပြင်ပအပ္ပလီကေးရှင်း�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 ပြန်လွှင့်တင်မည်"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
-#: core/externalModule.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "ဒိုင်ယာလော့"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -305,6 +287,15 @@ msgstr "ဘေးတန်း"
 #, kde-format
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"
+
+#~ msgid "Internal name for the view used"
+#~ msgstr "အသုံးပြုထားသော မြင်ကွင်း၏အတွင်းပိုင်းအမည်"
+
+#~ msgid "About System Settings"
+#~ msgstr "စစ်စတမ်ဆက်တင်များအကြောင်း"
+
+#~ msgid "Dialog"
+#~ msgstr "ဒိုင်ယာလော့"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"
