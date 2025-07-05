@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-07-12 22:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -165,6 +165,18 @@ msgstr "Относно активния изглед"
 msgid "About %1"
 msgstr "Относно %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Вътрешно име на използвания изглед"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Относно системните настройки"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -181,6 +193,12 @@ msgstr "%1 е външна програма и беше автоматично �
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Презареждане на %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Диалог"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -287,12 +305,3 @@ msgstr "Странична лента"
 #, kde-format
 msgid "Most Used"
 msgstr "Най-използвано"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Вътрешно име на използвания изглед"
-
-#~ msgid "About System Settings"
-#~ msgstr "Относно системните настройки"
-
-#~ msgid "Dialog"
-#~ msgstr "Диалог"

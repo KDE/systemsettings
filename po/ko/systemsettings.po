@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-03-01 01:34+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -161,6 +161,18 @@ msgstr "활성화된 보기 정보"
 msgid "About %1"
 msgstr "%1 정보"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "보기에서 사용하는 내부 이름"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "시스템 설정 정보"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -176,6 +188,12 @@ msgstr "%1은(는) 외부 앱이며 자동으로 실행되었습니다"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 다시 실행"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "대화 상자"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -282,15 +300,6 @@ msgstr "사이드바"
 #, kde-format
 msgid "Most Used"
 msgstr "자주 사용됨"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "보기에서 사용하는 내부 이름"
-
-#~ msgid "About System Settings"
-#~ msgstr "시스템 설정 정보"
-
-#~ msgid "Dialog"
-#~ msgstr "대화 상자"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

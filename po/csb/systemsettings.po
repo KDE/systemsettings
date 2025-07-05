@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2009-12-12 12:21+0100\n"
 "Last-Translator: Mark Kwidzińśczi <mark@linuxcsb.org>\n"
 "Language-Team: Kaszëbsczi <i18n-csb@linuxcsb.org>\n"
@@ -169,6 +169,18 @@ msgstr "Ò biéżnym wëzdrzatków"
 msgid "About %1"
 msgstr "Ò %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Bënowé miono brëkòwónegò wëzdrzatka"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Ò Systemòwëch nastôwch"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -188,6 +200,12 @@ msgstr "%1 je bùtnową aplikacëją ë òsta aùtomatno zrëszonô"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Zrëszë znowa %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialog"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -297,15 +315,6 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Bënowé miono brëkòwónegò wëzdrzatka"
-
-#~ msgid "About System Settings"
-#~ msgstr "Ò Systemòwëch nastôwch"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialog"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

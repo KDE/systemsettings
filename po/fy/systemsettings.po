@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2010-07-14 10:56+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -164,6 +164,18 @@ msgstr "Aktive werjefte ynformaasje"
 msgid "About %1"
 msgstr "Ynfo oer %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Ynterne namme foar dizze werjefte"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Oer de systeem ynstellings"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -182,6 +194,12 @@ msgstr "%1 is in ekstern programma en wurdt automatysk útfierd"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "%1 op 'e nij útfiere"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialooch"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -291,15 +309,6 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Ynterne namme foar dizze werjefte"
-
-#~ msgid "About System Settings"
-#~ msgstr "Oer de systeem ynstellings"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialooch"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

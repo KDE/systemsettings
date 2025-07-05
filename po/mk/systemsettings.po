@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2010-02-01 00:06+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -169,6 +169,18 @@ msgstr ""
 msgid "About %1"
 msgstr "За %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "За „Системски поставувања“"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -188,6 +200,12 @@ msgstr "%1 е надворешна апликација и беше автома
 #, kde-format
 msgid "Relaunch %1"
 msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Дијалог"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -296,12 +314,6 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#~ msgid "About System Settings"
-#~ msgstr "За „Системски поставувања“"
-
-#~ msgid "Dialog"
-#~ msgstr "Дијалог"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

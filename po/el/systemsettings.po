@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2021-09-19 10:05+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -174,6 +174,18 @@ msgstr "Σχετικά με την ενεργή προβολή"
 msgid "About %1"
 msgstr "Σχετικά με το %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Εσωτερικό όνομα για την εμφάνιση που χρησιμοποιείται"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Περί ρυθμίσεων συστήματος"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -190,6 +202,12 @@ msgstr "%1 είναι μια εξωτερική εφαρμογή και έχει
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Επανεκτέλεση %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Διάλογος"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -300,15 +318,6 @@ msgstr "Πλευρική μπάρα"
 #, kde-format
 msgid "Most Used"
 msgstr "Περισσότερο χρησιμοποιημένο"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Εσωτερικό όνομα για την εμφάνιση που χρησιμοποιείται"
-
-#~ msgid "About System Settings"
-#~ msgstr "Περί ρυθμίσεων συστήματος"
-
-#~ msgid "Dialog"
-#~ msgstr "Διάλογος"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-01-07 22:07+0100\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -164,6 +164,18 @@ msgstr "Về kiểu xem đang dùng"
 msgid "About %1"
 msgstr "Về %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Tên nội bộ cho kiểu xem được dùng"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Về Thiết lập hệ thống"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -179,6 +191,12 @@ msgstr "%1 là một ứng dụng ngoài và đã được khởi chạy tự đ
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Khởi chạy lại %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Hộp thoại"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -286,15 +304,6 @@ msgstr "Thanh bên"
 #, kde-format
 msgid "Most Used"
 msgstr "Dùng nhiều nhất"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Tên nội bộ cho kiểu xem được dùng"
-
-#~ msgid "About System Settings"
-#~ msgstr "Về Thiết lập hệ thống"
-
-#~ msgid "Dialog"
-#~ msgstr "Hộp thoại"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

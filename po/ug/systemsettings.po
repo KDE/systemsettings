@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -165,6 +165,18 @@ msgstr "ئاكتىپ كۆرۈنۈش ھەققىدە"
 msgid "About %1"
 msgstr "%1 ھەققىدە"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "ئىشلىتىلگەن كۆرۈنۈشنىڭ ئىچكى ئاتى."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "سىستېما تەڭشەكلىرى ھەققىدە"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, fuzzy, kde-format
 #| msgid "<i>Contains 1 item</i>"
@@ -182,6 +194,12 @@ msgstr "%1 سىرتقى پروگرامما بولۇپ ئاپتوماتىك ئى�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "قايتا ئىجرا قىل %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "سۆزلەشكۈ"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -295,15 +313,6 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "ئىشلىتىلگەن كۆرۈنۈشنىڭ ئىچكى ئاتى."
-
-#~ msgid "About System Settings"
-#~ msgstr "سىستېما تەڭشەكلىرى ھەققىدە"
-
-#~ msgid "Dialog"
-#~ msgstr "سۆزلەشكۈ"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

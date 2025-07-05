@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-01-09 09:55+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-doc@kde.org>\n"
@@ -160,6 +160,18 @@ msgstr "Acerca da Janela Activa"
 msgid "About %1"
 msgstr "Acerca do %1"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Nome interno da vista usada"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Acerca da Configuração do Sistema"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -176,6 +188,12 @@ msgstr "O %1 é uma aplicação externa e foi lançada automaticamente"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Lançar de Novo o %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Janela"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -286,12 +304,3 @@ msgstr "Barra lateral"
 #, kde-format
 msgid "Most Used"
 msgstr "Mais Usados"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Nome interno da vista usada"
-
-#~ msgid "About System Settings"
-#~ msgstr "Acerca da Configuração do Sistema"
-
-#~ msgid "Dialog"
-#~ msgstr "Janela"

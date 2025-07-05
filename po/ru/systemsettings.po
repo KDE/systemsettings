@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-11-20 12:00+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -173,6 +173,18 @@ msgstr "О текущем представлении"
 msgid "About %1"
 msgstr "О «%1»"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Внутреннее имя используемого представления"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "О программе «Параметры системы»"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -191,6 +203,12 @@ msgstr "%1 является сторонним приложением, кото�
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Перезапустить %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Диалог"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -299,15 +317,6 @@ msgstr "Боковая панель"
 #, kde-format
 msgid "Most Used"
 msgstr "Часто используемые модули"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Внутреннее имя используемого представления"
-
-#~ msgid "About System Settings"
-#~ msgstr "О программе «Параметры системы»"
-
-#~ msgid "Dialog"
-#~ msgstr "Диалог"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

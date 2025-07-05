@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -170,6 +170,18 @@ msgstr "Teave aktiivse vaate kohta"
 msgid "About %1"
 msgstr "Teave %1 kohta"
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr "Kasutatava vaate seesmine nimi"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, kde-format
+msgid "About System Settings"
+msgstr "Teave Süsteemi seadistuste kohta"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -186,6 +198,12 @@ msgstr "%1 on väline rakendus, mis käivitati automaatselt"
 #, kde-format
 msgid "Relaunch %1"
 msgstr "Käivita %1 uuesti"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialoog"
 
 #: core/ModuleView.cpp:180
 #, kde-format
@@ -292,15 +310,6 @@ msgstr "Külgriba"
 #, kde-format
 msgid "Most Used"
 msgstr "Enim tarvitatud"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Kasutatava vaate seesmine nimi"
-
-#~ msgid "About System Settings"
-#~ msgstr "Teave Süsteemi seadistuste kohta"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialoog"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"

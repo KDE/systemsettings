@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2008-12-23 02:09+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <ubuntu-l10n-kur@lists.ubuntu.com>\n"
@@ -165,6 +165,19 @@ msgstr "Di Derbarê Modula Derbasdar de"
 msgid "About %1"
 msgstr ""
 
+#. i18n: ectx: label, entry (ActiveView), group (Main)
+#: app/systemsettings.kcfg:9
+#, kde-format
+msgid "Internal name for the view used"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: app/systemsettingsui.rc:15
+#, fuzzy, kde-format
+#| msgid "System Settings"
+msgid "About System Settings"
+msgstr "Mîhengên Pergalê"
+
 #: app/ToolTips/tooltipmanager.cpp:188
 #, kde-format
 msgid "Contains 1 item"
@@ -180,6 +193,12 @@ msgstr ""
 #: core/ExternalAppModule.cpp:28
 #, kde-format
 msgid "Relaunch %1"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: core/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
 msgstr ""
 
 #: core/ModuleView.cpp:180
@@ -293,11 +312,6 @@ msgstr ""
 #, kde-format
 msgid "Most Used"
 msgstr ""
-
-#, fuzzy
-#~| msgid "System Settings"
-#~ msgid "About System Settings"
-#~ msgstr "Mîhengên Pergalê"
 
 #, fuzzy
 #~| msgid "Configure"
