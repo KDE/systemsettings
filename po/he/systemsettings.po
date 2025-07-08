@@ -8,20 +8,21 @@
 # kde4, 2009.
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2017-05-22 04:54-0400\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-07-07 17:47+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,12 +37,12 @@ msgstr "kde-l10n-he@kde.org"
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "מרכז המידע"
 
 #: app/main.cpp:63
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "סקירה מרכזית ונוחה של פרטי המערכת."
 
 #: app/main.cpp:65 app/main.cpp:76 icons/IconMode.cpp:58
 #, kde-format
@@ -92,27 +93,27 @@ msgstr "תצוגה פנימית של מודולים, מודל פנימי של מ
 #: app/main.cpp:97
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "הצגת כל המודולים האפשריים"
 
 #: app/main.cpp:98 app/main.cpp:161
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "מודול הגדרות לפתיחה"
 
 #: app/main.cpp:99 app/main.cpp:162
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "ארגומנטים למודול"
 
 #: app/main.cpp:107
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "המודולים הבאים זמינים:"
 
 #: app/main.cpp:125
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "אין תיאור זמין"
 
 #: app/SettingsBase.cpp:60
 #, kde-format
@@ -121,26 +122,24 @@ msgid "Search"
 msgstr "חיפוש"
 
 #: app/SettingsBase.cpp:157
-#, fuzzy, kde-format
-#| msgid "Icon View"
+#, kde-format
 msgid "Switch to Icon View"
-msgstr "תצוגת סמלים"
+msgstr "החלפה לתצוגת סמלים"
 
 #: app/SettingsBase.cpp:164
-#, fuzzy, kde-format
-#| msgid "Sidebar View"
+#, kde-format
 msgid "Switch to Sidebar View"
-msgstr "תצוגת סרגל צדדי"
+msgstr "החלפה לתצוגת סרגל צדדי"
 
 #: app/SettingsBase.cpp:173
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "הדגשת ההגדרות שנערכו"
 
 #: app/SettingsBase.cpp:184
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "דיווח על תקלה בעמוד הנוכחי…"
 
 #: app/SettingsBase.cpp:211
 #, kde-format
@@ -182,13 +181,11 @@ msgid "About System Settings"
 msgstr "אודות הגדרות המערכת"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "<i>מכיל פריט אחד</i>"
-msgstr[1] "<i>מכיל %1 פריטים</i>"
+msgstr[0] "מכיל פריט אחד"
+msgstr[1] "מכיל %1 פריטים"
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
@@ -254,34 +251,33 @@ msgstr "מקש קיצור: %1"
 #: runner/systemsettingsrunner.cpp:40
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr ""
+msgstr "חיפוש מודולים של הגדרות מערכת שהשמות או התיאורים שלהם עונים על :q:"
 
 #: runner/systemsettingsrunner.cpp:186
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "הגדרות מערכת"
+msgstr "פרטי מערכת"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:56
 #, kde-format
 msgid "Show intro page"
-msgstr ""
+msgstr "הצגת עמוד ההקדמה"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:119
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "אין פריטים שעונים לחיפוש שלך"
 
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "הצגת תפריט"
 
 #: sidebar/package/contents/ui/introPage.qml:56
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "פלזמה"
 
 #: sidebar/SidebarMode.cpp:166
 #, kde-format
@@ -304,15 +300,14 @@ msgid "Marco Martin"
 msgstr "Marco Martin"
 
 #: sidebar/SidebarMode.cpp:651
-#, fuzzy, kde-format
-#| msgid "Sidebar View"
+#, kde-format
 msgid "Sidebar"
-msgstr "תצוגת סרגל צדדי"
+msgstr "סרגל צד"
 
 #: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "הכי בשימוש"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"
