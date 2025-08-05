@@ -82,7 +82,7 @@ msgstr "Ben Cooksley"
 #: app/main.cpp:80
 #, kde-format
 msgid "Maintainer"
-msgstr "المصين"
+msgstr "الصائن"
 
 #: app/main.cpp:81
 #, kde-format
