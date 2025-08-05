@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2023-01-07 17:06+0400\n"
+"PO-Revision-Date: 2025-05-14 17:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -66,7 +66,7 @@ msgstr "Ben Cooksley"
 #: app/main.cpp:87
 #, kde-format
 msgid "Maintainer"
-msgstr "المصين"
+msgstr "الصائن"
 
 #: app/main.cpp:88 icons/IconMode.cpp:60 sidebar/SidebarMode.cpp:173
 #, kde-format
