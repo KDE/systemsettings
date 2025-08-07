@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-05 00:44+0000\n"
+"POT-Creation-Date: 2025-08-07 18:32+0000\n"
 "PO-Revision-Date: 2025-05-28 20:17+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -186,17 +186,24 @@ msgstr "Plasma"
 msgid "Highlight Changed Settings"
 msgstr "Áherslulita breyttar stillingar"
 
-#: app/SettingsBase.cpp:147
+#: app/SettingsBase.cpp:144
+#, kde-format
+msgctxt ""
+"@option:check the pages being referred to here are System Settings KCMs"
+msgid "Show Inapplicable Pages"
+msgstr ""
+
+#: app/SettingsBase.cpp:155
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Tilkynna um villu á núverandi síðu…"
 
-#: app/SidebarMode.cpp:588
+#: app/SidebarMode.cpp:595
 #, kde-format
 msgid "Sidebar"
 msgstr "Hliðarstika"
 
-#: app/SidebarMode.cpp:657
+#: app/SidebarMode.cpp:664
 #, kde-format
 msgid "Most Used"
 msgstr "Mest notað"

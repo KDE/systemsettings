@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-05 00:44+0000\n"
+"POT-Creation-Date: 2025-08-07 18:32+0000\n"
 "PO-Revision-Date: 2024-09-19 16:11+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -191,17 +191,24 @@ msgstr "Plasma"
 msgid "Highlight Changed Settings"
 msgstr "Τονισμός αλλαγμένων ρυθμίσεων"
 
-#: app/SettingsBase.cpp:147
+#: app/SettingsBase.cpp:144
+#, kde-format
+msgctxt ""
+"@option:check the pages being referred to here are System Settings KCMs"
+msgid "Show Inapplicable Pages"
+msgstr ""
+
+#: app/SettingsBase.cpp:155
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Αναφορά σφάλματος στην τρέχουσα σελίδα..."
 
-#: app/SidebarMode.cpp:588
+#: app/SidebarMode.cpp:595
 #, kde-format
 msgid "Sidebar"
 msgstr "Πλευρική μπάρα"
 
-#: app/SidebarMode.cpp:657
+#: app/SidebarMode.cpp:664
 #, kde-format
 msgid "Most Used"
 msgstr "Περισσότερο χρησιμοποιημένο"
