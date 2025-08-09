@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-07 18:32+0000\n"
-"PO-Revision-Date: 2025-05-14 09:14+0300\n"
+"PO-Revision-Date: 2025-08-08 21:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -189,7 +189,7 @@ msgstr "Підсвічувати змінені параметри"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Показувати незастосовні сторінки"
 
 #: app/SettingsBase.cpp:155
 #, kde-format
