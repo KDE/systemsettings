@@ -185,7 +185,7 @@ msgstr "高亮显示更改过的设置"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "显示不可用页面"
 
 #: app/SettingsBase.cpp:155
 #, kde-format
