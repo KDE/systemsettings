@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-07 18:32+0000\n"
-"PO-Revision-Date: 2025-05-14 17:15+0200\n"
+"PO-Revision-Date: 2025-08-16 22:51+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -187,7 +187,7 @@ msgstr "Осветяване на променени настройки"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Покажи неприложимите страници"
 
 #: app/SettingsBase.cpp:155
 #, kde-format
