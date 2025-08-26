@@ -219,6 +219,7 @@ ModuleView::ModuleView(const std::shared_ptr<QQmlEngine> &engine, QWidget *paren
 
 ModuleView::~ModuleView()
 {
+    closeModules();
     delete d;
 }
 
