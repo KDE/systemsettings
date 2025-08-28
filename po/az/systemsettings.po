@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-07 18:32+0000\n"
+"POT-Creation-Date: 2025-08-28 00:45+0000\n"
 "PO-Revision-Date: 2025-06-02 12:22+0400\n"
 "Last-Translator: linux <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -140,13 +140,13 @@ msgstr "Təfərrüatı göstərilməyib"
 msgid "Reset all current changes to previous values"
 msgstr "Bütün cari dəyişiklikləri əvvəlki dəyərinə qaytarmaq"
 
-#: app/ModuleView.cpp:278
+#: app/ModuleView.cpp:279
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "Sürüşdürmə sahəsi"
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:368
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -155,7 +155,7 @@ msgstr ""
 "C ari səhifədə saxlanılmamış dəyişikliklər var.\n"
 "Dəyişiklikləri tətbiq edək yoxsa onları ləğv edək?"
 
-#: app/ModuleView.cpp:372
+#: app/ModuleView.cpp:373
 #, kde-format
 msgid "Apply Settings"
 msgstr "Ayarları tətbiq etmək"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-07 18:32+0000\n"
+"POT-Creation-Date: 2025-08-28 00:45+0000\n"
 "PO-Revision-Date: 2024-09-19 16:11+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -147,13 +147,13 @@ msgstr "Δεν υπάρχει διαθέσιμη περιγραφή"
 msgid "Reset all current changes to previous values"
 msgstr "Επαναφορά όλων των τρεχόντων αλλαγών στις προηγούμενες τιμές"
 
-#: app/ModuleView.cpp:278
+#: app/ModuleView.cpp:279
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:368
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -165,7 +165,7 @@ msgstr ""
 "Οι ρυθμίσεις του τρέχοντος αρθρώματος τροποποιήθηκαν.\n"
 "Επιθυμείτε την εφαρμογή των τροποποιήσεων ή την απόρριψή τους;"
 
-#: app/ModuleView.cpp:372
+#: app/ModuleView.cpp:373
 #, kde-format
 msgid "Apply Settings"
 msgstr "Εφαρμογή ρυθμίσεων"
