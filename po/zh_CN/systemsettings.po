@@ -183,7 +183,7 @@ msgstr "高亮显示更改过的设置"
 #: app/SettingsBase.cpp:147
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr "报告当前页面中的程序缺陷…"
+msgstr "报告当前页面的程序缺陷…"
 
 #: app/SidebarMode.cpp:588
 #, kde-format
