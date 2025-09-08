@@ -51,7 +51,6 @@ Name[ta]=காட்சிக் கருவிகள்
 Name[th]=ระบบแสดงภาพและจอภาพ
 Name[tr]=Görüntü ve Monitör
 Name[uk]=Показ зображення і монітор
-Name[x-test]=xxDisplay & Monitorxx
 Name[zh_CN]=显示和监视器
 Name[zh_TW]=顯示與螢幕
 Comment=Display Settings
@@ -144,7 +143,6 @@ Comment[uz]=Displeyning moslamalari
 Comment[uz@cyrillic]=Дисплейнинг мосламалари
 Comment[vi]=Thiết lập hiển thị
 Comment[wa]=Apontiaedjes do Håynaedje
-Comment[x-test]=xxDisplay Settingsxx
 Comment[zh_CN]=显示设置
 Comment[zh_TW]=顯示設定
 
