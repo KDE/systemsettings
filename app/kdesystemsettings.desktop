@@ -66,7 +66,6 @@ GenericName[tr]=KDE Sistem Ayarları
 GenericName[ug]=KDE سىستېما تەڭشىكى
 GenericName[uk]=Системні параметри KDE
 GenericName[vi]=Thiết lập hệ thống KDE
-GenericName[x-test]=xxKDE System Settingsxx
 GenericName[zh_CN]=KDE 系统设置
 GenericName[zh_TW]=KDE 系統設定
 
@@ -131,7 +130,6 @@ Name[tr]=KDE Sistem Ayarları
 Name[ug]=KDE سىستېما تەڭشىكى
 Name[uk]=Системні параметри KDE
 Name[vi]=Thiết lập hệ thống KDE
-Name[x-test]=xxKDE System Settingsxx
 Name[zh_CN]=KDE 系统设置
 Name[zh_TW]=KDE 系統設定
 
@@ -187,7 +185,6 @@ Comment[tg]=Абзорҳои идоракунӣ барои компютери ш
 Comment[tr]=Bilgisayarınız için yapılandırma araçları
 Comment[uk]=Інструменти для налаштовування вашого комп'ютера
 Comment[vi]=Các công cụ cấu hình cho máy tính của bạn
-Comment[x-test]=xxConfiguration tools for your computerxx
 Comment[zh_CN]=您的计算机的配置工具
 Comment[zh_TW]=提供給您電腦的配置工具
 X-DBUS-StartupType=Unique
