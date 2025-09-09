@@ -70,7 +70,6 @@
   <name xml:lang="tr">Sistem Ayarları</name>
   <name xml:lang="uk">Системні параметри</name>
   <name xml:lang="vi">Thiết lập hệ thống</name>
-  <name xml:lang="x-test">xxSystem Settingsxx</name>
   <name xml:lang="zh-CN">系统设置</name>
   <name xml:lang="zh-TW">系統設定</name>
   <summary>Configure the system’s behavior and appearance</summary>
@@ -98,7 +97,6 @@
   <summary xml:lang="ta">கணினியின் நடத்தையையும் தோற்றத்தையும் அமைக்கலாம்</summary>
   <summary xml:lang="tr">Sistem davranışını ve görünüşünü yapılandırın</summary>
   <summary xml:lang="uk">Налаштовування поведінки і вигляду системи</summary>
-  <summary xml:lang="x-test">xxConfigure the system’s behavior and appearancexx</summary>
   <summary xml:lang="zh-CN">配置系统的行为和外观</summary>
   <summary xml:lang="zh-TW">設定系統的外觀與行為</summary>
   <icon type="stock">systemsettings</icon>
@@ -155,7 +153,6 @@
     <p xml:lang="tr">Sistem Ayarları, gereksinimlerinizi daha iyi karşılaması için KDE Plasma masaüstünüzü yapılandırmanıza ve ince ayarlar yapmanıza olanak tanır.</p>
     <p xml:lang="uk">За допомогою програми «Системні параметри» ви можете налаштувати та скоригувати поведінку вашої стільниці Плазми так, щоб вона відповідала вашим уподобанням.</p>
     <p xml:lang="vi">"Thiết lập hệ thống" cho phép bạn cấu hình và điều chỉnh bàn làm việc Plasma KDE phù hợp hơn với nhu cầu của bạn.</p>
-    <p xml:lang="x-test">xxSystem Settings allows you to configure and tweak your KDE Plasma desktop to make it better meet your needs.xx</p>
     <p xml:lang="zh-CN">系统设置工具让您可以按需配置和调整 KDE Plasma 桌面环境。</p>
     <p xml:lang="zh-TW">《系統設定》讓你能設定及調整您的 KDE Plasma 桌面，以讓其更符合您的需求。</p>
   </description>
