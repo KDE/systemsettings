@@ -2,21 +2,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2012, 2014, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024 A S Alam <aalam@users.sf.net>
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2012, 2014, 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025 A S Alam <aalam@users.sf.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-28 00:45+0000\n"
-"PO-Revision-Date: 2024-10-01 21:34-0500\n"
-"Last-Translator: A S Alam <aman@punlinux.org>\n"
-"Language-Team: pa\n"
+"PO-Revision-Date: 2025-09-15 09:32-0500\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -144,7 +144,7 @@ msgstr "ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਨੂੰ ਪਿਛਲੇ ਮ�
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "ਸਕਰੋਲਯੋਗ ਖੇਤਰ"
 
 #: app/ModuleView.cpp:368
 #, kde-format
@@ -186,7 +186,7 @@ msgstr "ਤਬਦੀਲ ਕੀਤੀਆਂ ਸੈਟਿੰਗਾਂ ਉਘਾੜ
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "ਨਾ ਲਾਗੂ ਹੋਣਯੋਗ ਸਫ਼ੇ ਵੇਖਾਓ"
 
 #: app/SettingsBase.cpp:155
 #, kde-format
