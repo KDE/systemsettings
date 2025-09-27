@@ -114,7 +114,6 @@ inline QList<KPluginMetaData> findKCMsMetaData(MetaDataSource source)
         metaDataList << KPluginMetaData::findPlugins(QStringLiteral("plasma/kcms/kinfocenter"), filter);
     }
     for (const auto &m : std::as_const(metaDataList)) {
-        // We check both since porting a module to loading view KPluginMetaData drops ".desktop" from the pluginId()
         if (!KAuthorized::authorizeControlModule(m.pluginId())) {
             continue;
         }
