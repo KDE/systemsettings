@@ -53,7 +53,13 @@ inline QList<KPluginMetaData> findExternalKCMModules(MetaDataSource source)
                         service.property<QString>(QStringLiteral("X-KDE-System-Settings-Parent-Category-V2")));
             root.insert(QLatin1String("IsExternalApp"), true);
 
-            metaDataList << KPluginMetaData(root, file);
+            const KPluginMetaData metaData(root, file);
+
+            if (!KAuthorized::authorizeControlModule(metaData.pluginId())) {
+                continue;
+            }
+
+            metaDataList << metaData;
         }
         return metaDataList;
     };
