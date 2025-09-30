@@ -190,7 +190,7 @@ msgstr "显示不可用页面"
 #: app/SettingsBase.cpp:155
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr "报告当前页面中的程序缺陷…"
+msgstr "报告当前页面的程序缺陷…"
 
 #: app/SidebarMode.cpp:595
 #, kde-format
