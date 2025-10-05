@@ -21,7 +21,7 @@ using namespace Qt::StringLiterals;
 class MenuModel::Private
 {
 public:
-    Private(MenuModel *q)
+    explicit Private(MenuModel *q)
         : q(q)
     {
     }

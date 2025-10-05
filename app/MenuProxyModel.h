@@ -34,7 +34,7 @@ public:
      *
      * @param parent The QObject to use as a parent.
      */
-    MenuProxyModel(QObject *parent = nullptr);
+    explicit MenuProxyModel(QObject *parent = nullptr);
 
     QHash<int, QByteArray> roleNames() const override;
 
