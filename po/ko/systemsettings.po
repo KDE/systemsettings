@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-28 00:45+0000\n"
-"PO-Revision-Date: 2025-06-10 21:53+0200\n"
+"PO-Revision-Date: 2025-10-09 01:37+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -185,7 +185,7 @@ msgstr "변경된 설정 강조"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "적용되지 않는 페이지 표시"
 
 #: app/SettingsBase.cpp:155
 #, kde-format
