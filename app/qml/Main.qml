@@ -22,6 +22,19 @@ Item {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
+    // This is the background of the missing part of the sidebar's header
+    Rectangle {
+        anchors {
+            top: parent.top
+            right: parent.right
+        }
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.Header
+        color: Kirigami.Theme.backgroundColor
+        width: separator.width
+        height: sideBar.pageStack.currentItem?.header.height
+    }
+
     SideBarItem {
         id: sideBar
 
@@ -30,32 +43,28 @@ Item {
     }
 
     Kirigami.Separator {
+        z: 1
+        anchors {
+            top: parent.top
+            topMargin: Kirigami.Units.largeSpacing
+            right: parent.right
+        }
+        height: sideBar.pageStack.currentItem?.header.height - Kirigami.Units.largeSpacing * 2
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.Header
+    }
+
+    Kirigami.Separator {
         id: separator
         z: 1
         anchors {
             top: parent.top
+            topMargin: sideBar.pageStack.currentItem?.header.height - Math.round(separator.width * systemsettings.devicePixelRatio) / systemsettings.devicePixelRatio
             right: parent.right
             bottom: parent.bottom
         }
+
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Header
-
-        // These two rectangles on top of the separator are here because we're mimicking
-        // the standard Kirigami appearance that can't be inherited automatically due to
-        // System Settings' current hybrid QtWidgets/QtQuick infrastructure.
-        Rectangle {
-            id: topOverlay
-            color: Kirigami.Theme.backgroundColor
-            height: Kirigami.Units.largeSpacing
-            width: 1
-        }
-
-        Rectangle {
-            id: bottomOverlay
-            y: sideBar.pageStack.currentItem?.header.height - Kirigami.Units.largeSpacing
-            color: Kirigami.Theme.backgroundColor
-            height: Kirigami.Units.largeSpacing - 1
-            width: 1
-        }
     }
 }
