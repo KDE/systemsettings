@@ -80,6 +80,8 @@ class SidebarMode : public QObject
     Q_PROPERTY(bool actionMenuVisible READ actionMenuVisible NOTIFY actionMenuVisibleChanged)
     Q_PROPERTY(bool defaultsIndicatorsVisible READ defaultsIndicatorsVisible NOTIFY defaultsIndicatorsVisibleChanged)
     Q_PROPERTY(qreal headerHeight READ headerHeight WRITE setHeaderHeight NOTIFY headerHeightChanged)
+    // TODO Plasma 6.6 use new Kirigami api instead
+    Q_PROPERTY(qreal devicePixelRatio READ devicePixelRatio NOTIFY devicePixelRatioChanged)
 
 public:
     enum ApplicationMode {
@@ -116,6 +118,8 @@ public:
 
     qreal headerHeight() const;
     void setHeaderHeight(qreal height);
+
+    qreal devicePixelRatio() const;
 
     bool defaultsIndicatorsVisible() const;
     void toggleDefaultsIndicatorsVisibility();
@@ -166,6 +170,7 @@ Q_SIGNALS:
     void widthChanged();
     void actionMenuVisibleChanged();
     void headerHeightChanged();
+    void devicePixelRatioChanged();
     void defaultsIndicatorsVisibleChanged();
     void viewChanged(bool state);
 

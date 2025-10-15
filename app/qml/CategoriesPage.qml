@@ -25,17 +25,15 @@ Kirigami.ScrollablePage {
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.smallSpacing
 
-        implicitHeight: topPadding + sizeHelper.implicitHeight + bottomPadding
+        // TODO Plasma 6.6 align size to grid
+        height: Math.round((sizeHelper.implicitHeight + Kirigami.Units.smallSpacing * 2) * systemsettings.devicePixelRatio) / systemsettings.devicePixelRatio
 
         // Not visible; just to get its size so we can match this custom header
         // with the height of a standard header
-        Kirigami.Heading {
+        QQC2.ToolButton {
             id: sizeHelper
-            // otherwise it gets parented to the content item which we don't want
-            parent: pageHeader
-            text: "Placeholder"
             visible: false
-            textFormat: Text.PlainText
+            icon.name: "go-previous"
         }
 
         contentItem: RowLayout {

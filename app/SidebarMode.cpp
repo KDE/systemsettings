@@ -505,6 +505,11 @@ qreal SidebarMode::headerHeight() const
     return d->moduleView->headerHeight();
 }
 
+qreal SidebarMode::devicePixelRatio() const
+{
+    return d->moduleView->window()->devicePixelRatio();
+}
+
 void SidebarMode::refreshDefaults()
 {
     if (d->m_defaultsIndicatorsVisible) {
