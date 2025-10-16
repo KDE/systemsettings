@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:45+0000\n"
+"POT-Creation-Date: 2025-10-16 00:44+0000\n"
 "PO-Revision-Date: 2025-09-15 09:32-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਲਾਗੂ ਕਰੋ"
 
-#: app/qml/CategoriesPage.qml:111
+#: app/qml/CategoriesPage.qml:109
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -193,12 +193,12 @@ msgstr "ਨਾ ਲਾਗੂ ਹੋਣਯੋਗ ਸਫ਼ੇ ਵੇਖਾਓ"
 msgid "Report a Bug in the Current Page…"
 msgstr "…ਮੌਜੂਦਾ ਸਫ਼ੇ ਵਿੱਚ ਬੱਗ ਬਾਰੇ ਜਾਣਕਾਰੀ ਦਿਓ"
 
-#: app/SidebarMode.cpp:595
+#: app/SidebarMode.cpp:600
 #, kde-format
 msgid "Sidebar"
 msgstr "ਬਾਹੀ"
 
-#: app/SidebarMode.cpp:664
+#: app/SidebarMode.cpp:669
 #, kde-format
 msgid "Most Used"
 msgstr "ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੇ"
