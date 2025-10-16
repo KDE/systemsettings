@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:45+0000\n"
+"POT-Creation-Date: 2025-10-16 02:37+0000\n"
 "PO-Revision-Date: 2025-08-08 07:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "პარამეტრების გადატარება"
 
-#: app/qml/CategoriesPage.qml:111
+#: app/qml/CategoriesPage.qml:109
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -193,12 +193,12 @@ msgstr "გამოუსადეგარი გვერდების ჩ�
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"
 
-#: app/SidebarMode.cpp:595
+#: app/SidebarMode.cpp:600
 #, kde-format
 msgid "Sidebar"
 msgstr "გვერდითი ზოლი"
 
-#: app/SidebarMode.cpp:664
+#: app/SidebarMode.cpp:669
 #, kde-format
 msgid "Most Used"
 msgstr "ხშირად გამოყენებული"

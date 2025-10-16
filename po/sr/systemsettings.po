@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:45+0000\n"
+"POT-Creation-Date: 2025-10-16 02:37+0000\n"
 "PO-Revision-Date: 2017-10-30 23:08+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Примена поставки"
 
-#: app/qml/CategoriesPage.qml:111
+#: app/qml/CategoriesPage.qml:109
 #, fuzzy, kde-format
 #| msgctxt "A search yelded no results"
 #| msgid "No items matching your search"
@@ -203,13 +203,13 @@ msgstr ""
 msgid "Report a Bug in the Current Page…"
 msgstr ""
 
-#: app/SidebarMode.cpp:595
+#: app/SidebarMode.cpp:600
 #, kde-format
 msgid "Sidebar"
 msgstr "Бочна трака"
 
 # >> @title:window
-#: app/SidebarMode.cpp:664
+#: app/SidebarMode.cpp:669
 #, kde-format
 msgid "Most Used"
 msgstr "Најкоришћеније"

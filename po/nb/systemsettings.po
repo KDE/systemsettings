@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:45+0000\n"
+"POT-Creation-Date: 2025-10-16 02:37+0000\n"
 "PO-Revision-Date: 2023-03-01 16:00+0100\n"
 "Last-Translator: John Ivar Eriksen <jieriksen@runbox.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Ta i bruk endringer"
 
-#: app/qml/CategoriesPage.qml:111
+#: app/qml/CategoriesPage.qml:109
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -197,12 +197,12 @@ msgstr ""
 msgid "Report a Bug in the Current Page…"
 msgstr "Rapporter om feil på denne siden…"
 
-#: app/SidebarMode.cpp:595
+#: app/SidebarMode.cpp:600
 #, kde-format
 msgid "Sidebar"
 msgstr "Sidestolpe"
 
-#: app/SidebarMode.cpp:664
+#: app/SidebarMode.cpp:669
 #, kde-format
 msgid "Most Used"
 msgstr "Mest brukte"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-28 00:45+0000\n"
+"POT-Creation-Date: 2025-10-16 02:37+0000\n"
 "PO-Revision-Date: 2025-08-09 13:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -163,7 +163,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Ezarri ezarpenak"
 
-#: app/qml/CategoriesPage.qml:111
+#: app/qml/CategoriesPage.qml:109
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
@@ -196,12 +196,12 @@ msgstr "Erakutsi orri aplikaezinak"
 msgid "Report a Bug in the Current Page…"
 msgstr "Uneko orrian dagoen akats baten berri ematea..."
 
-#: app/SidebarMode.cpp:595
+#: app/SidebarMode.cpp:600
 #, kde-format
 msgid "Sidebar"
 msgstr "Alboko-barra"
 
-#: app/SidebarMode.cpp:664
+#: app/SidebarMode.cpp:669
 #, kde-format
 msgid "Most Used"
 msgstr "Gehien erabiliak"
