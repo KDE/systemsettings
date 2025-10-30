@@ -78,10 +78,9 @@ void CustomTitle::changeEvent(QEvent *event)
 
 void CustomTitle::colorsChanged()
 {
-    auto config = KSharedConfig::openConfig();
-    auto active = KColorScheme(QPalette::Active, KColorScheme::Header, config);
-    auto inactive = KColorScheme(QPalette::Inactive, KColorScheme::Header, config);
-    auto disabled = KColorScheme(QPalette::Disabled, KColorScheme::Header, config);
+    auto active = KColorScheme(QPalette::Active, KColorScheme::Header);
+    auto inactive = KColorScheme(QPalette::Inactive, KColorScheme::Header);
+    auto disabled = KColorScheme(QPalette::Disabled, KColorScheme::Header);
 
     QPalette palette = QWidget::palette();
 
