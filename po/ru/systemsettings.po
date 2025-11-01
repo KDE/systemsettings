@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:44+0000\n"
+"POT-Creation-Date: 2025-11-01 00:48+0000\n"
 "PO-Revision-Date: 2025-09-27 13:36+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -144,18 +144,18 @@ msgstr "Доступные модули:"
 msgid "No description available"
 msgstr "Описание недоступно"
 
-#: app/ModuleView.cpp:186
+#: app/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Отменить все текущие изменения и вернуться к предыдущим значениям"
 
-#: app/ModuleView.cpp:279
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "Область прокрутки"
 
-#: app/ModuleView.cpp:368
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -164,7 +164,7 @@ msgstr ""
 "В текущем модуле имеются несохранённые изменения.\n"
 "Применить или отклонить эти изменения?"
 
-#: app/ModuleView.cpp:373
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "Применить параметры"

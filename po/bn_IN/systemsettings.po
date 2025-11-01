@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:44+0000\n"
+"POT-Creation-Date: 2025-11-01 00:48+0000\n"
 "PO-Revision-Date: 2008-07-06 19:57+0530\n"
 "Last-Translator: Ria Das <mailtoria@gmail.com>\n"
 "Language-Team: Bengali (India) <discuss@ankur.co.in>\n"
@@ -135,18 +135,18 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/ModuleView.cpp:186
+#: app/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr ""
 
-#: app/ModuleView.cpp:279
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:368
+#: app/ModuleView.cpp:367
 #, fuzzy, kde-format
 #| msgid ""
 #| "There are unsaved changes in the active module.\n"
@@ -158,7 +158,7 @@ msgstr ""
 "সক্রিয় মডিউল-এ অসংরক্ষিত পরিবর্তন রয়েছে।\n"
 "আপনি কী সংশ্লিষ্ট পরিবর্তনগুলো প্রয়োগ করতে চান না বাতিল করতে চান?"
 
-#: app/ModuleView.cpp:373
+#: app/ModuleView.cpp:372
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "Apply Settings"

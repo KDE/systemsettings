@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:44+0000\n"
+"POT-Creation-Date: 2025-11-01 00:48+0000\n"
 "PO-Revision-Date: 2009-12-12 12:21+0100\n"
 "Last-Translator: Mark Kwidzińśczi <mark@linuxcsb.org>\n"
 "Language-Team: Kaszëbsczi <i18n-csb@linuxcsb.org>\n"
@@ -139,18 +139,18 @@ msgstr ""
 msgid "No description available"
 msgstr ""
 
-#: app/ModuleView.cpp:186
+#: app/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "Resetëje wszëtczé zmianë do pòprzédnëch wôrtnotów"
 
-#: app/ModuleView.cpp:279
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:368
+#: app/ModuleView.cpp:367
 #, fuzzy, kde-format
 #| msgid ""
 #| "The settings of the current module have changed.\n"
@@ -162,7 +162,7 @@ msgstr ""
 "Są niezapisóné zmianë w aktiwnym mòdule.\n"
 "Chcesz je zacwierdzëc czë rëmnąc?"
 
-#: app/ModuleView.cpp:373
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "Systemòwé nastôwë"

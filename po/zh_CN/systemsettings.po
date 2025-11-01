@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:44+0000\n"
+"POT-Creation-Date: 2025-11-01 00:48+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -134,18 +134,18 @@ msgstr "下列模块可用："
 msgid "No description available"
 msgstr "没有可用的描述"
 
-#: app/ModuleView.cpp:186
+#: app/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "重置所有当前更改为之前的值"
 
-#: app/ModuleView.cpp:279
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "可滚动区域"
 
-#: app/ModuleView.cpp:368
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -154,7 +154,7 @@ msgstr ""
 "当前页面包含尚未保存的更改。\n"
 "您想要应用还是放弃这些更改？"
 
-#: app/ModuleView.cpp:373
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "应用设置"

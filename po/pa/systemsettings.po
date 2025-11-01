@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-16 00:44+0000\n"
+"POT-Creation-Date: 2025-11-01 00:48+0000\n"
 "PO-Revision-Date: 2025-09-15 09:32-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -135,18 +135,18 @@ msgstr "ਅੱਗੇ ਦਿੱਤੇ ਮੋਡੀਊਲ ਮੌਜੂਦ ਹਨ:"
 msgid "No description available"
 msgstr "ਕੋਈ ਵੇਰਵਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: app/ModuleView.cpp:186
+#: app/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਨੂੰ ਪਿਛਲੇ ਮੁੱਲ ਲਈ ਸੈੱਟ ਕਰੋ"
 
-#: app/ModuleView.cpp:279
+#: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "ਸਕਰੋਲਯੋਗ ਖੇਤਰ"
 
-#: app/ModuleView.cpp:368
+#: app/ModuleView.cpp:367
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -155,7 +155,7 @@ msgstr ""
 "ਮੌਜੂਦਾ ਸਫ਼ੇ ਵਿੱਚ ਕੁਝ ਅਣ-ਸੰਭਾਲੇ ਬਦਲਾਅ ਹਨ।\n"
 "ਕੀ ਤੁਸੀਂ ਇਹਨਾਂ ਨੂੰ ਲਾਗੂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਅਣਡਿੱਠਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: app/ModuleView.cpp:373
+#: app/ModuleView.cpp:372
 #, kde-format
 msgid "Apply Settings"
 msgstr "ਸੈਟਿੰਗਾਂ ਨੂੰ ਲਾਗੂ ਕਰੋ"
