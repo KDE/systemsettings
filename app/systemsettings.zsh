@@ -42,7 +42,7 @@ case $state in
 
     kcm_assoc=()
     for kcm_line in $lines ; do
-      # split at hypen into name and description, and strip whitespace
+      # split at hyphen into name and description, and strip whitespace
       kcm_name=${kcm_line%% *}
       kcm_desc=${kcm_line##*- }
       # skip already specified KCMs except for current word
