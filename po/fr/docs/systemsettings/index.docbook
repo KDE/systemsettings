@@ -157,7 +157,7 @@
 >&Alt;<keycap
 >Espace</keycap
 ></keycombo
-> fera apparaître la boîte de dialogue de &krunner;. Saisissez <command
+> fera apparaitre la boite de dialogue de &krunner;. Saisissez <command
 >systemsettings</command
 > et appuyez sur la touche « &Enter; ». </para>
 </listitem>
@@ -178,7 +178,7 @@
 >L'écran de la &systemsettings;</title>
 
 <para
->Lorsque vous démarrez &systemsettings;, une fenêtre apparaît divisée en trois parties de fonctions. </para>
+>Lorsque vous démarrez &systemsettings;, une fenêtre apparait divisée en trois parties de fonctions. </para>
 
 <para
 >Sur toute la partie supérieure se trouve une barre d'outils fournissant à l'utilisateur la capacité de revenir dans la fenêtre principale depuis l'intérieur d'un module en utilisant le bouton <guibutton
@@ -187,7 +187,7 @@
 >Aide</guimenu
 > ainsi qu'un bouton <guibutton
 >Configurer</guibutton
->, qui vous présenteront une boîte de dialogue avec des styles d'affichages différents. </para>
+>, qui vous présenteront une boite de dialogue avec des styles d'affichages différents. </para>
 <para
 >Pour rechercher quelque chose dans tous les modules, commencez à saisir des mots clés dans le champ de recherche à droite de la barre d'outils dans la <guibutton
 >Tous les paramètres</guibutton
@@ -195,7 +195,7 @@
 <para
 >Lorsque la fenêtre d'icônes a le focus, vous pouvez saisir la première lettre de n'importe quel module ou groupe de module pour le sélectionner. En saisissant de nouveau une autre lettre, la sélection se déplace vers la prochaine correspondance. </para>
 <para
->Sous la barre d'outils se trouve une vue sous forme d'icônes des modules individuels ou groupes de modules constituant &systemsettings; et regroupés par catégorie. Par défaut, si la souris reste quelques secondes au dessus d'une icône, une infobulle apparaît, soit expliquant l'objet du module ou affichant les modules de ce groupe. </para>
+>Sous la barre d'outils se trouve une vue sous forme d'icônes des modules individuels ou groupes de modules constituant &systemsettings; et regroupés par catégorie. Par défaut, si la souris reste quelques secondes au dessus d'une icône, une infobulle apparait, soit expliquant l'objet du module ou affichant les modules de ce groupe. </para>
 </sect1>
 
 <sect1 id="general">
@@ -452,7 +452,7 @@
 >kcmshell5 --list</command
 > pour voir une liste des modules disponibles pour &systemsettings;. </para>
 <para
->De plus, vous pouvez démarrer KRunner et commencer à saisir des mots clés. Lorsque vous commencez la saisie, une liste de modules correspondants préfixés avec &systemsettings; apparaîtront. </para>
+>De plus, vous pouvez démarrer KRunner et commencer à saisir des mots clés. Lorsque vous commencez la saisie, une liste de modules correspondants préfixés avec &systemsettings; apparaitront. </para>
 </sect1>
 </chapter>
 
@@ -518,7 +518,7 @@
 >Appliquer</quote
 >les modifications avant de passer dans un autre module. </para>
 <para
->Si vous essayez de changer sans enregistrer ou réinitialiser vos options, une boîte de dialogue vous demandera si vous souhaitez enregistrer vos modifications ou les abandonner. </para>
+>Si vous essayez de changer sans enregistrer ou réinitialiser vos options, une boite de dialogue vous demandera si vous souhaitez enregistrer vos modifications ou les abandonner. </para>
 </note>
 
 </chapter>
