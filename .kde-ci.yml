@@ -29,7 +29,7 @@ Dependencies:
 RuntimeDependencies:
  - 'on': ['Linux']
    'require':
-    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
+    'sdk/selenium-webdriver-at-spi': '@same'
 
 Options:
  require-passing-tests-on: ['Linux', 'FreeBSD']
