@@ -59,7 +59,7 @@ Kirigami.ScrollablePage {
                 visible: !applicationWindow().wideScreen
 
                 Layout.fillWidth: true
-                Layout.fillHeight: true
+                padding: Kirigami.Units.smallSpacing
 
                 // Uncomment once QQC2.ToolButton can force-left-align its contents
                 // text: subCategoryColumn.title
@@ -121,8 +121,6 @@ Kirigami.ScrollablePage {
                 id: hamburgerMenuButton
 
                 visible: !applicationWindow().wideScreen
-
-                Layout.fillHeight: true
 
                 KeyNavigation.left: backButton
                 KeyNavigation.down: subCategoryView
