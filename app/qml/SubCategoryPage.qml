@@ -24,28 +24,12 @@ Kirigami.ScrollablePage {
     header: Kirigami.AbstractApplicationHeader {
         id: pageHeader
 
-        topPadding: Kirigami.Units.smallSpacing
-        bottomPadding: Kirigami.Units.smallSpacing
-        leftPadding: Kirigami.Units.smallSpacing
-        rightPadding: Kirigami.Units.smallSpacing
-
-        // TODO Plasma 6.6 align size to grid
-        height: Math.round((sizeHelper.implicitHeight + Kirigami.Units.smallSpacing * 2) * systemsettings.devicePixelRatio) / systemsettings.devicePixelRatio
-
-        // Not visible; just to get its size so we can match this custom header
-        // with the height of a standard header
-        QQC2.ToolButton {
-            id: sizeHelper
-            visible: false
-            icon.name: "go-previous"
-        }
-
         contentItem: RowLayout {
             id: rowLayout
             // FIXME: left and right anchors shouldn't be needed here, but if
             // they're removed, the layout doesn't span the full width
             anchors.fill: parent
-            spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
+            spacing: Kirigami.Units.smallSpacing
 
             Keys.onDownPressed: event => {
                 subCategoryView.currentIndex = 0;
@@ -56,6 +40,7 @@ Kirigami.ScrollablePage {
             QQC2.ToolButton {
                 id: backButton
 
+                implicitHeight: hamburgerMenuButton.implicitHeight
                 visible: !applicationWindow().wideScreen
 
                 Layout.fillWidth: true

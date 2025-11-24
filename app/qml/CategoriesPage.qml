@@ -22,9 +22,6 @@ Kirigami.ScrollablePage {
     header: Kirigami.AbstractApplicationHeader {
         id: pageHeader
 
-        leftPadding: Kirigami.Units.smallSpacing
-        rightPadding: Kirigami.Units.smallSpacing
-
         // TODO Plasma 6.6 align size to grid
         height: Math.round((sizeHelper.implicitHeight + Kirigami.Units.smallSpacing * 2) * systemsettings.devicePixelRatio) / systemsettings.devicePixelRatio
 
@@ -41,7 +38,7 @@ Kirigami.ScrollablePage {
             // FIXME: left and right anchors shouldn't be needed here, but if
             // they're removed, the layout doesn't span the full width
             anchors.fill: parent
-            spacing: Math.round(Kirigami.Units.smallSpacing/2) // Match margins
+            spacing: Kirigami.Units.smallSpacing
 
             Keys.onDownPressed: event => {
                 categoryView.currentIndex = 0;
