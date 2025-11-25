@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2011-01-08 23:40+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Tetapan Sistem"
 
-#: app/qml/CategoriesPage.qml:109
+#: app/qml/CategoriesPage.qml:106
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

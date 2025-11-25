@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-05-14 12:32+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Applica Preferentias"
 
-#: app/qml/CategoriesPage.qml:109
+#: app/qml/CategoriesPage.qml:106
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

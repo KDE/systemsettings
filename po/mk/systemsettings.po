@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2010-02-01 00:06+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "Примени поставувања"
 
-#: app/qml/CategoriesPage.qml:109
+#: app/qml/CategoriesPage.qml:106
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"

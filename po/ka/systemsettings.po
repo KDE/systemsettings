@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-08-08 07:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Apply Settings"
 msgstr "პარამეტრების გადატარება"
 
-#: app/qml/CategoriesPage.qml:109
+#: app/qml/CategoriesPage.qml:106
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
