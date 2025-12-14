@@ -288,6 +288,7 @@ void ModuleView::addModule(MenuItem *item, const QStringList &args)
         kcm->widget()->setAutoFillBackground(false);
         kcm->load();
         connect(kcm, &KCModule::needsSaveChanged, this, &ModuleView::stateChanged);
+        connect(kcm, &KCModule::buttonsChanged, this, &ModuleView::updateButtons);
         connect(kcm, &KCModule::representsDefaultsChanged, this, [this, kcm]() {
             if (kcm == d->mPages.value(d->mPageWidget->currentPage()) && kcm->buttons() & d->mButtonMask & KCModule::Default) {
                 d->mDefault->setEnabled(!kcm->representsDefaults());
