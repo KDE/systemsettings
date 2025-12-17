@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-12-17 00:45+0000\n"
 "PO-Revision-Date: 2025-08-08 00:40+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -148,7 +148,7 @@ msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "Área desplazable"
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:368
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -157,7 +157,7 @@ msgstr ""
 "La página actual tiene cambios sin guardar.\n"
 "¿Quiere aplicar los cambios o descartarlos?"
 
-#: app/ModuleView.cpp:372
+#: app/ModuleView.cpp:373
 #, kde-format
 msgid "Apply Settings"
 msgstr "Aplicar preferencias"

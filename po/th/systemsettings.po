@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-12-17 00:45+0000\n"
 "PO-Revision-Date: 2025-03-03 20:19+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -148,7 +148,7 @@ msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr ""
 
-#: app/ModuleView.cpp:367
+#: app/ModuleView.cpp:368
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -157,7 +157,7 @@ msgstr ""
 "หน้าปัจจุบันมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก \n"
 "ใช้การเปลี่ยนแปลงนั้นหรือยกเลิกการเปลี่ยนแปลงนั้น?"
 
-#: app/ModuleView.cpp:372
+#: app/ModuleView.cpp:373
 #, kde-format
 msgid "Apply Settings"
 msgstr "ปรับใช้ค่าที่ตั้งไว้"
