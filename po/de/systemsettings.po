@@ -5,20 +5,21 @@
 # SPDX-FileCopyrightText: 2009, 2010, 2011, 2020, 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:42+0000\n"
-"PO-Revision-Date: 2025-02-22 02:38+0100\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2025-12-04 02:54+0100\n"
+"Last-Translator: Oliver Schramm <oliver.schramm97@gmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -146,7 +147,7 @@ msgstr "Alle aktuellen Änderungen auf vorherige Werte zurücksetzen"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Scrollbarer Bereich"
 
 #: app/ModuleView.cpp:368
 #, kde-format
@@ -188,7 +189,7 @@ msgstr "Geänderte Einstellungen hervorheben"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Nicht relevante Seiten anzeigen"
 
 #: app/SettingsBase.cpp:155
 #, kde-format
