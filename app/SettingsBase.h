@@ -38,6 +38,7 @@ public:
 
 protected:
     QSize sizeHint() const override;
+    bool event(QEvent *e) override;
 
 private Q_SLOTS:
     void initApplication();
