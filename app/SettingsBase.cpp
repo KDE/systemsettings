@@ -82,6 +82,14 @@ QSize SettingsBase::sizeHint() const
     return targetSize.boundedTo(screenSize);
 }
 
+bool SettingsBase::event(QEvent *e)
+{
+    if (e->type() == QEvent::LanguageChange) {
+        view->retranslateQml();
+    }
+    return KMainWindow::event(e);
+}
+
 void SettingsBase::initApplication()
 {
     // Prepare the menu of all modules
