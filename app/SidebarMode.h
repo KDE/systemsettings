@@ -146,6 +146,8 @@ public:
     void setStartupModuleArgs(const QStringList &startupModuleArgs);
     QStringList startupModuleArgs() const;
 
+    void retranslateQml();
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 

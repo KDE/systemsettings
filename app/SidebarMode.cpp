@@ -768,4 +768,9 @@ QStringList SidebarMode::startupModuleArgs() const
     return d->startupModuleArgs;
 }
 
+void SidebarMode::retranslateQml()
+{
+    d->engine->retranslate();
+}
+
 #include "moc_SidebarMode.cpp"
