@@ -39,7 +39,7 @@
 >&FDLNotice;</legalnotice>
 
 <date
->2021-04-11</date>
+>2021‒04‒11</date>
 <releaseinfo
 >Plasma 5.20</releaseinfo>
 
@@ -153,13 +153,13 @@
 <para
 ><guilabel
 >Uygulama Menüsü</guilabel
->'nden <menuchoice
+>’nden <menuchoice
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
 >Sistem Ayarları</guimenuitem
 ></menuchoice
->'nı seçerek. </para>
+>’nı seçerek. </para>
 </listitem>
 <listitem>
 <para
@@ -173,7 +173,7 @@
 ></keycombo
 > düğmelerine basarak. Bu, &krunner; iletişim kutusunu açar, burada <command
 >sistem ayarları</command
-> yazın ve &Enter;'e basın. </para>
+> yazın ve &Enter;’e basın. </para>
 </listitem>
 <listitem>
 <para
@@ -197,7 +197,7 @@
 <para
 >En üstte bir araç çubuğu bulunur. Araç çubuğu, kullanıcıya <guibutton
 >Tüm Ayarlar</guibutton
->'ı kullanarak bir modül içinden ana görünüme geri dönme yeteneği sağlar. Ayrıca bir <guimenu
+>’ı kullanarak bir modül içinden ana görünüme geri dönme yeteneği sağlar. Ayrıca bir <guimenu
 >Yardım</guimenu
 > menüsü ve size alternatif görünüm ayarlarıyla bir iletişim kutusu sağlayan bir <guibutton
 >Yapılandır</guibutton
@@ -355,7 +355,7 @@
 ><itemizedlist>
 <listitem
 ><para
->Giriş Aygıtları (Klavye, Fare, Oyun Kumandası. Grafik Tablet, Dokunmatik Yüzey) </para
+>Giriş Aygıtları (Klavye, Fare, Oyun Kolu. Grafik Tablet, Dokunmatik Yüzey) </para
 ></listitem>
 <listitem
 ><para
@@ -444,9 +444,9 @@
 >Yapılandır</guiicon
 > simgesi, bazı &systemsettings; parametrelerini değiştirmenize izin verir. <guilabel
 >Simge Görünümü</guilabel
->'nden (öntanımlı görünüm) <guilabel
+>’nden (öntanımlı görünüm) <guilabel
 >Kenar Çubuğu Görünümü</guilabel
->'ne geçebilirsiniz. <guilabel
+>’ne geçebilirsiniz. <guilabel
 >Kenar Çubuğu Görünümü</guilabel
 > kipindeki karşılama sayfası, tez erişim için sıkça kullanılan modülleri gösterir. </para>
 
