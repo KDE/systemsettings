@@ -2,30 +2,32 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the systemsettings package.
 # Kevin Scannell <kscanne@gmail.com>, 2009.
+# SPDX-FileCopyrightText: 2025 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/systemsettings.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2007-06-27 10:27-0500\n"
-"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2025-12-23 21:28+0000\n"
+"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kevin Scannell"
+msgstr "Kevin Scannell,Charlotte"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kscanne@gmail.com"
+msgstr "kscanne@gmail.com,altronic25@protonmail.com"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
@@ -49,10 +51,9 @@ msgid "System Settings"
 msgstr "Socruithe an Chórais"
 
 #: app/main.cpp:74
-#, fuzzy, kde-format
-#| msgid "Central configuration center for KDE."
+#, kde-format
 msgid "Central configuration center by KDE."
-msgstr "Lárionad cumraíochta le haghaidh KDE."
+msgstr "Lárionad cumraíochta ag KDE."
 
 #: app/main.cpp:87 icons/IconMode.cpp:59 sidebar/SidebarMode.cpp:172
 #, kde-format
@@ -178,16 +179,14 @@ msgid "About System Settings"
 msgstr "Maidir le Socruithe an Chórais"
 
 #: app/ToolTips/tooltipmanager.cpp:188
-#, fuzzy, kde-format
-#| msgid "<i>Contains 1 item</i>"
-#| msgid_plural "<i>Contains %1 items</i>"
+#, kde-format
 msgid "Contains 1 item"
 msgid_plural "Contains %1 items"
-msgstr[0] "<i>1 mhír ann</i>"
-msgstr[1] "<i>%1 mhír ann</i>"
-msgstr[2] "<i>%1 mhír ann</i>"
-msgstr[3] "<i>%1 mír ann</i>"
-msgstr[4] "<i>%1 mír ann</i>"
+msgstr[0] "1 mhír ann"
+msgstr[1] "%1 mhír ann"
+msgstr[2] "%1 mhír ann"
+msgstr[3] "%1 mír ann"
+msgstr[4] "%1 mír ann"
 
 #: core/ExternalAppModule.cpp:27
 #, kde-format
@@ -241,10 +240,9 @@ msgid "Author"
 msgstr "Údar"
 
 #: icons/IconMode.cpp:63
-#, fuzzy, kde-format
-#| msgid "Apply Settings"
+#, kde-format
 msgid "All Settings"
-msgstr "Cuir na Socruithe i bhFeidhm"
+msgstr "Uile Socruithe"
 
 #: icons/IconMode.cpp:64
 #, kde-format
@@ -281,7 +279,7 @@ msgstr ""
 #: sidebar/package/contents/ui/introPage.qml:56
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: sidebar/SidebarMode.cpp:166
 #, kde-format
@@ -297,12 +295,12 @@ msgstr "Soláthraíonn sé amharc le deilbhíní catagóirithe ar mhodúil riala
 #: sidebar/SidebarMode.cpp:170
 #, kde-format
 msgid "(c) 2017, Marco Martin"
-msgstr ""
+msgstr "© 2017, Marco Martin"
 
 #: sidebar/SidebarMode.cpp:171
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: sidebar/SidebarMode.cpp:651
 #, kde-format
