@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&systemsettings;">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Brazilian-Portuguese "INCLUDE">
 ]>
@@ -54,9 +53,9 @@
 >&FDLNotice;</legalnotice>
 
 <date
->01/04/2015</date>
+>11/04/2021</date>
 <releaseinfo
->Plasma 5.3</releaseinfo>
+>Plasma 5.20</releaseinfo>
 
 <abstract>
 <para
@@ -133,6 +132,12 @@
 >Hardware</link
 ></para
 ></listitem>
+<listitem
+><para
+><link linkend="system_administration"
+>Gerenciamento do sistema</link
+></para
+></listitem>
 </itemizedlist>
 </para>
 
@@ -181,13 +186,13 @@
 >Espaço</keycap
 ></keycombo
 >. Isto irá abrir a janela do &krunner;. Digite <command
->systemsettings5</command
+>systemsettings</command
 > e pressione &Enter;. </para>
 </listitem>
 <listitem>
 <para
 >Digite <command
->systemsettings5 &amp;</command
+>systemsettings &amp;</command
 > em qualquer linha de comando. </para>
 </listitem>
 </orderedlist>
@@ -204,8 +209,8 @@
 >Ao iniciar as &systemsettings; é apresentada uma janela que se encontra dividida em duas partes funcionais. </para>
 
 <para
->Ao longo do topo, existe uma barra de ferramentas. Essa barra oferece ao usuário a capacidade de recuar para a janela principal, a partir de um módulo usando a <guibutton
->Visão Geral</guibutton
+>Ao longo do topo, existe uma barra de ferramentas. Essa barra oferece ao usuário a capacidade de recuar para a janela principal, a partir de um módulo usando <guibutton
+>Todas as configurações</guibutton
 >. Você pode também encontrar um menu de <guimenu
 >Ajuda</guimenu
 > bem como um botão para <guibutton
@@ -213,7 +218,7 @@
 > que apresenta uma janela com configurações alternativas de visualização. </para>
 <para
 >Para procurar por algo em todos os módulos, comece a digitar as palavras-chave no campo de pesquisa à direita da barra de ferramentas na <guibutton
->Visão Geral</guibutton
+>Todas as configurações</guibutton
 >. Quando você iniciar a digitação, uma lista de tópicos correspondentes aparecerá. Selecione um e somente os grupos com configurações para esta palavra-chave serão habilitados, os outros ficarão em cinza.</para>
 <para
 >Quando a janela do ícone ficar em primeiro plano, você poderá digitar a primeira letra de qualquer módulo ou o nome do grupo de módulos para selecionar. Se digitar esta letra novamente irá para a próxima ocorrência. </para>
@@ -236,11 +241,19 @@
 ><itemizedlist>
 <listitem
 ><para
->Tema do Espaço de Trabalho (Aparência, Tema da área de trabalho, Tema de cursores, Tela de apresentação) </para
+>Tema global </para
 ></listitem>
 <listitem
 ><para
->Cor </para
+>Estilo plasma </para
+></listitem>
+<listitem
+><para
+>Estilo dos aplicativos (decorações das janelas, estilo do aplicativo) </para
+></listitem>
+<listitem
+><para
+>Cores </para
 ></listitem>
 <listitem
 ><para
@@ -248,11 +261,11 @@
 ></listitem>
 <listitem
 ><para
->Ícones (Ícones, Emoticons) </para
+>Ícones </para
 ></listitem>
 <listitem
 ><para
->Estilo dos aplicativos (Decorações das janelas, Estilo do widget, Estilo dos aplicativos GNOME (GTK)) </para
+>Cursores </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -267,7 +280,7 @@
 ><itemizedlist>
 <listitem
 ><para
->Comportamento da área de trabalho (Espaço de trabalho, Efeitos da área de trabalho, Contornos da tela, Bloqueio de tela, Áreas de trabalho virtuais, Acessibilidade, Atividades) </para
+>Comportamento do espaço de trabalho (comportamento geral, efeitos da área de trabalho, bordas da tela, tela sensível ao toque, bloqueio de tela, áreas de trabalho virtuais, atividades) </para
 ></listitem>
 <listitem
 ><para
@@ -275,15 +288,15 @@
 ></listitem>
 <listitem
 ><para
->Atalhos (Atalhos de teclado do aplicativo, Atalhos de teclado globais, Atalhos da Web, Atalhos personalizados) </para
+>Atalhos (atalhos, atalhos personalizados) </para
 ></listitem>
 <listitem
 ><para
->Inicialização e desligamento (Auto-início, Serviços de segundo plano, Sessões da área de trabalho, Tela de autenticação (SDDM)) </para
+>Inicialização e desligamento (tela de login (SDDM), inicialização automática, serviços em segundo plano, sessão da área de trabalho, tela inicial) </para
 ></listitem>
 <listitem
 ><para
->Pesquisa (Pesquisa do Plasma, Pesquisa de Arquivos) </para
+>Pesquisa (pesquisa de arquivos, Krunner, palavras-chave de pesquisa na Web) </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -298,19 +311,35 @@
 ><itemizedlist>
 <listitem
 ><para
->Detalhes da conta (Senha e Conta do Usuário, Carteira do KDE, Gerenciador de Usuários) </para
-></listitem>
-<listitem
-><para
->Configurações Regionais (Traduções, Formato, Verificação ortográfica, Data e Hora) </para
-></listitem>
-<listitem
-><para
 >Notificações </para
 ></listitem>
 <listitem
 ><para
+>Usuários </para
+></listitem>
+<listitem
+><para
+>Configurações regionais (idioma, formatos, verificação ortográfica, data e hora) </para
+></listitem>
+<listitem
+><para
+>Acessibilidade </para
+></listitem>
+<listitem
+><para
 >Aplicativos (Aplicativos padrão, Associações de arquivo, Localizações, Aviso de execução) </para
+></listitem>
+<listitem
+><para
+>KDE Wallet </para
+></listitem>
+<listitem
+><para
+>Contas online </para
+></listitem>
+<listitem
+><para
+>Comentários do usuário </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -325,23 +354,7 @@
 ><itemizedlist>
 <listitem
 ><para
->Rede (Proxy, Preferências da conexão, Preferências de SSL, Cache, Cookies, Identificação do navegador) </para
-></listitem>
-</itemizedlist
-></para>
-<para
-><itemizedlist>
-<listitem
-><para
->Conectividade (Compartilhamentos Windows) </para
-></listitem>
-</itemizedlist
-></para>
-<para
-><itemizedlist>
-<listitem
-><para
->Bluetooth (Dispositivos, Transferências de arquivos, Adaptadores) </para
+>Rede (proxy, preferências da conexão, preferências de SSL, cache, cookies, identificação do navegador, compartilhamentos do Windows) </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -356,23 +369,46 @@
 ><itemizedlist>
 <listitem
 ><para
->Dispositivos de entrada (Teclado, Mouse, Joystick) </para
+>Dispositivos de entrada (teclado, mouse, controle de jogo, tablet gráfico, touchpad) </para
 ></listitem>
 <listitem
 ><para
->Tela e monitor (Configuração da tela, Compositor) </para
+>Tela e monitor (configuração de tela, compositor, gama, cor noturna) </para
 ></listitem>
 <listitem
 ><para
->Multimídia (Áudio e vídeo) </para
+>Audio </para
 ></listitem>
 <listitem
 ><para
->Gerenciamento de energia (Economia de energia, Configurações avançadas, Configurações de atividades) </para
+>Multimídia (CDs de áudio, base de dados CDDB) </para
 ></listitem>
 <listitem
 ><para
->Ações dos Dispositivos </para
+>Gerenciamento de energia (economia de energia, configurações de atividade, configurações avançadas) </para
+></listitem>
+<listitem
+><para
+>Bluetooth </para
+></listitem>
+<listitem
+><para
+>Armazenamento removível (ações do dispositivo, câmera digital, dispositivos removíveis) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="system_administration">
+<term
+>Gerenciamento do sistema</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>Informações do sistema </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -383,8 +419,8 @@
 
 <tip
 ><para
->Use o campo de pesquisa no topo à direita da <guibutton
->Visão Geral</guibutton
+>Use o campo de pesquisa no topo à direita em <guibutton
+>Todas as configurações</guibutton
 > para encontrar todos os módulos que correspondem a uma determinada palavra-chave. Se começar a digitar uma palavra-chave, aparacerá uma lista de palavras-chave que correspondam à pesquisa e irá ativar apenas respectivos módulos.</para
 ></tip>
 </sect1>
@@ -420,16 +456,19 @@
 <para
 >O ícone <guiicon
 >Configurar</guiicon
-> na barra de ferramentas permite-lhe alterar alguns parâmetros das &systemsettings;. Você poderá alternar entre a <guilabel
+> na barra de ferramentas permite-lhe alterar alguns parâmetros das &systemsettings;. Você pode mudar de <guilabel
 >Visão em ícone</guilabel
-> (a padrão) e <guilabel
->Visão em árvore clássica</guilabel
->. </para>
+> (exibição padrão) para <guilabel
+>Visualização da barra lateral</guilabel
+>. No modo <guilabel
+>Visualização da barra lateral</guilabel
+>, a página de boas-vindas mostra os módulos usados ​​com frequência para acesso rápido. </para>
 
 <para
 >Você poderá também ativar as dicas detalhadas se desligar a opção <guilabel
 >Exibir dicas de ferramenta detalhadas</guilabel
 >. Você irá então obter apenas as dicas normais e não o conteúdo do grupo de módulos. </para>
+
 </sect1>
 
 <sect1 id="run-modules-individually">
@@ -452,7 +491,7 @@
 >Módulos das &systemsettings;</title>
 
 <para
->Para simplificar ao máximo possível, o programa de &systemsettings; organizou as opções em cinco categorias. Em cada categoria, existem ícones agrupados sob determinadas subcategorias. Cada ícone é chamado de módulo. Ao clicar duas vezes no ícone de um módulo, serão apresentadas as opções do módulo na janela principal. </para>
+>Para simplificar ao máximo possível, o programa de &systemsettings; organizou as opções em seis categorias. Em cada categoria, existem ícones agrupados sob determinadas subcategorias. Cada ícone é chamado de módulo. Ao clicar duas vezes no ícone de um módulo, serão apresentadas as opções do módulo na janela principal. </para>
 
 <para
 >Cada um dos módulos possui alguns ou todos os botões a seguir: </para>
@@ -577,8 +616,7 @@
 > e André Marcelo Alvarenga <email
 >alvarenga@kde.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 </book>
