@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:42+0000\n"
+"POT-Creation-Date: 2026-01-12 03:03+0000\n"
 "PO-Revision-Date: 2011-06-22 06:21+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -181,19 +181,19 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr ""
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr ""
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""

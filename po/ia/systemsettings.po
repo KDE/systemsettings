@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:42+0000\n"
+"POT-Creation-Date: 2026-01-12 03:03+0000\n"
 "PO-Revision-Date: 2025-05-14 12:32+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -175,19 +175,19 @@ msgstr "Monstra menu"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Evidentia preferentias cambiate"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr ""
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Reporta un bug in le Pguna Currente..."
