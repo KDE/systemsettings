@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-17 00:45+0000\n"
+"POT-Creation-Date: 2026-01-12 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -175,19 +175,19 @@ msgstr "显示菜单"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/SettingsBase.cpp:136
+#: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "高亮显示更改过的设置"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "显示不可用页面"
 
-#: app/SettingsBase.cpp:155
+#: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面的程序缺陷…"
