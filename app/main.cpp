@@ -38,6 +38,13 @@ int main(int argc, char *argv[])
         mode = SidebarMode::InfoCenter;
     }
 
+    // TODO: This should be removed when all kcms are ported to the new forms, so will switch
+    // them all to the cards look
+    const QString formsChoice = QString::fromLocal8Bit(qgetenv("KDE_KIRIGAMI_FORMS_STYLE"));
+    if (formsChoice.isEmpty() || formsChoice != QStringLiteral("cards")) {
+        qputenv("KDE_KIRIGAMI_FORMS_STYLE", "flat");
+    }
+
     // exec is systemsettings, but we need the QPT to use the right config from the qApp constructor
     // which is before KAboutData::setApplicationData
     QCoreApplication::setApplicationName(binaryName);
