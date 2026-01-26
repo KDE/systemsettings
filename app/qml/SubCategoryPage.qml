@@ -65,11 +65,10 @@ Kirigami.ScrollablePage {
                         Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
                         Layout.alignment: Qt.AlignCenter
                     }
-                    Kirigami.Heading {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        level: 4
-                        text: subCategoryColumn.title
+                        text: i18nc("@action:button go back", "Back")
                         verticalAlignment: Text.AlignVCenter
                         elide: Text.ElideRight
                         textFormat: Text.PlainText
