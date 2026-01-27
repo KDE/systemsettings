@@ -1,11 +1,13 @@
+# SPDX-FileCopyrightText: 2026 André Barata <andretiagob@protonmail.com>
+# SPDX-FileCopyrightText: 2026 César A. P. Cláudio <cesarapclaudio@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-12 00:46+0000\n"
-"PO-Revision-Date: 2023-01-09 09:55+0000\n"
-"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
-"Language-Team: pt <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-01-26 23:35+0000\n"
+"Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,26 +15,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: Stemle Reitmayr Edwards Ellen Riddell Jonathan Ltd\n"
 "X-POFile-SpellExtra: Meyer Ben Mathias Stephenson Will Soeken Cooksley\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "José Nuno Pires,Pedro Morais"
+msgstr ""
+"César Cláudio, João Carvalho, André Barata, José Nuno Pires, Pedro Morais"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "zepires@gmail.com,morais@kde.org"
+msgstr ""
+"cesarapclaudio@gmail.com, carvalho.jns@gmail.com, andretiagob@protonmail.com"
 
 #: app/ExternalAppModule.cpp:26
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "O %1 é uma aplicação externa e foi lançada automaticamente"
+msgstr "O %1 é uma aplicação externa e foi iniciada automaticamente"
 
 #: app/ExternalAppModule.cpp:27
 #, kde-format
 msgid "Relaunch %1"
-msgstr "Lançar de Novo o %1"
+msgstr "Iniciar de novo o %1"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
 #: app/externalModule.ui:14
@@ -48,7 +53,7 @@ msgstr "Centro de Informações"
 #: app/main.cpp:56
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr "Visão geral centralizada e conveniente das informações do sistema."
+msgstr "Visão geral centralizada e conveniente das informações de sistema."
 
 #: app/main.cpp:58 app/main.cpp:69
 #, kde-format
@@ -59,12 +64,12 @@ msgstr "(c) 2009, Ben Cooksley"
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Settings"
-msgstr "Configuração do Sistema"
+msgstr "Definições de Sistema"
 
 #: app/main.cpp:67
 #, kde-format
 msgid "Central configuration center by KDE."
-msgstr "Centro de configuração central do KDE."
+msgstr "Centro de configurações central pelo KDE."
 
 #: app/main.cpp:80
 #, kde-format
@@ -74,7 +79,7 @@ msgstr "Ben Cooksley"
 #: app/main.cpp:80
 #, kde-format
 msgid "Maintainer"
-msgstr "Manutenção"
+msgstr "Responsável pela manutenção"
 
 #: app/main.cpp:81
 #, kde-format
@@ -94,7 +99,7 @@ msgstr "Mathias Soeken"
 #: app/main.cpp:82
 #, kde-format
 msgid "Developer"
-msgstr "Desenvolvimento"
+msgstr "Programador"
 
 #: app/main.cpp:83
 #, kde-format
@@ -104,12 +109,12 @@ msgstr "Will Stephenson"
 #: app/main.cpp:83
 #, kde-format
 msgid "Internal module representation, internal module model"
-msgstr "Representação interna dos módulos, modelo interno dos módulos"
+msgstr "Representação interna do módulo, modelo interno do módulo"
 
 #: app/main.cpp:91
 #, kde-format
 msgid "List all possible modules"
-msgstr "Listar todos os módulos disponíveis."
+msgstr "Mostrar lista de todos os módulos possíveis."
 
 #: app/main.cpp:92 app/main.cpp:153
 #, kde-format
@@ -119,7 +124,7 @@ msgstr "Módulo de configuração a abrir"
 #: app/main.cpp:93 app/main.cpp:154
 #, kde-format
 msgid "Arguments for the module"
-msgstr "Argumentos do módulo"
+msgstr "Argumentos para o módulo"
 
 #: app/main.cpp:101
 #, kde-format
@@ -129,35 +134,32 @@ msgstr "Estão disponíveis os seguintes módulos:"
 #: app/main.cpp:119
 #, kde-format
 msgid "No description available"
-msgstr "A descrição não está disponível"
+msgstr "Descrição não disponível"
 
 #: app/ModuleView.cpp:185
 #, kde-format
 msgid "Reset all current changes to previous values"
-msgstr "Repor todas as alterações actuais com os valores anteriores"
+msgstr "Repor todas as alterações atuais com os valores anteriores"
 
 #: app/ModuleView.cpp:278
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Área de deslocamento"
 
 #: app/ModuleView.cpp:368
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"A configuração do módulo actual foi alterada.\n"
-"Deseja aplicar as alterações ou esquecê-las?"
+"A página atual tem definições alteradas.\n"
+"Aplicar alterações ou descartá-las?"
 
 #: app/ModuleView.cpp:373
 #, kde-format
 msgid "Apply Settings"
-msgstr "Aplicar a Configuração"
+msgstr "Aplicar Definições"
 
 #: app/qml/CategoriesPage.qml:106
 #, kde-format
@@ -168,7 +170,7 @@ msgstr "Sem itens correspondentes à sua pesquisa"
 #: app/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr "Mostrar o menu"
+msgstr "Mostrar menu"
 
 #: app/qml/IntroPage.qml:44
 #, kde-format
@@ -178,19 +180,19 @@ msgstr "Plasma"
 #: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr "Realçar as Configurações Modificadas"
+msgstr "Realçar as definições alteradas"
 
 #: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Mostrar as páginas inaplicáveis"
 
 #: app/SettingsBase.cpp:163
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr "Comunicar um Erro na Página Actual…"
+msgstr "Comunicar um erro na página atual…"
 
 #: app/SidebarMode.cpp:600
 #, kde-format
@@ -206,13 +208,13 @@ msgstr "Mais Usados"
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
-"Procura pelos módulos de configuração do sistema cujos nomes ou descrições "
+"Procura pelos módulos de definições do sistema cujos nomes ou descrições "
 "correspondam a :q:"
 
 #: runner/systemsettingsrunner.cpp:110
 #, kde-format
 msgid "System Information"
-msgstr "Informações do Sistema"
+msgstr "Informações de Sistema"
 
 #~ msgid "Show intro page"
 #~ msgstr "Mostrar a página introdutória"
