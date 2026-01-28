@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2025-08-08 13:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -178,6 +178,13 @@ msgstr "Menu tonen"
 msgid "Plasma"
 msgstr "Plasma"
 
+#: app/qml/SubCategoryPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Back"
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "Terug"
+
 #: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -326,9 +333,6 @@ msgstr "Systeeminformatie"
 
 #~ msgid "About Active Module"
 #~ msgstr "Info over de actieve module"
-
-#~ msgid "Back"
-#~ msgstr "Terug"
 
 #~ msgid "Configure your system"
 #~ msgstr "Uw systeem instellen"

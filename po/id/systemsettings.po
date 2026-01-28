@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2023-01-13 08:54+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -181,6 +181,13 @@ msgstr "Tampilkan menu"
 msgid "Plasma"
 msgstr "Plasma"
 
+#: app/qml/SubCategoryPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Back"
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "Kembali"
+
 #: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -326,9 +333,6 @@ msgstr "Informasi Sistem"
 
 #~ msgid "About Active Module"
 #~ msgstr "Tentang Modul Aktif"
-
-#~ msgid "Back"
-#~ msgstr "Kembali"
 
 #~ msgid "Configure your system"
 #~ msgstr "Konfigurasikan sistem anda"

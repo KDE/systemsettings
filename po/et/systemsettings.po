@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2022-11-17 21:27+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -181,6 +181,13 @@ msgstr "Menüü näitamine"
 msgid "Plasma"
 msgstr "Plasma"
 
+#: app/qml/SubCategoryPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Back"
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "Tagasi"
+
 #: app/SettingsBase.cpp:144
 #, fuzzy, kde-format
 #| msgctxt ""
@@ -338,9 +345,6 @@ msgstr "Süsteemi teave"
 
 #~ msgid "About Active Module"
 #~ msgstr "Teave aktiivse mooduli kohta"
-
-#~ msgid "Back"
-#~ msgstr "Tagasi"
 
 #~ msgid "Configure your system"
 #~ msgstr "Süsteemi seadistamine"

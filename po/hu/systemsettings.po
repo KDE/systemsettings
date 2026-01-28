@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2025-11-06 21:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -179,6 +179,13 @@ msgstr "Menü megjelenítése"
 msgid "Plasma"
 msgstr "Plasma"
 
+#: app/qml/SubCategoryPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Back"
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "Vissza"
+
 #: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -325,9 +332,6 @@ msgstr "Rendszerjellemzők"
 
 #~ msgid "About Active Module"
 #~ msgstr "Névjegy: Aktív modul"
-
-#~ msgid "Back"
-#~ msgstr "Vissza"
 
 #~ msgid "Configure your system"
 #~ msgstr "A rendszer beállítása"

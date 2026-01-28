@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2010-01-29 16:36+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -185,6 +185,12 @@ msgstr ""
 #: app/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
+msgstr ""
+
+#: app/qml/SubCategoryPage.qml:71
+#, kde-format
+msgctxt "@action:button go back"
+msgid "Back"
 msgstr ""
 
 #: app/SettingsBase.cpp:144

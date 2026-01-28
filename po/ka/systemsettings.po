@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2025-08-08 07:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -175,6 +175,12 @@ msgstr "მენიუს ჩვენება"
 #, kde-format
 msgid "Plasma"
 msgstr "პლაზმა"
+
+#: app/qml/SubCategoryPage.qml:71
+#, kde-format
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr ""
 
 #: app/SettingsBase.cpp:144
 #, kde-format

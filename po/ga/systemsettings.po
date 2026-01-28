@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/systemsettings.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2025-12-23 21:28+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -178,6 +178,12 @@ msgstr ""
 #, kde-format
 msgid "Plasma"
 msgstr "Plasma"
+
+#: app/qml/SubCategoryPage.qml:71
+#, kde-format
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr ""
 
 #: app/SettingsBase.cpp:144
 #, kde-format

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -176,6 +176,13 @@ msgstr "മെനു കാണിക്കുക"
 msgid "Plasma"
 msgstr "പ്ലാസ്മ"
 
+#: app/qml/SubCategoryPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Back"
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "തിരികെ"
+
 #: app/SettingsBase.cpp:144
 #, fuzzy, kde-format
 #| msgctxt ""
@@ -326,9 +333,6 @@ msgstr "സിസ്റ്റത്തെ കുറിച്ച്"
 
 #~ msgid "About Active Module"
 #~ msgstr "സജീവമായ മൊഡ്യൂളിനെക്കുറിച്ചു്"
-
-#~ msgid "Back"
-#~ msgstr "തിരികെ"
 
 #~ msgid "Overview"
 #~ msgstr "അവലോകനം"

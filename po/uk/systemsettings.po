@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-01-28 00:46+0000\n"
 "PO-Revision-Date: 2025-08-08 21:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -179,6 +179,13 @@ msgstr "Показати меню"
 msgid "Plasma"
 msgstr "Плазма"
 
+#: app/qml/SubCategoryPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Back"
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "Назад"
+
 #: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
@@ -330,9 +337,6 @@ msgstr "Дані щодо системи"
 
 #~ msgid "About Active Module"
 #~ msgstr "Про активний модуль"
-
-#~ msgid "Back"
-#~ msgstr "Назад"
 
 #~ msgid "Configure your system"
 #~ msgstr "Налаштування вашої системи"
