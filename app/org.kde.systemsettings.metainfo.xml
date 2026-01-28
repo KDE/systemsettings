@@ -57,7 +57,7 @@
   <name xml:lang="nn">Systeminnstillingar</name>
   <name xml:lang="pa">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ</name>
   <name xml:lang="pl">Ustawienia systemowe</name>
-  <name xml:lang="pt">Configuração do Sistema</name>
+  <name xml:lang="pt">Definições de Sistema</name>
   <name xml:lang="pt-BR">Configurações do sistema</name>
   <name xml:lang="ro">Configurări de sistem</name>
   <name xml:lang="ru">Параметры системы</name>
@@ -99,6 +99,7 @@
   <summary xml:lang="nl">Het gedrag en uiterlijk van het systeem configureren</summary>
   <summary xml:lang="pa">ਸਿਸਟਮ ਦੇ ਰਵੱਈਏ ਅਤੇ ਦਿੱਖ ਦੀ ਸੰਰਚਨਾ ਕਰੋ</summary>
   <summary xml:lang="pl">Ustawienia zachowania i wyglądu systemu</summary>
+  <summary xml:lang="pt">Configure o comportamento e aparência do sistema</summary>
   <summary xml:lang="pt-BR">Configurar o comportamento e a aparência do sistema</summary>
   <summary xml:lang="ro">Configurează comportamentul și aspectul sistemului</summary>
   <summary xml:lang="ru">Параметры поведения системы и оформления</summary>
@@ -150,7 +151,7 @@
     <p xml:lang="nn">Med systeminnstillingane kan du setja opp og skreddarsy KDE Plasma-skrivebordet etter eigne ønskjer og behov.</p>
     <p xml:lang="pa">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਕੇਡੀਈ (KDE) ਪਲਾਜ਼ਮਾ ਡੈਸਕਟਾਪ ਨੂੰ ਤੁਹਾਡੀਆਂ ਲੋੜਾਂ ਮੁਤਾਬਕ ਵਧੀਆ ਢੰਗ ਨਾਲ ਸੰਰਚਨਾ ਕਰਨ ਤੇ ਢਾਲਣ ਲਈ ਸਹਾਇਕ ਹੈ।</p>
     <p xml:lang="pl">Ustawienia systemu umożliwiają dostosowanie pulpitu KDE Plazma, tak aby lepiej spełniał twoje potrzeby.</p>
-    <p xml:lang="pt">A Configuração do Sistema permite-lhe configurar e ajustar a sua área de trabalho Plasma do KDE para satisfazer melhor as suas necessidades.</p>
+    <p xml:lang="pt">As Definições de Sistema permitem configurar e ajustar o seu ambiente de trabalho KDE Plasma, para melhor ir de encontro às suas necessidades.</p>
     <p xml:lang="pt-BR">As configurações do sistema permitem a você configurar e alterar seu ambiente de trabalho Plasma para torná-lo mais adequado às suas necessidades.</p>
     <p xml:lang="ro">„Configurări de sistem” vă permite să personalizați biroul Plasma KDE pentru a-l face potrivit nevoilor dumneavoastră.</p>
     <p xml:lang="ru">Приложение «Параметры системы» позволяет настроить рабочую среду Plasma для удобного использования.</p>
