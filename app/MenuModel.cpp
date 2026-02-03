@@ -45,6 +45,9 @@ void MenuModel::Private::connectSignals(MenuItem *item)
             QObject::connect(moduleData, &KCModuleData::relevantChanged, q, [this, item] {
                 if (QModelIndex index = q->indexForItem(item); index.isValid()) {
                     Q_EMIT q->dataChanged(index, index, {MenuModel::IsRelevantRole});
+                    if (const QModelIndex parentIndex = index.parent(); parentIndex.isValid()) {
+                        Q_EMIT q->dataChanged(parentIndex, parentIndex, {MenuModel::IsRelevantRole});
+                    }
                 }
             });
             QObject::connect(moduleData, &KCModuleData::auxiliaryActionChanged, q, [this, item] {

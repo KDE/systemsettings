@@ -88,12 +88,27 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
 
     auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
 
-    // accept only systemsettings categories that have children
-    if (mItem->children().isEmpty() && mItem->isSystemsettingsCategory()) {
-        return false;
-    } else {
-        return true; // Items matching the regexp are disabled, not hidden
+    // accept only systemsettings categories that have (relevant) children
+    if (mItem->isSystemsettingsCategory()) {
+        if (mItem->children().isEmpty()) {
+            return false;
+        }
+
+        if (!m_showIrrelevantModules) {
+            bool hasRelevantChildren = false;
+            for (int i = 0; i < sourceModel()->rowCount(index); ++i) {
+                const QModelIndex childIndex = sourceModel()->index(i, 0, index);
+                if (childIndex.data(MenuModel::IsRelevantRole).toBool()) {
+                    hasRelevantChildren = true;
+                    break;
+                }
+            }
+
+            return hasRelevantChildren;
+        }
     }
+
+    return true;
 }
 
 void MenuProxyModel::setFilterHighlightsEntries(bool highlight)
