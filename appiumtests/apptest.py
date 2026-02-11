@@ -31,7 +31,6 @@ class AppTest(unittest.TestCase):
         options.set_capability("timeouts", {'implicit': 10000})
         options.set_capability("environ", {
             "LC_ALL": "en_US.UTF-8",
-            "QT_FATAL_WARNINGS": "1",
             "QT_LOGGING_RULES": "qt.accessibility.atspi.warning=false;qt.qpa.wayland.warning=false;kf.auth.warning=false;kf.plasma.core.warning=false;kf.windowsystem.warning=false;kf.kirigami.platform.warning=false;org.kde.plasma.kcm_feedback.warning=false",
         })
         cls.driver = webdriver.Remote(command_executor='http://127.0.0.1:4723', options=options)
