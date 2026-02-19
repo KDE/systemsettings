@@ -21,6 +21,10 @@ Kirigami.ScrollablePage {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
+    // Used for ListView bottomPadding due to ScrollablePage, must be
+    // mediumSpacing according ItemDelegate in to qqc2-desktop-style
+    padding: Kirigami.Units.mediumSpacing
+
     header: Kirigami.AbstractApplicationHeader {
         id: pageHeader
 
