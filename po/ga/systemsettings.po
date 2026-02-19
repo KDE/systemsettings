@@ -2,14 +2,14 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the systemsettings package.
 # Kevin Scannell <kscanne@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2025 Charlotte <altronic25@protonmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/systemsettings.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2025-12-23 21:28+0000\n"
-"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"PO-Revision-Date: 2026-02-18 12:44+0000\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,7 +32,7 @@ msgstr "kscanne@gmail.com,altronic25@protonmail.com"
 #: app/main.cpp:61 app/SettingsBase.cpp:66
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "Lárionad Eolais"
 
 #: app/main.cpp:63
 #, kde-format
@@ -87,27 +88,27 @@ msgstr "Léiriú agus samhail inmheánach modúl"
 #: app/main.cpp:97
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "Liostáil na modúil go léir"
 
 #: app/main.cpp:98 app/main.cpp:161
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "Modúl cumraíochta le hoscailt"
 
 #: app/main.cpp:99 app/main.cpp:162
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "Argóintí don mhodúl"
 
 #: app/main.cpp:107
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "Tá na modúil seo a leanas ar fáil:"
 
 #: app/main.cpp:125
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "Níl cur síos ar fáil"
 
 #: app/SettingsBase.cpp:60
 #, kde-format
@@ -129,7 +130,7 @@ msgstr ""
 #: app/SettingsBase.cpp:173
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Aibhsigh na Socruithe athraithe"
 
 #: app/SettingsBase.cpp:184
 #, kde-format
@@ -254,10 +255,9 @@ msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
 #: runner/systemsettingsrunner.cpp:186
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "Socruithe an Chórais"
+msgstr "Eolas an Chórais"
 
 #: sidebar/package/contents/ui/CategoriesPage.qml:56
 #, kde-format
@@ -268,7 +268,7 @@ msgstr ""
 #, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
-msgstr ""
+msgstr "Níl aon mhíreanna a mheaitseálann do chuardach"
 
 #: sidebar/package/contents/ui/HamburgerMenuButton.qml:25
 #, kde-format
@@ -304,12 +304,12 @@ msgstr "Marco Martin"
 #: sidebar/SidebarMode.cpp:651
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "Barra Taoibh"
 
 #: sidebar/SidebarMode.cpp:721
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "Úsáidte Is Minice"
 
 #~ msgid "<i>Contains 1 item</i>"
 #~ msgid_plural "<i>Contains %1 items</i>"
