@@ -4,14 +4,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Richard Allen <ra@ra.is>, 2007.
-# SPDX-FileCopyrightText: 2009, 2010, 2016, 2022, 2023, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2009, 2010, 2016, 2022, 2023, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2022, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-28 00:46+0000\n"
-"PO-Revision-Date: 2025-10-08 09:52+0000\n"
+"PO-Revision-Date: 2026-02-25 11:41+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -185,7 +185,7 @@ msgstr "Plasma"
 #, kde-format
 msgctxt "@action:button go back"
 msgid "Back"
-msgstr ""
+msgstr "Til baka"
 
 #: app/SettingsBase.cpp:144
 #, kde-format
