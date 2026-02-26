@@ -142,7 +142,7 @@ Kirigami.ScrollablePage {
         }
 
         onCountChanged: {
-            if (count > 1 && !root.searchMode) {
+            if (count > 1) {
                 if (root.pageStack.depth < 2) {
                     root.pageStack.push(subCategoryColumn);
                 }
