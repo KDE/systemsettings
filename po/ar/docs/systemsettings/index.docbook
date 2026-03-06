@@ -1,0 +1,619 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+<book id="systemsettings" lang="&language;">
+
+<bookinfo>
+<title
+>دليل إعدادات النظام</title>
+
+<authorgroup>
+<author
+>&Richard.Johnson; &Richard.Johnson.mail; </author>
+<othercredit role="translator"
+><firstname
+>صفا</firstname
+><surname
+>الفليج</surname
+><affiliation
+><address
+><email
+>safa1996alfulaij@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>&Richard.Johnson;</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-04-11</date>
+<releaseinfo
+>بلازما 5.20</releaseinfo>
+
+<abstract>
+<para
+>يصف هذا التوثيق مركز ضبط النظام وإدارته لسطح مكتبك. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>النظام</keyword>
+<keyword
+>إعدادات</keyword>
+<keyword
+>الضبط</keyword>
+<keyword
+>الإدارة</keyword>
+<keyword
+>الضبط</keyword>
+<keyword
+>مدير</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>يوفر إعدادات النظام للمستخدم طريقة مركزية ومريحة لضبط كافة إعدادات سطح مكتبك. </para>
+
+<para
+>يتكون إعدادات النظام من وحدات متعددة. كل وحدة هي تطبيق منفصل، لكن ينظم إعدادات النظام كافة هذه التطبيقات في مكان واحد. </para>
+
+<tip>
+<para
+>يمكن تشغيل كل وحدة من وحدات إعدادات النظام بشكل منفرد </para>
+<para
+>طالع القسم المعنون <link linkend="run-modules-individually"
+>تشغيل وحدات إعدادات النظام منفردة</link
+> لمزيد من المعلومات. </para>
+</tip>
+
+<para
+>يجمع إعدادات النظام كافة وحدات الضبط في فئات عدة: <itemizedlist>
+<listitem
+><para
+><link linkend="appearance"
+>المظهر</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="workspace"
+>مساحة العمل</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="personalization"
+>التخصيص</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="network"
+>الشبكة</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="hardware"
+>العتاد</link
+></para
+></listitem>
+<listitem
+><para
+><link linkend="system_administration"
+>إدارة النظام</link
+></para
+></listitem>
+</itemizedlist>
+</para>
+
+<para
+>تندرج الوحدات التي تُكون إعدادات النظام تحت إحدى الفئات المذكورة أعلاه، مما يسهل العثور على وحدة الضبط الصحيحة. </para>
+
+</chapter>
+
+<chapter id="using-kapp">
+<title
+>استخدام إعدادات النظام</title>
+
+<para
+>يفصل هذا القسم استخدام إعدادات النظام نفسه. لمعلومات حول كل وحدة منفردة، يرجى مراجعة <link linkend="modules"
+>وحدات إعدادات النظام</link
+>. </para>
+
+<sect1 id="starting">
+<title
+>بدء تشغيل إعدادات النظام</title>
+
+<para
+>يمكن بدء تشغيل إعدادات النظام بإحدى ثلاث طرق: </para>
+
+<orderedlist>
+<listitem>
+<para
+>باختيار <menuchoice
+><guimenu
+>إعدادات</guimenu
+><guimenuitem
+>إعدادات النظام</guimenuitem
+></menuchoice
+> من <guilabel
+>قائمة التطبيقات</guilabel
+>. </para>
+</listitem>
+<listitem>
+<para
+>بالضغط على <keycombo
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> أو <keycombo
+>&Alt;<keycap
+>Space</keycap
+></keycombo
+>. سيُظهر هذا حوار &krunner;. اكتب <command
+>systemsettings</command
+> ثم اضغط &Enter;. </para>
+</listitem>
+<listitem>
+<para
+>بكتابة <command
+>systemsettings &amp;</command
+> في أي محث أوامر. </para>
+</listitem>
+</orderedlist>
+
+<para
+>تعد الطرق الثلاث متكافئة وتؤدي إلى النتيجة نفسها. </para>
+</sect1>
+
+<sect1 id="screen">
+<title
+>شاشة إعدادات النظام</title>
+
+<para
+>عند بدء تشغيل إعدادات النظام، ستُعرض نافذة منقسمة إلى جزأين وظيفيين. </para>
+
+<para
+>يوجد في الأعلى شريط أدوات. يمنح شريط الأدوات المستخدم القدرة على العودة إلى المنظور الرئيسي من داخل أي وحدة باستخدام <guibutton
+>كافة الإعدادات</guibutton
+>. كما يمكن العثور على قائمة <guimenu
+>مساعدة</guimenu
+> وزر <guibutton
+>اضبط</guibutton
+> الذي يوفر حواراً بإعدادات منظور بديلة. </para>
+<para
+>للبحث عن شيء ما ضمن كافة الوحدات، ابدأ بكتابة كلمات مفتاحية في حقل البحث على يمين شريط الأدوات في منظور <guibutton
+>كافة الإعدادات</guibutton
+>. عند بدء الكتابة، ستنبثق قائمة بالمواضيع المطابقة. اختر واحداً منها وستُفعل المجموعات التي تحتوي إعدادات لهذه الكلمة فقط، بينما تصبح الأخرى رمادية.</para>
+<para
+>عندما يكون التركيز على نافذة الأيقونات، يمكن كتابة الحرف الأول من اسم أي وحدة أو مجموعة وحدات لاختيارها. وبكتابة هذا الحرف مجدداً، ينتقل الاختيار إلى المطابقة التالية. </para>
+<para
+>يوجد أسفل شريط الأدوات منظور أيقونات للوحدات المنفردة أو مجموعات الوحدات التي تُكون إعدادات النظام، مرتبة حسب فئات مختلفة. بشكل مبدئي، إذا استقر مؤشر الفأرة لثوانٍ فوق أيقونة ما، سيظهر تلميح يشرح الغرض من الوحدة أو يعرض الوحدات الموجودة في هذه المجموعة. </para>
+</sect1>
+
+<sect1 id="general">
+<title
+>فئات ووحدات إعدادات النظام</title>
+<para
+>نظرة عامة موجزة لكافة الفئات ووحداتها:</para>
+
+<variablelist>
+<varlistentry id="appearance">
+<term
+>المظهر</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>السمة الشاملة </para
+></listitem>
+<listitem
+><para
+>نمط بلازما </para
+></listitem>
+<listitem
+><para
+>نمط التطبيقات (نمط التطبيقات، زخرفات النوافذ) </para
+></listitem>
+<listitem
+><para
+>الألوان </para
+></listitem>
+<listitem
+><para
+>الخط (الخطوط، إدارة الخطوط) </para
+></listitem>
+<listitem
+><para
+>الأيقونات </para
+></listitem>
+<listitem
+><para
+>المؤشرات </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="workspace">
+<term
+>مساحة العمل</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>سلوك مساحة العمل (السلوك العام، تأثيرات سطح المكتب، حواف الشاشة، شاشة اللمس، قفل الشاشة، أسطح المكتب الوهمية، الأنشطة) </para
+></listitem>
+<listitem
+><para
+>إدارة النوافذ (سلوك النوافذ، مبدل المهام، سكربتات KWin، قواعد النوافذ) </para
+></listitem>
+<listitem
+><para
+>الاختصارات (الاختصارات، الاختصارات المخصصة) </para
+></listitem>
+<listitem
+><para
+>بدء التشغيل والإيقاف (شاشة الولوج (SDDM)، بدء تشغيل آلي، خدمات الخلفية، جلسة سطح المكتب، شاشة البدء) </para
+></listitem>
+<listitem
+><para
+>البحث (بحث الملفات، مشغلك، كلمات بحث الوب) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="personalization">
+<term
+>التخصيص</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>الإشعارات </para
+></listitem>
+<listitem
+><para
+>المستخدمون </para
+></listitem>
+<listitem
+><para
+>الإعدادات الإقليمية (اللغة، التنسيقات، تدقيق الإملاء، التاريخ والوقت) </para
+></listitem>
+<listitem
+><para
+>الإتاحة </para
+></listitem>
+<listitem
+><para
+>التطبيقات (تطبيقات مبدئية، ارتباطات الملفات، الأماكن، صدى الإطلاق) </para
+></listitem>
+<listitem
+><para
+>محفظة كيدي </para
+></listitem>
+<listitem
+><para
+>حسابات الإنترنت </para
+></listitem>
+<listitem
+><para
+>مشاركة بياناتك </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="network">
+<term
+>الشبكة</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>إعدادات (الوكيل، تفضيلات الاتصال، تفضيلات SSL، خبيئة، كعكات، تعريف المتصفح، مشاركات ويندوز) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="hardware">
+<term
+>العتاد</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>أجهزة الإدخال (لوحة المفاتيح، الفأرة، متحكم الألعاب، الجهاز اللوحي الرسومي، لوحة اللمس) </para
+></listitem>
+<listitem
+><para
+>العرض والشاشة (ضبط العرض، المركب، غاما، لون ليلي) </para
+></listitem>
+<listitem
+><para
+>الصوت </para
+></listitem>
+<listitem
+><para
+>الوسائط المتعددة (الأقراص المدمجة الصوتية، جلب بيانات CDDB) </para
+></listitem>
+<listitem
+><para
+>إدارة الطاقة (توفير الطاقة، إعدادات الأنشطة، إعدادات متقدمة) </para
+></listitem>
+<listitem
+><para
+>بلوتوث </para
+></listitem>
+<listitem
+><para
+>التخزين القابل للفصل (إجراءات الأجهزة، كاميرا رقمية، الأجهزة القابلة للفصل) </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="system_administration">
+<term
+>إدارة النظام</term>
+<listitem>
+<para
+><itemizedlist>
+<listitem
+><para
+>معلومات النظام </para
+></listitem>
+</itemizedlist
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<tip
+><para
+>استخدم حقل البحث في أعلى اليمين في منظور <guibutton
+>كافة الإعدادات</guibutton
+> للعثور على كافة الوحدات المطابقة لكلمة مفتاحية معينة. يفتح بدء كتابة كلمة مفتاحية قائمة بالكلمات، وتُفعل الوحدات المطابقة فقط.</para
+></tip>
+</sect1>
+<sect1 id="exiting">
+<title
+>الخروج من إعدادات النظام</title>
+
+<para
+>يمكن الخروج من إعدادات النظام بإحدى طريقتين: </para>
+
+<orderedlist>
+<listitem>
+<para
+>بالضغط على <keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> في لوحة المفاتيح. </para>
+</listitem>
+<listitem>
+<para
+>نقر زرّ <guibutton
+>أغلق</guibutton
+> في شريط الأدوات. </para>
+</listitem>
+</orderedlist>
+</sect1>
+
+<sect1 id="configuring">
+<title
+>ضبط إعدادات النظام</title>
+
+<para
+>تسمح أيقونة <guiicon
+>اضبط</guiicon
+> في شريط الأدوات بتغيير بعض معاملات إعدادات النظام. يمكن التغيير من <guilabel
+>منظور الأيقونات</guilabel
+> (المنظور المبدئي) إلى <guilabel
+>منظور الشريط الجانبي</guilabel
+>. في نمط <guilabel
+>منظور الشريط الجانبي</guilabel
+>، تعرض صفحة الترحيب الوحدات كثيرة الاستخدام للوصول السريع. </para>
+
+<para
+>يمكن أيضاً إيقاف التلميحات المفصلة بإلغاء تأشير <guilabel
+>أظهر تلميحات مفصلة</guilabel
+>. ستظهر حينها تلميحات عادية فقط عوضاً عن محتوى مجموعة الوحدات. </para>
+
+</sect1>
+
+<sect1 id="run-modules-individually">
+<title
+>تشغيل وحدات إعدادات النظام منفردة</title>
+
+<para
+>يمكن تشغيل الوحدات المنفردة دون تشغيل إعدادات النظام باستخدام أمر <command
+>kcmshell5</command
+> من سطر الأوامر. اكتب <command
+>kcmshell5 --list</command
+> لرؤية قائمة بوحدات إعدادات النظام المتاحة. </para>
+<para
+>بالإضافة إلى ذلك، يمكن تشغيل مشغلك والبدء بكتابة كلمات مفتاحية. عند بدء الكتابة، ستنبثق قائمة بالوحدات المطابقة مسبوقة بكلمة إعدادات النظام. </para>
+</sect1>
+</chapter>
+
+<chapter id="modules">
+<title
+>وحدات إعدادات النظام</title>
+
+<para
+>لجعل الأمر سهلاً قدر الإمكان، نظم إعدادات النظام الخيارات في ست فئات. تندرج تحت كل فئة أيقونات مجمعة ضمن فئات فرعية. تسمى كل أيقونة وحدة. عند النقر المزدوج على أيقونة وحدة ما، ستُعرض خيارات تلك الوحدة في النافذة الرئيسية. </para>
+
+<para
+>ستحتوي كل وحدة على بعض أو كافة الأزرار التالية: </para>
+
+<variablelist>
+<varlistentry>
+<term
+>مساعدة</term>
+<listitem>
+<para
+>يوفر هذا الزر مساعدة خاصة بالوحدة الحالية. يؤدي النقر على الزر إلى فتح مركز المساعدة في نافذة جديدة توفر معلومات مفصلة حول الوحدة. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>المبدئيات</term>
+<listitem>
+<para
+>نقر هذا الزّرّ سيستعيد الوحدة إلى قيمها الافتراضيّة. عليك نقر <guibutton
+>طبّق</guibutton
+> لحفظ الخيارات. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>صفّر</term>
+<listitem>
+<para
+>سيقوم هذا الزر بـ <quote
+>تصفير</quote
+> الوحدة إلى الإعدادات السابقة. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>طبّق</term>
+<listitem>
+<para
+>يؤدي النقر على هذا الزر إلى حفظ كافة التغييرات. إذا غُير أي شيء، سيؤدي النقر على <guibutton
+>طبّق</guibutton
+> إلى سريان مفعول التغييرات. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<note>
+<para
+>يجب إما <quote
+>تصفير</quote
+> التغييرات أو <quote
+>تطبيقها</quote
+> قبل الانتقال إلى وحدة أخرى. </para>
+<para
+>إذا جرت محاولة التغيير دون حفظ الخيارات أو تصفيرها، سيُسأل عما إذا كنت ترغب في حفظ التغييرات أو تجاهلها. </para>
+</note>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>الإشادات والرخصة</title>
+
+<para
+>إعدادات النظام </para>
+<para
+>حقوق نشر البرنامج 2007 Benjamin C. Meyer. </para>
+<para
+>حقوق نشر البرنامج 2009 Ben Cooksley. </para>
+<para
+>المساهمون: <itemizedlist>
+<listitem>
+<para
+>Will Stephenson <email
+>wstepheson@kde.org</email
+> </para>
+</listitem>
+<listitem>
+<para
+>Michael D. Stemle, Jr. <email
+>manchicken@notsosoft.net</email
+> </para>
+</listitem>
+<listitem>
+<para
+>Matthias Kretz <email
+>kretz@kde.org</email
+> </para>
+</listitem>
+<listitem>
+<para
+>&Daniel.Molkentin; &Daniel.Molkentin.mail; </para>
+</listitem>
+<listitem>
+<para
+>&Matthias.Elter; &Matthias.Elter.mail; </para>
+</listitem>
+<listitem>
+<para
+>Frans Englich <email
+>englich@kde.org</email
+> </para>
+</listitem>
+<listitem>
+<para
+>Michael Jansen <email
+>kde@michael-jansen.biz</email
+> </para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para
+>حقوق نشر التوثيق &copy; 2008 &Richard.Johnson; &Richard.Johnson.mail; </para>
+
+<para
+>الترجمة: صفا الفليج <email
+>safa1996alfulaij@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
