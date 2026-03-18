@@ -23,6 +23,7 @@
 #include <KSharedConfig>
 
 #include <KLocalizedQmlContext>
+#include <KMessageBox>
 #include <QAction>
 #include <QGraphicsOpacityEffect>
 #include <QGuiApplication>
@@ -612,10 +613,22 @@ void SidebarMode::initWidget()
                             this);
     QQuickItem *item = qobject_cast<QQuickItem *>(component.create(d->quickWidget->rootContext()));
     if (!item) {
+        QString error;
         for (const QList<QQmlError> errors = component.errors(); const auto &err : errors) {
-            qWarning() << err.toString();
+            error += err.toString();
         }
-        qFatal("Fatal error while loading the sidebar view qml component");
+        qWarning() << error;
+        KMessageBox::information(
+            nullptr,
+            i18nc("Message when QML fails to load", "Fatal error while loading the sidebar view qml component, error message was: \n %1", error),
+            i18n("Error Loading QML file"));
+
+        QCoreApplication::exit(0);
+        // Actually close the windows in order to exit cleanly
+        for (auto w : QGuiApplication::allWindows()) {
+            w->close();
+        }
+        return;
     }
     const int rootImplicitWidth = item->implicitWidth();
     if (rootImplicitWidth != 0) {
