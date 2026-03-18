@@ -618,10 +618,10 @@ void SidebarMode::initWidget()
             error += err.toString();
         }
         qWarning() << error;
-        KMessageBox::information(
-            nullptr,
-            i18nc("Message when QML fails to load", "Fatal error while loading the sidebar view qml component, error message was: \n %1", error),
-            i18n("Error Loading QML file"));
+        KMessageBox::detailedError(nullptr,
+                                   i18nc("Message when QML fails to load", "Fatal error while loading the sidebar view qml component"),
+                                   error,
+                                   i18n("Error Loading QML file"));
 
         QCoreApplication::exit(0);
         // Actually close the windows in order to exit cleanly
