@@ -619,7 +619,7 @@ void SidebarMode::initWidget()
         }
         qWarning() << error;
         KMessageBox::detailedError(nullptr,
-                                   i18nc("Message when QML fails to load", "Fatal error while loading the sidebar view qml component"),
+                                   i18nc("Message when QML fails to load", "Failed to load sidebar view QML component"),
                                    error,
                                    i18n("Error Loading QML file"));
 
