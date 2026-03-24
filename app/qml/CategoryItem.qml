@@ -35,15 +35,13 @@ ItemDelegate {
             selected: delegate.selected
         }
 
-        Rectangle {
+        Kirigami.Badge {
             Layout.alignment: Qt.AlignVCenter
             Layout.preferredWidth: Kirigami.Units.largeSpacing
             Layout.preferredHeight: Kirigami.Units.largeSpacing
 
-            radius: width * 0.5
             visible: delegate.showDefaultIndicator && systemsettings.defaultsIndicatorsVisible
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            color: Kirigami.Theme.neutralTextColor
+            type: Kirigami.Badge.Type.Warning
         }
 
         Component {
