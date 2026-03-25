@@ -21,7 +21,6 @@ target_sources(systemsettings PRIVATE
     MenuProxyModel.h
     ModuleView.cpp
     ModuleView.h
-    ${debug_SRCS}
 )
 
 ecm_target_qml_sources(systemsettings SOURCES
