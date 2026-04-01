@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-28 00:46+0000\n"
-"PO-Revision-Date: 2025-01-10 10:25\n"
+"PO-Revision-Date: 2026-03-31 20:27\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -147,7 +147,7 @@ msgstr "Скінуць усе бягучыя змены да папярэдні�
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Вобласць пракручвання"
 
 #: app/ModuleView.cpp:368
 #, kde-format
@@ -183,7 +183,7 @@ msgstr "Plasma"
 #, kde-format
 msgctxt "@action:button go back"
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: app/SettingsBase.cpp:144
 #, kde-format
@@ -195,7 +195,7 @@ msgstr "Падсвятляць змененыя налады"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Паказваць непрыдатныя старонкі"
 
 #: app/SettingsBase.cpp:163
 #, kde-format
