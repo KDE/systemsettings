@@ -55,6 +55,7 @@ protected:
 CustomTitle::CustomTitle(QWidget *parent)
     : KTitleWidget(parent)
 {
+    setTextSelectable(false);
     // Use the same left margin as QML titles for consistency (Kirigami/AbstractPageHeader.qml)
     // 18px is Standard Kirigami gridUnit for 10pt Noto Sans.
     // TODO: make this use a real gridUnit so it will adjust to the user's font,
