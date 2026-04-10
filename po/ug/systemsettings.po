@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-08 00:48+0000\n"
+"POT-Creation-Date: 2026-04-10 00:54+0000\n"
 "PO-Revision-Date: 2026-02-18 06:12-0500\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -135,18 +135,18 @@ msgstr "تۆۋەندىكى بۆلەكلەرنى ئىشلەتكىلى بولىد�
 msgid "No description available"
 msgstr "چۈشەندۈرۈشى يوق"
 
-#: app/ModuleView.cpp:185
+#: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
 msgstr "ئالدىنقى قېتىمقى قىممەتلىرىگە قايتۇرىدۇ"
 
-#: app/ModuleView.cpp:278
+#: app/ModuleView.cpp:279
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "سىيرىشچان رايون"
 
-#: app/ModuleView.cpp:368
+#: app/ModuleView.cpp:369
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -155,7 +155,7 @@ msgstr ""
 "نۆۋەتتىكى بەتتە تېخى ساقلانمىغان ئۆزگىرىش بار. ئۆزگىرىشنى قوللىنامدۇ ياكى "
 "تاشلىۋېتەمدۇ؟"
 
-#: app/ModuleView.cpp:373
+#: app/ModuleView.cpp:374
 #, kde-format
 msgid "Apply Settings"
 msgstr "تەڭشەك قوللىنىدۇ"
