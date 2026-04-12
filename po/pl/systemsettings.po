@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2025-01-27 17:20+0100\n"
-"Last-Translator: Marcel Mrówka <micro.mail88@gmail.com>\n"
+"PO-Revision-Date: 2026-04-11 09:57+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr ""
 #: core/ModuleView.cpp:336
 #, kde-format
 msgid "Apply Settings"
-msgstr "Zastosuj zmiany"
+msgstr "Stosowanie zmian"
 
 #: icons/IconMode.cpp:54
 #, kde-format
