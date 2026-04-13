@@ -327,6 +327,10 @@ void ModuleView::updatePageIconHeader(KPageWidgetItem *page)
         if (d->mPageWidget->currentPage() == page) {
             d->mCustomHeader->hide();
         }
+        if (!page->name().isEmpty()) {
+            d->mCustomHeader->setText(page->name());
+            page->setHeaderVisible(false);
+        }
         return;
     }
 
