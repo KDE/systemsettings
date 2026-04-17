@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:54+0000\n"
+"POT-Creation-Date: 2026-04-17 00:46+0000\n"
 "PO-Revision-Date: 2026-04-11 09:57+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -151,7 +151,7 @@ msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "Obszar przewijany"
 
-#: app/ModuleView.cpp:369
+#: app/ModuleView.cpp:373
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -161,7 +161,7 @@ msgstr ""
 "Zastosować je czy porzucić?"
 
 # Lepiej brzmi w tytule okna
-#: app/ModuleView.cpp:374
+#: app/ModuleView.cpp:378
 #, kde-format
 msgid "Apply Settings"
 msgstr "Stosowanie zmian"

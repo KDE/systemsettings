@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:54+0000\n"
+"POT-Creation-Date: 2026-04-17 00:46+0000\n"
 "PO-Revision-Date: 2026-02-25 11:41+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -151,7 +151,7 @@ msgctxt "@info:whatsthis"
 msgid "Scrollable area"
 msgstr "Skrunsvæði"
 
-#: app/ModuleView.cpp:369
+#: app/ModuleView.cpp:373
 #, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
@@ -160,7 +160,7 @@ msgstr ""
 "Það eru óvistaðar breytingar á þessari síðu.\n"
 "Viltu virkja þær eða farga þeim?"
 
-#: app/ModuleView.cpp:374
+#: app/ModuleView.cpp:378
 #, kde-format
 msgid "Apply Settings"
 msgstr "Virkja stillingar"
