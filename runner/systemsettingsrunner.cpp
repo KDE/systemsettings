@@ -106,6 +106,8 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
         match.setRelevance(relevance);
         match.setCategoryRelevance(categoryRelevance);
 
+        qWarning() << "m" << match.urls();
+
         if (isKinfoCenterKcm(data)) {
             match.setMatchCategory(i18nd("systemsettings", "System Information"));
         } else {
