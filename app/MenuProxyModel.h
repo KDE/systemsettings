@@ -92,16 +92,6 @@ public:
     QString filterRegularExpression() const;
 
     /**
-     * makes the filter highlight matching entries instead of hiding them
-     */
-    void setFilterHighlightsEntries(bool highlight);
-
-    /**
-     * @returns the filter highlight matching entries instead of hiding them, default true
-     */
-    bool filterHighlightsEntries() const;
-
-    /**
      * makes the filter show irrelevant modules (KCModuleData::isRelevant), default false
      */
     void setShowIrrelevantModules(bool show);
@@ -115,7 +105,6 @@ Q_SIGNALS:
     void filterRegularExpressionChanged();
 
 private:
-    bool m_filterHighlightsEntries : 1;
     bool m_showIrrelevantModules : 1;
 };
 
