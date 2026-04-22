@@ -98,7 +98,9 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
 
         KRunner::QueryMatch match(this);
         match.setText(name);
-        match.setUrls({QUrl(QLatin1String("applications://") + data.pluginId())});
+        if (KService::Ptr service = KService::serviceByStorageId(data.pluginId() + QLatin1String(".desktop"))) {
+            match.setUrls({QUrl::fromLocalFile(service->entryPath())});
+        }
         match.setSubtext(description);
         match.setIconName(data.iconName()); // If it is not set, KRunner will fall back to the runner's icon
         match.setId(data.pluginId()); // KRunner needs the id to adjust the relevance for often launched KCMs
