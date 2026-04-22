@@ -213,14 +213,12 @@ void SidebarMode::initEvent()
     d->categorizedModel->setCategorizedModel(true);
     d->categorizedModel->setSourceModel(d->model);
     d->categorizedModel->sort(0);
-    d->categorizedModel->setFilterHighlightsEntries(false);
 
     d->flatModel = new KDescendantsProxyModel(this);
     d->flatModel->setSourceModel(d->model);
 
     d->searchModel = new MenuProxyModel(this);
     d->searchModel->setCategorizedModel(true);
-    d->searchModel->setFilterHighlightsEntries(false);
     d->searchModel->setSourceModel(d->flatModel);
 
     d->subCategoryModel = new SubcategoryModel(d->categorizedModel, this);

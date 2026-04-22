@@ -14,7 +14,6 @@
 
 MenuProxyModel::MenuProxyModel(QObject *parent)
     : KCategorizedSortFilterProxyModel(parent)
-    , m_filterHighlightsEntries(true)
     , m_showIrrelevantModules(false)
 {
     setSortRole(MenuModel::UserSortRole);
@@ -67,26 +66,22 @@ bool MenuProxyModel::subSortLessThan(const QModelIndex &left, const QModelIndex 
 bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
+    const QRegularExpression filterRegExp = KCategorizedSortFilterProxyModel::filterRegularExpression();
+    auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
 
-    if (!m_showIrrelevantModules) {
-        // Still find irrelevant modules when searching.
-        const QRegularExpression filterRegExp = KCategorizedSortFilterProxyModel::filterRegularExpression();
-        if (filterRegExp.pattern().isEmpty() && !index.data(MenuModel::IsRelevantRole).toBool()) {
-            return false;
-        }
-    }
-
-    if (!m_filterHighlightsEntries) {
-        // Don't show empty categories
-        auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
-        if (mItem->menu() && mItem->children().isEmpty()) {
-            return false;
-        }
-
+    // Search can find irrelevant modules.
+    if (!filterRegExp.pattern().isEmpty()) {
         return KCategorizedSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
 
-    auto mItem = index.data(Qt::UserRole).value<MenuItem *>();
+    // Don't show empty categories
+    if (mItem->menu() && mItem->children().isEmpty()) {
+        return false;
+    }
+
+    if (!m_showIrrelevantModules && !index.data(MenuModel::IsRelevantRole).toBool()) {
+        return false;
+    }
 
     // accept only systemsettings categories that have (relevant) children
     if (mItem->isSystemsettingsCategory()) {
@@ -109,16 +104,6 @@ bool MenuProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_
     }
 
     return true;
-}
-
-void MenuProxyModel::setFilterHighlightsEntries(bool highlight)
-{
-    m_filterHighlightsEntries = highlight;
-}
-
-bool MenuProxyModel::filterHighlightsEntries() const
-{
-    return m_filterHighlightsEntries;
 }
 
 void MenuProxyModel::setShowIrrelevantModules(bool show)
