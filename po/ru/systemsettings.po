@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-17 00:46+0000\n"
+"POT-Creation-Date: 2026-04-23 00:46+0000\n"
 "PO-Revision-Date: 2026-01-29 19:59+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -69,7 +69,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "© Ben Cooksley, 2009"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
 msgstr "Параметры системы"
@@ -208,12 +208,12 @@ msgstr "Показывать неприменимые страницы"
 msgid "Report a Bug in the Current Page…"
 msgstr "Сообщить об ошибке на текущей странице…"
 
-#: app/SidebarMode.cpp:600
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "Боковая панель"
 
-#: app/SidebarMode.cpp:669
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "Часто используемые модули"
@@ -225,7 +225,7 @@ msgstr ""
 "Поиск модулей приложения «Параметры системы», имя или описание которых "
 "содержит :q:"
 
-#: runner/systemsettingsrunner.cpp:110
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Information"
 msgstr "Сведения о системе"

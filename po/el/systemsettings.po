@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-17 00:46+0000\n"
+"POT-Creation-Date: 2026-04-23 00:46+0000\n"
 "PO-Revision-Date: 2024-09-19 16:11+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -67,7 +67,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
 msgstr "Ρυθμίσεις συστήματος"
@@ -209,12 +209,12 @@ msgstr ""
 msgid "Report a Bug in the Current Page…"
 msgstr "Αναφορά σφάλματος στην τρέχουσα σελίδα..."
 
-#: app/SidebarMode.cpp:600
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "Πλευρική μπάρα"
 
-#: app/SidebarMode.cpp:669
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "Περισσότερο χρησιμοποιημένο"
@@ -226,7 +226,7 @@ msgstr ""
 "Βρίσκει αρθρώματα ρυθμίσεων του συστήματος τα ονόματα των οποίων ή οι "
 "περιγραφές ταιριάζουν με :q:"
 
-#: runner/systemsettingsrunner.cpp:110
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Information"
 msgstr "Πληροφορίες συστήματος"

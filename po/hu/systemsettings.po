@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-17 00:46+0000\n"
+"POT-Creation-Date: 2026-04-23 00:46+0000\n"
 "PO-Revision-Date: 2025-11-06 21:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -63,7 +63,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(C) Ben Cooksley, 2009."
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
 msgstr "Rendszerbeállítások"
@@ -203,12 +203,12 @@ msgstr "Nem alkalmazható oldalak megjelenítése"
 msgid "Report a Bug in the Current Page…"
 msgstr "Hiba jelentése az aktuális oldalban…"
 
-#: app/SidebarMode.cpp:600
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "Oldalsáv"
 
-#: app/SidebarMode.cpp:669
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "Leggyakrabban használt"
@@ -220,7 +220,7 @@ msgstr ""
 "Rendszerbeállítás-modulok keresése, amiknek a nevére vagy leírására "
 "illeszkedik a(z) :q: kifejezés"
 
-#: runner/systemsettingsrunner.cpp:110
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Information"
 msgstr "Rendszerjellemzők"

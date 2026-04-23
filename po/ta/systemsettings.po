@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-17 00:46+0000\n"
+"POT-Creation-Date: 2026-04-23 00:46+0000\n"
 "PO-Revision-Date: 2026-02-01 18:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -59,7 +59,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
 msgstr "கணினி அமைப்புகள்"
@@ -198,12 +198,12 @@ msgstr "பொருந்தாத அமைப்புப்பக்கங�
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SidebarMode.cpp:600
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: app/SidebarMode.cpp:669
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"
@@ -213,7 +213,7 @@ msgstr "அதிகம் பயன்படுவது"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: என்பதற்கு பொருந்தும் கணினி அமைப்பு கூறுகளை கண்டுபிடிக்கும்"
 
-#: runner/systemsettingsrunner.cpp:110
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Information"
 msgstr "கணினி விவரங்கள்"
