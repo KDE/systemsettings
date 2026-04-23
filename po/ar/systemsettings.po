@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-04-23 02:40+0000\n"
 "PO-Revision-Date: 2025-08-17 21:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -64,7 +64,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
 msgstr "إعدادات النّظام"
@@ -197,12 +197,12 @@ msgstr "أظهر الصفحات التي لا تنطبق"
 msgid "Report a Bug in the Current Page…"
 msgstr "أبلغ عن علة في الصفحة الحالية…"
 
-#: app/SidebarMode.cpp:600
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "الشريط الجانبي"
 
-#: app/SidebarMode.cpp:669
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "الأكثر استعمالا"
@@ -212,7 +212,7 @@ msgstr "الأكثر استعمالا"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "يعثر على وحدات إعداد النظام التي يتطابق اسمها أو وصفها مع :q:"
 
-#: runner/systemsettingsrunner.cpp:110
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Information"
 msgstr "معلومات النظام"

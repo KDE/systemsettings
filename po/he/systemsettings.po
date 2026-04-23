@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:46+0000\n"
+"POT-Creation-Date: 2026-04-23 02:40+0000\n"
 "PO-Revision-Date: 2025-08-10 09:26+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -67,7 +67,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, בן קוקסלי"
 
 #: app/main.cpp:65 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
 msgstr "הגדרות מערכת"
@@ -200,12 +200,12 @@ msgstr "הצגת עמודים בלתי ישימים"
 msgid "Report a Bug in the Current Page…"
 msgstr "דיווח על תקלה בעמוד הנוכחי…"
 
-#: app/SidebarMode.cpp:600
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "סרגל צד"
 
-#: app/SidebarMode.cpp:669
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "הכי בשימוש"
@@ -215,7 +215,7 @@ msgstr "הכי בשימוש"
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "חיפוש מודולים של הגדרות מערכת שהשמות או התיאורים שלהם עונים על :q:"
 
-#: runner/systemsettingsrunner.cpp:110
+#: runner/systemsettingsrunner.cpp:112
 #, kde-format
 msgid "System Information"
 msgstr "פרטי מערכת"
