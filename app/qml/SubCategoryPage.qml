@@ -53,6 +53,8 @@ Kirigami.ScrollablePage {
                     root.pageStack.currentIndex = 0;
                 }
 
+                Accessible.name: buttonLabel.text
+
                 // Need a custom content item to left-align everything, because
                 // ToolButtons center everything when you force the width to be
                 // higher than normal, which looks bad here
@@ -66,6 +68,7 @@ Kirigami.ScrollablePage {
                         Layout.alignment: Qt.AlignCenter
                     }
                     Kirigami.Heading {
+                        id: buttonLabel
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         level: 4
