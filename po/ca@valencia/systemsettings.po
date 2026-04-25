@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-25 00:47+0000\n"
 "PO-Revision-Date: 2026-01-28 09:11+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -179,7 +179,7 @@ msgstr "Mostra el menú"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/qml/SubCategoryPage.qml:71
+#: app/qml/SubCategoryPage.qml:74
 #, kde-format
 msgctxt "@action:button go back"
 msgid "Back"

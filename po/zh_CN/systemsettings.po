@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-25 00:47+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -175,7 +175,7 @@ msgstr "显示菜单"
 msgid "Plasma"
 msgstr "Plasma"
 
-#: app/qml/SubCategoryPage.qml:71
+#: app/qml/SubCategoryPage.qml:74
 #, kde-format
 msgctxt "@action:button go back"
 msgid "Back"

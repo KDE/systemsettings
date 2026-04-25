@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-25 00:47+0000\n"
 "PO-Revision-Date: 2026-02-01 18:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -175,7 +175,7 @@ msgstr "பட்டியைக் காட்டு"
 msgid "Plasma"
 msgstr "பிளாஸ்மா"
 
-#: app/qml/SubCategoryPage.qml:71
+#: app/qml/SubCategoryPage.qml:74
 #, kde-format
 msgctxt "@action:button go back"
 msgid "Back"

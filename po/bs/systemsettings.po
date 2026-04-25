@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-25 00:47+0000\n"
 "PO-Revision-Date: 2013-10-18 20:13+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Plasma"
 msgstr ""
 
-#: app/qml/SubCategoryPage.qml:71
+#: app/qml/SubCategoryPage.qml:74
 #, kde-format
 msgctxt "@action:button go back"
 msgid "Back"
