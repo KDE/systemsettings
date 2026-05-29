@@ -115,7 +115,6 @@ void SettingsBase::initApplication()
 
     // enforce minimum window size
     setMinimumSize(SettingsBase::sizeHint());
-    activateWindow();
 
     // Change size limit after screen resolution is changed
     m_screen = qGuiApp->primaryScreen();
