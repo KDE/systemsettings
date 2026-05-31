@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 02:40+0000\n"
 "PO-Revision-Date: 2023-01-13 08:54+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -188,19 +188,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Kembali"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Sorot Pengaturan Yang Diubah"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr ""
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Laporkan Kutu di Halaman Saat Ini..."
