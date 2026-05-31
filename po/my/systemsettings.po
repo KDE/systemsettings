@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 00:47+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -185,7 +185,7 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr ""
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Action to show indicators for settings with custom data. Use as short a "
@@ -194,14 +194,14 @@ msgstr ""
 msgid "Highlight Changed Settings"
 msgstr "ပြောင်းသွားသောဆက်တင်များ အလင်းတင်ပြမည်"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr ""
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr ""

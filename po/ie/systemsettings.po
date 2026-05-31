@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 00:47+0000\n"
 "PO-Revision-Date: 2024-08-04 16:17+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <>\n"
@@ -179,19 +179,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr ""
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, fuzzy, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Parametres del sistema"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr ""
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, fuzzy, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Actual: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 00:47+0000\n"
 "PO-Revision-Date: 2026-01-28 05:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -182,19 +182,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "უკან"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "შეცვლილი პარამეტრების გამოკვეთა"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "გამოუსადეგარი გვერდების ჩვენება"
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "მიმდინარე გვერდზე შეცდომის შეტყობინება…"

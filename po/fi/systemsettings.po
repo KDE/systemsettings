@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 00:47+0000\n"
 "PO-Revision-Date: 2025-09-11 17:39+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -194,19 +194,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Takaisin"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Korosta muuttuneet asetukset"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "Näytä sivut, jotka eivät sovi"
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Ilmoita virheestä tällä sivulla…"

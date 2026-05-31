@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 00:47+0000\n"
 "PO-Revision-Date: 2026-01-28 20:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -187,19 +187,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "返回"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "強調顯示已變更的設定"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "顯示不適用的頁面"
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "回報目前頁面中的問題…"

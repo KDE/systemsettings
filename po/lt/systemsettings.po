@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-25 00:47+0000\n"
+"POT-Creation-Date: 2026-05-31 00:47+0000\n"
 "PO-Revision-Date: 2026-01-30 14:18+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -183,19 +183,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Atgal"
 
-#: app/SettingsBase.cpp:144
+#: app/SettingsBase.cpp:143
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Paryškinti pakeistas nuostatas"
 
-#: app/SettingsBase.cpp:152
+#: app/SettingsBase.cpp:151
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "Rodyti nepritaikomus puslapius"
 
-#: app/SettingsBase.cpp:163
+#: app/SettingsBase.cpp:162
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Pranešti apie klaidą esamame puslapyje…"
