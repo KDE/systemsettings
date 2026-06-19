@@ -1,3 +1,4 @@
+# TODO Plasma 7: Change kcm_powerdevilprofilesconfig to kcm_powerdevil
 [Desktop Entry]
 Exec=systemsettings
 Icon=preferences-system
