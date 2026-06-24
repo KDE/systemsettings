@@ -19,6 +19,7 @@
 #include <QMenuBar>
 #include <QScreen>
 #include <QTimer>
+#include <QUrlQuery>
 #include <QtGlobal>
 
 #include <KAboutData>
@@ -153,9 +154,13 @@ void SettingsBase::initToolBar()
     }
 
     reportPageSpecificBugAction = m_actionCollection->addAction(QStringLiteral("report_bug_in_current_module"), this, [this] {
-        const QString bugReportUrlString =
-            view->moduleView()->activeModuleMetadata().bugReportUrl() + QStringLiteral("&version=") + QGuiApplication::applicationVersion();
-        auto job = new KIO::OpenUrlJob(QUrl(bugReportUrlString));
+        QUrl bugReportUrl(view->moduleView()->activeModuleMetadata().bugReportUrl());
+        if (bugReportUrl.host() == QStringLiteral("bugs.kde.org")) {
+            QUrlQuery query(bugReportUrl);
+            query.addQueryItem(QStringLiteral("version"), QGuiApplication::applicationVersion());
+            bugReportUrl.setQuery(query);
+        }
+        auto job = new KIO::OpenUrlJob(bugReportUrl);
         job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
         job->start();
     });
