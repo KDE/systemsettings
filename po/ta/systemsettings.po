@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-31 00:47+0000\n"
+"POT-Creation-Date: 2026-07-07 00:45+0000\n"
 "PO-Revision-Date: 2026-02-01 18:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr "%1 என்பதை மறுபடியும் இயக்கு"
 msgid "Dialog"
 msgstr "சாளரம்"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:53
+#: app/main.cpp:61 app/SettingsBase.cpp:54
 #, kde-format
 msgid "Info Center"
 msgstr "விவர மையம்"
@@ -58,7 +58,7 @@ msgstr "கணினியின் விவரங்களை வசதிய�
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, பென் குக்குஸ்லி"
 
-#: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
+#: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
 #: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
@@ -181,19 +181,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "பின்னே"
 
-#: app/SettingsBase.cpp:143
+#: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "மாறியுள்ள அமைப்புகளைக் குறி"
 
-#: app/SettingsBase.cpp:151
+#: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "பொருந்தாத அமைப்புப்பக்கங்களையும் காட்டு"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:167
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"

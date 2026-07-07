@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-31 00:47+0000\n"
+"POT-Creation-Date: 2026-07-07 00:45+0000\n"
 "PO-Revision-Date: 2026-01-28 08:07-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr "Executar novamente %1"
 msgid "Dialog"
 msgstr "Diálogo"
 
-#: app/main.cpp:61 app/SettingsBase.cpp:53
+#: app/main.cpp:61 app/SettingsBase.cpp:54
 #, kde-format
 msgid "Info Center"
 msgstr "Centro de informações"
@@ -67,7 +67,7 @@ msgstr "Visão geral centralizada e conveniente das informações do sistema."
 msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
-#: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:56
+#: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
 #: runner/systemsettingsrunner.cpp:114
 #, kde-format
 msgid "System Settings"
@@ -190,19 +190,19 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Voltar"
 
-#: app/SettingsBase.cpp:143
+#: app/SettingsBase.cpp:144
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Realçar configurações alteradas"
 
-#: app/SettingsBase.cpp:151
+#: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
 msgstr "Exibir páginas irrelevantes"
 
-#: app/SettingsBase.cpp:162
+#: app/SettingsBase.cpp:167
 #, kde-format
 msgid "Report a Bug in the Current Page…"
 msgstr "Reportar um erro na página atual…"
