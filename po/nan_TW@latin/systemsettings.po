@@ -1,0 +1,219 @@
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the systemsettings package.
+#
+# SPDX-FileCopyrightText: 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: systemsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-07-07 00:45+0000\n"
+"PO-Revision-Date: 2026-07-19 11:16+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
+"Language: nan_TW@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 26.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kisaragi Hiu"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mail@kisaragi-hiu.com"
+
+#: app/ExternalAppModule.cpp:26
+#, kde-format
+msgid "%1 is an external application and has been automatically launched"
+msgstr "%1 sī guā-pōo ìng-iōng-tîng-sik, í-king tsū-tōng khí-tōng--ah"
+
+#: app/ExternalAppModule.cpp:27
+#, kde-format
+msgid "Relaunch %1"
+msgstr "Tîng-khí-tōng %1"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExternalModule)
+#: app/externalModule.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Tuì-uē-khing"
+
+#: app/main.cpp:61 app/SettingsBase.cpp:54
+#, kde-format
+msgid "Info Center"
+msgstr "Tsu-sìn Tiong-sim"
+
+#: app/main.cpp:63
+#, kde-format
+msgid "Centralized and convenient overview of system information."
+msgstr ""
+
+#: app/main.cpp:65 app/main.cpp:76
+#, kde-format
+msgid "(c) 2009, Ben Cooksley"
+msgstr "(c) 2009, Ben Cooksley"
+
+#: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
+#: runner/systemsettingsrunner.cpp:114
+#, kde-format
+msgid "System Settings"
+msgstr "Hē-thóng Siat-tīng"
+
+#: app/main.cpp:74
+#, kde-format
+msgid "Central configuration center by KDE."
+msgstr ""
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Ben Cooksley"
+msgstr "Ben Cooksley"
+
+#: app/main.cpp:87
+#, kde-format
+msgid "Maintainer"
+msgstr "Uî-hōo-tsiá"
+
+#: app/main.cpp:88
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: app/main.cpp:88
+#, kde-format
+msgid "Author"
+msgstr "Tsok-tsiá"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: app/main.cpp:89
+#, kde-format
+msgid "Developer"
+msgstr "Khai-huat-tsiá"
+
+#: app/main.cpp:90
+#, kde-format
+msgid "Will Stephenson"
+msgstr "Will Stephenson"
+
+#: app/main.cpp:90
+#, kde-format
+msgid "Internal module representation, internal module model"
+msgstr "Luē-pōo module piáu-hiān, luē-pōo module bôo-hîng"
+
+#: app/main.cpp:98
+#, kde-format
+msgid "List all possible modules"
+msgstr "Kā sóo-ū ē-sái iōng ê module lia̍t hōo tshut-lâi"
+
+#: app/main.cpp:99 app/main.cpp:160
+#, kde-format
+msgid "Configuration module to open"
+msgstr "Ài khui ê siat-tīng module"
+
+#: app/main.cpp:100 app/main.cpp:161
+#, kde-format
+msgid "Arguments for the module"
+msgstr "Module ê tsham-sòo"
+
+#: app/main.cpp:108
+#, kde-format
+msgid "The following modules are available:"
+msgstr "Tsia ê module ē-sái iōng:"
+
+#: app/main.cpp:126
+#, kde-format
+msgid "No description available"
+msgstr "Bô suat-bîng"
+
+#: app/ModuleView.cpp:186
+#, kde-format
+msgid "Reset all current changes to previous values"
+msgstr ""
+
+#: app/ModuleView.cpp:279
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Scrollable area"
+msgstr ""
+
+#: app/ModuleView.cpp:373
+#, kde-format
+msgid ""
+"The current page has unsaved changes.\n"
+"Apply the changes or discard them?"
+msgstr ""
+"Tsit-má ia̍h-bīn ū á-buē tû-tsûn ê piàn-king.\n"
+"Lí ài thò-iōng tsit-kuá piàn-king á-sī ài kā in tàn-tiāu?"
+
+#: app/ModuleView.cpp:378
+#, kde-format
+msgid "Apply Settings"
+msgstr "Thò-iōng Siat-tīng"
+
+#: app/qml/CategoriesPage.qml:106
+#, kde-format
+msgctxt "A search yielded no results"
+msgid "No items matching your search"
+msgstr "Bô hû-ha̍p tshiau-tshuē ê hāng-bo̍k"
+
+#: app/qml/HamburgerMenuButton.qml:25
+#, kde-format
+msgid "Show menu"
+msgstr "Hián-sī suán-tuann"
+
+#: app/qml/IntroPage.qml:44
+#, kde-format
+msgid "Plasma"
+msgstr "Plasma"
+
+#: app/qml/SubCategoryPage.qml:74
+#, kde-format
+msgctxt "@action:button go back"
+msgid "Back"
+msgstr "Tńg-khì"
+
+#: app/SettingsBase.cpp:144
+#, kde-format
+msgid "Highlight Changed Settings"
+msgstr ""
+
+#: app/SettingsBase.cpp:152
+#, kde-format
+msgctxt ""
+"@option:check the pages being referred to here are System Settings KCMs"
+msgid "Show Inapplicable Pages"
+msgstr ""
+
+#: app/SettingsBase.cpp:167
+#, kde-format
+msgid "Report a Bug in the Current Page…"
+msgstr ""
+
+#: app/SidebarMode.cpp:598
+#, kde-format
+msgid "Sidebar"
+msgstr ""
+
+#: app/SidebarMode.cpp:667
+#, kde-format
+msgid "Most Used"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:32
+#, kde-format
+msgid "Finds system settings modules whose names or descriptions match :q:"
+msgstr ""
+
+#: runner/systemsettingsrunner.cpp:112
+#, kde-format
+msgid "System Information"
+msgstr "Hē-thóng Tsu-sìn"
