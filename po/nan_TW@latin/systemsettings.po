@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-07 00:45+0000\n"
-"PO-Revision-Date: 2026-07-19 11:16+0900\n"
+"PO-Revision-Date: 2026-07-21 02:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,7 +51,7 @@ msgstr "Tsu-sìn Tiong-sim"
 #: app/main.cpp:63
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "Piān-lī ê hē-thóng tsu-sìn it-lám."
 
 #: app/main.cpp:65 app/main.cpp:76
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Hē-thóng Siat-tīng"
 #: app/main.cpp:74
 #, kde-format
 msgid "Central configuration center by KDE."
-msgstr ""
+msgstr "KDE tsò--ê tiong-iong siat-tīng tiong-sim"
 
 #: app/main.cpp:87
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Luē-pōo module piáu-hiān, luē-pōo module bôo-hîng"
 #: app/main.cpp:98
 #, kde-format
 msgid "List all possible modules"
-msgstr "Kā sóo-ū ē-sái iōng ê module lia̍t hōo tshut-lâi"
+msgstr "Kā sóo-ū ē-sái iōng ê module lia̍t--tshut-lâi"
 
 #: app/main.cpp:99 app/main.cpp:160
 #, kde-format
@@ -137,7 +137,7 @@ msgstr "Bô suat-bîng"
 #: app/ModuleView.cpp:186
 #, kde-format
 msgid "Reset all current changes to previous values"
-msgstr ""
+msgstr "Kā tsit-má ê siu-kái tîng-siat kàu siu-kái tsìn-tsîng ê ti̍t"
 
 #: app/ModuleView.cpp:279
 #, kde-format
@@ -191,12 +191,12 @@ msgstr ""
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Hián-sī Bô-sik-iōng ê Ia̍h-bīn"
 
 #: app/SettingsBase.cpp:167
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Huê-pò Tsit-má Ia̍h-bīn ê Tshò-gōo…"
 
 #: app/SidebarMode.cpp:598
 #, kde-format
@@ -206,12 +206,12 @@ msgstr ""
 #: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
-msgstr ""
+msgstr "Siông-iōng"
 
 #: runner/systemsettingsrunner.cpp:32
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr ""
+msgstr "Tshuē miâ á-sī suat-bîng hû-ha̍p :q: ê hē-thóng siat-tīng module"
 
 #: runner/systemsettingsrunner.cpp:112
 #, kde-format
