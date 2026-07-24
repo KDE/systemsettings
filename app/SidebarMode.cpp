@@ -12,6 +12,7 @@
 #include "MenuProxyModel.h"
 #include "ModuleView.h"
 #include "kcmmetadatahelpers.h"
+#include "systemsettings-config.h"
 
 #include <KAboutData>
 #include <KActionCollection>
@@ -20,7 +21,6 @@
 #include <KDescendantsProxyModel>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KSharedConfig>
 
 #include <KLocalizedQmlContext>
 #include <QAction>
@@ -133,7 +133,7 @@ public:
     qreal headerHeight = 0;
     bool actionMenuVisible = false;
     bool m_defaultsIndicatorsVisible = false;
-    KConfigGroup config;
+    Settings config;
     MenuItem *rootItem = nullptr;
     MenuItem *homeItem = nullptr;
     KPluginMetaData metaData;
@@ -163,14 +163,13 @@ SidebarMode::SidebarMode(QObject *parent,
     qApp->setAttribute(Qt::AA_DontCreateNativeWidgetSiblings);
     qmlRegisterAnonymousType<QAction>("", 1);
     qmlRegisterAnonymousType<QAbstractItemModel>("", 1);
-    d->config = KSharedConfig::openConfig()->group(QStringLiteral("systemsettings_sidebar_mode"));
     initEvent();
     connect(moduleView(), &ModuleView::moduleChanged, this, &SidebarMode::viewChanged);
 }
 
 SidebarMode::~SidebarMode()
 {
-    d->config.sync();
+    d->config.save();
     delete d;
 }
 
@@ -240,7 +239,7 @@ void SidebarMode::initEvent()
         d->moduleView->setDefaultsVisible(false);
     }
 
-    if (d->config.readEntry("HighlightNonDefaultSettings", false)) {
+    if (d->config.highlightNonDefaultSettings()) {
         toggleDefaultsIndicatorsVisibility();
     }
 }
@@ -535,7 +534,7 @@ void SidebarMode::toggleDefaultsIndicatorsVisibility()
     d->m_defaultsIndicatorsVisible = !d->m_defaultsIndicatorsVisible;
     d->moduleView->moduleShowDefaultsIndicators(d->m_defaultsIndicatorsVisible);
     refreshDefaults();
-    d->config.writeEntry("HighlightNonDefaultSettings", d->m_defaultsIndicatorsVisible);
+    d->config.setHighlightNonDefaultSettings(d->m_defaultsIndicatorsVisible);
     Q_EMIT defaultsIndicatorsVisibleChanged();
 }
 
