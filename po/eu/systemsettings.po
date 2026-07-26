@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-07 00:45+0000\n"
+"POT-Creation-Date: 2026-07-26 00:46+0000\n"
 "PO-Revision-Date: 2026-02-10 20:31+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -185,7 +185,8 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Atzera"
 
-#: app/SettingsBase.cpp:144
+#. i18n: ectx: label, entry (HighlightNonDefaultSettings), group (systemsettings_sidebar_mode)
+#: app/SettingsBase.cpp:144 app/systemsettings-config.kcfg:8
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "Nabarmendu aldatutako ezarpenak"
@@ -202,12 +203,12 @@ msgstr "Erakutsi orri aplikaezinak"
 msgid "Report a Bug in the Current Page…"
 msgstr "Uneko orrian dagoen akats baten berri ematea..."
 
-#: app/SidebarMode.cpp:598
+#: app/SidebarMode.cpp:597
 #, kde-format
 msgid "Sidebar"
 msgstr "Alboko-barra"
 
-#: app/SidebarMode.cpp:667
+#: app/SidebarMode.cpp:666
 #, kde-format
 msgid "Most Used"
 msgstr "Gehien erabiliak"

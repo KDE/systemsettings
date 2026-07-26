@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-07 00:45+0000\n"
+"POT-Creation-Date: 2026-07-26 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -181,7 +181,8 @@ msgctxt "@action:button go back"
 msgid "Back"
 msgstr "返回"
 
-#: app/SettingsBase.cpp:144
+#. i18n: ectx: label, entry (HighlightNonDefaultSettings), group (systemsettings_sidebar_mode)
+#: app/SettingsBase.cpp:144 app/systemsettings-config.kcfg:8
 #, kde-format
 msgid "Highlight Changed Settings"
 msgstr "高亮显示更改过的设置"
@@ -198,12 +199,12 @@ msgstr "显示不可用页面"
 msgid "Report a Bug in the Current Page…"
 msgstr "报告当前页面的程序缺陷…"
 
-#: app/SidebarMode.cpp:598
+#: app/SidebarMode.cpp:597
 #, kde-format
 msgid "Sidebar"
 msgstr "侧栏"
 
-#: app/SidebarMode.cpp:667
+#: app/SidebarMode.cpp:666
 #, kde-format
 msgid "Most Used"
 msgstr "常用项目"
