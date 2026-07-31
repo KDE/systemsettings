@@ -403,7 +403,7 @@
 
 <tip
 ><para
->Benutzen Sie das Suchfeld rechts oben in der Ansicht <guibutton
+>Verwenden Sie das Suchfeld rechts oben in der Ansicht <guibutton
 >Alle Einstellungen</guibutton
 >, um mit einem Stichwort alle zutreffenden Module zu finden. Bei der Eingabe der ersten Zeichen wird eine Liste mit passenden Stichwörtern geöffnet und nur die passenden Module werden aktiviert.</para
 ></tip>
@@ -526,7 +526,7 @@
 <para
 >Sie müssen entweder alle Änderungen anwenden oder die Einstellungen wieder auf die vorherigen Werte zurücksetzen, ehe Sie zum nächsten Modul wechseln. </para>
 <para
->Falls Sie versuchen, das Modul zu wechseln, ohne vorher die Einstellungen zu speichern oder wieder zurückzusetzen, werden Sie gefragt, ob Sie die Änderungen speichern oder verwerfen wollen. </para>
+>Falls Sie versuchen, das Modul zu wechseln, ohne vorher die Einstellungen zu speichern oder wieder zurückzusetzen, werden Sie gefragt, ob Sie die Änderungen speichern oder verwerfen möchten. </para>
 </note>
 
 </chapter>
