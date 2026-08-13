@@ -146,7 +146,7 @@ msgstr "Nulstil alle nuværende ændringer til tidligere værdier"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Område der kan scrolles i"
 
 #: app/ModuleView.cpp:373
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "Fremhæv ændrede indstillinger"
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Vis problematiske sider"
 
 #: app/SettingsBase.cpp:167
 #, kde-format
