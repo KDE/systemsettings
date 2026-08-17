@@ -402,6 +402,7 @@ void SidebarMode::loadModule(const QModelIndex &activeModule, const QStringList 
                         d->subCategoryModel->setParentIndex(idx);
                         d->activeSubCategoryRow = 0;
                     } else {
+                        d->subCategoryModel->setParentIndex(QModelIndex());
                         d->activeSubCategoryRow = -1;
                     }
                 }
