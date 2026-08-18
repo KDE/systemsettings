@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: கேபசூ 4.1 தமிழாக்கம்\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:46+0000\n"
+"POT-Creation-Date: 2026-08-18 00:47+0000\n"
 "PO-Revision-Date: 2026-02-01 18:44+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -199,12 +199,12 @@ msgstr "பொருந்தாத அமைப்புப்பக்கங�
 msgid "Report a Bug in the Current Page…"
 msgstr "தற்போதைய பக்கத்தில் பிழையை தெரிவி…"
 
-#: app/SidebarMode.cpp:597
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "பக்கப்பட்டை"
 
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "அதிகம் பயன்படுவது"

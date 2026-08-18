@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:46+0000\n"
+"POT-Creation-Date: 2026-08-18 00:47+0000\n"
 "PO-Revision-Date: 2026-07-05 16:29+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -199,12 +199,12 @@ msgstr "Visa irrelevanta sidor"
 msgid "Report a Bug in the Current Page…"
 msgstr "Rapportera ett fel på den aktuella sidan…"
 
-#: app/SidebarMode.cpp:597
+#: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
 msgstr "Sidorad"
 
-#: app/SidebarMode.cpp:666
+#: app/SidebarMode.cpp:667
 #, kde-format
 msgid "Most Used"
 msgstr "Oftast använda"
