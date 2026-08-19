@@ -69,6 +69,8 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
             keywords << data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
         }
         keywords << KJsonUtils::readTranslatedString(rawData, QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
+        // Remove any soft hyphens (used in long words in some languages)
+        keywords.replaceInStrings(QStringLiteral("\u00AD"), QString());
         keywords.removeDuplicates();
         // check for matches and set relevance
         if (query.length() < 3) {
