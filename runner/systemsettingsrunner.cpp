@@ -17,6 +17,7 @@
 #include <QUrlQuery>
 
 #include <KIO/CommandLauncherJob>
+#include <KJsonUtils>
 #include <KLocalizedString>
 #include <KNotificationJobUiDelegate>
 #include <KSycoca>
@@ -61,7 +62,14 @@ void SystemsettingsRunner::match(KRunner::RunnerContext &context)
 
         const QString name = data.name();
         const QString description = data.description();
-        const QStringList keywords = data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
+        QStringList keywords;
+        const QJsonObject rawData = data.rawData();
+        // Add English keywords so users in other languages won't have to switch IME when searching.
+        if (!QLocale().name().startsWith(QLatin1String("en_"))) {
+            keywords << data.value(QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
+        }
+        keywords << KJsonUtils::readTranslatedString(rawData, QStringLiteral("X-KDE-Keywords")).split(QLatin1Char(','));
+        keywords.removeDuplicates();
         // check for matches and set relevance
         if (query.length() < 3) {
             if (name.startsWith(query, Qt::CaseInsensitive)) {
