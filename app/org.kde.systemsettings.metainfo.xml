@@ -53,6 +53,7 @@
   <name xml:lang="lv">Sistēmas iestatījumi</name>
   <name xml:lang="ml">സിസ്റ്റം സജ്ജീകരണങ്ങൾ</name>
   <name xml:lang="my">စစ်စတမ်ဆက်တင်များ</name>
+  <name xml:lang="nan-Latn-TW">Hē-thóng Siat-tīng</name>
   <name xml:lang="nb">Systeminnstillinger</name>
   <name xml:lang="nl">Systeeminstellingen</name>
   <name xml:lang="nn">Systeminnstillingar</name>
@@ -101,6 +102,7 @@
   <summary xml:lang="ko">시스템의 행동과 모양 설정</summary>
   <summary xml:lang="lt">Konfigūruoti sistemos elgseną ir išvaizdą</summary>
   <summary xml:lang="lv">Konfigurējiet sistēmas uzvedību un izskatu</summary>
+  <summary xml:lang="nan-Latn-TW">Siat-tīng hē-thóng ê hîng-uî kap guā-kuan</summary>
   <summary xml:lang="nb">Sett opp systemets oppførsel og utseende</summary>
   <summary xml:lang="nl">Het gedrag en uiterlijk van het systeem configureren</summary>
   <summary xml:lang="nn">Set opp utsjånad og åtferd for systemet</summary>
@@ -155,6 +157,7 @@
     <p xml:lang="lt">Sistemos nuostatos leidžia jums konfigūruoti ir derinti savo KDE Plasma darbalaukį taip, kad jis geriau atitiktų jūsų poreikius.</p>
     <p xml:lang="lv">Sistēmas iestatījumi ļauj konfigurēt un pielāgot jūsu KDE „Plasma“ darbvirsmu, lai tā labāk atbilstu jūsu vajadzībām.</p>
     <p xml:lang="ml">നിങ്ങളുടെ പ്ലാസ്മ ഡെസ്ക്ടോപ് നിങ്ങളുടെ ഇഷ്ടങ്ങൾക്കനുസരിച്ച് ക്രമീകരിക്കാൻ സിസ്റ്റം സജ്ജീകരണങ്ങൾ സഹായിക്കുന്നു.</p>
+    <p xml:lang="nan-Latn-TW">Hē-thóng Siat-tīng hōo-lí ē-sái tshiâu lí-ê KDE Plasma toh-bīn ê siat-tīng lâi hōo-i khah hû-ha̍p lí-ê su-iàu.</p>
     <p xml:lang="nb">Med systeminnstillingene kan du sette opp og skreddersy KDE Plasma-skrivebordet etter egne ønsker og behov.</p>
     <p xml:lang="nl">Systeeminstellingen biedt u het configureren en aanpassen van uw KDE Plasma bureaublad om het aan uw behoeften aan te passen.</p>
     <p xml:lang="nn">Med systeminnstillingane kan du setja opp og skreddarsy KDE Plasma-skrivebordet etter eigne ønskjer og behov.</p>
