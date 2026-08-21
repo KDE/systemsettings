@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2021-09-26 16:01+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/systemsettings/"
@@ -57,7 +57,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, ബെന്‍ കുക്ക്സ്ലി"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
-#: runner/systemsettingsrunner.cpp:114
+#: runner/systemsettingsrunner.cpp:124
 #, kde-format
 msgid "System Settings"
 msgstr "സിസ്റ്റത്തിലെ സജ്ജീകരണങ്ങള്‍"
@@ -215,12 +215,12 @@ msgstr "സൈഡ്‌ബാർ"
 msgid "Most Used"
 msgstr "ഏറ്റവും കൂടുതൽ ഉപയോഗിച്ചത്"
 
-#: runner/systemsettingsrunner.cpp:32
+#: runner/systemsettingsrunner.cpp:33
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "സജ്ജീകരണങ്ങളിൽ പേരോ വിവരണമോ :q: ഉമായി പൊരുത്തപെടുന്നവ കണ്ടുപിടിക്കും"
 
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:122
 #, kde-format
 msgid "System Information"
 msgstr "സിസ്റ്റത്തെ കുറിച്ച്"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2026-01-28 20:03+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -62,7 +62,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
-#: runner/systemsettingsrunner.cpp:114
+#: runner/systemsettingsrunner.cpp:124
 #, kde-format
 msgid "System Settings"
 msgstr "Configurări de sistem"
@@ -212,14 +212,14 @@ msgstr "Bara laterală"
 msgid "Most Used"
 msgstr "Cele mai folosite"
 
-#: runner/systemsettingsrunner.cpp:32
+#: runner/systemsettingsrunner.cpp:33
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 "Găsește module cu configurări de sistem ale căror denumiri sau descrieri se "
 "potrivesc cu :q:"
 
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:122
 #, kde-format
 msgid "System Information"
 msgstr "Informații despre sistem"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2009-01-16 22:16+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
@@ -60,7 +60,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr ""
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
-#: runner/systemsettingsrunner.cpp:114
+#: runner/systemsettingsrunner.cpp:124
 #, kde-format
 msgid "System Settings"
 msgstr "సిస్టమ్ అమర్పులు"
@@ -209,12 +209,12 @@ msgstr ""
 msgid "Most Used"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:32
+#: runner/systemsettingsrunner.cpp:33
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ""
 
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:122
 #, fuzzy, kde-format
 #| msgid "System Settings"
 msgid "System Information"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2025-03-03 20:19+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -62,7 +62,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "สงวนลิขสิทธิ์ (c) 2552, Ben Cooksley"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
-#: runner/systemsettingsrunner.cpp:114
+#: runner/systemsettingsrunner.cpp:124
 #, kde-format
 msgid "System Settings"
 msgstr "ตั้งค่าระบบ"
@@ -212,12 +212,12 @@ msgstr "แถบข้าง"
 msgid "Most Used"
 msgstr "ใช้มากที่สุด"
 
-#: runner/systemsettingsrunner.cpp:32
+#: runner/systemsettingsrunner.cpp:33
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr "ค้นหาโมดูลการตั้งค่าระบบที่มีชื่อหรือคําอธิบายตรงกับ :q:"
 
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:122
 #, kde-format
 msgid "System Information"
 msgstr "ข้อมูลระบบ"

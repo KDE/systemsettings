@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2021-09-21 20:20+0630\n"
 "Last-Translator: ဇေယျာလွင် <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -60,7 +60,7 @@ msgid "(c) 2009, Ben Cooksley"
 msgstr "(c) ၂၀၁၉၊ ဘန်ကွတ်စလေ"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
-#: runner/systemsettingsrunner.cpp:114
+#: runner/systemsettingsrunner.cpp:124
 #, kde-format
 msgid "System Settings"
 msgstr "စစ်စတမ် ဆက်တင်"
@@ -217,12 +217,12 @@ msgstr "ဘေးတန်း"
 msgid "Most Used"
 msgstr "အသုံးများဆုံး"
 
-#: runner/systemsettingsrunner.cpp:32
+#: runner/systemsettingsrunner.cpp:33
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
 msgstr ":q: နှင့် အမည် သို့မဟုတ် ဖော်ပြချက်နှင့် ကိုက်ညီသော စစ်စတမ်ဆက်တင်မော်ဂျူးများ ရှာဖွေမည်။"
 
-#: runner/systemsettingsrunner.cpp:112
+#: runner/systemsettingsrunner.cpp:122
 #, kde-format
 msgid "System Information"
 msgstr "စစ်စတမ်ဆိုင်ရာ အချက်အလက်"
