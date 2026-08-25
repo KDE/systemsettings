@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the kdenetwork package.
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2008.
-# SPDX-FileCopyrightText: 2009, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2009, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2009.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2014, 2015, 2018, 2022.
 #
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-18 02:46+0000\n"
-"PO-Revision-Date: 2025-09-11 17:39+0300\n"
+"PO-Revision-Date: 2026-03-04 19:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -188,8 +188,7 @@ msgid "Plasma"
 msgstr "Plasma"
 
 #: app/qml/SubCategoryPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Back"
+#, kde-format
 msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Takaisin"
