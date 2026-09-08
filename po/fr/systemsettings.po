@@ -58,7 +58,7 @@ msgstr "Relancer %1"
 #: app/externalModule.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Boîte de dialogue"
+msgstr "Boite de dialogue"
 
 #: app/main.cpp:61 app/SettingsBase.cpp:53
 #, kde-format
