@@ -40,7 +40,7 @@ msgstr "shafff@ukr.net,semenukha@gmail.com"
 #: app/ExternalAppModule.cpp:26
 #, kde-format
 msgid "%1 is an external application and has been automatically launched"
-msgstr "%1 является сторонней программой и была запущена автоматически"
+msgstr "%1 является сторонним приложением и было запущено автоматически"
 
 #: app/ExternalAppModule.cpp:27
 #, kde-format

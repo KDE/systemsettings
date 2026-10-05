@@ -2,13 +2,14 @@
 # Chusslove Illich <caslav.ilic@gmx.net>, 2007, 2009, 2012, 2015, 2016, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009.
 # Slobodan Simic <slsimic@gmail.com>, 2017.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2017-10-30 23:08+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-03 22:09+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Časlav Ilić"
+msgstr "Časlav Ilić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "caslav.ilic@gmx.net"
+msgstr "caslav.ilic@gmx.net,nemhirsl@gmail.com"
 
 #: app/ExternalAppModule.cpp:26
 #, kde-format
@@ -50,12 +51,12 @@ msgstr "Dijalog"
 #: app/main.cpp:61 app/SettingsBase.cpp:54
 #, kde-format
 msgid "Info Center"
-msgstr ""
+msgstr "Infocentar"
 
 #: app/main.cpp:63
 #, kde-format
 msgid "Centralized and convenient overview of system information."
-msgstr ""
+msgstr "Centralizovan i zgodan pregled podataka o sistemu."
 
 #: app/main.cpp:65 app/main.cpp:76
 #, kde-format
@@ -116,27 +117,27 @@ msgstr "Unutrašnje predstavljanje modula, unutrašnji model modula"
 #: app/main.cpp:98
 #, kde-format
 msgid "List all possible modules"
-msgstr ""
+msgstr "Spisak svih mogućih modula"
 
 #: app/main.cpp:99 app/main.cpp:160
 #, kde-format
 msgid "Configuration module to open"
-msgstr ""
+msgstr "Kontrolni modul koji treba otvoriti"
 
 #: app/main.cpp:100 app/main.cpp:161
 #, kde-format
 msgid "Arguments for the module"
-msgstr ""
+msgstr "Argumenti za modul"
 
 #: app/main.cpp:108
 #, kde-format
 msgid "The following modules are available:"
-msgstr ""
+msgstr "Dostupni su sledeći moduli:"
 
 #: app/main.cpp:126
 #, kde-format
 msgid "No description available"
-msgstr ""
+msgstr "Nema opisa"
 
 # rewrite-msgid: /Reset/Revert/
 #: app/ModuleView.cpp:186
@@ -148,19 +149,16 @@ msgstr "Vratite sve tekuće izmene na prethodne vrednosti."
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Klizna oblast"
 
 #: app/ModuleView.cpp:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "The settings of the current module have changed.\n"
-#| "Do you want to apply the changes or discard them?"
+#, kde-format
 msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
-"Postavke tekućeg modula su izmenjene.\n"
-"Želite li da primenite ili odbacite izmene?"
+"Tekuća stranica ima nesačuvane izmene.\n"
+"Primeniti izmene ili ih odbaciti?"
 
 # >> @title:window
 #: app/ModuleView.cpp:378
@@ -169,9 +167,7 @@ msgid "Apply Settings"
 msgstr "Primena postavki"
 
 #: app/qml/CategoriesPage.qml:106
-#, fuzzy, kde-format
-#| msgctxt "A search yelded no results"
-#| msgid "No items matching your search"
+#, kde-format
 msgctxt "A search yielded no results"
 msgid "No items matching your search"
 msgstr "Pretraga ne poklapa nijednu stavku"
@@ -179,16 +175,15 @@ msgstr "Pretraga ne poklapa nijednu stavku"
 #: app/qml/HamburgerMenuButton.qml:25
 #, kde-format
 msgid "Show menu"
-msgstr ""
+msgstr "Prikaži meni"
 
 #: app/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: app/qml/SubCategoryPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Back"
+#, kde-format
 msgctxt "@action:button go back"
 msgid "Back"
 msgstr "Nazad"
@@ -197,19 +192,19 @@ msgstr "Nazad"
 #: app/SettingsBase.cpp:144 app/systemsettings-config.kcfg:8
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Istakni izmenjene postavke"
 
 #: app/SettingsBase.cpp:152
 #, kde-format
 msgctxt ""
 "@option:check the pages being referred to here are System Settings KCMs"
 msgid "Show Inapplicable Pages"
-msgstr ""
+msgstr "Prikaži neprimenljive stranice"
 
 #: app/SettingsBase.cpp:167
 #, kde-format
 msgid "Report a Bug in the Current Page…"
-msgstr ""
+msgstr "Prijavi grešku na tekućoj stranici…"
 
 #: app/SidebarMode.cpp:598
 #, kde-format
@@ -225,121 +220,9 @@ msgstr "Najkorišćenije"
 #: runner/systemsettingsrunner.cpp:33
 #, kde-format
 msgid "Finds system settings modules whose names or descriptions match :q:"
-msgstr ""
+msgstr "Nalazi module Sistemskih postavki čija imena ili opisi poklapaju :q:"
 
 #: runner/systemsettingsrunner.cpp:122
-#, fuzzy, kde-format
-#| msgid "System Settings"
+#, kde-format
 msgid "System Information"
-msgstr "Sistemske postavke"
-
-#~ msgid "Help"
-#~ msgstr "Pomoć"
-
-#~ msgid "About System Settings"
-#~ msgstr "O Sistemskim postavkama"
-
-#~ msgid "Contains 1 item"
-#~ msgid_plural "Contains %1 items"
-#~ msgstr[0] "Sadrži %1 stavku"
-#~ msgstr[1] "Sadrži %1 stavke"
-#~ msgstr[2] "Sadrži %1 stavki"
-#~ msgstr[3] "Sadrži jednu stavku"
-
-# >> @label
-#~ msgctxt "Search through a list of control modules"
-#~ msgid "Search"
-#~ msgstr "Pretraga"
-
-#~ msgid "About Active View"
-#~ msgstr "O aktivnom prikazu"
-
-#~ msgid "About %1"
-#~ msgstr "O %1|/|O $[dat %1]"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence has nothing to "
-#~ "display."
-#~ msgstr ""
-#~ "Ne može se naći nijedan prikaz za Sistemske postavke, stoga nema ničeg za "
-#~ "prikazivanje."
-
-#~ msgid "No views found"
-#~ msgstr "Nema nijednog prikaza"
-
-#~ msgid "Internal name for the view used"
-#~ msgstr "Unutrašnje ime za korišćeni prikaz"
-
-#, fuzzy
-#~| msgid "Icon View"
-#~ msgid "Switch to Icon View"
-#~ msgstr "Prikaz ikonica|/|$[svojstva dat 'Prikazu ikonica']"
-
-#, fuzzy
-#~| msgid "Sidebar View"
-#~ msgid "Switch to Sidebar View"
-#~ msgstr "Prikaz bočne trake"
-
-#~ msgid "Icon View"
-#~ msgstr "Prikaz ikonica|/|$[svojstva dat 'Prikazu ikonica']"
-
-#~ msgid "Provides a categorized icons view of control modules."
-#~ msgstr "Pruža prikaz kontrolnih modula po kategorizovanim ikonicama."
-
-#~ msgid "All Settings"
-#~ msgstr "Sve postavke"
-
-#~ msgid "Keyboard Shortcut: %1"
-#~ msgstr "Prečica s tastature: %1"
-
-#~ msgid "Sidebar View"
-#~ msgstr "Prikaz bočne trake"
-
-#~ msgid "Provides a categorized sidebar for control modules."
-#~ msgstr "Pruža prikaz kontrolnih modula u bočnoj traci po kategorijama."
-
-#~ msgid "(c) 2017, Marco Martin"
-#~ msgstr "© 2017, Marko Martin"
-
-#~ msgid "View Style"
-#~ msgstr "Stil prikaza"
-
-#~ msgid "Show detailed tooltips"
-#~ msgstr "Detaljni oblačići"
-
-#, fuzzy
-#~| msgid "Configure"
-#~ msgid "Configure..."
-#~ msgstr "Podesi"
-
-#~ msgid "About Active Module"
-#~ msgstr "O aktivnom modulu"
-
-#~ msgctxt "General config for System Settings"
-#~ msgid "General"
-#~ msgstr "Opšte"
-
-#~ msgid ""
-#~ "System Settings was unable to find any views, and hence nothing is "
-#~ "available to configure."
-#~ msgstr ""
-#~ "Ne može se naći nijedan prikaz za Sistemske postavke, stoga ništa nije "
-#~ "dostupno za podešavanje."
-
-#~ msgid "Determines whether detailed tooltips should be used"
-#~ msgstr "Određuje da li se prikazuju detaljni oblačići"
-
-#~ msgid "Most used module number %1"
-#~ msgstr "Najkorišćeniji modul broj %1"
-
-#, fuzzy
-#~| msgid "Frequently used:"
-#~ msgid "Frequently Used"
-#~ msgstr "Često korišćeno:"
-
-#~ msgid "<i>Contains 1 item</i>"
-#~ msgid_plural "<i>Contains %1 items</i>"
-#~ msgstr[0] "<i>Sadrži %1 stavku</i>"
-#~ msgstr[1] "<i>Sadrži %1 stavke</i>"
-#~ msgstr[2] "<i>Sadrži %1 stavki</i>"
-#~ msgstr[3] "<i>Sadrži jednu stavku</i>"
+msgstr "Podaci o sistemu"
