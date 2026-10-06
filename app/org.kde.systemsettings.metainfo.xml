@@ -66,6 +66,10 @@
   <name xml:lang="sa">सङ्गणकतन्त्रस्य समायोजनानि</name>
   <name xml:lang="sk">Systémové nastavenia</name>
   <name xml:lang="sl">Nastavitve sistema</name>
+  <name xml:lang="sr">Системске поставке</name>
+  <name xml:lang="sr-Latn">Sistemske postavke</name>
+  <name xml:lang="sr-ijekavian">Системске поставке</name>
+  <name xml:lang="sr-ijekavianlatin">Sistemske postavke</name>
   <name xml:lang="sv">Systeminställningar</name>
   <name xml:lang="ta">கணினி அமைப்புகள்</name>
   <name xml:lang="tg">Танзимоти низом</name>
@@ -114,6 +118,10 @@
   <summary xml:lang="ru">Параметры поведения системы и оформления</summary>
   <summary xml:lang="sk">Nastaviť the system’s behavior and appearance</summary>
   <summary xml:lang="sl">Konfigurirajte delovanje in videz sistema</summary>
+  <summary xml:lang="sr">Подешавање понашања и изгледа система</summary>
+  <summary xml:lang="sr-Latn">Podešavanje ponašanja i izgleda sistema</summary>
+  <summary xml:lang="sr-ijekavian">Подешавање понашања и изгледа система</summary>
+  <summary xml:lang="sr-ijekavianlatin">Podešavanje ponašanja i izgleda sistema</summary>
   <summary xml:lang="sv">Anpassa systemets beteende och utseende</summary>
   <summary xml:lang="ta">கணினியின் நடத்தையையும் தோற்றத்தையும் அமைக்கலாம்</summary>
   <summary xml:lang="tr">Sistem davranışını ve görünüşünü yapılandırın</summary>
@@ -170,6 +178,10 @@
     <p xml:lang="sa">सङ्गणकतन्त्रसमायोजनानि भवन्तं स्वस्य KDE Plasma कार्यमुख विन्यस्तुं अनुकूलितुं च शक्नोति यत् तत् भवतः आवश्यकतानां पूर्तये उत्तमरीत्या भवति ।.</p>
     <p xml:lang="sk">Systémové nastavenia vám umožnia nastaviť a prispôsobiť vašu pracovnú plochu Plasma, aby lepšie vyhovovala vašim potrebám.</p>
     <p xml:lang="sl">Sistemske nastavitve omogočajo nastavitve in prilagajanje namizja KDE Plasma z namenom boljšega izpolnjevanja vaših potreb.</p>
+    <p xml:lang="sr">Системске поставке вам омогућавају да подесите и дотерате површ КДЕ Плазме тако да боље одговара вашим потребама.</p>
+    <p xml:lang="sr-Latn">Sistemske postavke vam omogućavaju da podesite i doterate površ KDE Plasme tako da bolje odgovara vašim potrebama.</p>
+    <p xml:lang="sr-ijekavian">Системске поставке вам омогућавају да подесите и дотерате површ КДЕ Плазме тако да боље одговара вашим потребама.</p>
+    <p xml:lang="sr-ijekavianlatin">Sistemske postavke vam omogućavaju da podesite i doterate površ KDE Plasme tako da bolje odgovara vašim potrebama.</p>
     <p xml:lang="sv">Systeminställningarna låter dig anpassa och justera KDE Plasma-skrivbordet för att det bättre ska passa dina behov.</p>
     <p xml:lang="ta">கே.டீ.யீ. பிளாஸ்மா பணிமேடையை உங்கள் தேவைக்கேற்ப மாற்றியமைக்க கணினி அமைப்புகள் உதவும்.</p>
     <p xml:lang="tg">Танзимоти низом ба шумо имкон медиҳад, то тавонед мизи кории KDE Plasma-ро ба талаботи шахсии худ танзим ва тасҳеҳ карда, беҳтар намоед.</p>
