@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2026-08-18 02:34+0900\n"
+"PO-Revision-Date: 2026-10-05 22:19+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
@@ -143,7 +143,7 @@ msgstr "Kā tsit-má ê siu-kái tîng-siat kàu siu-kái tsìn-tsîng ê ti̍t"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Scrollable area"
-msgstr ""
+msgstr "Ē kńg ê khu-i̍k"
 
 #: app/ModuleView.cpp:373
 #, kde-format
@@ -185,7 +185,7 @@ msgstr "Tńg-khì"
 #: app/SettingsBase.cpp:144 app/systemsettings-config.kcfg:8
 #, kde-format
 msgid "Highlight Changed Settings"
-msgstr ""
+msgstr "Tu̍t-hián Í-king Kái-piàn ê Siat-tīng"
 
 #: app/SettingsBase.cpp:152
 #, kde-format
@@ -202,7 +202,7 @@ msgstr "Huê-pò Tsit-má Ia̍h-bīn ê Tshò-gōo…"
 #: app/SidebarMode.cpp:598
 #, kde-format
 msgid "Sidebar"
-msgstr ""
+msgstr "Pinn-á-nuâ"
 
 #: app/SidebarMode.cpp:667
 #, kde-format
