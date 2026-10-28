@@ -55,11 +55,16 @@ target_link_libraries(systemsettings PRIVATE
     KF6::AuthCore
     KF6::I18nQml
     KF6::ColorScheme
-    Plasma::Activities
     Qt::QuickWidgets
     Qt::Qml
     Qt::Quick
 )
+
+if(ENABLE_ACTIVITIES)
+    target_link_libraries(systemsettings PRIVATE
+        Plasma::Activities
+    )
+endif()
 
 kconfig_target_kcfg_file(systemsettings FILE systemsettings-config.kcfg CLASS_NAME Settings MUTATORS)
 

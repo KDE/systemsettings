@@ -11,5 +11,10 @@ target_link_libraries(krunner_systemsettings
     KF6::Runner
     KF6::Service
     KF6::KCMUtils
-    Plasma::Activities
 )
+
+if(ENABLE_ACTIVITIES)
+    target_link_libraries(krunner_systemsettings
+        Plasma::Activities
+    )
+endif()

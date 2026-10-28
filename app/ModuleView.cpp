@@ -36,7 +36,9 @@
 #include <KSharedConfig>
 #include <KStandardGuiItem>
 #include <KTitleWidget>
+#if ENABLE_ACTIVITIES
 #include <PlasmaActivities/ResourceInstance>
+#endif
 
 #include <cmath>
 
@@ -137,7 +139,9 @@ public:
     QIcon mApplyIcon;
     KMessageDialog *mResolvingChangesDialog = nullptr;
     bool pageChangeSupressed = false;
+#if ENABLE_ACTIVITIES
     bool mSaveStatistics = true;
+#endif
     bool mDefaultsIndicatorsVisible = false;
     KCModule::Buttons mButtonMask = ~KCModule::Buttons(KCModule::NoAdditionalButton);
     KAuth::Action authAction;
@@ -476,13 +480,13 @@ void ModuleView::activeModuleChanged(KPageWidgetItem *current, KPageWidgetItem *
     if (!activeModule) {
         return;
     }
-
+#if ENABLE_ACTIVITIES
     // TODO: if we'll ever need statistics for kinfocenter modules, save them with an URL like "kinfo:"
     if (d->mSaveStatistics && activeModule->metaData().pluginId() != QStringLiteral("kcm_landingpage")) {
         KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("kcm:") + activeModule->metaData().pluginId()),
                                                       QStringLiteral("org.kde.systemsettings"));
     }
-
+#endif
     d->mLayout->setContentsMargins(0, 0, 0, 0);
     d->mLayout->setSpacing(0);
     d->mButtons->setContentsMargins(style()->pixelMetric(QStyle::PM_LayoutLeftMargin),
@@ -573,7 +577,7 @@ void ModuleView::setFaceType(KPageView::FaceType type)
 {
     d->mPageWidget->setFaceType(type);
 }
-
+#if ENABLE_ACTIVITIES
 void ModuleView::setSaveStatistics(bool save)
 {
     d->mSaveStatistics = save;
@@ -583,7 +587,7 @@ bool ModuleView::saveStatistics() const
 {
     return d->mSaveStatistics;
 }
-
+#endif
 void ModuleView::setApplyVisible(bool visible)
 {
     d->mButtonMask.setFlag(KCModule::Apply, visible);

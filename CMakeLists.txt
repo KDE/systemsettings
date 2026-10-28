@@ -65,7 +65,13 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     QUIET
 )
 
-find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
+option(ENABLE_ACTIVITIES "Enable support for Plasma Activities in runner and " ON)
+
+if(ENABLE_ACTIVITIES)
+    find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
+endif()
+
+configure_file(config-systemsettings.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-systemsettings.h )
 
 add_library(systemsettings_debug STATIC)
 target_link_libraries(systemsettings_debug Qt::Core)

@@ -8,6 +8,8 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
+#include <config-systemsettings.h>
+
 #include "systemsettingsrunner.h"
 
 #include <algorithm>
@@ -21,7 +23,9 @@
 #include <KLocalizedString>
 #include <KNotificationJobUiDelegate>
 #include <KSycoca>
+#if ENABLE_ACTIVITIES
 #include <PlasmaActivities/ResourceInstance>
+#endif
 
 #include "../app/kcmmetadatahelpers.h"
 
@@ -148,8 +152,9 @@ void SystemsettingsRunner::run(const KRunner::RunnerContext & /*context*/, const
     delegate->setAutoErrorHandlingEnabled(true);
     job->setUiDelegate(delegate);
     job->start();
-
+#if ENABLE_ACTIVITIES
     KActivities::ResourceInstance::notifyAccessed(QUrl(QStringLiteral("systemsettings:") + data.pluginId()), QStringLiteral("org.kde.krunner"));
+#endif
 }
 
 QMimeData *SystemsettingsRunner::mimeDataForMatch(const KRunner::QueryMatch &match)

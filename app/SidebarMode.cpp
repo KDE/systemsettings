@@ -234,7 +234,9 @@ void SidebarMode::initEvent()
     d->quickWidget = nullptr;
     moduleView()->setFaceType(KPageView::Plain);
     if (d->applicationMode == InfoCenter) {
+#if ENABLE_ACTIVITIES
         d->moduleView->setSaveStatistics(false);
+#endif
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
     }
@@ -430,7 +432,9 @@ void SidebarMode::moduleLoaded()
     }
     d->moduleView->show();
     if (d->applicationMode == InfoCenter) {
+#if ENABLE_ACTIVITIES
         d->moduleView->setSaveStatistics(false);
+#endif
         d->moduleView->setApplyVisible(false);
         d->moduleView->setDefaultsVisible(false);
     }

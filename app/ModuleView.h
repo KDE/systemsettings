@@ -8,6 +8,8 @@
 #ifndef MODULE_VIEW_H
 #define MODULE_VIEW_H
 
+#include <config-systemsettings.h>
+
 #include <KAuth/Action>
 #include <KPageView>
 
@@ -84,11 +86,13 @@ public:
      */
     void setSaveStatistics(bool save);
 
+#if ENABLE_ACTIVITIES
     /**
      * @returns whether Systemsettings should save statisctics about
      * most used module
      */
     bool saveStatistics() const;
+#endif
 
     /**
      * Shows or hides the Apply button.
