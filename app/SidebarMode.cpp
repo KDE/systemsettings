@@ -595,6 +595,8 @@ void SidebarMode::initWidget()
     // SidebarMode and ModuleView have the reference
     Q_ASSERT_X(d->engine.use_count() == 2, Q_FUNC_INFO, qUtf8Printable(QString::number(d->engine.use_count())));
     d->quickWidget = new QQuickWidget(d->engine.get(), d->mainWidget);
+    d->quickWidget->quickWindow()->setColor(Qt::transparent);
+    d->quickWidget->setAttribute(Qt::WA_AlwaysStackOnTop, true);
     d->quickWidget->quickWindow()->setTitle(i18n("Sidebar"));
     d->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
