@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-30 00:56+0000\n"
 "PO-Revision-Date: 2026-09-23 06:56+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -198,12 +198,12 @@ msgstr "ئىشلەتكىلى بولمايدىغان بەتنى كۆرسىتىد�
 msgid "Report a Bug in the Current Page…"
 msgstr "كەمتۈكنى نۆۋەتتىكى بەتتە مەلۇم قىلىدۇ…"
 
-#: app/SidebarMode.cpp:598
+#: app/SidebarMode.cpp:600
 #, kde-format
 msgid "Sidebar"
 msgstr "يان قورال بالداق"
 
-#: app/SidebarMode.cpp:667
+#: app/SidebarMode.cpp:669
 #, kde-format
 msgid "Most Used"
 msgstr "ئەڭ كۆپ ئىشلىتىلگەن"
