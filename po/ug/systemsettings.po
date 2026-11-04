@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: systemsettings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:56+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-11-02 10:24-0500\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -57,7 +57,7 @@ msgstr "سىستېما ئۇچۇرىنىڭ مەركەزلەشتۈرۈلگەن ۋ�
 #: app/main.cpp:65 app/main.cpp:76
 #, kde-format
 msgid "(c) 2009, Ben Cooksley"
-msgstr ""
+msgstr "(c) 2009, Ben Cooksley"
 
 #: app/main.cpp:72 app/qml/IntroPage.qml:51 app/SettingsBase.cpp:57
 #: runner/systemsettingsrunner.cpp:124
@@ -73,7 +73,7 @@ msgstr "KDE نىڭ مەركەزلەشتۈرۈلگەن سەپلەش مەركىز�
 #: app/main.cpp:87
 #, kde-format
 msgid "Ben Cooksley"
-msgstr ""
+msgstr "Ben Cooksley"
 
 #: app/main.cpp:87
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "ئاسرىغۇچى"
 #: app/main.cpp:88
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: app/main.cpp:88
 #, kde-format
@@ -93,7 +93,7 @@ msgstr "يازغۇچى"
 #: app/main.cpp:89
 #, kde-format
 msgid "Mathias Soeken"
-msgstr ""
+msgstr "Mathias Soeken"
 
 #: app/main.cpp:89
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "ئىجادكار"
 #: app/main.cpp:90
 #, kde-format
 msgid "Will Stephenson"
-msgstr ""
+msgstr "Will Stephenson"
 
 #: app/main.cpp:90
 #, kde-format
@@ -152,6 +152,8 @@ msgid ""
 "The current page has unsaved changes.\n"
 "Apply the changes or discard them?"
 msgstr ""
+"نۆۋەتتىكى بەتتە تېخى ساقلانمىغان ئۆزگىرىش بار. ئۆزگىرىشنى قوللىنامدۇ ياكى "
+"تاشلىۋېتەمدۇ؟"
 
 #: app/ModuleView.cpp:378
 #, kde-format
@@ -172,7 +174,7 @@ msgstr "تىزىملىكنى كۆرسەت"
 #: app/qml/IntroPage.qml:44
 #, kde-format
 msgid "Plasma"
-msgstr ""
+msgstr "Plasma"
 
 #: app/qml/SubCategoryPage.qml:74
 #, kde-format
