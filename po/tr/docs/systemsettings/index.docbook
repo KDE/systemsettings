@@ -209,7 +209,7 @@
 <para
 >Simge penceresi odağa sahip olduğunda, seçmek için herhangi bir modülün veya modül grubu adının ilk harfini yazabilirsiniz. Bu harf yeniden yazıldığında seçim bir sonraki eşleşmeye geçer. </para>
 <para
->Araç çubuğunun altında, &systemsettings; uygulamasını oluşturan bağımsız modüllerin veya modül gruplarının farklı kategorilere göre gruplandırılan bir simge görünümü bulunur. Öntanımlı olarak, fareniz bir simgenin üzerinde birkaç saniye kalırsa modülün amacını açıklayan veya bu gruptaki modülleri gösteren bir araç ipucu görünür. </para>
+>Araç çubuğunun altında, &systemsettings; uygulamasını oluşturan bağımsız modüllerin veya modül gruplarının farklı kategorilere göre gruplandırılan bir simge görünümü bulunur. Varsayılan olarak, fareniz bir simgenin üzerinde birkaç saniye kalırsa modülün amacını açıklayan veya bu gruptaki modülleri gösteren bir araç ipucu görünür. </para>
 </sect1>
 
 <sect1 id="general">
@@ -231,11 +231,11 @@
 ></listitem>
 <listitem
 ><para
->Plasma Biçemi </para
+>Plasma Stili </para
 ></listitem>
 <listitem
 ><para
->Uygulama Biçemi (Uygulama Biçemi, Pencere Dekorasyonları) </para
+>Uygulama Stili (Uygulama Stili, Pencere Dekorasyonları) </para
 ></listitem>
 <listitem
 ><para
@@ -243,7 +243,7 @@
 ></listitem>
 <listitem
 ><para
->Yazıtipi (Yazıtipi, Yazıtipi Yönetimi) </para
+>Yazı Tipi (Yazı Tipi, Yazı Tipi Yönetimi) </para
 ></listitem>
 <listitem
 ><para
@@ -313,7 +313,7 @@
 ></listitem>
 <listitem
 ><para
->Uygulamalar (Öntanımlı Uygulamalar, Dosya İlişkileri, Konumlar, Çalıştırma Geri Bildirimi) </para
+>Uygulamalar (Varsayılan Uygulamalar, Dosya İlişkileri, Konumlar, Çalıştırma Geri Bildirimi) </para
 ></listitem>
 <listitem
 ><para
@@ -340,7 +340,7 @@
 ><itemizedlist>
 <listitem
 ><para
->Ayarlar (Vekil, Bağlantı Tercihleri, SSL Tercihleri, Önbellek, Çerezleri, Tarayıcı Tanımlama, Windows Paylaşımları) </para
+>Ayarlar (Vekil, Bağlantı Tercihleri, SSL Tercihleri, Ön Bellek, Çerezler, Tarayıcı Tanımlama, Windows Paylaşımları) </para
 ></listitem>
 </itemizedlist
 ></para>
@@ -444,7 +444,7 @@
 >Yapılandır</guiicon
 > simgesi, bazı &systemsettings; parametrelerini değiştirmenize izin verir. <guilabel
 >Simge Görünümü</guilabel
->’nden (öntanımlı görünüm) <guilabel
+>’nden (varsayılan görünüm) <guilabel
 >Kenar Çubuğu Görünümü</guilabel
 >’ne geçebilirsiniz. <guilabel
 >Kenar Çubuğu Görünümü</guilabel
@@ -494,10 +494,10 @@
 
 <varlistentry>
 <term
->Öntanımlılar</term>
+>Varsayılanlar</term>
 <listitem>
 <para
->Bu düğmeye basmak bu modülü öntanımlı değerlerine sıfırlayacaktır. Seçenekleri kaydetmek için <guibutton
+>Bu düğmeye basmak bu modülü varsayılan değerlerine sıfırlayacaktır. Seçenekleri kaydetmek için <guibutton
 >Uygula</guibutton
 > düğmesine basmalısınız. </para>
 </listitem>
